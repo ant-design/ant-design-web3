@@ -1,0 +1,29 @@
+{
+  "name": "@ant-design/web3",
+  "version": "1.0.0",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/lib/index.js"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build"
+  },
+  "dependencies": {
+    "@ant-design/web3-connect-button": "workspace:*",
+    "@ant-design/web3-icons": "workspace:*"
+  },
+  "devDependencies": {
+    "father": "^4.1.9",
+    "typescript": "^5.0.4"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  }
+}

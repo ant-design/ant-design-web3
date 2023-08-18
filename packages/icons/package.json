@@ -1,0 +1,43 @@
+{
+  "name": "@ant-design/web3-icons",
+  "version": "1.0.0",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/lib/index.js"
+  },
+  "authors": [
+    "jeason <me@cowpoke.cc> (https://github.com/jeasonstudio)"
+  ],
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "antd": "^5.8.3",
+    "father": "^4.1.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
+    "antd": ">=4.23.0 || >=5.0.0",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
+}

@@ -1,0 +1,12 @@
+node_modules
+coverage
+dist
+lib
+es
+packages/deps
+packages/myassembly/assembly/deps
+packages/mysolidity/solc
+
+.umi-production
+.umi-test
+.umi
