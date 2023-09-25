@@ -1,5 +1,5 @@
 {
-  "name": "@ant-design/web3-connect-button",
+  "name": "@ant-design/web3-adapter-ethers",
   "version": "1.0.0",
   "exports": {
     "import": "./dist/esm/index.js",
