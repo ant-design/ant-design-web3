@@ -3,6 +3,6 @@ import { defineConfig } from 'dumi';
 export default defineConfig({
   mfsu: false,
   resolve: {
-    docDirs: ['packages'],
+    docDirs: ['packages/web3'],
   },
 });
