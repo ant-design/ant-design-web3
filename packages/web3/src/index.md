@@ -1,6 +1,6 @@
 ---
 group:
-  title: demo
+  title: Components
 ---
 
 # ConnectButton

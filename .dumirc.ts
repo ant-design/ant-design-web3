@@ -2,6 +2,6 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   resolve: {
-    docDirs: ['packages'],
+    docDirs: ['packages/web3'],
   },
 });

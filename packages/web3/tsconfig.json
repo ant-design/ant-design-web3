@@ -1,7 +1,10 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@ant-design/web3": ["./src/index.tsx"]
+    }
   },
   "include": ["src", "global.d.ts"]
 }
