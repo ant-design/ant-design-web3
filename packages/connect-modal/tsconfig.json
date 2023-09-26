@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@ant-design/web3-connect-modal": ["./src/index.tsx"]
+    }
+  },
+  "include": ["src", "global.d.ts"]
+}

@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@ant-design/web3-connect-button": "workspace:*",
+    "@ant-design/web3-connect-modal": "workspace:*",
     "@ant-design/web3-icons": "workspace:*"
   },
   "devDependencies": {
