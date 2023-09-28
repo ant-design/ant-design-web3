@@ -5,7 +5,7 @@ dist
 .umi
 .umi-test
 .umi-production
-.dumi
+.dumi/tmp
 .env.local
 .idea
 .node
