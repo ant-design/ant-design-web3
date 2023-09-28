@@ -9,6 +9,9 @@ export default defineConfig({
       },
     ],
   },
+  // TODO: remove after get a domain
+  publicPath: '/ant-design-web3/',
+  base: '/ant-design-web3',
   themeConfig: {
     name: 'Ant Design Web3',
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
