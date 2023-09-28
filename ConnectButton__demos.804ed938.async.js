@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[202],{91230:function(o,t,n){n.r(t),n.d(t,{default:function(){return e}});var a=n(93236),s=n(17955),u=n(62086),c=function(){return(0,u.jsx)(s.ZP,{children:"Connect"})},e=function(){return(0,u.jsx)(c,{})}}}]);
