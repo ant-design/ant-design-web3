@@ -5,7 +5,7 @@ group:
 
 # ConnectButton
 
-TODO
+A Button for connect chain quickly.
 
 ## Simple Usage
 
