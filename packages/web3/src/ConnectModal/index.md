@@ -9,4 +9,4 @@ TODO
 
 ## Simple Usage
 
-<code src="./demos/simple.tsx"></code>
+<code src="../demos/ConnectModal/simple.tsx"></code>

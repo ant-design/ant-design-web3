@@ -1,4 +1,4 @@
-import { ConnectModal } from '@ant-design/web3-connect-modal';
+import { ConnectModal } from '@ant-design/web3';
 import { Button } from 'antd';
 import React from 'react';
 
