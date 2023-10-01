@@ -2,7 +2,7 @@
 
 A components collection for Web3!
 
-## Develope
+## Development
 
 ```shell
 pnpm i
