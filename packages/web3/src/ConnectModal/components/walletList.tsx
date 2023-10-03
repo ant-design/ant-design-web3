@@ -1,8 +1,9 @@
 import React, { useContext, useMemo } from "react";
 import { Avatar, List } from "antd";
-import type { ConnectModalProps, Wallet } from "../inter";
+import type { ConnectModalProps, Wallet } from "../interface";
 import { defaultGroupOrder } from "../utils";
 import { connectModalContext } from "../context";
+import classNames from "classnames";
 
 export type WalletListProps = Pick<ConnectModalProps, "walletList" | "groupOrder">;
 
@@ -12,7 +13,7 @@ const WalletList: React.FC<WalletListProps> = (props) => {
         walletList = [],
         groupOrder,
     } = props;
-    const { prefixCls } = useContext(connectModalContext);
+    const { prefixCls, updateSelectedWallet, selectedWallet } = useContext(connectModalContext);
     const dataSource: Record<string, Wallet[]> = useMemo(() => {
         const result: Record<string, Wallet[]> = {};
         walletList.forEach(wallet => {
@@ -39,14 +40,20 @@ const WalletList: React.FC<WalletListProps> = (props) => {
                         <List<Wallet>
                             itemLayout="horizontal"
                             dataSource={dataSource[group]}
+                            rowKey="key"
                             renderItem={(item) => (
                                 <List.Item
-                                    className={`${prefixCls}-item`}
+                                    className={classNames(`${prefixCls}-item`, {
+                                        'selected': item.key !== undefined ? selectedWallet?.key === item.key : selectedWallet?.name === item.name,
+                                    })}
                                     extra={(
                                         <div className={`${prefixCls}-extra`}>
                                             {item.remark}
                                         </div>
                                     )}
+                                    onClick={() => {
+                                        updateSelectedWallet(item);
+                                    }}
                                 >
                                     <div className={`${prefixCls}-content`}>
                                         <div className={`${prefixCls}-icon`}>

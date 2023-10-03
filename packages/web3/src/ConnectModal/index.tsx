@@ -5,7 +5,7 @@ import ModalPanel from './components/modalPanel';
 import { ConfigContext } from 'antd/es/config-provider';
 import useStyle from './style';
 import classNames from 'classnames';
-import type { ConnectModalProps } from './inter';
+import type { ConnectModalProps, PanelRoute, Wallet } from './interface';
 import { ConnectModalContextProvider } from './context';
 
 
@@ -20,7 +20,19 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
   const {
     getPrefixCls,
   } = React.useContext(ConfigContext);
+  const [selectedWallet, setSelectedWallet] = React.useState<Wallet>();
+  const [panelRoute, setPanelRoute] = React.useState<PanelRoute>('guide');
+  const routeStack = React.useRef<PanelRoute[]>(['guide']);
   const prefixCls = getPrefixCls('connect-modal', customizePrefixCls);
+  const updatePanelRoute = React.useCallback((route: PanelRoute) => {
+    setPanelRoute(route);
+    routeStack.current.push(route);
+  }, []);
+  const panelRouteBack = React.useCallback(() => {
+    routeStack.current.pop();
+    const route = routeStack.current[routeStack.current.length - 1];
+    setPanelRoute(route);
+  }, []);
 
   // Style
   const [wrapSSR] = useStyle(prefixCls);
@@ -29,6 +41,11 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
   return (
     <ConnectModalContextProvider value={{
       prefixCls,
+      selectedWallet,
+      updateSelectedWallet: setSelectedWallet,
+      panelRoute,
+      updatePanelRoute,
+      panelRouteBack,
     }}>
       {
         wrapSSR(

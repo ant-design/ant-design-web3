@@ -1,12 +1,12 @@
 ---
 group:
-  title: Components
+  title: 组件
 ---
 
 # ConnectModal
 
 TODO
 
-## Simple Usage
+## 基本使用
 
 <code src="./demos/simple.tsx"></code>

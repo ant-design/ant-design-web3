@@ -86,6 +86,7 @@ importers:
       '@ant-design/icons': ^5.2.6
       '@ant-design/web3-adapter-ethers': workspace:*
       '@ant-design/web3-icons': workspace:*
+      '@ctrl/tinycolor': ^4.0.2
       '@types/react': ^18.2.20
       '@types/react-dom': ^18.2.7
       antd: ^5.8.3
@@ -95,6 +96,7 @@ importers:
     dependencies:
       '@ant-design/icons': 5.2.6
       '@ant-design/web3-icons': link:../icons
+      '@ctrl/tinycolor': 4.0.2
       antd: 5.9.3
       classnames: 2.3.2
     devDependencies:
@@ -2148,6 +2150,11 @@ packages:
   /@ctrl/tinycolor/3.6.1:
     resolution: {integrity: sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA==}
     engines: {node: '>=10'}
+
+  /@ctrl/tinycolor/4.0.2:
+    resolution: {integrity: sha512-fKQinXE9pJ83J1n+C3rDl2xNLJwfoYNvXLRy5cYZA9hBJJw2q+sbb/AOSNKmLxnTWyNTmy4994dueSwP4opi5g==}
+    engines: {node: '>=14'}
+    dev: false
 
   /@emotion/hash/0.8.0:
     resolution: {integrity: sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==}

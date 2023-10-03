@@ -1,5 +1,5 @@
 import { mergeReactNodeProps } from "../utils";
-import type { ConnectModalProps } from "../inter";
+import type { ConnectModalProps } from "../interface";
 import classNames from 'classnames';
 import WalletList from "./walletList";
 import MainPanel from "./mainPanel";
@@ -49,7 +49,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
             </div>
             {guide && (
                 <div className={`${prefixCls}-main-panel`}>
-                    <MainPanel guide={guide} />
+                    <MainPanel guide={guide} walletList={walletList} />
                 </div>
             )}
         </div>
