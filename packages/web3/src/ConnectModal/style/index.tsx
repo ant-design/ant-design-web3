@@ -215,6 +215,44 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
               textAlign: 'center',
               marginBlockStart: 16,
             },
+            [`${componentCls}-get-wallet-panel`]: {
+              position: 'relative',
+              height: '100%',
+              [`${componentCls}-list`]: {
+                marginBlockStart: 32,
+                maxHeight: 350,
+                overflow: 'auto',
+                [`${componentCls}-item`]: {
+                  marginBlockEnd: 24,
+                  [`${componentCls}-get-wallet-btn`]: {
+                    width: 66,
+                    height: 32,
+                    borderColor: token.colorText,
+                    '&:hover': {
+                      borderColor: token.colorPrimary,
+                    }
+                  }
+                },
+              },
+              [`${componentCls}-info`]: {
+                position: 'absolute',
+                bottom: 0,
+                width: 312,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                textAlign: 'center',
+                'h3': {
+                  fontSize: token.fontSizeLG,
+                  color: token.colorText,
+                  marginBlockEnd: 16,
+                },
+                'p': {
+                  fontSize: token.fontSizeSM,
+                  color: token.colorTextDescription,
+                  lineHeight: 1.5,
+                },
+              },
+            },
           }
         }
       },

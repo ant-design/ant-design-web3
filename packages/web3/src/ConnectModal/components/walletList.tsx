@@ -46,11 +46,6 @@ const WalletList: React.FC<WalletListProps> = (props) => {
                                     className={classNames(`${prefixCls}-item`, {
                                         'selected': item.key !== undefined ? selectedWallet?.key === item.key : selectedWallet?.name === item.name,
                                     })}
-                                    extra={(
-                                        <div className={`${prefixCls}-extra`}>
-                                            {item.remark}
-                                        </div>
-                                    )}
                                     onClick={() => {
                                         updateSelectedWallet(item);
                                     }}
