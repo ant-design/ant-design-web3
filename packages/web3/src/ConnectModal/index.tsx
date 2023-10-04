@@ -16,6 +16,7 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
     modalProps,
     prefixCls: customizePrefixCls,
     guide,
+    onSelectWallet,
   } = props;
   const {
     getPrefixCls,
@@ -28,6 +29,10 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
     setPanelRoute(route);
     routeStack.current.push(route);
   }, []);
+  const updateSelectedWallet = React.useCallback((wallet: Wallet) => {
+    setSelectedWallet(wallet);
+    onSelectWallet?.(wallet);
+  }, [onSelectWallet]);
   const panelRouteBack = React.useCallback(() => {
     routeStack.current.pop();
     const route = routeStack.current[routeStack.current.length - 1];
@@ -42,7 +47,7 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
     <ConnectModalContextProvider value={{
       prefixCls,
       selectedWallet,
-      updateSelectedWallet: setSelectedWallet,
+      updateSelectedWallet,
       panelRoute,
       updatePanelRoute,
       panelRouteBack,

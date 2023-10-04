@@ -6,8 +6,12 @@ export type Wallet = {
   remark: string;
   key?: React.Key;
   icon?: string | React.ReactNode;
-  link?: string;
-  pluginLink?: string;
+  extension?: false | {
+    link: string;
+  };
+  app?: false | {
+    link: string;
+  };
   group?: string;
 };
 
@@ -27,6 +31,7 @@ export type ConnectModalProps = {
   title?: ModalProps['title'];
   open: ModalProps['open'];
   onOpenChange?: (open: boolean) => void;
+  onSelectWallet?: (wallet: Wallet) => void;
   modalProps?: ModalProps;
   prefixCls?: string;
   footer?: React.ReactNode;

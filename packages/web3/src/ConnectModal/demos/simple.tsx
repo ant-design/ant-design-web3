@@ -10,50 +10,69 @@ export default () => {
             icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
             name: "测试钱包",
             remark: "备注",
-            link: "https://test.com/xxx",
+            app: {
+                link: "https://test.com/xxx",
+            },
+            extension: {
+                link: 'https://test.com/xxx'
+            },
             group: 'Popular',
-            pluginLink: 'https://test.com/xxx'
         },
         {
             icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=1',
             name: "测试钱包2",
             remark: "备注2",
-            link: "https://test.com/xxx",
-            pluginLink: 'https://test.com/xxx'
+            app: {
+                link: "https://test.com/xxx",
+            },
+            extension: {
+                link: 'https://test.com/xxx'
+            },
         },
         {
             icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
             name: "测试钱包3",
             remark: "备注3",
             group: 'Popular',
-            link: "https://test.com/xxx",
-            pluginLink: 'https://test.com/xxx'
+            app: {
+                link: "https://test.com/xxx",
+            },
         },
         {
             name: "测试钱包4",
             remark: "备注4",
-            link: "https://test.com/xxx",
-            pluginLink: 'https://test.com/xxx'
+            extension: {
+                link: 'https://test.com/xxx'
+            },
         },
         {
             name: "测试钱包5",
             remark: "备注5",
-            link: "https://test.com/xxx",
-            pluginLink: 'https://test.com/xxx'
+            app: {
+                link: "https://test.com/xxx",
+            },
         },
         {
             name: "测试钱包6",
             remark: "备注6",
             key: 6,
-            link: "https://test.com/xxx",
-            pluginLink: 'https://test.com/xxx'
+            app: {
+                link: "https://test.com/xxx",
+            },
+            extension: {
+                link: 'https://test.com/xxx'
+            },
         },
         {
             name: "测试钱包6",
             remark: "备注6",
             key: 7,
-            link: "https://test.com/xxx",
-            pluginLink: 'https://test.com/xxx'
+            app: {
+                link: "https://test.com/xxx",
+            },
+            extension: {
+                link: 'https://test.com/xxx'
+            },
         },
     ];
     const groupOrder = (a: string, b: string) => {
@@ -74,16 +93,16 @@ export default () => {
                 description: "Instead of creating new accounts and passwords on every website, just connect your wallet.",
                 icon: "https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
             },
-            // {
-            //     title: "A New Way to Log In2",
-            //     description: "Instead of creating new accounts and passwords on every website, just connect your wallet.",
-            //     icon: "https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
-            // },
-            // {
-            //     title: "A New Way to Log In3",
-            //     description: "Instead of creating new accounts and passwords on every website, just connect your wallet.",
-            //     icon: "https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
-            // },
+            {
+                title: "A New Way to Log In2",
+                description: "Instead of creating new accounts and passwords on every website, just connect your wallet.",
+                icon: "https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
+            },
+            {
+                title: "A New Way to Log In3",
+                description: "Instead of creating new accounts and passwords on every website, just connect your wallet.",
+                icon: "https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
+            },
         ],
         moreLink: "https://test.com/xxx",
     };
