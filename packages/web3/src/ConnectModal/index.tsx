@@ -25,13 +25,18 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
   const [panelRoute, setPanelRoute] = React.useState<PanelRoute>('guide');
   const routeStack = React.useRef<PanelRoute[]>(['guide']);
   const prefixCls = getPrefixCls('connect-modal', customizePrefixCls);
-  const updatePanelRoute = React.useCallback((route: PanelRoute) => {
+  const updatePanelRoute = React.useCallback((route: PanelRoute, clear: boolean = false) => {
+    if (clear) {
+      routeStack.current = ['guide'];
+    }
     setPanelRoute(route);
     routeStack.current.push(route);
   }, []);
-  const updateSelectedWallet = React.useCallback((wallet: Wallet) => {
+  const updateSelectedWallet = React.useCallback((wallet: Wallet | undefined) => {
     setSelectedWallet(wallet);
-    onSelectWallet?.(wallet);
+    if (wallet) {
+      onSelectWallet?.(wallet);
+    }
   }, [onSelectWallet]);
   const panelRouteBack = React.useCallback(() => {
     routeStack.current.pop();
@@ -51,6 +56,7 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
       panelRoute,
       updatePanelRoute,
       panelRouteBack,
+      canBack: routeStack.current.length > 1,
     }}>
       {
         wrapSSR(

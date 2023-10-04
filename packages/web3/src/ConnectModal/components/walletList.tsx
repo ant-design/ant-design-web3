@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from "react";
-import { Avatar, List } from "antd";
+import { Avatar, List, message } from "antd";
 import type { ConnectModalProps, Wallet } from "../interface";
 import { defaultGroupOrder } from "../utils";
 import { connectModalContext } from "../context";
@@ -13,7 +13,7 @@ const WalletList: React.FC<WalletListProps> = (props) => {
         walletList = [],
         groupOrder,
     } = props;
-    const { prefixCls, updateSelectedWallet, selectedWallet } = useContext(connectModalContext);
+    const { prefixCls, updateSelectedWallet, selectedWallet, updatePanelRoute } = useContext(connectModalContext);
     const dataSource: Record<string, Wallet[]> = useMemo(() => {
         const result: Record<string, Wallet[]> = {};
         walletList.forEach(wallet => {
@@ -48,6 +48,14 @@ const WalletList: React.FC<WalletListProps> = (props) => {
                                     })}
                                     onClick={() => {
                                         updateSelectedWallet(item);
+                                        if (item.app && item.extension) {
+                                            updatePanelRoute("wallet", true);
+                                        } else if (item.app || item.extension) {
+                                            updatePanelRoute("qrCode", true);
+                                        } else {
+                                            // TODO: add error message
+                                            message.error("Wallet is not supported");
+                                        }
                                     }}
                                 >
                                     <div className={`${prefixCls}-content`}>

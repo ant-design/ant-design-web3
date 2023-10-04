@@ -4,10 +4,11 @@ import type { PanelRoute, Wallet } from "../interface";
 export type ConnectModalContext = {
     prefixCls: string;
     selectedWallet: Wallet | undefined;
-    updateSelectedWallet: (wallet: Wallet) => void;
+    updateSelectedWallet: (wallet: Wallet | undefined) => void;
     panelRoute: PanelRoute;
-    updatePanelRoute: (route: PanelRoute) => void;
+    updatePanelRoute: (route: PanelRoute, clear?: boolean) => void;
     panelRouteBack: () => void;
+    canBack: boolean;
 };
 
 export const connectModalContext = React.createContext<ConnectModalContext>({
@@ -17,6 +18,7 @@ export const connectModalContext = React.createContext<ConnectModalContext>({
     panelRoute: "guide",
     updatePanelRoute: () => {},
     panelRouteBack: () => {},
+    canBack: false
 });
 
 export const ConnectModalContextProvider = connectModalContext.Provider;

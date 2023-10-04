@@ -10,7 +10,7 @@ export type MainPanelHeaderProps = {
 
 const MainPanelHeader: React.FC<MainPanelHeaderProps> = (props) => {
     const { back = true, title, onBack } = props;
-    const { prefixCls, panelRouteBack } = useContext(connectModalContext);
+    const { prefixCls, panelRouteBack, canBack } = useContext(connectModalContext);
 
     const handleBack = async () => {
         if (onBack) {
@@ -25,7 +25,7 @@ const MainPanelHeader: React.FC<MainPanelHeaderProps> = (props) => {
 
     return (
         <div className={`${prefixCls}-main-panel-header`}>
-            {back && (
+            {back && canBack && (
                 <div className={`${prefixCls}-main-panel-header-back`} onClick={handleBack}>
                     <LeftOutlined />
                 </div>

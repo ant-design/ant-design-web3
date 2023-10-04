@@ -40,6 +40,6 @@ export type ConnectModalProps = {
   guide?: false | null | DefaultGuide;
 };
 
-export type PanelRoute = "guide" | "getWallet" | "wallet";
+export type PanelRoute = "guide" | "getWallet" | "wallet" | "qrCode";
 
 export type MainPanelProps = Pick<ConnectModalProps, "guide" | "walletList">;

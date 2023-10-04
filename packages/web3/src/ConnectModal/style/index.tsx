@@ -257,49 +257,71 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                   lineHeight: 1.5,
                 },
               },
-              [`${componentCls}-card-list`]: {
-                marginBlockStart: 25,
-                [`${componentCls}-card-item`]: {
-                  width: '100%',
-                  height: 220,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBlockEnd: 16,
-                  boxSizing: 'border-box',
-                  paddingInline: 58,
-                  background: new TinyColor(token.colorText).setAlpha(.06).toRgbString(),
-                  borderRadius: 16,
-                  cursor: 'pointer',
-                  border: `1px solid transparent`,
-                  transition: 'border-color .3s',
-                  '&:hover': {
-                    borderColor: token.selectedColor,
-                  },
-                  [`${componentCls}-card-icon`]: {
-                    width: 64,
-                    height: 64,
-                    flexShrink: 0,
-                    img: {
-                      width: '100%',
-                      height: '100%',
-                    },
-                  },
-                  [`${componentCls}-card-content`]: {
-                    marginInlineStart: 12,
-                    [`${componentCls}-card-title`]: {
-                      fontSize: token.fontSizeLG,
-                      color: token.colorText,
-                    },
-                    [`${componentCls}-card-description`]: {
-                      fontSize: token.fontSize,
-                      color: new TinyColor(token.colorText).setAlpha(.65).toRgbString(),
-                    },
-                  },
-                  '&:last-child': {
-                    marginBlockEnd: 0,
+            },
+            [`${componentCls}-card-list`]: {
+              marginBlockStart: 25,
+              [`${componentCls}-card-item`]: {
+                width: '100%',
+                height: 220,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginBlockEnd: 16,
+                boxSizing: 'border-box',
+                paddingInline: 58,
+                background: new TinyColor(token.colorText).setAlpha(.06).toRgbString(),
+                borderRadius: 16,
+                cursor: 'pointer',
+                border: `1px solid transparent`,
+                transition: 'border-color .3s',
+                '&:hover': {
+                  borderColor: token.selectedColor,
+                },
+                [`${componentCls}-card-icon`]: {
+                  width: 64,
+                  height: 64,
+                  flexShrink: 0,
+                  img: {
+                    width: '100%',
+                    height: '100%',
                   },
                 },
+                [`${componentCls}-card-content`]: {
+                  marginInlineStart: 12,
+                  [`${componentCls}-card-title`]: {
+                    fontSize: token.fontSizeLG,
+                    color: token.colorText,
+                  },
+                  [`${componentCls}-card-description`]: {
+                    fontSize: token.fontSize,
+                    color: new TinyColor(token.colorText).setAlpha(.65).toRgbString(),
+                  },
+                },
+                '&:last-child': {
+                  marginBlockEnd: 0,
+                },
+              },
+            },
+            [`${componentCls}-qr-code`]: {
+              [`${componentCls}-qr-code-box`]: {
+                marginBlockStart: 12,
+                marginInline: 'auto',
+              },
+              [`${componentCls}-qr-code-tips`]: {
+                color: new TinyColor(token.colorText).setAlpha(.65).toRgbString(),
+                fontSize: token.fontSizeLG,
+                position: 'relative',
+                width: 400,
+                marginBlockStart: 27,
+                [`${componentCls}-get-wallet-btn`]: {
+                  position: 'absolute',
+                  right: 0,
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  width: 66,
+                  height: 40,
+                  lineHeight: 0,
+                }
               }
             },
           }
