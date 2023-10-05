@@ -10,7 +10,7 @@ export default function useCurrentAccount() {
     setCurrentAccount(account);
   };
   React.useEffect(() => {
-    refresh;
+    refresh();
   });
   return {
     account: currentAccount,

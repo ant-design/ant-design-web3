@@ -1,37 +1,33 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
-  // preset: 'ts-jest',
-  testEnvironment: 'node',
-  testMatch: ['<rootDir>/packages/**/*.test.ts'],
+  testEnvironment: 'jsdom',
+  testMatch: ['<rootDir>/packages/**/*.test.(ts|tsx)'],
   testPathIgnorePatterns: ['/node_modules/'],
   testTimeout: 3e4,
   transformIgnorePatterns: [`/node_modules/(?!${[].join('|')})`],
   transform: {
-    '^.+\\.ts$': [
+    '^.+\\.(ts|tsx)$': [
       '@swc/jest',
       {
         jsc: {
+          // config doc: https://swc.rs/docs/configuration/compilation
           parser: {
             syntax: 'typescript',
             decorators: true,
             dynamicImport: true,
           },
-          transform: null,
+          transform: {
+            react: {
+              runtime: 'automatic',
+            },
+          },
         },
       },
     ],
-    // '^.+\\.ts$': ['ts-jest', { diagnostics: false }],
   },
-  setupFiles: ['<rootDir>/scripts/jest-setup.js'],
+  setupFiles: ['<rootDir>/tests/setup.js'],
   collectCoverageFrom: ['<rootDir>/packages/*/src/**/*.ts'],
   coveragePathIgnorePatterns: ['/node_modules/', '/(.*)mock(.*)/'],
   reporters: ['default', ['jest-junit', { outputDirectory: 'coverage' }]],
-  coverageReporters: [
-    // 'clover',
-    // 'json',
-    'json-summary',
-    ['text', { skipFull: true }],
-    'cobertura',
-    // 'html-spa',
-  ],
+  coverageReporters: ['json-summary', ['text', { skipFull: true }], 'cobertura'],
 };
