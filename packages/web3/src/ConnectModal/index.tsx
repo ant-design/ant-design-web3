@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal } from 'antd';
 import { CloseCircleFilled } from '@ant-design/icons';
-import ModalPanel from './components/modalPanel';
+import ModalPanel from './components/ModalPanel';
 import { ConfigContext } from 'antd/es/config-provider';
 import useStyle from './style';
 import classNames from 'classnames';
