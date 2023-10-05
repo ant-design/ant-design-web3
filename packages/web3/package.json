@@ -16,7 +16,10 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
-    "@ant-design/web3-icons": "workspace:*"
+    "@ant-design/web3-icons": "workspace:*",
+    "@ctrl/tinycolor": "^4.0.2",
+    "antd": "^5.8.3",
+    "classnames": "^2.3.2"
   },
   "devDependencies": {
     "@ant-design/web3-adapter-ethers": "workspace:*",

@@ -24,10 +24,7 @@ module.exports = {
   },
   setupFiles: ['<rootDir>/scripts/jest-setup.js'],
   collectCoverageFrom: ['<rootDir>/packages/*/src/**/*.ts'],
-  coveragePathIgnorePatterns: [
-    '/node_modules/',
-    '/(.*)mock(.*)/',
-  ],
+  coveragePathIgnorePatterns: ['/node_modules/', '/(.*)mock(.*)/'],
   reporters: ['default', ['jest-junit', { outputDirectory: 'coverage' }]],
   coverageReporters: [
     // 'clover',
