@@ -8,7 +8,6 @@ import classNames from 'classnames';
 import type { ConnectModalProps, PanelRoute, Wallet } from './interface';
 import { ConnectModalContextProvider } from './context';
 
-
 export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
   const {
     open,
@@ -18,9 +17,7 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
     guide,
     onSelectWallet,
   } = props;
-  const {
-    getPrefixCls,
-  } = React.useContext(ConfigContext);
+  const { getPrefixCls } = React.useContext(ConfigContext);
   const [selectedWallet, setSelectedWallet] = React.useState<Wallet>();
   const [panelRoute, setPanelRoute] = React.useState<PanelRoute>('guide');
   const routeStack = React.useRef<PanelRoute[]>(['guide']);
@@ -32,12 +29,15 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
     setPanelRoute(route);
     routeStack.current.push(route);
   }, []);
-  const updateSelectedWallet = React.useCallback((wallet: Wallet | undefined) => {
-    setSelectedWallet(wallet);
-    if (wallet) {
-      onSelectWallet?.(wallet);
-    }
-  }, [onSelectWallet]);
+  const updateSelectedWallet = React.useCallback(
+    (wallet: Wallet | undefined) => {
+      setSelectedWallet(wallet);
+      if (wallet) {
+        onSelectWallet?.(wallet);
+      }
+    },
+    [onSelectWallet],
+  );
   const panelRouteBack = React.useCallback(() => {
     routeStack.current.pop();
     const route = routeStack.current[routeStack.current.length - 1];
@@ -47,36 +47,35 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
   // Style
   const [wrapSSR] = useStyle(prefixCls);
 
-
   return (
-    <ConnectModalContextProvider value={{
-      prefixCls,
-      selectedWallet,
-      updateSelectedWallet,
-      panelRoute,
-      updatePanelRoute,
-      panelRouteBack,
-      canBack: routeStack.current.length > 1,
-    }}>
-      {
-        wrapSSR(
-          <Modal
-            {...modalProps}
-            width={guide ? 737 : 380}
-            maskClosable={false}
-            className={classNames(prefixCls)}
-            rootClassName={`${prefixCls}-root`}
-            open={open}
-            closeIcon={<CloseCircleFilled />}
-            onCancel={() => {
-              onOpenChange?.(false);
-            }}
-            footer={null}
-          >
-            <ModalPanel {...props} prefixCls={prefixCls} />
-          </Modal>
-        )
-      }
+    <ConnectModalContextProvider
+      value={{
+        prefixCls,
+        selectedWallet,
+        updateSelectedWallet,
+        panelRoute,
+        updatePanelRoute,
+        panelRouteBack,
+        canBack: routeStack.current.length > 1,
+      }}
+    >
+      {wrapSSR(
+        <Modal
+          {...modalProps}
+          width={guide ? 737 : 380}
+          maskClosable={false}
+          className={classNames(prefixCls)}
+          rootClassName={`${prefixCls}-root`}
+          open={open}
+          closeIcon={<CloseCircleFilled />}
+          onCancel={() => {
+            onOpenChange?.(false);
+          }}
+          footer={null}
+        >
+          <ModalPanel {...props} prefixCls={prefixCls} />
+        </Modal>,
+      )}
     </ConnectModalContextProvider>
   );
 };

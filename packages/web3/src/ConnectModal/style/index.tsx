@@ -1,6 +1,10 @@
-import { genComponentStyleHook, type FullToken, type GenerateStyle, mergeToken } from 'antd/es/theme/internal';
+import {
+  genComponentStyleHook,
+  type FullToken,
+  type GenerateStyle,
+  mergeToken,
+} from 'antd/es/theme/internal';
 import { TinyColor } from '@ctrl/tinycolor';
-
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -25,7 +29,7 @@ const resetStyle: GenerateStyle<ConnectModalToken> = (token) => {
         [`.ant-modal-close`]: {
           top: 24,
           '&:hover': {
-            background: 'none'
+            background: 'none',
           },
         },
         ['.ant-list-split .ant-list-item']: {
@@ -33,11 +37,11 @@ const resetStyle: GenerateStyle<ConnectModalToken> = (token) => {
         },
         ['.ant-list .ant-list-item']: {
           paddingBlock: 5,
-        }
+        },
       },
     },
   ];
-}
+};
 
 const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
   const { componentCls } = token;
@@ -53,7 +57,8 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
           color: '#fff',
           lineHeight: '28px',
           fontWeight: 600,
-          backgroundImage: 'linear-gradient(90deg, #1677ff 0%, rgba(0,0,0,0.85) 16%, #1677ff 48%, rgba(0,0,0,0.85) 67%, #1677ff 85%, rgba(0,0,0,0.85) 96%)',
+          backgroundImage:
+            'linear-gradient(90deg, #1677ff 0%, rgba(0,0,0,0.85) 16%, #1677ff 48%, rgba(0,0,0,0.85) 67%, #1677ff 85%, rgba(0,0,0,0.85) 96%)',
           display: 'inline-block',
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
@@ -121,7 +126,7 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                           fontSize: token.fontSizeLG,
                           justifySelf: 'flex-start',
                           marginInlineStart: token.marginSM,
-                        }
+                        },
                       },
                       '&:last-child': {
                         marginBlockEnd: 0,
@@ -133,7 +138,10 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                         background: token.selectedColor,
                         color: token.colorTextLightSolid,
                         [`${componentCls}-extra`]: {
-                          color: new TinyColor(token.colorTextLightSolid).setAlpha(.8).onBackground(token.selectedColor).toHexShortString(),
+                          color: new TinyColor(token.colorTextLightSolid)
+                            .setAlpha(0.8)
+                            .onBackground(token.selectedColor)
+                            .toHexShortString(),
                         },
                       },
                     },
@@ -141,7 +149,6 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                 },
               },
             },
-
           },
           [`${componentCls}-main-panel`]: {
             flexGrow: 1,
@@ -171,7 +178,7 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                 textAlign: 'center',
                 fontSize: token.fontSizeXL,
                 color: token.colorText,
-              }
+              },
             },
             [`${componentCls}-guide-list`]: {
               marginBlock: 28,
@@ -235,8 +242,8 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                     borderColor: token.colorText,
                     '&:hover': {
                       borderColor: token.colorPrimary,
-                    }
-                  }
+                    },
+                  },
                 },
               },
               [`${componentCls}-info`]: {
@@ -246,12 +253,12 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                 left: '50%',
                 transform: 'translateX(-50%)',
                 textAlign: 'center',
-                'h3': {
+                h3: {
                   fontSize: token.fontSizeLG,
                   color: token.colorText,
                   marginBlockEnd: 16,
                 },
-                'p': {
+                p: {
                   fontSize: token.fontSizeSM,
                   color: token.colorTextDescription,
                   lineHeight: 1.5,
@@ -269,7 +276,7 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                 marginBlockEnd: 16,
                 boxSizing: 'border-box',
                 paddingInline: 58,
-                background: new TinyColor(token.colorText).setAlpha(.06).toRgbString(),
+                background: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
                 borderRadius: 16,
                 cursor: 'pointer',
                 border: `1px solid transparent`,
@@ -294,7 +301,7 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                   },
                   [`${componentCls}-card-description`]: {
                     fontSize: token.fontSize,
-                    color: new TinyColor(token.colorText).setAlpha(.65).toRgbString(),
+                    color: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
                   },
                 },
                 '&:last-child': {
@@ -308,7 +315,7 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                 marginInline: 'auto',
               },
               [`${componentCls}-qr-code-tips`]: {
-                color: new TinyColor(token.colorText).setAlpha(.65).toRgbString(),
+                color: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
                 fontSize: token.fontSizeLG,
                 position: 'relative',
                 width: 400,
@@ -321,25 +328,20 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                   width: 66,
                   height: 40,
                   lineHeight: 0,
-                }
-              }
+                },
+              },
             },
-          }
-        }
+          },
+        },
       },
     },
   ];
 };
 
-export default genComponentStyleHook(
-  'Modal',
-  (token) => {
-    const connectModalToken = mergeToken<ConnectModalToken>(token, {
-      selectedColor: '#1677FF',
-      splitColor: new TinyColor(token.colorText).setAlpha(.06).toRgbString(),
-    });
-    return [
-      genModalStyle(connectModalToken),
-    ];
-  },
-);
+export default genComponentStyleHook('Modal', (token) => {
+  const connectModalToken = mergeToken<ConnectModalToken>(token, {
+    selectedColor: '#1677FF',
+    splitColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
+  });
+  return [genModalStyle(connectModalToken)];
+});

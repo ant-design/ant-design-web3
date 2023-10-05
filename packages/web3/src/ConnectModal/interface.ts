@@ -14,9 +14,11 @@ export type Wallet = {
   key?: React.Key;
   icon?: string | React.ReactNode;
   extensions?: false | ExtensionItem[];
-  app?: false | {
-    link: string;
-  };
+  app?:
+    | false
+    | {
+        link: string;
+      };
   group?: string;
 };
 
@@ -26,10 +28,10 @@ export type GuideInfoItem = {
   description: string | React.ReactNode;
 };
 
-export type DefaultGuide = { 
-  title: string; 
-  infos: GuideInfoItem[]; 
-  moreLink: string 
+export type DefaultGuide = {
+  title: string;
+  infos: GuideInfoItem[];
+  moreLink: string;
 };
 
 export type ConnectModalProps = {
@@ -45,6 +47,6 @@ export type ConnectModalProps = {
   guide?: false | null | DefaultGuide;
 };
 
-export type PanelRoute = "guide" | "getWallet" | "wallet" | "qrCode";
+export type PanelRoute = 'guide' | 'getWallet' | 'wallet' | 'qrCode';
 
-export type MainPanelProps = Pick<ConnectModalProps, "guide" | "walletList">;
+export type MainPanelProps = Pick<ConnectModalProps, 'guide' | 'walletList'>;
