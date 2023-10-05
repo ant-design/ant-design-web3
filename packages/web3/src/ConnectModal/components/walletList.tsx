@@ -48,9 +48,9 @@ const WalletList: React.FC<WalletListProps> = (props) => {
                                     })}
                                     onClick={() => {
                                         updateSelectedWallet(item);
-                                        if (item.app && item.extension) {
+                                        if (item.app && item.extensions) {
                                             updatePanelRoute("wallet", true);
-                                        } else if (item.app || item.extension) {
+                                        } else if (item.app || item.extensions) {
                                             updatePanelRoute("qrCode", true);
                                         } else {
                                             // TODO: add error message

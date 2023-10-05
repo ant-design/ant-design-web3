@@ -1,14 +1,19 @@
 import type React from 'react';
 import type { ModalProps } from 'antd';
 
+export type ExtensionItem = {
+  link: string;
+  browserIcon: string;
+  browserName: string;
+  description: string;
+};
+
 export type Wallet = {
   name: string;
   remark: string;
   key?: React.Key;
   icon?: string | React.ReactNode;
-  extension?: false | {
-    link: string;
-  };
+  extensions?: false | ExtensionItem[];
   app?: false | {
     link: string;
   };
