@@ -1,3 +1,4 @@
+// @ts-ignore
 import { MockProvider, Web3ConfigProvider } from '../packages/web3/dist/esm'; // use the same provider with demo in dumi
 
 const provider = new MockProvider();

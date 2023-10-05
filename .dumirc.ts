@@ -10,7 +10,6 @@ export default defineConfig({
       },
     ],
   },
-  mfsu: false,
   // TODO: remove after get a domain
   publicPath: '/ant-design-web3/',
   base: '/ant-design-web3',
