@@ -1,7 +1,7 @@
 import { ConnectModal } from '@ant-design/web3';
 import { Button } from 'antd';
 import React from 'react';
-import type { ConnectModalProps, DefaultGuide, Wallet } from '../interface';
+import type { DefaultGuide, Wallet } from '../interface';
 
 export default () => {
   const [open, setOpen] = React.useState(false);
