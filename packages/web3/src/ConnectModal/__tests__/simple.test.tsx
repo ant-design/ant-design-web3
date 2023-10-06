@@ -4,7 +4,7 @@ import { render } from "@testing-library/react";
 
 describe("ConnectModal without guide", () => {
     function testWithTheme(theme: 'light' | 'dark') {
-        it("should render", () => {
+        it(`should render in ${theme} mode`, () => {
             const App = () => (
                 <ConnectModal
                     open

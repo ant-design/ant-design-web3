@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConnectModal with guide should render 1`] = `
+exports[`ConnectModal with guide should render in dark mode 1`] = `
 <body>
   <div />
   <div>
@@ -16,7 +16,7 @@ exports[`ConnectModal with guide should render 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-connect-modal ant-connect-modal-light ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-connect-modal ant-connect-modal-dark ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 737px;"
         >
@@ -484,7 +484,7 @@ exports[`ConnectModal with guide should render 1`] = `
 </body>
 `;
 
-exports[`ConnectModal with guide should render 2`] = `
+exports[`ConnectModal with guide should render in light mode 1`] = `
 <body>
   <div />
   <div>
@@ -500,7 +500,7 @@ exports[`ConnectModal with guide should render 2`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-connect-modal ant-connect-modal-dark ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-connect-modal ant-connect-modal-light ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 737px;"
         >
