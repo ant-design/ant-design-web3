@@ -1,8 +1,9 @@
 /* eslint-disable react/no-unknown-property */
 import type { ReactNode } from 'react';
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import { connectModalContext } from '../context';
 import MainPanelHeader from './MainPanelHeader';
+import { getPlatform } from '../../utils';
 
 const CardItem: React.FC<{
   icon: ReactNode;
@@ -36,9 +37,13 @@ export type WalletCardProps = {};
 
 const WalletCard: React.FC<WalletCardProps> = (props) => {
   const { prefixCls, selectedWallet, updatePanelRoute } = useContext(connectModalContext);
-  const selectedExtension = selectedWallet?.extensions
-    ? selectedWallet?.extensions?.[0]
-    : undefined;
+  const selectedExtension = useMemo(
+    () =>
+      selectedWallet?.extensions
+        ? selectedWallet.extensions.find((item) => item.key === getPlatform())
+        : undefined,
+    [selectedWallet?.extensions],
+  );
   return (
     <>
       <MainPanelHeader title="Get a Wallet" />

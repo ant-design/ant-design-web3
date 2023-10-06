@@ -2,6 +2,7 @@ import type React from 'react';
 import type { ModalProps } from 'antd';
 
 export type ExtensionItem = {
+  key: 'Chrome' | 'Firefox' | 'Edge' | 'Safari' | (string & {});
   link: string;
   browserIcon: string;
   browserName: string;
@@ -36,6 +37,7 @@ export type DefaultGuide = {
 
 export type ConnectModalProps = {
   title?: ModalProps['title'];
+  theme?: 'dark' | 'light';
   open: ModalProps['open'];
   onOpenChange?: (open: boolean) => void;
   onSelectWallet?: (wallet: Wallet) => void;
@@ -50,3 +52,5 @@ export type ConnectModalProps = {
 export type PanelRoute = 'guide' | 'getWallet' | 'wallet' | 'qrCode';
 
 export type MainPanelProps = Pick<ConnectModalProps, 'guide' | 'walletList'>;
+
+export type Theme = 'dark' | 'light';

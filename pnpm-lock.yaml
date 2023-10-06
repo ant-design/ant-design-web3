@@ -122,6 +122,9 @@ importers:
 
   packages/web3:
     dependencies:
+      '@ant-design/cssinjs':
+        specifier: ^1.17.0
+        version: 1.17.0(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/icons':
         specifier: ^5.2.6
         version: 5.2.6(react-dom@18.2.0)(react@18.2.0)

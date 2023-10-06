@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Modal } from 'antd';
 import { CloseCircleFilled } from '@ant-design/icons';
 import ModalPanel from './components/ModalPanel';
@@ -16,6 +16,7 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
     prefixCls: customizePrefixCls,
     guide,
     onSelectWallet,
+    theme = 'light',
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const [selectedWallet, setSelectedWallet] = React.useState<Wallet>();
@@ -41,8 +42,17 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
   const panelRouteBack = React.useCallback(() => {
     routeStack.current.pop();
     const route = routeStack.current[routeStack.current.length - 1];
+    if (route === 'guide') {
+      updateSelectedWallet(undefined);
+    }
     setPanelRoute(route);
-  }, []);
+  }, [updateSelectedWallet]);
+
+  useEffect(() => {
+    if (panelRoute === 'getWallet') {
+      updateSelectedWallet(undefined);
+    }
+  }, [panelRoute, updateSelectedWallet]);
 
   // Style
   const [wrapSSR] = useStyle(prefixCls);
@@ -57,6 +67,7 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
         updatePanelRoute,
         panelRouteBack,
         canBack: routeStack.current.length > 1,
+        theme,
       }}
     >
       {wrapSSR(
@@ -64,7 +75,7 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
           {...modalProps}
           width={guide ? 737 : 380}
           maskClosable={false}
-          className={classNames(prefixCls)}
+          className={classNames(prefixCls, `${prefixCls}-${theme}`)}
           rootClassName={`${prefixCls}-root`}
           open={open}
           closeIcon={<CloseCircleFilled />}

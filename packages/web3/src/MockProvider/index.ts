@@ -1,4 +1,4 @@
-import { Web3ProviderInterface, Account } from '../Web3ConfigProvider';
+import type { Web3ProviderInterface, Account } from '../Web3ConfigProvider';
 
 export class MockProvider implements Web3ProviderInterface {
   private currentAccount?: Account;
@@ -26,5 +26,76 @@ export class MockProvider implements Web3ProviderInterface {
         this.addressList = addressList;
       }, 1000);
     });
+  };
+
+  getQrCodeLink = async () => {
+    return new Promise<string>((resolve) =>
+      setTimeout(
+        () =>
+          resolve(
+            `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
+          ),
+        2000,
+      ),
+    );
+  };
+
+  getNFTMetadata = async (address: string, id: number) => {
+    return {
+      name: 'OurMetaverseDAO NFT #6',
+      description: 'OurMetaverseDAO NFT, Our Metaverse, Our Dream!',
+      image:
+        'https://api.our-metaverse.xyz/ourms/6_pnghash_0cecc6d080015b34f60bdd253081f36e277ce20ceaf7a6340de3b06d2defad6a_26958469.webp',
+      dna: '3ea2cfd153b8d8505097b81c87c11f5d05097c18',
+      edition: 6,
+      date: 1657097440578,
+      attributes: [
+        {
+          trait_type: 'GENDER',
+          value: 'Girl',
+        },
+        {
+          trait_type: 'BACKGROUND',
+          value: 'Gradient Purple',
+        },
+        {
+          trait_type: 'WEAPON',
+          value: 'Surfboard Yellow',
+        },
+        {
+          trait_type: 'BODY',
+          value: 'White',
+        },
+        {
+          trait_type: 'BACK HAIR',
+          value: 'Chignon White',
+        },
+        {
+          trait_type: 'CLOTHES',
+          value: 'T Shirt Pistachio Green',
+        },
+        {
+          trait_type: 'EYES',
+          value: 'Vertical White And Blue 4',
+        },
+        {
+          trait_type: 'EYEBROWS',
+          value: 'Normal Pink',
+        },
+        {
+          trait_type: 'MOUTH',
+          value: 'Normal Smile Red',
+        },
+        {
+          trait_type: 'FRONT HAIR',
+          value: 'Curtain Bangs White',
+        },
+        {
+          trait_type: 'FRONT ACCESSORY',
+          value: 'Wireless Headset White And Red',
+        },
+      ],
+      compiler: 'HashLips Art Engine',
+    };
   };
 }

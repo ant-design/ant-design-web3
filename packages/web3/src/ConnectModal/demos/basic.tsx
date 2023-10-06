@@ -1,7 +1,7 @@
 import { ConnectModal } from '@ant-design/web3';
 import { Button } from 'antd';
 import React from 'react';
-import type { Wallet } from '../interface';
+import type { DefaultGuide, Wallet } from '../interface';
 
 const walletList: Wallet[] = [
   {
@@ -121,14 +121,43 @@ const groupOrder = (a: string, b: string) => {
   if (b === 'Popular') return 1;
   return a.localeCompare(b);
 };
+const guide: DefaultGuide = {
+  title: 'What is a Wallet?',
+  infos: [
+    {
+      title: 'A Home for your Digital Assets',
+      description:
+        'Wallets are used to send, receive, store, and display digital assets like Ethereum and NFTs.',
+      icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=4',
+    },
+    {
+      title: 'A New Way to Log In',
+      description:
+        'Instead of creating new accounts and passwords on every website, just connect your wallet.',
+      icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=5',
+    },
+    {
+      title: 'A New Way to Log In2',
+      description:
+        'Instead of creating new accounts and passwords on every website, just connect your wallet.',
+      icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=5',
+    },
+    {
+      title: 'A New Way to Log In3',
+      description:
+        'Instead of creating new accounts and passwords on every website, just connect your wallet.',
+      icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=5',
+    },
+  ],
+  moreLink: 'https://test.com/xxx',
+};
 
 export default () => {
   const [open, setOpen] = React.useState(false);
-
   return (
     <>
       <Button type="primary" onClick={() => setOpen(true)}>
-        Open with simple
+        Open with basic
       </Button>
       <ConnectModal
         open={open}
@@ -137,6 +166,7 @@ export default () => {
         groupOrder={groupOrder}
         walletList={walletList}
         onOpenChange={setOpen}
+        guide={guide}
       />
     </>
   );
