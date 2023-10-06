@@ -26,7 +26,6 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
         setLoading(false);
       });
     }
-    
   }, [wallet, provider]);
 
   const handleGetWallet = () => {

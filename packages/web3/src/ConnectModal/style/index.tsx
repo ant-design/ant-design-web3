@@ -170,7 +170,7 @@ const getThemeStyle = (
               },
             },
             [`${componentCls}-footer`]: {
-              color: token.listItemDescriptionColor
+              color: token.listItemDescriptionColor,
             },
           },
           [`${componentCls}-main-panel`]: {

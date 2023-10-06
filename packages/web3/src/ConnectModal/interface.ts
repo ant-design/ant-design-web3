@@ -53,5 +53,4 @@ export type PanelRoute = 'guide' | 'getWallet' | 'wallet' | 'qrCode';
 
 export type MainPanelProps = Pick<ConnectModalProps, 'guide' | 'walletList'>;
 
-
 export type Theme = 'dark' | 'light';

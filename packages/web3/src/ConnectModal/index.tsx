@@ -49,7 +49,7 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
   }, [updateSelectedWallet]);
 
   useEffect(() => {
-    if (panelRoute === "getWallet") {
+    if (panelRoute === 'getWallet') {
       updateSelectedWallet(undefined);
     }
   }, [panelRoute, updateSelectedWallet]);
@@ -78,9 +78,7 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
           className={classNames(prefixCls, `${prefixCls}-${theme}`)}
           rootClassName={`${prefixCls}-root`}
           open={open}
-          closeIcon={
-            <CloseCircleFilled />
-          }
+          closeIcon={<CloseCircleFilled />}
           onCancel={() => {
             onOpenChange?.(false);
           }}
