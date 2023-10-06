@@ -5,7 +5,6 @@ import { ConfigContext } from './context';
 export interface Web3ConfigProviderProps {
   provider?: Web3ProviderInterface;
   children?: React.ReactNode;
-  chain?: string;
 }
 
 const ProviderChildren: React.FC<Web3ConfigProviderProps> = (props) => {

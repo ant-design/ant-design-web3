@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Tooltip } from 'antd';
-import { Chains } from '../Web3ConfigProvider';
+import { Chains } from '@ant-design/web3-common';
 import useProvider from '../hooks/useProvider';
 import useCurrentAccount from '../hooks/useCurrentAccount';
 import { Address } from '../Address';
