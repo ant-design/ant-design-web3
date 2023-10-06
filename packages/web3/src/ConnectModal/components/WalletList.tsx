@@ -1,9 +1,10 @@
 import React, { useContext, useMemo } from 'react';
 import { Avatar, List, message } from 'antd';
 import type { ConnectModalProps, Wallet } from '../interface';
-import { defaultGroupOrder } from '../utils';
+import { defaultGroupOrder, getWalletRoute } from '../utils';
 import { connectModalContext } from '../context';
 import classNames from 'classnames';
+import useProvider from '../../hooks/useProvider';
 
 export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'groupOrder'>;
 
@@ -28,6 +29,8 @@ const WalletList: React.FC<WalletListProps> = (props) => {
     [dataSource, groupOrder],
   );
 
+  const { provider } = useProvider();
+
   return (
     <div className={`${prefixCls}-wallet-list`}>
       {groupKeys.map((group) => (
@@ -47,11 +50,10 @@ const WalletList: React.FC<WalletListProps> = (props) => {
                         : selectedWallet?.name === item.name,
                   })}
                   onClick={() => {
-                    updateSelectedWallet(item);
-                    if (item.app && item.extensions) {
-                      updatePanelRoute('wallet', true);
-                    } else if (item.app || item.extensions) {
-                      updatePanelRoute('qrCode', true);
+                    const route = getWalletRoute(item, provider!);
+                    if (route !== 'unknown') {
+                      updateSelectedWallet(item);
+                      updatePanelRoute(route, true);
                     } else {
                       // TODO: add error message
                       message.error('Wallet is not supported');
