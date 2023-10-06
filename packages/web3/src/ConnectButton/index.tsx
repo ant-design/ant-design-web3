@@ -1,10 +1,11 @@
 import React from 'react';
 import { Button, ButtonProps, Space } from 'antd';
-// TODO use web3 icons
-import { WalletFilled } from '@ant-design/icons';
+import { WalletWhite } from '@ant-design/web3-icons';
+import { ConnectModal } from '../ConnectModal';
 import useProvider from '../hooks/useProvider';
 import useCurrentAccount from '../hooks/useCurrentAccount';
 import { Address } from '../Address';
+import { WalletsPresets, walletsPresetsConfig } from '../constants';
 
 export interface ConnectButtonAvatar {
   src?: string | React.ReactNode;
@@ -17,35 +18,47 @@ export interface ChainOptions {
 }
 
 export interface ConnectButtonProps extends ButtonProps {
-  icon?: boolean | React.ReactNode;
+  icon?: React.ReactNode;
   ellipsis?: boolean;
   tooltip?: boolean;
   avatar?: ConnectButtonAvatar;
   chainOptions?: ChainOptions[];
+  walletsPresets?: WalletsPresets;
 }
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
-  const { icon, ellipsis, tooltip, avatar, chainOptions, ...rest } = props;
+  const { icon, ellipsis, tooltip, avatar, chainOptions, walletsPresets, ...rest } = props;
+  const [open, setOpen] = React.useState(false);
   const { provider } = useProvider();
   const { account, refresh } = useCurrentAccount();
   const [loading, setLoading] = React.useState(false);
 
   return (
-    <Button
-      type="primary"
-      loading={loading}
-      onClick={async () => {
-        setLoading(true);
-        await provider?.requestAccounts();
-        await refresh();
-        setLoading(false);
-      }}
-      {...rest}
-    >
-      <Space>
-        {icon ? <WalletFilled /> : undefined}
-        {account ? <Address ellipsis={ellipsis} address={account.address} /> : 'Connect'}
-      </Space>
-    </Button>
+    <>
+      <Button
+        type="primary"
+        loading={loading}
+        onClick={async () => {
+          setOpen(true);
+        }}
+        {...rest}
+      >
+        <Space>
+          {icon && <WalletWhite />}
+          {account ? <Address ellipsis={ellipsis} address={account.address} /> : 'Connect'}
+        </Space>
+      </Button>
+      <ConnectModal
+        open={open}
+        walletList={walletsPresetsConfig[walletsPresets || WalletsPresets.SIMPLE]}
+        onOpenChange={setOpen}
+        onSelectWallet={async () => {
+          setLoading(true);
+          await provider?.requestAccounts();
+          await refresh();
+          setLoading(false);
+        }}
+      />
+    </>
   );
 };

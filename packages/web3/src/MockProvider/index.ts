@@ -1,4 +1,4 @@
-import type { Web3ProviderInterface, Account } from '../Web3ConfigProvider';
+import type { Web3ProviderInterface, Account } from '@ant-design/web3-common';
 
 export class MockProvider implements Web3ProviderInterface {
   private currentAccount?: Account;

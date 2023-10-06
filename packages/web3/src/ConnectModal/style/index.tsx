@@ -3,7 +3,7 @@ import {
   type FullToken,
   type GenerateStyle,
   mergeToken,
-} from 'antd/es/theme/internal';
+} from 'antd/lib/theme/internal';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { Theme } from '../interface';

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Modal } from 'antd';
 import { CloseCircleFilled } from '@ant-design/icons';
 import ModalPanel from './components/ModalPanel';
-import { ConfigContext } from 'antd/es/config-provider';
+import { ConfigContext } from 'antd/lib/config-provider';
 import useStyle from './style';
 import classNames from 'classnames';
 import type { ConnectModalProps, PanelRoute, Wallet } from './interface';
