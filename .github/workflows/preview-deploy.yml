@@ -19,9 +19,9 @@ jobs:
       pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
     name: deploy preview
     runs-on: ubuntu-latest
-    # if: >
-    #   github.event.workflow_run.event == 'pull_request' &&
-    #   github.event.workflow_run.conclusion == 'success'
+    if: >
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success'
     steps:
       # We need get PR id first
       - name: download pr artifact
