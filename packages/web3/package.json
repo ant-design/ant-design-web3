@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "exports": {
     "import": "./dist/esm/index.js",
     "require": "./dist/lib/index.js"
