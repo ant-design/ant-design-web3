@@ -123,7 +123,7 @@ const getThemeStyle = (
                     paddingInline: 6,
                   },
                   [`${componentCls}-group-content`]: {
-                    [`${componentCls}-item`]: {
+                    [`${componentCls}-wallet-item`]: {
                       cursor: 'pointer',
                       paddingInline: 6,
                       borderRadius: 8,

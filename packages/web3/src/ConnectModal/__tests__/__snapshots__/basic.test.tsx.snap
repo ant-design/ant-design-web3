@@ -1,0 +1,969 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectModal with guide should render 1`] = `
+<body>
+  <div />
+  <div>
+    <div
+      class="ant-modal-root css-dev-only-do-not-override-1ck3jst ant-connect-modal-root"
+    >
+      <div
+        class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
+      />
+      <div
+        class="ant-modal-wrap"
+        tabindex="-1"
+      >
+        <div
+          aria-modal="true"
+          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-connect-modal ant-connect-modal-light ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          role="dialog"
+          style="width: 737px;"
+        >
+          <div
+            aria-hidden="true"
+            style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+            tabindex="0"
+          />
+          <div
+            class="ant-modal-content"
+          >
+            <button
+              aria-label="Close"
+              class="ant-modal-close"
+              type="button"
+            >
+              <span
+                class="ant-modal-close-x"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+            <div
+              class="ant-modal-body"
+            >
+              <div
+                class="ant-connect-modal-body"
+              >
+                <div
+                  class="ant-connect-modal-list-panel"
+                >
+                  <div
+                    class="ant-connect-modal-header"
+                  >
+                    <h2
+                      class="ant-connect-modal-title"
+                    >
+                      ConnectModal
+                    </h2>
+                  </div>
+                  <div
+                    class="ant-connect-modal-list-container"
+                  >
+                    <div
+                      class="ant-connect-modal-wallet-list"
+                    >
+                      <div
+                        class="ant-connect-modal-group"
+                      >
+                        <div
+                          class="ant-connect-modal-group-title"
+                        >
+                          Popular
+                        </div>
+                        <div
+                          class="ant-connect-modal-group-content"
+                        >
+                          <div
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                          >
+                            <div
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                            >
+                              <div
+                                class="ant-spin-container"
+                              >
+                                <ul
+                                  class="ant-list-items"
+                                >
+                                  <li
+                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <img
+                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                          />
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-connect-modal-name"
+                                      >
+                                        测试钱包
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <img
+                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                          />
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-connect-modal-name"
+                                      >
+                                        测试钱包3
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-connect-modal-group"
+                      >
+                        <div
+                          class="ant-connect-modal-group-title"
+                        >
+                          Default
+                        </div>
+                        <div
+                          class="ant-connect-modal-group-content"
+                        >
+                          <div
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                          >
+                            <div
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                            >
+                              <div
+                                class="ant-spin-container"
+                              >
+                                <ul
+                                  class="ant-list-items"
+                                >
+                                  <li
+                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <img
+                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                          />
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-connect-modal-name"
+                                      >
+                                        测试钱包2
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-connect-modal-name"
+                                      >
+                                        测试钱包4
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-connect-modal-name"
+                                      >
+                                        测试钱包5
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-connect-modal-name"
+                                      >
+                                        测试钱包6
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-connect-modal-name"
+                                      >
+                                        测试钱包6
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-connect-modal-footer"
+                  >
+                    蚂蚁链提供技术支持
+                  </div>
+                </div>
+                <div
+                  class="ant-connect-modal-main-panel"
+                >
+                  <div
+                    class="ant-connect-modal-guide-panel"
+                  >
+                    <h2
+                      class="ant-connect-modal-guide-title"
+                    >
+                      What is a Wallet?
+                    </h2>
+                    <div
+                      class="ant-connect-modal-guide-list"
+                    >
+                      <div
+                        class="ant-connect-modal-guide-item"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                        >
+                          <img
+                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=4"
+                          />
+                        </span>
+                        <div
+                          class="ant-connect-modal-guide-item-content"
+                        >
+                          <h3
+                            class="ant-connect-modal-guide-item-title"
+                          >
+                            A Home for your Digital Assets
+                          </h3>
+                          <div
+                            class="ant-connect-modal-guide-item-description"
+                          >
+                            Wallets are used to send, receive, store, and display digital assets like Ethereum and NFTs.
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-connect-modal-guide-item"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                        >
+                          <img
+                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
+                          />
+                        </span>
+                        <div
+                          class="ant-connect-modal-guide-item-content"
+                        >
+                          <h3
+                            class="ant-connect-modal-guide-item-title"
+                          >
+                            A New Way to Log In
+                          </h3>
+                          <div
+                            class="ant-connect-modal-guide-item-description"
+                          >
+                            Instead of creating new accounts and passwords on every website, just connect your wallet.
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-connect-modal-guide-item"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                        >
+                          <img
+                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
+                          />
+                        </span>
+                        <div
+                          class="ant-connect-modal-guide-item-content"
+                        >
+                          <h3
+                            class="ant-connect-modal-guide-item-title"
+                          >
+                            A New Way to Log In2
+                          </h3>
+                          <div
+                            class="ant-connect-modal-guide-item-description"
+                          >
+                            Instead of creating new accounts and passwords on every website, just connect your wallet.
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-connect-modal-guide-item"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                        >
+                          <img
+                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
+                          />
+                        </span>
+                        <div
+                          class="ant-connect-modal-guide-item-content"
+                        >
+                          <h3
+                            class="ant-connect-modal-guide-item-title"
+                          >
+                            A New Way to Log In3
+                          </h3>
+                          <div
+                            class="ant-connect-modal-guide-item-description"
+                          >
+                            Instead of creating new accounts and passwords on every website, just connect your wallet.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-primary ant-btn-block ant-connect-modal-get-btn"
+                      type="button"
+                    >
+                      <span>
+                        Get a Wallet
+                      </span>
+                    </button>
+                    <a
+                      class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-link ant-btn-block ant-connect-modal-more"
+                      href="https://test.com/xxx"
+                      target="_blank"
+                    >
+                      <span>
+                        Learn More
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+            tabindex="0"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ConnectModal with guide should render 2`] = `
+<body>
+  <div />
+  <div>
+    <div
+      class="ant-modal-root css-dev-only-do-not-override-1ck3jst ant-connect-modal-root"
+    >
+      <div
+        class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
+      />
+      <div
+        class="ant-modal-wrap"
+        tabindex="-1"
+      >
+        <div
+          aria-modal="true"
+          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-connect-modal ant-connect-modal-dark ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          role="dialog"
+          style="width: 737px;"
+        >
+          <div
+            aria-hidden="true"
+            style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+            tabindex="0"
+          />
+          <div
+            class="ant-modal-content"
+          >
+            <button
+              aria-label="Close"
+              class="ant-modal-close"
+              type="button"
+            >
+              <span
+                class="ant-modal-close-x"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+            <div
+              class="ant-modal-body"
+            >
+              <div
+                class="ant-connect-modal-body"
+              >
+                <div
+                  class="ant-connect-modal-list-panel"
+                >
+                  <div
+                    class="ant-connect-modal-header"
+                  >
+                    <h2
+                      class="ant-connect-modal-title"
+                    >
+                      ConnectModal
+                    </h2>
+                  </div>
+                  <div
+                    class="ant-connect-modal-list-container"
+                  >
+                    <div
+                      class="ant-connect-modal-wallet-list"
+                    >
+                      <div
+                        class="ant-connect-modal-group"
+                      >
+                        <div
+                          class="ant-connect-modal-group-title"
+                        >
+                          Popular
+                        </div>
+                        <div
+                          class="ant-connect-modal-group-content"
+                        >
+                          <div
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                          >
+                            <div
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                            >
+                              <div
+                                class="ant-spin-container"
+                              >
+                                <ul
+                                  class="ant-list-items"
+                                >
+                                  <li
+                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <img
+                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                          />
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-connect-modal-name"
+                                      >
+                                        测试钱包
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <img
+                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                          />
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-connect-modal-name"
+                                      >
+                                        测试钱包3
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-connect-modal-group"
+                      >
+                        <div
+                          class="ant-connect-modal-group-title"
+                        >
+                          Default
+                        </div>
+                        <div
+                          class="ant-connect-modal-group-content"
+                        >
+                          <div
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                          >
+                            <div
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                            >
+                              <div
+                                class="ant-spin-container"
+                              >
+                                <ul
+                                  class="ant-list-items"
+                                >
+                                  <li
+                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <img
+                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                          />
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-connect-modal-name"
+                                      >
+                                        测试钱包2
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-connect-modal-name"
+                                      >
+                                        测试钱包4
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-connect-modal-name"
+                                      >
+                                        测试钱包5
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-connect-modal-name"
+                                      >
+                                        测试钱包6
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-connect-modal-name"
+                                      >
+                                        测试钱包6
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-connect-modal-footer"
+                  >
+                    蚂蚁链提供技术支持
+                  </div>
+                </div>
+                <div
+                  class="ant-connect-modal-main-panel"
+                >
+                  <div
+                    class="ant-connect-modal-guide-panel"
+                  >
+                    <h2
+                      class="ant-connect-modal-guide-title"
+                    >
+                      What is a Wallet?
+                    </h2>
+                    <div
+                      class="ant-connect-modal-guide-list"
+                    >
+                      <div
+                        class="ant-connect-modal-guide-item"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                        >
+                          <img
+                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=4"
+                          />
+                        </span>
+                        <div
+                          class="ant-connect-modal-guide-item-content"
+                        >
+                          <h3
+                            class="ant-connect-modal-guide-item-title"
+                          >
+                            A Home for your Digital Assets
+                          </h3>
+                          <div
+                            class="ant-connect-modal-guide-item-description"
+                          >
+                            Wallets are used to send, receive, store, and display digital assets like Ethereum and NFTs.
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-connect-modal-guide-item"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                        >
+                          <img
+                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
+                          />
+                        </span>
+                        <div
+                          class="ant-connect-modal-guide-item-content"
+                        >
+                          <h3
+                            class="ant-connect-modal-guide-item-title"
+                          >
+                            A New Way to Log In
+                          </h3>
+                          <div
+                            class="ant-connect-modal-guide-item-description"
+                          >
+                            Instead of creating new accounts and passwords on every website, just connect your wallet.
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-connect-modal-guide-item"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                        >
+                          <img
+                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
+                          />
+                        </span>
+                        <div
+                          class="ant-connect-modal-guide-item-content"
+                        >
+                          <h3
+                            class="ant-connect-modal-guide-item-title"
+                          >
+                            A New Way to Log In2
+                          </h3>
+                          <div
+                            class="ant-connect-modal-guide-item-description"
+                          >
+                            Instead of creating new accounts and passwords on every website, just connect your wallet.
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-connect-modal-guide-item"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                        >
+                          <img
+                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
+                          />
+                        </span>
+                        <div
+                          class="ant-connect-modal-guide-item-content"
+                        >
+                          <h3
+                            class="ant-connect-modal-guide-item-title"
+                          >
+                            A New Way to Log In3
+                          </h3>
+                          <div
+                            class="ant-connect-modal-guide-item-description"
+                          >
+                            Instead of creating new accounts and passwords on every website, just connect your wallet.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-primary ant-btn-block ant-connect-modal-get-btn"
+                      type="button"
+                    >
+                      <span>
+                        Get a Wallet
+                      </span>
+                    </button>
+                    <a
+                      class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-link ant-btn-block ant-connect-modal-more"
+                      href="https://test.com/xxx"
+                      target="_blank"
+                    >
+                      <span>
+                        Learn More
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+            tabindex="0"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

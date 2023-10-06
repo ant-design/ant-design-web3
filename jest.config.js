@@ -25,6 +25,10 @@ module.exports = {
       },
     ],
   },
+  moduleNameMapper: {
+    '/\\.(css|less)$/': 'identity-obj-proxy',
+    '^@ant-design/web3$': '<rootDir>/packages/web3/src/index',
+  },
   setupFiles: ['<rootDir>/tests/setup.js'],
   collectCoverageFrom: ['<rootDir>/packages/*/src/**/*.ts'],
   coveragePathIgnorePatterns: ['/node_modules/', '/(.*)mock(.*)/'],

@@ -8,6 +8,8 @@ import classNames from 'classnames';
 import type { ConnectModalProps, PanelRoute, Wallet } from './interface';
 import { ConnectModalContextProvider } from './context';
 
+export type * from './interface';
+
 export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
   const {
     open,
