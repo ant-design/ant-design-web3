@@ -5,7 +5,7 @@ group:
 
 # BrowerLink
 
-快速使用etherscan的地址.
+快速使用 etherscan 的地址.
 
 ## 基本使用
 
