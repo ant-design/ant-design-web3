@@ -1,4 +1,5 @@
 import type { Web3ProviderInterface, Account } from '@ant-design/web3-common';
+import { Chains } from '@ant-design/web3-common';
 
 export class MockProvider implements Web3ProviderInterface {
   private currentAccount?: Account;
@@ -39,7 +40,7 @@ export class MockProvider implements Web3ProviderInterface {
       ),
     );
   };
-
+  chain = Chains.bitcoin;
   getNFTMetadata = async (address: string, id: number) => {
     return {
       name: 'OurMetaverseDAO NFT #6',
