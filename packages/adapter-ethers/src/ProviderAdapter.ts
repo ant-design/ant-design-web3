@@ -1,13 +1,13 @@
-import { Web3ProviderInterface, NFTMetadata } from '@ant-design/web3';
+import { Web3ProviderInterface, NFTMetadata, Account } from '@ant-design/web3-common';
 
 export class ProviderAdapter implements Web3ProviderInterface {
-  getAccounts(): Promise<any[]> {
+  getAccounts(): Promise<Account[]> {
     throw new Error('Method not implemented.');
   }
-  getCurrentAccount(): Promise<any> {
+  getCurrentAccount(): Promise<Account> {
     throw new Error('Method not implemented.');
   }
-  requestAccounts(): Promise<any[]> {
+  requestAccounts(): Promise<Account[]> {
     throw new Error('Method not implemented.');
   }
   getQrCodeLink(): Promise<string> {

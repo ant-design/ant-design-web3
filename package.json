@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "pnpm run --parallel --if-present --recursive --filter \"@ant-design/*\" dev",
     "dev:docs": "dumi dev",
-    "build": "pnpm run --parallel --if-present --recursive build",
+    "build": "pnpm run --if-present --recursive build",
     "build:docs": "dumi build",
     "postinstall": "pnpm run husky:prepare",
     "changeset": "changeset",

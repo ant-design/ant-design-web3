@@ -77,9 +77,9 @@ importers:
 
   packages/adapter-ethers:
     dependencies:
-      '@ant-design/web3':
+      '@ant-design/web3-common':
         specifier: workspace:*
-        version: link:../web3
+        version: link:../common
       ethers:
         specifier: ^6.7.1
         version: 6.7.1
@@ -87,6 +87,30 @@ importers:
       father:
         specifier: ^4.1.9
         version: 4.3.5(@types/node@16.18.54)(styled-components@6.0.8)(webpack@5.88.2)
+      typescript:
+        specifier: ^5.0.4
+        version: 5.2.2
+
+  packages/common:
+    devDependencies:
+      '@types/react':
+        specifier: ^18.2.20
+        version: 18.2.22
+      '@types/react-dom':
+        specifier: ^18.2.7
+        version: 18.2.7
+      antd:
+        specifier: ^5.8.3
+        version: 5.9.3(react-dom@18.2.0)(react@18.2.0)
+      father:
+        specifier: ^4.1.9
+        version: 4.3.5(@types/node@16.18.54)(styled-components@6.0.8)(webpack@5.88.2)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
       typescript:
         specifier: ^5.0.4
         version: 5.2.2
@@ -123,6 +147,9 @@ importers:
       '@ant-design/icons':
         specifier: ^5.2.6
         version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
+      '@ant-design/web3-common':
+        specifier: workspace:*
+        version: link:../common
       '@ant-design/web3-icons':
         specifier: workspace:*
         version: link:../icons
@@ -142,9 +169,6 @@ importers:
         specifier: '>=17.0.0'
         version: 18.2.0(react@18.2.0)
     devDependencies:
-      '@ant-design/web3-adapter-ethers':
-        specifier: workspace:*
-        version: link:../adapter-ethers
       '@types/react':
         specifier: ^18.2.20
         version: 18.2.22

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, ButtonProps, Space } from 'antd';
-// TODO use web3 icons
-import { WalletFilled } from '@ant-design/icons';
+import { WalletWhite } from '@ant-design/web3-icons';
 import { ConnectModal } from '../ConnectModal';
 import useProvider from '../hooks/useProvider';
 import useCurrentAccount from '../hooks/useCurrentAccount';
@@ -19,7 +18,7 @@ export interface ChainOptions {
 }
 
 export interface ConnectButtonProps extends ButtonProps {
-  icon?: boolean | React.ReactNode;
+  icon?: React.ReactNode;
   ellipsis?: boolean;
   tooltip?: boolean;
   avatar?: ConnectButtonAvatar;
@@ -45,7 +44,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         {...rest}
       >
         <Space>
-          {icon ? <WalletFilled /> : undefined}
+          {icon && <WalletWhite />}
           {account ? <Address ellipsis={ellipsis} address={account.address} /> : 'Connect'}
         </Space>
       </Button>

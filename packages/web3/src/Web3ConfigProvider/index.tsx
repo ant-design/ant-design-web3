@@ -1,5 +1,6 @@
 import React from 'react';
-import { ConfigContext, Web3ProviderInterface } from './context';
+import { Web3ProviderInterface } from '@ant-design/web3-common';
+import { ConfigContext } from './context';
 
 export interface Web3ConfigProviderProps {
   provider?: Web3ProviderInterface;
