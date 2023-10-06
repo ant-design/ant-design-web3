@@ -27,23 +27,6 @@ export class MockProvider implements Web3ProviderInterface {
       }, 1000);
     });
   };
-  /**
-   * 根据 navigator.userAgent 判断浏览器类型，如：Chrome、Firefox、Edge、Safari、Other
-   */
-  getPlatform = () => {
-    const userAgent = navigator.userAgent.toLowerCase();
-    if (userAgent.includes('chrome')) {
-      return 'Chrome';
-    } else if (userAgent.includes('firefox')) {
-      return 'Firefox';
-    } else if (userAgent.includes('edge')) {
-      return 'Edge';
-    } else if (userAgent.includes('safari')) {
-      return 'Safari';
-    } else {
-      return 'Other';
-    }
-  };
 
   getQrCodeLink = async () => {
     return new Promise<string>((resolve) =>

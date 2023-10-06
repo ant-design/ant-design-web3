@@ -6,7 +6,7 @@ import {
 } from 'antd/es/theme/internal';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { Theme } from '../interface';
+import type { Theme } from '../interface';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {

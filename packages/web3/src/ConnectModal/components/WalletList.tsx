@@ -4,7 +4,6 @@ import type { ConnectModalProps, Wallet } from '../interface';
 import { defaultGroupOrder, getWalletRoute } from '../utils';
 import { connectModalContext } from '../context';
 import classNames from 'classnames';
-import useProvider from '../../hooks/useProvider';
 
 export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'groupOrder'>;
 
@@ -29,8 +28,6 @@ const WalletList: React.FC<WalletListProps> = (props) => {
     [dataSource, groupOrder],
   );
 
-  const { provider } = useProvider();
-
   return (
     <div className={`${prefixCls}-wallet-list`}>
       {groupKeys.map((group) => (
@@ -50,7 +47,7 @@ const WalletList: React.FC<WalletListProps> = (props) => {
                         : selectedWallet?.name === item.name,
                   })}
                   onClick={() => {
-                    const route = getWalletRoute(item, provider!);
+                    const route = getWalletRoute(item);
                     if (route !== 'unknown') {
                       updateSelectedWallet(item);
                       updatePanelRoute(route, true);

@@ -4,7 +4,6 @@ import { connectModalContext } from '../context';
 import MainPanelHeader from './MainPanelHeader';
 import { Avatar, Button, List, message } from 'antd';
 import { getWalletRoute } from '../utils';
-import useProvider from '../../hooks/useProvider';
 
 export type GetWalletPanelProps = Pick<ConnectModalProps, 'walletList'>;
 
@@ -12,7 +11,6 @@ const GetWalletPanel: React.FC<GetWalletPanelProps> = (props) => {
   const { walletList = [] } = props;
   const { prefixCls, updateSelectedWallet, updatePanelRoute } = useContext(connectModalContext);
 
-  const { provider } = useProvider();
   const list = (
     <>
       <div className={`${prefixCls}-list`}>
@@ -29,7 +27,7 @@ const GetWalletPanel: React.FC<GetWalletPanelProps> = (props) => {
                   shape="round"
                   className={`${prefixCls}-get-wallet-btn`}
                   onClick={() => {
-                    const route = getWalletRoute(item, provider!);
+                    const route = getWalletRoute(item);
                     if (route === 'unknown') {
                       // TODO: add error message
                       message.error('Wallet is not supported');

@@ -1,6 +1,6 @@
 import type React from 'react';
 import type { Wallet } from '../interface';
-import type { Web3ProviderInterface } from '@ant-design/web3';
+import { getPlatform } from '../../utils';
 
 export const mergeReactNodeProps = (
   node: React.ReactNode,
@@ -14,9 +14,9 @@ export const mergeReactNodeProps = (
 
 export const defaultGroupOrder = (a: string, b: string) => a.localeCompare(b);
 
-export const getWalletRoute = (wallet: Wallet, provider: Web3ProviderInterface) => {
+export const getWalletRoute = (wallet: Wallet) => {
   const curExtensions =
-    wallet?.extensions && wallet.extensions.some((item) => item.key === provider?.getPlatform());
+    wallet?.extensions && wallet.extensions.some((item) => item.key === getPlatform());
 
   if (curExtensions) {
     return 'wallet';

@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { useContext, useMemo } from 'react';
 import { connectModalContext } from '../context';
 import MainPanelHeader from './MainPanelHeader';
-import useProvider from '../../hooks/useProvider';
+import { getPlatform } from '../../utils';
 
 const CardItem: React.FC<{
   icon: ReactNode;
@@ -37,13 +37,12 @@ export type WalletCardProps = {};
 
 const WalletCard: React.FC<WalletCardProps> = (props) => {
   const { prefixCls, selectedWallet, updatePanelRoute } = useContext(connectModalContext);
-  const { provider } = useProvider();
   const selectedExtension = useMemo(
     () =>
       selectedWallet?.extensions
-        ? selectedWallet.extensions.find((item) => item.key === provider?.getPlatform())
+        ? selectedWallet.extensions.find((item) => item.key === getPlatform())
         : undefined,
-    [provider, selectedWallet?.extensions],
+    [selectedWallet?.extensions],
   );
   return (
     <>
