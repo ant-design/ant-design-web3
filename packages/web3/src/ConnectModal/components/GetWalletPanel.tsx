@@ -10,7 +10,7 @@ export type GetWalletPanelProps = Pick<ConnectModalProps, 'walletList'>;
 
 const GetWalletPanel: React.FC<GetWalletPanelProps> = (props) => {
   const { walletList = [] } = props;
-  const { prefixCls, updateSelectedWallet, selectedWallet, updatePanelRoute } =
+  const { prefixCls, updateSelectedWallet, updatePanelRoute } =
     useContext(connectModalContext);
 
   const { provider } = useProvider();
