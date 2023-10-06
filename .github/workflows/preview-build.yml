@@ -1,6 +1,6 @@
 # Each PR will build preview site that help to check code is work as expect.
 
-name: Preview Build
+name: Preview-Build
 
 on:
   pull_request:
@@ -49,3 +49,4 @@ jobs:
         with:
           name: pr
           path: ./pr-id.txt
+
