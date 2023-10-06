@@ -15,7 +15,9 @@ const MainPanel: React.FC<MainPanelProps> = (props) => {
       {panelRoute === 'guide' ? <DefaultGuidePanel guide={guide} /> : null}
       {panelRoute === 'getWallet' ? <GetWalletPanel walletList={walletList} /> : null}
       {panelRoute === 'wallet' && selectedWallet ? <WalletCard /> : null}
-      {panelRoute === 'qrCode' && selectedWallet ? <QrCode wallet={selectedWallet} /> : null}
+      {panelRoute === 'qrCode' && selectedWallet ? (
+        <QrCode wallet={selectedWallet} isSimple={!guide} />
+      ) : null}
     </div>
   );
 };

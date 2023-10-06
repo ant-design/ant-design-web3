@@ -8,6 +8,7 @@ export interface Web3ProviderInterface {
   getAccounts: () => Promise<Account[]>;
   getCurrentAccount: () => Promise<Account | undefined>;
   requestAccounts: () => Promise<Account[]>;
+  getQrCodeLink: () => Promise<string>;
 }
 
 export interface Web3ConfigProviderProps {

@@ -3,11 +3,14 @@ import type { ConnectModalProps } from '../interface';
 import classNames from 'classnames';
 import WalletList from './WalletList';
 import MainPanel from './MainPanel';
+import { useContext } from 'react';
+import { connectModalContext } from '../context';
 
 export type ModalPanelProps = ConnectModalProps;
 
 const ModalPanel: React.FC<ModalPanelProps> = (props) => {
   const { prefixCls, title, footer, walletList, groupOrder, guide } = props;
+  const { panelRoute } = useContext(connectModalContext);
 
   const mergedTitle = mergeReactNodeProps(
     title,
@@ -16,22 +19,21 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
   );
 
   return (
-    <div className={classNames(`${prefixCls}-body`)}>
-      <div
-        className={classNames(`${prefixCls}-list-panel`, {
-          simple: !guide,
-        })}
-      >
+    <div
+      className={classNames(`${prefixCls}-body`, {
+        simple: !guide,
+        mini: panelRoute === 'qrCode' && !guide,
+      })}
+    >
+      <div className={classNames(`${prefixCls}-list-panel`)}>
         <div className={`${prefixCls}-header`}>{mergedTitle}</div>
         <div className={`${prefixCls}-list-container`}>
           <WalletList walletList={walletList} groupOrder={groupOrder} />
         </div>
         {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
       </div>
-      {guide && (
-        <div className={`${prefixCls}-main-panel`}>
-          <MainPanel guide={guide} walletList={walletList} />
-        </div>
+      {((panelRoute !== 'guide' && !guide) || guide) && (
+        <MainPanel guide={guide} walletList={walletList} />
       )}
     </div>
   );

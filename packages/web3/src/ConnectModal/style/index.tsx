@@ -4,7 +4,9 @@ import {
   type GenerateStyle,
   mergeToken,
 } from 'antd/es/theme/internal';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+import type { Theme } from '../interface';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -13,23 +15,36 @@ export interface ComponentToken {
 
 export interface ConnectModalToken extends FullToken<'Modal'> {
   // Custom token here
+  mainBg: string;
   selectedColor: string;
+  hoverBg: string;
   splitColor: string;
+  modalTitleStartColor: string;
+  modalTitleEndColor: string;
+  mainTextColor: string;
+  groupTextColor: string;
+  guideTitleColor: string;
+  listItemTitleColor: string;
+  listItemDescriptionColor: string;
+  buttonBg: string;
+  cardBg: string;
 }
 
-const resetStyle: GenerateStyle<ConnectModalToken> = (token) => {
+const resetStyle = (token: ConnectModalToken, themeSuffix: Theme = 'light'): CSSInterpolation => {
   const { componentCls } = token;
 
   return [
     {
-      [componentCls]: {
+      [`${componentCls}-${themeSuffix}`]: {
         '.ant-modal-content': {
           padding: 0,
         },
         [`.ant-modal-close`]: {
-          top: 24,
+          top: 13,
+          color: token.listItemDescriptionColor,
           '&:hover': {
-            background: 'none',
+            color: token.mainTextColor,
+            background: 'transparent',
           },
         },
         ['.ant-list-split .ant-list-item']: {
@@ -43,22 +58,26 @@ const resetStyle: GenerateStyle<ConnectModalToken> = (token) => {
   ];
 };
 
-const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
+const getThemeStyle = (
+  token: ConnectModalToken,
+  themeSuffix: Theme = 'light',
+): CSSInterpolation => {
   const { componentCls } = token;
-
   return [
-    // =========================== Reset ===========================
-    resetStyle(token),
-    // =========================== Modal ===========================
     {
-      [componentCls]: {
+      [`${componentCls}-${themeSuffix}`]: {
+        borderRadius: token.borderRadiusLG,
+        overflow: 'hidden',
+        paddingBlockEnd: 0,
+        '.ant-modal-content': {
+          background: token.mainBg,
+        },
         [`${componentCls}-title`]: {
           fontSize: 20,
           color: '#fff',
           lineHeight: '28px',
           fontWeight: 600,
-          backgroundImage:
-            'linear-gradient(90deg, #1677ff 0%, rgba(0,0,0,0.85) 16%, #1677ff 48%, rgba(0,0,0,0.85) 67%, #1677ff 85%, rgba(0,0,0,0.85) 96%)',
+          backgroundImage: `linear-gradient(90deg, ${token.modalTitleStartColor} 0%, ${token.modalTitleEndColor} 16%, ${token.modalTitleStartColor} 48%, ${token.modalTitleEndColor} 67%, ${token.modalTitleStartColor} 85%, ${token.modalTitleEndColor} 96%)`,
           display: 'inline-block',
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
@@ -70,6 +89,10 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          position: 'relative',
+          '&.mini': {
+            height: 490,
+          },
           [`${componentCls}-list-panel, ${componentCls}-main-panel`]: {
             height: '100%',
             boxSizing: 'border-box',
@@ -82,12 +105,8 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            padding: 18,
+            padding: '10px 18px 24px',
             boxSizing: 'border-box',
-            '&.simple': {
-              borderRight: 'none',
-              width: '100%',
-            },
             [`${componentCls}-header`]: {
               height: 30,
             },
@@ -99,7 +118,7 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                 [`${componentCls}-group`]: {
                   marginBlockEnd: token.marginSM,
                   [`${componentCls}-group-title`]: {
-                    color: 'rgba(0,0,0,0.65)',
+                    color: token.groupTextColor,
                     fontSize: 14,
                     paddingInline: 6,
                   },
@@ -121,33 +140,37 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                         [`${componentCls}-icon`]: {
                           borderRadius: 8,
                           overflow: 'hidden',
+                          background:
+                            themeSuffix === 'light'
+                              ? 'rgba(0, 0, 0, 0.25)'
+                              : 'rgba(255, 255, 255, 0.25)',
                         },
                         [`${componentCls}-name`]: {
                           fontSize: token.fontSizeLG,
                           justifySelf: 'flex-start',
                           marginInlineStart: token.marginSM,
+                          color: token.mainTextColor,
                         },
                       },
                       '&:last-child': {
                         marginBlockEnd: 0,
                       },
                       '&:hover': {
-                        background: token.colorBgTextHover,
+                        background: token.hoverBg,
                       },
                       '&.selected': {
                         background: token.selectedColor,
-                        color: token.colorTextLightSolid,
-                        [`${componentCls}-extra`]: {
-                          color: new TinyColor(token.colorTextLightSolid)
-                            .setAlpha(0.8)
-                            .onBackground(token.selectedColor)
-                            .toHexShortString(),
+                        [`${componentCls}-name`]: {
+                          color: '#fff',
                         },
                       },
                     },
                   },
                 },
               },
+            },
+            [`${componentCls}-footer`]: {
+              color: token.listItemDescriptionColor,
             },
           },
           [`${componentCls}-main-panel`]: {
@@ -162,22 +185,25 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                 borderRadius: 4,
                 transition: 'background .3s',
                 textAlign: 'center',
+                color: token.mainTextColor,
                 '&:hover': {
-                  background: token.colorBgTextHover,
+                  background: token.hoverBg,
                 },
               },
               [`${componentCls}-main-panel-header-title`]: {
                 flex: 1,
                 textAlign: 'center',
                 fontSize: token.fontSizeLG,
-                color: token.colorText,
+                color: token.mainTextColor,
               },
             },
             [`${componentCls}-guide-panel`]: {
+              marginBlockStart: 48,
               [`${componentCls}-guide-title`]: {
                 textAlign: 'center',
                 fontSize: token.fontSizeXL,
-                color: token.colorText,
+                color: token.guideTitleColor,
+                marginBlock: 0,
               },
             },
             [`${componentCls}-guide-list`]: {
@@ -192,6 +218,7 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                   marginBlockEnd: 0,
                 },
                 [`${componentCls}-guide-item-icon`]: {
+                  flexShrink: 0,
                   width: 56,
                   height: 56,
                 },
@@ -199,12 +226,12 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                   marginInlineStart: 12,
                   [`${componentCls}-guide-item-title`]: {
                     fontSize: token.fontSizeLG,
-                    color: token.colorText,
+                    color: token.listItemTitleColor,
                     marginBlock: 0,
                   },
                   [`${componentCls}-guide-item-description`]: {
                     fontSize: token.fontSizeSM,
-                    color: token.colorTextDescription,
+                    color: token.listItemDescriptionColor,
                     marginBlockStart: 4,
                     wordBreak: 'break-all',
                   },
@@ -212,12 +239,12 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
               },
             },
             [`${componentCls}-get-btn`]: {
-              background: 'rgba(0,0,0,0.85)',
+              background: token.buttonBg,
               color: '#fff',
               borderRadius: 8,
             },
             [`${componentCls}-more`]: {
-              color: token.colorText,
+              color: token.mainTextColor,
               fontSize: token.fontSizeLG,
               textAlign: 'center',
               marginBlockStart: 16,
@@ -234,12 +261,24 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                   '&:last-child': {
                     marginBlockEnd: 0,
                   },
+                  '.ant-avatar': {
+                    background:
+                      themeSuffix === 'light' ? 'rgba(0, 0, 0, 0.25)' : 'rgba(255, 255, 255, 0.25)',
+                  },
+                  '.ant-list-item-meta-title': {
+                    color: token.listItemTitleColor,
+                  },
+                  '.ant-list-item-meta-description': {
+                    color: token.listItemDescriptionColor,
+                  },
                   [`${componentCls}-get-wallet-btn`]: {
                     width: 66,
                     height: 32,
                     lineHeight: 0,
                     fontSize: token.fontSizeLG,
-                    borderColor: token.colorText,
+                    borderColor: token.buttonBg,
+                    background: 'rgba(255,255,255,0.15)',
+                    color: token.mainTextColor,
                     '&:hover': {
                       borderColor: token.colorPrimary,
                     },
@@ -255,12 +294,12 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                 textAlign: 'center',
                 h3: {
                   fontSize: token.fontSizeLG,
-                  color: token.colorText,
+                  color: token.mainTextColor,
                   marginBlockEnd: 16,
                 },
                 p: {
                   fontSize: token.fontSizeSM,
-                  color: token.colorTextDescription,
+                  color: token.groupTextColor,
                   lineHeight: 1.5,
                 },
               },
@@ -276,7 +315,7 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                 marginBlockEnd: 16,
                 boxSizing: 'border-box',
                 paddingInline: 58,
-                background: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
+                background: token.cardBg,
                 borderRadius: 16,
                 cursor: 'pointer',
                 border: `1px solid transparent`,
@@ -297,11 +336,11 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                   marginInlineStart: 12,
                   [`${componentCls}-card-title`]: {
                     fontSize: token.fontSizeLG,
-                    color: token.colorText,
+                    color: token.listItemTitleColor,
                   },
                   [`${componentCls}-card-description`]: {
                     fontSize: token.fontSize,
-                    color: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
+                    color: token.listItemDescriptionColor,
                   },
                 },
                 '&:last-child': {
@@ -309,17 +348,20 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                 },
               },
             },
-            [`${componentCls}-qr-code`]: {
+            [`${componentCls}-qr-code-container`]: {
               [`${componentCls}-qr-code-box`]: {
                 marginBlockStart: 12,
                 marginInline: 'auto',
+                [`${componentCls}-qr-code`]: {
+                  marginInline: 'auto',
+                },
               },
               [`${componentCls}-qr-code-tips`]: {
-                color: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
+                color: token.listItemDescriptionColor,
                 fontSize: token.fontSizeLG,
                 position: 'relative',
-                width: 400,
-                marginBlockStart: 27,
+                width: '100%',
+                marginBlockStart: 58,
                 [`${componentCls}-get-wallet-btn`]: {
                   position: 'absolute',
                   right: 0,
@@ -328,7 +370,33 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
                   width: 66,
                   height: 40,
                   lineHeight: 0,
+                  background: themeSuffix === 'light' ? '#fff' : 'rgba(255,255,255,0.15)',
+                  borderColor: themeSuffix === 'light' ? token.buttonBg : 'transparent',
+                  color: token.mainTextColor,
+                  '&:hover': {
+                    borderColor: token.colorPrimary,
+                  },
                 },
+              },
+            },
+          },
+          '&.simple': {
+            [`${componentCls}-list-panel`]: {
+              borderRight: 'none',
+              width: '100%',
+            },
+            [`${componentCls}-main-panel`]: {
+              position: 'absolute',
+              left: 0,
+              top: 0,
+              width: '100%',
+              height: '100%',
+              background: token.mainBg,
+              [`${componentCls}-qr-code-box`]: {
+                marginBlockStart: 24,
+              },
+              [`${componentCls}-qr-code-tips`]: {
+                marginBlockStart: 46,
               },
             },
           },
@@ -338,10 +406,48 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
   ];
 };
 
+const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
+  const darkToken = mergeToken<ConnectModalToken>(token, {
+    mainBg: '#1a1b1f',
+    selectedColor: '#1677FF',
+    hoverBg: 'rgba(255, 255, 255, 0.2)',
+    splitColor: new TinyColor(token.colorTextLightSolid).setAlpha(0.06).toRgbString(),
+    modalTitleStartColor: '#fff',
+    modalTitleEndColor: '#4d4d4d',
+    mainTextColor: '#fff',
+    groupTextColor: 'rgba(255,255,255,0.65)',
+    guideTitleColor: '#fff',
+    listItemTitleColor: '#fff',
+    listItemDescriptionColor: 'rgba(255,255,255,0.65)',
+    buttonBg: 'rgba(255,255,255,0.15)',
+    cardBg: 'rgba(255,255,255,0.1)',
+  });
+
+  return [
+    // =========================== Reset ===========================
+    resetStyle(token),
+    resetStyle(darkToken, 'dark'),
+    // =========================== Modal ===========================
+    getThemeStyle(token),
+    getThemeStyle(darkToken, 'dark'),
+  ];
+};
+
 export default genComponentStyleHook('Modal', (token) => {
   const connectModalToken = mergeToken<ConnectModalToken>(token, {
+    mainBg: '#ffffff',
+    mainTextColor: 'rgba(0,0,0,0.85)',
     selectedColor: '#1677FF',
+    hoverBg: 'rgba(0, 0, 0, 0.06)',
     splitColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
+    modalTitleStartColor: '#1677ff',
+    modalTitleEndColor: 'rgba(0,0,0,0.85)',
+    groupTextColor: 'rgba(0,0,0,0.65)',
+    guideTitleColor: token.colorText,
+    listItemTitleColor: token.colorText,
+    listItemDescriptionColor: 'rgba(0,0,0,0.65)',
+    buttonBg: 'rgba(0,0,0,0.85)',
+    cardBg: 'rgba(0,0,0,0.1)',
   });
   return [genModalStyle(connectModalToken)];
 });
