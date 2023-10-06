@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NFTMetadata } from '@ant-design/web3';
+import { NFTMetadata } from '@ant-design/web3-common';
 import useProvider from './useProvider';
 
 export default function useNFT(address: string, id: number) {

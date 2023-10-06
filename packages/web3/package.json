@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "exports": {
     "import": "./dist/esm/index.js",
     "require": "./dist/lib/index.js"
@@ -17,13 +17,13 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.17.0",
     "@ant-design/icons": "^5.2.6",
+    "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
     "@ctrl/tinycolor": "^4.0.2",
     "antd": "^5.8.3",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@ant-design/web3-adapter-ethers": "workspace:*",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "father": "^4.1.9",

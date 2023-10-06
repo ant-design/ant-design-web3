@@ -1,13 +1,5 @@
-import React from 'react';
-import { Web3ProviderInterface } from '@ant-design/web3-common';
-
 export interface Account {
   address: string;
-}
-
-export enum Chains {
-  EthereumMainnet = 'https://etherscan.io/address/',
-  bitcoin = 'bitcoin:',
 }
 
 export interface NFTMetadata {
@@ -30,15 +22,4 @@ export interface Web3ProviderInterface {
   requestAccounts: () => Promise<Account[]>;
   getQrCodeLink: () => Promise<string>;
   getNFTMetadata: (address: string, id: number) => Promise<NFTMetadata>;
-  chain?: Chains;
 }
-
-export interface Web3ConfigProviderProps {
-  provider: Web3ProviderInterface;
-}
-
-export interface ConfigConsumerProps {
-  provider?: Web3ProviderInterface;
-}
-
-export const ConfigContext = React.createContext<ConfigConsumerProps>({});

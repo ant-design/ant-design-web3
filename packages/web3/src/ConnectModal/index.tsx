@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Modal } from 'antd';
 import { CloseCircleFilled } from '@ant-design/icons';
 import ModalPanel from './components/ModalPanel';
-import { ConfigContext } from 'antd/es/config-provider';
+import { ConfigContext } from 'antd/lib/config-provider';
 import useStyle from './style';
 import classNames from 'classnames';
 import type { ConnectModalProps, PanelRoute, Wallet } from './interface';
@@ -17,6 +17,7 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
     guide,
     onSelectWallet,
     theme = 'light',
+    className,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const [selectedWallet, setSelectedWallet] = React.useState<Wallet>();
@@ -74,13 +75,13 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
         <Modal
           {...modalProps}
           width={guide ? 737 : 380}
-          maskClosable={false}
-          className={classNames(prefixCls, `${prefixCls}-${theme}`)}
-          rootClassName={`${prefixCls}-root`}
+          className={classNames(prefixCls, `${prefixCls}-${theme}`, className)}
+          rootClassName={classNames(`${prefixCls}-root`, modalProps?.rootClassName)}
           open={open}
           closeIcon={<CloseCircleFilled />}
-          onCancel={() => {
+          onCancel={(e) => {
             onOpenChange?.(false);
+            modalProps?.onCancel?.(e);
           }}
           footer={null}
         >

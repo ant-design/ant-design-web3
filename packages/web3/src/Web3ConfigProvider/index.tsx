@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Web3ProviderInterface } from './context';
+import type { Web3ProviderInterface } from '@ant-design/web3-common';
 import { ConfigContext } from './context';
 
 export interface Web3ConfigProviderProps {
@@ -10,7 +10,6 @@ export interface Web3ConfigProviderProps {
 
 const ProviderChildren: React.FC<Web3ConfigProviderProps> = (props) => {
   const { children, ...rest } = props;
-
   return <ConfigContext.Provider value={rest}>{children}</ConfigContext.Provider>;
 };
 
