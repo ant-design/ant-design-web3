@@ -17,6 +17,7 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
     guide,
     onSelectWallet,
     theme = 'light',
+    className,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const [selectedWallet, setSelectedWallet] = React.useState<Wallet>();
@@ -74,13 +75,13 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
         <Modal
           {...modalProps}
           width={guide ? 737 : 380}
-          maskClosable={false}
-          className={classNames(prefixCls, `${prefixCls}-${theme}`)}
-          rootClassName={`${prefixCls}-root`}
+          className={classNames(prefixCls, `${prefixCls}-${theme}`, className)}
+          rootClassName={classNames(`${prefixCls}-root`, modalProps?.rootClassName)}
           open={open}
           closeIcon={<CloseCircleFilled />}
-          onCancel={() => {
+          onCancel={(e) => {
             onOpenChange?.(false);
+            modalProps?.onCancel?.(e);
           }}
           footer={null}
         >
