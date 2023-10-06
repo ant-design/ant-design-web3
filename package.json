@@ -16,7 +16,7 @@
     "release": "changeset version && changeset publish",
     "release:alpha": "changeset version --snapshot alpha && changeset publish --tag alpha",
     "release:beta": "changeset version --snapshot beta && changeset publish --tag beta",
-    "ci": "npm run lint && npm run test:ci && npm run build",
+    "ci": "npm run build && npm run lint && npm run test:ci",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
