@@ -40,7 +40,7 @@ const WalletList: React.FC<WalletListProps> = (props) => {
               rowKey="key"
               renderItem={(item) => (
                 <List.Item
-                  className={classNames(`${prefixCls}-item`, {
+                  className={classNames(`${prefixCls}-wallet-item`, {
                     selected:
                       item.key !== undefined
                         ? selectedWallet?.key === item.key
