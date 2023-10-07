@@ -1,4 +1,4 @@
-# Each PR will build preview site that help to check code is work as expect.
+# Each PR will build preview site that help to check code is work as expect!
 
 name: Preview Deploy
 
