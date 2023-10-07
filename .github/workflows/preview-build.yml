@@ -1,0 +1,52 @@
+# Each PR will build preview site that help to check code is work as expect.
+
+name: Preview Build
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+# Cancel prev CI if new commit come
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  # Prepare node modules. Reuse cache if available
+  setup:
+    name: prepare preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: |
+          npm i pnpm -g
+          pnpm install
+          pnpm run build
+          pnpm run build:docs
+          rm -rf dist/\~demos/:id
+      
+      - name: upload site artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: site
+          path: dist/
+          retention-days: 5
+  
+        # Upload PR id for next workflow use
+      - name: Save PR number
+        if: ${{ always() }}
+        run: echo ${{ github.event.number }} > ./pr-id.txt
+
+      - name: Upload PR number
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: pr
+          path: ./pr-id.txt
+

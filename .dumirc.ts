@@ -28,5 +28,5 @@ export default defineConfig({
       name: 'English',
     },
     { id: 'zh-CN', name: '中文' },
-  ],
+  ]
 });
