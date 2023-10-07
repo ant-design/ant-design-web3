@@ -25,6 +25,8 @@ jobs:
 
       - name: Build
         run: |
+          export PUBLIC_PATH=/
+          export BASE=/
           npm i pnpm -g
           pnpm install
           pnpm run build
