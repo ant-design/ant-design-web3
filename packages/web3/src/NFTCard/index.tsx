@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from 'antd';
+import { getWeb3AssetUrl } from '@ant-design/web3-common';
 import useNFT from '../hooks/useNFT';
 
 export interface NFTCardProps {
@@ -10,5 +11,5 @@ export interface NFTCardProps {
 export const NFTCard: React.FC<NFTCardProps> = ({ address, id }) => {
   const { metadata } = useNFT(address, id);
 
-  return <Image src={metadata.image} />;
+  return <Image src={getWeb3AssetUrl(metadata.image)} />;
 };

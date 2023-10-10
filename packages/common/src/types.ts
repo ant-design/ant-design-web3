@@ -7,6 +7,11 @@ export enum Chains {
   bitcoin = 'bitcoin:',
 }
 
+export enum Wallets {
+  MetaMask = 'MetaMask',
+  WalletConnect = 'WalletConnect',
+}
+
 export interface NFTMetadata {
   name?: string;
   description?: string;
@@ -24,8 +29,26 @@ export interface NFTMetadata {
 export interface Web3ProviderInterface {
   getAccounts: () => Promise<Account[]>;
   getCurrentAccount: () => Promise<Account | undefined>;
-  requestAccounts: () => Promise<Account[]>;
+  requestAccounts: (wallet?: Wallets) => Promise<Account[]>;
   getQrCodeLink: () => Promise<string>;
   getNFTMetadata: (address: string, id: number) => Promise<NFTMetadata>;
   chain?: Chains;
+}
+
+/**
+ * This interface is a subset of the EIP-1193 provider interface.
+ * See: https://eips.ethereum.org/EIPS/eip-1193
+ *
+ * `typeof window.aldaba`
+ */
+export interface EIP1193LikeProvider {
+  request: (request: { method: string; params?: any }) => Promise<any>;
+}
+
+export interface WalletProviderFactory {
+  create: () => Promise<EIP1193LikeProvider>;
+}
+
+export interface JsonRpcProvider {
+  getRpcUrl(chain: Chains): string;
 }
