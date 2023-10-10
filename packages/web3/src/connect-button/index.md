@@ -14,7 +14,3 @@ A Button for connect chain quickly.
 ## Unconnected
 
 <code src="./demos/unconnected.tsx"></code>
-
-## Complex Usage
-
-<code src="./demos/complex.tsx"></code>
