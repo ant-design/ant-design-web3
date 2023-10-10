@@ -1,5 +1,5 @@
 import React from 'react';
-import { Account } from '@ant-design/web3-common';
+import { type Account } from '@ant-design/web3-common';
 import useProvider from './useProvider';
 
 export default function useCurrentAccount() {
