@@ -1,3 +1,8 @@
 {
-  "conventionalCommits.scopes": ["workspace", "web3", "icons"]
+  "conventionalCommits.scopes": [
+    "workspace",
+    "web3",
+    "icons",
+    "common"
+  ]
 }
