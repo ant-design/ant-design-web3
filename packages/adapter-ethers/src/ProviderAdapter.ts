@@ -4,6 +4,9 @@ import {
   Account,
   Wallets,
   getWalletProviderFactory,
+  JsonRpcProvider,
+  Chains,
+  requestWeb3Asset,
 } from '@ant-design/web3-common';
 import { ethers } from 'ethers';
 
@@ -12,7 +15,7 @@ const USE_WALLET_LOCAL_STORAGE_KEY = 'antd-web3-use-wallet';
 export class ProviderAdapter implements Web3ProviderInterface {
   private useWallet?: Wallets;
 
-  constructor() {
+  constructor(private rpcProvider?: JsonRpcProvider) {
     const wallet = localStorage.getItem(USE_WALLET_LOCAL_STORAGE_KEY);
     if (Object.values(Wallets).includes(wallet as Wallets)) {
       this.useWallet = wallet as Wallets;
@@ -54,7 +57,20 @@ export class ProviderAdapter implements Web3ProviderInterface {
     throw new Error('Method not implemented.');
   }
 
-  getNFTMetadata(address: string, id: number): Promise<NFTMetadata> {
-    throw new Error('Method not implemented.');
+  async getNFTMetadata(address: string, tokenId: number): Promise<NFTMetadata> {
+    if (!this.rpcProvider) {
+      throw new Error('RPC provider not set');
+    }
+    // TODO support other chains
+    const url = this.rpcProvider.getRpcUrl(Chains.EthereumMainnet);
+    const provider = new ethers.JsonRpcProvider(url);
+    const contract = new ethers.Contract(
+      address,
+      [`function tokenURI(uint256 tokenId) external view returns (string memory)`],
+      provider,
+    );
+    const tokenURI = await contract.tokenURI(tokenId);
+    const metaInfo = await requestWeb3Asset(tokenURI);
+    return metaInfo as NFTMetadata;
   }
 }

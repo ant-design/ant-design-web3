@@ -48,3 +48,7 @@ export interface EIP1193LikeProvider {
 export interface WalletProviderFactory {
   create: () => Promise<EIP1193LikeProvider>;
 }
+
+export interface JsonRpcProvider {
+  getRpcUrl(chain: Chains): string;
+}
