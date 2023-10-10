@@ -29,3 +29,22 @@ export interface Web3ProviderInterface {
   getNFTMetadata: (address: string, id: number) => Promise<NFTMetadata>;
   chain?: Chains;
 }
+
+export enum Wallets {
+  MetaMask = 'MetaMask',
+  WalletConnect = 'WalletConnect',
+}
+
+/**
+ * This interface is a subset of the EIP-1193 provider interface.
+ * See: https://eips.ethereum.org/EIPS/eip-1193
+ *
+ * `typeof window.aldaba`
+ */
+export interface EIP1193LikeProvider {
+  request: (request: { method: string; params?: any }) => Promise<any>;
+}
+
+export interface WalletProviderFactory {
+  create: () => Promise<EIP1193LikeProvider>;
+}
