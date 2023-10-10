@@ -10,8 +10,8 @@ export default defineConfig({
       },
     ],
   },
-  // TODO: remove after get a domain
-  publicPath: process.env.PUBLIC_PATH || '/ant-design-web3/',
+  copy: ['CNAME'],
+  publicPath: process.env.PUBLIC_PATH || '/',
   base: process.env.BASE || '/ant-design-web3',
   themeConfig: {
     name: 'Ant Design Web3',
@@ -28,5 +28,5 @@ export default defineConfig({
       name: 'English',
     },
     { id: 'zh-CN', name: '中文' },
-  ]
+  ],
 });
