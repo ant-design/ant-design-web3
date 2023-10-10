@@ -7,6 +7,11 @@ export enum Chains {
   bitcoin = 'bitcoin:',
 }
 
+export enum Wallets {
+  MetaMask = 'MetaMask',
+  WalletConnect = 'WalletConnect',
+}
+
 export interface NFTMetadata {
   name?: string;
   description?: string;
@@ -24,15 +29,10 @@ export interface NFTMetadata {
 export interface Web3ProviderInterface {
   getAccounts: () => Promise<Account[]>;
   getCurrentAccount: () => Promise<Account | undefined>;
-  requestAccounts: () => Promise<Account[]>;
+  requestAccounts: (wallet?: Wallets) => Promise<Account[]>;
   getQrCodeLink: () => Promise<string>;
   getNFTMetadata: (address: string, id: number) => Promise<NFTMetadata>;
   chain?: Chains;
-}
-
-export enum Wallets {
-  MetaMask = 'MetaMask',
-  WalletConnect = 'WalletConnect',
 }
 
 /**
