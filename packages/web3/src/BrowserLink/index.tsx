@@ -18,7 +18,7 @@ export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
 
   const { account, refresh } = useCurrentAccount();
   const getAccount = async () => {
-    await provider?.requestAccounts();
+    await provider?.getAccounts();
     await refresh();
   };
 

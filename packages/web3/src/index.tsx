@@ -1,3 +1,4 @@
+export * from '@ant-design/web3-common';
 export * from './connect-button';
 export * from './ConnectModal';
 export * from './Web3ConfigProvider';

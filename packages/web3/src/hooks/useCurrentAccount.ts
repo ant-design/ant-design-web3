@@ -11,7 +11,7 @@ export default function useCurrentAccount() {
   };
   React.useEffect(() => {
     refresh();
-  });
+  }, []);
   return {
     account: currentAccount,
     refresh,

@@ -10,9 +10,9 @@ export default defineConfig({
       },
     ],
   },
-  // TODO: remove after get a domain
-  publicPath: process.env.PUBLIC_PATH || '/ant-design-web3/',
-  base: process.env.BASE || '/ant-design-web3',
+  copy: ['CNAME'],
+  publicPath: process.env.PUBLIC_PATH || '/',
+  base: process.env.BASE || '/',
   themeConfig: {
     name: 'Ant Design Web3',
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
