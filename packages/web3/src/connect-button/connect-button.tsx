@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, ButtonProps, Space } from 'antd';
-import { WalletWhite } from '@ant-design/web3-icons';
+import { Wallet } from '@ant-design/web3-icons';
 import { ConnectModal } from '../ConnectModal';
 import useProvider from '../hooks/useProvider';
 import useCurrentAccount from '../hooks/useCurrentAccount';
@@ -44,7 +44,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         {...rest}
       >
         <Space>
-          {icon && <WalletWhite />}
+          {icon && <Wallet />}
           {account ? <Address ellipsis={ellipsis} address={account.address} /> : 'Connect'}
         </Space>
       </Button>
@@ -62,3 +62,4 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     </>
   );
 };
+ConnectButton.displayName = 'ConnectButton';

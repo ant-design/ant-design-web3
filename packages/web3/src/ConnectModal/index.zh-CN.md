@@ -24,7 +24,7 @@ group:
 ### ConnectModalProps
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | title | ConnectModal 的标题，与 Modal 的 title 类型相同 | `ModalProps['title']` | - | - |
 | theme | ConnectModal 的主题 | `'dark' \| 'light'` | 'light' | - |
 | open | 弹框是否展示，与 Modal 的 open 类型相同 | `ModalProps['open']` | - | - |
@@ -50,31 +50,28 @@ group:
 | app | 该钱包是否支持 APP 调用 | `false \| { link: string }` | - | - |
 | group | 钱包所属分组名称 | `string` | - | - |
 
-
 ### ExtensionItem
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | link | 浏览器扩展程序链接 | `string` | - | - |
-| key  | 浏览器扩展程序 Key | `'Chrome' \| 'Firefox' \| 'Edge' \| 'Safari' \| (string & {})` | - | - |
+| key | 浏览器扩展程序 Key | `'Chrome' \| 'Firefox' \| 'Edge' \| 'Safari' \| (string & {})` | - | - |
 | browserIcon | 浏览器图标 | `string` | - | - |
 | browserName | 浏览器扩展程序名称 | `string` | - | - |
 | description | 浏览器扩展程序的描述 | `string` | - | - |
 
-
 ### DefaultGuide
 
-| 属性 | 描述 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| title | 新手指引面板的标题 | `string` | - | - |
-| infos | 新手指引面板的信息列表 | [GuideInfoItem](#guideinfoitem)\[] | - | - |
-| moreLink | 新手指引面板的更多链接 | `string` | - | - |
+| 属性     | 描述                   | 类型                               | 默认值 | 版本 |
+| -------- | ---------------------- | ---------------------------------- | ------ | ---- |
+| title    | 新手指引面板的标题     | `string`                           | -      | -    |
+| infos    | 新手指引面板的信息列表 | [GuideInfoItem](#guideinfoitem)\[] | -      | -    |
+| moreLink | 新手指引面板的更多链接 | `string`                           | -      | -    |
 
 ### GuideInfoItem
 
-| 属性 | 描述 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| title | 新手指引面板的信息项标题 | `string \| React.ReactNode` | - | - |
-| icon | 新手指引面板的信息项图标 | `string \| React.ReactNode` | - | - |
-| description | 新手指引面板的信息项描述 | `string \| React.ReactNode` | - | - |
-
+| 属性        | 描述                     | 类型                        | 默认值 | 版本 |
+| ----------- | ------------------------ | --------------------------- | ------ | ---- |
+| title       | 新手指引面板的信息项标题 | `string \| React.ReactNode` | -      | -    |
+| icon        | 新手指引面板的信息项图标 | `string \| React.ReactNode` | -      | -    |
+| description | 新手指引面板的信息项描述 | `string \| React.ReactNode` | -      | -    |

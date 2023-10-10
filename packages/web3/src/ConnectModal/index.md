@@ -24,7 +24,7 @@ Connect wallet modal, used with ConnectButton to complete the wallet connection 
 ### ConnectModalProps
 
 | Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | title | The title of ConnectModal, same as Modal's title | `ModalProps['title']` | - | - |
 | theme | The theme of ConnectModal | `'dark' \| 'light'` | 'light' | - |
 | open | Whether the modal is visible, same as Modal's open | `ModalProps['open']` | - | - |
@@ -54,18 +54,18 @@ Connect wallet modal, used with ConnectButton to complete the wallet connection 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | link | Link to browser extension | `string` | - | - |
-| key  | Browser extension key | `'Chrome' \| 'Firefox' \| 'Edge' \| 'Safari' \| (string & {})` | - | - |
+| key | Browser extension key | `'Chrome' \| 'Firefox' \| 'Edge' \| 'Safari' \| (string & {})` | - | - |
 | browserIcon | Browser icon | `string` | - | - |
 | browserName | Browser extension name | `string` | - | - |
 | description | Description of browser extension | `string` | - | - |
 
 ### DefaultGuide
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| title | Guide title | `string` | - | - |
-| infos | Guide info list | [GuideInfo](#guideinfo)\[] | - | - |
-| moreLink | More link | `string` | - | - |
+| Property | Description     | Type                       | Default | Version |
+| -------- | --------------- | -------------------------- | ------- | ------- |
+| title    | Guide title     | `string`                   | -       | -       |
+| infos    | Guide info list | [GuideInfo](#guideinfo)\[] | -       | -       |
+| moreLink | More link       | `string`                   | -       | -       |
 
 ### GuideInfoItem
 

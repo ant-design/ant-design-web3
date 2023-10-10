@@ -166,7 +166,7 @@ export default () => {
       <ConnectModal
         open={open}
         theme="dark"
-        title="ConnectModal"
+        title="Connect Wallet"
         footer="蚂蚁链提供技术支持"
         groupOrder={groupOrder}
         walletList={walletList}
@@ -176,7 +176,7 @@ export default () => {
       <ConnectModal
         open={open2}
         theme="dark"
-        title="ConnectModal"
+        title="Connect Wallet"
         footer="蚂蚁链提供技术支持"
         groupOrder={groupOrder}
         walletList={walletList}
