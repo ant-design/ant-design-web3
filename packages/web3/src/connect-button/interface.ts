@@ -1,3 +1,5 @@
+import type { ButtonProps } from 'antd';
+
 export type CommonButtonProps = {
   /**
    * Class name
@@ -46,8 +48,9 @@ export type ChainSelectProps = CommonButtonProps & {
   chains: ChainSelectItem[];
 };
 
-export type ConnectButtonPropsNew = CommonButtonProps &
-  UnconnectedButtonProps & {
+export type ConnectButtonProps = CommonButtonProps &
+  UnconnectedButtonProps &
+  ButtonProps & {
     /**
      * @default false
      */
@@ -60,8 +63,8 @@ export type ConnectButtonPropsNew = CommonButtonProps &
      * @default false
      */
     showSwitchChain?: boolean;
-    onConnect?: () => void;
-    onDisconnect?: () => void;
-    onSwitchChain?: () => void;
-    onCopyAddress?: () => void;
+    // onConnect?: () => void;
+    // onDisconnect?: () => void;
+    // onSwitchChain?: () => void;
+    // onCopyAddress?: () => void;
   };

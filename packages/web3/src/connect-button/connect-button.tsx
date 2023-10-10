@@ -1,65 +1,28 @@
 import React from 'react';
-import { Button, ButtonProps, Space } from 'antd';
-import { Wallet } from '@ant-design/web3-icons';
-import { ConnectModal } from '../ConnectModal';
-import useProvider from '../hooks/useProvider';
+import { Button } from 'antd';
 import useCurrentAccount from '../hooks/useCurrentAccount';
 import { Address } from '../Address';
-import { WalletsPresets, walletsPresetsConfig } from '../constants';
-
-export interface ConnectButtonAvatar {
-  src?: string | React.ReactNode;
-  position?: 'left' | 'right';
-}
-
-export interface ChainOptions {
-  name: string | React.ReactNode;
-  id: number;
-}
-
-export interface ConnectButtonProps extends ButtonProps {
-  icon?: React.ReactNode;
-  ellipsis?: boolean;
-  tooltip?: boolean;
-  avatar?: ConnectButtonAvatar;
-  chainOptions?: ChainOptions[];
-  walletsPresets?: WalletsPresets;
-}
+import type { ConnectButtonProps } from './interface';
+import { UnconnectedButton } from './unconnected-button';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
-  const { icon, ellipsis, tooltip, avatar, chainOptions, walletsPresets, ...rest } = props;
-  const [open, setOpen] = React.useState(false);
-  const { provider } = useProvider();
-  const { account, refresh } = useCurrentAccount();
-  const [loading, setLoading] = React.useState(false);
+  const { account } = useCurrentAccount();
+
+  if (!account) {
+    return <UnconnectedButton {...props} />;
+  }
 
   return (
-    <>
-      <Button
-        type="primary"
-        loading={loading}
-        onClick={async () => {
-          setOpen(true);
-        }}
-        {...rest}
-      >
-        <Space>
-          {icon && <Wallet />}
-          {account ? <Address ellipsis={ellipsis} address={account.address} /> : 'Connect'}
-        </Space>
-      </Button>
-      <ConnectModal
-        open={open}
-        walletList={walletsPresetsConfig[walletsPresets || WalletsPresets.SIMPLE]}
-        onOpenChange={setOpen}
-        onSelectWallet={async () => {
-          setLoading(true);
-          await provider?.requestAccounts();
-          await refresh();
-          setLoading(false);
-        }}
-      />
-    </>
+    <Button
+      {...props}
+      style={props.style}
+      className={props.className}
+      size={props.size}
+      type={props.type}
+      ghost={props.ghost}
+    >
+      <Address ellipsis address={account.address} />
+    </Button>
   );
 };
 ConnectButton.displayName = 'ConnectButton';
