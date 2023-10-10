@@ -7,6 +7,18 @@ export enum Chains {
   bitcoin = 'bitcoin:',
 }
 
+export interface Chain {
+  id: number;
+  name: string;
+  rpcHttpUrl?: string;
+  blockExplorerUrl?: string;
+  nativeCurrency?: {
+    decimals: number;
+    name: string;
+    symbol: string;
+  };
+}
+
 export interface NFTMetadata {
   name?: string;
   description?: string;
