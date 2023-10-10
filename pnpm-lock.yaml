@@ -130,6 +130,9 @@ importers:
       antd:
         specifier: ^5.8.3
         version: 5.9.3(react-dom@18.2.0)(react@18.2.0)
+      babel-plugin-inline-react-svg:
+        specifier: ^2.0.2
+        version: 2.0.2(@babel/core@7.23.0)
       father:
         specifier: ^4.1.9
         version: 4.3.5(@types/node@16.18.54)(styled-components@6.0.8)(webpack@5.88.2)
@@ -5423,6 +5426,20 @@ packages:
     resolution: {integrity: sha512-jZVI+s9Zg3IqA/kdi0i6UDCybUI3aSBLnglhYbSSjKlV7yF1F/5LWv8MakQmvYpnbJDS6fcBL2KzHSxNCMtWSQ==}
     dependencies:
       object.assign: 4.1.4
+    dev: true
+
+  /babel-plugin-inline-react-svg@2.0.2(@babel/core@7.23.0):
+    resolution: {integrity: sha512-iM9obPpCcdPE1EJE+UF+tni7CZ4q/OvdDm/TeBBHAYAEOqDcFd7fdnmym6OYAQMYfEpUnRYUYx2KxSUyo4cQxQ==}
+    engines: {node: '>=10.13'}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+    dependencies:
+      '@babel/core': 7.23.0
+      '@babel/helper-plugin-utils': 7.22.5
+      '@babel/parser': 7.23.0
+      lodash.isplainobject: 4.0.6
+      resolve: 2.0.0-next.4
+      svgo: 2.8.0
     dev: true
 
   /babel-plugin-istanbul@6.1.1:
@@ -10873,6 +10890,10 @@ packages:
 
   /lodash.isequal@4.5.0:
     resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==}
+    dev: true
+
+  /lodash.isplainobject@4.0.6:
+    resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
     dev: true
 
   /lodash.memoize@4.1.2:
