@@ -39,5 +39,8 @@
     "Firefox ESR",
     "> 1%",
     "ie >= 11"
-  ]
+  ],
+  "dependencies": {
+    "@ant-design/icons": "^5.2.6"
+  }
 }
