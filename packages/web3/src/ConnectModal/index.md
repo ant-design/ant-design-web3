@@ -30,7 +30,7 @@ Connect wallet modal, used with ConnectButton to complete the wallet connection 
 | open | Whether the modal is visible, same as Modal's open | `ModalProps['open']` | - | - |
 | onOpenChange | Callback when the modal visibility changes | `(open: boolean) => void` | - | - |
 | onSelectWallet | Callback when the wallet is selected | `(wallet: Wallet) => void` | - | - |
-| modalProps | Pass through the props of Modal | `ModalProps` | - | - | - |
+| modalProps | Pass through the props of Modal | `ModalProps` | - | - |
 | prefixCls | Class prefix | `string` | - | - |
 | footer | Custom footer | `React.ReactNode` | - | - |
 | walletList | Wallet list | `Wallet[]` | - | - |
@@ -54,18 +54,18 @@ Connect wallet modal, used with ConnectButton to complete the wallet connection 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | link | Link to browser extension | `string` | - | - |
-| key  | Browser extension key | `'Chrome' \| 'Firefox' \| 'Edge' \| 'Safari' \| (string & {})` | - | - |
+| key | Browser extension key | `'Chrome' \| 'Firefox' \| 'Edge' \| 'Safari' \| (string & {})` | - | - |
 | browserIcon | Browser icon | `string` | - | - |
 | browserName | Browser extension name | `string` | - | - |
 | description | Description of browser extension | `string` | - | - |
 
 ### DefaultGuide
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| title | Guide title | `string` | - | - |
-| infos | Guide info list | [GuideInfo](#guideinfo)\[] | - | - |
-| moreLink | More link | `string` | - | - |
+| Property | Description     | Type                       | Default | Version |
+| -------- | --------------- | -------------------------- | ------- | ------- |
+| title    | Guide title     | `string`                   | -       | -       |
+| infos    | Guide info list | [GuideInfo](#guideinfo)\[] | -       | -       |
+| moreLink | More link       | `string`                   | -       | -       |
 
 ### GuideInfoItem
 

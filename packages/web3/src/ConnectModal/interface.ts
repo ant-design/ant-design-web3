@@ -152,7 +152,7 @@ export type ConnectModalProps = {
    * @descEn Callback when the wallet is selected
    * @param wallet 选中的钱包
    * @paramEn Selected wallet
-   * @returns 
+   * @returns
    */
   onSelectWallet?: (wallet: Wallet) => void;
   /**
@@ -183,7 +183,7 @@ export type ConnectModalProps = {
    * @descEn Wallet group sorting function
    * @param a groupName1
    * @param b groupName2
-   * @returns 
+   * @returns
    */
   groupOrder?: (a: string, b: string) => number;
   /**

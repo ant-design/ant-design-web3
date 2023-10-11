@@ -7,6 +7,18 @@ export enum Chains {
   bitcoin = 'bitcoin:',
 }
 
+export interface Chain {
+  id: number;
+  name: string;
+  rpcHttpUrl?: string;
+  blockExplorerUrl?: string;
+  nativeCurrency?: {
+    decimals: number;
+    name: string;
+    symbol: string;
+  };
+}
+
 export enum Wallets {
   MetaMask = 'MetaMask',
   WalletConnect = 'WalletConnect',
@@ -50,5 +62,5 @@ export interface WalletProviderFactory {
 }
 
 export interface JsonRpcProvider {
-  getRpcUrl(chain: Chains): string;
+  getRpcUrl: (chain: Chains) => string;
 }

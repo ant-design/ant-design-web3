@@ -161,7 +161,7 @@ export default () => {
       </Button>
       <ConnectModal
         open={open}
-        title="ConnectModal"
+        title="Connect Wallet"
         footer="蚂蚁链提供技术支持"
         groupOrder={groupOrder}
         walletList={walletList}
