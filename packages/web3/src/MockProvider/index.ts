@@ -1,4 +1,8 @@
-import type { Web3ProviderInterface, Account } from '@ant-design/web3-common';
+import type {
+  Web3ProviderInterface,
+  Account,
+  Web3ProviderEventType,
+} from '@ant-design/web3-common';
 import { Chains } from '@ant-design/web3-common';
 
 export class MockProvider implements Web3ProviderInterface {
@@ -32,7 +36,8 @@ export class MockProvider implements Web3ProviderInterface {
     this.currentAccount = undefined;
     this.addressList = [];
   };
-  on = (type: string, handler: () => void) => {};
+  on = (type: Web3ProviderEventType, handler: () => void) => {};
+  off = (type: Web3ProviderEventType, handler: () => void) => {};
 
   getQrCodeLink = async () => {
     return new Promise<string>((resolve) =>

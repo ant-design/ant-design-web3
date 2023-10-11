@@ -6,7 +6,7 @@ module.exports = {
   testTimeout: 3e4,
   transformIgnorePatterns: [`/node_modules/(?!${[].join('|')})`],
   transform: {
-    '^.+\\.(ts|tsx)$': [
+    '^.+\\.(ts|tsx|js|jsx)$': [
       '@swc/jest',
       {
         jsc: {

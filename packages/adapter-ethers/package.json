@@ -36,5 +36,6 @@
     "Firefox ESR",
     "> 1%",
     "ie >= 11"
-  ]
+  ],
+  "repository": "git@github.com:ant-design/ant-design-web3.git"
 }

@@ -68,7 +68,7 @@ export class ProviderAdapter extends EventEmitter implements Web3ProviderInterfa
     // for wallect connect provider
     // TODO: fix type
     // @ts-ignore
-    await eip1193Provider?.connect();
+    await eip1193Provider?.connect?.();
     const provider = new ethers.BrowserProvider(eip1193Provider);
     await provider.getSigner();
     const accounts = await this.getAccounts();
@@ -84,7 +84,7 @@ export class ProviderAdapter extends EventEmitter implements Web3ProviderInterfa
     // for wallect connect provider
     // TODO: fix type
     // @ts-ignore
-    await eip1193Provider?.disconnect();
+    await eip1193Provider?.disconnect?.();
     // TODO: disconnect for MetaMask
     this.useWallet = undefined;
     this.eip1193Provider = undefined;

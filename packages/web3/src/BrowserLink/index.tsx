@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Tooltip } from 'antd';
 import { Chains } from '@ant-design/web3-common';
 import useProvider from '../hooks/useProvider';
@@ -16,17 +16,7 @@ export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
   const { icon, ellipsis, address, href } = props;
   const { provider } = useProvider();
 
-  const { account, refresh } = useCurrentAccount();
-  const getAccount = async () => {
-    await provider?.getAccounts();
-    await refresh();
-  };
-
-  useEffect(() => {
-    if (!address) {
-      getAccount();
-    }
-  }, []);
+  const { account } = useCurrentAccount();
 
   const mergedAddress = (address || account?.address) ?? '';
   const mergedHref = href || `${provider?.chain ?? Chains.EthereumMainnet}${mergedAddress}`;
