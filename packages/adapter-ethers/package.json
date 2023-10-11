@@ -18,7 +18,8 @@
     "build": "father build"
   },
   "dependencies": {
-    "@ant-design/web3-common": "workspace:*"
+    "@ant-design/web3-common": "workspace:*",
+    "eventemitter3": "^5.0.1"
   },
   "devDependencies": {
     "father": "^4.1.9",
@@ -35,5 +36,6 @@
     "Firefox ESR",
     "> 1%",
     "ie >= 11"
-  ]
+  ],
+  "repository": "git@github.com:ant-design/ant-design-web3.git"
 }

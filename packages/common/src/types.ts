@@ -38,12 +38,19 @@ export interface NFTMetadata {
   compiler?: string;
 }
 
+export enum Web3ProviderEventType {
+  AccountsChanged = 'accountsChanged',
+}
+
 export interface Web3ProviderInterface {
   getAccounts: () => Promise<Account[]>;
   getCurrentAccount: () => Promise<Account | undefined>;
   requestAccounts: (wallet?: Wallets) => Promise<Account[]>;
   getQrCodeLink: () => Promise<string>;
   getNFTMetadata: (address: string, id: number) => Promise<NFTMetadata>;
+  disconnect: () => Promise<void>;
+  on: (type: Web3ProviderEventType, handler: (params?: any) => void) => void;
+  off: (type: Web3ProviderEventType, handler: (params?: any) => void) => void;
   chain?: Chains;
 }
 
@@ -57,8 +64,12 @@ export interface EIP1193LikeProvider {
   request: (request: { method: string; params?: any }) => Promise<any>;
 }
 
+export interface WalletProviderOptions {
+  walletConnectProjectId?: string;
+}
+
 export interface WalletProviderFactory {
-  create: () => Promise<EIP1193LikeProvider>;
+  create: (options?: WalletProviderOptions) => Promise<EIP1193LikeProvider>;
 }
 
 export interface JsonRpcProvider {
