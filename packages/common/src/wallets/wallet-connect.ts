@@ -1,4 +1,4 @@
-// For WallectConnect V2, not support WallectConnect V1
+// Only for WallectConnect v2, v1 is not supported
 import { EIP1193LikeProvider, WalletProviderFactory, WalletProviderOptions } from '../types';
 import { EthereumProvider } from '@walletconnect/ethereum-provider';
 

@@ -28,6 +28,11 @@ export class MockProvider implements Web3ProviderInterface {
       }, 1000);
     });
   };
+  disconnect = async () => {
+    this.currentAccount = undefined;
+    this.addressList = [];
+  };
+  on = (type: string, handler: () => void) => {};
 
   getQrCodeLink = async () => {
     return new Promise<string>((resolve) =>

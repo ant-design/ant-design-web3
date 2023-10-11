@@ -18,7 +18,8 @@
     "build": "father build"
   },
   "dependencies": {
-    "@ant-design/web3-common": "workspace:*"
+    "@ant-design/web3-common": "workspace:*",
+    "eventemitter3": "^5.0.1"
   },
   "devDependencies": {
     "father": "^4.1.9",

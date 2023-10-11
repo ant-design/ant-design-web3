@@ -38,12 +38,19 @@ export interface NFTMetadata {
   compiler?: string;
 }
 
+export enum Web3ProviderEventType {
+  AccountsChanged = 'accountsChanged',
+}
+
 export interface Web3ProviderInterface {
   getAccounts: () => Promise<Account[]>;
   getCurrentAccount: () => Promise<Account | undefined>;
   requestAccounts: (wallet?: Wallets) => Promise<Account[]>;
   getQrCodeLink: () => Promise<string>;
   getNFTMetadata: (address: string, id: number) => Promise<NFTMetadata>;
+  disconnect: () => Promise<void>;
+  on: (type: Web3ProviderEventType, handler: (params?: any) => void) => void;
+  off: (type: Web3ProviderEventType, handler: (params?: any) => void) => void;
   chain?: Chains;
 }
 
