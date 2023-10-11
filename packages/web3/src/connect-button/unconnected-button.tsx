@@ -1,9 +1,14 @@
 import React from 'react';
 import { Button } from 'antd';
 import { Wallet } from '@ant-design/web3-icons';
+import useProvider from '../hooks/useProvider';
+import { Wallets } from '@ant-design/web3-common';
+import useCurrentAccount from '../hooks/useCurrentAccount';
 import type { UnconnectedButtonProps } from './interface';
 
 export const UnconnectedButton: React.FC<UnconnectedButtonProps> = (props) => {
+  const { provider } = useProvider();
+  const { refresh } = useCurrentAccount();
   return (
     <Button
       style={props.style}
@@ -11,6 +16,10 @@ export const UnconnectedButton: React.FC<UnconnectedButtonProps> = (props) => {
       size={props.size}
       type={props.type}
       ghost={props.ghost}
+      onClick={async () => {
+        await provider?.requestAccounts(Wallets.WalletConnect);
+        refresh();
+      }}
       icon={props.connectIcon === false ? undefined : props.connectIcon ?? <Wallet />}
     >
       {props.connectText ?? 'Connect Wallet'}

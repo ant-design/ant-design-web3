@@ -39,5 +39,9 @@
     "Firefox ESR",
     "> 1%",
     "ie >= 11"
-  ]
+  ],
+  "dependencies": {
+    "@walletconnect/ethereum-provider": "^2.10.2",
+    "@walletconnect/modal": "^2.6.2"
+  }
 }

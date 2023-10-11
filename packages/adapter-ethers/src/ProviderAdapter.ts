@@ -4,6 +4,7 @@ import {
   Account,
   Wallets,
   getWalletProviderFactory,
+  WalletProviderOptions,
   JsonRpcProvider,
   Chains,
   requestWeb3Asset,
@@ -15,7 +16,7 @@ const USE_WALLET_LOCAL_STORAGE_KEY = 'antd-web3-use-wallet';
 export class ProviderAdapter implements Web3ProviderInterface {
   private useWallet?: Wallets;
 
-  constructor(private rpcProvider?: JsonRpcProvider) {
+  constructor(private rpcProvider?: JsonRpcProvider, private options?: WalletProviderOptions) {
     const wallet = localStorage.getItem(USE_WALLET_LOCAL_STORAGE_KEY);
     if (Object.values(Wallets).includes(wallet as Wallets)) {
       this.useWallet = wallet as Wallets;
@@ -27,7 +28,7 @@ export class ProviderAdapter implements Web3ProviderInterface {
       return [];
     }
     const provderFactory = getWalletProviderFactory(this.useWallet);
-    const eip1193Provider = await provderFactory.create();
+    const eip1193Provider = await provderFactory.create(this.options);
     const provider = new ethers.BrowserProvider(eip1193Provider);
     const accounts = await provider.listAccounts();
     return accounts.map((account) => {
@@ -47,7 +48,11 @@ export class ProviderAdapter implements Web3ProviderInterface {
     localStorage.setItem(USE_WALLET_LOCAL_STORAGE_KEY, this.useWallet);
 
     const provderFactory = getWalletProviderFactory(this.useWallet);
-    const eip1193Provider = await provderFactory.create();
+    const eip1193Provider = await provderFactory.create(this.options);
+    // for wallect connect provider
+    // TODO: fix type
+    // @ts-ignore
+    eip1193Provider?.connect();
     const provider = new ethers.BrowserProvider(eip1193Provider);
     await provider.getSigner();
     return this.getAccounts();

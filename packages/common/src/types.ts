@@ -57,8 +57,12 @@ export interface EIP1193LikeProvider {
   request: (request: { method: string; params?: any }) => Promise<any>;
 }
 
+export interface WalletProviderOptions {
+  walletConnectProjectId?: string;
+}
+
 export interface WalletProviderFactory {
-  create: () => Promise<EIP1193LikeProvider>;
+  create: (options?: WalletProviderOptions) => Promise<EIP1193LikeProvider>;
 }
 
 export interface JsonRpcProvider {
