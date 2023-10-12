@@ -4,7 +4,6 @@ import type {
   Account,
   UniversalWeb3ProviderEventType,
 } from '@ant-design/web3-common';
-import { Chains } from '@ant-design/web3-common';
 
 export class MockProvider implements UniversalWeb3ProviderInterface {
   private currentAccount?: Account;
@@ -167,7 +166,6 @@ export class MockProvider implements UniversalWeb3ProviderInterface {
       ),
     );
   };
-  chain = Chains.bitcoin;
   getNFTMetadata = async (address: string, id: number) => {
     return {
       name: 'OurMetaverseDAO NFT #6',

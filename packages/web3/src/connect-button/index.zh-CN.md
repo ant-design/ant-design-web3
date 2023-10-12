@@ -5,7 +5,7 @@ group: 组件
 
 # ConnectButton
 
-TODO
+快速和区块链建立连接。
 
 ## 基本使用
 

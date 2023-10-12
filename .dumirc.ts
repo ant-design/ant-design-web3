@@ -16,6 +16,10 @@ export default defineConfig({
   themeConfig: {
     name: 'Ant Design Web3',
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+    socialLinks: {
+      github: 'https://github.com/ant-design/ant-design-web3',
+    },
+    editLink: false,
   },
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
   metas: [

@@ -1,6 +1,7 @@
 ---
 nav: Components
 group: General
+order: 2
 ---
 
 # Hooks

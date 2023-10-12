@@ -15,7 +15,7 @@ export interface CreateProviderOptions {
 
 const debug = createDebug('eip1193-provider');
 
-const wallectsMethods = ['eth_requestAccounts', 'eth_accounts', 'eth_chainId'];
+const wallectsMethods = ['eth_requestAccounts', 'eth_accounts'];
 
 export interface EthereumProvider extends EIP1193LikeProvider {
   wallets: WalletMetadata[];
