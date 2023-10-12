@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[328],{99252:function(s,_,e){e.r(_);var d=e(88486),n=e(62086);_.default=function(){return(0,n.jsx)(d.aU,{address:"0x79fcdef22feed20eddacbb2587640e45491b757f",id:42})}}}]);
