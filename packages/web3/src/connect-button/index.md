@@ -1,6 +1,8 @@
 ---
 nav: Components
-group: Components
+group:
+  title: Components
+  order: 2
 ---
 
 # ConnectButton

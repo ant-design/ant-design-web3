@@ -1,6 +1,9 @@
 ---
 nav: Components
-group: General
+group:
+  title: General
+  order: 1
+order: 1
 ---
 
 # Icons
