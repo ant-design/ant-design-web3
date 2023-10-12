@@ -1,4 +1,5 @@
-import { JsonRpcProvider, Chains, EIP1193LikeProvider } from '../types';
+import { JsonRpcProvider, Chain, ChainIds, EIP1193LikeProvider } from '../types';
+import { mainnet } from '../chains';
 
 export interface ZANJsonRpcProviderProps {
   apiKey: string;
@@ -7,8 +8,9 @@ export interface ZANJsonRpcProviderProps {
 export class ZANJsonRpcProvider implements JsonRpcProvider {
   constructor(private options: ZANJsonRpcProviderProps) {}
 
-  getRpcUrl(chain: Chains): string {
-    if (chain === Chains.EthereumMainnet) {
+  // TODO: support more chain
+  getRpcUrl(chain: Chain): string {
+    if (chain.id === ChainIds.Mainnet) {
       return `https://api.zan.top/node/v1/eth/mainnet/${this.options.apiKey}`;
     }
     throw new Error(`Unsupported chain: ${chain}`);
@@ -18,7 +20,7 @@ export class ZANJsonRpcProvider implements JsonRpcProvider {
     return {
       request: async (request: { method: string; params?: any }) => {
         const { method, params } = request;
-        const response = await fetch(this.getRpcUrl(Chains.EthereumMainnet), {
+        const response = await fetch(this.getRpcUrl(mainnet), {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
