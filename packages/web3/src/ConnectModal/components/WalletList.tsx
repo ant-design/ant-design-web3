@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react';
 import { Avatar, List, message } from 'antd';
-import type { ConnectModalProps, Wallet } from '../interface';
+import type { ConnectModalProps, WalletMetadata } from '../interface';
 import { defaultGroupOrder, getWalletRoute } from '../utils';
 import { connectModalContext } from '../context';
 import classNames from 'classnames';
@@ -11,8 +11,8 @@ const WalletList: React.FC<WalletListProps> = (props) => {
   const { walletList = [], groupOrder } = props;
   const { prefixCls, updateSelectedWallet, selectedWallet, updatePanelRoute } =
     useContext(connectModalContext);
-  const dataSource: Record<string, Wallet[]> = useMemo(() => {
-    const result: Record<string, Wallet[]> = {};
+  const dataSource: Record<string, WalletMetadata[]> = useMemo(() => {
+    const result: Record<string, WalletMetadata[]> = {};
     walletList.forEach((wallet) => {
       const { group = 'Default' } = wallet;
       if (!result[group]) {
@@ -34,7 +34,7 @@ const WalletList: React.FC<WalletListProps> = (props) => {
         <div className={`${prefixCls}-group`} key={group}>
           <div className={`${prefixCls}-group-title`}>{group}</div>
           <div className={`${prefixCls}-group-content`}>
-            <List<Wallet>
+            <List<WalletMetadata>
               itemLayout="horizontal"
               dataSource={dataSource[group]}
               rowKey="key"
@@ -47,6 +47,10 @@ const WalletList: React.FC<WalletListProps> = (props) => {
                         : selectedWallet?.name === item.name,
                   })}
                   onClick={() => {
+                    if (item.installed) {
+                      updateSelectedWallet(item);
+                      return;
+                    }
                     const route = getWalletRoute(item);
                     if (route !== 'unknown') {
                       updateSelectedWallet(item);

@@ -1,5 +1,5 @@
 import type React from 'react';
-import type { Wallet } from '../interface';
+import type { WalletMetadata } from '../interface';
 import { getPlatform } from '../../utils';
 
 export const mergeReactNodeProps = (
@@ -14,7 +14,7 @@ export const mergeReactNodeProps = (
 
 export const defaultGroupOrder = (a: string, b: string) => a.localeCompare(b);
 
-export const getWalletRoute = (wallet: Wallet) => {
+export const getWalletRoute = (wallet: WalletMetadata) => {
   const curExtensions =
     wallet?.extensions && wallet.extensions.some((item) => item.key === getPlatform());
 

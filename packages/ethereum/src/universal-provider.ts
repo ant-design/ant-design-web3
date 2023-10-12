@@ -2,25 +2,31 @@ import {
   UniversalWeb3ProviderInterface,
   NFTMetadata,
   Account,
-  Wallets,
   requestWeb3Asset,
-  EIP1193LikeProvider,
   UniversalWeb3ProviderEventType,
+  WalletMetadata,
 } from '@ant-design/web3-common';
 import { EventEmitter } from 'eventemitter3';
 import { ethers } from 'ethers';
+import { EthereumProvider } from './eip1193-provider';
 
 const USE_WALLET_LOCAL_STORAGE_KEY = 'antd-web3-use-wallet';
 
 export class UniversalProvider extends EventEmitter implements UniversalWeb3ProviderInterface {
-  private useWallet?: Wallets;
+  private useWallet?: string;
 
-  constructor(private eip1193Provider: EIP1193LikeProvider) {
+  constructor(private eip1193Provider: EthereumProvider) {
     super();
-    const wallet = localStorage.getItem(USE_WALLET_LOCAL_STORAGE_KEY);
-    if (Object.values(Wallets).includes(wallet as Wallets)) {
-      this.useWallet = wallet as Wallets;
+    const wallet: string = localStorage.getItem(USE_WALLET_LOCAL_STORAGE_KEY) || '';
+    if (wallet) {
+      this.updateUseWallet(wallet);
     }
+  }
+
+  private updateUseWallet(wallet: string) {
+    this.useWallet = wallet;
+    localStorage.setItem(USE_WALLET_LOCAL_STORAGE_KEY, this.useWallet);
+    this.eip1193Provider.updateUseWallet(this.useWallet);
   }
 
   async getAccounts(): Promise<Account[]> {
@@ -41,9 +47,10 @@ export class UniversalProvider extends EventEmitter implements UniversalWeb3Prov
     return accounts[0];
   }
 
-  async requestAccounts(wallet?: Wallets): Promise<Account[]> {
-    this.useWallet = wallet || Wallets.MetaMask;
-    localStorage.setItem(USE_WALLET_LOCAL_STORAGE_KEY, this.useWallet);
+  async requestAccounts(wallet?: string): Promise<Account[]> {
+    if (wallet) {
+      this.updateUseWallet(wallet);
+    }
     await this.eip1193Provider?.connect?.();
     const provider = new ethers.BrowserProvider(this.eip1193Provider);
     await provider.getSigner();
@@ -57,9 +64,12 @@ export class UniversalProvider extends EventEmitter implements UniversalWeb3Prov
       return;
     }
     await this.eip1193Provider?.disconnect?.();
-    this.useWallet = undefined;
-    localStorage.removeItem(USE_WALLET_LOCAL_STORAGE_KEY);
+    this.updateUseWallet('');
     this.emit(UniversalWeb3ProviderEventType.AccountsChanged, []);
+  }
+
+  async getAvaliableWallets(): Promise<WalletMetadata[]> {
+    return this.eip1193Provider.wallets;
   }
 
   getQrCodeLink(): Promise<string> {

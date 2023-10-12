@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
-import type { Wallet } from '../interface';
+import type { WalletMetadata } from '../interface';
 import MainPanelHeader from './MainPanelHeader';
 import { connectModalContext } from '../context';
 import { Button, QRCode } from 'antd';
 import useProvider from '../../hooks/useProvider';
 
 export type QrCodeProps = {
-  wallet: Wallet;
+  wallet: WalletMetadata;
   isSimple?: boolean;
 };
 
