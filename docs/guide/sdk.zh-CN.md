@@ -9,7 +9,7 @@ group:
 
 `@ant-design/web3-ethereum` 中的 `createProvider` 创建出来的 Provider 满足 EIP1193 的规范，你可以很方便的和各种流行的区块链 SDK 结合使用。比如和 `ethers.js` 结合使用如下：
 
-```typescript
+```tsx | pure
 import { createProvider } from '@ant-design/web3-ethereum';
 import { ethers } from 'ethers';
 

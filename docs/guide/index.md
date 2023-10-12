@@ -22,7 +22,7 @@ npm i @ant-design/web3 @ant-design/web3-ethereum --save
 
 `@ant-design/web3` is a pure UI component library that you can directly use. For example, you can use the `BrowserLink` component:
 
-```typescript
+```tsx | pure
 import { BrowserLink } from '@ant-design/web3';
 
 export default () => {
@@ -34,7 +34,7 @@ export default () => {
 
 You can also connect certain UI components to the blockchain by importing the `Web3Provider` from `@ant-design/web3-ethereum`. The following example demonstrates how to display an NFT image using the `NFTImage` component.
 
-```typescript
+```tsx | pure
 import { Web3Provider, createProvider, ZANJsonRpcProvider } from '@ant-design/web3-ethereum';
 import { NFTImage } from '@ant-design/web3';
 

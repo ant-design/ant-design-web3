@@ -9,7 +9,7 @@ group:
 
 The Provider created by `createProvider` in `@ant-design/web3-ethereum` conforms to the EIP1193 specification, allowing you to easily integrate it with various popular blockchain SDKs. For example, you can combine it with `ethers.js` as follows:
 
-```typescript
+```tsx | pure
 import { createProvider } from '@ant-design/web3-ethereum';
 import { ethers } from 'ethers';
 
