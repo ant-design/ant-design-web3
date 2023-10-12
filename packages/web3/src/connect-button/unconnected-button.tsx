@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import { Wallet } from '@ant-design/web3-icons';
 import useProvider from '../hooks/useProvider';
 import type { UnconnectedButtonProps } from './interface';
-import { ConnectModal } from '../ConnectModal';
+import { ConnectModal } from '../connect-modal';
 import useWallets from '../hooks/useWallets';
 
 export const UnconnectedButton: React.FC<UnconnectedButtonProps> = (props) => {

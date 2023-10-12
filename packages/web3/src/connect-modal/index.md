@@ -1,6 +1,6 @@
 ---
-group:
-  title: Components
+nav: Components
+group: Components
 ---
 
 # ConnectModal

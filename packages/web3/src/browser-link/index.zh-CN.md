@@ -1,6 +1,6 @@
 ---
-group:
-  title: 组件
+nav: 组件
+group: 组件
 ---
 
 # BrowerLink
