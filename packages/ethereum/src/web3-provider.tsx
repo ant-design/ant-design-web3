@@ -1,9 +1,10 @@
 import React from 'react';
-import { Web3ConfigProvider, EIP1193LikeProvider } from '@ant-design/web3-common';
+import { Web3ConfigProvider } from '@ant-design/web3-common';
+import { EthereumProvider } from './eip1193-provider';
 import { UniversalProvider } from './universal-provider';
 
 export interface Web3ProviderProps {
-  provider: EIP1193LikeProvider;
+  provider: EthereumProvider;
   children?: React.ReactNode;
 }
 

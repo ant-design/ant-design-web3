@@ -1,11 +1,11 @@
-import { Wallet } from '../ConnectModal/interface';
+import { WalletMetadata } from '../ConnectModal/interface';
 
 export enum WalletsPresets {
   SIMPLE = 'simple',
 }
 
 export type WalletsPresetsConfig = {
-  [key in string]: Wallet[];
+  [key in string]: WalletMetadata[];
 };
 
 export const walletsPresetsConfig: WalletsPresetsConfig = {

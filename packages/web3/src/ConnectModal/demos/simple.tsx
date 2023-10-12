@@ -1,9 +1,9 @@
 import { ConnectModal } from '@ant-design/web3';
 import { Button } from 'antd';
 import React from 'react';
-import type { Wallet } from '../interface';
+import type { WalletMetadata } from '../interface';
 
-const walletList: Wallet[] = [
+const walletList: WalletMetadata[] = [
   {
     icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
     name: '测试钱包',

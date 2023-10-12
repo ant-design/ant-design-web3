@@ -1,6 +1,6 @@
-import type { DefaultGuide, Wallet } from '@ant-design/web3';
+import type { DefaultGuide } from '@ant-design/web3';
 
-export const walletList: Wallet[] = [
+export const walletList = [
   {
     icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
     name: '测试钱包',

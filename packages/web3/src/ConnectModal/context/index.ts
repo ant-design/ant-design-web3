@@ -1,11 +1,11 @@
 import React from 'react';
-import type { PanelRoute, Theme, Wallet } from '../interface';
+import type { PanelRoute, Theme, WalletMetadata } from '../interface';
 
 export type ConnectModalContext = {
   prefixCls: string;
   theme: Theme;
-  selectedWallet: Wallet | undefined;
-  updateSelectedWallet: (wallet: Wallet | undefined) => void;
+  selectedWallet: WalletMetadata | undefined;
+  updateSelectedWallet: (wallet: WalletMetadata | undefined) => void;
   panelRoute: PanelRoute;
   updatePanelRoute: (route: PanelRoute, clear?: boolean) => void;
   panelRouteBack: () => void;
