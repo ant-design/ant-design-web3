@@ -1,9 +1,9 @@
 ---
-group:
-  title: Components
+nav: 组件
+group: 组件
 ---
 
-# NFTCard
+# NFTImage
 
 更简单地展示 NFT 图片的组件。
 

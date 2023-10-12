@@ -1,6 +1,6 @@
 ---
-group:
-  title: 组件
+nav: 组件
+group: 组件
 ---
 
 # ConnectModal
@@ -24,13 +24,13 @@ group:
 ### ConnectModalProps
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | title | ConnectModal 的标题，与 Modal 的 title 类型相同 | `ModalProps['title']` | - | - |
 | theme | ConnectModal 的主题 | `'dark' \| 'light'` | 'light' | - |
 | open | 弹框是否展示，与 Modal 的 open 类型相同 | `ModalProps['open']` | - | - |
 | onOpenChange | 弹框可见性改变回调 | `(open: boolean) => void` | - | - |
 | onSelectWallet | 选中钱包回调 | `(wallet: Wallet) => void` | - | - |
-| modalProps | 透传 Modal 的 props | `ModalProps` | - | - | - |
+| modalProps | 透传 Modal 的 props | `ModalProps` | - | - |
 | prefixCls | class 前缀 | `string` | - | - |
 | footer | 自定义 footer | `React.ReactNode` | - | - |
 | walletList | 钱包列表 | `Wallet[]` | - | - |

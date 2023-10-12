@@ -1,4 +1,4 @@
-import { WalletMetadata } from '../ConnectModal/interface';
+import { WalletMetadata } from '../connect-modal/interface';
 
 export enum WalletsPresets {
   SIMPLE = 'simple',

@@ -1,9 +1,9 @@
 ---
-group:
-  title: Components
+nav: Components
+group: Components
 ---
 
-# NFTCard
+# NFTImage
 
 Components used to display NFT images more conveniently and simply.
 

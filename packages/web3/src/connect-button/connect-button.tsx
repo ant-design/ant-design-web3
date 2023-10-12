@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 import useCurrentAccount from '../hooks/useCurrentAccount';
 import useProvider from '../hooks/useProvider';
-import { Address } from '../Address';
+import { Address } from '../address';
 import type { ConnectButtonProps } from './interface';
 import { UnconnectedButton } from './unconnected-button';
 
