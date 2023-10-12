@@ -1,6 +1,6 @@
 ---
-group:
-  title: Components
+nav: 组件
+group: 组件
 ---
 
 # NFTCard
