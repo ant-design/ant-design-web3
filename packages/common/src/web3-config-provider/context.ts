@@ -1,13 +1,13 @@
 import React from 'react';
-import type { Web3ProviderInterface, Account } from '@ant-design/web3-common';
+import type { UniversalWeb3ProviderInterface, Account } from '../types';
 
 export interface Web3ConfigProviderProps {
-  provider: Web3ProviderInterface;
+  provider: UniversalWeb3ProviderInterface;
   children?: React.ReactNode;
 }
 
 export interface ConfigConsumerProps {
-  provider?: Web3ProviderInterface;
+  provider?: UniversalWeb3ProviderInterface;
   accounts?: Account[];
 }
 

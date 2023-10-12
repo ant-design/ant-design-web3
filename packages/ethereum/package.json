@@ -1,5 +1,5 @@
 {
-  "name": "@ant-design/web3-adapter-ethers",
+  "name": "@ant-design/web3-ethereum",
   "version": "0.1.0",
   "exports": {
     "import": "./dist/esm/index.js",
@@ -19,9 +19,11 @@
   },
   "dependencies": {
     "@ant-design/web3-common": "workspace:*",
+    "debug": "^4.3.4",
     "eventemitter3": "^5.0.1"
   },
   "devDependencies": {
+    "@types/debug": "^4.1.9",
     "father": "^4.1.9",
     "typescript": "^5.0.4"
   },

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConfigContext, type ConfigConsumerProps } from '../Web3ConfigProvider/context';
+import { ConfigContext, type ConfigConsumerProps } from '@ant-design/web3-common';
 
 export default function useProvider() {
   const context = React.useContext<ConfigConsumerProps>(ConfigContext);

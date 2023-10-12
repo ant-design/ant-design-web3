@@ -2,6 +2,7 @@ export interface Account {
   address: string;
 }
 
+// TODO: remve Chains, use chains
 export enum Chains {
   EthereumMainnet = 'https://etherscan.io/address/',
   bitcoin = 'bitcoin:',
@@ -38,40 +39,43 @@ export interface NFTMetadata {
   compiler?: string;
 }
 
-export enum Web3ProviderEventType {
+export enum UniversalWeb3ProviderEventType {
   AccountsChanged = 'accountsChanged',
 }
 
-export interface Web3ProviderInterface {
+export interface UniversalWeb3ProviderInterface {
   getAccounts: () => Promise<Account[]>;
   getCurrentAccount: () => Promise<Account | undefined>;
   requestAccounts: (wallet?: Wallets) => Promise<Account[]>;
   getQrCodeLink: () => Promise<string>;
   getNFTMetadata: (address: string, id: number) => Promise<NFTMetadata>;
   disconnect: () => Promise<void>;
-  on: (type: Web3ProviderEventType, handler: (params?: any) => void) => void;
-  off: (type: Web3ProviderEventType, handler: (params?: any) => void) => void;
+  on: (type: UniversalWeb3ProviderEventType, handler: (params?: any) => void) => void;
+  off: (type: UniversalWeb3ProviderEventType, handler: (params?: any) => void) => void;
   chain?: Chains;
 }
 
 /**
  * This interface is a subset of the EIP-1193 provider interface.
  * See: https://eips.ethereum.org/EIPS/eip-1193
- *
- * `typeof window.aldaba`
  */
 export interface EIP1193LikeProvider {
   request: (request: { method: string; params?: any }) => Promise<any>;
+  // connect and disconnect for WallectConnect
+  connect?: () => Promise<void>;
+  disconnect?: () => Promise<void>;
 }
 
 export interface WalletProviderOptions {
-  walletConnectProjectId?: string;
+  projectId?: string;
 }
 
-export interface WalletProviderFactory {
+export interface EIP1193LikeProviderFactory {
   create: (options?: WalletProviderOptions) => Promise<EIP1193LikeProvider>;
 }
 
-export interface JsonRpcProvider {
+export interface WalletProvider extends EIP1193LikeProviderFactory {}
+
+export interface JsonRpcProvider extends EIP1193LikeProviderFactory {
   getRpcUrl: (chain: Chains) => string;
 }

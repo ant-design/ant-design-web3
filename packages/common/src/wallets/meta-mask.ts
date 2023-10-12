@@ -1,6 +1,6 @@
-import { EIP1193LikeProvider, WalletProviderFactory } from '../types';
+import { EIP1193LikeProvider, WalletProvider } from '../types';
 
-export class MetaMaskProviderFactory implements WalletProviderFactory {
+export class MetaMaskProvider implements WalletProvider {
   create = async (): Promise<EIP1193LikeProvider> => {
     // @ts-ignore
     if (!window.ethereum) {

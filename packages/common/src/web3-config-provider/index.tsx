@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Account, Web3ProviderEventType } from '@ant-design/web3-common';
+import { Account, UniversalWeb3ProviderEventType } from '../types';
 import { ConfigContext, Web3ConfigProviderProps, ConfigConsumerProps } from './context';
 
 const ProviderChildren: React.FC<ConfigConsumerProps & { children?: React.ReactNode }> = (
@@ -16,9 +16,9 @@ const Web3ConfigProvider: React.FC<Web3ConfigProviderProps> = (props) => {
     const handleAccountsChanged = async (accounts: Account[]) => {
       setAccounts(accounts);
     };
-    provider.on(Web3ProviderEventType.AccountsChanged, handleAccountsChanged);
+    provider.on(UniversalWeb3ProviderEventType.AccountsChanged, handleAccountsChanged);
     return () => {
-      provider.off(Web3ProviderEventType.AccountsChanged, handleAccountsChanged);
+      provider.off(UniversalWeb3ProviderEventType.AccountsChanged, handleAccountsChanged);
     };
   }, [provider]);
   return <ProviderChildren accounts={accounts} {...props} />;
