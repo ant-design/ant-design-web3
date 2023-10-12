@@ -4,12 +4,15 @@ import {
   WalletProvider,
   Chain,
 } from '@ant-design/web3-common';
+import { createDebug } from './utils';
 
 export interface CreateProviderOptions {
   rpcs?: JsonRpcProvider[];
   wallets?: WalletProvider[];
   chains?: Chain[];
 }
+
+const debug = createDebug('eip1193-provider');
 
 const wallectsMethods = ['eth_requestAccounts', 'eth_accounts', 'eth_chainId'];
 
@@ -42,6 +45,7 @@ export function createProvider(options: CreateProviderOptions): EIP1193LikeProvi
   };
 
   const request = async (requestParams: { method: string; params?: any }) => {
+    debug('request', requestParams);
     const { method } = requestParams;
     const rpcProvider = await getRpcProvider();
     const walletProvider = await getWalletProvider();
@@ -66,14 +70,14 @@ export function createProvider(options: CreateProviderOptions): EIP1193LikeProvi
     connect: async () => {
       const walletProvider = await getWalletProvider();
       if (walletProvider) {
-        walletProvider?.connect?.();
+        await walletProvider?.connect?.();
       }
     },
     disconnect: async () => {
       // TODO: disconnect for MetaMask
       const walletProvider = await getWalletProvider();
       if (walletProvider) {
-        walletProvider?.disconnect?.();
+        await walletProvider?.disconnect?.();
       }
     },
   };

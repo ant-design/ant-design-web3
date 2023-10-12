@@ -2,6 +2,7 @@ import {
   Web3Provider,
   createProvider,
   ZANJsonRpcProvider,
+  MetaMaskProvider,
   WalletConnectProvider,
   chains,
 } from '../packages/ethereum/dist/esm'; // use the same provider with demo in dumi
@@ -16,6 +17,7 @@ const provider = createProvider({
     new WalletConnectProvider({
       projectId: 'c07c0051c2055890eade3556618e38a6',
     }),
+    new MetaMaskProvider(),
   ],
   chains: [chains.mainnet],
 });
