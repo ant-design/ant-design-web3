@@ -1,12 +1,12 @@
 ---
 nav: Components
-group: Components
+group: General
 ---
 
-# NFTImage
+# Hooks
 
 Components used to display NFT images more conveniently and simply.
 
-## Simple Usage
+## useNFT
 
-<code src="./demos/simple.tsx"></code>
+<code src="./demos/useNFT.tsx"></code>

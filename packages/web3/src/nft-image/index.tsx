@@ -1,15 +1,15 @@
 import React from 'react';
-import { Image } from 'antd';
+import { Image, ImageProps } from 'antd';
 import { getWeb3AssetUrl } from '@ant-design/web3-common';
 import useNFT from '../hooks/useNFT';
 
-export interface NFTCardProps {
+export interface NFTCardProps extends ImageProps {
   address: string;
-  id: number;
+  tokenId: number;
 }
 
-export const NFTCard: React.FC<NFTCardProps> = ({ address, id }) => {
-  const { metadata } = useNFT(address, id);
+export const NFTImage: React.FC<NFTCardProps> = ({ address, tokenId, ...rest }) => {
+  const { metadata } = useNFT(address, tokenId);
 
-  return <Image src={getWeb3AssetUrl(metadata.image)} />;
+  return <Image src={getWeb3AssetUrl(metadata.image)} {...rest} />;
 };
