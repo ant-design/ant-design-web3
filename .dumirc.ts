@@ -19,6 +19,7 @@ export default defineConfig({
     socialLinks: {
       github: 'https://github.com/ant-design/ant-design-web3',
     },
+    editLink: false,
   },
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
   metas: [
