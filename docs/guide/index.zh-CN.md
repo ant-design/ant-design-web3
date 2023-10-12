@@ -5,6 +5,11 @@ group: 基础
 
 # 快速开始
 
+<!-- prettier-ignore -->
+:::warning
+Ant Design Web3 还在 *ALPHA* 中，我们正在不断完善，如有建议欢迎通过 [Github Issue](https://github.com/ant-design/ant-design-web3/issues) 给我们提建议。 
+:::
+
 ## 安装依赖
 
 你可以通过 `npm` 或者 `pnpm` 等包管理工具安装相关依赖，示例如下：
