@@ -9,12 +9,15 @@ export default function useNFT(address: string, id: number) {
 
   useEffect(() => {
     if (provider) {
+      console.log('reqeust nft data');
       provider
         .getNFTMetadata(address, id)
         .then((data) => {
+          console.log('get data', data);
           setMetadata(data);
         })
         .catch((err) => {
+          console.log('get err', err);
           setError(err);
         });
     }

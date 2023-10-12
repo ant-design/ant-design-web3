@@ -75,25 +75,6 @@ importers:
         specifier: ^5.0.4
         version: 5.2.2
 
-  packages/adapter-ethers:
-    dependencies:
-      '@ant-design/web3-common':
-        specifier: workspace:*
-        version: link:../common
-      ethers:
-        specifier: ^6.7.1
-        version: 6.7.1
-      eventemitter3:
-        specifier: ^5.0.1
-        version: 5.0.1
-    devDependencies:
-      father:
-        specifier: ^4.1.9
-        version: 4.3.5(@types/node@16.18.54)(styled-components@6.0.8)(webpack@5.88.2)
-      typescript:
-        specifier: ^5.0.4
-        version: 5.2.2
-
   packages/common:
     dependencies:
       '@walletconnect/ethereum-provider':
@@ -121,6 +102,25 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      typescript:
+        specifier: ^5.0.4
+        version: 5.2.2
+
+  packages/ethereum:
+    dependencies:
+      '@ant-design/web3-common':
+        specifier: workspace:*
+        version: link:../common
+      ethers:
+        specifier: ^6.7.1
+        version: 6.7.1
+      eventemitter3:
+        specifier: ^5.0.1
+        version: 5.0.1
+    devDependencies:
+      father:
+        specifier: ^4.1.9
+        version: 4.3.5(@types/node@16.18.54)(styled-components@6.0.8)(webpack@5.88.2)
       typescript:
         specifier: ^5.0.4
         version: 5.2.2

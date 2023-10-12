@@ -1,5 +1,5 @@
 {
-  "name": "@ant-design/web3-adapter-ethers",
+  "name": "@ant-design/web3-ethereum",
   "version": "0.1.0",
   "exports": {
     "import": "./dist/esm/index.js",
