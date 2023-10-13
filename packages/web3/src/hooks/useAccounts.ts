@@ -1,10 +1,10 @@
 import useProvider from './useProvider';
 
-export default function useCurrentAccount() {
+export default function useAccounts() {
   const { accounts } = useProvider();
 
   return {
     accounts,
-    account: accounts?.[0],
+    currentAccount: accounts?.[0],
   };
 }

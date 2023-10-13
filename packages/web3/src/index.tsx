@@ -6,3 +6,5 @@ export * from './browser-link';
 export * from './nft-image';
 export * from './constants';
 export * from './hooks';
+
+export type { Account } from '@ant-design/web3-common';
