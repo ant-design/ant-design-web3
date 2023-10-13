@@ -5,6 +5,7 @@
   "workspaces": [
     "packages/*"
   ],
+  "packageManager": "pnpm@8.9.0",
   "files": [],
   "scripts": {
     "dev": "pnpm run --parallel --if-present --recursive --filter \"@ant-design/*\" dev",
