@@ -1,8 +1,17 @@
 import { ConnectModal } from '@ant-design/web3';
-import { groupOrder, guide, walletList } from './mock';
-import { render } from '@testing-library/react';
+import { groupOrder, guide, mockBrowser, walletList } from './mock';
+import { fireEvent, render } from '@testing-library/react';
+import { useEffect, useState } from 'react';
+import { waitFakeTimer } from '../../utils/test-utils';
 
 describe('ConnectModal with guide', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+  mockBrowser("Chrome");
   function testWithTheme(theme: 'light' | 'dark') {
     it(`should render in ${theme} mode`, () => {
       const App = () => (
@@ -66,4 +75,61 @@ describe('ConnectModal with guide', () => {
   }
 
   (['light', 'dark'] as const).forEach(testWithTheme);
+
+  it('panel route change', async () => {
+    const App = () => (
+      <ConnectModal
+        open
+        title="ConnectModal"
+        footer="蚂蚁链提供技术支持"
+        groupOrder={groupOrder}
+        walletList={walletList}
+        guide={guide}
+      />
+    );
+    const { baseElement } = render(<App />);
+
+    fireEvent.click(baseElement.querySelector('.ant-connect-modal-get-btn')!);
+    expect(baseElement.querySelector('.ant-connect-modal-get-wallet-panel')).toBeTruthy();
+    expect(baseElement.querySelectorAll('.ant-connect-modal-item').length).toBe(walletList.length);
+
+    fireEvent.click(baseElement.querySelectorAll('.ant-connect-modal-get-wallet-btn')[0]);
+    expect(baseElement.querySelector('.ant-connect-modal-card-list')).toBeTruthy();
+    expect(baseElement.querySelectorAll('.ant-connect-modal-card-item').length).toBe(2);
+
+    fireEvent.click(baseElement.querySelectorAll('.ant-connect-modal-card-item')[1]!);
+    expect(baseElement.querySelector('.ant-connect-modal-qr-code-container')).toBeTruthy();
+  });
+
+  it('should ctrl by open', async () => {
+    const App = ({defaultOpen = false}: {defaultOpen?: boolean}) => {
+      const [open, setOpen] = useState(defaultOpen);
+      useEffect(() => setOpen(defaultOpen), [defaultOpen]);
+      return (
+        <ConnectModal
+          open={open}
+          title="ConnectModal"
+          footer="蚂蚁链提供技术支持"
+          groupOrder={groupOrder}
+          walletList={walletList}
+          guide={guide}
+          modalProps={{
+            destroyOnClose: true,
+          }}
+          onOpenChange={setOpen}
+        />
+      )
+    };
+    const { baseElement, rerender } = render(<App />);
+    expect(baseElement.querySelector('.ant-connect-modal')).toBeFalsy();
+
+    rerender(<App defaultOpen />);
+    await waitFakeTimer(500);
+    expect(baseElement.querySelector('.ant-connect-modal')).toBeTruthy();
+
+    fireEvent.click(baseElement.querySelector('.ant-modal-close')!);
+    await waitFakeTimer(500);
+    expect(baseElement.querySelector('.ant-connect-modal')?.className).toContain('ant-zoom-leave');
+
+  });
 });
