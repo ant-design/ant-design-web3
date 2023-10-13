@@ -17,45 +17,48 @@ const debug = createDebug('eip1193-provider');
 
 const wallectsMethods = ['eth_requestAccounts', 'eth_accounts'];
 
-export interface EthereumProvider extends EIP1193LikeProvider {
-  wallets: WalletMetadata[];
-  updateUseWallet: (wallet?: string) => void;
-}
+export class EthereumProvider implements EIP1193LikeProvider {
+  constructor(private options: CreateProviderOptions) {}
 
-export function createProvider(options: CreateProviderOptions): EthereumProvider {
-  let rpcProvders: EIP1193LikeProvider[];
-  let walletProviders: EIP1193LikeProvider[];
-  let useWallet: string | undefined;
+  rpcProvders: EIP1193LikeProvider[] | undefined = undefined;
+  walletProviders: EIP1193LikeProvider[] | undefined = undefined;
+  useWallet: string | undefined;
 
-  const getWalletProvider = async (): Promise<EIP1193LikeProvider | undefined> => {
-    const { wallets } = options;
-    if (!walletProviders) {
-      walletProviders = await Promise.all((wallets || []).map((wallet) => wallet.create()));
+  getWalletProvider = async (): Promise<EIP1193LikeProvider | undefined> => {
+    const { wallets } = this.options;
+    if (!this.walletProviders) {
+      this.walletProviders = await Promise.all(
+        (wallets || []).map((wallet) =>
+          wallet.create({
+            chains: this.options.chains,
+          }),
+        ),
+      );
     }
-    if (!walletProviders || walletProviders.length === 0) {
+    if (!this.walletProviders || this.walletProviders.length === 0) {
       return undefined;
     }
-    if (useWallet) {
-      const useProviderIndex = wallets?.findIndex((item) => item.metadata.name === useWallet);
+    if (this.useWallet) {
+      const useProviderIndex = wallets?.findIndex((item) => item.metadata.name === this.useWallet);
       if (useProviderIndex !== undefined && useProviderIndex >= 0) {
-        return walletProviders[useProviderIndex];
+        return this.walletProviders[useProviderIndex];
       }
     }
-    return walletProviders[0];
+    return this.walletProviders[0];
   };
 
-  const getRpcProvider = async (index = 0): Promise<EIP1193LikeProvider | undefined> => {
-    const { rpcs } = options;
-    if (!rpcProvders) {
-      rpcProvders = await Promise.all((rpcs || []).map((rpc) => rpc.create()));
+  getRpcProvider = async (index = 0): Promise<EIP1193LikeProvider | undefined> => {
+    const { rpcs } = this.options;
+    if (!this.rpcProvders) {
+      this.rpcProvders = await Promise.all((rpcs || []).map((rpc) => rpc.create()));
     }
-    if (!rpcProvders || rpcProvders.length <= index) {
+    if (!this.rpcProvders || this.rpcProvders.length <= index) {
       return undefined;
     }
-    return rpcProvders[index];
+    return this.rpcProvders[index];
   };
 
-  const request = async (
+  request = async (
     requestParams: { method: string; params?: any },
     retryTimes = 0,
   ): Promise<any> => {
@@ -63,13 +66,13 @@ export function createProvider(options: CreateProviderOptions): EthereumProvider
     const { method } = requestParams;
 
     if (wallectsMethods.includes(method)) {
-      const walletProvider = await getWalletProvider();
+      const walletProvider = await this.getWalletProvider();
       if (!walletProvider) {
         throw new Error('No wallet provider found');
       }
       return walletProvider.request(requestParams);
     } else {
-      const rpcProvider = await getRpcProvider(retryTimes);
+      const rpcProvider = await this.getRpcProvider(retryTimes);
       if (!rpcProvider) {
         throw new Error('No rpc provider found');
       }
@@ -77,33 +80,50 @@ export function createProvider(options: CreateProviderOptions): EthereumProvider
         const result = rpcProvider.request(requestParams);
         return result;
       } catch (err) {
-        if (retryTimes >= rpcProvders.length) {
+        if (this.rpcProvders && retryTimes >= this.rpcProvders.length) {
           // when retryTimes is 1, rpcProvders length must large then 1
           throw err;
         }
-        return request(requestParams, retryTimes + 1);
+        return this.request(requestParams, retryTimes + 1);
       }
     }
   };
 
-  return {
-    request,
-    connect: async () => {
-      const walletProvider = await getWalletProvider();
-      if (walletProvider) {
-        await walletProvider?.connect?.();
-      }
-    },
-    disconnect: async () => {
-      // TODO: disconnect for MetaMask
-      const walletProvider = await getWalletProvider();
-      if (walletProvider) {
-        await walletProvider?.disconnect?.();
-      }
-    },
-    wallets: options.wallets?.map((wallet) => wallet.metadata) || [],
-    updateUseWallet: (wallet?: string) => {
-      useWallet = wallet;
-    },
+  connect = async () => {
+    const walletProvider = await this.getWalletProvider();
+    if (walletProvider) {
+      await walletProvider?.connect?.();
+    }
   };
+  disconnect = async () => {
+    // TODO: disconnect for MetaMask
+    const walletProvider = await this.getWalletProvider();
+    if (walletProvider) {
+      await walletProvider?.disconnect?.();
+    }
+  };
+
+  get wallets(): WalletMetadata[] {
+    return this.options.wallets?.map((wallet) => wallet.metadata) || [];
+  }
+
+  getCurrentNetwork = async (): Promise<number | undefined> => {
+    const walletProvider = await this.getWalletProvider();
+    if (walletProvider && walletProvider?.networkVersion) {
+      return parseInt(walletProvider?.networkVersion);
+    }
+    // TODO: get from JSONRpc
+    return undefined;
+  };
+
+  updateUseWallet = (wallet?: string) => {
+    this.useWallet = wallet;
+  };
+}
+
+export function createProvider(options: CreateProviderOptions): EthereumProvider {
+  if (options?.chains?.length && options?.chains?.length > 1) {
+    throw new Error('Not support multiple chains now.');
+  }
+  return new EthereumProvider(options);
 }
