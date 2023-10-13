@@ -1,7 +1,7 @@
 import useProvider from './useProvider';
 
 export default function useAccounts() {
-  const { accounts } = useProvider();
+  const { accounts = [] } = useProvider();
 
   return {
     accounts,
