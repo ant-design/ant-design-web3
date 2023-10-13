@@ -47,13 +47,19 @@ export class UniversalProvider extends EventEmitter implements UniversalWeb3Prov
     return accounts[0];
   }
 
+  async getCurrentNetwork(): Promise<number> {
+    const network = await this.eip1193Provider.getCurrentNetwork();
+    return network ?? 1;
+  }
+
   async requestAccounts(wallet?: string): Promise<Account[]> {
     if (wallet) {
       this.updateUseWallet(wallet);
     }
-    await this.eip1193Provider?.connect?.();
-    const provider = new ethers.BrowserProvider(this.eip1193Provider);
-    await provider.getSigner();
+    await this.eip1193Provider.connect?.();
+    await this.eip1193Provider.request({
+      method: 'eth_requestAccounts',
+    });
     const accounts = await this.getAccounts();
     this.emit(UniversalWeb3ProviderEventType.AccountsChanged, accounts);
     return accounts;
