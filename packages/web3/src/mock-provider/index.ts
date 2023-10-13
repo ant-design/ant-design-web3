@@ -15,6 +15,9 @@ export class MockProvider implements UniversalWeb3ProviderInterface {
   getCurrentAccount = async () => {
     return this.currentAccount;
   };
+  getCurrentNetwork = async () => {
+    return 1;
+  };
   requestAccounts = async () => {
     return new Promise<Account[]>((resolve) => {
       setTimeout(() => {

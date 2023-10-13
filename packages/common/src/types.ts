@@ -43,6 +43,7 @@ export enum UniversalWeb3ProviderEventType {
 export interface UniversalWeb3ProviderInterface {
   getAccounts: () => Promise<Account[]>;
   getCurrentAccount: () => Promise<Account | undefined>;
+  getCurrentNetwork: () => Promise<number>;
   requestAccounts: (wallet?: string) => Promise<Account[]>;
   getQrCodeLink: () => Promise<string>;
   getNFTMetadata: (address: string, id: number) => Promise<NFTMetadata>;
@@ -61,10 +62,11 @@ export interface EIP1193LikeProvider {
   // connect and disconnect for WallectConnect
   connect?: () => Promise<void>;
   disconnect?: () => Promise<void>;
+  networkVersion?: string;
 }
 
 export interface WalletProviderOptions {
-  projectId?: string;
+  chains?: Chain[];
 }
 
 export interface EIP1193LikeProviderFactory {
