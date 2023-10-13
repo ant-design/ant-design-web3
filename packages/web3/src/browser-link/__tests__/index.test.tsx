@@ -1,5 +1,6 @@
 import { BrowserLink } from '..';
 import { render } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
 
 describe('BrowserLink', () => {
   it('mount correctly', () => {
