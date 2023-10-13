@@ -2,14 +2,16 @@ export interface Account {
   address: string;
 }
 
-// TODO: remve Chains, use chains
-export enum Chains {
-  EthereumMainnet = 'https://etherscan.io/address/',
-  bitcoin = 'bitcoin:',
+export enum ChainIds {
+  Mainnet = 1,
+  Polygon = 137,
+  BSC = 56,
+  Arbitrum = 42_161,
+  Optimism = 10,
 }
 
 export interface Chain {
-  id: number;
+  id: ChainIds;
   name: string;
   rpcHttpUrl?: string;
   blockExplorerUrl?: string;
@@ -48,7 +50,6 @@ export interface UniversalWeb3ProviderInterface {
   disconnect: () => Promise<void>;
   on: (type: UniversalWeb3ProviderEventType, handler: (params?: any) => void) => void;
   off: (type: UniversalWeb3ProviderEventType, handler: (params?: any) => void) => void;
-  chain?: Chains;
 }
 
 /**
@@ -75,7 +76,7 @@ export interface WalletProvider extends EIP1193LikeProviderFactory {
 }
 
 export interface JsonRpcProvider extends EIP1193LikeProviderFactory {
-  getRpcUrl: (chain: Chains) => string;
+  getRpcUrl: (chain: Chain) => string;
 }
 
 /**

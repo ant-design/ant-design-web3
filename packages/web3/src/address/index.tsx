@@ -12,5 +12,9 @@ export const Address: React.FC<AddressProps> = (props) => {
     return null;
   }
 
-  return <>{ellipsis ? address?.slice(0, 6) + '...' + address?.slice(-4) : address}</>;
+  const filledAddress = address.startsWith('0x') ? address : `0x${address}`;
+
+  return (
+    <>{ellipsis ? filledAddress?.slice(0, 6) + '...' + filledAddress?.slice(-4) : filledAddress}</>
+  );
 };

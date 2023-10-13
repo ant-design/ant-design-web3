@@ -69,5 +69,5 @@
   "engines": {
     "node": ">=16"
   },
-  "repository": "git@code.alipay.com:antchain-fe/ant-design-web3.git"
+  "repository": "https://github.com/ant-design/ant-design-web3.git"
 }
