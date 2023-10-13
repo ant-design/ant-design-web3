@@ -6,8 +6,12 @@ order: 2
 
 # Hooks
 
-Components used to display NFT images more conveniently and simply.
+Expose some commonly used Hooks that you can use independently or in conjunction with components.
 
 ## useNFT
 
 <code src="./demos/useNFT.tsx"></code>
+
+## useAccounts
+
+<code src="./demos/useAccounts.tsx"></code>

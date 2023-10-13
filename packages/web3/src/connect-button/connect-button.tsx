@@ -1,16 +1,16 @@
 import React from 'react';
 import { Button } from 'antd';
-import useCurrentAccount from '../hooks/useCurrentAccount';
+import useAccounts from '../hooks/useAccounts';
 import useProvider from '../hooks/useProvider';
 import { Address } from '../address';
 import type { ConnectButtonProps } from './interface';
 import { UnconnectedButton } from './unconnected-button';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
-  const { account } = useCurrentAccount();
+  const { currentAccount } = useAccounts();
   const { provider } = useProvider();
 
-  if (!account) {
+  if (!currentAccount) {
     return <UnconnectedButton {...props} />;
   }
 
@@ -26,7 +26,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         await provider?.disconnect();
       }}
     >
-      <Address ellipsis address={account.address} />
+      <Address ellipsis address={currentAccount.address} />
     </Button>
   );
 };
