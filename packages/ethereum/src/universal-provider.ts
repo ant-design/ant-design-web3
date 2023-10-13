@@ -73,7 +73,13 @@ export class UniversalProvider extends EventEmitter implements UniversalWeb3Prov
   }
 
   getQrCodeLink(): Promise<string> {
-    throw new Error('Method not implemented.');
+    return new Promise((resolve) =>
+      setTimeout(
+        resolve,
+        1000,
+        `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
+      ),
+    );
   }
 
   async getNFTMetadata(address: string, tokenId: number): Promise<NFTMetadata> {
