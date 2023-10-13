@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "exports": {
     "import": "./dist/esm/index.js",
-    "require": "./dist/lib/index.js"
+    "require": "./dist/lib/index.js",
+    "types": "./dist/esm/index.d.ts"
   },
   "files": [
     "dist",
