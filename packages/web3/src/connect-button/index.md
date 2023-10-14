@@ -23,7 +23,7 @@ A Button for connect chain quickly.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| buttonProps | Original antd button props | [ButtonProps](https://ant.design/components/button-cn#api) | - | - |
+| buttonProps | Original antd button props | [ButtonProps](https://ant.design/components/button/#api) | - | - |
 
 ### ConnectButton
 
