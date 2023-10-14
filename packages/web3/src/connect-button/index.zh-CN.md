@@ -25,11 +25,11 @@ group: 组件
 
 ### ConnectButton
 
-| 属性            | 描述               | 类型      | 默认值 | 版本 |
-| --------------- | ------------------ | --------- | ------ | ---- |
-| showBalance     | 是否展示余额       | `boolean` | false  | -    |
-| showENS         | 是否展示 ENS       | `boolean` | false  | -    |
-| showSwitchChain | 是否展示切换链按钮 | `boolean` | false  | -    |
+| 属性            | 描述               | 类型      | 默认值  | 版本 |
+| --------------- | ------------------ | --------- | ------- | ---- |
+| showBalance     | 是否展示余额       | `boolean` | `false` | -    |
+| showENS         | 是否展示 ENS       | `boolean` | `false` | -    |
+| showSwitchChain | 是否展示切换链按钮 | `boolean` | `false` | -    |
 
 ### UnconnectedButton
 

@@ -29,9 +29,9 @@ A Button for connect chain quickly.
 
 | Property        | Description                         | Type      | Default | Version |
 | --------------- | ----------------------------------- | --------- | ------- | ------- |
-| showBalance     | Whether to show balance             | `boolean` | false   | -       |
-| showENS         | Whether to show ENS                 | `boolean` | false   | -       |
-| showSwitchChain | Whether to show switch chain button | `boolean` | false   | -       |
+| showBalance     | Whether to show balance             | `boolean` | `false` | -       |
+| showENS         | Whether to show ENS                 | `boolean` | `false` | -       |
+| showSwitchChain | Whether to show switch chain button | `boolean` | `false` | -       |
 
 ### UnconnectedButton
 
