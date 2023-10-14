@@ -11,8 +11,10 @@ export const UnconnectedButton: React.FC<UnconnectedButtonProps> = (props) => {
   const { wallets } = useWallets();
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
+  const [messageApi, contextHolder] = message.useMessage();
   return (
     <>
+      {contextHolder}
       <Button
         style={props.style}
         className={props.className}
@@ -38,7 +40,7 @@ export const UnconnectedButton: React.FC<UnconnectedButtonProps> = (props) => {
             ?.requestAccounts(wallet.name)
             .finally(() => setLoading(false))
             .catch((e) => {
-              message.error(e.message);
+              messageApi.error(e.message);
               console.error(e);
             });
         }}
