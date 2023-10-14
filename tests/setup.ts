@@ -43,4 +43,4 @@ if (typeof window !== 'undefined') {
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
 
-afterEach(() => cleanup())
+afterEach(() => cleanup());

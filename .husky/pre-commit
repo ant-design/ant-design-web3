@@ -1,3 +1,5 @@
 #!/bin/sh
 
-npx lint
+npx pnpm lint
+
+git add .
