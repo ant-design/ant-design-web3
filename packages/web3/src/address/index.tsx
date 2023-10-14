@@ -14,6 +14,13 @@ export interface AddressProps {
   copyable?: boolean;
   tooltip?: boolean | TooltipProps['title'];
 }
+export interface AddressProps2 {
+  ellipsis?: boolean | { headClip?: number; tailClip?: number; };
+  address?: string;
+  copyable?: boolean;
+  tooltip?: boolean | TooltipProps['title'];
+}
+
 
 export const Address: React.FC<AddressProps> = (props) => {
   const { ellipsis, address, copyable, tooltip } = props;
