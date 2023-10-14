@@ -20,4 +20,4 @@ group: Components
 | ellipsis | Address clipping strategy | `boolean \| { showHead?: number, showTail?: number }` | `{ showHead: 6, showTail: 4 }` | - |
 | copyable | Address copyable | `boolean` | `false` | - |
 | address | Address | `string` | - | - |
-| tooltip | Show tooltip when hover address | `boolean \| [Tooltip.title](https://ant.design/components/tooltip-cn#api)` | Displays the current full address | - |
+| tooltip | Show tooltip when hover address | `boolean \|`[Tooltip.title](https://ant.design/components/tooltip-cn#api) | Displays the current full address | - |
