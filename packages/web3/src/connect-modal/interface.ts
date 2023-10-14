@@ -1,6 +1,6 @@
 import type React from 'react';
 import type { ModalProps } from 'antd';
-import { WalletMetadata } from '@ant-design/web3-common';
+import type { WalletMetadata } from '@ant-design/web3-common';
 
 export type { WalletMetadata, WalletExtensionItem } from '@ant-design/web3-common';
 
