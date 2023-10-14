@@ -1,4 +1,5 @@
 import { CopyOutlined } from '@ant-design/icons';
+import type { TooltipProps} from 'antd';
 import { Space, Tooltip, message } from 'antd';
 import React from 'react';
 
@@ -9,10 +10,11 @@ export interface AddressProps {
   };
   address?: string;
   copyable?: boolean;
+  tooltip?: boolean | TooltipProps["title"];
 }
 
 export const Address: React.FC<AddressProps> = (props) => {
-  const { ellipsis, address, copyable } = props;
+  const { ellipsis, address, copyable, tooltip } = props;
 
   const isEllipsis = !!ellipsis;
   const {
@@ -28,10 +30,11 @@ export const Address: React.FC<AddressProps> = (props) => {
   }
 
   const filledAddress = address.startsWith('0x') ? address : `0x${address}`;
+  const displayTooltip = (tooltip === undefined || tooltip === true) ? filledAddress : tooltip;
 
   return (
     <Space>
-      <Tooltip title={filledAddress}>
+      <Tooltip title={displayTooltip}>
         {isEllipsis ? `${filledAddress.slice(0, showHead)}...${filledAddress.slice(-showTail)}` : filledAddress}
       </Tooltip>
       {copyable && (
