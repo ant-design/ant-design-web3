@@ -2,7 +2,6 @@ import { ConnectModal } from '@ant-design/web3';
 import { groupOrder, guide, mockBrowser, walletList } from './mock';
 import { fireEvent, render } from '@testing-library/react';
 import { useEffect, useState } from 'react';
-import { waitFakeTimer } from '../../utils/test-utils';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 
 describe('ConnectModal with guide', () => {
