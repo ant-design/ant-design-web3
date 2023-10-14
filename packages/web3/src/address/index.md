@@ -8,3 +8,7 @@ group: Components
 ## Simple Usage
 
 <code src="./demos/simple.tsx"></code>
+
+## Copyable
+
+<code src="./demos/copyable.tsx"></code>
