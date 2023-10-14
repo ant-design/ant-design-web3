@@ -1,5 +1,4 @@
 #!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
 
-npx pnpm lint
-
-git add .
+npx --no-install lint-staged
