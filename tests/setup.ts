@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
-const React = require('react');
-const util = require('util');
+import { cleanup } from '@testing-library/react';
+import React from 'react';
+import util from 'util';
+import { afterEach, vi } from 'vitest';
 
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
@@ -15,10 +17,10 @@ if (typeof window !== 'undefined') {
     Object.defineProperty(global.window, 'matchMedia', {
       writable: true,
       configurable: true,
-      value: jest.fn((query) => ({
+      value: vi.fn((query) => ({
         matches: query.includes('max-width'),
-        addListener: jest.fn(),
-        removeListener: jest.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
       })),
     });
   }
@@ -33,7 +35,12 @@ if (typeof window !== 'undefined') {
   // ref: https://github.com/jsdom/jsdom/issues/2524
   Object.defineProperty(window, 'TextEncoder', { writable: true, value: util.TextEncoder });
   Object.defineProperty(window, 'TextDecoder', { writable: true, value: util.TextDecoder });
+
+  const { getComputedStyle } = window;
+  window.getComputedStyle = (elt) => getComputedStyle(elt);
 }
 
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
+
+afterEach(() => cleanup())

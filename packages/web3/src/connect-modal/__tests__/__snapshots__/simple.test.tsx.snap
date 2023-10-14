@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ConnectModal without guide should render in dark mode 1`] = `
+exports[`ConnectModal without guide > should render in dark mode 1`] = `
 <body>
   <div />
   <div>
@@ -350,7 +350,7 @@ exports[`ConnectModal without guide should render in dark mode 1`] = `
 </body>
 `;
 
-exports[`ConnectModal without guide should render in light mode 1`] = `
+exports[`ConnectModal without guide > should render in light mode 1`] = `
 <body>
   <div />
   <div>
