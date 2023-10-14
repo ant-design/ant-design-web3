@@ -45,6 +45,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
           iconSize={60}
           color={theme === 'dark' ? '#000' : '#000'}
           bgColor={theme === 'dark' ? '#fff' : 'transparent'}
+          type="svg"
         />
       </div>
       <div className={`${prefixCls}-qr-code-tips`}>
