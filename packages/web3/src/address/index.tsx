@@ -1,5 +1,5 @@
 import { CopyOutlined } from '@ant-design/icons';
-import { Space, message } from 'antd';
+import { Space, Tooltip, message } from 'antd';
 import React from 'react';
 
 export interface AddressProps {
@@ -31,9 +31,9 @@ export const Address: React.FC<AddressProps> = (props) => {
 
   return (
     <Space>
-      <span>
+      <Tooltip title={filledAddress}>
         {isEllipsis ? `${filledAddress.slice(0, showHead)}...${filledAddress.slice(-showTail)}` : filledAddress}
-      </span>
+      </Tooltip>
       {copyable && (
         <CopyOutlined
           title='Copy Address'
