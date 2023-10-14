@@ -5,8 +5,8 @@ import React from 'react';
 
 export interface AddressProps {
   ellipsis?: boolean | {
-    showHead?: number;
-    showTail?: number;
+    headClip?: number;
+    tailClip?: number;
   };
   address?: string;
   copyable?: boolean;
@@ -18,11 +18,11 @@ export const Address: React.FC<AddressProps> = (props) => {
 
   const isEllipsis = !!ellipsis;
   const {
-    showHead = 6,
-    showTail = 4,
+    headClip = 6,
+    tailClip = 4,
   } = typeof ellipsis !== 'object' ? {
-    showHead: 6,
-    showTail: 4,
+    headClip: 6,
+    tailClip: 4,
   } : ellipsis;
 
   if (!address) {
@@ -35,7 +35,7 @@ export const Address: React.FC<AddressProps> = (props) => {
   return (
     <Space>
       <Tooltip title={displayTooltip}>
-        {isEllipsis ? `${filledAddress.slice(0, showHead)}...${filledAddress.slice(-showTail)}` : filledAddress}
+        {isEllipsis ? `${filledAddress.slice(0, headClip)}...${filledAddress.slice(-tailClip)}` : filledAddress}
       </Tooltip>
       {copyable && (
         <CopyOutlined
