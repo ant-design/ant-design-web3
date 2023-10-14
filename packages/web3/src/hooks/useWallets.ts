@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { WalletMetadata } from '@ant-design/web3-common';
+import type { WalletMetadata } from '@ant-design/web3-common';
 import useProvider from './useProvider';
 
 export default function useWallets() {

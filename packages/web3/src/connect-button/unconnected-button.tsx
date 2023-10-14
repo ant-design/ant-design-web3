@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Button, message } from 'antd';
 import { Wallet } from '@ant-design/web3-icons';
 import useProvider from '../hooks/useProvider';
 import type { UnconnectedButtonProps } from './interface';
@@ -10,6 +10,7 @@ export const UnconnectedButton: React.FC<UnconnectedButtonProps> = (props) => {
   const { provider } = useProvider();
   const { wallets } = useWallets();
   const [open, setOpen] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
   return (
     <>
       <Button
@@ -18,6 +19,7 @@ export const UnconnectedButton: React.FC<UnconnectedButtonProps> = (props) => {
         size={props.size}
         type={props.type}
         ghost={props.ghost}
+        loading={loading}
         onClick={async () => {
           setOpen(true);
         }}
@@ -31,7 +33,14 @@ export const UnconnectedButton: React.FC<UnconnectedButtonProps> = (props) => {
         onOpenChange={setOpen}
         onSelectWallet={async (wallet) => {
           setOpen(false);
-          await provider?.requestAccounts(wallet.name);
+          setLoading(true);
+          provider
+            ?.requestAccounts(wallet.name)
+            .finally(() => setLoading(false))
+            .catch((e) => {
+              message.error(e.message);
+              console.error(e);
+            });
         }}
       />
     </>
