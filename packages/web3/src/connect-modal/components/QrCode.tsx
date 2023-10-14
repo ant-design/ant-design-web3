@@ -21,7 +21,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
   useEffect(() => {
     if (provider && wallet) {
       setLoading(true);
-      provider.getQrCodeLink().then((link) => {
+      provider.getQrCodeLink(wallet.name).then((link) => {
         setQrCodeValue(link);
         setLoading(false);
       });

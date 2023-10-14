@@ -9,6 +9,7 @@ import { EthereumProvider } from '@walletconnect/ethereum-provider';
 
 export interface WalletConnectConfig {
   projectId: string;
+  showQrModal?: boolean;
 }
 
 export class WalletConnectProvider implements WalletProvider {
@@ -23,7 +24,11 @@ export class WalletConnectProvider implements WalletProvider {
     installed: true,
   };
 
+  private qrCodeLinkPromise: Promise<string> | undefined;
+  private resolveQrCodeLink: ((uri: string) => void) | undefined;
+
   constructor(private config?: WalletConnectConfig) {}
+
   create = async (options?: WalletProviderOptions): Promise<EIP1193LikeProvider> => {
     if (!this.config?.projectId) {
       throw new Error('walletConnectProjectId is required');
@@ -37,10 +42,34 @@ export class WalletConnectProvider implements WalletProvider {
       projectId: this.config.projectId,
       chains: [chains[0]],
       optionalChains: chains,
-      showQrModal: true,
+      showQrModal: this.config.showQrModal ?? false,
       methods: ['eth_requestAccounts', 'eth_accounts'],
       events: [],
     });
+
+    provider.on('display_uri', (uri: string) => {
+      this.resolveQrCodeLink?.(uri);
+    });
+
+    provider.on('disconnect', () => {
+      this.initQrCodePromise();
+    });
+
+    this.initQrCodePromise();
+
     return provider;
+  };
+
+  private initQrCodePromise = () => {
+    this.qrCodeLinkPromise = new Promise((resolve) => {
+      this.resolveQrCodeLink = resolve;
+    });
+  };
+
+  getQrCodeLink = async () => {
+    if (!this.qrCodeLinkPromise) {
+      throw new Error('WalletConnect is not initialized');
+    }
+    return this.qrCodeLinkPromise;
   };
 }

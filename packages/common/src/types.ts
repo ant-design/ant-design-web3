@@ -75,6 +75,7 @@ export interface EIP1193LikeProviderFactory {
 
 export interface WalletProvider extends EIP1193LikeProviderFactory {
   metadata: WalletMetadata;
+  getQrCodeLink?: () => Promise<string>;
 }
 
 export interface JsonRpcProvider extends EIP1193LikeProviderFactory {

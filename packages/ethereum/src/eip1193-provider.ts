@@ -11,6 +11,7 @@ export interface CreateProviderOptions {
   rpcs?: JsonRpcProvider[];
   wallets?: WalletProvider[];
   chains?: Chain[];
+  getQrCodeLink?: (wallet: string) => Promise<string>;
 }
 
 const debug = createDebug('eip1193-provider');
@@ -38,6 +39,7 @@ export class EthereumProvider implements EIP1193LikeProvider {
     if (!this.walletProviders || this.walletProviders.length === 0) {
       return undefined;
     }
+
     if (this.useWallet) {
       const useProviderIndex = wallets?.findIndex((item) => item.metadata.name === this.useWallet);
       if (useProviderIndex !== undefined && useProviderIndex >= 0) {
@@ -118,6 +120,17 @@ export class EthereumProvider implements EIP1193LikeProvider {
 
   updateUseWallet = (wallet?: string) => {
     this.useWallet = wallet;
+  };
+
+  getQrCodeLink = async (walletName: string): Promise<string> => {
+    const wallet = this.options.wallets?.find((item) => item.metadata.name === walletName);
+    if (!wallet) {
+      throw new Error('No wallet provider found');
+    }
+    if (wallet.getQrCodeLink) {
+      return wallet.getQrCodeLink();
+    }
+    throw new Error('No getQrCodeLink method found');
   };
 }
 

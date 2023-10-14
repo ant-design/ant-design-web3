@@ -16,6 +16,7 @@ const provider = createProvider({
   wallets: [
     new WalletConnectProvider({
       projectId: 'c07c0051c2055890eade3556618e38a6',
+      showQrModal: true,
     }),
     new MetaMaskProvider(),
   ],

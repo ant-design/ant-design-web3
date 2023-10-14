@@ -78,14 +78,8 @@ export class UniversalProvider extends EventEmitter implements UniversalWeb3Prov
     return this.eip1193Provider.wallets;
   }
 
-  getQrCodeLink(): Promise<string> {
-    return new Promise((resolve) =>
-      setTimeout(
-        resolve,
-        1000,
-        `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
-      ),
-    );
+  getQrCodeLink(wallet: string): Promise<string> {
+    return this.eip1193Provider.getQrCodeLink(wallet);
   }
 
   async getNFTMetadata(address: string, tokenId: number): Promise<NFTMetadata> {
