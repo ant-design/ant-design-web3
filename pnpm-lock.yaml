@@ -69,7 +69,7 @@ importers:
         specifier: ^5.0.4
         version: 5.2.2
       vitest:
-        specifier: latest
+        specifier: ^0.34.6
         version: 0.34.6(jsdom@22.1.0)
 
   packages/common:

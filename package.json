@@ -21,7 +21,7 @@
     "test": "vitest",
     "test:update": "vitest -u",
     "test:coverage": "vitest --coverage",
-    "test:ci": "vitest --coverage --forceExit",
+    "test:ci": "vitest --coverage",
     "lint": "pnpm run \"/^lint:.+/\"",
     "lint:eslint": "eslint --quiet --fix --ext .ts,.js .",
     "lint:prettier": "prettier --loglevel warn --write '**/*.{ts,tsx,js,jsx,json,md}'",
@@ -58,7 +58,7 @@
     "react-dom": "^18.2.0",
     "rimraf": "^5.0.0",
     "typescript": "^5.0.4",
-    "vitest": "latest"
+    "vitest": "^0.34.6"
   },
   "ci": {
     "type": "aci",
