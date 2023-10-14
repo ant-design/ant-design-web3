@@ -3,16 +3,16 @@ import { groupOrder, guide, mockBrowser, walletList } from './mock';
 import { fireEvent, render } from '@testing-library/react';
 import { useEffect, useState } from 'react';
 import { waitFakeTimer } from '../../utils/test-utils';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 
 describe('ConnectModal with guide', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
-  mockBrowser("Chrome");
+  mockBrowser('Chrome');
   it.each(['light', 'dark'] as const)(`should render in %s mode`, (theme) => {
     const App = () => (
       <ConnectModal
@@ -69,7 +69,6 @@ describe('ConnectModal with guide', () => {
     );
   });
 
-
   it('panel route change', async () => {
     const App = () => (
       <ConnectModal
@@ -96,7 +95,7 @@ describe('ConnectModal with guide', () => {
   });
 
   it('should ctrl by open', async () => {
-    const App = ({defaultOpen = false}: {defaultOpen?: boolean}) => {
+    const App = ({ defaultOpen = false }: { defaultOpen?: boolean }) => {
       const [open, setOpen] = useState(defaultOpen);
       useEffect(() => setOpen(defaultOpen), [defaultOpen]);
       return (
@@ -112,18 +111,21 @@ describe('ConnectModal with guide', () => {
           }}
           onOpenChange={setOpen}
         />
-      )
+      );
     };
     const { baseElement, rerender } = render(<App />);
     expect(baseElement.querySelector('.ant-connect-modal')).toBeFalsy();
 
     rerender(<App defaultOpen />);
-    await waitFakeTimer(500);
-    expect(baseElement.querySelector('.ant-connect-modal')).toBeTruthy();
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-connect-modal')).toBeTruthy();
+    });
 
     fireEvent.click(baseElement.querySelector('.ant-modal-close')!);
-    await waitFakeTimer(500);
-    expect(baseElement.querySelector('.ant-connect-modal')?.className).toContain('ant-zoom-leave');
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-connect-modal')?.className).toContain(
+        'ant-zoom-leave',
+      );
+    });
   });
-
 });
