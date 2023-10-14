@@ -1,12 +1,27 @@
+import { CopyOutlined } from '@ant-design/icons';
+import { Space, message } from 'antd';
 import React from 'react';
 
 export interface AddressProps {
-  ellipsis?: boolean;
+  ellipsis?: boolean | {
+    showHead?: number;
+    showTail?: number;
+  };
   address?: string;
+  copyable?: boolean;
 }
 
 export const Address: React.FC<AddressProps> = (props) => {
-  const { ellipsis, address } = props;
+  const { ellipsis, address, copyable } = props;
+
+  const isEllipsis = !!ellipsis;
+  const {
+    showHead = 6,
+    showTail = 4,
+  } = typeof ellipsis !== 'object' ? {
+    showHead: 6,
+    showTail: 4,
+  } : ellipsis;
 
   if (!address) {
     return null;
@@ -15,6 +30,20 @@ export const Address: React.FC<AddressProps> = (props) => {
   const filledAddress = address.startsWith('0x') ? address : `0x${address}`;
 
   return (
-    <>{ellipsis ? filledAddress?.slice(0, 6) + '...' + filledAddress?.slice(-4) : filledAddress}</>
+    <Space>
+      <span>
+        {isEllipsis ? `${filledAddress.slice(0, showHead)}...${filledAddress.slice(-showTail)}` : filledAddress}
+      </span>
+      {copyable && (
+        <CopyOutlined
+          title='Copy Address'
+          onClick={() => {
+            navigator.clipboard.writeText(filledAddress).then(() => {
+              message.success('Address Copied');
+            });
+          }}
+        />
+      )}
+    </Space>
   );
 };

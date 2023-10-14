@@ -44,6 +44,7 @@
     "@types/node": "^16.6.1",
     "@types/react": "^18.2.20",
     "@umijs/fabric": "^2.14.1",
+    "canvas": "^2.11.2",
     "antd": "^5.8.3",
     "dumi": "^2.2.6",
     "eslint": "^7.32.0",

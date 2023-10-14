@@ -8,3 +8,7 @@ group: 组件
 ## 基本使用
 
 <code src="./demos/simple.tsx"></code>
+
+## 可复制
+
+<code src="./demos/copyable.tsx"></code>

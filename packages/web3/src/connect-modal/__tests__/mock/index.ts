@@ -1,4 +1,5 @@
 import type { DefaultGuide } from '@ant-design/web3';
+import { WalletExtensionItem } from '@ant-design/web3-common';
 
 export const walletList = [
   {
@@ -150,3 +151,19 @@ export const guide: DefaultGuide = {
   ],
   moreLink: 'https://test.com/xxx',
 };
+
+
+export const browsers: Record<WalletExtensionItem["key"], string> = {
+  "Chrome": "chrome",
+  "Edge": "edge",
+  "Firefox": "firefox",
+  "Safari": "safari"
+};
+
+export function mockBrowser(browser: WalletExtensionItem["key"]) {
+  Object.defineProperty(window, 'navigator', {
+    value: {
+      userAgent: browsers[browser],
+    },
+  });
+}
