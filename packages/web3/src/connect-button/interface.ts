@@ -1,28 +1,7 @@
 import type { ButtonProps } from 'antd';
 
 export type CommonButtonProps = {
-  /**
-   * Class name
-   */
-  className?: string;
-  /**
-   * CSS style
-   */
-  style?: React.CSSProperties;
-  /**
-   * Button display type
-   * @default 'default'
-   */
-  type?: 'primary' | 'text' | 'default';
-  /**
-   * @default false
-   */
-  ghost?: boolean;
-  /**
-   * Button size
-   * @default 'middle'
-   */
-  size?: 'small' | 'middle' | 'large';
+  buttonProps?: ButtonProps;
 };
 
 export type UnconnectedButtonProps = CommonButtonProps & {
@@ -35,7 +14,7 @@ export type UnconnectedButtonProps = CommonButtonProps & {
    * Icon before connect
    * @default <WalletIcon />
    */
-  connectIcon?: React.ReactNode | false;
+  connectIcon?: false | React.ReactNode;
 };
 
 export type ChainSelectItem = {
@@ -48,23 +27,21 @@ export type ChainSelectProps = CommonButtonProps & {
   chains: ChainSelectItem[];
 };
 
-export type ConnectButtonProps = CommonButtonProps &
-  UnconnectedButtonProps &
-  ButtonProps & {
-    /**
-     * @default false
-     */
-    showBalance?: boolean;
-    /**
-     * @default false
-     */
-    showENS?: boolean;
-    /**
-     * @default false
-     */
-    showSwitchChain?: boolean;
-    // onConnect?: () => void;
-    // onDisconnect?: () => void;
-    // onSwitchChain?: () => void;
-    // onCopyAddress?: () => void;
-  };
+export type ConnectButtonProps = UnconnectedButtonProps & {
+  /**
+   * @default false
+   */
+  showBalance?: boolean;
+  /**
+   * @default false
+   */
+  showENS?: boolean;
+  /**
+   * @default false
+   */
+  showSwitchChain?: boolean;
+  // onConnect?: () => void;
+  // onDisconnect?: () => void;
+  // onSwitchChain?: () => void;
+  // onCopyAddress?: () => void;
+};

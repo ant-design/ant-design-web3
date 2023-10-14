@@ -7,6 +7,7 @@ import { ConnectModal } from '../connect-modal';
 import useWallets from '../hooks/useWallets';
 
 export const UnconnectedButton: React.FC<UnconnectedButtonProps> = (props) => {
+  const { buttonProps } = props;
   const { provider } = useProvider();
   const { wallets } = useWallets();
   const [open, setOpen] = React.useState(false);
@@ -16,11 +17,7 @@ export const UnconnectedButton: React.FC<UnconnectedButtonProps> = (props) => {
     <>
       {contextHolder}
       <Button
-        style={props.style}
-        className={props.className}
-        size={props.size}
-        type={props.type}
-        ghost={props.ghost}
+        {...buttonProps}
         loading={loading}
         onClick={async () => {
           setOpen(true);

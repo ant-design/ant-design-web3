@@ -7,6 +7,7 @@ import type { ConnectButtonProps } from './interface';
 import { UnconnectedButton } from './unconnected-button';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
+  const { buttonProps } = props;
   const { currentAccount } = useAccounts();
   const { provider } = useProvider();
 
@@ -16,12 +17,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
   return (
     <Button
-      {...props}
-      style={props.style}
-      className={props.className}
-      size={props.size}
-      type={props.type}
-      ghost={props.ghost}
+      {...buttonProps}
       onClick={async () => {
         await provider?.disconnect();
       }}

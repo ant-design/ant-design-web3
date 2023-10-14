@@ -4,9 +4,9 @@ import { Space } from 'antd';
 export default () => {
   return (
     <Space>
-      <UnconnectedButton type="default" />
-      <UnconnectedButton type="primary" />
-      <UnconnectedButton type="text" />
+      <UnconnectedButton buttonProps={{ type: 'default' }} />
+      <UnconnectedButton buttonProps={{ type: 'primary' }} />
+      <UnconnectedButton buttonProps={{ type: 'text' }} />
     </Space>
   );
 };

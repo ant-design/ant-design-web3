@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@ant-design/web3": ["./src/index.tsx"]
+      "@ant-design/web3": ["./src/index.tsx"],
+      "@ant-design/web3-icons": ["../icons/src/index.tsx"]
     }
   },
   "include": ["src", "global.d.ts"]
