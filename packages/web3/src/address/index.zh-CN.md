@@ -12,3 +12,12 @@ group: 组件
 ## 可复制
 
 <code src="./demos/copyable.tsx"></code>
+
+## API
+
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| ellipsis | 地址裁剪策略 | `boolean \| { showHead?: number, showTail?: number }` | `{ showHead: 6, showTail: 4 }` | - |
+| copyable | 是否可复制 | `boolean` | `false` | - |
+| address | 地址 | `string` | - | - |
+| tooltip | 鼠标移入地址时展示提示 | `boolean \|` [Tooltip.title](https://ant.design/components/tooltip-cn#api) | 展示当前完整地址 | - |
