@@ -46,7 +46,7 @@ export const Address: React.FC<AddressProps> = (props) => {
           title="Copy Address"
           onClick={() => {
             navigator.clipboard.writeText(filledAddress).then(() => {
-              message.success('Address Copied');
+              message.success('Address Copied!');
             });
           }}
         />

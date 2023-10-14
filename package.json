@@ -31,16 +31,18 @@
     "clean:dist": "rimraf --glob ./packages/*/dist ./examples/*/dist",
     "clean:test": "rimraf --glob ./coverage ./packages/*/coverage ./examples/*/coverage",
     "husky:prepare": "husky install",
-    "husky:pre-commit": "lint-staged"
+    "husky:pre-commit": "lint-staged",
+    "biome:format": "biome format --write ."
   },
   "lint-staged": {
-    "*.ts": "eslint --quiet --fix",
-    "*.{ts,js,json,md}": "prettier --loglevel warn --write"
+    "*.{ts,tsx,js,jsx}": "biome format --write",
+    "*.{json,less,md}": "prettier --ignore-unknown --write"
   },
   "devDependencies": {
     "@changesets/changelog-git": "^0.1.14",
     "@changesets/cli": "^2.26.2",
     "@testing-library/react": "^14.0.0",
+    "@biomejs/biome": "^1.0.0",
     "@types/node": "^16.6.1",
     "@types/react": "^18.2.20",
     "@umijs/fabric": "^2.14.1",
