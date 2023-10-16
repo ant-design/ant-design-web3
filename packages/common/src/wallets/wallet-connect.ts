@@ -24,7 +24,8 @@ export class WalletConnectProvider implements WalletProvider {
   constructor(private config?: WalletConnectConfig) {}
 
   create = async (options?: WalletProviderOptions): Promise<Wallet> => {
-    if (!this.config?.projectId) {
+    const { projectId, showQrModal = false } = this.config || {};
+    if (!projectId) {
       throw new Error('walletConnectProjectId is required');
     }
     let chains = [1];
@@ -33,10 +34,10 @@ export class WalletConnectProvider implements WalletProvider {
     }
     // docs: https://docs.walletconnect.com/advanced/providers/ethereum
     const provider = await EthereumProvider.init({
-      projectId: this.config.projectId,
+      projectId: projectId,
       chains: [chains[0]],
       optionalChains: chains,
-      showQrModal: this.config.showQrModal ?? false,
+      showQrModal,
       methods: ['eth_requestAccounts', 'eth_accounts'],
       events: [],
     });

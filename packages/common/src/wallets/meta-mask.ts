@@ -18,24 +18,19 @@ export class MetaMaskProvider implements WalletProvider {
         description: 'Access your wallet right from your favorite web browser.',
       },
     ],
-    // @ts-ignore
-    installed: window.ethereum?.isMetaMask ?? false,
   };
 
   create = async (): Promise<Wallet> => {
-    // @ts-ignore
     if (!window.ethereum) {
       throw new Error('MetaMask is not installed');
     }
     return {
-      // @ts-ignore
       provider: window.ethereum,
       ...this.metadata,
     };
   };
 
   hasBrowserExtensionInstalled = async (): Promise<boolean> => {
-    // @ts-ignore
-    return window.ethereum && window.ethereum?.isMetaMask;
+    return window.ethereum && window.ethereum?.isMetaMask ? true : false;
   };
 }
