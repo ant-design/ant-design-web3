@@ -5,6 +5,7 @@ import {
   MetaMaskProvider,
   WalletConnectProvider,
   chains,
+  // @ts-ignore
 } from '../packages/ethereum/dist/esm'; // use the same provider with demo in dumi
 
 const provider = createProvider({

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Web3ConfigProvider } from '@ant-design/web3-common';
-import { EthereumProvider } from './eip1193-provider';
+import { EthereumProvider } from './ethereum-provider';
 import { UniversalProvider } from './universal-provider';
 
 export interface Web3ProviderProps {

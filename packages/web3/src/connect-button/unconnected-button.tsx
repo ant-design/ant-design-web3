@@ -34,15 +34,23 @@ export const UnconnectedButton: React.FC<UnconnectedButtonProps> = (props) => {
         walletList={wallets}
         onOpenChange={setOpen}
         onSelectWallet={async (wallet) => {
-          setOpen(false);
-          setLoading(true);
           provider
             ?.requestAccounts(wallet.name)
-            .finally(() => setLoading(false))
+            .then(() => {
+              setOpen(false);
+            })
+            .finally(() => {
+              setLoading(false);
+            })
             .catch((e) => {
               messageApi.error(e.message);
               console.error(e);
             });
+
+          if (!wallet.getQrCode) {
+            // not need show qr code, hide immediately
+            setOpen(false);
+          }
         }}
       />
     </>

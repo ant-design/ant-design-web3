@@ -4,11 +4,11 @@ import {
   Account,
   requestWeb3Asset,
   UniversalWeb3ProviderEventType,
-  WalletMetadata,
+  Wallet,
 } from '@ant-design/web3-common';
 import { EventEmitter } from 'eventemitter3';
 import { ethers } from 'ethers';
-import { EthereumProvider } from './eip1193-provider';
+import { EthereumProvider } from './ethereum-provider';
 
 const USE_WALLET_LOCAL_STORAGE_KEY = 'antd-web3-use-wallet';
 
@@ -74,18 +74,8 @@ export class UniversalProvider extends EventEmitter implements UniversalWeb3Prov
     this.emit(UniversalWeb3ProviderEventType.AccountsChanged, []);
   }
 
-  async getAvaliableWallets(): Promise<WalletMetadata[]> {
-    return this.eip1193Provider.wallets;
-  }
-
-  getQrCodeLink(): Promise<string> {
-    return new Promise((resolve) =>
-      setTimeout(
-        resolve,
-        1000,
-        `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
-      ),
-    );
+  async getAvaliableWallets(): Promise<Wallet[]> {
+    return this.eip1193Provider.getAvaliableWallets();
   }
 
   async getNFTMetadata(address: string, tokenId: number): Promise<NFTMetadata> {
