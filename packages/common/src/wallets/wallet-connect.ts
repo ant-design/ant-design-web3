@@ -54,6 +54,15 @@ export class WalletConnectProvider implements WalletProvider {
     return {
       provider,
       ...this.metadata,
+      getQrCode: async () => {
+        if (!this.qrCodeLinkPromise) {
+          throw new Error('WalletConnect is not initialized');
+        }
+        const uri = await this.qrCodeLinkPromise;
+        return {
+          uri,
+        };
+      },
     };
   };
 
@@ -66,12 +75,5 @@ export class WalletConnectProvider implements WalletProvider {
     this.qrCodeLinkPromise = new Promise((resolve) => {
       this.resolveQrCodeLink = resolve;
     });
-  };
-
-  getQrCodeLink = async () => {
-    if (!this.qrCodeLinkPromise) {
-      throw new Error('WalletConnect is not initialized');
-    }
-    return this.qrCodeLinkPromise;
   };
 }

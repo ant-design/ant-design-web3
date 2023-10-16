@@ -31,6 +31,7 @@ const Web3ConfigProvider: React.FC<Web3ConfigProviderProps> = (props) => {
       provider.off(UniversalWeb3ProviderEventType.AccountsChanged, handleAccountsChanged);
     };
   }, [provider]);
+
   return <ProviderChildren wallets={wallets} accounts={accounts} {...props} />;
 };
 
