@@ -1,9 +1,9 @@
 import { ConnectModal } from '@ant-design/web3';
 import { Button } from 'antd';
 import React from 'react';
-import type { WalletMetadata } from '../interface';
+import type { Wallet } from '../interface';
 
-const walletList: WalletMetadata[] = [
+const walletList: Wallet[] = [
   {
     icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
     name: '测试钱包',
@@ -48,6 +48,19 @@ const walletList: WalletMetadata[] = [
         description: 'Access your wallet right from your favorite web browser.',
       },
     ],
+    getQrCode: () => {
+      return new Promise<{
+        uri: string;
+      }>((resolve) =>
+        setTimeout(
+          () =>
+            resolve({
+              uri: `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
+            }),
+          2000,
+        ),
+      );
+    },
   },
   {
     icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
@@ -56,6 +69,19 @@ const walletList: WalletMetadata[] = [
     group: 'Popular',
     app: {
       link: 'https://test.com/xxx',
+    },
+    getQrCode: () => {
+      return new Promise<{
+        uri: string;
+      }>((resolve) =>
+        setTimeout(
+          () =>
+            resolve({
+              uri: `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
+            }),
+          2000,
+        ),
+      );
     },
   },
   {
@@ -77,6 +103,19 @@ const walletList: WalletMetadata[] = [
     remark: '备注5',
     app: {
       link: 'https://test.com/xxx',
+    },
+    getQrCode: () => {
+      return new Promise<{
+        uri: string;
+      }>((resolve) =>
+        setTimeout(
+          () =>
+            resolve({
+              uri: `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
+            }),
+          2000,
+        ),
+      );
     },
   },
   {

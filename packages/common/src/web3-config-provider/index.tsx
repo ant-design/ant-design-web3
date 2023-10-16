@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Account, UniversalWeb3ProviderEventType } from '../types';
+import { Account, Wallet, UniversalWeb3ProviderEventType } from '../types';
 import { ConfigContext, Web3ConfigProviderProps, ConfigConsumerProps } from './context';
 
 const ProviderChildren: React.FC<ConfigConsumerProps & { children?: React.ReactNode }> = (
@@ -11,7 +11,17 @@ const ProviderChildren: React.FC<ConfigConsumerProps & { children?: React.ReactN
 
 const Web3ConfigProvider: React.FC<Web3ConfigProviderProps> = (props) => {
   const [accounts, setAccounts] = React.useState<Account[]>([]);
+  const [wallets, setWallets] = React.useState<Wallet[]>([]);
   const { provider } = props;
+
+  useEffect(() => {
+    const getAvaliableWallets = async () => {
+      const wallets = await provider.getAvaliableWallets();
+      setWallets(wallets);
+    };
+    getAvaliableWallets();
+  }, [provider]);
+
   useEffect(() => {
     const handleAccountsChanged = async (accounts: Account[]) => {
       setAccounts(accounts);
@@ -21,7 +31,7 @@ const Web3ConfigProvider: React.FC<Web3ConfigProviderProps> = (props) => {
       provider.off(UniversalWeb3ProviderEventType.AccountsChanged, handleAccountsChanged);
     };
   }, [provider]);
-  return <ProviderChildren accounts={accounts} {...props} />;
+  return <ProviderChildren wallets={wallets} accounts={accounts} {...props} />;
 };
 
 export { Web3ConfigProvider };

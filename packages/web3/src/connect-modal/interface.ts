@@ -1,8 +1,8 @@
 import type React from 'react';
 import type { ModalProps } from 'antd';
-import type { WalletMetadata } from '@ant-design/web3-common';
+import type { Wallet } from '@ant-design/web3-common';
 
-export type { WalletMetadata, WalletExtensionItem } from '@ant-design/web3-common';
+export type { Wallet, WalletExtensionItem } from '@ant-design/web3-common';
 
 /**
  * @desc 新手指引面板的信息项
@@ -80,7 +80,7 @@ export type ConnectModalProps = {
    * @paramEn Selected wallet
    * @returns
    */
-  onSelectWallet?: (wallet: WalletMetadata) => void;
+  onSelectWallet?: (wallet: Wallet) => void;
   /**
    * @desc 透传 Modal 的 props，需要注意的是以下属性将会被内部逻辑覆盖，配置不生效。
    * - title
@@ -103,7 +103,7 @@ export type ConnectModalProps = {
    * @desc 钱包列表
    * @descEn Wallet list
    */
-  walletList?: WalletMetadata[];
+  walletList?: Wallet[];
   /**
    * @desc 钱包分组排序函数
    * @descEn Wallet group sorting function

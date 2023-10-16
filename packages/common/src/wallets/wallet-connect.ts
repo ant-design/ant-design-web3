@@ -1,10 +1,5 @@
 // Only for WallectConnect v2, v1 is not supported
-import {
-  EIP1193LikeProvider,
-  WalletMetadata,
-  WalletProvider,
-  WalletProviderOptions,
-} from '../types';
+import { Wallet, WalletMetadata, WalletProvider, WalletProviderOptions } from '../types';
 import { EthereumProvider } from '@walletconnect/ethereum-provider';
 
 export interface WalletConnectConfig {
@@ -21,7 +16,6 @@ export class WalletConnectProvider implements WalletProvider {
       link: 'https://walletconnect.com/',
     },
     group: 'Popular',
-    installed: true,
   };
 
   private qrCodeLinkPromise: Promise<string> | undefined;
@@ -29,7 +23,7 @@ export class WalletConnectProvider implements WalletProvider {
 
   constructor(private config?: WalletConnectConfig) {}
 
-  create = async (options?: WalletProviderOptions): Promise<EIP1193LikeProvider> => {
+  create = async (options?: WalletProviderOptions): Promise<Wallet> => {
     if (!this.config?.projectId) {
       throw new Error('walletConnectProjectId is required');
     }
@@ -57,7 +51,15 @@ export class WalletConnectProvider implements WalletProvider {
 
     this.initQrCodePromise();
 
-    return provider;
+    return {
+      provider,
+      ...this.metadata,
+    };
+  };
+
+  hasBrowserExtensionInstalled = async (): Promise<boolean> => {
+    // If showQrModal is true, it means use WalletConnet offcial modal, Think it's the same as installing extension
+    return this.config?.showQrModal ?? false;
   };
 
   private initQrCodePromise = () => {

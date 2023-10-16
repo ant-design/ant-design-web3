@@ -1,9 +1,10 @@
 import {
   EIP1193LikeProvider,
+  EIP1193IncludeProvider,
   JsonRpcProvider,
   WalletProvider,
   Chain,
-  WalletMetadata,
+  Wallet,
 } from '@ant-design/web3-common';
 import { createDebug } from './utils';
 
@@ -11,7 +12,6 @@ export interface CreateProviderOptions {
   rpcs?: JsonRpcProvider[];
   wallets?: WalletProvider[];
   chains?: Chain[];
-  getQrCodeLink?: (wallet: string) => Promise<string>;
 }
 
 const debug = createDebug('eip1193-provider');
@@ -21,11 +21,11 @@ const wallectsMethods = ['eth_requestAccounts', 'eth_accounts'];
 export class EthereumProvider implements EIP1193LikeProvider {
   constructor(private options: CreateProviderOptions) {}
 
-  rpcProvders: EIP1193LikeProvider[] | undefined = undefined;
-  walletProviders: EIP1193LikeProvider[] | undefined = undefined;
-  useWallet: string | undefined;
+  private rpcProvders: EIP1193IncludeProvider[] | undefined = undefined;
+  private walletProviders: Wallet[] | undefined = undefined;
+  private useWallet: string | undefined;
 
-  getWalletProvider = async (): Promise<EIP1193LikeProvider | undefined> => {
+  private getAllWallet = async (): Promise<Wallet[]> => {
     const { wallets } = this.options;
     if (!this.walletProviders) {
       this.walletProviders = await Promise.all(
@@ -36,6 +36,12 @@ export class EthereumProvider implements EIP1193LikeProvider {
         ),
       );
     }
+    return this.walletProviders || [];
+  };
+
+  private getWalletProvider = async (): Promise<EIP1193LikeProvider | undefined> => {
+    await this.getAllWallet();
+    const { wallets } = this.options;
     if (!this.walletProviders || this.walletProviders.length === 0) {
       return undefined;
     }
@@ -43,13 +49,13 @@ export class EthereumProvider implements EIP1193LikeProvider {
     if (this.useWallet) {
       const useProviderIndex = wallets?.findIndex((item) => item.metadata.name === this.useWallet);
       if (useProviderIndex !== undefined && useProviderIndex >= 0) {
-        return this.walletProviders[useProviderIndex];
+        return this.walletProviders[useProviderIndex].provider;
       }
     }
-    return this.walletProviders[0];
+    return this.walletProviders[0].provider;
   };
 
-  getRpcProvider = async (index = 0): Promise<EIP1193LikeProvider | undefined> => {
+  private getRpcProvider = async (index = 0): Promise<EIP1193LikeProvider | undefined> => {
     const { rpcs } = this.options;
     if (!this.rpcProvders) {
       this.rpcProvders = await Promise.all((rpcs || []).map((rpc) => rpc.create()));
@@ -57,7 +63,7 @@ export class EthereumProvider implements EIP1193LikeProvider {
     if (!this.rpcProvders || this.rpcProvders.length <= index) {
       return undefined;
     }
-    return this.rpcProvders[index];
+    return this.rpcProvders[index].provider;
   };
 
   request = async (
@@ -105,9 +111,10 @@ export class EthereumProvider implements EIP1193LikeProvider {
     }
   };
 
-  get wallets(): WalletMetadata[] {
-    return this.options.wallets?.map((wallet) => wallet.metadata) || [];
-  }
+  getAvaliableWallets = async (): Promise<Wallet[]> => {
+    await this.getAllWallet();
+    return this.walletProviders || [];
+  };
 
   getCurrentNetwork = async (): Promise<number | undefined> => {
     const walletProvider = await this.getWalletProvider();
@@ -120,17 +127,6 @@ export class EthereumProvider implements EIP1193LikeProvider {
 
   updateUseWallet = (wallet?: string) => {
     this.useWallet = wallet;
-  };
-
-  getQrCodeLink = async (walletName: string): Promise<string> => {
-    const wallet = this.options.wallets?.find((item) => item.metadata.name === walletName);
-    if (!wallet) {
-      throw new Error('No wallet provider found');
-    }
-    if (wallet.getQrCodeLink) {
-      return wallet.getQrCodeLink();
-    }
-    throw new Error('No getQrCodeLink method found');
   };
 }
 

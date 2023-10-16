@@ -158,17 +158,6 @@ export class MockProvider implements UniversalWeb3ProviderInterface {
     ];
   };
 
-  getQrCodeLink = async () => {
-    return new Promise<string>((resolve) =>
-      setTimeout(
-        () =>
-          resolve(
-            `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
-          ),
-        2000,
-      ),
-    );
-  };
   getNFTMetadata = async (address: string, id: number) => {
     return {
       name: 'OurMetaverseDAO NFT #6',

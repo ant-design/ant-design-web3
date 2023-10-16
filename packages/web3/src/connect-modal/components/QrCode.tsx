@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
-import type { WalletMetadata } from '../interface';
+import type { Wallet } from '../interface';
 import MainPanelHeader from './MainPanelHeader';
 import { connectModalContext } from '../context';
 import { Button, QRCode } from 'antd';
 import useProvider from '../../hooks/useProvider';
 
 export type QrCodeProps = {
-  wallet: WalletMetadata;
+  wallet: Wallet;
   isSimple?: boolean;
 };
 
@@ -21,8 +21,8 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
   useEffect(() => {
     if (provider && wallet) {
       setLoading(true);
-      provider.getQrCodeLink(wallet.name).then((link) => {
-        setQrCodeValue(link);
+      wallet.getQrCode?.().then(({ uri }) => {
+        setQrCodeValue(uri);
         setLoading(false);
       });
     }

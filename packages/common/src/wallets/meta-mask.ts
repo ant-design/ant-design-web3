@@ -1,4 +1,4 @@
-import { EIP1193LikeProvider, WalletMetadata, WalletProvider } from '../types';
+import { WalletMetadata, Wallet, WalletProvider } from '../types';
 
 export class MetaMaskProvider implements WalletProvider {
   metadata: WalletMetadata = {
@@ -22,12 +22,20 @@ export class MetaMaskProvider implements WalletProvider {
     installed: window.ethereum?.isMetaMask ?? false,
   };
 
-  create = async (): Promise<EIP1193LikeProvider> => {
+  create = async (): Promise<Wallet> => {
     // @ts-ignore
     if (!window.ethereum) {
       throw new Error('MetaMask is not installed');
     }
+    return {
+      // @ts-ignore
+      provider: window.ethereum,
+      ...this.metadata,
+    };
+  };
+
+  hasBrowserExtensionInstalled = async (): Promise<boolean> => {
     // @ts-ignore
-    return window.ethereum;
+    return window.ethereum && window.ethereum?.isMetaMask;
   };
 }

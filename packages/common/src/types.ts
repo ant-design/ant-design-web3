@@ -45,9 +45,8 @@ export interface UniversalWeb3ProviderInterface {
   getCurrentAccount: () => Promise<Account | undefined>;
   getCurrentNetwork: () => Promise<number>;
   requestAccounts: (wallet?: string) => Promise<Account[]>;
-  getQrCodeLink: () => Promise<string>;
   getNFTMetadata: (address: string, id: number) => Promise<NFTMetadata>;
-  getAvaliableWallets: () => Promise<WalletMetadata[]>;
+  getAvaliableWallets: () => Promise<Wallet[]>;
   disconnect: () => Promise<void>;
   on: (type: UniversalWeb3ProviderEventType, handler: (params?: any) => void) => void;
   off: (type: UniversalWeb3ProviderEventType, handler: (params?: any) => void) => void;
@@ -69,16 +68,28 @@ export interface WalletProviderOptions {
   chains?: Chain[];
 }
 
-export interface EIP1193LikeProviderFactory {
-  create: (options?: WalletProviderOptions) => Promise<EIP1193LikeProvider>;
+export interface Wallet extends WalletMetadata, EIP1193IncludeProvider {
+  provider?: EIP1193LikeProvider;
+  hasBrowserExtensionInstalled?: () => Promise<boolean>;
+  getQrCode?: () => Promise<{
+    uri: string;
+  }>;
 }
 
-export interface WalletProvider extends EIP1193LikeProviderFactory {
+export interface EIP1193IncludeProvider {
+  provider?: EIP1193LikeProvider;
+}
+
+export interface EIP1193IncludeProviderFactory {
+  create: (options?: WalletProviderOptions) => Promise<EIP1193IncludeProvider>;
+}
+
+export interface WalletProvider extends EIP1193IncludeProviderFactory {
   metadata: WalletMetadata;
-  getQrCodeLink?: () => Promise<string>;
+  create: (options?: WalletProviderOptions) => Promise<Wallet>;
 }
 
-export interface JsonRpcProvider extends EIP1193LikeProviderFactory {
+export interface JsonRpcProvider extends EIP1193IncludeProviderFactory {
   getRpcUrl: (chain: Chain) => string;
 }
 
@@ -157,9 +168,4 @@ export type WalletMetadata = {
    * @descEn The name of the group to which the wallet belongs
    */
   group?: string;
-  /**
-   * @desc 钱包是否已安装
-   * @descEn Whether the wallet is installed
-   */
-  installed?: boolean;
 };

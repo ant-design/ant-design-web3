@@ -1,4 +1,4 @@
-import { JsonRpcProvider, Chain, ChainIds, EIP1193LikeProvider } from '../types';
+import { JsonRpcProvider, Chain, ChainIds, EIP1193IncludeProvider } from '../types';
 import { mainnet } from '../chains';
 
 export interface ZANJsonRpcProviderProps {
@@ -16,8 +16,8 @@ export class ZANJsonRpcProvider implements JsonRpcProvider {
     throw new Error(`Unsupported chain: ${chain}`);
   }
 
-  async create(): Promise<EIP1193LikeProvider> {
-    return {
+  async create(): Promise<EIP1193IncludeProvider> {
+    const provider = {
       request: async (request: { method: string; params?: any }) => {
         const { method, params } = request;
         const response = await fetch(this.getRpcUrl(mainnet), {
@@ -39,6 +39,9 @@ export class ZANJsonRpcProvider implements JsonRpcProvider {
         }
         return result;
       },
+    };
+    return {
+      provider,
     };
   }
 }
