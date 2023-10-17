@@ -11,12 +11,12 @@ import {
 const provider = createProvider({
   rpcs: [
     new ZANJsonRpcProvider({
-      apiKey: 'd0eeefc2a4da4a8ba707889259b437d6',
+      apiKey: YOUR_ZAN_API_KEY,
     }),
   ],
   wallets: [
     new WalletConnectProvider({
-      projectId: 'c07c0051c2055890eade3556618e38a6',
+      projectId: YOUR_WALLET_CONNET_PROJECT_ID,
     }),
     new MetaMaskProvider(),
   ],

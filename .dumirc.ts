@@ -11,6 +11,10 @@ export default defineConfig({
     ],
   },
   copy: ['CNAME'],
+  define: {
+    YOUR_ZAN_API_KEY: 'd0eeefc2a4da4a8ba707889259b437d6',
+    YOUR_WALLET_CONNET_PROJECT_ID: 'c07c0051c2055890eade3556618e38a6',
+  },
   publicPath: process.env.PUBLIC_PATH || '/',
   base: process.env.BASE || '/',
   themeConfig: {
