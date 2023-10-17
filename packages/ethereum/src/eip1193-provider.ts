@@ -18,7 +18,7 @@ const debug = createDebug('eip1193-provider');
 
 const wallectsMethods = ['eth_requestAccounts', 'eth_accounts'];
 
-export class EthereumProvider implements EIP1193LikeProvider {
+export class EthereumEIP1193LikeProvider implements EIP1193LikeProvider {
   constructor(private options: CreateProviderOptions) {}
 
   private rpcProvders: EIP1193IncludeProvider[] | undefined = undefined;
@@ -128,11 +128,4 @@ export class EthereumProvider implements EIP1193LikeProvider {
   updateUseWallet = (wallet?: string) => {
     this.useWallet = wallet;
   };
-}
-
-export function createProvider(options: CreateProviderOptions): EthereumProvider {
-  if (options?.chains?.length && options?.chains?.length > 1) {
-    throw new Error('Not support multiple chains now.');
-  }
-  return new EthereumProvider(options);
 }

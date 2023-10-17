@@ -8,14 +8,14 @@ import {
 } from '@ant-design/web3-common';
 import { EventEmitter } from 'eventemitter3';
 import { ethers } from 'ethers';
-import { EthereumProvider } from './ethereum-provider';
+import { EthereumEIP1193LikeProvider } from './eip1193-provider';
 
 const USE_WALLET_LOCAL_STORAGE_KEY = 'antd-web3-use-wallet';
 
 export class UniversalProvider extends EventEmitter implements UniversalWeb3ProviderInterface {
   private useWallet?: string;
 
-  constructor(private eip1193Provider: EthereumProvider) {
+  constructor(private eip1193Provider: EthereumEIP1193LikeProvider) {
     super();
     const wallet: string = localStorage.getItem(USE_WALLET_LOCAL_STORAGE_KEY) || '';
     if (wallet) {
