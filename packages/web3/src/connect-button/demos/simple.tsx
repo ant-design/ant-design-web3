@@ -23,10 +23,6 @@ const provider = createProvider({
   chains: [chains.mainnet],
 });
 
-export function rootContainer(container: React.ReactNode) {
-  return;
-}
-
 export default () => {
   return (
     <EthereumProvider provider={provider}>
