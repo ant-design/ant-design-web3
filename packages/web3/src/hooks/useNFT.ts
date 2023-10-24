@@ -2,17 +2,19 @@ import { useEffect, useState } from 'react';
 import { NFTMetadata } from '@ant-design/web3-common';
 import useProvider from './useProvider';
 
-export default function useNFT(address: string, id: number) {
+export default function useNFT(address: string, tokenId: number) {
   const [metadata, setMetadata] = useState<NFTMetadata>({});
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error>();
-  const { provider } = useProvider();
+  const { getNFTMetadata } = useProvider();
 
   useEffect(() => {
-    if (provider) {
+    if (getNFTMetadata) {
       setLoading(true);
-      provider
-        .getNFTMetadata(address, id)
+      getNFTMetadata({
+        address,
+        tokenId,
+      })
         .then((data) => {
           setMetadata(data);
         })
@@ -25,7 +27,7 @@ export default function useNFT(address: string, id: number) {
     } else {
       setError(new Error('Provider is not ready'));
     }
-  }, [address, id, provider]);
+  }, [address, tokenId, getNFTMetadata]);
   return {
     loading,
     metadata,

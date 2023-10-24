@@ -8,7 +8,7 @@ import { UnconnectedButton } from './unconnected-button';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const { currentAccount } = useAccounts();
-  const { provider } = useProvider();
+  const { disconnect } = useProvider();
 
   if (!currentAccount) {
     return <UnconnectedButton {...props} />;
@@ -23,7 +23,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       type={props.type}
       ghost={props.ghost}
       onClick={async () => {
-        await provider?.disconnect();
+        await disconnect?.();
       }}
     >
       <Address ellipsis address={currentAccount.address} />

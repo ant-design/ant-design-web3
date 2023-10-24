@@ -36,20 +36,15 @@ export interface NFTMetadata {
   compiler?: string;
 }
 
-export enum UniversalWeb3ProviderEventType {
-  AccountsChanged = 'accountsChanged',
-}
-
 export interface UniversalWeb3ProviderInterface {
-  getAccounts: () => Promise<Account[]>;
-  getCurrentAccount: () => Promise<Account | undefined>;
-  getCurrentNetwork: () => Promise<number>;
-  requestAccounts: (wallet?: string) => Promise<Account[]>;
-  getNFTMetadata: (address: string, id: number) => Promise<NFTMetadata>;
-  getAvaliableWallets: () => Promise<Wallet[]>;
-  disconnect: () => Promise<void>;
-  on: (type: UniversalWeb3ProviderEventType, handler: (params?: any) => void) => void;
-  off: (type: UniversalWeb3ProviderEventType, handler: (params?: any) => void) => void;
+  requestAccounts?: (wallet?: string) => Promise<Account[]>;
+  disconnect?: () => Promise<void>;
+
+  getAccounts?: () => Promise<Account[]>;
+  getCurrentAccount?: () => Promise<Account | undefined>;
+  getCurrentNetwork?: () => Promise<number>;
+  getNFTMetadata?: (params: { address: string; tokenId: number }) => Promise<NFTMetadata>;
+  getAvaliableWallets?: () => Promise<Wallet[]>;
 }
 
 /**

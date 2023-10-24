@@ -3,12 +3,15 @@ import {
   NFTMetadata,
   Account,
   requestWeb3Asset,
-  UniversalWeb3ProviderEventType,
   Wallet,
 } from '@ant-design/web3-common';
 import { EventEmitter } from 'eventemitter3';
 import { ethers } from 'ethers';
 import { EthereumEIP1193LikeProvider } from './eip1193-provider';
+
+export enum UniversalWeb3ProviderEventType {
+  AccountsChanged = 'accountsChanged',
+}
 
 const USE_WALLET_LOCAL_STORAGE_KEY = 'antd-web3-use-wallet';
 
@@ -23,13 +26,13 @@ export class UniversalProvider extends EventEmitter implements UniversalWeb3Prov
     }
   }
 
-  private updateUseWallet(wallet: string) {
+  private updateUseWallet = (wallet: string) => {
     this.useWallet = wallet;
     localStorage.setItem(USE_WALLET_LOCAL_STORAGE_KEY, this.useWallet);
     this.eip1193Provider.updateUseWallet(this.useWallet);
-  }
+  };
 
-  async getAccounts(): Promise<Account[]> {
+  getAccounts = async (): Promise<Account[]> => {
     if (!this.useWallet) {
       return [];
     }
@@ -40,19 +43,19 @@ export class UniversalProvider extends EventEmitter implements UniversalWeb3Prov
         address: account.address,
       };
     });
-  }
+  };
 
-  async getCurrentAccount(): Promise<Account | undefined> {
+  getCurrentAccount = async (): Promise<Account | undefined> => {
     const accounts = await this.getAccounts();
     return accounts[0];
-  }
+  };
 
-  async getCurrentNetwork(): Promise<number> {
+  getCurrentNetwork = async (): Promise<number> => {
     const network = await this.eip1193Provider.getCurrentNetwork();
     return network ?? 1;
-  }
+  };
 
-  async requestAccounts(wallet?: string): Promise<Account[]> {
+  requestAccounts = async (wallet?: string): Promise<Account[]> => {
     if (wallet) {
       this.updateUseWallet(wallet);
     }
@@ -63,30 +66,30 @@ export class UniversalProvider extends EventEmitter implements UniversalWeb3Prov
     const accounts = await this.getAccounts();
     this.emit(UniversalWeb3ProviderEventType.AccountsChanged, accounts);
     return accounts;
-  }
+  };
 
-  async disconnect(): Promise<void> {
+  disconnect = async (): Promise<void> => {
     if (!this.useWallet) {
       return;
     }
     await this.eip1193Provider?.disconnect?.();
     this.updateUseWallet('');
     this.emit(UniversalWeb3ProviderEventType.AccountsChanged, []);
-  }
+  };
 
-  async getAvaliableWallets(): Promise<Wallet[]> {
+  getAvaliableWallets = async (): Promise<Wallet[]> => {
     return this.eip1193Provider.getAvaliableWallets();
-  }
+  };
 
-  async getNFTMetadata(address: string, tokenId: number): Promise<NFTMetadata> {
+  getNFTMetadata = async (params: { address: string; tokenId: number }): Promise<NFTMetadata> => {
     const provider = new ethers.BrowserProvider(this.eip1193Provider);
     const contract = new ethers.Contract(
-      address,
+      params.address,
       [`function tokenURI(uint256 tokenId) external view returns (string memory)`],
       provider,
     );
-    const tokenURI = await contract.tokenURI(tokenId);
+    const tokenURI = await contract.tokenURI(params.tokenId);
     const metaInfo = await requestWeb3Asset(tokenURI);
     return metaInfo as NFTMetadata;
-  }
+  };
 }

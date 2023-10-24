@@ -7,7 +7,7 @@ import { ConnectModal } from '../connect-modal';
 import useWallets from '../hooks/useWallets';
 
 export const UnconnectedButton: React.FC<UnconnectedButtonProps> = (props) => {
-  const { provider } = useProvider();
+  const { requestAccounts } = useProvider();
   const { wallets } = useWallets();
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
@@ -34,8 +34,7 @@ export const UnconnectedButton: React.FC<UnconnectedButtonProps> = (props) => {
         walletList={wallets}
         onOpenChange={setOpen}
         onSelectWallet={async (wallet) => {
-          provider
-            ?.requestAccounts(wallet.name)
+          requestAccounts?.(wallet.name)
             .then(() => {
               setOpen(false);
             })
