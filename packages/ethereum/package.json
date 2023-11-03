@@ -21,7 +21,9 @@
   "dependencies": {
     "@ant-design/web3-common": "workspace:*",
     "debug": "^4.3.4",
-    "eventemitter3": "^5.0.1"
+    "eventemitter3": "^5.0.1",
+    "@walletconnect/ethereum-provider": "^2.10.2",
+    "@walletconnect/modal": "^2.6.2"
   },
   "devDependencies": {
     "@types/debug": "^4.1.9",

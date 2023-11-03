@@ -1,11 +1,11 @@
+import { Chain } from '@ant-design/web3-common';
 import {
   EIP1193LikeProvider,
   EIP1193IncludeProvider,
   JsonRpcProvider,
   WalletProvider,
-  Chain,
-  Wallet,
-} from '@ant-design/web3-common';
+  EthereumWallet,
+} from './types';
 import { createDebug } from './utils';
 
 export interface CreateProviderOptions {
@@ -22,10 +22,10 @@ export class EthereumEIP1193LikeProvider implements EIP1193LikeProvider {
   constructor(private options: CreateProviderOptions) {}
 
   private rpcProvders: EIP1193IncludeProvider[] | undefined = undefined;
-  private walletProviders: Wallet[] | undefined = undefined;
+  private walletProviders: EthereumWallet[] | undefined = undefined;
   private useWallet: string | undefined;
 
-  private getAllWallet = async (): Promise<Wallet[]> => {
+  private getAllWallet = async (): Promise<EthereumWallet[]> => {
     const { wallets } = this.options;
     if (!this.walletProviders) {
       this.walletProviders = await Promise.all(
@@ -111,7 +111,7 @@ export class EthereumEIP1193LikeProvider implements EIP1193LikeProvider {
     }
   };
 
-  getAvaliableWallets = async (): Promise<Wallet[]> => {
+  getAvaliableWallets = async (): Promise<EthereumWallet[]> => {
     await this.getAllWallet();
     return this.walletProviders || [];
   };

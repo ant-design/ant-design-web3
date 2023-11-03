@@ -88,13 +88,6 @@ importers:
         version: 1.4.5(@types/react@18.2.22)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)(viem@1.18.4)
 
   packages/common:
-    dependencies:
-      '@walletconnect/ethereum-provider':
-        specifier: ^2.10.2
-        version: 2.10.2(@walletconnect/modal@2.6.2)
-      '@walletconnect/modal':
-        specifier: ^2.6.2
-        version: 2.6.2(@types/react@18.2.22)(react@18.2.0)
     devDependencies:
       '@types/react':
         specifier: ^18.2.20
@@ -123,6 +116,12 @@ importers:
       '@ant-design/web3-common':
         specifier: workspace:*
         version: link:../common
+      '@walletconnect/ethereum-provider':
+        specifier: ^2.10.2
+        version: 2.10.2(@walletconnect/modal@2.6.2)
+      '@walletconnect/modal':
+        specifier: ^2.6.2
+        version: 2.6.2(@types/react@18.2.22)(react@18.2.0)
       debug:
         specifier: ^4.3.4
         version: 4.3.4
