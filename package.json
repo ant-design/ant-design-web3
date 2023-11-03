@@ -2,6 +2,7 @@
   "name": "@ant-design/web3-docs",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "workspaces": [
     "packages/*"
   ],
