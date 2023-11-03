@@ -6,9 +6,6 @@
     "require": "./dist/lib/index.js",
     "types": "./dist/esm/index.d.ts"
   },
-  "authors": [
-    "jeason <me@cowpoke.cc> (https://github.com/jeasonstudio)"
-  ],
   "files": [
     "dist",
     "CHANGELOG.md",

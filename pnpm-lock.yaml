@@ -8,6 +8,15 @@ importers:
 
   .:
     devDependencies:
+      '@ant-design/web3':
+        specifier: workspace:*
+        version: link:packages/web3
+      '@ant-design/web3-ethereum':
+        specifier: workspace:*
+        version: link:packages/ethereum
+      '@ant-design/web3-wagmi':
+        specifier: workspace:*
+        version: link:packages/wagmi
       '@biomejs/biome':
         specifier: ^1.0.0
         version: 1.2.2
@@ -220,6 +229,9 @@ importers:
       '@ant-design/web3-ethereum':
         specifier: workspace:*
         version: link:../ethereum
+      '@ant-design/web3-wagmi':
+        specifier: workspace:*
+        version: link:../wagmi
       '@types/react':
         specifier: ^18.2.20
         version: 18.2.22
