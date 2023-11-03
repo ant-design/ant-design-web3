@@ -10,6 +10,9 @@ export default defineConfig({
       },
     ],
   },
+  jsMinifierOptions: {
+    target: ['chrome80', 'es2020'],
+  },
   copy: ['CNAME'],
   define: {
     YOUR_ZAN_API_KEY: 'd0eeefc2a4da4a8ba707889259b437d6',
