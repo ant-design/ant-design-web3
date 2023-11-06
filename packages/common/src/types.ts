@@ -41,7 +41,7 @@ export interface UniversalWeb3ProviderInterface {
   disconnect?: () => Promise<void>;
 
   getCurrentNetwork?: () => Promise<number>;
-  getNFTMetadata?: (params: { address: string; tokenId: number }) => Promise<NFTMetadata>;
+  getNFTMetadata?: (params: { address: string; tokenId: bigint }) => Promise<NFTMetadata>;
 }
 
 export interface Wallet extends WalletMetadata {

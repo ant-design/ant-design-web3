@@ -5,7 +5,7 @@ import useNFT from '../hooks/useNFT';
 
 export interface NFTCardProps extends ImageProps {
   address: string;
-  tokenId: number;
+  tokenId: bigint;
 }
 
 export const NFTImage: React.FC<NFTCardProps> = ({ address, tokenId, ...rest }) => {
