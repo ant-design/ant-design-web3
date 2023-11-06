@@ -39,10 +39,10 @@
     "*.{json,less,md}": "prettier --ignore-unknown --write"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.0.0",
     "@changesets/changelog-git": "^0.1.14",
     "@changesets/cli": "^2.26.2",
     "@testing-library/react": "^14.0.0",
-    "@biomejs/biome": "^1.0.0",
     "@types/node": "^16.6.1",
     "@types/react": "^18.2.20",
     "@umijs/fabric": "^2.14.1",
