@@ -13,6 +13,14 @@ A Button for connect chain quickly.
 
 <code src="./demos/simple.tsx"></code>
 
-## Unconnected
+## Using with wagmi
 
-<code src="./demos/unconnected.tsx"></code>
+<code src="./demos/wagmi.tsx"></code>
+
+## Use web3modal for WallectConnect
+
+<code src="./demos/web3modal.tsx"></code>
+
+## Using with @ant-design/web3-ethereum
+
+<code src="./demos/ethereum.tsx"></code>

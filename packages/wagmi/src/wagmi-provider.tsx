@@ -8,7 +8,7 @@ import {
 } from '@ant-design/web3-common';
 import { useAccount, useConnect, useDisconnect, useNetwork } from 'wagmi';
 import { readContract } from '@wagmi/core';
-import { getWalletsByConnectors } from './wallets.js';
+import { getWalletsByConnectors } from './wallets';
 
 export interface WagmiWeb3ConfigProviderProps {
   children?: React.ReactNode;

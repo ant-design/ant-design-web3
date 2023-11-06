@@ -35,6 +35,6 @@ function App() {
 
 除了需要引入 `WagmiWeb3ConfigProvider` 外，你完全不需要改变 wagmi 的任何用法。
 
-## 基本使用
+## 使用示例
 
-<code src="./demos/wagmi.tsx"></code>
+<code src="../../packages/web3/src/connect-button/demos/wagmi.tsx"></code>
