@@ -1,4 +1,3 @@
-import { Keyframes } from '@ant-design/cssinjs';
 import {
   genComponentStyleHook,
   type FullToken,
