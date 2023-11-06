@@ -20,7 +20,7 @@ export default () => {
   return (
     <WagmiConfig config={config}>
       <WagmiWeb3ConfigProvider>
-        <NFTImage address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={42} />
+        <NFTImage address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={42n} />
       </WagmiWeb3ConfigProvider>
     </WagmiConfig>
   );
