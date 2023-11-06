@@ -40,11 +40,8 @@ export interface UniversalWeb3ProviderInterface {
   requestAccounts?: (wallet?: string) => Promise<Account[]>;
   disconnect?: () => Promise<void>;
 
-  getAccounts?: () => Promise<Account[]>;
-  getCurrentAccount?: () => Promise<Account | undefined>;
   getCurrentNetwork?: () => Promise<number>;
   getNFTMetadata?: (params: { address: string; tokenId: number }) => Promise<NFTMetadata>;
-  getAvaliableWallets?: () => Promise<Wallet[]>;
 }
 
 export interface Wallet extends WalletMetadata {

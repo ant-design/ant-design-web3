@@ -10,6 +10,5 @@ export interface NFTCardProps extends ImageProps {
 
 export const NFTImage: React.FC<NFTCardProps> = ({ address, tokenId, ...rest }) => {
   const { metadata } = useNFT(address, tokenId);
-
   return <Image src={getWeb3AssetUrl(metadata.image)} {...rest} />;
 };

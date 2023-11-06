@@ -1,8 +1,6 @@
 {
   "name": "@ant-design/web3-wagmi",
   "version": "0.1.0-alpha.1",
-  "type": "module",
-  "main": "./dist/esm/index.js",
   "exports": {
     "import": "./dist/esm/index.js",
     "require": "./dist/lib/index.js",
@@ -19,6 +17,7 @@
   },
   "dependencies": {
     "@ant-design/web3-common": "workspace:*",
+    "@wagmi/core": "^1.4.5",
     "debug": "^4.3.4"
   },
   "devDependencies": {

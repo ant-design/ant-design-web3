@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tooltip } from 'antd';
-import { ChainIds } from '@ant-design/web3-common';
+import { ChainIds, fillAddressWith0x } from '@ant-design/web3-common';
 import { Address } from '../address';
 
 export type BrowserLinkType = 'address' | 'transaction';
@@ -31,7 +31,7 @@ export const getBrowserLink = (
 
 export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
   const { icon, ellipsis, address, href, type, chain } = props;
-  const filledAddress = address.startsWith('0x') ? address : `0x${address}`;
+  const filledAddress = fillAddressWith0x(address);
   const browserLink = href || getBrowserLink(filledAddress, type, chain);
 
   return (

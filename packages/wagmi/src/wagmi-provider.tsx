@@ -1,6 +1,13 @@
 import React from 'react';
-import { Web3ConfigProvider, Account, Wallet } from '@ant-design/web3-common';
-import { useAccount, useConnect } from 'wagmi';
+import {
+  Web3ConfigProvider,
+  Account,
+  Wallet,
+  requestWeb3Asset,
+  fillAddressWith0x,
+} from '@ant-design/web3-common';
+import { useAccount, useConnect, useDisconnect, useNetwork } from 'wagmi';
+import { readContract } from '@wagmi/core';
 import { getWalletsByConnectors } from './wallets.js';
 
 export interface WagmiWeb3ConfigProviderProps {
@@ -9,11 +16,13 @@ export interface WagmiWeb3ConfigProviderProps {
 
 export const WagmiWeb3ConfigProvider: React.FC<WagmiWeb3ConfigProviderProps> = (props) => {
   const { children } = props;
-  const { address } = useAccount();
+  const { address, isDisconnected } = useAccount();
   const { connectors, connectAsync } = useConnect();
+  const { chain } = useNetwork();
+  const { disconnectAsync } = useDisconnect();
 
   const accounts: Account[] = React.useMemo(() => {
-    if (!address) {
+    if (!address || isDisconnected) {
       return [];
     }
     return [
@@ -41,6 +50,33 @@ export const WagmiWeb3ConfigProvider: React.FC<WagmiWeb3ConfigProviderProps> = (
             address: account,
           },
         ];
+      }}
+      disconnect={async () => {
+        await disconnectAsync();
+      }}
+      getNFTMetadata={async ({ address, tokenId }) => {
+        const tokenURI = await readContract({
+          address: fillAddressWith0x(address),
+          args: [tokenId],
+          chainId: chain?.id,
+          abi: [
+            {
+              name: 'tokenURI',
+              inputs: [
+                {
+                  name: 'tokenId',
+                  type: 'uint256',
+                },
+              ],
+              outputs: [{ name: '', type: 'string' }],
+              stateMutability: 'view',
+              type: 'function',
+            },
+          ],
+          functionName: 'tokenURI',
+        });
+        const metaInfo = await requestWeb3Asset(tokenURI as string);
+        return metaInfo;
       }}
     >
       {children}

@@ -103,6 +103,7 @@ export class EthereumEIP1193LikeProvider implements EIP1193LikeProvider {
       await walletProvider?.connect?.();
     }
   };
+
   disconnect = async () => {
     // TODO: disconnect for MetaMask
     const walletProvider = await this.getWalletProvider();

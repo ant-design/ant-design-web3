@@ -1,1 +1,1 @@
-export * from './wagmi-provider.js';
+export * from './wagmi-provider';
