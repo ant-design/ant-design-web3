@@ -23,10 +23,12 @@ const provider = createProvider({
   chains: [chains.mainnet],
 });
 
-export default () => {
+const App: React.FC = () => {
   return (
     <EthereumProvider provider={provider}>
       <ConnectButton />
     </EthereumProvider>
   );
 };
+
+export default App;

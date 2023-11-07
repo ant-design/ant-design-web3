@@ -1,5 +1,7 @@
 import { ConnectButton } from '@ant-design/web3';
 
-export default () => {
+const App: React.FC = () => {
   return <ConnectButton />;
 };
+
+export default App;

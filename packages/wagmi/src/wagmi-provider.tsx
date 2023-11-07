@@ -54,9 +54,9 @@ export const WagmiWeb3ConfigProvider: React.FC<WagmiWeb3ConfigProviderProps> = (
       disconnect={async () => {
         await disconnectAsync();
       }}
-      getNFTMetadata={async ({ address, tokenId }) => {
+      getNFTMetadata={async ({ address: contractAddress, tokenId }) => {
         const tokenURI = await readContract({
-          address: fillAddressWith0x(address),
+          address: fillAddressWith0x(contractAddress),
           args: [tokenId],
           chainId: chain?.id,
           abi: [

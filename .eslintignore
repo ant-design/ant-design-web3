@@ -4,6 +4,6 @@ dist
 lib
 es
 
-# 只检查 ts 文件
-**/*.js
-vitest.config.mts
+.umi-production
+.umi-test
+.umi

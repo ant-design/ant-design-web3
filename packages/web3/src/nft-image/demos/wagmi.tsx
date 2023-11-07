@@ -16,7 +16,7 @@ const config = createConfig({
   publicClient,
 });
 
-export default () => {
+const App: React.FC = () => {
   return (
     <WagmiConfig config={config}>
       <WagmiWeb3ConfigProvider>
@@ -25,3 +25,5 @@ export default () => {
     </WagmiConfig>
   );
 };
+
+export default App;

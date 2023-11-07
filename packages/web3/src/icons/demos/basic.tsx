@@ -15,7 +15,7 @@ const style = {
   fontSize: 64,
 };
 
-export default () => {
+const App: React.FC = () => {
   return (
     <Space>
       <ArbitrumFilled style={style} />
@@ -30,3 +30,5 @@ export default () => {
     </Space>
   );
 };
+
+export default App;
