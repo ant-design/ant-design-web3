@@ -17,13 +17,13 @@
   },
   "dependencies": {
     "@ant-design/web3-common": "workspace:*",
-    "@wagmi/core": "^1.4.5",
     "debug": "^4.3.4"
   },
   "devDependencies": {
     "@types/debug": "^4.1.9",
     "father": "^4.1.9",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "@wagmi/core": "^1.4.5"
   },
   "peerDependencies": {
     "wagmi": "^1.4.5"
