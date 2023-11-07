@@ -24,16 +24,14 @@ const config = createConfig({
 
 function App() {
   return (
-    <WagmiConfig config={config}>
-      <WagmiWeb3ConfigProvider>
-        <NFTImage address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={42} />
-      </WagmiWeb3ConfigProvider>
-    </WagmiConfig>
+    <WagmiWeb3ConfigProvider config={config}>
+      <NFTImage address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={42} />
+    </WagmiWeb3ConfigProvider>
   );
 }
 ```
 
-除了需要引入 `WagmiWeb3ConfigProvider` 外，你完全不需要改变 wagmi 的任何用法。
+除了需要引入 `WagmiWeb3ConfigProvider` 替代 `WagmiConfig` 外，你完全不需要改变 wagmi 的任何用法。
 
 ## 使用示例
 
