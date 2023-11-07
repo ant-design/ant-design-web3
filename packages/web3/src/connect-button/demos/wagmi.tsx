@@ -1,4 +1,4 @@
-import { WagmiConfig, createConfig, configureChains, mainnet } from 'wagmi';
+import { createConfig, configureChains, mainnet } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
@@ -24,11 +24,9 @@ const config = createConfig({
 
 const App: React.FC = () => {
   return (
-    <WagmiConfig config={config}>
-      <WagmiWeb3ConfigProvider>
-        <ConnectButton />
-      </WagmiWeb3ConfigProvider>
-    </WagmiConfig>
+    <WagmiWeb3ConfigProvider config={config}>
+      <ConnectButton />
+    </WagmiWeb3ConfigProvider>
   );
 };
 

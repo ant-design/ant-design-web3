@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
-import { WagmiConfig, createConfig, configureChains, mainnet } from 'wagmi';
+import { createConfig, configureChains, mainnet } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
-import { WagmiWeb3ConfigProvider } from './wagmi-provider';
+import { WagmiWeb3ConfigProvider } from '.';
 
 describe('WagmiWeb3ConfigProvider', () => {
   it('mount correctly', () => {
@@ -14,17 +14,11 @@ describe('WagmiWeb3ConfigProvider', () => {
     });
 
     const App = () => (
-      <WagmiConfig config={config}>
-        <WagmiWeb3ConfigProvider>
-          <div className="content">test</div>
-        </WagmiWeb3ConfigProvider>
-      </WagmiConfig>
+      <WagmiWeb3ConfigProvider config={config}>
+        <div className="content">test</div>
+      </WagmiWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.content')?.textContent).toBe('test');
-  });
-
-  it('mount incorrectly', () => {
-    expect(() => render(<WagmiWeb3ConfigProvider />)).toThrow();
   });
 });

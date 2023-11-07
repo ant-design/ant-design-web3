@@ -8,13 +8,13 @@ import {
 } from '@ant-design/web3-common';
 import { useAccount, useConnect, useDisconnect, useNetwork } from 'wagmi';
 import { readContract } from '@wagmi/core';
-import { getWalletsByConnectors } from './wallets';
+import { getWalletsByConnectors } from '../wallets';
 
-export interface WagmiWeb3ConfigProviderProps {
+export interface AntDesignWeb3ConfigProviderProps {
   children?: React.ReactNode;
 }
 
-export const WagmiWeb3ConfigProvider: React.FC<WagmiWeb3ConfigProviderProps> = (props) => {
+export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
   const { children } = props;
   const { address, isDisconnected } = useAccount();
   const { connectors, connectAsync } = useConnect();
