@@ -1,6 +1,6 @@
 import { BrowserLink } from '@ant-design/web3';
 
-export default () => {
+const App: React.FC = () => {
   return (
     <BrowserLink
       ellipsis
@@ -9,3 +9,5 @@ export default () => {
     />
   );
 };
+
+export default App;

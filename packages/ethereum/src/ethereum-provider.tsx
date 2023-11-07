@@ -19,15 +19,15 @@ export const EthereumProvider: React.FC<Web3ProviderProps> = (props) => {
 
   React.useEffect(() => {
     const getAvaliableWallets = async () => {
-      const wallets = await provider.getAvaliableWallets();
-      setWallets(wallets);
+      const avaliableWallets = await provider.getAvaliableWallets();
+      setWallets(avaliableWallets);
     };
     getAvaliableWallets();
   }, [provider]);
 
   React.useEffect(() => {
-    const handleAccountsChanged = (accounts: Account[]) => {
-      setAccounts(accounts);
+    const handleAccountsChanged = (newAccounts: Account[]) => {
+      setAccounts(newAccounts);
     };
     provider.on(UniversalWeb3ProviderEventType.AccountsChanged, handleAccountsChanged);
     return () => {

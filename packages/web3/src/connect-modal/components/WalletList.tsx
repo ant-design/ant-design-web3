@@ -46,8 +46,10 @@ const WalletList: React.FC<WalletListProps> = (props) => {
                         ? selectedWallet?.key === item.key
                         : selectedWallet?.name === item.name,
                   })}
-                  onClick={() => {
-                    if (item.hasBrowserExtensionInstalled?.()) {
+                  onClick={async () => {
+                    const hasBrowserExtensionInstalled =
+                      await item.hasBrowserExtensionInstalled?.();
+                    if (hasBrowserExtensionInstalled) {
                       updateSelectedWallet(item);
                       return;
                     }

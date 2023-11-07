@@ -1,7 +1,7 @@
 import React from 'react';
 import { Web3ConfigProvider, ConnectButton, Account } from '@ant-design/web3';
 
-export default () => {
+const App: React.FC = () => {
   const [accounts, setAccounts] = React.useState<Account[]>([]);
   return (
     <Web3ConfigProvider
@@ -22,13 +22,13 @@ export default () => {
         },
       ]}
       requestAccounts={async () => {
-        const accounts = [
+        const newAccounts = [
           {
             address: '0x1234567890123456789012345678901234567890',
           },
         ];
-        setAccounts(accounts);
-        return accounts;
+        setAccounts(newAccounts);
+        return newAccounts;
       }}
       accounts={accounts}
     >
@@ -36,3 +36,5 @@ export default () => {
     </Web3ConfigProvider>
   );
 };
+
+export default App;

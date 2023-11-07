@@ -1,7 +1,7 @@
 import { UnconnectedButton } from '@ant-design/web3';
 import { Space } from 'antd';
 
-export default () => {
+const App: React.FC = () => {
   return (
     <Space>
       <UnconnectedButton type="default" />
@@ -10,3 +10,5 @@ export default () => {
     </Space>
   );
 };
+
+export default App;

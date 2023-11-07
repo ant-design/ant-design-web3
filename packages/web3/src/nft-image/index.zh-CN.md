@@ -7,6 +7,10 @@ group: 组件
 
 更简单地展示 NFT 图片的组件。
 
-## Simple Usage
+## 基本使用
 
 <code src="./demos/simple.tsx"></code>
+
+## 和 wagmi 一起使用
+
+<code src="./demos/wagmi.tsx"></code>
