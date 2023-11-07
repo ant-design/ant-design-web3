@@ -178,9 +178,6 @@ importers:
       '@ant-design/web3-common':
         specifier: workspace:*
         version: link:../common
-      '@wagmi/core':
-        specifier: ^1.4.5
-        version: 1.4.5(@types/react@18.2.22)(react@18.2.0)(typescript@5.2.2)(viem@1.18.4)
       debug:
         specifier: ^4.3.4
         version: 4.3.4
@@ -191,6 +188,9 @@ importers:
       '@types/debug':
         specifier: ^4.1.9
         version: 4.1.9
+      '@wagmi/core':
+        specifier: ^1.4.5
+        version: 1.4.5(@types/react@18.2.22)(react@18.2.0)(typescript@5.2.2)(viem@1.18.4)
       father:
         specifier: ^4.1.9
         version: 4.3.5(@types/node@16.18.54)(styled-components@6.0.9)(webpack@5.88.2)
