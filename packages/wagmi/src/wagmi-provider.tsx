@@ -1,8 +1,8 @@
 import React from 'react';
 import {
+  type Account,
+  type Wallet,
   Web3ConfigProvider,
-  Account,
-  Wallet,
   requestWeb3Asset,
   fillAddressWith0x,
 } from '@ant-design/web3-common';
@@ -30,7 +30,7 @@ export const WagmiWeb3ConfigProvider: React.FC<WagmiWeb3ConfigProviderProps> = (
         address,
       },
     ];
-  }, [address]);
+  }, [address, isDisconnected]);
 
   const wallets: Wallet[] = React.useMemo(() => {
     return getWalletsByConnectors(connectors);
