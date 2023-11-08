@@ -8,7 +8,7 @@ A components collection for Web3.
 
 [![antd][antd-image]][antd-url] [![dumi][dumi-image]][dumi-url]
 
-[github-action-image]: https://github.com/ant-design/ant-design-web3/workflows/test/badge.svg
+[github-action-image]: https://github.com/ant-design/ant-design-web3/workflows/Test/badge.svg
 [github-action-url]: https://github.com/ant-design/ant-design-web3/actions/workflows/test.yml
 [npm-image]: https://img.shields.io/npm/v/@ant-design/web3.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/@ant-design/web3
