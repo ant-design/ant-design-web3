@@ -1,4 +1,4 @@
-import { ConnectButton } from '@ant-design/web3';
+import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   EthereumProvider,
   createProvider,
@@ -26,7 +26,9 @@ const provider = createProvider({
 const App: React.FC = () => {
   return (
     <EthereumProvider provider={provider}>
-      <ConnectButton />
+      <Connector>
+        <ConnectButton />
+      </Connector>
     </EthereumProvider>
   );
 };

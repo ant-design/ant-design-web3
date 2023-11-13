@@ -1,3 +1,4 @@
+export * from './connector';
 export * from './connect-button';
 export * from './connect-modal';
 export * from './address';
