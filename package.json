@@ -23,7 +23,7 @@
     "test:coverage": "vitest --coverage",
     "test:ci": "vitest --coverage",
     "lint": "pnpm run \"/^lint:.+/\"",
-    "lint:eslint": "eslint --quiet --fix --ext .ts,.js .",
+    "lint:eslint": "eslint --ext .ts,.tsx .",
     "lint:prettier": "prettier --loglevel warn --write '**/*.{ts,tsx,js,jsx,json,md}'",
     "lint:ts": "tsc --noEmit",
     "clean": "pnpm run \"/^clean:.+/\"",
@@ -39,6 +39,9 @@
     "*.{json,less,md}": "prettier --ignore-unknown --write"
   },
   "devDependencies": {
+    "@ant-design/web3": "workspace:*",
+    "@ant-design/web3-ethereum": "workspace:*",
+    "@ant-design/web3-wagmi": "workspace:*",
     "@biomejs/biome": "^1.0.0",
     "@changesets/changelog-git": "^0.1.14",
     "@changesets/cli": "^2.26.2",
@@ -49,7 +52,7 @@
     "@vitest/coverage-v8": "^0.34.6",
     "antd": "^5.8.3",
     "dumi": "^2.2.6",
-    "eslint": "^7.32.0",
+    "eslint": "^8.53.0",
     "ethers": "^6.7.1",
     "father": "^4.1.9",
     "husky": "^8.0.3",
@@ -60,7 +63,8 @@
     "react-dom": "^18.2.0",
     "rimraf": "^5.0.0",
     "typescript": "^5.0.4",
-    "vitest": "^0.34.6"
+    "vitest": "^0.34.6",
+    "wagmi": "^1.4.5"
   },
   "ci": {
     "type": "aci",

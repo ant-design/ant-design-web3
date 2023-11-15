@@ -8,3 +8,4 @@ declare module '*.svg' {
   const src: string;
   export default src;
 }
+declare const YOUR_INFURA_API_KEY: string;

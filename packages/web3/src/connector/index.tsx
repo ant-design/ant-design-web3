@@ -1,34 +1,40 @@
 import React from 'react';
-import { Button, message } from 'antd';
-import { Wallet } from '@ant-design/web3-icons';
+import { ConnectModal, type ConnectModalProps } from '@ant-design/web3';
+import { message } from 'antd';
+import useAccounts from '../hooks/useAccounts';
 import useProvider from '../hooks/useProvider';
-import type { UnconnectedButtonProps } from './interface';
-import { ConnectModal } from '../connect-modal';
 import useWallets from '../hooks/useWallets';
 
-export const UnconnectedButton: React.FC<UnconnectedButtonProps> = (props) => {
-  const { requestAccounts } = useProvider();
+export interface ConnectorProps {
+  children: React.ReactNode;
+  modalProps?: ConnectModalProps;
+}
+
+export const Connector: React.FC<ConnectorProps> = (props) => {
+  const { children, modalProps } = props;
+  const { currentAccount } = useAccounts();
+  const { requestAccounts, disconnect } = useProvider();
   const { wallets } = useWallets();
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [messageApi, contextHolder] = message.useMessage();
+
   return (
     <>
       {contextHolder}
-      <Button
-        style={props.style}
-        className={props.className}
-        size={props.size}
-        type={props.type}
-        ghost={props.ghost}
-        loading={loading}
-        onClick={async () => {
-          setOpen(true);
-        }}
-        icon={props.connectIcon === false ? undefined : props.connectIcon ?? <Wallet />}
-      >
-        {props.connectText ?? 'Connect Wallet'}
-      </Button>
+      {React.cloneElement(children as React.ReactElement, {
+        address: currentAccount?.address,
+        connected: !!currentAccount,
+        loading,
+        onClick: () => {
+          if (currentAccount) {
+            disconnect?.();
+          } else {
+            setOpen(true);
+          }
+        },
+      })}
+
       <ConnectModal
         open={open}
         walletList={wallets}
@@ -51,9 +57,8 @@ export const UnconnectedButton: React.FC<UnconnectedButtonProps> = (props) => {
             setOpen(false);
           }
         }}
+        {...modalProps}
       />
     </>
   );
 };
-UnconnectedButton.displayName = 'UnconnectedButton';
-UnconnectedButton.defaultProps = {};

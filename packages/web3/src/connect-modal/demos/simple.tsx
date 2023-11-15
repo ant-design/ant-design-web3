@@ -161,7 +161,7 @@ const groupOrder = (a: string, b: string) => {
   return a.localeCompare(b);
 };
 
-export default () => {
+const App: React.FC = () => {
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -180,3 +180,5 @@ export default () => {
     </>
   );
 };
+
+export default App;

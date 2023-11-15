@@ -191,7 +191,7 @@ const guide: DefaultGuide = {
   moreLink: 'https://test.com/xxx',
 };
 
-export default () => {
+const App: React.FC = () => {
   const [open, setOpen] = React.useState(false);
   return (
     <>
@@ -210,3 +210,5 @@ export default () => {
     </>
   );
 };
+
+export default App;

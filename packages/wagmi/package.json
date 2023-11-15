@@ -1,0 +1,41 @@
+{
+  "name": "@ant-design/web3-wagmi",
+  "version": "0.1.0-alpha.1",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/lib/index.js",
+    "types": "./dist/esm/index.d.ts"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build"
+  },
+  "dependencies": {
+    "@ant-design/web3-common": "workspace:*",
+    "debug": "^4.3.4"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.9",
+    "father": "^4.1.9",
+    "typescript": "^5.0.4",
+    "@wagmi/core": "^1.4.5"
+  },
+  "peerDependencies": {
+    "wagmi": "^1.4.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
+  "repository": "git@github.com:ant-design/ant-design-web3.git"
+}

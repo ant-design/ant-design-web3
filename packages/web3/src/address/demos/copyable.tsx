@@ -1,6 +1,6 @@
 import { Address } from '@ant-design/web3';
 
-export default () => {
+const App: React.FC = () => {
   return (
     <Address
       ellipsis={{
@@ -12,3 +12,5 @@ export default () => {
     />
   );
 };
+
+export default App;
