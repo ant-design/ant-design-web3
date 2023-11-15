@@ -35,4 +35,4 @@ function App() {
 
 ## 使用示例
 
-<code src="../../packages/web3/src/connect-button/demos/wagmi.tsx"></code>
+<code src="../../packages/web3/src/connector/demos/wagmi.tsx"></code>

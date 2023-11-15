@@ -1,7 +1,13 @@
 import React from 'react';
 import { Button, Dropdown, Space } from 'antd';
-import type { ChainSelectProps } from './interface';
+import type { ChainSelectItem } from './interface';
 import { DownOutlined } from '@ant-design/icons';
+
+export interface ChainSelectProps {
+  className?: string;
+  chains: ChainSelectItem[];
+  style?: React.CSSProperties;
+}
 
 export const ChainSelect: React.FC<ChainSelectProps> = (props) => {
   return (
@@ -16,14 +22,7 @@ export const ChainSelect: React.FC<ChainSelectProps> = (props) => {
       }}
       trigger={['click']}
     >
-      <Button
-        onClick={(e) => e.preventDefault()}
-        style={props.style}
-        className={props.className}
-        size={props.size}
-        type={props.type}
-        ghost={props.ghost}
-      >
+      <Button onClick={(e) => e.preventDefault()} style={props.style} className={props.className}>
         <Space>
           Hover me
           <DownOutlined />
