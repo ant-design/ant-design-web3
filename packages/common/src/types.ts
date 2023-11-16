@@ -127,3 +127,23 @@ export type WalletMetadata = {
    */
   group?: string;
 };
+
+export type ChainSelectItem = {
+  id: number;
+  name: string;
+  icon?: React.ReactNode;
+};
+
+export type Banlance = {
+  amount: number | bigint;
+  type: string;
+};
+
+export interface ConnectorTriggerProps {
+  address?: string;
+  onClick?: () => void;
+  domain?: string;
+  connected?: boolean;
+  chains?: ChainSelectItem[];
+  banlance?: Banlance[] | Banlance;
+}
