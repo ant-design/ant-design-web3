@@ -7,8 +7,8 @@ export interface ConnectorProps {
 
   onConnect?: () => void;
   onDisconnect?: () => Promise<void>;
-  onConnected?: (accounts: Account[]) => void;
-  onDisconnected?: () => Promise<void>;
+  onConnected?: (accounts?: Account[]) => void;
+  onDisconnected?: () => void;
 
   wallets?: Wallet[];
   accounts?: Account[];

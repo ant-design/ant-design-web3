@@ -27,11 +27,24 @@ describe('Connector', () => {
     expect(baseElement.querySelector('.ant-connect-modal-title')?.textContent).toBe('modal title');
   });
 
-  it('onConnect', async () => {
-    const onConnect = vi.fn();
+  it('connect', async () => {
+    const onConnectCallTest = vi.fn();
+    const onDisconnected = vi.fn();
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
-      const { address, onClick, children } = props;
-      return <Button onClick={onClick}>{address ?? children}</Button>;
+      const { address, connected, onConnectClicked, onDisconnectClicked, children } = props;
+      return (
+        <Button
+          onClick={() => {
+            if (connected) {
+              onDisconnectClicked?.();
+            } else {
+              onConnectClicked?.();
+            }
+          }}
+        >
+          {address ?? children}
+        </Button>
+      );
     };
     const onConnected = vi.fn();
 
@@ -40,13 +53,17 @@ describe('Connector', () => {
       return (
         <Connector
           accounts={accounts}
-          onConnect={onConnect}
+          onConnect={onConnectCallTest}
           requestAccounts={async () => {
             return [
               {
                 address: '0x1234567890',
               },
             ];
+          }}
+          onDisconnected={() => {
+            setAccounts([]);
+            onDisconnected();
           }}
           onConnected={(as) => {
             setAccounts(as);
@@ -60,10 +77,15 @@ describe('Connector', () => {
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
     fireEvent.click(baseElement.querySelector('.ant-btn')!);
-    expect(onConnect).toBeCalled();
+    expect(onConnectCallTest).toBeCalled();
     await vi.waitFor(() => {
       expect(onConnected).toBeCalled();
     });
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('0x1234567890');
+    fireEvent.click(baseElement.querySelector('.ant-btn')!);
+    await vi.waitFor(() => {
+      expect(onDisconnected).toBeCalled();
+    });
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
   });
 });

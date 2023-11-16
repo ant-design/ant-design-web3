@@ -7,7 +7,7 @@ import useProvider from '../hooks/useProvider';
 import useWallets from '../hooks/useWallets';
 
 export const Connector: React.FC<ConnectorProps> = (props) => {
-  const { children, modalProps, onConnect, onConnected } = props;
+  const { children, modalProps, onConnect, onConnected, onDisconnect, onDisconnected } = props;
   const { requestAccounts, disconnect, accounts } = useProvider(props);
   const currentAccount = accounts?.[0];
   const { wallets } = useWallets();
@@ -17,18 +17,15 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
 
   const connect = async (wallet?: Wallet) => {
     onConnect?.();
-    requestAccounts?.(wallet?.name)
-      .then((as) => {
-        setOpen(false);
-        onConnected?.(as);
-      })
-      .finally(() => {
-        setLoading(false);
-      })
-      .catch((e) => {
-        messageApi.error(e.message);
-        console.error(e);
-      });
+    try {
+      setLoading(true);
+      const as = await requestAccounts?.(wallet?.name);
+      setOpen(false);
+      onConnected?.(as);
+    } catch (e: any) {
+      messageApi.error(e.message);
+      console.error(e);
+    }
   };
 
   return (
@@ -38,16 +35,17 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         address: currentAccount?.address,
         connected: !!currentAccount,
         loading,
-        onClick: () => {
-          if (currentAccount) {
-            disconnect?.();
+        onConnectClicked: () => {
+          if (wallets.length <= 1) {
+            connect(wallets[0]);
           } else {
-            if (wallets.length <= 1) {
-              connect(wallets[0]);
-            } else {
-              setOpen(true);
-            }
+            setOpen(true);
           }
+        },
+        onDisconnectClicked: async () => {
+          onDisconnect?.();
+          await disconnect?.();
+          onDisconnected?.();
         },
       })}
 

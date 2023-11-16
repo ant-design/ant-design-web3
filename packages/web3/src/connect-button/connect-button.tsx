@@ -4,7 +4,7 @@ import { Address } from '../address';
 import type { ConnectButtonProps } from './interface';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
-  const { address, connected } = props;
+  const { address, connected, onConnectClicked, onDisconnectClicked } = props;
 
   return (
     <Button
@@ -14,6 +14,13 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       size={props.size}
       type={props.type}
       ghost={props.ghost}
+      onClick={() => {
+        if (connected) {
+          onConnectClicked?.();
+        } else {
+          onDisconnectClicked?.();
+        }
+      }}
     >
       {connected ? <Address ellipsis address={address} /> : 'Connect Wallet'}
     </Button>

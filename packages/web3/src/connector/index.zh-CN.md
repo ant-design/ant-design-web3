@@ -38,11 +38,12 @@ group: 组件
 
 `Connector` 的 `children` 组件的属性，`ConnectButton` 继承并使用了这些属性。如果你不使用 `ConnectButton`，可以通过在自己的组件中来使用这些属性来自定义 `Connector` 的 `chidlren`。
 
-| 属性      | 描述                               | 类型                       | 默认值 | 版本 |
-| --------- | ---------------------------------- | -------------------------- | ------ | ---- |
-| address   | 当前连接的账户地址                 | `string`                   | -      | -    |
-| onClick   | 点击事件                           | `React.MouseEventHandler`  | -      | -    |
-| domain    | address 对应的域名，通常就是指 ENS | `string`                   | -      | -    |
-| connected | 是否已连接                         | `boolean`                  | -      | -    |
-| chains    | 当前连接的网络列表                 | `ChainSelectItem[]`        | -      | -    |
-| banlance  | 当前连接的账户余额                 | `Banlance[]` \| `Banlance` | -      | -    |
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| address | 当前连接的账户地址 | `string` | - | - |
+| onConnectClicked | 连接事件 | `React.MouseEventHandler` | - | - |
+| onDisconnectClicked | 断开连接事件 | `React.MouseEventHandler` | - | - |
+| domain | address 对应的域名，通常就是指 ENS | `string` | - | - |
+| connected | 是否已连接 | `boolean` | - | - |
+| chains | 当前连接的网络列表 | `ChainSelectItem[]` | - | - |
+| banlance | 当前连接的账户余额 | `Banlance[]` \| `Banlance` | - | - |

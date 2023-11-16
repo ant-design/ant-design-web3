@@ -144,7 +144,8 @@ export type Banlance = {
 
 export interface ConnectorTriggerProps {
   address?: string;
-  onClick?: () => void;
+  onConnectClicked?: () => void;
+  onDisconnectClicked?: () => Promise<void>;
   domain?: string;
   connected?: boolean;
   chains?: ChainSelectItem[];
