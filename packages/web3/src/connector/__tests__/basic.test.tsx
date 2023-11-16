@@ -1,7 +1,7 @@
 import { Connector } from '@ant-design/web3';
 import { Button } from 'antd';
-import { render } from '@testing-library/react';
-import { it, describe, expect } from 'vitest';
+import { render, fireEvent } from '@testing-library/react';
+import { it, describe, expect, vi } from 'vitest';
 
 describe('Connector', () => {
   it('render children', () => {
@@ -24,5 +24,19 @@ describe('Connector', () => {
     };
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.ant-connect-modal-title')?.textContent).toBe('modal title');
+  });
+
+  it('onConnect', () => {
+    const onConnect = vi.fn();
+    const App = () => {
+      return (
+        <Connector onConnect={onConnect}>
+          <Button>children</Button>
+        </Connector>
+      );
+    };
+    const { baseElement } = render(<App />);
+    fireEvent.click(baseElement.querySelector('.ant-btn')!);
+    expect(onConnect).toBeCalled();
   });
 });
