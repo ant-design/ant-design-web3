@@ -61,10 +61,10 @@ describe('Connector', () => {
               },
             ];
           }}
-          onDisconnected={() => {
+          disconnect={async () => {
             setAccounts([]);
-            onDisconnected();
           }}
+          onDisconnected={onDisconnected}
           onConnected={(as) => {
             setAccounts(as);
             onConnected();
