@@ -66,7 +66,7 @@ export type ConnectModalProps = {
    * @desc 弹框是否展示，与 Modal 的 open 类型相同
    * @descEn Whether the Modal is displayed, the same as the Modal's open type
    */
-  open: ModalProps['open'];
+  open?: ModalProps['open'];
   /**
    * @desc 弹框可见性改变回调
    * @descEn Callback when the Modal visibility changes
