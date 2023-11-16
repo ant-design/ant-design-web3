@@ -1,6 +1,7 @@
 import React from 'react';
-import { Web3ConfigProvider, Account, Wallet } from '@ant-design/web3-common';
-import { EthereumEIP1193LikeProvider, CreateProviderOptions } from './eip1193-provider';
+import { Web3ConfigProvider } from '@ant-design/web3-common';
+import type { Account, Wallet } from '@ant-design/web3-common';
+import { EthereumEIP1193LikeProvider, type CreateProviderOptions } from './eip1193-provider';
 import { UniversalProvider, UniversalWeb3ProviderEventType } from './universal-provider';
 
 export interface Web3ProviderProps {

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button, Dropdown, Space } from 'antd';
-import type { ChainSelectItem } from '@ant-design/web3-common';
+import type { Chain } from '@ant-design/web3-common';
 import { DownOutlined } from '@ant-design/icons';
 
 export interface ChainSelectProps {
   className?: string;
-  chains: ChainSelectItem[];
+  chains: Chain[];
   style?: React.CSSProperties;
 }
 

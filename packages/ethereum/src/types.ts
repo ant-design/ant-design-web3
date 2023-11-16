@@ -1,4 +1,4 @@
-import { Chain, Wallet, WalletMetadata } from '@ant-design/web3-common';
+import type { Chain, Wallet, WalletMetadata } from '@ant-design/web3-common';
 /**
  * This interface is a subset of the EIP-1193 provider interface.
  * See: https://eips.ethereum.org/EIPS/eip-1193

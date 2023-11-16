@@ -9,6 +9,10 @@ group: Components
 
 <code src="./demos/wagmi.tsx"></code>
 
+## Support switch chains
+
+<code src="./demos/chains.tsx"></code>
+
 ## Use web3modal for WallectConnect
 
 <code src="./demos/web3modal.tsx"></code>

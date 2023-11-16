@@ -1,4 +1,5 @@
-import { Chain, ChainIds, chains } from '@ant-design/web3-common';
+import { Chain, ChainIds } from '@ant-design/web3-common';
+import { Mainnet } from '@ant-design/web3-assets';
 import { EIP1193IncludeProvider, JsonRpcProvider } from '../types';
 
 export interface ZANJsonRpcProviderProps {
@@ -20,7 +21,7 @@ export class ZANJsonRpcProvider implements JsonRpcProvider {
     const provider = {
       request: async (request: { method: string; params?: any }) => {
         const { method, params } = request;
-        const response = await fetch(this.getRpcUrl(chains.mainnet), {
+        const response = await fetch(this.getRpcUrl(Mainnet), {
           method: 'POST',
           headers: {
             'content-type': 'application/json',

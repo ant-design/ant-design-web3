@@ -5,7 +5,7 @@ import {
   ZANJsonRpcProvider,
   MetaMaskProvider,
   WalletConnectProvider,
-  chains,
+  Mainnet,
 } from '@ant-design/web3-ethereum';
 
 const provider = createProvider({
@@ -20,7 +20,7 @@ const provider = createProvider({
     }),
     new MetaMaskProvider(),
   ],
-  chains: [chains.mainnet],
+  chains: [Mainnet],
 });
 
 const App: React.FC = () => {

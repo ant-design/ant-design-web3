@@ -8,13 +8,13 @@ export enum ChainIds {
   BSC = 56,
   Arbitrum = 42_161,
   Optimism = 10,
+  Goerli = 5,
 }
 
 export interface Chain {
   id: ChainIds;
   name: string;
-  rpcHttpUrl?: string;
-  blockExplorerUrl?: string;
+  icon?: React.ReactNode;
   nativeCurrency?: {
     decimals: number;
     name: string;
@@ -39,6 +39,8 @@ export interface NFTMetadata {
 export interface UniversalWeb3ProviderInterface {
   accounts?: Account[];
   wallets?: Wallet[];
+  chains?: Chain[];
+  currentChain?: Chain;
 
   requestAccounts?: (wallet?: string) => Promise<Account[]>;
   disconnect?: () => Promise<void>;
@@ -131,12 +133,6 @@ export type WalletMetadata = {
   group?: string;
 };
 
-export type ChainSelectItem = {
-  id: number;
-  name: string;
-  icon?: React.ReactNode;
-};
-
 export type Banlance = {
   amount: number | bigint;
   type: string;
@@ -144,10 +140,12 @@ export type Banlance = {
 
 export interface ConnectorTriggerProps {
   address?: string;
+  loading?: boolean;
   onConnectClicked?: () => void;
   onDisconnectClicked?: () => Promise<void>;
   domain?: string;
   connected?: boolean;
-  chains?: ChainSelectItem[];
+  chains?: Chain[];
+  currentChain?: Chain;
   banlance?: Banlance[] | Banlance;
 }

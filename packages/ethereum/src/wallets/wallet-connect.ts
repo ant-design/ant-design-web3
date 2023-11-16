@@ -1,7 +1,8 @@
 // Only for WallectConnect v2, v1 is not supported
-import { WalletMetadata, metadata_WalletConnect } from '@ant-design/web3-common';
+import type { WalletMetadata } from '@ant-design/web3-common';
+import { metadata_WalletConnect } from '@ant-design/web3-assets';
 import { EthereumProvider } from '@walletconnect/ethereum-provider';
-import { WalletProvider, WalletProviderOptions, EthereumWallet } from '../types';
+import type { WalletProvider, WalletProviderOptions, EthereumWallet } from '../types';
 
 export interface WalletConnectConfig {
   projectId: string;
