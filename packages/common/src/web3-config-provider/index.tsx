@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConfigContext, Web3ConfigProviderProps, ConfigConsumerProps } from './context';
+import { ConfigContext, type Web3ConfigProviderProps, type ConfigConsumerProps } from './context';
 
 const ProviderChildren: React.FC<ConfigConsumerProps & { children?: React.ReactNode }> = (
   props,

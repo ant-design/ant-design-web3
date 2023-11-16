@@ -3,14 +3,13 @@ import { ConnectModal } from '@ant-design/web3';
 import type { Wallet } from '@ant-design/web3-common';
 import { message } from 'antd';
 import type { ConnectorProps } from './interface';
-import useAccounts from '../hooks/useAccounts';
 import useProvider from '../hooks/useProvider';
 import useWallets from '../hooks/useWallets';
 
 export const Connector: React.FC<ConnectorProps> = (props) => {
-  const { children, modalProps, onConnect } = props;
-  const { currentAccount } = useAccounts();
-  const { requestAccounts, disconnect } = useProvider();
+  const { children, modalProps, onConnect, onConnected } = props;
+  const { requestAccounts, disconnect, accounts } = useProvider(props);
+  const currentAccount = accounts?.[0];
   const { wallets } = useWallets();
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
@@ -19,8 +18,9 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
   const connect = async (wallet?: Wallet) => {
     onConnect?.();
     requestAccounts?.(wallet?.name)
-      .then(() => {
+      .then((as) => {
         setOpen(false);
+        onConnected?.(as);
       })
       .finally(() => {
         setLoading(false);

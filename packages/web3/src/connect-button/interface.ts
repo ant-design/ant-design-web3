@@ -14,3 +14,5 @@ export type ConnectButtonProps = ButtonProps &
     walletIcon?: React.ReactNode;
     tooltip?: boolean | ConnectButtonTooltipProps;
   };
+
+export { ConnectorTriggerProps };

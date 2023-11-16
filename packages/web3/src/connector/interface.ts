@@ -5,13 +5,13 @@ export interface ConnectorProps {
   children: React.ReactNode;
   modalProps?: ConnectModalProps;
 
-  onConnect?: () => Promise<void>;
+  onConnect?: () => void;
   onDisconnect?: () => Promise<void>;
-  onConnected?: (account: Account) => Promise<void>;
+  onConnected?: (accounts: Account[]) => void;
   onDisconnected?: () => Promise<void>;
 
   wallets?: Wallet[];
   accounts?: Account[];
-  requestAccounts?: (wallet: string) => Promise<Account[]>;
+  requestAccounts?: (wallet?: string) => Promise<Account[]>;
   disconnect?: () => Promise<void>;
 }

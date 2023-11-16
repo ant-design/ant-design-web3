@@ -37,6 +37,9 @@ export interface NFTMetadata {
 }
 
 export interface UniversalWeb3ProviderInterface {
+  accounts?: Account[];
+  wallets?: Wallet[];
+
   requestAccounts?: (wallet?: string) => Promise<Account[]>;
   disconnect?: () => Promise<void>;
 
