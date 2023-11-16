@@ -37,6 +37,9 @@ export interface NFTMetadata {
 }
 
 export interface UniversalWeb3ProviderInterface {
+  accounts?: Account[];
+  wallets?: Wallet[];
+
   requestAccounts?: (wallet?: string) => Promise<Account[]>;
   disconnect?: () => Promise<void>;
 
@@ -127,3 +130,24 @@ export type WalletMetadata = {
    */
   group?: string;
 };
+
+export type ChainSelectItem = {
+  id: number;
+  name: string;
+  icon?: React.ReactNode;
+};
+
+export type Banlance = {
+  amount: number | bigint;
+  type: string;
+};
+
+export interface ConnectorTriggerProps {
+  address?: string;
+  onConnectClicked?: () => void;
+  onDisconnectClicked?: () => Promise<void>;
+  domain?: string;
+  connected?: boolean;
+  chains?: ChainSelectItem[];
+  banlance?: Banlance[] | Banlance;
+}

@@ -1,15 +1,10 @@
 import React from 'react';
-import type { UniversalWeb3ProviderInterface, Account, Wallet } from '../types';
+import type { UniversalWeb3ProviderInterface } from '../types';
 
 export interface Web3ConfigProviderProps extends UniversalWeb3ProviderInterface {
-  accounts?: Account[];
-  wallets?: Wallet[];
   children?: React.ReactNode;
 }
 
-export interface ConfigConsumerProps extends UniversalWeb3ProviderInterface {
-  accounts?: Account[];
-  wallets?: Wallet[];
-}
+export interface ConfigConsumerProps extends UniversalWeb3ProviderInterface {}
 
 export const ConfigContext = React.createContext<ConfigConsumerProps>({});

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Dropdown, Space } from 'antd';
-import type { ChainSelectItem } from './interface';
+import type { ChainSelectItem } from '@ant-design/web3-common';
 import { DownOutlined } from '@ant-design/icons';
 
 export interface ChainSelectProps {
