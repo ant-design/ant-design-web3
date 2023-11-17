@@ -6,7 +6,15 @@ import type { ConnectorProps } from './interface';
 import useProvider from '../hooks/useProvider';
 
 export const Connector: React.FC<ConnectorProps> = (props) => {
-  const { children, modalProps, onConnect, onConnected, onDisconnect, onDisconnected } = props;
+  const {
+    children,
+    modalProps,
+    onConnect,
+    onConnected,
+    onDisconnect,
+    onDisconnected,
+    onChainSwitched,
+  } = props;
   const { wallets, requestAccounts, disconnect, accounts, chains, currentChain, switchChain } =
     useProvider(props);
   const currentAccount = accounts?.[0];
@@ -49,7 +57,8 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         chains,
         currentChain,
         onSwitchChain: async (chainId: ChainIds) => {
-          switchChain?.(chainId);
+          await switchChain?.(chainId);
+          onChainSwitched?.(chainId);
         },
       })}
 

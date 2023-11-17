@@ -36,6 +36,7 @@ group: 组件
 | onChainSwitched | 切换网络时的回调 | `(chainId: ChainIds) => Promise<viod>` | - | - |
 | wallets | 钱包列表 | `Wallet[]` | - | - |
 | accounts | 账户列表 | `Account[]` | - | - |
+| chains | 网络列表 | `Chain[]` | - | - |
 | requestAccounts | 请求账户列表的方法 | `() => Promise<Account[]>` | - | - |
 | disconnect | 断开连接的方法 | `() => Promise<viod>` | - | - |
 | switchChain | 切换网络的方法 | `(chainId: ChainIds) => Promise<viod>` | - | - |

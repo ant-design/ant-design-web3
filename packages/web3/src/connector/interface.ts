@@ -1,5 +1,5 @@
 import type { ConnectModalProps } from '@ant-design/web3';
-import type { Account, Wallet } from '@ant-design/web3-common';
+import type { Account, Wallet, Chain } from '@ant-design/web3-common';
 
 export interface ConnectorProps {
   children: React.ReactNode;
@@ -13,6 +13,9 @@ export interface ConnectorProps {
 
   wallets?: Wallet[];
   accounts?: Account[];
+  chains?: Chain[];
+  currentChain?: Chain;
   requestAccounts?: (wallet?: string) => Promise<Account[]>;
   disconnect?: () => Promise<void>;
+  switchChain?: (chainId: number) => Promise<void>;
 }
