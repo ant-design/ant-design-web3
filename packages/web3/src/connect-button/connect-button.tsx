@@ -39,7 +39,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
           items: chains.map((item) => {
             return {
               onClick: () => {
-                onSwitchChain?.(item.id);
+                onSwitchChain?.(item);
               },
               icon: item.icon,
               label: item.name,

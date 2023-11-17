@@ -1,6 +1,6 @@
 import React from 'react';
 import { ConnectModal } from '@ant-design/web3';
-import type { Wallet, ConnectorTriggerProps, ChainIds } from '@ant-design/web3-common';
+import type { Wallet, ConnectorTriggerProps, Chain } from '@ant-design/web3-common';
 import { message } from 'antd';
 import type { ConnectorProps } from './interface';
 import useProvider from '../hooks/useProvider';
@@ -56,9 +56,9 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         },
         chains,
         currentChain,
-        onSwitchChain: async (chainId: ChainIds) => {
-          await switchChain?.(chainId);
-          onChainSwitched?.(chainId);
+        onSwitchChain: async (chain: Chain) => {
+          await switchChain?.(chain);
+          onChainSwitched?.(chain);
         },
       })}
 

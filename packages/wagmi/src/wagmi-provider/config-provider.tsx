@@ -3,7 +3,6 @@ import {
   type Account,
   type Wallet,
   type Chain,
-  type ChainIds,
   Web3ConfigProvider,
   requestWeb3Asset,
   fillAddressWith0x,
@@ -113,9 +112,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       disconnect={async () => {
         await disconnectAsync();
       }}
-      switchChain={async (chainId: ChainIds) => {
-        setCurrentChain(chainList.find((item) => item.id === chainId));
-        switchNetwork?.(chainId);
+      switchChain={async (c: Chain) => {
+        switchNetwork?.(c.id);
       }}
       getNFTMetadata={async ({ address: contractAddress, tokenId }) => {
         const tokenURI = await readContract({

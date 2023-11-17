@@ -45,7 +45,7 @@ export interface UniversalWeb3ProviderInterface {
   // connect and return conneted accounts
   requestAccounts?: (wallet?: string) => Promise<Account[]>;
   disconnect?: () => Promise<void>;
-  switchChain?: (chainId: number) => Promise<void>;
+  switchChain?: (chain: Chain) => Promise<void>;
 
   getNFTMetadata?: (params: { address: string; tokenId: bigint }) => Promise<NFTMetadata>;
 }
@@ -144,7 +144,7 @@ export interface ConnectorTriggerProps {
   loading?: boolean;
   onConnectClick?: () => void;
   onDisconnectClick?: () => Promise<void>;
-  onSwitchChain?: (chainId: number) => Promise<void>;
+  onSwitchChain?: (chain: Chain) => Promise<void>;
   domain?: string;
   connected?: boolean;
   chains?: Chain[];

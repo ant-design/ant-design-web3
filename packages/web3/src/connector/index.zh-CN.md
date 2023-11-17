@@ -33,13 +33,13 @@ group: 组件
 | onDisconnect | 触发断开连接时的回调 | `() => Promise<viod>` | - | - |
 | onConnected | 连接成功时的回调 | `(account: Account) => Promise<viod>` | - | - |
 | onDisconnected | 断开连接时的回调 | `() => Promise<viod>` | - | - |
-| onChainSwitched | 切换网络时的回调 | `(chainId: ChainIds) => Promise<viod>` | - | - |
+| onChainSwitched | 切换网络时的回调 | `(chain: Chain) => Promise<viod>` | - | - |
 | wallets | 钱包列表 | `Wallet[]` | - | - |
 | accounts | 账户列表 | `Account[]` | - | - |
 | chains | 网络列表 | `Chain[]` | - | - |
 | requestAccounts | 请求账户列表的方法 | `() => Promise<Account[]>` | - | - |
 | disconnect | 断开连接的方法 | `() => Promise<viod>` | - | - |
-| switchChain | 切换网络的方法 | `(chainId: ChainIds) => Promise<viod>` | - | - |
+| switchChain | 切换网络的方法 | `(chain: Chain) => Promise<viod>` | - | - |
 
 ### ConnectorTriggerProps
 
@@ -50,7 +50,7 @@ group: 组件
 | address | 当前连接的账户地址 | `string` | - | - |
 | onConnectClick | 连接事件 | `React.MouseEventHandler` | - | - |
 | onDisconnectClick | 断开连接事件 | `React.MouseEventHandler` | - | - |
-| onSwitchChain | 切换网络事件 | `(chainId: ChainIds) => Promise<viod>` | - | - |
+| onSwitchChain | 切换网络事件 | `(chain: Chain) => Promise<viod>` | - | - |
 | domain | address 对应的域名，通常就是指 ENS | `string` | - | - |
 | connected | 是否已连接 | `boolean` | - | - |
 | chains | 当前连接的网络列表 | `ChainSelectItem[]` | - | - |

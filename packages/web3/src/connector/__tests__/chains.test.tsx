@@ -4,7 +4,7 @@ import React from 'react';
 import { Button } from 'antd';
 import { render, fireEvent } from '@testing-library/react';
 import { it, describe, expect, vi } from 'vitest';
-import type { ChainIds, Chain } from '@ant-design/web3-common';
+import type { Chain } from '@ant-design/web3-common';
 
 describe('Connector with chains', () => {
   it('currentChain', () => {
@@ -39,11 +39,11 @@ describe('Connector with chains', () => {
 
   it('onSwitchChain', async () => {
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
-      const { currentChain, onSwitchChain, chains } = props;
+      const { currentChain, onSwitchChain } = props;
       return (
         <Button
           onClick={() => {
-            onSwitchChain?.(chains?.[1].id || Polygon.id);
+            onSwitchChain?.(Polygon);
           }}
         >
           {currentChain?.name}
@@ -61,8 +61,8 @@ describe('Connector with chains', () => {
           chains={chains}
           currentChain={currentChain}
           onChainSwitched={onChainSwitched}
-          switchChain={async (id: ChainIds) => {
-            setCurrentChain(chains.find((item) => item.id === id) || Mainnet);
+          switchChain={async (chain: Chain) => {
+            setCurrentChain(chain);
           }}
         >
           <CustomButton />
@@ -74,7 +74,7 @@ describe('Connector with chains', () => {
     fireEvent.click(baseElement.querySelector('.ant-btn') as HTMLElement);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('Polygon');
-      expect(onChainSwitched).toBeCalled();
+      expect(onChainSwitched).toBeCalledWith(Polygon);
     });
   });
 });

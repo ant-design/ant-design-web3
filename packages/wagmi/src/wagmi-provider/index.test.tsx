@@ -39,7 +39,7 @@ describe('WagmiWeb3ConfigProvider', () => {
       return (
         <div
           onClick={() => {
-            onSwitchChain?.(Mainnet.id);
+            onSwitchChain?.(Mainnet);
           }}
           className="content"
         >
@@ -60,7 +60,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.content')?.textContent).toBe('Polygon');
     fireEvent.click(baseElement.querySelector('.content')!);
-    expect(switchChain).toBeCalledWith(Mainnet.id);
+    expect(switchChain).toBeCalledWith(Mainnet);
   });
 
   it('custom assets', () => {
@@ -85,7 +85,7 @@ describe('WagmiWeb3ConfigProvider', () => {
       return (
         <div
           onClick={() => {
-            onSwitchChain?.(customChainId);
+            onSwitchChain?.(chains[0]);
           }}
           className="content"
         >
@@ -118,6 +118,6 @@ describe('WagmiWeb3ConfigProvider', () => {
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.content')?.textContent).toBe('TEST Chain show text');
     fireEvent.click(baseElement.querySelector('.content')!);
-    expect(switchChain).toBeCalledWith(customChainId);
+    expect(switchChain).toBeCalledWith(chains[0]);
   });
 });
