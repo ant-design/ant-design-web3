@@ -1,4 +1,4 @@
-import { Connector, type ConnectorTriggerProps, type Account } from '@ant-design/web3';
+import { Connector, type ConnectorTriggerProps } from '@ant-design/web3';
 import { Mainnet, Polygon } from '@ant-design/web3-assets';
 import React from 'react';
 import { Button } from 'antd';

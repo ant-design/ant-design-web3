@@ -79,7 +79,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     }
     const currentWagmiChain = chain ?? chains[0];
     if (!currentWagmiChain) {
-      return undefined;
+      return;
     }
     let c = assets?.find((item) => (item as Chain).id === currentWagmiChain?.id) as Chain;
     if (!c?.id) {
@@ -89,6 +89,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       };
     }
     setCurrentChain(c);
+    return;
   }, [chain, assets, chains, currentChain]);
 
   return (
