@@ -1,11 +1,15 @@
-import { type Wallet, metadata_MetaMask } from '@ant-design/web3-common';
-import type { Connector } from 'wagmi';
+import { type Wallet } from '@ant-design/web3-common';
+import { metadata_MetaMask } from '@ant-design/web3-assets';
+import type { WalletFactory } from '../interface';
 
-export function getWalletByConnector(connector: Connector): Wallet {
-  return {
-    ...metadata_MetaMask,
-    hasBrowserExtensionInstalled: async () => {
-      return !!window.ethereum?.isMetaMask;
-    },
-  };
-}
+export const MetaMask: WalletFactory = {
+  name: 'MetaMask',
+  create: (): Wallet => {
+    return {
+      ...metadata_MetaMask,
+      hasBrowserExtensionInstalled: async () => {
+        return !!window.ethereum?.isMetaMask;
+      },
+    };
+  },
+};

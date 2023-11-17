@@ -9,6 +9,10 @@ group: 组件
 
 <code src="./demos/wagmi.tsx"></code>
 
+## 支持切换链
+
+<code src="./demos/chains.tsx"></code>
+
 ## 使用 web3modal 连接 WallectConnect
 
 <code src="./demos/web3modal.tsx"></code>

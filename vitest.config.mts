@@ -9,6 +9,7 @@ export default defineConfig({
     alias: {
       '@ant-design/web3': resolve('./packages/web3/src/index'),
       '@ant-design/web3-icons': resolve('./packages/icons/src/index'),
+      '@ant-design/web3-assets': resolve('./packages/assets/src/index'),
       '@ant-design/web3-ethereum': resolve('./packages/ethereum/src/index'),
       '@ant-design/web3-wagmi': resolve('./packages/wagmi/src/index'),
       '@ant-design/web3-common': resolve('./packages/common/src/index'),

@@ -1,14 +1,11 @@
 {
-  "name": "@ant-design/web3-ethereum",
+  "name": "@ant-design/web3-assets",
   "version": "0.1.0-alpha.1",
   "exports": {
     "import": "./dist/esm/index.js",
     "require": "./dist/lib/index.js",
     "types": "./dist/esm/index.d.ts"
   },
-  "authors": [
-    "jeason <me@cowpoke.cc> (https://github.com/jeasonstudio)"
-  ],
   "files": [
     "dist",
     "CHANGELOG.md",
@@ -20,19 +17,19 @@
   },
   "dependencies": {
     "@ant-design/web3-common": "workspace:*",
-    "@ant-design/web3-assets": "workspace:*",
-    "debug": "^4.3.4",
-    "eventemitter3": "^5.0.1",
-    "@walletconnect/ethereum-provider": "^2.10.2",
-    "@walletconnect/modal": "^2.6.2"
+    "@ant-design/web3-icons": "workspace:*"
   },
   "devDependencies": {
-    "@types/debug": "^4.1.9",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
     "father": "^4.1.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "ethers": "^6.7.1"
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   },
   "publishConfig": {
     "access": "public"
@@ -42,6 +39,5 @@
     "Firefox ESR",
     "> 1%",
     "ie >= 11"
-  ],
-  "repository": "git@github.com:ant-design/ant-design-web3.git"
+  ]
 }

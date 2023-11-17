@@ -1,4 +1,4 @@
-import { WalletMetadata } from '../types';
+import type { WalletMetadata } from '@ant-design/web3-common';
 
 export const metadata_MetaMask: WalletMetadata = {
   icon: 'https://metamask.io/images/metamask-logo.png',

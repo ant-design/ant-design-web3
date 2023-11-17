@@ -3,7 +3,7 @@ import {
   EthereumProvider,
   createProvider,
   ZANJsonRpcProvider,
-  chains,
+  Mainnet,
 } from '@ant-design/web3-ethereum';
 
 const provider = createProvider({
@@ -12,7 +12,7 @@ const provider = createProvider({
       apiKey: YOUR_ZAN_API_KEY,
     }),
   ],
-  chains: [chains.mainnet],
+  chains: [Mainnet],
 });
 
 const App: React.FC = () => {

@@ -1,4 +1,5 @@
 import { Connector, type ConnectorTriggerProps, type Account } from '@ant-design/web3';
+import { metadata_MetaMask } from '@ant-design/web3-assets';
 import React from 'react';
 import { Button } from 'antd';
 import { render, fireEvent } from '@testing-library/react';
@@ -53,6 +54,14 @@ describe('Connector', () => {
       return (
         <Connector
           accounts={accounts}
+          wallets={[
+            {
+              ...metadata_MetaMask,
+              hasBrowserExtensionInstalled: async () => {
+                return true;
+              },
+            },
+          ]}
           onConnect={onConnectCallTest}
           requestAccounts={async () => {
             return [
@@ -77,8 +86,14 @@ describe('Connector', () => {
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
     fireEvent.click(baseElement.querySelector('.ant-btn')!);
-    expect(onConnectCallTest).toBeCalled();
+
     await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-connect-modal-wallet-item')).toBeTruthy();
+    });
+    fireEvent.click(baseElement.querySelector('.ant-connect-modal-wallet-item')!);
+
+    await vi.waitFor(() => {
+      expect(onConnectCallTest).toBeCalled();
       expect(onConnected).toBeCalled();
     });
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('0x1234567890');

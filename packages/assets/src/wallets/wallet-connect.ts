@@ -1,4 +1,4 @@
-import { WalletMetadata } from '../types';
+import type { WalletMetadata } from '@ant-design/web3-common';
 
 export const metadata_WalletConnect: WalletMetadata = {
   icon: 'https://docs.walletconnect.com/img/walletconnect-logo-black.svg#light-mode-only',

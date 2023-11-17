@@ -87,6 +87,34 @@ importers:
         specifier: ^1.4.5
         version: 1.4.5(@types/react@18.2.22)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)(viem@1.18.4)
 
+  packages/assets:
+    dependencies:
+      '@ant-design/web3-common':
+        specifier: workspace:*
+        version: link:../common
+      '@ant-design/web3-icons':
+        specifier: workspace:*
+        version: link:../icons
+    devDependencies:
+      '@types/react':
+        specifier: ^18.2.20
+        version: 18.2.22
+      '@types/react-dom':
+        specifier: ^18.2.7
+        version: 18.2.7
+      father:
+        specifier: ^4.1.9
+        version: 4.3.5(@types/node@16.18.54)(styled-components@6.0.9)(webpack@5.88.2)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+      typescript:
+        specifier: ^5.0.4
+        version: 5.2.2
+
   packages/common:
     devDependencies:
       '@types/react':
@@ -113,6 +141,9 @@ importers:
 
   packages/ethereum:
     dependencies:
+      '@ant-design/web3-assets':
+        specifier: workspace:*
+        version: link:../assets
       '@ant-design/web3-common':
         specifier: workspace:*
         version: link:../common
@@ -175,6 +206,9 @@ importers:
 
   packages/wagmi:
     dependencies:
+      '@ant-design/web3-assets':
+        specifier: workspace:*
+        version: link:../assets
       '@ant-design/web3-common':
         specifier: workspace:*
         version: link:../common
