@@ -62,4 +62,62 @@ describe('WagmiWeb3ConfigProvider', () => {
     fireEvent.click(baseElement.querySelector('.content')!);
     expect(switchChain).toBeCalledWith(Mainnet.id);
   });
+
+  it('custom assets', () => {
+    const customChainId = 2333;
+    const chains = [
+      {
+        ...mainnet,
+        id: customChainId,
+        name: 'TEST Chain',
+      },
+      polygon,
+    ];
+    const { publicClient } = configureChains(chains, [publicProvider()]);
+    const config = createConfig({
+      autoConnect: true,
+      publicClient,
+      connectors: [],
+    });
+
+    const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
+      const { currentChain, onSwitchChain } = props;
+      return (
+        <div
+          onClick={() => {
+            onSwitchChain?.(customChainId);
+          }}
+          className="content"
+        >
+          {currentChain?.name}
+        </div>
+      );
+    };
+
+    const switchChain = vi.fn();
+    const assets = [
+      {
+        name: 'TEST Chain show text',
+        id: customChainId,
+        icon: <div>icon</div>,
+        nativeCurrency: {
+          name: 'Matic',
+          symbol: 'MATIC',
+          decimals: 18,
+        },
+      },
+    ];
+
+    const App = () => (
+      <WagmiWeb3ConfigProvider assets={assets} chains={chains} config={config}>
+        <Connector switchChain={switchChain}>
+          <CustomButton />
+        </Connector>
+      </WagmiWeb3ConfigProvider>
+    );
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.content')?.textContent).toBe('TEST Chain show text');
+    fireEvent.click(baseElement.querySelector('.content')!);
+    expect(switchChain).toBeCalledWith(customChainId);
+  });
 });
