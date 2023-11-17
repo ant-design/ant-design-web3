@@ -1,13 +1,21 @@
 import React from 'react';
 import { ConnectModal } from '@ant-design/web3';
-import type { Wallet, ConnectorTriggerProps } from '@ant-design/web3-common';
+import type { Wallet, ConnectorTriggerProps, Chain } from '@ant-design/web3-common';
 import { message } from 'antd';
 import type { ConnectorProps } from './interface';
 import useProvider from '../hooks/useProvider';
 
 export const Connector: React.FC<ConnectorProps> = (props) => {
-  const { children, modalProps, onConnect, onConnected, onDisconnect, onDisconnected } = props;
-  const { wallets, requestAccounts, disconnect, accounts, chains, currentChain } =
+  const {
+    children,
+    modalProps,
+    onConnect,
+    onConnected,
+    onDisconnect,
+    onDisconnected,
+    onChainSwitched,
+  } = props;
+  const { wallets, requestAccounts, disconnect, accounts, chains, currentChain, switchChain } =
     useProvider(props);
   const currentAccount = accounts?.[0];
   const [open, setOpen] = React.useState(false);
@@ -36,10 +44,10 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         address: currentAccount?.address,
         connected: !!currentAccount,
         loading,
-        onConnectClicked: () => {
+        onConnectClick: () => {
           setOpen(true);
         },
-        onDisconnectClicked: async () => {
+        onDisconnectClick: async () => {
           setLoading(true);
           onDisconnect?.();
           await disconnect?.();
@@ -48,6 +56,10 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         },
         chains,
         currentChain,
+        onSwitchChain: async (chain: Chain) => {
+          await switchChain?.(chain);
+          onChainSwitched?.(chain);
+        },
       })}
 
       <ConnectModal

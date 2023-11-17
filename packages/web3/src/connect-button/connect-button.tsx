@@ -4,7 +4,15 @@ import { Address } from '../address';
 import type { ConnectButtonProps } from './interface';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
-  const { address, connected, onConnectClicked, onDisconnectClicked, chains } = props;
+  const {
+    address,
+    connected,
+    onConnectClick,
+    onDisconnectClick,
+    chains,
+    currentChain,
+    onSwitchChain,
+  } = props;
 
   const buttonProps = {
     style: props.style,
@@ -14,9 +22,9 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     ghost: props.ghost,
     onClick: () => {
       if (connected) {
-        onDisconnectClicked?.();
+        onDisconnectClick?.();
       } else {
-        onConnectClicked?.();
+        onConnectClick?.();
       }
     },
     children: connected ? <Address ellipsis address={address} /> : 'Connect Wallet',
@@ -26,9 +34,14 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   if (chains && chains.length > 1) {
     return (
       <Dropdown.Button
+        icon={currentChain?.icon}
         menu={{
           items: chains.map((item) => {
             return {
+              onClick: () => {
+                onSwitchChain?.(item);
+              },
+              icon: item.icon,
               label: item.name,
               key: item.id,
             };

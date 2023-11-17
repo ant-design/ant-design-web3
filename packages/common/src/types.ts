@@ -42,10 +42,11 @@ export interface UniversalWeb3ProviderInterface {
   chains?: Chain[];
   currentChain?: Chain;
 
+  // connect and return conneted accounts
   requestAccounts?: (wallet?: string) => Promise<Account[]>;
   disconnect?: () => Promise<void>;
+  switchChain?: (chain: Chain) => Promise<void>;
 
-  getCurrentNetwork?: () => Promise<number>;
   getNFTMetadata?: (params: { address: string; tokenId: bigint }) => Promise<NFTMetadata>;
 }
 
@@ -141,8 +142,9 @@ export type Banlance = {
 export interface ConnectorTriggerProps {
   address?: string;
   loading?: boolean;
-  onConnectClicked?: () => void;
-  onDisconnectClicked?: () => Promise<void>;
+  onConnectClick?: () => void;
+  onDisconnectClick?: () => Promise<void>;
+  onSwitchChain?: (chain: Chain) => Promise<void>;
   domain?: string;
   connected?: boolean;
   chains?: Chain[];

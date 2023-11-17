@@ -1,6 +1,6 @@
-import { WagmiConfig } from 'wagmi';
+import { WagmiConfig, mainnet } from 'wagmi';
 
-import type { PublicClient, WebSocketPublicClient, Config } from 'wagmi';
+import type { PublicClient, WebSocketPublicClient, Config, Chain as WagmiChain } from 'wagmi';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 import type { Chain } from '@ant-design/web3-common';
 import type { WalletFactory } from '../interface';
@@ -14,6 +14,7 @@ export type WagmiWeb3ConfigProviderProps<
   TWebSocketPublicClient extends WebSocketPublicClient = WebSocketPublicClient,
 > = {
   config: Config<TPublicClient, TWebSocketPublicClient>;
+  chains?: WagmiChain[];
   assets?: (Chain | WalletFactory)[];
 };
 
@@ -23,6 +24,7 @@ export function WagmiWeb3ConfigProvider<
 >({
   children,
   assets = [],
+  chains = [mainnet],
   ...restProps
 }: React.PropsWithChildren<
   WagmiWeb3ConfigProviderProps<TPublicClient, TWebSocketPublicClient>
@@ -31,6 +33,7 @@ export function WagmiWeb3ConfigProvider<
     <WagmiConfig {...restProps}>
       <AntDesignWeb3ConfigProvider
         assets={[...assets, MetaMask, WallectConnect, Mainnet, Polygon, BSC, Goerli]}
+        chains={chains}
       >
         {children}
       </AntDesignWeb3ConfigProvider>

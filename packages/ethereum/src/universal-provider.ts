@@ -1,13 +1,13 @@
-import {
+import type {
   UniversalWeb3ProviderInterface,
   NFTMetadata,
   Account,
-  requestWeb3Asset,
   Wallet,
 } from '@ant-design/web3-common';
+import { requestWeb3Asset } from '@ant-design/web3-common';
 import { EventEmitter } from 'eventemitter3';
 import { ethers } from 'ethers';
-import { EthereumEIP1193LikeProvider } from './eip1193-provider';
+import type { EthereumEIP1193LikeProvider } from './eip1193-provider';
 
 export enum UniversalWeb3ProviderEventType {
   AccountsChanged = 'accountsChanged',
