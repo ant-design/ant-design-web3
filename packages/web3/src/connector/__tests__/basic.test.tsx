@@ -32,14 +32,14 @@ describe('Connector', () => {
     const onConnectCallTest = vi.fn();
     const onDisconnected = vi.fn();
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
-      const { address, connected, onConnectClicked, onDisconnectClicked, children } = props;
+      const { address, connected, onConnectClick, onDisconnectClick, children } = props;
       return (
         <Button
           onClick={() => {
             if (connected) {
-              onDisconnectClicked?.();
+              onDisconnectClick?.();
             } else {
-              onConnectClicked?.();
+              onConnectClick?.();
             }
           }}
         >
