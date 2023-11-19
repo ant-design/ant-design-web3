@@ -22,7 +22,7 @@ A Button for connect chain quickly.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | address | Address | `string` | - | - |
-| tooltip | Show tooltip when mouse enter address | `boolean \|` [ConnectButtonTooltipProps](#connectbuttontooltipprops) | `true` | - |
+| tooltip | Show tooltip when mouse enter address | `boolean \|` [ConnectButtonTooltipProps](#connectbuttontooltipprops) | `true`, will display address by default | - |
 
 ### ConnectButtonTooltipProps
 
