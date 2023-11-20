@@ -1,4 +1,4 @@
-import { Tooltip } from 'antd';
+import { Tooltip, message } from 'antd';
 import { CopyOutlined } from '@ant-design/icons';
 import type { ConnectButtonTooltipProps } from './interface';
 import type { PropsWithChildren } from 'react';
@@ -12,7 +12,15 @@ export const ConnectButtonTooltip: React.FC<PropsWithChildren<ConnectButtonToolt
   if (!title) return null;
   const content = copyable ? (
     <>
-      {title} <CopyOutlined />
+      {title}{' '}
+      <CopyOutlined
+        title="Copy Address"
+        onClick={() => {
+          navigator.clipboard.writeText(String(title)).then(() => {
+            message.success('Address Copied!');
+          });
+        }}
+      />
     </>
   ) : (
     title
