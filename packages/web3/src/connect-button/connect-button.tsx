@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, Dropdown } from 'antd';
 import { Address } from '../address';
-import type { ConnectButtonProps } from './interface';
+import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
+import { ConnectButtonTooltip } from './tooltip';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const {
@@ -12,6 +13,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     chains,
     currentChain,
     onSwitchChain,
+    tooltip,
+    ...restProps
   } = props;
 
   const buttonProps = {
@@ -28,11 +31,13 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       }
     },
     children: connected ? <Address ellipsis address={address} /> : 'Connect Wallet',
-    ...props,
+    ...restProps,
   };
 
+  let content = <Button {...buttonProps} />;
+
   if (chains && chains.length > 1) {
-    return (
+    content = (
       <Dropdown.Button
         icon={currentChain?.icon}
         menu={{
@@ -52,7 +57,36 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     );
   }
 
-  return <Button {...buttonProps} />;
+  const mergedTooltipCopyable: ConnectButtonTooltipProps['copyable'] =
+    typeof tooltip === 'object' ? tooltip.copyable !== false : !!tooltip;
+
+  const customTooltipTitle = typeof tooltip === 'object' && tooltip.title !== undefined;
+
+  const tooltipTitle = customTooltipTitle ? (
+    tooltip.title
+  ) : (
+    <Address
+      ellipsis={{
+        headClip: 8,
+        tailClip: 6,
+      }}
+      copyable={mergedTooltipCopyable}
+      tooltip={false}
+      address={address}
+    />
+  );
+
+  return tooltip || (!customTooltipTitle && !!address) ? (
+    <ConnectButtonTooltip
+      copyable={customTooltipTitle && mergedTooltipCopyable}
+      title={tooltipTitle}
+      {...(typeof tooltip === 'object' ? tooltip : {})}
+    >
+      {content}
+    </ConnectButtonTooltip>
+  ) : (
+    content
+  );
 };
 
 ConnectButton.displayName = 'ConnectButton';

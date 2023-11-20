@@ -3,7 +3,7 @@ import type { ConnectorTriggerProps } from '@ant-design/web3-common';
 
 export type ConnectButtonTooltipProps = TooltipProps & {
   copyable?: boolean;
-  title?: boolean | string;
+  title?: boolean | string | React.ReactNode;
 };
 
 export type ConnectButtonProps = ButtonProps &
