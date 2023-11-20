@@ -1,29 +1,16 @@
 import { ConnectButton } from '..';
 import { fireEvent, render } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
-
-// 代理 navigator.clipboard 方法用于测试复制文本到粘贴板的功能
-const mockClipboard = () => {
-  const clipboard = {
-    text: '',
-    writeText: (text: string) => {
-      clipboard.text = text;
-      return Promise.resolve();
-    },
-    readText: () => {
-      return Promise.resolve(clipboard.text);
-    },
-  };
-  Object.defineProperty(window, 'navigator', {
-    value: {
-      clipboard,
-    },
-  });
-};
-
-mockClipboard();
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { mockClipboard } from '../../utils/test-utils';
 
 describe('ConnectButton', () => {
+  let resetMockClipboard: () => void;
+  beforeEach(() => {
+    resetMockClipboard = mockClipboard();
+  });
+  afterEach(() => {
+    resetMockClipboard();
+  });
   it('mount correctly', () => {
     expect(() => render(<ConnectButton />)).not.toThrow();
   });
