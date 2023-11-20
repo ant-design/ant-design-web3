@@ -9,6 +9,7 @@ export const ConnectButtonTooltip: React.FC<PropsWithChildren<ConnectButtonToolt
   children,
   ...restProps
 }) => {
+  const [messageApi, contextHolder] = message.useMessage();
   if (!title) return null;
   const content = copyable ? (
     <>
@@ -17,7 +18,7 @@ export const ConnectButtonTooltip: React.FC<PropsWithChildren<ConnectButtonToolt
         title="Copy Address"
         onClick={() => {
           navigator.clipboard.writeText(String(title)).then(() => {
-            message.success('Address Copied!');
+            messageApi.success('Address Copied!');
           });
         }}
       />
@@ -26,8 +27,11 @@ export const ConnectButtonTooltip: React.FC<PropsWithChildren<ConnectButtonToolt
     title
   );
   return (
-    <Tooltip title={content} {...restProps}>
-      {children}
-    </Tooltip>
+    <>
+      {contextHolder}
+      <Tooltip title={content} {...restProps}>
+        {children}
+      </Tooltip>
+    </>
   );
 };
