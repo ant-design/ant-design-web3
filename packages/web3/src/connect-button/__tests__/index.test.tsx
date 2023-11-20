@@ -82,4 +82,22 @@ describe('ConnectButton', () => {
       );
     });
   });
+  it('should copy text after click copy icon in custom title mode', async () => {
+    const { baseElement } = render(
+      <ConnectButton tooltip={{ open: true, title: 'aaaaaabbbbbbcccccc' }} />,
+    );
+    expect(baseElement.querySelector('.ant-tooltip')).not.toBeNull();
+    expect(baseElement.querySelector('.ant-tooltip-inner')?.textContent?.trim()).toBe(
+      'aaaaaabbbbbbcccccc',
+    );
+    expect(baseElement.querySelector('.anticon-copy')).not.toBeNull();
+    fireEvent.click(baseElement.querySelector('.anticon-copy')!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-message')).not.toBeNull();
+      expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe(
+        'Address Copied!',
+      );
+      expect(navigator.clipboard.readText()).resolves.toBe('aaaaaabbbbbbcccccc');
+    });
+  });
 });
