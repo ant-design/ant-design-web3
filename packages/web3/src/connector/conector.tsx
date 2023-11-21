@@ -42,6 +42,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       {contextHolder}
       {React.cloneElement(children as React.ReactElement<ConnectorTriggerProps>, {
         address: currentAccount?.address,
+        name: currentAccount?.name,
         connected: !!currentAccount,
         loading,
         onConnectClick: () => {
