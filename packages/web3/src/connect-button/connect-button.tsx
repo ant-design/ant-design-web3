@@ -14,9 +14,14 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     currentChain,
     onSwitchChain,
     tooltip,
+    name,
     ...restProps
   } = props;
 
+  let buttonText: React.ReactNode = 'Connect Wallet';
+  if (connected) {
+    buttonText = name ?? <Address ellipsis address={address} />;
+  }
   const buttonProps = {
     style: props.style,
     className: props.className,
@@ -30,7 +35,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         onConnectClick?.();
       }
     },
-    children: connected ? <Address ellipsis address={address} /> : 'Connect Wallet',
+    children: buttonText,
     ...restProps,
   };
 

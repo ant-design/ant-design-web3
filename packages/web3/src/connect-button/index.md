@@ -17,11 +17,16 @@ A Button for connect chain quickly.
 
 <code src="./demos/tooltip.tsx"></code>
 
+## Show Name
+
+<code src="./demos/name.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | address | Address | `string` | - | - |
+| name | Name, like ENS | `string` | - | - |
 | tooltip | Show tooltip when mouse enter address | `boolean \|` [ConnectButtonTooltipProps](#connectbuttontooltipprops) | `true`, will display address by default | - |
 
 ### ConnectButtonTooltipProps

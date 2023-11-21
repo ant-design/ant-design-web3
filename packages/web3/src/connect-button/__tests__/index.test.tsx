@@ -11,9 +11,49 @@ describe('ConnectButton', () => {
   afterEach(() => {
     resetMockClipboard();
   });
+
   it('mount correctly', () => {
     expect(() => render(<ConnectButton />)).not.toThrow();
   });
+
+  it('display name', () => {
+    const { baseElement } = render(
+      <ConnectButton
+        name="wanderingearth.eth"
+        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+        connected
+      />,
+    );
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('wanderingearth.eth');
+  });
+
+  it('display addresss when not has name', () => {
+    const { baseElement } = render(
+      <ConnectButton address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" connected />,
+    );
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('0x21CD...Fd3B');
+  });
+
+  it('display name when not has address', () => {
+    const { baseElement } = render(<ConnectButton name="wanderingearth.eth" connected />);
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('wanderingearth.eth');
+  });
+
+  it('tooltip show address when has name', () => {
+    const { baseElement } = render(
+      <ConnectButton
+        name="wanderingearth.eth"
+        address="3ea2cfd153b8d8505097b81c87c11f5d05097c18"
+        connected
+        tooltip={{ open: true }}
+      />,
+    );
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('wanderingearth.eth');
+    expect(baseElement.querySelector('.ant-tooltip')).not.toBeNull();
+    expect(baseElement.querySelector('.ant-tooltip-inner')?.textContent).toBe('0x3ea2cf...097c18');
+    expect(baseElement.querySelector('.anticon-copy')).not.toBeNull();
+  });
+
   it('display tooltip', () => {
     const { baseElement } = render(
       <ConnectButton address="3ea2cfd153b8d8505097b81c87c11f5d05097c18" tooltip={{ open: true }} />,
