@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import {
   useStyle as useAntdStyle,
   type GenerateStyle,
@@ -12,10 +12,10 @@ export interface ConnectButtonToken extends Web3AliasToken {
 const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
   return {
     [token.componentCls]: {
-      [`${token.web3ComponentsCls}-text`]: {
+      [`${token.componentCls}-text`]: {
         display: 'inline-block',
       },
-      [`${token.web3ComponentsCls}-chain-select`]: {
+      [`${token.componentCls}-chain-select`]: {
         display: 'inline-block',
         marginRight: 8,
       },

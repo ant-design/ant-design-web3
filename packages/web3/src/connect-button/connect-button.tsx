@@ -54,7 +54,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     <Button {...buttonProps}>
       {renderChainSelect()}
       <div
-        className={`${prefixCls}-text`}
+        className={classNames(`${prefixCls}-text`, hashId)}
         onClick={() => {
           if (connected) {
             onDisconnectClick?.();

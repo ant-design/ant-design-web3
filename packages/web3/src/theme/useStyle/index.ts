@@ -9,7 +9,7 @@ import type React from 'react';
 import { useContext } from 'react';
 
 /**
- * 把一个颜色设置一下透明度
+ * Set alpha for a color
  * @example (#fff, 0.5) => rgba(255, 255, 255, 0.5)
  * @param baseColor {string}
  * @param alpha {0-1}
@@ -19,7 +19,7 @@ export const setAlpha = (baseColor: string, alpha: number) =>
   new TinyColor(baseColor).setAlpha(alpha).toRgbString();
 
 /**
- * 把一个颜色修改一些明度
+ * Lighten a color
  * @example (#000, 50) => #808080
  * @param baseColor {string}
  * @param brightness {0-100}
@@ -66,7 +66,7 @@ export const resetComponent = (token: Web3AliasToken): CSSObject => ({
 });
 
 /**
- * 封装了一下 antd 的 useStyle
+ * useStyle for css in js
  * @param componentName {string} 组件的名字
  * @param styleFn {GenerateStyle} 生成样式的函数
  * @returns UseStyleResult
