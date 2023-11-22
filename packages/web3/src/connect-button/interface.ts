@@ -8,6 +8,7 @@ export type ConnectButtonTooltipProps = TooltipProps & {
 
 export type ConnectButtonProps = ButtonProps &
   ConnectorTriggerProps & {
+    prefixCls?: string;
     avatar?: AvatarProps;
     menuItems?: MenuItemProps[];
     onMenuClick?: (e: MenuItemProps) => void;

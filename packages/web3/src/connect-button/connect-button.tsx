@@ -1,8 +1,11 @@
-import React from 'react';
-import { Button, Dropdown } from 'antd';
+import React, { useContext } from 'react';
+import { Button, ConfigProvider } from 'antd';
+import classNames from 'classnames';
 import { Address } from '../address';
 import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
 import { ConnectButtonTooltip } from './tooltip';
+import { ChainSelect } from './chain-select';
+import { useStyle } from './style';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const {
@@ -11,56 +14,59 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     onConnectClick,
     onDisconnectClick,
     chains,
-    currentChain,
     onSwitchChain,
     tooltip,
+    currentChain,
     name,
     ...restProps
   } = props;
-
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('web3-connect-button');
+  const { wrapSSR, hashId } = useStyle(prefixCls);
   let buttonText: React.ReactNode = 'Connect Wallet';
   if (connected) {
     buttonText = name ?? <Address ellipsis address={address} />;
   }
   const buttonProps = {
     style: props.style,
-    className: props.className,
+    className: classNames(props.className, hashId, prefixCls),
     size: props.size,
     type: props.type,
     ghost: props.ghost,
-    onClick: () => {
-      if (connected) {
-        onDisconnectClick?.();
-      } else {
-        onConnectClick?.();
-      }
-    },
-    children: buttonText,
     ...restProps,
   };
 
-  let content = <Button {...buttonProps} />;
+  const renderChainSelect = () => {
+    if (chains && chains.length > 1) {
+      return (
+        <ChainSelect
+          hashId={hashId}
+          onSwitchChain={onSwitchChain}
+          currentChain={currentChain}
+          chains={chains}
+        />
+      );
+    }
+    return null;
+  };
 
-  if (chains && chains.length > 1) {
-    content = (
-      <Dropdown.Button
-        icon={currentChain?.icon}
-        menu={{
-          items: chains.map((item) => {
-            return {
-              onClick: () => {
-                onSwitchChain?.(item);
-              },
-              icon: item.icon,
-              label: item.name,
-              key: item.id,
-            };
-          }),
+  const content = (
+    <Button {...buttonProps}>
+      {renderChainSelect()}
+      <div
+        className={`${prefixCls}-text`}
+        onClick={() => {
+          if (connected) {
+            onDisconnectClick?.();
+          } else {
+            onConnectClick?.();
+          }
         }}
-        {...buttonProps}
-      />
-    );
-  }
+      >
+        {buttonText}
+      </div>
+    </Button>
+  );
 
   const mergedTooltipCopyable: ConnectButtonTooltipProps['copyable'] =
     typeof tooltip === 'object' ? tooltip.copyable !== false : !!tooltip;
@@ -81,16 +87,18 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     />
   );
 
-  return tooltip || (!customTooltipTitle && !!address) ? (
-    <ConnectButtonTooltip
-      copyable={customTooltipTitle && mergedTooltipCopyable}
-      title={tooltipTitle}
-      {...(typeof tooltip === 'object' ? tooltip : {})}
-    >
-      {content}
-    </ConnectButtonTooltip>
-  ) : (
-    content
+  return wrapSSR(
+    tooltip || (!customTooltipTitle && !!address) ? (
+      <ConnectButtonTooltip
+        copyable={customTooltipTitle && mergedTooltipCopyable}
+        title={tooltipTitle}
+        {...(typeof tooltip === 'object' ? tooltip : {})}
+      >
+        {content}
+      </ConnectButtonTooltip>
+    ) : (
+      content
+    ),
   );
 };
 
