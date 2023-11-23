@@ -4,13 +4,9 @@ exports[`ConnectButton > Should show menu when hover button 1`] = `
 <body>
   <div>
     <button
-      class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-default ant-dropdown-trigger ant-dropdown-open"
+      class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-default ant-dropdown-trigger css-dev-only-do-not-override-1ck3jst ant-web3-connect-button ant-dropdown-open"
       type="button"
-    >
-      <span>
-        Connect Wallet
-      </span>
-    </button>
+    />
   </div>
   <div>
     <div

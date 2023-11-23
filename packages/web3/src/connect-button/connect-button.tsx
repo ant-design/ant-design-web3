@@ -55,7 +55,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     return null;
   };
 
-  const content = (
+  let content = (
     <Button {...buttonProps}>
       {renderChainSelect()}
       <ProfileModal
