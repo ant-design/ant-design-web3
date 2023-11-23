@@ -4,7 +4,7 @@ import { Space, Tooltip, message, ConfigProvider } from 'antd';
 import React, { useContext } from 'react';
 import { useStyle } from './style';
 import classNames from 'classnames';
-import { writeCopyText } from '../utils';
+import { writeCopyText, fillWith0x } from '../utils';
 
 export interface AddressProps {
   ellipsis?:
@@ -37,7 +37,7 @@ export const Address: React.FC<AddressProps> = (props) => {
     return null;
   }
 
-  const filledAddress = address.startsWith('0x') ? address : `0x${address}`;
+  const filledAddress = fillWith0x(address);
   const displayTooltip = tooltip === undefined || tooltip === true ? filledAddress : tooltip;
 
   return wrapSSR(

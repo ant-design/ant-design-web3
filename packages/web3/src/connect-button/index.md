@@ -21,6 +21,10 @@ A Button for connect chain quickly.
 
 <code src="./demos/name.tsx"></code>
 
+## Different Types
+
+<code src="./demos/type.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |

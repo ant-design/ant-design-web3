@@ -7,6 +7,7 @@ import { ConnectButtonTooltip } from './tooltip';
 import { ChainSelect } from './chain-select';
 import { ProfileModal } from './profile-modal';
 import { useStyle } from './style';
+import { fillWith0x } from '../utils';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const {
@@ -92,26 +93,14 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const mergedTooltipCopyable: ConnectButtonTooltipProps['copyable'] =
     typeof tooltip === 'object' ? tooltip.copyable !== false : !!tooltip;
 
-  const customTooltipTitle = typeof tooltip === 'object' && tooltip.title !== undefined;
-
-  const tooltipTitle = customTooltipTitle ? (
-    tooltip.title
-  ) : (
-    <Address
-      ellipsis={{
-        headClip: 8,
-        tailClip: 6,
-      }}
-      copyable={mergedTooltipCopyable}
-      tooltip={false}
-      address={address}
-    />
-  );
-
+  let tooltipTitle: string = tooltip && address ? fillWith0x(address) : '';
+  if (typeof tooltip === 'object' && typeof tooltip.title === 'string') {
+    tooltipTitle = tooltip.title;
+  }
   return wrapSSR(
-    tooltip || (!customTooltipTitle && !!address) ? (
+    tooltipTitle ? (
       <ConnectButtonTooltip
-        copyable={customTooltipTitle && mergedTooltipCopyable}
+        copyable={mergedTooltipCopyable}
         title={tooltipTitle}
         {...(typeof tooltip === 'object' ? tooltip : {})}
       >

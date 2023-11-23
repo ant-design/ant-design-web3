@@ -19,6 +19,10 @@ group: 组件
 
 <code src="./demos/name.tsx"></code>
 
+## 不同类型的按钮
+
+<code src="./demos/type.tsx"></code>
+
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
