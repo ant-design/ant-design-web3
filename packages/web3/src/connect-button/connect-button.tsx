@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import { Address } from '../address';
 import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
 import { ConnectButtonTooltip } from './tooltip';
 import { ChainSelect } from './chain-select';
+import { ProfileModal } from './profile-modal';
 import { useStyle } from './style';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
@@ -18,10 +19,12 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     tooltip,
     currentChain,
     name,
+    avatar,
     ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-button');
+  const [profileOpen, setProfileOpen] = useState(false);
   const { wrapSSR, hashId } = useStyle(prefixCls);
   let buttonText: React.ReactNode = 'Connect Wallet';
   if (connected) {
@@ -53,11 +56,29 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const content = (
     <Button {...buttonProps}>
       {renderChainSelect()}
+      <ProfileModal
+        open={profileOpen}
+        hashId={hashId}
+        onDisconnect={() => {
+          setProfileOpen(false);
+          onDisconnectClick?.();
+        }}
+        onClose={() => {
+          setProfileOpen(false);
+        }}
+        address={address}
+        name={name}
+        avatar={
+          avatar ?? {
+            src: currentChain?.icon,
+          }
+        }
+      />
       <div
         className={classNames(`${prefixCls}-text`, hashId)}
         onClick={() => {
           if (connected) {
-            onDisconnectClick?.();
+            setProfileOpen(true);
           } else {
             onConnectClick?.();
           }
