@@ -15,12 +15,17 @@ group: 组件
 
 <code src="./demos/tooltip.tsx"></code>
 
+## 展示菜单
+
+<code src="./demos/menu.tsx"></code>
+
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | address | 地址 | `string` | - | - |
 | tooltip | 鼠标移入地址时展示提示 | `boolean \|` [ConnectButtonTooltipProps](#connectbuttontooltipprops) | `true`，默认显示 address 信息 | - |
+| menuItems | 展示菜单 | [ItemType](https://ant-design.antgroup.com/components/menu-cn#itemtype) | - | - |
 
 ### ConnectButtonTooltipProps
 

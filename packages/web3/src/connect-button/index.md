@@ -17,12 +17,17 @@ A Button for connect chain quickly.
 
 <code src="./demos/tooltip.tsx"></code>
 
+## Show Menu
+
+<code src="./demos/menu.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | address | Address | `string` | - | - |
 | tooltip | Show tooltip when mouse enter address | `boolean \|` [ConnectButtonTooltipProps](#connectbuttontooltipprops) | `true`, will display address by default | - |
+| menuItems | Show menu | [ItemType](https://ant-design.antgroup.com/components/menu-cn#itemtype) | - | - |
 
 ### ConnectButtonTooltipProps
 

@@ -3,6 +3,7 @@ import { Button, Dropdown } from 'antd';
 import { Address } from '../address';
 import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
 import { ConnectButtonTooltip } from './tooltip';
+import { c } from 'vitest/dist/reporters-5f784f42';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const {
@@ -14,6 +15,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     currentChain,
     onSwitchChain,
     tooltip,
+    menuItems,
     ...restProps
   } = props;
 
@@ -54,6 +56,18 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         }}
         {...buttonProps}
       />
+    );
+  }
+
+  if (menuItems && menuItems.length > 0) {
+    content = (
+      <Dropdown
+        menu={{
+          items: menuItems,
+        }}
+      >
+        <Button {...buttonProps} />
+      </Dropdown>
     );
   }
 
