@@ -32,7 +32,7 @@ export default () => {
 
 ## 连接区块链
 
-你也可以通过引入 `@ant-design/web3-ethereum` 中的 `EthereumProvider` 让一些 UI 组件中可以连接到区块链。比如下面的示例展示了通过 `NFTImage` 组件显示一个 NFT 图片，示例中通过 [zan.top](https://zan.top/) 提供的区块链节点服务可以请求 NFT 数据，你只需要向组件传入 `address` 和 `tokenId` 即可。
+你也可以通过引入 `@ant-design/web3-ethereum` 中的 `EthereumProvider` 让一些 UI 组件可以连接到区块链。比如下面的示例展示了如何通过 `NFTImage` 组件显示一个 NFT 图片。示例中，通过 [zan.top](https://zan.top/) 提供的区块链节点服务可以请求 NFT 数据，你只需要向组件传入 `address` 和 `tokenId` 即可。
 
 ```tsx | pure
 import { EthereumProvider, createProvider, ZANJsonRpcProvider } from '@ant-design/web3-ethereum';
