@@ -28,7 +28,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(prefixCls);
   let buttonText: React.ReactNode = 'Connect Wallet';
   if (connected) {
-    buttonText = name ?? <Address ellipsis address={address} />;
+    buttonText = name ?? <Address tooltip={false} ellipsis address={address} />;
   }
   const buttonProps = {
     style: props.style,
