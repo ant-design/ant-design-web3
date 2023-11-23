@@ -16,6 +16,7 @@ export type WagmiWeb3ConfigProviderProps<
   config: Config<TPublicClient, TWebSocketPublicClient>;
   chains?: WagmiChain[];
   assets?: (Chain | WalletFactory)[];
+  ens?: boolean;
 };
 
 export function WagmiWeb3ConfigProvider<
@@ -25,6 +26,7 @@ export function WagmiWeb3ConfigProvider<
   children,
   assets = [],
   chains = [mainnet],
+  ens,
   ...restProps
 }: React.PropsWithChildren<
   WagmiWeb3ConfigProviderProps<TPublicClient, TWebSocketPublicClient>
@@ -34,6 +36,7 @@ export function WagmiWeb3ConfigProvider<
       <AntDesignWeb3ConfigProvider
         assets={[...assets, MetaMask, WallectConnect, Mainnet, Polygon, BSC, Goerli]}
         chains={chains}
+        ens={ens}
       >
         {children}
       </AntDesignWeb3ConfigProvider>

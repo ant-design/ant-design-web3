@@ -1,5 +1,6 @@
 export interface Account {
   address: string;
+  name?: string;
 }
 
 export enum ChainIds {
@@ -145,7 +146,7 @@ export interface ConnectorTriggerProps {
   onConnectClick?: () => void;
   onDisconnectClick?: () => Promise<void>;
   onSwitchChain?: (chain: Chain) => Promise<void>;
-  domain?: string;
+  name?: string;
   connected?: boolean;
   chains?: Chain[];
   currentChain?: Chain;

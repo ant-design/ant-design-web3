@@ -13,6 +13,10 @@ group: 组件
 
 <code src="./demos/chains.tsx"></code>
 
+## 显示 ENS
+
+<code src="./demos/name.tsx"></code>
+
 ## 使用 web3modal 连接 WallectConnect
 
 <code src="./demos/web3modal.tsx"></code>
@@ -51,7 +55,7 @@ group: 组件
 | onConnectClick | 连接事件 | `React.MouseEventHandler` | - | - |
 | onDisconnectClick | 断开连接事件 | `React.MouseEventHandler` | - | - |
 | onSwitchChain | 切换网络事件 | `(chain: Chain) => Promise<viod>` | - | - |
-| domain | address 对应的域名，通常就是指 ENS | `string` | - | - |
+| name | address 对应的名称，通常就是指 ENS | `string` | - | - |
 | connected | 是否已连接 | `boolean` | - | - |
 | chains | 当前连接的网络列表 | `ChainSelectItem[]` | - | - |
 | banlance | 当前连接的账户余额 | `Banlance[]` \| `Banlance` | - | - |

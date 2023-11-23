@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  type Account,
-  type Wallet,
-  type Chain,
-  Web3ConfigProvider,
-  requestWeb3Asset,
-  fillAddressWith0x,
-} from '@ant-design/web3-common';
+import { type Account, type Wallet, type Chain, Web3ConfigProvider } from '@ant-design/web3-common';
 import {
   useAccount,
   useConnect,
@@ -15,34 +8,41 @@ import {
   useSwitchNetwork,
   type Chain as WagmiChain,
 } from 'wagmi';
-import { readContract } from '@wagmi/core';
+import { addNameToAccounts, getNFTMetadata } from './methods';
 import type { WalletFactory } from '../interface';
 
 export interface AntDesignWeb3ConfigProviderProps {
   assets?: (WalletFactory | Chain)[];
   children?: React.ReactNode;
+  ens?: boolean;
   chains: WagmiChain[];
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
-  const { children, assets, chains } = props;
+  const { children, assets, chains, ens } = props;
   const { address, isDisconnected } = useAccount();
+  const [accounts, setAccounts] = React.useState<Account[]>([]);
   const { connectors, connectAsync } = useConnect();
   const { switchNetwork } = useSwitchNetwork();
   const { chain } = useNetwork();
   const { disconnectAsync } = useDisconnect();
   const [currentChain, setCurrentChain] = React.useState<Chain | undefined>(undefined);
 
-  const accounts: Account[] = React.useMemo(() => {
+  React.useEffect(() => {
     if (!address || isDisconnected) {
-      return [];
+      setAccounts([]);
+      return;
     }
-    return [
-      {
-        address,
-      },
-    ];
-  }, [address, isDisconnected]);
+    const updateAccounts = async () => {
+      const as: Account[] = [
+        {
+          address,
+        },
+      ];
+      setAccounts(ens ? await addNameToAccounts(as) : as);
+    };
+    updateAccounts();
+  }, [address, isDisconnected, chain, ens]);
 
   const wallets: Wallet[] = React.useMemo(() => {
     return connectors.map((connector) => {
@@ -103,11 +103,12 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           connector,
           chainId: currentChain?.id,
         });
-        return [
+        const as = [
           {
             address: account,
           },
         ];
+        return ens ? addNameToAccounts(as, chain?.id) : as;
       }}
       disconnect={async () => {
         await disconnectAsync();
@@ -115,30 +116,9 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       switchChain={async (c: Chain) => {
         switchNetwork?.(c.id);
       }}
-      getNFTMetadata={async ({ address: contractAddress, tokenId }) => {
-        const tokenURI = await readContract({
-          address: fillAddressWith0x(contractAddress),
-          args: [tokenId],
-          chainId: chain?.id,
-          abi: [
-            {
-              name: 'tokenURI',
-              inputs: [
-                {
-                  name: 'tokenId',
-                  type: 'uint256',
-                },
-              ],
-              outputs: [{ name: '', type: 'string' }],
-              stateMutability: 'view',
-              type: 'function',
-            },
-          ],
-          functionName: 'tokenURI',
-        });
-        const metaInfo = await requestWeb3Asset(tokenURI as string);
-        return metaInfo;
-      }}
+      getNFTMetadata={async ({ address: contractAddress, tokenId }) =>
+        getNFTMetadata(contractAddress, tokenId, chain?.id)
+      }
     >
       {children}
     </Web3ConfigProvider>
