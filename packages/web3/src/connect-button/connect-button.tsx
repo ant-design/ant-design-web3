@@ -98,7 +98,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
           items: menuItems,
         }}
       >
-        <Button {...buttonProps} />
+        {content}
       </Dropdown>
     );
   }
