@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Modal, ConfigProvider, Space, Button, Avatar, message, type AvatarProps } from 'antd';
 import classNames from 'classnames';
 import { Address } from '@ant-design/web3';
+import { writeCopyText } from '../utils';
 
 export interface ProfileModalProps {
   className?: string;
@@ -43,7 +44,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
           {address ? (
             <Button
               onClick={() => {
-                navigator.clipboard.writeText(address).then(() => {
+                writeCopyText(address).then(() => {
                   message.success('Address Copied!');
                 });
               }}

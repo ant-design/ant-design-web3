@@ -3,6 +3,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { mockClipboard } from '../../utils/test-utils';
 import { ProfileModal } from '../profile-modal';
 import { ConnectButton } from '..';
+import { readCopyText } from '../../utils';
 
 describe('ProfileModal', () => {
   let resetMockClipboard: () => void;
@@ -62,8 +63,6 @@ describe('ProfileModal', () => {
     fireEvent.click(btns[1]);
     expect(disconnectTestFn).toBeCalled();
     fireEvent.click(btns[0]);
-    expect(navigator.clipboard.readText()).resolves.toBe(
-      '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
-    );
+    expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
   });
 });

@@ -1,9 +1,10 @@
 import { CopyOutlined } from '@ant-design/icons';
 import type { TooltipProps } from 'antd';
 import { Space, Tooltip, message, ConfigProvider } from 'antd';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useStyle } from './style';
 import classNames from 'classnames';
+import { writeCopyText } from '../utils';
 
 export interface AddressProps {
   ellipsis?:
@@ -50,7 +51,7 @@ export const Address: React.FC<AddressProps> = (props) => {
         <CopyOutlined
           title="Copy Address"
           onClick={() => {
-            navigator.clipboard.writeText(filledAddress).then(() => {
+            writeCopyText(filledAddress).then(() => {
               message.success('Address Copied!');
             });
           }}
