@@ -25,7 +25,9 @@ describe('Connector', () => {
       );
     };
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.ant-connect-modal-title')?.textContent).toBe('modal title');
+    expect(baseElement.querySelector('.ant-web3-connect-modal-title')?.textContent).toBe(
+      'modal title',
+    );
   });
 
   it('connect', async () => {
@@ -88,9 +90,9 @@ describe('Connector', () => {
     fireEvent.click(baseElement.querySelector('.ant-btn')!);
 
     await vi.waitFor(() => {
-      expect(baseElement.querySelector('.ant-connect-modal-wallet-item')).toBeTruthy();
+      expect(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')).toBeTruthy();
     });
-    fireEvent.click(baseElement.querySelector('.ant-connect-modal-wallet-item')!);
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')!);
 
     await vi.waitFor(() => {
       expect(onConnectCallTest).toBeCalled();
