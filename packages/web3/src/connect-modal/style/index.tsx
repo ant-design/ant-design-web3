@@ -1,41 +1,37 @@
+import React from 'react';
+import { mergeToken } from 'antd/lib/theme/internal';
 import {
-  genComponentStyleHook,
-  type FullToken,
+  useStyle as useAntdStyle,
   type GenerateStyle,
-  mergeToken,
-} from 'antd/lib/theme/internal';
+  type Web3AliasToken,
+} from '../../theme/useStyle';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { Theme } from '../interface';
+import { isDarkTheme } from '../utils';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
 }
 
-export interface ConnectModalToken extends FullToken<'Modal'> {
+export interface ConnectModalToken extends Web3AliasToken {
   // Custom token here
-  mainBg: string;
   selectedColor: string;
   hoverBg: string;
   splitColor: string;
   modalTitleStartColor: string;
   modalTitleEndColor: string;
-  mainTextColor: string;
   groupTextColor: string;
-  guideTitleColor: string;
-  listItemTitleColor: string;
   listItemDescriptionColor: string;
-  buttonBg: string;
   cardBg: string;
 }
 
-const resetStyle = (token: ConnectModalToken, themeSuffix: Theme = 'light'): CSSInterpolation => {
-  const { componentCls } = token;
+const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
+  const { web3ComponentsCls: componentCls } = token;
 
   return [
     {
-      [`${componentCls}-${themeSuffix}`]: {
+      [`${componentCls}`]: {
         '.ant-modal-content': {
           padding: 0,
         },
@@ -43,7 +39,7 @@ const resetStyle = (token: ConnectModalToken, themeSuffix: Theme = 'light'): CSS
           top: 13,
           color: token.listItemDescriptionColor,
           '&:hover': {
-            color: token.mainTextColor,
+            color: token.colorText,
             background: 'transparent',
           },
         },
@@ -58,26 +54,23 @@ const resetStyle = (token: ConnectModalToken, themeSuffix: Theme = 'light'): CSS
   ];
 };
 
-const getThemeStyle = (
-  token: ConnectModalToken,
-  themeSuffix: Theme = 'light',
-): CSSInterpolation => {
-  const { componentCls } = token;
+const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
+  const { web3ComponentsCls: componentCls } = token;
   return [
     {
-      [`${componentCls}-${themeSuffix}`]: {
+      [`${componentCls}`]: {
         borderRadius: token.borderRadiusLG,
         overflow: 'hidden',
         paddingBlockEnd: 0,
         '.ant-modal-content': {
-          background: token.mainBg,
+          background: token.colorBgContainer,
         },
         [`${componentCls}-title`]: {
           fontSize: 20,
-          color: '#fff',
           lineHeight: '28px',
           fontWeight: 600,
-          backgroundImage: `linear-gradient(90deg, ${token.modalTitleStartColor} 0%, ${token.modalTitleEndColor} 16%, ${token.modalTitleStartColor} 48%, ${token.modalTitleEndColor} 67%, ${token.modalTitleStartColor} 85%, ${token.modalTitleEndColor} 96%)`,
+          color: token.colorText,
+          backgroundImage: `linear-gradient(90deg, ${token.modalTitleStartColor} 0%, ${token.modalTitleEndColor} 16%, ${token.modalTitleStartColor} 48%, ${token.modalTitleEndColor} 67%, ${token.modalTitleStartColor} 85%, ${token.modalTitleEndColor} 96%, ${token.modalTitleStartColor} 100%)`,
           display: 'inline-block',
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
@@ -140,16 +133,13 @@ const getThemeStyle = (
                         [`${componentCls}-icon`]: {
                           borderRadius: 8,
                           overflow: 'hidden',
-                          background:
-                            themeSuffix === 'light'
-                              ? 'rgba(0, 0, 0, 0.25)'
-                              : 'rgba(255, 255, 255, 0.25)',
+                          background: new TinyColor(token.colorText).setAlpha(0.25).toRgbString(),
                         },
                         [`${componentCls}-name`]: {
                           fontSize: token.fontSizeLG,
                           justifySelf: 'flex-start',
                           marginInlineStart: token.marginSM,
-                          color: token.mainTextColor,
+                          color: token.colorText,
                         },
                       },
                       '&:last-child': {
@@ -161,7 +151,7 @@ const getThemeStyle = (
                       '&.selected': {
                         background: token.selectedColor,
                         [`${componentCls}-name`]: {
-                          color: '#fff',
+                          color: token.colorText,
                         },
                       },
                     },
@@ -185,7 +175,7 @@ const getThemeStyle = (
                 borderRadius: 4,
                 transition: 'background .3s',
                 textAlign: 'center',
-                color: token.mainTextColor,
+                color: token.colorText,
                 '&:hover': {
                   background: token.hoverBg,
                 },
@@ -194,7 +184,7 @@ const getThemeStyle = (
                 flex: 1,
                 textAlign: 'center',
                 fontSize: token.fontSizeLG,
-                color: token.mainTextColor,
+                color: token.colorText,
               },
             },
             [`${componentCls}-guide-panel`]: {
@@ -202,7 +192,7 @@ const getThemeStyle = (
               [`${componentCls}-guide-title`]: {
                 textAlign: 'center',
                 fontSize: token.fontSizeXL,
-                color: token.guideTitleColor,
+                color: token.colorText,
                 marginBlock: 0,
               },
             },
@@ -226,7 +216,7 @@ const getThemeStyle = (
                   marginInlineStart: 12,
                   [`${componentCls}-guide-item-title`]: {
                     fontSize: token.fontSizeLG,
-                    color: token.listItemTitleColor,
+                    color: token.colorText,
                     marginBlock: 0,
                   },
                   [`${componentCls}-guide-item-description`]: {
@@ -239,15 +229,23 @@ const getThemeStyle = (
               },
             },
             [`${componentCls}-get-btn`]: {
-              background: token.buttonBg,
-              color: '#fff',
               borderRadius: 8,
+              background: token.colorText,
+              color: token.colorBgContainer,
+              ['&:hover']: {
+                background: token['blue-6'],
+                borderColor: token['blue-6'],
+                color: token.colorWhite,
+              },
             },
             [`${componentCls}-more`]: {
-              color: token.mainTextColor,
+              color: token.colorText,
               fontSize: token.fontSizeLG,
               textAlign: 'center',
               marginBlockStart: 16,
+              ['&:hover']: {
+                color: token['blue-6'],
+              },
             },
             [`${componentCls}-get-wallet-panel`]: {
               position: 'relative',
@@ -262,11 +260,10 @@ const getThemeStyle = (
                     marginBlockEnd: 0,
                   },
                   '.ant-avatar': {
-                    background:
-                      themeSuffix === 'light' ? 'rgba(0, 0, 0, 0.25)' : 'rgba(255, 255, 255, 0.25)',
+                    background: new TinyColor(token.colorText).setAlpha(0.25).toRgbString(),
                   },
                   '.ant-list-item-meta-title': {
-                    color: token.listItemTitleColor,
+                    color: token.colorText,
                   },
                   '.ant-list-item-meta-description': {
                     color: token.listItemDescriptionColor,
@@ -276,11 +273,9 @@ const getThemeStyle = (
                     height: 32,
                     lineHeight: 0,
                     fontSize: token.fontSizeLG,
-                    borderColor: token.buttonBg,
-                    background: 'rgba(255,255,255,0.15)',
-                    color: token.mainTextColor,
-                    '&:hover': {
-                      borderColor: token.colorPrimary,
+                    ['&:hover']: {
+                      borderColor: token['blue-6'],
+                      color: token['blue-6'],
                     },
                   },
                 },
@@ -294,7 +289,7 @@ const getThemeStyle = (
                 textAlign: 'center',
                 h3: {
                   fontSize: token.fontSizeLG,
-                  color: token.mainTextColor,
+                  color: token.colorPrimary,
                   marginBlockEnd: 16,
                 },
                 p: {
@@ -336,7 +331,7 @@ const getThemeStyle = (
                   marginInlineStart: 12,
                   [`${componentCls}-card-title`]: {
                     fontSize: token.fontSizeLG,
-                    color: token.listItemTitleColor,
+                    color: token.colorText,
                   },
                   [`${componentCls}-card-description`]: {
                     fontSize: token.fontSize,
@@ -370,11 +365,9 @@ const getThemeStyle = (
                   width: 66,
                   height: 40,
                   lineHeight: 0,
-                  background: themeSuffix === 'light' ? '#fff' : 'rgba(255,255,255,0.15)',
-                  borderColor: themeSuffix === 'light' ? token.buttonBg : 'transparent',
-                  color: token.mainTextColor,
-                  '&:hover': {
-                    borderColor: token.colorPrimary,
+                  ['&:hover']: {
+                    borderColor: token['blue-6'],
+                    color: token['blue-6'],
                   },
                 },
               },
@@ -391,7 +384,7 @@ const getThemeStyle = (
               top: 0,
               width: '100%',
               height: '100%',
-              background: token.mainBg,
+              background: token.colorBgContainer,
               [`${componentCls}-qr-code-box`]: {
                 marginBlockStart: 24,
               },
@@ -407,47 +400,31 @@ const getThemeStyle = (
 };
 
 const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
-  const darkToken = mergeToken<ConnectModalToken>(token, {
-    mainBg: '#1a1b1f',
-    selectedColor: '#1677FF',
-    hoverBg: 'rgba(255, 255, 255, 0.2)',
-    splitColor: new TinyColor(token.colorTextLightSolid).setAlpha(0.06).toRgbString(),
-    modalTitleStartColor: '#fff',
-    modalTitleEndColor: '#4d4d4d',
-    mainTextColor: '#fff',
-    groupTextColor: 'rgba(255,255,255,0.65)',
-    guideTitleColor: '#fff',
-    listItemTitleColor: '#fff',
-    listItemDescriptionColor: 'rgba(255,255,255,0.65)',
-    buttonBg: 'rgba(255,255,255,0.15)',
-    cardBg: 'rgba(255,255,255,0.1)',
-  });
-
   return [
     // =========================== Reset ===========================
     resetStyle(token),
-    resetStyle(darkToken, 'dark'),
     // =========================== Modal ===========================
     getThemeStyle(token),
-    getThemeStyle(darkToken, 'dark'),
   ];
 };
 
-export default genComponentStyleHook('Modal', (token) => {
-  const connectModalToken = mergeToken<ConnectModalToken>(token, {
-    mainBg: '#ffffff',
-    mainTextColor: 'rgba(0,0,0,0.85)',
-    selectedColor: '#1677FF',
-    hoverBg: 'rgba(0, 0, 0, 0.06)',
-    splitColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
-    modalTitleStartColor: '#1677ff',
-    modalTitleEndColor: 'rgba(0,0,0,0.85)',
-    groupTextColor: 'rgba(0,0,0,0.65)',
-    guideTitleColor: token.colorText,
-    listItemTitleColor: token.colorText,
-    listItemDescriptionColor: 'rgba(0,0,0,0.65)',
-    buttonBg: 'rgba(0,0,0,0.85)',
-    cardBg: 'rgba(0,0,0,0.1)',
+export function useStyle(prefixCls: string) {
+  return useAntdStyle('ConnectModal', (token) => {
+    const isDark = isDarkTheme(token);
+    const connectModalToken: ConnectModalToken = mergeToken<ConnectModalToken>(token, {
+      selectedColor: new TinyColor(token['blue-6']).toRgbString(),
+      hoverBg: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
+      splitColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
+      modalTitleStartColor: isDark ? token.colorWhite : '#1677ff',
+      modalTitleEndColor: new TinyColor('#000')
+        .setAlpha(0.85)
+        .onBackground(token.colorWhite)
+        .toRgbString(),
+      groupTextColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
+      listItemDescriptionColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
+      cardBg: new TinyColor(token.colorText).setAlpha(0.1).toRgbString(),
+      web3ComponentsCls: `.${prefixCls}`,
+    });
+    return [genModalStyle(connectModalToken)];
   });
-  return [genModalStyle(connectModalToken)];
-});
+}

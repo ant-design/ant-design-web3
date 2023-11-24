@@ -3,10 +3,12 @@ import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import { ConfigProvider as AntdConfigProvider } from 'antd';
-import useToken from 'antd/lib/theme/useToken';
+import { theme as AntTheme } from 'antd';
 import type { GlobalToken } from 'antd/lib/theme/interface';
 import type React from 'react';
 import { useContext } from 'react';
+
+const { useToken } = AntTheme;
 
 /**
  * Set alpha for a color
@@ -75,7 +77,7 @@ export function useStyle(
   componentName: string,
   styleFn: (token: Web3AliasToken) => CSSInterpolation,
 ) {
-  const [theme, token, hashId] = useToken();
+  const { theme, token, hashId } = useToken();
   const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
   const web3Token = {
     ...token,

@@ -1,5 +1,5 @@
 import { ConnectModal } from '@ant-design/web3';
-import { Button, Space } from 'antd';
+import { Button, ConfigProvider, Space, theme } from 'antd';
 import React from 'react';
 import type { DefaultGuide, Wallet } from '../interface';
 
@@ -196,33 +196,37 @@ const App: React.FC = () => {
   const [open2, setOpen2] = React.useState(false);
 
   return (
-    <Space>
-      <Button type="primary" onClick={() => setOpen(true)}>
-        Open with basic
-      </Button>
-      <Button type="primary" onClick={() => setOpen2(true)}>
-        Open with simple
-      </Button>
-      <ConnectModal
-        open={open}
-        theme="dark"
-        title="Connect Wallet"
-        footer="蚂蚁链提供技术支持"
-        groupOrder={groupOrder}
-        walletList={walletList}
-        onOpenChange={setOpen}
-        guide={guide}
-      />
-      <ConnectModal
-        open={open2}
-        theme="dark"
-        title="Connect Wallet"
-        footer="蚂蚁链提供技术支持"
-        groupOrder={groupOrder}
-        walletList={walletList}
-        onOpenChange={setOpen2}
-      />
-    </Space>
+    <ConfigProvider
+      theme={{
+        algorithm: theme.darkAlgorithm,
+      }}
+    >
+      <Space>
+        <Button type="primary" onClick={() => setOpen(true)}>
+          Open with basic
+        </Button>
+        <Button type="primary" onClick={() => setOpen2(true)}>
+          Open with simple
+        </Button>
+        <ConnectModal
+          open={open}
+          title="Connect Wallet"
+          footer="蚂蚁链提供技术支持"
+          groupOrder={groupOrder}
+          walletList={walletList}
+          onOpenChange={setOpen}
+          guide={guide}
+        />
+        <ConnectModal
+          open={open2}
+          title="Connect Wallet"
+          footer="蚂蚁链提供技术支持"
+          groupOrder={groupOrder}
+          walletList={walletList}
+          onOpenChange={setOpen2}
+        />
+      </Space>
+    </ConfigProvider>
   );
 };
 

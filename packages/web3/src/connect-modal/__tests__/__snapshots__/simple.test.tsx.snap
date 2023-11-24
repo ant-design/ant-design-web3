@@ -5,7 +5,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-1ck3jst ant-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-15xztg8 ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -16,7 +16,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-connect-modal ant-connect-modal-dark ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-15xztg8 ant-web3-connect-modal css-dev-only-do-not-override-15xztg8 ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 380px;"
         >
@@ -62,42 +62,42 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
               class="ant-modal-body"
             >
               <div
-                class="ant-connect-modal-body simple"
+                class="ant-web3-connect-modal-body simple"
               >
                 <div
-                  class="ant-connect-modal-list-panel"
+                  class="ant-web3-connect-modal-list-panel"
                 >
                   <div
-                    class="ant-connect-modal-header"
+                    class="ant-web3-connect-modal-header"
                   >
                     <h2
-                      class="ant-connect-modal-title"
+                      class="ant-web3-connect-modal-title"
                     >
                       ConnectModal
                     </h2>
                   </div>
                   <div
-                    class="ant-connect-modal-list-container"
+                    class="ant-web3-connect-modal-list-container"
                   >
                     <div
-                      class="ant-connect-modal-wallet-list"
+                      class="ant-web3-connect-modal-wallet-list"
                     >
                       <div
-                        class="ant-connect-modal-group"
+                        class="ant-web3-connect-modal-group"
                       >
                         <div
-                          class="ant-connect-modal-group-title"
+                          class="ant-web3-connect-modal-group-title"
                         >
                           Popular
                         </div>
                         <div
-                          class="ant-connect-modal-group-content"
+                          class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-15xztg8"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-15xztg8"
                             >
                               <div
                                 class="ant-spin-container"
@@ -106,16 +106,16 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                   class="ant-list-items"
                                 >
                                   <li
-                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
                                   >
                                     <div
-                                      class="ant-connect-modal-content"
+                                      class="ant-web3-connect-modal-content"
                                     >
                                       <div
-                                        class="ant-connect-modal-icon"
+                                        class="ant-web3-connect-modal-icon"
                                       >
                                         <span
-                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
+                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-15xztg8"
                                           style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
                                         >
                                           <img
@@ -124,23 +124,23 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         </span>
                                       </div>
                                       <div
-                                        class="ant-connect-modal-name"
+                                        class="ant-web3-connect-modal-name"
                                       >
                                         测试钱包
                                       </div>
                                     </div>
                                   </li>
                                   <li
-                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
                                   >
                                     <div
-                                      class="ant-connect-modal-content"
+                                      class="ant-web3-connect-modal-content"
                                     >
                                       <div
-                                        class="ant-connect-modal-icon"
+                                        class="ant-web3-connect-modal-icon"
                                       >
                                         <span
-                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
+                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-15xztg8"
                                           style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
                                         >
                                           <img
@@ -149,7 +149,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         </span>
                                       </div>
                                       <div
-                                        class="ant-connect-modal-name"
+                                        class="ant-web3-connect-modal-name"
                                       >
                                         测试钱包3
                                       </div>
@@ -162,21 +162,21 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                         </div>
                       </div>
                       <div
-                        class="ant-connect-modal-group"
+                        class="ant-web3-connect-modal-group"
                       >
                         <div
-                          class="ant-connect-modal-group-title"
+                          class="ant-web3-connect-modal-group-title"
                         >
                           Default
                         </div>
                         <div
-                          class="ant-connect-modal-group-content"
+                          class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-15xztg8"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-15xztg8"
                             >
                               <div
                                 class="ant-spin-container"
@@ -185,16 +185,16 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                   class="ant-list-items"
                                 >
                                   <li
-                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
                                   >
                                     <div
-                                      class="ant-connect-modal-content"
+                                      class="ant-web3-connect-modal-content"
                                     >
                                       <div
-                                        class="ant-connect-modal-icon"
+                                        class="ant-web3-connect-modal-icon"
                                       >
                                         <span
-                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
+                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-15xztg8"
                                           style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
                                         >
                                           <img
@@ -203,23 +203,23 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         </span>
                                       </div>
                                       <div
-                                        class="ant-connect-modal-name"
+                                        class="ant-web3-connect-modal-name"
                                       >
                                         测试钱包2
                                       </div>
                                     </div>
                                   </li>
                                   <li
-                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
                                   >
                                     <div
-                                      class="ant-connect-modal-content"
+                                      class="ant-web3-connect-modal-content"
                                     >
                                       <div
-                                        class="ant-connect-modal-icon"
+                                        class="ant-web3-connect-modal-icon"
                                       >
                                         <span
-                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-15xztg8"
                                           style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
                                         >
                                           <span
@@ -231,23 +231,23 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         </span>
                                       </div>
                                       <div
-                                        class="ant-connect-modal-name"
+                                        class="ant-web3-connect-modal-name"
                                       >
                                         测试钱包4
                                       </div>
                                     </div>
                                   </li>
                                   <li
-                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
                                   >
                                     <div
-                                      class="ant-connect-modal-content"
+                                      class="ant-web3-connect-modal-content"
                                     >
                                       <div
-                                        class="ant-connect-modal-icon"
+                                        class="ant-web3-connect-modal-icon"
                                       >
                                         <span
-                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-15xztg8"
                                           style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
                                         >
                                           <span
@@ -259,23 +259,23 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         </span>
                                       </div>
                                       <div
-                                        class="ant-connect-modal-name"
+                                        class="ant-web3-connect-modal-name"
                                       >
                                         测试钱包5
                                       </div>
                                     </div>
                                   </li>
                                   <li
-                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
                                   >
                                     <div
-                                      class="ant-connect-modal-content"
+                                      class="ant-web3-connect-modal-content"
                                     >
                                       <div
-                                        class="ant-connect-modal-icon"
+                                        class="ant-web3-connect-modal-icon"
                                       >
                                         <span
-                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-15xztg8"
                                           style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
                                         >
                                           <span
@@ -287,23 +287,23 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         </span>
                                       </div>
                                       <div
-                                        class="ant-connect-modal-name"
+                                        class="ant-web3-connect-modal-name"
                                       >
                                         测试钱包6
                                       </div>
                                     </div>
                                   </li>
                                   <li
-                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
                                   >
                                     <div
-                                      class="ant-connect-modal-content"
+                                      class="ant-web3-connect-modal-content"
                                     >
                                       <div
-                                        class="ant-connect-modal-icon"
+                                        class="ant-web3-connect-modal-icon"
                                       >
                                         <span
-                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-15xztg8"
                                           style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
                                         >
                                           <span
@@ -315,7 +315,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         </span>
                                       </div>
                                       <div
-                                        class="ant-connect-modal-name"
+                                        class="ant-web3-connect-modal-name"
                                       >
                                         测试钱包6
                                       </div>
@@ -330,7 +330,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                     </div>
                   </div>
                   <div
-                    class="ant-connect-modal-footer"
+                    class="ant-web3-connect-modal-footer"
                   >
                     蚂蚁链提供技术支持
                   </div>
@@ -355,7 +355,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-1ck3jst ant-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -366,7 +366,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-connect-modal ant-connect-modal-light ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal css-dev-only-do-not-override-1ck3jst ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 380px;"
         >
@@ -412,36 +412,36 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
               class="ant-modal-body"
             >
               <div
-                class="ant-connect-modal-body simple"
+                class="ant-web3-connect-modal-body simple"
               >
                 <div
-                  class="ant-connect-modal-list-panel"
+                  class="ant-web3-connect-modal-list-panel"
                 >
                   <div
-                    class="ant-connect-modal-header"
+                    class="ant-web3-connect-modal-header"
                   >
                     <h2
-                      class="ant-connect-modal-title"
+                      class="ant-web3-connect-modal-title"
                     >
                       ConnectModal
                     </h2>
                   </div>
                   <div
-                    class="ant-connect-modal-list-container"
+                    class="ant-web3-connect-modal-list-container"
                   >
                     <div
-                      class="ant-connect-modal-wallet-list"
+                      class="ant-web3-connect-modal-wallet-list"
                     >
                       <div
-                        class="ant-connect-modal-group"
+                        class="ant-web3-connect-modal-group"
                       >
                         <div
-                          class="ant-connect-modal-group-title"
+                          class="ant-web3-connect-modal-group-title"
                         >
                           Popular
                         </div>
                         <div
-                          class="ant-connect-modal-group-content"
+                          class="ant-web3-connect-modal-group-content"
                         >
                           <div
                             class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
@@ -456,13 +456,13 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                   class="ant-list-items"
                                 >
                                   <li
-                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
                                   >
                                     <div
-                                      class="ant-connect-modal-content"
+                                      class="ant-web3-connect-modal-content"
                                     >
                                       <div
-                                        class="ant-connect-modal-icon"
+                                        class="ant-web3-connect-modal-icon"
                                       >
                                         <span
                                           class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
@@ -474,20 +474,20 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         </span>
                                       </div>
                                       <div
-                                        class="ant-connect-modal-name"
+                                        class="ant-web3-connect-modal-name"
                                       >
                                         测试钱包
                                       </div>
                                     </div>
                                   </li>
                                   <li
-                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
                                   >
                                     <div
-                                      class="ant-connect-modal-content"
+                                      class="ant-web3-connect-modal-content"
                                     >
                                       <div
-                                        class="ant-connect-modal-icon"
+                                        class="ant-web3-connect-modal-icon"
                                       >
                                         <span
                                           class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
@@ -499,7 +499,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         </span>
                                       </div>
                                       <div
-                                        class="ant-connect-modal-name"
+                                        class="ant-web3-connect-modal-name"
                                       >
                                         测试钱包3
                                       </div>
@@ -512,15 +512,15 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                         </div>
                       </div>
                       <div
-                        class="ant-connect-modal-group"
+                        class="ant-web3-connect-modal-group"
                       >
                         <div
-                          class="ant-connect-modal-group-title"
+                          class="ant-web3-connect-modal-group-title"
                         >
                           Default
                         </div>
                         <div
-                          class="ant-connect-modal-group-content"
+                          class="ant-web3-connect-modal-group-content"
                         >
                           <div
                             class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
@@ -535,13 +535,13 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                   class="ant-list-items"
                                 >
                                   <li
-                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
                                   >
                                     <div
-                                      class="ant-connect-modal-content"
+                                      class="ant-web3-connect-modal-content"
                                     >
                                       <div
-                                        class="ant-connect-modal-icon"
+                                        class="ant-web3-connect-modal-icon"
                                       >
                                         <span
                                           class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
@@ -553,20 +553,20 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         </span>
                                       </div>
                                       <div
-                                        class="ant-connect-modal-name"
+                                        class="ant-web3-connect-modal-name"
                                       >
                                         测试钱包2
                                       </div>
                                     </div>
                                   </li>
                                   <li
-                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
                                   >
                                     <div
-                                      class="ant-connect-modal-content"
+                                      class="ant-web3-connect-modal-content"
                                     >
                                       <div
-                                        class="ant-connect-modal-icon"
+                                        class="ant-web3-connect-modal-icon"
                                       >
                                         <span
                                           class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
@@ -581,20 +581,20 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         </span>
                                       </div>
                                       <div
-                                        class="ant-connect-modal-name"
+                                        class="ant-web3-connect-modal-name"
                                       >
                                         测试钱包4
                                       </div>
                                     </div>
                                   </li>
                                   <li
-                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
                                   >
                                     <div
-                                      class="ant-connect-modal-content"
+                                      class="ant-web3-connect-modal-content"
                                     >
                                       <div
-                                        class="ant-connect-modal-icon"
+                                        class="ant-web3-connect-modal-icon"
                                       >
                                         <span
                                           class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
@@ -609,20 +609,20 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         </span>
                                       </div>
                                       <div
-                                        class="ant-connect-modal-name"
+                                        class="ant-web3-connect-modal-name"
                                       >
                                         测试钱包5
                                       </div>
                                     </div>
                                   </li>
                                   <li
-                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
                                   >
                                     <div
-                                      class="ant-connect-modal-content"
+                                      class="ant-web3-connect-modal-content"
                                     >
                                       <div
-                                        class="ant-connect-modal-icon"
+                                        class="ant-web3-connect-modal-icon"
                                       >
                                         <span
                                           class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
@@ -637,20 +637,20 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         </span>
                                       </div>
                                       <div
-                                        class="ant-connect-modal-name"
+                                        class="ant-web3-connect-modal-name"
                                       >
                                         测试钱包6
                                       </div>
                                     </div>
                                   </li>
                                   <li
-                                    class="ant-list-item ant-connect-modal-wallet-item"
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
                                   >
                                     <div
-                                      class="ant-connect-modal-content"
+                                      class="ant-web3-connect-modal-content"
                                     >
                                       <div
-                                        class="ant-connect-modal-icon"
+                                        class="ant-web3-connect-modal-icon"
                                       >
                                         <span
                                           class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
@@ -665,7 +665,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         </span>
                                       </div>
                                       <div
-                                        class="ant-connect-modal-name"
+                                        class="ant-web3-connect-modal-name"
                                       >
                                         测试钱包6
                                       </div>
@@ -680,7 +680,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                     </div>
                   </div>
                   <div
-                    class="ant-connect-modal-footer"
+                    class="ant-web3-connect-modal-footer"
                   >
                     蚂蚁链提供技术支持
                   </div>
