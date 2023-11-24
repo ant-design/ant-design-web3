@@ -26,7 +26,6 @@ Connect wallet modal, used with ConnectButton to complete the wallet connection 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | title | The title of ConnectModal, same as Modal's title | `ModalProps['title']` | - | - |
-| theme | The theme of ConnectModal | `'dark' \| 'light'` | 'light' | - |
 | open | Whether the modal is visible, same as Modal's open | `ModalProps['open']` | - | - |
 | onOpenChange | Callback when the modal visibility changes | `(open: boolean) => void` | - | - |
 | onSelectWallet | Callback when the wallet is selected | `(wallet: Wallet) => void` | - | - |
