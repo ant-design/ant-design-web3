@@ -5,7 +5,7 @@ hero:
   description: 享受 Web3 的乐趣
   actions:
     - text: 开始使用
-      link: /guide
+      link: /zh-CN/guide
     - text: GitHub
       link: https://github.com/ant-design/ant-design-web3
 features:
