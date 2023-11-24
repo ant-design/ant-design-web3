@@ -12,7 +12,7 @@ export type ConnectModalContext = {
 };
 
 export const connectModalContext = React.createContext<ConnectModalContext>({
-  prefixCls: 'ant-connect-modal',
+  prefixCls: 'ant-web3-connect-modal',
   selectedWallet: undefined,
   updateSelectedWallet: () => {},
   panelRoute: 'guide',
