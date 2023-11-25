@@ -64,16 +64,18 @@ describe('ConnectButton', () => {
     });
   });
   it('Should show profile modal when click button', async () => {
-    const App = () => <ConnectButton menuItems={menuItems} clickActionType="showProfileModal" />;
+    const App = () => (
+      <ConnectButton menuItems={menuItems} clickActionType="showProfileModal" connected />
+    );
     const { baseElement } = render(<App />);
 
-    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button') as Element);
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button-text') as Element);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-web3-connect-button-profile-modal')).not.toBeNull();
       expect(baseElement).toMatchSnapshot();
     });
   });
-  it.only('Should call action when click menu item with build-in action key', async () => {
+  it('Should call action when click menu item with build-in action key', async () => {
     const onDisconnectClick = vi.fn();
     const App = () => (
       <ConnectButton

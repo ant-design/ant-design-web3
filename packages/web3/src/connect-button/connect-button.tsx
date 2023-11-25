@@ -42,23 +42,12 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     buttonText = name ?? <Address tooltip={false} ellipsis address={address} />;
   }
 
-  const onClickButton: React.MouseEventHandler<HTMLElement> = (e) => {
-    const { onClick } = props;
-    if (clickActionType !== 'showMenu' && connected && !profileOpen) {
-      setProfileOpen(true);
-    } else {
-      onConnectClick?.();
-    }
-    onClick?.(e);
-  };
-
   const buttonProps: ButtonProps = {
     style: props.style,
     className: classNames(props.className, hashId, prefixCls),
     size: props.size,
     type: props.type,
     ghost: props.ghost,
-    onClick: onClickButton,
     ...restProps,
   };
 
@@ -97,7 +86,18 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
           }
         }
       />
-      <div className={classNames(`${prefixCls}-text`, hashId)}>{buttonText}</div>
+      <div
+        className={classNames(`${prefixCls}-text`, hashId)}
+        onClick={() => {
+          if (clickActionType !== 'showMenu' && connected && !profileOpen) {
+            setProfileOpen(true);
+          } else {
+            onConnectClick?.();
+          }
+        }}
+      >
+        {buttonText}
+      </div>
     </Button>
   );
 
