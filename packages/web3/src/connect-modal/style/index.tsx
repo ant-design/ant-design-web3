@@ -16,6 +16,7 @@ export interface ComponentToken {
 
 export interface ConnectModalToken extends Web3AliasToken {
   // Custom token here
+  selectedBg: string;
   selectedColor: string;
   hoverBg: string;
   splitColor: string;
@@ -56,6 +57,7 @@ const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
 
 const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
   const { web3ComponentsCls: componentCls } = token;
+  const isDark = isDarkTheme(token);
   return [
     {
       [`${componentCls}`]: {
@@ -149,9 +151,9 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                         background: token.hoverBg,
                       },
                       '&.selected': {
-                        background: token.selectedColor,
+                        background: token.selectedBg,
                         [`${componentCls}-name`]: {
-                          color: token.colorText,
+                          color: token.selectedColor,
                         },
                       },
                     },
@@ -230,12 +232,13 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             },
             [`${componentCls}-get-btn`]: {
               borderRadius: 8,
-              background: token.colorText,
-              color: token.colorBgContainer,
+              background: isDark
+                ? new TinyColor(token.colorWhite).setAlpha(0.15).toRgbString()
+                : token.colorPrimary,
+              color: token.colorTextLightSolid,
+              opacity: 0.8,
               ['&:hover']: {
-                background: token['blue-6'],
-                borderColor: token['blue-6'],
-                color: token.colorWhite,
+                opacity: 1,
               },
             },
             [`${componentCls}-more`]: {
@@ -243,8 +246,9 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               fontSize: token.fontSizeLG,
               textAlign: 'center',
               marginBlockStart: 16,
+              opacity: 0.8,
               ['&:hover']: {
-                color: token['blue-6'],
+                opacity: 1,
               },
             },
             [`${componentCls}-get-wallet-panel`]: {
@@ -274,8 +278,8 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     lineHeight: 0,
                     fontSize: token.fontSizeLG,
                     ['&:hover']: {
-                      borderColor: token['blue-6'],
-                      color: token['blue-6'],
+                      borderColor: isDark ? token.colorWhite : token.colorPrimary,
+                      color: isDark ? token.colorWhite : token.colorPrimary,
                     },
                   },
                 },
@@ -289,7 +293,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 textAlign: 'center',
                 h3: {
                   fontSize: token.fontSizeLG,
-                  color: token.colorPrimary,
+                  color: token.colorText,
                   marginBlockEnd: 16,
                 },
                 p: {
@@ -316,7 +320,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 border: `1px solid transparent`,
                 transition: 'border-color .3s',
                 '&:hover': {
-                  borderColor: token.selectedColor,
+                  borderColor: isDark ? token.colorWhite : token.colorPrimary,
                 },
                 [`${componentCls}-card-icon`]: {
                   width: 64,
@@ -366,8 +370,8 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                   height: 40,
                   lineHeight: 0,
                   ['&:hover']: {
-                    borderColor: token['blue-6'],
-                    color: token['blue-6'],
+                    borderColor: isDark ? token.colorWhite : token.colorPrimary,
+                    color: isDark ? token.colorWhite : token.colorPrimary,
                   },
                 },
               },
@@ -412,8 +416,12 @@ export function useStyle(prefixCls: string) {
   return useAntdStyle('ConnectModal', (token) => {
     const isDark = isDarkTheme(token);
     const connectModalToken: ConnectModalToken = mergeToken<ConnectModalToken>(token, {
-      selectedColor: new TinyColor(token['blue-6']).toRgbString(),
-      hoverBg: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
+      selectedBg: isDark ? token.colorWhite : token.colorPrimary,
+      selectedColor: token.colorBgContainer,
+      hoverBg: new TinyColor(isDark ? token.colorWhite : token.colorPrimary)
+        .setAlpha(0.1)
+        .onBackground(token.colorBgContainer)
+        .toRgbString(),
       splitColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
       modalTitleStartColor: isDark ? token.colorWhite : '#1677ff',
       modalTitleEndColor: new TinyColor('#000')

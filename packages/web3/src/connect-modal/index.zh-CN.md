@@ -19,6 +19,10 @@ group: 组件
 
 <code src="./demos/dark.tsx"></code>
 
+## 自定义主题色
+
+<code src="./demos/theme.tsx"></code>
+
 ## API
 
 ### ConnectModalProps

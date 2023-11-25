@@ -1,5 +1,5 @@
 import { ConnectModal } from '@ant-design/web3';
-import { Button } from 'antd';
+import { Button, ConfigProvider } from 'antd';
 import React from 'react';
 import type { DefaultGuide, Wallet } from '../interface';
 
@@ -194,7 +194,13 @@ const guide: DefaultGuide = {
 const App: React.FC = () => {
   const [open, setOpen] = React.useState(false);
   return (
-    <>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: '#660066',
+        },
+      }}
+    >
       <Button type="primary" onClick={() => setOpen(true)}>
         Open with basic
       </Button>
@@ -207,7 +213,7 @@ const App: React.FC = () => {
         onOpenChange={setOpen}
         guide={guide}
       />
-    </>
+    </ConfigProvider>
   );
 };
 
