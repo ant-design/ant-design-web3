@@ -6,7 +6,8 @@ import { writeCopyText } from '../utils';
 
 export interface ProfileModalProps {
   className?: string;
-  hashId: string;
+  /** @internal */
+  __hashId__: string;
   avatar?: AvatarProps;
   address?: string;
   name?: string;
@@ -17,7 +18,7 @@ export interface ProfileModalProps {
 
 export const ProfileModal: React.FC<ProfileModalProps> = ({
   className,
-  hashId,
+  __hashId__,
   open,
   onClose,
   onDisconnect,
@@ -34,11 +35,11 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
       open={open}
       width={280}
       onCancel={onClose}
-      className={classNames(className, hashId, prefixCls)}
+      className={classNames(className, __hashId__, prefixCls)}
     >
       <Space align="center" direction="vertical">
         {avatar ? <Avatar {...avatar} /> : null}
-        {name ? <div className={classNames(`${prefixCls}-name`, hashId)}>{name}</div> : null}
+        {name ? <div className={classNames(`${prefixCls}-name`, __hashId__)}>{name}</div> : null}
         {address ? <Address ellipsis={false} address={address} tooltip={false} /> : null}
         <Space>
           {address ? (

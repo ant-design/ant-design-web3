@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { Button, ConfigProvider, Dropdown } from 'antd';
+import type { ButtonProps } from 'antd';
+import { Button, ConfigProvider, Dropdown, message } from 'antd';
 import classNames from 'classnames';
 import { Address } from '../address';
 import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
@@ -7,7 +8,12 @@ import { ConnectButtonTooltip } from './tooltip';
 import { ChainSelect } from './chain-select';
 import { ProfileModal } from './profile-modal';
 import { useStyle } from './style';
-import { fillWith0x } from '../utils';
+import { fillWith0x, writeCopyText } from '../utils';
+
+export enum BuildInMenuItemKey {
+  CopyAddress = 'copyAddress',
+  Disconnect = 'disconnect',
+}
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const {
@@ -22,22 +28,37 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     name,
     avatar,
     menuItems,
+    clickActionType,
+    onMenuClick,
     ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-button');
   const [profileOpen, setProfileOpen] = useState(false);
   const { wrapSSR, hashId } = useStyle(prefixCls);
+  const [messageApi, contextHolder] = message.useMessage();
   let buttonText: React.ReactNode = 'Connect Wallet';
   if (connected) {
     buttonText = name ?? <Address tooltip={false} ellipsis address={address} />;
   }
-  const buttonProps = {
+
+  const onClickButton: React.MouseEventHandler<HTMLElement> = (e) => {
+    const { onClick } = props;
+    if (clickActionType !== 'showMenu' && connected && !profileOpen) {
+      setProfileOpen(true);
+    } else {
+      onConnectClick?.();
+    }
+    onClick?.(e);
+  };
+
+  const buttonProps: ButtonProps = {
     style: props.style,
     className: classNames(props.className, hashId, prefixCls),
     size: props.size,
     type: props.type,
     ghost: props.ghost,
+    onClick: onClickButton,
     ...restProps,
   };
 
@@ -60,7 +81,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       {renderChainSelect()}
       <ProfileModal
         open={profileOpen}
-        hashId={hashId}
+        __hashId__={hashId}
         onDisconnect={() => {
           setProfileOpen(false);
           onDisconnectClick?.();
@@ -76,26 +97,28 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
           }
         }
       />
-      <div
-        className={classNames(`${prefixCls}-text`, hashId)}
-        onClick={() => {
-          if (connected) {
-            setProfileOpen(true);
-          } else {
-            onConnectClick?.();
-          }
-        }}
-      >
-        {buttonText}
-      </div>
+      <div className={classNames(`${prefixCls}-text`, hashId)}>{buttonText}</div>
     </Button>
   );
 
-  if (menuItems && menuItems.length > 0) {
+  if (menuItems && menuItems.length > 0 && clickActionType === 'showMenu') {
     content = (
       <Dropdown
+        trigger={['click']}
         menu={{
           items: menuItems,
+          onClick: (e) => {
+            if (e.key === BuildInMenuItemKey.Disconnect) {
+              setProfileOpen(false);
+              onDisconnectClick?.();
+            } else if (e.key === BuildInMenuItemKey.CopyAddress && address) {
+              writeCopyText(address).then(() => {
+                messageApi.success('Address Copied!');
+              });
+            } else if (onMenuClick) {
+              onMenuClick(e);
+            }
+          },
         }}
       >
         {content}
@@ -110,19 +133,25 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   if (typeof tooltip === 'object' && typeof tooltip.title === 'string') {
     tooltipTitle = tooltip.title;
   }
-  return wrapSSR(
-    tooltipTitle ? (
-      <ConnectButtonTooltip
-        copyable={mergedTooltipCopyable}
-        title={tooltipTitle}
-        {...(typeof tooltip === 'object' ? tooltip : {})}
-      >
-        {content}
-      </ConnectButtonTooltip>
-    ) : (
-      content
-    ),
+
+  const main = (
+    <>
+      {contextHolder}
+      {tooltipTitle ? (
+        <ConnectButtonTooltip
+          copyable={mergedTooltipCopyable}
+          title={tooltipTitle}
+          {...(typeof tooltip === 'object' ? tooltip : {})}
+        >
+          {content}
+        </ConnectButtonTooltip>
+      ) : (
+        content
+      )}
+    </>
   );
+
+  return wrapSSR(main);
 };
 
 ConnectButton.displayName = 'ConnectButton';
