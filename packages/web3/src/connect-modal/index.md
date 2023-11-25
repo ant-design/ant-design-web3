@@ -19,6 +19,10 @@ Connect wallet modal, used with ConnectButton to complete the wallet connection 
 
 <code src="./demos/dark.tsx"></code>
 
+## Custom Theme Color
+
+<code src="./demos/theme.tsx"></code>
+
 ## API
 
 ### ConnectModalProps
