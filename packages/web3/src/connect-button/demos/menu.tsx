@@ -1,9 +1,10 @@
-import { BuildInMenuItemKey, ConnectButton } from '@ant-design/web3';
+import type { MenuItemType } from '@ant-design/web3';
+import { ConnectButton } from '@ant-design/web3';
 import { CopyOutlined, LogoutOutlined } from '@ant-design/icons';
-import { Space, type MenuProps } from 'antd';
+import { Space } from 'antd';
 
 const App: React.FC = () => {
-  const menuItems: MenuProps['items'] = [
+  const menuItems: MenuItemType[] = [
     {
       label: 'Menu Item 1',
       key: '1',
@@ -20,7 +21,8 @@ const App: React.FC = () => {
     },
     {
       label: 'Copy Address',
-      key: BuildInMenuItemKey.CopyAddress,
+      key: '3',
+      role: 'copyAddress',
       onClick: () => {
         console.log('Copy Address');
       },
@@ -28,7 +30,8 @@ const App: React.FC = () => {
     },
     {
       label: 'Disconnect',
-      key: BuildInMenuItemKey.Disconnect,
+      key: '4',
+      role: 'disconnect',
       onClick: () => {
         console.log('Disconnect');
       },

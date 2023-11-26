@@ -1,12 +1,12 @@
-import { BuildInMenuItemKey, ConnectButton } from '..';
+import type { MenuItemType } from '..';
+import { ConnectButton } from '..';
 import { fireEvent, render } from '@testing-library/react';
-import type { MenuProps } from 'antd';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { CopyOutlined, LogoutOutlined } from '@ant-design/icons';
 import { mockClipboard } from '../../utils/test-utils';
 import { readCopyText } from '../../utils';
 
-const menuItems: MenuProps['items'] = [
+const menuItems: MenuItemType[] = [
   {
     label: 'Menu Item 1',
     key: '1',
@@ -23,7 +23,8 @@ const menuItems: MenuProps['items'] = [
   },
   {
     label: 'Copy Address',
-    key: BuildInMenuItemKey.CopyAddress,
+    key: 'copyAddress',
+    role: 'copyAddress',
     onClick: () => {
       console.log('Copy Address');
     },
@@ -31,7 +32,8 @@ const menuItems: MenuProps['items'] = [
   },
   {
     label: 'Disconnect',
-    key: BuildInMenuItemKey.Disconnect,
+    key: 'disconnect',
+    role: 'disconnect',
     onClick: () => {
       console.log('Disconnect');
     },

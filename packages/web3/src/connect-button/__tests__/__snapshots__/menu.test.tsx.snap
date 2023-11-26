@@ -52,7 +52,7 @@ exports[`ConnectButton > Should show menu when hover button 1`] = `
         <li
           class="ant-dropdown-menu-item"
           data-menu-id="rc-menu-uuid-test-copyAddress"
-          role="menuitem"
+          role="copyAddress"
           tabindex="-1"
         >
           <span
@@ -83,7 +83,7 @@ exports[`ConnectButton > Should show menu when hover button 1`] = `
         <li
           class="ant-dropdown-menu-item"
           data-menu-id="rc-menu-uuid-test-disconnect"
-          role="menuitem"
+          role="disconnect"
           tabindex="-1"
         >
           <span

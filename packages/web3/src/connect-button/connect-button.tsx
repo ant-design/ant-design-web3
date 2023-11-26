@@ -3,17 +3,12 @@ import type { ButtonProps } from 'antd';
 import { Button, ConfigProvider, Dropdown, message } from 'antd';
 import classNames from 'classnames';
 import { Address } from '../address';
-import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
+import type { ConnectButtonProps, ConnectButtonTooltipProps, MenuItemType } from './interface';
 import { ConnectButtonTooltip } from './tooltip';
 import { ChainSelect } from './chain-select';
 import { ProfileModal } from './profile-modal';
 import { useStyle } from './style';
 import { fillWith0x, writeCopyText } from '../utils';
-
-export enum BuildInMenuItemKey {
-  CopyAddress = 'copyAddress',
-  Disconnect = 'disconnect',
-}
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const {
@@ -108,10 +103,11 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         menu={{
           items: menuItems,
           onClick: (e) => {
-            if (e.key === BuildInMenuItemKey.Disconnect) {
+            const curItem = menuItems.find((item) => item.key === e.key);
+            if (curItem?.role === 'disconnect') {
               setProfileOpen(false);
               onDisconnectClick?.();
-            } else if (e.key === BuildInMenuItemKey.CopyAddress && address) {
+            } else if (curItem?.role === 'copyAddress' && address) {
               writeCopyText(address).then(() => {
                 messageApi.success('Address Copied!');
               });

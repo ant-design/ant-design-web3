@@ -37,7 +37,7 @@ A Button for connect chain quickly.
 | address | Address | `string` | - | - |
 | name | Name, like ENS | `string` | - | - |
 | tooltip | Show tooltip when mouse enter address | `boolean \|` [ConnectButtonTooltipProps](#connectbuttontooltipprops) | `true`, will display address by default | - |
-| menuItems | Menu items array, menu item can trigger built-in action by binding specific `key`, supported built-in action key: [BuildInMenuItemKey](#buildinmenuitemkey) | [ItemType](https://ant-design.antgroup.com/components/menu-cn#itemtype) | - | - |
+| menuItems | Menu items, menu item can trigger build-in action by binding specific `role`, supported build-in action `role`: [BuildInMenuItemKey](#buildinmenuitemkey) | [ItemType](https://ant-design.antgroup.com/components/menu-cn#itemtype) | - | - |
 | clickActionType | Action when click button, related to `connected` when set to `showProfileModal` | `showProfileModal \| showMenu` | `showProfileModal` | - |
 
 ### ConnectButtonTooltipProps
@@ -53,8 +53,7 @@ export type ConnectButtonTooltipProps = TooltipProps & {
 ### BuildInMenuItemKey
 
 ```ts
-export enum BuildInMenuItemKey {
-  CopyAddress = 'copyAddress', // Copy address
-  Disconnect = 'disconnect', // Disconnect
-}
+// - disconnect: Disconnect
+// - copyAddress: Copy address
+export type BuildInMenuItemType = 'disconnect' | 'copyAddress';
 ```
