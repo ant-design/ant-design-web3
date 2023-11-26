@@ -21,6 +21,10 @@ A Button for connect chain quickly.
 
 <code src="./demos/menu.tsx"></code>
 
+## Show Profile Modal
+
+<code src="./demos/profileModal.tsx"></code>
+
 ## Show Name
 
 <code src="./demos/name.tsx"></code>
@@ -37,8 +41,8 @@ A Button for connect chain quickly.
 | address | Address | `string` | - | - |
 | name | Name, like ENS | `string` | - | - |
 | tooltip | Show tooltip when mouse enter address | `boolean \|` [ConnectButtonTooltipProps](#connectbuttontooltipprops) | `true`, will display address by default | - |
-| menuItems | Menu items, menu item can trigger build-in action by binding specific `role`, supported build-in action `role`: [BuildInMenuItemKey](#buildinmenuitemkey) | [ItemType](https://ant-design.antgroup.com/components/menu-cn#itemtype) | - | - |
-| clickActionType | Action when click button, related to `connected` when set to `showProfileModal` | `showProfileModal \| showMenu` | `showProfileModal` | - |
+| actionsMenu | Config menu items | `boolean \|` [ActionsMenu](#actionsmenu) | - | - |
+| profileModal | Config profile modal | `boolean \|` [ProfileModal](#profilemodal) | - | - |
 
 ### ConnectButtonTooltipProps
 
@@ -50,10 +54,25 @@ export type ConnectButtonTooltipProps = TooltipProps & {
 };
 ```
 
-### BuildInMenuItemKey
+### ActionsMenu
 
 ```ts
-// - disconnect: Disconnect
-// - copyAddress: Copy address
-export type BuildInMenuItemType = 'disconnect' | 'copyAddress';
+export type ActionsMenu = {
+  /**
+   * Config items will override default menu, only display custom menu
+   */
+  items?: React.ReactNode[];
+  /**
+   * Config items will be displayed after default menu
+   */
+  extraItems?: React.ReactNode[];
+};
 ```
+
+### ProfileModal
+
+```ts
+export type ProfileModal = Omit<ModalProps, 'open' | 'onClose' | 'className'>;
+```
+
+Ref: [ModalProps](https://ant.design/components/modal#api)

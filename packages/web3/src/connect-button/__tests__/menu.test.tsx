@@ -1,10 +1,9 @@
-import type { MenuItemType } from '..';
 import { ConnectButton } from '..';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { CopyOutlined, LogoutOutlined } from '@ant-design/icons';
 import { mockClipboard } from '../../utils/test-utils';
 import { readCopyText } from '../../utils';
+import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 
 const menuItems: MenuItemType[] = [
   {
@@ -21,24 +20,6 @@ const menuItems: MenuItemType[] = [
       console.log('Menu Item 2 clicked');
     },
   },
-  {
-    label: 'Copy Address',
-    key: 'copyAddress',
-    role: 'copyAddress',
-    onClick: () => {
-      console.log('Copy Address');
-    },
-    icon: <CopyOutlined />,
-  },
-  {
-    label: 'Disconnect',
-    key: 'disconnect',
-    role: 'disconnect',
-    onClick: () => {
-      console.log('Disconnect');
-    },
-    icon: <LogoutOutlined />,
-  },
 ];
 
 describe('ConnectButton', () => {
@@ -49,8 +30,57 @@ describe('ConnectButton', () => {
   afterEach(() => {
     resetMockClipboard();
   });
-  it('Should show menu when hover button', async () => {
-    const App = () => <ConnectButton menuItems={menuItems} clickActionType="showMenu" />;
+  it('Should show menu when click button', async () => {
+    const App = () => (
+      <ConnectButton address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" actionsMenu />
+    );
+    const { baseElement } = render(<App />);
+
+    fireEvent.click(baseElement.querySelector('.ant-dropdown-trigger') as Element);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-dropdown')).not.toBeNull();
+      expect(baseElement.querySelector('.ant-dropdown-menu')).not.toBeNull();
+      expect(baseElement.querySelectorAll('.ant-dropdown-menu-item')?.length).toBe(2);
+      expect(baseElement.querySelector('.ant-dropdown-menu-item')?.textContent).toBe(
+        'Copy Address',
+      );
+      expect(
+        baseElement.querySelector('.ant-dropdown-menu-item')?.getAttribute('data-menu-id'),
+      ).toBe('rc-menu-uuid-test-copyAddress');
+      expect(baseElement).toMatchSnapshot();
+    });
+    fireEvent.click(baseElement.querySelector('.ant-dropdown-menu-item') as Element);
+    await vi.waitFor(() => {
+      expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
+      expect(baseElement.querySelector('.ant-message')).not.toBeNull();
+      expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe(
+        'Address Copied!',
+      );
+    });
+  });
+  it('Should not show menu by default', async () => {
+    const App = () => <ConnectButton />;
+    const { baseElement } = render(<App />);
+
+    expect(baseElement.querySelector('.ant-dropdown-trigger')).toBeNull();
+  });
+  it('Should not show menu by actionsMenu be setting false', async () => {
+    const App = () => <ConnectButton actionsMenu={false} />;
+    const { baseElement } = render(<App />);
+
+    expect(baseElement.querySelector('.ant-dropdown-trigger')).toBeNull();
+  });
+  it('Should insert menu items before default menu items when pass extraItems into actionsMenu', async () => {
+    const menuClickFn = vi.fn();
+    const App = () => (
+      <ConnectButton
+        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+        actionsMenu={{
+          extraItems: menuItems,
+        }}
+        onMenuClick={(info) => menuClickFn(info?.key)}
+      />
+    );
     const { baseElement } = render(<App />);
 
     fireEvent.click(baseElement.querySelector('.ant-dropdown-trigger') as Element);
@@ -64,47 +94,47 @@ describe('ConnectButton', () => {
       ).toBe('rc-menu-uuid-test-1');
       expect(baseElement).toMatchSnapshot();
     });
-  });
-  it('Should show profile modal when click button', async () => {
-    const App = () => (
-      <ConnectButton menuItems={menuItems} clickActionType="showProfileModal" connected />
-    );
-    const { baseElement } = render(<App />);
-
-    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button-text') as Element);
+    fireEvent.click(baseElement.querySelectorAll('.ant-dropdown-menu-item')[0] as Element);
     await vi.waitFor(() => {
-      expect(baseElement.querySelector('.ant-web3-connect-button-profile-modal')).not.toBeNull();
-      expect(baseElement).toMatchSnapshot();
+      expect(menuClickFn).toBeCalledWith('1');
     });
-  });
-  it('Should call action when click menu item with build-in action key', async () => {
-    const onDisconnectClick = vi.fn();
-    const App = () => (
-      <ConnectButton
-        address="0x3ea2cfd153b8d8505097b81c87c11f5d05097c18"
-        menuItems={menuItems}
-        clickActionType="showMenu"
-        onDisconnectClick={onDisconnectClick}
-        connected
-      />
-    );
-    const { baseElement } = render(<App />);
-
-    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button-text') as Element);
+    fireEvent.click(baseElement.querySelectorAll('.ant-dropdown-menu-item')[2] as Element);
     await vi.waitFor(() => {
-      expect(baseElement.querySelector('.ant-web3-connect-button-profile-modal')).toBeNull();
-      fireEvent.click(
-        baseElement.querySelector('[data-menu-id="rc-menu-uuid-test-copyAddress"]') as Element,
-      );
+      expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
       expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe(
         'Address Copied!',
       );
-      expect(readCopyText()).resolves.toBe('0x3ea2cfd153b8d8505097b81c87c11f5d05097c18');
-      fireEvent.click(
-        baseElement.querySelector('[data-menu-id="rc-menu-uuid-test-disconnect"]') as Element,
-      );
-      expect(onDisconnectClick).toBeCalled();
+      expect(menuClickFn).toBeCalledWith('copyAddress');
+    });
+  });
+  it('Should override menu items when pass items into actionsMenu', async () => {
+    const menuClickFn = vi.fn();
+    const App = () => (
+      <ConnectButton
+        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+        actionsMenu={{
+          items: menuItems,
+        }}
+        onMenuClick={(info) => menuClickFn(info?.key)}
+      />
+    );
+    const { baseElement } = render(<App />);
+
+    fireEvent.click(baseElement.querySelector('.ant-dropdown-trigger') as Element);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-dropdown')).not.toBeNull();
+      expect(baseElement.querySelector('.ant-dropdown-menu')).not.toBeNull();
+      expect(baseElement.querySelectorAll('.ant-dropdown-menu-item')?.length).toBe(2);
+      expect(baseElement.querySelector('.ant-dropdown-menu-item')?.textContent).toBe('Menu Item 1');
+      expect(
+        baseElement.querySelector('.ant-dropdown-menu-item')?.getAttribute('data-menu-id'),
+      ).toBe('rc-menu-uuid-test-1');
+      expect(baseElement).toMatchSnapshot();
+    });
+    fireEvent.click(baseElement.querySelectorAll('.ant-dropdown-menu-item')[0] as Element);
+    await vi.waitFor(() => {
+      expect(menuClickFn).toBeCalledWith('1');
     });
   });
 });

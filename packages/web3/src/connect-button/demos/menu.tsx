@@ -1,7 +1,6 @@
-import type { MenuItemType } from '@ant-design/web3';
 import { ConnectButton } from '@ant-design/web3';
-import { CopyOutlined, LogoutOutlined } from '@ant-design/icons';
 import { Space } from 'antd';
+import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 
 const App: React.FC = () => {
   const menuItems: MenuItemType[] = [
@@ -19,45 +18,49 @@ const App: React.FC = () => {
         console.log('Menu Item 2 clicked');
       },
     },
-    {
-      label: 'Copy Address',
-      key: '3',
-      role: 'copyAddress',
-      onClick: () => {
-        console.log('Copy Address');
-      },
-      icon: <CopyOutlined />,
-    },
-    {
-      label: 'Disconnect',
-      key: '4',
-      role: 'disconnect',
-      onClick: () => {
-        console.log('Disconnect');
-      },
-      icon: <LogoutOutlined />,
-    },
   ];
   return (
     <Space>
       <ConnectButton
         address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
-        name="Show menu after click"
+        name="No menu by default"
         avatar={{
           src: 'https://metamask.io/images/metamask-logo.png',
         }}
-        menuItems={menuItems}
-        clickActionType="showMenu"
+        onMenuClick={(item) => console.log('onMenuClick', item)}
         connected
       />
       <ConnectButton
         address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
-        name="Show profile modal after click"
+        name="Display default menu"
         avatar={{
           src: 'https://metamask.io/images/metamask-logo.png',
         }}
-        menuItems={menuItems}
-        clickActionType="showProfileModal"
+        actionsMenu
+        connected
+      />
+      <ConnectButton
+        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+        name="Insert menu items before default items"
+        avatar={{
+          src: 'https://metamask.io/images/metamask-logo.png',
+        }}
+        onMenuClick={(item) => console.log('onMenuClick', item)}
+        actionsMenu={{
+          extraItems: menuItems,
+        }}
+        connected
+      />
+      <ConnectButton
+        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+        name="Override menu items"
+        avatar={{
+          src: 'https://metamask.io/images/metamask-logo.png',
+        }}
+        onMenuClick={(item) => console.log('onMenuClick', item)}
+        actionsMenu={{
+          items: menuItems,
+        }}
         connected
       />
     </Space>

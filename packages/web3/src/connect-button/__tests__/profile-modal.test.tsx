@@ -65,4 +65,49 @@ describe('ProfileModal', () => {
     fireEvent.click(btns[0]);
     expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
   });
+  it('should not display modal when pass false into profileModal', async () => {
+    const App = () => (
+      <ConnectButton
+        connected
+        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+        profileModal={false}
+      />
+    );
+    const { baseElement } = render(<App />);
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button-text')!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-web3-connect-button-profile-modal')).toBeNull();
+    });
+  });
+  it('profile modal should customize by profileModal', async () => {
+    const App = () => (
+      <ConnectButton
+        connected
+        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+        profileModal={{
+          title: 'Custom Title',
+          footer: 'Custom Description',
+          width: 500,
+        }}
+      />
+    );
+    const { baseElement } = render(<App />);
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button-text')!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-web3-connect-button-profile-modal')).not.toBeNull();
+      expect(
+        baseElement.querySelector('.ant-web3-connect-button-profile-modal .ant-modal-title')
+          ?.textContent,
+      ).toBe('Custom Title');
+      expect(
+        baseElement.querySelector('.ant-web3-connect-button-profile-modal .ant-modal-footer')
+          ?.textContent,
+      ).toBe('Custom Description');
+      expect(
+        baseElement
+          .querySelector('.ant-web3-connect-button-profile-modal.ant-modal')
+          ?.getAttribute('style'),
+      ).toContain('width: 500px;');
+    });
+  });
 });

@@ -19,6 +19,10 @@ group: 组件
 
 <code src="./demos/menu.tsx"></code>
 
+## 展示信息弹框
+
+<code src="./demos/profileModal.tsx"></code>
+
 ## 显示名称
 
 <code src="./demos/name.tsx"></code>
@@ -35,8 +39,8 @@ group: 组件
 | address | 地址 | `string` | - | - |
 | name | 名称，比如以太坊的 ENS | `string` | - | - |
 | tooltip | 鼠标移入地址时展示提示 | `boolean \|` [ConnectButtonTooltipProps](#connectbuttontooltipprops) | `true`，默认显示 address 信息 | - |
-| menuItems | 菜单项数组，菜单项可通过绑定特定的 `role` 触发内置行为，支持的内置行为 `role` : [BuildInMenuItemKey](#buildinmenuitemkey) | [ItemType](https://ant-design.antgroup.com/components/menu-cn#itemtype) | - | - |
-| clickActionType | 点击按钮时的行为，当设置为 `showProfileModal` 时还与 `connected` 属性相关 | `showProfileModal \| showMenu` | `showProfileModal` | - |
+| actionsMenu | 配置菜单项 | `boolean \|` [ActionsMenu](#actionsmenu) | - | - |
+| profileModal | 配置信息弹框 | `boolean \|` [ProfileModal](#profilemodal) | - | - |
 
 ### ConnectButtonTooltipProps
 
@@ -48,10 +52,25 @@ export type ConnectButtonTooltipProps = TooltipProps & {
 };
 ```
 
-### BuildInMenuItemKey
+### ActionsMenu
 
 ```ts
-// - disconnect: 断开连接
-// - copyAddress: 复制地址
-export type BuildInMenuItemType = 'disconnect' | 'copyAddress';
+export type ActionsMenu = {
+  /**
+   * 配置 items 将会覆盖默认菜单，仅展示自定义菜单
+   */
+  items?: MenuItemType[];
+  /**
+   * 配置 extraItems 将会在默认菜单前追加自定义菜单
+   */
+  extraItems?: MenuItemType[];
+};
 ```
+
+### ProfileModal
+
+```ts
+export type ProfileModal = Omit<ModalProps, 'open' | 'onClose' | 'className'>;
+```
+
+Ref: [ModalProps](https://ant.design/components/modal-cn#api)

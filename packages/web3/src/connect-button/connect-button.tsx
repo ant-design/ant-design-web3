@@ -1,14 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import type { ButtonProps } from 'antd';
 import { Button, ConfigProvider, Dropdown, message } from 'antd';
 import classNames from 'classnames';
 import { Address } from '../address';
-import type { ConnectButtonProps, ConnectButtonTooltipProps, MenuItemType } from './interface';
+import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
 import { ConnectButtonTooltip } from './tooltip';
 import { ChainSelect } from './chain-select';
 import { ProfileModal } from './profile-modal';
 import { useStyle } from './style';
 import { fillWith0x, writeCopyText } from '../utils';
+import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
+import { CopyOutlined, LoginOutlined } from '@ant-design/icons';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const {
@@ -22,9 +24,9 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     currentChain,
     name,
     avatar,
-    menuItems,
-    clickActionType,
+    profileModal = true,
     onMenuClick,
+    actionsMenu = false,
     ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -80,11 +82,12 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
             src: currentChain?.icon,
           }
         }
+        modalProps={typeof profileModal === 'object' ? profileModal : undefined}
       />
       <div
         className={classNames(`${prefixCls}-text`, hashId)}
         onClick={() => {
-          if (clickActionType !== 'showMenu' && connected && !profileOpen) {
+          if (connected && !profileOpen && profileModal) {
             setProfileOpen(true);
           } else {
             onConnectClick?.();
@@ -96,25 +99,54 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     </Button>
   );
 
-  if (menuItems && menuItems.length > 0 && clickActionType === 'showMenu') {
+  const defaultMenuItems: MenuItemType[] = useMemo(
+    () => [
+      {
+        label: 'Copy Address',
+        key: 'copyAddress',
+        onClick: () => {
+          setProfileOpen(false);
+          if (address) {
+            writeCopyText(address).then(() => {
+              messageApi.success('Address Copied!');
+            });
+          }
+        },
+        icon: <CopyOutlined />,
+      },
+      {
+        label: 'Disconnect',
+        key: 'disconnect',
+        onClick: () => {
+          setProfileOpen(false);
+          onDisconnectClick?.();
+        },
+        icon: <LoginOutlined />,
+      },
+    ],
+    [address, messageApi, onDisconnectClick],
+  );
+
+  const mergedMenuItems = useMemo<MenuItemType[]>(() => {
+    if (!actionsMenu) {
+      return [];
+    }
+    if (typeof actionsMenu === 'boolean') {
+      return defaultMenuItems;
+    }
+    if (actionsMenu.items) {
+      return actionsMenu.items;
+    }
+    return [...(actionsMenu.extraItems ?? []), ...defaultMenuItems];
+  }, [actionsMenu, defaultMenuItems]);
+
+  if (mergedMenuItems.length > 0) {
     content = (
       <Dropdown
         trigger={['click']}
         menu={{
-          items: menuItems,
-          onClick: (e) => {
-            const curItem = menuItems.find((item) => item.key === e.key);
-            if (curItem?.role === 'disconnect') {
-              setProfileOpen(false);
-              onDisconnectClick?.();
-            } else if (curItem?.role === 'copyAddress' && address) {
-              writeCopyText(address).then(() => {
-                messageApi.success('Address Copied!');
-              });
-            } else if (onMenuClick) {
-              onMenuClick(e);
-            }
-          },
+          items: mergedMenuItems,
+          onClick: onMenuClick,
         }}
       >
         {content}
