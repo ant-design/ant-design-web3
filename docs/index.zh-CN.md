@@ -2,7 +2,7 @@
 title: Ant Design Web3 - 享受 Web3 的乐趣
 hero:
   title: Ant Design Web3
-  description: 享受 Web3 的乐趣
+  description: 享受 Web3 的乐趣 
   actions:
     - text: 开始使用
       link: /zh-CN/guide
