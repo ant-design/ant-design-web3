@@ -8,3 +8,4 @@ export * from './components/optimism-colorful';
 export * from './components/polygon-colorful';
 export * from './components/usdt-filled';
 export * from './components/wallet-filled';
+export * from './components/etherscan-colorful';
