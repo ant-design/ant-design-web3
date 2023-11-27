@@ -1,7 +1,7 @@
 import { ConnectButton } from '..';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { mockClipboard } from '../../utils/test-utils';
+import { mockClipboard, waitFakeTimer } from '../../utils/test-utils';
 import { readCopyText } from '../../utils';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 
@@ -26,17 +26,19 @@ describe('ConnectButton', () => {
   let resetMockClipboard: () => void;
   beforeEach(() => {
     resetMockClipboard = mockClipboard();
+    vi.useFakeTimers();
   });
   afterEach(() => {
     resetMockClipboard();
+    vi.useRealTimers();
   });
-  it('Should show menu when click button', async () => {
+  it('Should show menu when hover button', async () => {
     const App = () => (
       <ConnectButton address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" actionsMenu />
     );
     const { baseElement } = render(<App />);
 
-    fireEvent.click(baseElement.querySelector('.ant-dropdown-trigger') as Element);
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-dropdown-trigger') as Element);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-dropdown')).not.toBeNull();
       expect(baseElement.querySelector('.ant-dropdown-menu')).not.toBeNull();
@@ -56,6 +58,21 @@ describe('ConnectButton', () => {
       expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe(
         'Address Copied!',
       );
+    });
+  });
+  it('Should show menu when hover button', async () => {
+    const App = () => (
+      <ConnectButton address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" actionsMenu />
+    );
+    const { baseElement } = render(<App />);
+
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-dropdown-trigger') as Element);
+    await vi.waitFor(async () => {
+      expect(baseElement.querySelector('.ant-dropdown')).not.toBeNull();
+    });
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button-text') as Element);
+    await vi.waitFor(async () => {
+      expect(baseElement.querySelector('.ant-dropdown')).toBeNull();
     });
   });
   it('Should not show menu by default', async () => {
@@ -83,7 +100,7 @@ describe('ConnectButton', () => {
     );
     const { baseElement } = render(<App />);
 
-    fireEvent.click(baseElement.querySelector('.ant-dropdown-trigger') as Element);
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-dropdown-trigger') as Element);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-dropdown')).not.toBeNull();
       expect(baseElement.querySelector('.ant-dropdown-menu')).not.toBeNull();
@@ -121,7 +138,7 @@ describe('ConnectButton', () => {
     );
     const { baseElement } = render(<App />);
 
-    fireEvent.click(baseElement.querySelector('.ant-dropdown-trigger') as Element);
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-dropdown-trigger') as Element);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-dropdown')).not.toBeNull();
       expect(baseElement.querySelector('.ant-dropdown-menu')).not.toBeNull();

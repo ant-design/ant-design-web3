@@ -34,6 +34,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const [profileOpen, setProfileOpen] = useState(false);
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [messageApi, contextHolder] = message.useMessage();
+  const [showMenu, setShowMenu] = useState(false);
   let buttonText: React.ReactNode = 'Connect Wallet';
   if (connected) {
     buttonText = name ?? <Address tooltip={false} ellipsis address={address} />;
@@ -87,6 +88,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       <div
         className={classNames(`${prefixCls}-text`, hashId)}
         onClick={() => {
+          setShowMenu(false);
           if (connected && !profileOpen && profileModal) {
             setProfileOpen(true);
           } else {
@@ -143,7 +145,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   if (mergedMenuItems.length > 0) {
     content = (
       <Dropdown
-        trigger={['click']}
+        open={showMenu}
+        onOpenChange={setShowMenu}
         menu={{
           items: mergedMenuItems,
           onClick: onMenuClick,

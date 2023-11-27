@@ -183,7 +183,7 @@ exports[`ConnectButton > Should override menu items when pass items into actions
 </body>
 `;
 
-exports[`ConnectButton > Should show menu when click button 1`] = `
+exports[`ConnectButton > Should show menu when hover button 1`] = `
 <body>
   <div>
     <button
