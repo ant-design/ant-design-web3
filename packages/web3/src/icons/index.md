@@ -6,6 +6,10 @@ group:
 order: 1
 ---
 
-# Icons
+## Colorful style
 
-<code src="./demos/basic.tsx"></code>
+<code src="./demos/colorful.tsx"></code>
+
+## Filled style
+
+<code src="./demos/filled.tsx"></code>
