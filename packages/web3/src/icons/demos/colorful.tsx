@@ -1,11 +1,12 @@
 import {
-  ArbitrumColorful,
   BitcoinColorful,
-  BSCColorful,
   EthereumColorful,
+  BSCColorful,
   OptimismColorful,
   PolygonColorful,
+  ArbitrumColorful,
   EtherscanColorful,
+  MetaMaskColorful,
 } from '@ant-design/web3-icons';
 import { Space } from 'antd';
 
@@ -23,6 +24,7 @@ const App: React.FC = () => {
       <PolygonColorful style={style} />
       <ArbitrumColorful style={style} />
       <EtherscanColorful style={style} />
+      <MetaMaskColorful style={style} />
     </Space>
   );
 };
