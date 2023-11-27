@@ -12,8 +12,6 @@ on:
 
 jobs:
   preview-start:
-    permissions:
-      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
     name: start preview info
     runs-on: ubuntu-latest
     steps:
