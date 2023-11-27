@@ -3,27 +3,31 @@ import { Modal, ConfigProvider, Space, Button, Avatar, message, type AvatarProps
 import classNames from 'classnames';
 import { Address } from '@ant-design/web3';
 import { writeCopyText } from '../utils';
+import { ModalProps } from 'antd/lib';
 
 export interface ProfileModalProps {
   className?: string;
-  hashId: string;
+  /** @internal */
+  __hashId__: string;
   avatar?: AvatarProps;
   address?: string;
   name?: string;
   onDisconnect?: () => void;
   open?: boolean;
   onClose?: () => void;
+  modalProps?: Omit<ModalProps, 'open' | 'onClose' | 'className'>;
 }
 
 export const ProfileModal: React.FC<ProfileModalProps> = ({
   className,
-  hashId,
+  __hashId__,
   open,
   onClose,
   onDisconnect,
   avatar,
   name,
   address,
+  modalProps,
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-button-profile-modal');
@@ -31,14 +35,15 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   return (
     <Modal
       footer={false}
-      open={open}
       width={280}
+      {...modalProps}
       onCancel={onClose}
-      className={classNames(className, hashId, prefixCls)}
+      className={classNames(className, __hashId__, prefixCls)}
+      open={open}
     >
       <Space align="center" direction="vertical">
         {avatar ? <Avatar {...avatar} /> : null}
-        {name ? <div className={classNames(`${prefixCls}-name`, hashId)}>{name}</div> : null}
+        {name ? <div className={classNames(`${prefixCls}-name`, __hashId__)}>{name}</div> : null}
         {address ? <Address ellipsis={false} address={address} tooltip={false} /> : null}
         <Space>
           {address ? (
