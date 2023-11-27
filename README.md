@@ -2,7 +2,7 @@
 
 <div align="center">
 
-A components collection for Web3.
+A collection of components for Web3.
 
 [![test status][github-action-image]][github-action-url] [![NPM version][npm-image]][npm-url]
 

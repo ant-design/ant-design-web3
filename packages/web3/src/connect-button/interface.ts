@@ -1,30 +1,33 @@
-import type { ButtonProps, AvatarProps, MenuItemProps, TooltipProps } from 'antd';
-
-export type ChainSelectItem = {
-  id: number;
-  name: string;
-  icon?: React.ReactNode;
-};
-
-export type Banlance = {
-  amount: number | bigint;
-  type: string;
-};
+import type { ButtonProps, AvatarProps, TooltipProps, MenuProps } from 'antd';
+import type { ConnectorTriggerProps } from '@ant-design/web3-common';
+import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
+import type { ProfileModalProps } from './profile-modal';
 
 export type ConnectButtonTooltipProps = TooltipProps & {
   copyable?: boolean;
-  title?: boolean | string;
+  title?: boolean | string | React.ReactNode;
 };
 
-export type ConnectButtonProps = ButtonProps & {
-  address?: string;
-  domain?: string;
-  connected?: boolean;
-  chains?: ChainSelectItem[];
-  banlance?: Banlance[];
-  avatar?: AvatarProps;
-  menuItems?: MenuItemProps[];
-  onMenuClick?: (e: MenuItemProps) => void;
-  walletIcon?: React.ReactNode;
-  tooltip?: boolean | ConnectButtonTooltipProps;
-};
+export type ConnectButtonProps = ButtonProps &
+  ConnectorTriggerProps & {
+    prefixCls?: string;
+    avatar?: AvatarProps;
+    onMenuClick?: (e: NonNullable<MenuProps['items']>[number]) => void;
+    walletIcon?: React.ReactNode;
+    tooltip?: boolean | ConnectButtonTooltipProps;
+    profileModal?: boolean | ProfileModalProps['modalProps'];
+    actionsMenu?:
+      | boolean
+      | {
+          /**
+           * Will override the default items
+           */
+          items?: MenuItemType[];
+          /**
+           * Will append to the default items
+           */
+          extraItems?: MenuItemType[];
+        };
+  };
+
+export { ConnectorTriggerProps };

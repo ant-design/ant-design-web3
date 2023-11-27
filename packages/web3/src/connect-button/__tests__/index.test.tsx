@@ -6,4 +6,27 @@ describe('ConnectButton', () => {
   it('mount correctly', () => {
     expect(() => render(<ConnectButton />)).not.toThrow();
   });
+
+  it('display name', () => {
+    const { baseElement } = render(
+      <ConnectButton
+        name="wanderingearth.eth"
+        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+        connected
+      />,
+    );
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('wanderingearth.eth');
+  });
+
+  it('display addresss when not has name', () => {
+    const { baseElement } = render(
+      <ConnectButton address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" connected />,
+    );
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('0x21CD...Fd3B');
+  });
+
+  it('display name when not has address', () => {
+    const { baseElement } = render(<ConnectButton name="wanderingearth.eth" connected />);
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('wanderingearth.eth');
+  });
 });

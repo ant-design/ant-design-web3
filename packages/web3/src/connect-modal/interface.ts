@@ -48,8 +48,6 @@ export type DefaultGuide = {
   moreLink: string;
 };
 
-export type Theme = 'dark' | 'light';
-
 export type ConnectModalProps = {
   /**
    * @desc ConnectModal 的标题，与 Modal 的 title 类型相同
@@ -57,16 +55,10 @@ export type ConnectModalProps = {
    */
   title?: ModalProps['title'];
   /**
-   * @desc ConnectModal 的主题
-   * @descEn The theme of ConnectModal
-   * @default 'light'
-   */
-  theme?: Theme;
-  /**
    * @desc 弹框是否展示，与 Modal 的 open 类型相同
    * @descEn Whether the Modal is displayed, the same as the Modal's open type
    */
-  open: ModalProps['open'];
+  open?: ModalProps['open'];
   /**
    * @desc 弹框可见性改变回调
    * @descEn Callback when the Modal visibility changes

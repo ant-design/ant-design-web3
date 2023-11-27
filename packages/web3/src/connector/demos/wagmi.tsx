@@ -11,7 +11,9 @@ const config = createConfig({
   autoConnect: true,
   publicClient,
   connectors: [
-    new MetaMaskConnector(),
+    new MetaMaskConnector({
+      chains,
+    }),
     new WalletConnectConnector({
       chains,
       options: {

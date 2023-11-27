@@ -1,5 +1,5 @@
 import React from 'react';
-import { Web3ConfigProvider, ConnectButton, Account } from '@ant-design/web3';
+import { Web3ConfigProvider, ConnectButton, type Account } from '@ant-design/web3';
 
 const App: React.FC = () => {
   const [accounts, setAccounts] = React.useState<Account[]>([]);

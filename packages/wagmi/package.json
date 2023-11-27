@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@ant-design/web3-common": "workspace:*",
+    "@ant-design/web3-assets": "workspace:*",
     "debug": "^4.3.4"
   },
   "devDependencies": {

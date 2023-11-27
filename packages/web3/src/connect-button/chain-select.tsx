@@ -1,33 +1,52 @@
-import React from 'react';
-import { Button, Dropdown, Space } from 'antd';
-import type { ChainSelectItem } from './interface';
+import React, { useContext } from 'react';
+import { Dropdown, Space, ConfigProvider, Divider } from 'antd';
+import type { Chain } from '@ant-design/web3-common';
+import classNames from 'classnames';
 import { DownOutlined } from '@ant-design/icons';
 
 export interface ChainSelectProps {
   className?: string;
-  chains: ChainSelectItem[];
+  hashId: string;
+  chains: Chain[];
+  onSwitchChain?: (chain: Chain) => void;
+  currentChain?: Chain;
   style?: React.CSSProperties;
 }
 
-export const ChainSelect: React.FC<ChainSelectProps> = (props) => {
+export const ChainSelect: React.FC<ChainSelectProps> = ({
+  className,
+  onSwitchChain,
+  style,
+  chains,
+  hashId,
+  currentChain,
+}) => {
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('web3-connect-button-chain-select');
+
   return (
     <Dropdown
+      className={classNames(className, hashId, prefixCls)}
       menu={{
-        items: props.chains.map((chain) => ({
+        items: chains.map((chain) => ({
           key: chain.id,
           label: chain.name,
           icon: chain.icon,
+          onClick: () => {
+            onSwitchChain?.(chain);
+          },
         })),
-        onClick: console.log,
       }}
       trigger={['click']}
     >
-      <Button onClick={(e) => e.preventDefault()} style={props.style} className={props.className}>
+      <div style={style}>
         <Space>
-          Hover me
+          {currentChain?.icon}
+          {currentChain?.name}
           <DownOutlined />
+          <Divider type="vertical" />
         </Space>
-      </Button>
+      </div>
     </Dropdown>
   );
 };

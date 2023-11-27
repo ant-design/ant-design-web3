@@ -1,5 +1,5 @@
-import { Chain } from '@ant-design/web3-common';
-import {
+import type { Chain } from '@ant-design/web3-common';
+import type {
   EIP1193LikeProvider,
   EIP1193IncludeProvider,
   JsonRpcProvider,

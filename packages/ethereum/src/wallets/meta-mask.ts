@@ -1,5 +1,6 @@
-import { WalletMetadata, metadata_MetaMask } from '@ant-design/web3-common';
-import { EthereumWallet, WalletProvider } from '../types';
+import type { WalletMetadata } from '@ant-design/web3-common';
+import { metadata_MetaMask } from '@ant-design/web3-assets';
+import type { EthereumWallet, WalletProvider } from '../types';
 
 export class MetaMaskProvider implements WalletProvider {
   metadata: WalletMetadata = metadata_MetaMask;

@@ -32,7 +32,7 @@ export default () => {
 
 ## Connecting to the Blockchain
 
-You can also connect certain UI components to the blockchain by importing the `EthereumProvider` from `@ant-design/web3-ethereum`. The following example demonstrates how to display an NFT image using the `NFTImage` component.
+You can also connect certain UI components to the blockchain by importing the `EthereumProvider` from `@ant-design/web3-ethereum`. The following example demonstrates how to display an NFT image using the `NFTImage` component. In this example, you can request NFT data through the blockchain node service provided by [zan.top](https://zan.top/). All you need to do is pass the `address` and `tokenId` to the component.
 
 ```tsx | pure
 import { EthereumProvider, createProvider, ZANJsonRpcProvider } from '@ant-design/web3-ethereum';

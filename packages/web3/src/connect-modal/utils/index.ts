@@ -1,6 +1,8 @@
 import type React from 'react';
 import type { Wallet } from '../interface';
 import { getPlatform } from '../../utils';
+import { GlobalToken } from 'antd';
+import { TinyColor } from '@ctrl/tinycolor';
 
 export const mergeReactNodeProps = (
   node: React.ReactNode,
@@ -27,4 +29,9 @@ export const getWalletRoute = (wallet: Wallet) => {
   }
 
   return 'unknown';
+};
+
+export const isDarkTheme = (token: GlobalToken) => {
+  const hsv = new TinyColor(token.colorFill).onBackground(token.colorBgElevated).toHsv();
+  return hsv.v < 0.5;
 };

@@ -1,5 +1,6 @@
 export interface Account {
   address: string;
+  name?: string;
 }
 
 export enum ChainIds {
@@ -8,13 +9,13 @@ export enum ChainIds {
   BSC = 56,
   Arbitrum = 42_161,
   Optimism = 10,
+  Goerli = 5,
 }
 
 export interface Chain {
   id: ChainIds;
   name: string;
-  rpcHttpUrl?: string;
-  blockExplorerUrl?: string;
+  icon?: React.ReactNode;
   nativeCurrency?: {
     decimals: number;
     name: string;
@@ -37,10 +38,16 @@ export interface NFTMetadata {
 }
 
 export interface UniversalWeb3ProviderInterface {
+  accounts?: Account[];
+  wallets?: Wallet[];
+  chains?: Chain[];
+  currentChain?: Chain;
+
+  // connect and return conneted accounts
   requestAccounts?: (wallet?: string) => Promise<Account[]>;
   disconnect?: () => Promise<void>;
+  switchChain?: (chain: Chain) => Promise<void>;
 
-  getCurrentNetwork?: () => Promise<number>;
   getNFTMetadata?: (params: { address: string; tokenId: bigint }) => Promise<NFTMetadata>;
 }
 
@@ -127,3 +134,21 @@ export type WalletMetadata = {
    */
   group?: string;
 };
+
+export type Banlance = {
+  amount: number | bigint;
+  type: string;
+};
+
+export interface ConnectorTriggerProps {
+  address?: string;
+  loading?: boolean;
+  onConnectClick?: () => void;
+  onDisconnectClick?: () => Promise<void>;
+  onSwitchChain?: (chain: Chain) => Promise<void>;
+  name?: string;
+  connected?: boolean;
+  chains?: Chain[];
+  currentChain?: Chain;
+  banlance?: Banlance[] | Banlance;
+}

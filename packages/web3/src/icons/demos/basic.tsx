@@ -6,6 +6,7 @@ import {
   EthereumFilled,
   Ethereum,
   OptimismFilled,
+  PolygonFilled,
   USDT,
   WalletWhite,
 } from '@ant-design/web3-icons';
@@ -24,6 +25,7 @@ const App: React.FC = () => {
       <BSCFilled style={style} />
       <EthereumFilled style={style} />
       <Ethereum style={style} />
+      <PolygonFilled style={style} />
       <OptimismFilled style={style} />
       <USDT style={style} />
       <WalletWhite style={style} />
