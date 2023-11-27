@@ -15,8 +15,9 @@ permissions:
 
 jobs:
   preview-start:
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
     name: start preview info
     runs-on: ubuntu-latest
     steps:
