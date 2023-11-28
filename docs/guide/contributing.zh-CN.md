@@ -43,8 +43,15 @@ group:
 
 ## 标签
 
-- `feature` 新特性。
+- `feature` 独立的新功能。
 - `bug` 缺陷。
 - `development task` 开发工作量在一个小时内，一天内可以完成，不需要再讨论，可以直接进入开发的任务。
 - `help wanted` 希望社区帮忙一起来解决的问题。
 - `good first issue` 很适合新人贡献者上手的小问题。
+- `Someone working on it` 该任务已经有人跟进了，不要重复开发。
+- `wontfix` 这将不会被处理。
+- `question` 需要提供进一步的信息。
+- `invalid` 无效的问题。
+- `duplicate` 重复的问题。
+- `enhancement` 新增功能。
+- `documentation` 文档相关。
