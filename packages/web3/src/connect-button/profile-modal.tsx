@@ -34,18 +34,8 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
 
   return (
     <Modal
-      footer={false}
-      width={280}
-      {...modalProps}
-      onCancel={onClose}
-      className={classNames(className, __hashId__, prefixCls)}
-      open={open}
-    >
-      <Space align="center" direction="vertical">
-        {avatar ? <Avatar {...avatar} /> : null}
-        {name ? <div className={classNames(`${prefixCls}-name`, __hashId__)}>{name}</div> : null}
-        {address ? <Address ellipsis={false} address={address} tooltip={false} /> : null}
-        <Space>
+      footer={
+        <div className={classNames(`${prefixCls}-footer`, __hashId__)}>
           {address ? (
             <Button
               onClick={() => {
@@ -58,7 +48,18 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
             </Button>
           ) : null}
           <Button onClick={onDisconnect}>Disconnect</Button>
-        </Space>
+        </div>
+      }
+      width={280}
+      {...modalProps}
+      onCancel={onClose}
+      className={classNames(className, __hashId__, prefixCls)}
+      open={open}
+    >
+      <Space align="center" direction="vertical">
+        {avatar ? <Avatar {...avatar} /> : null}
+        {name ? <div className={classNames(`${prefixCls}-name`, __hashId__)}>{name}</div> : null}
+        {address ? <Address ellipsis={false} address={address} tooltip={false} /> : null}
       </Space>
     </Modal>
   );

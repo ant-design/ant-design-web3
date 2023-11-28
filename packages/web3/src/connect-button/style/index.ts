@@ -10,6 +10,7 @@ export interface ConnectButtonToken extends Web3AliasToken {
 }
 
 const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
+  console.log('token: ', token.antCls);
   return {
     [token.componentCls]: {
       [`${token.componentCls}-text`]: {
@@ -17,7 +18,19 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
       },
       [`${token.componentCls}-chain-select`]: {
         display: 'inline-block',
-        marginRight: 8,
+        marginRight: token.marginXS,
+      },
+    },
+
+    [`${token.componentCls}-profile-modal`]: {
+      [`${token.antCls}-modal-content`]: {
+        padding: token.padding,
+      },
+      [`&-footer`]: {
+        display: 'flex',
+        [`${token.antCls}-btn`]: {
+          flex: 1,
+        },
       },
     },
   };
