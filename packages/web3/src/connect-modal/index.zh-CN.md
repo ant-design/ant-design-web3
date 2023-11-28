@@ -1,6 +1,7 @@
 ---
 nav: 组件
-group: 组件
+group: 连接
+order: 2
 ---
 
 # ConnectModal

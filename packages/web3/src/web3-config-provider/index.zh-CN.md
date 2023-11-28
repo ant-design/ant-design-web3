@@ -1,7 +1,8 @@
 ---
 nav: 组件
-group: 通用
-order: 3
+group:
+  title: 高级
+  order: 3
 ---
 
 # Web3ConfigProvider

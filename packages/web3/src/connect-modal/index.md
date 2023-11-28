@@ -1,6 +1,7 @@
 ---
 nav: Components
-group: Components
+group: Connect
+order: 2
 ---
 
 # ConnectModal

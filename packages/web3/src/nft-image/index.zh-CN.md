@@ -1,6 +1,6 @@
 ---
 nav: 组件
-group: 组件
+group: 展示
 ---
 
 # NFTImage
