@@ -1,6 +1,6 @@
 ---
 nav: Components
-group: Components
+group: Display
 ---
 
 # BrowserLink

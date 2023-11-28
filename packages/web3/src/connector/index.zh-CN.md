@@ -1,6 +1,9 @@
 ---
 nav: 组件
-group: 组件
+group:
+  title: 连接
+  order: 1
+order: 0
 ---
 
 # Connector

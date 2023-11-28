@@ -1,6 +1,8 @@
 ---
 nav: Components
-group: Components
+group:
+  title: Display
+  order: 2
 ---
 
 # Address

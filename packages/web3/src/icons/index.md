@@ -2,7 +2,7 @@
 nav: Components
 group:
   title: General
-  order: 1
+  order: 0
 order: 1
 ---
 

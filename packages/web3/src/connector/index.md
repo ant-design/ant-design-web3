@@ -1,6 +1,9 @@
 ---
 nav: Components
-group: Components
+group:
+  title: Connect
+  order: 1
+order: 0
 ---
 
 # Connector

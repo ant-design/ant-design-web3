@@ -1,6 +1,8 @@
 ---
 nav: 组件
-group: 组件
+group:
+  title: 展示
+  order: 2
 ---
 
 # Address

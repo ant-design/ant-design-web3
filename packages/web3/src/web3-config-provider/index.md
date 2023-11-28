@@ -1,7 +1,8 @@
 ---
 nav: Components
-group: General
-order: 3
+group:
+  title: Advanced
+  order: 3
 ---
 
 # Web3ConfigProvider
