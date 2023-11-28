@@ -1,56 +1,24 @@
 ---
-nav: 指南
-group: 基础
+nav: Guide
 ---
 
-# 快速开始
+# Ant Design Web3
 
 <!-- prettier-ignore -->
 :::warning
-Ant Design Web3 还在 *ALPHA* 中，我们正在不断完善，如有建议欢迎通过 [Github Issue](https://github.com/ant-design/ant-design-web3/issues) 给我们提建议。 
+Ant Design Web3 还在 *ALPHA* 中，我们正在不断完善，如有建议欢迎通过 [Github issues](https://github.com/ant-design/ant-design-web3/issues) 给我们提建议。 
 :::
 
-## 安装依赖
+Ant Design Web3 是一个基于 [Ant Design](https://ant.design/index-cn) 的 Web3 React 组件库，它提供了一系列的组件，可以帮助你快速构建去中心化应用（DApp）。
 
-你可以通过 `npm` 或者 `pnpm` 等包管理工具安装相关依赖，示例如下：
+你可以通过以下任意方式使用 Ant Design Web3：
 
-```shell
-npm i @ant-design/web3 @ant-design/web3-ethereum --save
-```
+- 仅仅通过 `@ant-design/web3` 直接使用 UI 组件，比如 `ConnectButton`、`Address` 等。连接区块链的部分你可以选择你喜欢的任何方式，比如 [ether](https://docs.ethers.org/v6/)、[viem](https://viem.sh/) 和 [web3.js](https://web3js.org/)。以及其它任何链的 SDK，包括非 EVM 兼容的区块链也可以使用这种方式来使用 Ant Design Web3。
+- 通过我们官方提供的 `@ant-design/web3-wagmi` 适配器配合 `@ant-design/web3` 使用，它基于 [wagmi](https://wagmi.sh/) 内置了和 EVM 兼容链的连接能力，你可以更加简单的使用 Ant Design Web3，不需要自己处理和区块链连接的相关逻辑。
+- 参考 `@ant-design/web3-wagmi` 的实现，自己实现一个类似的适配器，这样你就可以使用 wagmi 以外的其它方式连接不同的区块链了。具体实现方式可以参考[开发适配器](adapter.zh-CN.md)。
 
-## 使用 UI 组件
+下面是通过 `@ant-design/web3-wagmi` 的方式使用 Ant Design Web3 的一个例子：
 
-`@ant-design/web3` 是一个纯 UI 组件，你可以直接使用它，比如你可以用 `BrowserLink`：
+<code src="./demos/guide.tsx"></code>
 
-```tsx | pure
-import { BrowserLink } from '@ant-design/web3';
-
-export default () => {
-  return <BrowserLink address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />;
-};
-```
-
-## 连接区块链
-
-你也可以通过引入 `@ant-design/web3-ethereum` 中的 `EthereumProvider` 让一些 UI 组件可以连接到区块链。比如下面的示例展示了如何通过 `NFTImage` 组件显示一个 NFT 图片。示例中，通过 [zan.top](https://zan.top/) 提供的区块链节点服务可以请求 NFT 数据，你只需要向组件传入 `address` 和 `tokenId` 即可。
-
-```tsx | pure
-import { EthereumProvider, createProvider, ZANJsonRpcProvider } from '@ant-design/web3-ethereum';
-import { NFTImage } from '@ant-design/web3';
-
-const provider = createProvider({
-  rpcs: [
-    new ZANJsonRpcProvider({
-      apiKey: 'd0eeefc2a4da4a8ba707889259b437d6',
-    }),
-  ],
-});
-
-export default () => {
-  return (
-    <EthereumProvider provider={provider}>
-      <NFTImage address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={42} />
-    </EthereumProvider>
-  );
-};
-```
+如果你想要进一步尝试如何在自己的项目中使用 Ant Design Web3，或者想要从 0 创建一个基于 Ant Design Web3 的项目，你可以继续阅读[快速开始](quick-start.zh-CN.md)，祝你在 Web3 冲浪愉快！🌊🌊🌊
