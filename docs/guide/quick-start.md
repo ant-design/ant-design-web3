@@ -1,11 +1,11 @@
 ---
 nav: Guide
-group: Advance
+group: Basic
 ---
 
-# Using with wagmi
+# Quick Start
 
 <!-- prettier-ignore -->
 :::warning
-Waiting for translation
+Waiting for translation...
 :::
