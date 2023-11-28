@@ -21,4 +21,6 @@ Components used to display NFT images more conveniently and simply.
 | --- | --- | --- | --- | --- |
 | `address` | Required. NFT contract address. | `string` | - | - |
 | `tokenId` | Required. NFT token ID, which can be of type bigint or number. | `bigint \| number` | - | - |
-| ...rest | Other properties inherited from the [Antd Image](https://ant-design.antgroup.com/components/image) component. | `ImageProps` | - | - |
+| ...rest | Other properties inherited from the `Ant Design Image` component. | `ImageProps` | - | - |
+
+Click to jump：[Ant Design Image](https://ant-design.antgroup.com/components/image)
