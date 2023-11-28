@@ -32,7 +32,7 @@ group: 组件
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | children | 连接控件，通常是 `ConnectButton` | `React.ReactNode` | - | - |
-| modalProps | 透传给 `ConnectModal`` 的属性 | `ModalProps` | - | - |
+| modalProps | 透传给 `ConnectModal` 的属性 | `ModalProps` | - | - |
 | onConnect | 触发连接时的回调 | `() => Promise<viod>` | - | - |
 | onDisconnect | 触发断开连接时的回调 | `() => Promise<viod>` | - | - |
 | onConnected | 连接成功时的回调 | `(account: Account) => Promise<viod>` | - | - |
