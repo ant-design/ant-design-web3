@@ -1,2 +1,2 @@
-export * from './addNameToAccounts';
+export * from './addNameToAccount';
 export * from './getNFTMetadata';

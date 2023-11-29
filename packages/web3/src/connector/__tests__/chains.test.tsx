@@ -9,12 +9,12 @@ import type { Chain } from '@ant-design/web3-common';
 describe('Connector with chains', () => {
   it('currentChain', () => {
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
-      const { currentChain } = props;
-      return <Button>{currentChain?.name}</Button>;
+      const { chain } = props;
+      return <Button>{chain?.name}</Button>;
     };
 
     const App = () => (
-      <Connector currentChain={Mainnet}>
+      <Connector chain={Mainnet}>
         <CustomButton />
       </Connector>
     );
@@ -24,12 +24,12 @@ describe('Connector with chains', () => {
 
   it('chains', () => {
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
-      const { chains } = props;
-      return <Button>{chains?.map((item) => item.name).join(',')}</Button>;
+      const { availableChains } = props;
+      return <Button>{availableChains?.map((item) => item.name).join(',')}</Button>;
     };
 
     const App = () => (
-      <Connector chains={[Mainnet, Polygon]}>
+      <Connector availableChains={[Mainnet, Polygon]}>
         <CustomButton />
       </Connector>
     );
@@ -39,14 +39,14 @@ describe('Connector with chains', () => {
 
   it('onSwitchChain', async () => {
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
-      const { currentChain, onSwitchChain } = props;
+      const { chain, onSwitchChain } = props;
       return (
         <Button
           onClick={() => {
             onSwitchChain?.(Polygon);
           }}
         >
-          {currentChain?.name}
+          {chain?.name}
         </Button>
       );
     };
@@ -58,8 +58,8 @@ describe('Connector with chains', () => {
       const chains = [Mainnet, Polygon];
       return (
         <Connector
-          chains={chains}
-          currentChain={currentChain}
+          chain={currentChain}
+          availableChains={chains}
           onChainSwitched={onChainSwitched}
           switchChain={async (chain: Chain) => {
             setCurrentChain(chain);

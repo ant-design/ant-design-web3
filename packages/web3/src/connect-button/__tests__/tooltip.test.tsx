@@ -15,7 +15,12 @@ describe('ConnectButton', () => {
 
   it('display tooltip', () => {
     const { baseElement } = render(
-      <ConnectButton address="3ea2cfd153b8d8505097b81c87c11f5d05097c18" tooltip={{ open: true }} />,
+      <ConnectButton
+        account={{
+          address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18',
+        }}
+        tooltip={{ open: true }}
+      />,
     );
     expect(baseElement.querySelector('.ant-tooltip')).not.toBeNull();
     expect(baseElement.querySelector('.ant-tooltip-inner')?.textContent?.trim()).toBe(
@@ -27,7 +32,7 @@ describe('ConnectButton', () => {
   it('disabled copyable in tooltip', () => {
     const { baseElement } = render(
       <ConnectButton
-        address="3ea2cfd153b8d8505097b81c87c11f5d05097c18"
+        account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18' }}
         tooltip={{ open: true, copyable: false }}
       />,
     );
@@ -41,7 +46,7 @@ describe('ConnectButton', () => {
   it('custom title in tooltip', () => {
     const { baseElement } = render(
       <ConnectButton
-        address="3ea2cfd153b8d8505097b81c87c11f5d05097c18"
+        account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18' }}
         tooltip={{ open: true, title: 'aaaaaabbbbbbcccccc' }}
       />,
     );
@@ -58,7 +63,10 @@ describe('ConnectButton', () => {
 
   it('should copy text after click copy icon', async () => {
     const { baseElement } = render(
-      <ConnectButton address="3ea2cfd153b8d8505097b81c87c11f5d05097c18" tooltip={{ open: true }} />,
+      <ConnectButton
+        account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18' }}
+        tooltip={{ open: true }}
+      />,
     );
     expect(baseElement.querySelector('.ant-tooltip')).not.toBeNull();
     expect(baseElement.querySelector('.ant-tooltip-inner')?.textContent?.trim()).toBe(
