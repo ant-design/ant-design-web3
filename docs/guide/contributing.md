@@ -43,8 +43,15 @@ The current core members are:
 
 ## Labels
 
-- `feature` New feature.
+- `feature` Independent new features.
 - `bug` Defects or bugs.
 - `development task` The development workload can be completed within one hour or one day, and no further discussion is required. The task can be directly developed.
 - `help wanted` Problems that need the community to help solve.
 - `good first issue` Small problems that are very suitable for new contributors to get started.
+- `Someone working on it` Someone is already working on this issue, please don't repeat it.
+- `wontfix` This will not be fixed.
+- `question` More information is needed.
+- `invalid` Invalid issue.
+- `duplicate` Duplicate issue.
+- `enhancement` New feature.
+- `documentation` Documentation related.
