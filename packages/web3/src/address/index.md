@@ -15,6 +15,10 @@ group:
 
 <code src="./demos/copyable.tsx"></code>
 
+## Format
+
+<code src="./demos/format.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |

@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Address > display address with default format 1`] = `
+<div
+  class="ant-space css-dev-only-do-not-override-1ck3jst ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-web3-address css-dev-only-do-not-override-1ck3jst"
+>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-web3-address-text"
+    >
+      0x21 CDf0 974d 53a6 e96e F05d 7B32 4a98 0373 5fFd 3B
+    </span>
+  </div>
+</div>
+`;
