@@ -12,6 +12,6 @@ order: 2
 
 <code src="./demos/useNFT.tsx"></code>
 
-## useAccounts
+## useAccount
 
-<code src="./demos/useAccounts.tsx"></code>
+<code src="./demos/useAccount.tsx"></code>

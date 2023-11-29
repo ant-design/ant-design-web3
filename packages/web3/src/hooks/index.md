@@ -12,6 +12,6 @@ Expose some commonly used Hooks that you can use independently or in conjunction
 
 <code src="./demos/useNFT.tsx"></code>
 
-## useAccounts
+## useAccount
 
-<code src="./demos/useAccounts.tsx"></code>
+<code src="./demos/useAccount.tsx"></code>
