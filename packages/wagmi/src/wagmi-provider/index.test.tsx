@@ -35,7 +35,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     });
 
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
-      const { currentChain, onSwitchChain } = props;
+      const { chain, onSwitchChain } = props;
       return (
         <div
           onClick={() => {
@@ -43,7 +43,7 @@ describe('WagmiWeb3ConfigProvider', () => {
           }}
           className="content"
         >
-          {currentChain?.name}
+          {chain?.name}
         </div>
       );
     };
@@ -51,7 +51,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     const switchChain = vi.fn();
 
     const App = () => (
-      <WagmiWeb3ConfigProvider chains={chains} config={config}>
+      <WagmiWeb3ConfigProvider availableChains={chains} config={config}>
         <Connector switchChain={switchChain}>
           <CustomButton />
         </Connector>
@@ -81,7 +81,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     });
 
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
-      const { currentChain, onSwitchChain } = props;
+      const { chain, onSwitchChain } = props;
       return (
         <div
           onClick={() => {
@@ -89,7 +89,7 @@ describe('WagmiWeb3ConfigProvider', () => {
           }}
           className="content"
         >
-          {currentChain?.name}
+          {chain?.name}
         </div>
       );
     };
@@ -109,7 +109,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     ];
 
     const App = () => (
-      <WagmiWeb3ConfigProvider assets={assets} chains={chains} config={config}>
+      <WagmiWeb3ConfigProvider assets={assets} availableChains={chains} config={config}>
         <Connector switchChain={switchChain}>
           <CustomButton />
         </Connector>

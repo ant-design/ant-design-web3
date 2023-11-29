@@ -37,7 +37,7 @@ export const EthereumProvider: React.FC<Web3ProviderProps> = (props) => {
   }, [provider]);
 
   return (
-    <Web3ConfigProvider accounts={accounts} wallets={wallets} {...provider}>
+    <Web3ConfigProvider account={accounts[0]} availableWallets={wallets} {...provider}>
       {children}
     </Web3ConfigProvider>
   );

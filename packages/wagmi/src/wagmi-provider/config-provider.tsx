@@ -8,20 +8,20 @@ import {
   useSwitchNetwork,
   type Chain as WagmiChain,
 } from 'wagmi';
-import { addNameToAccounts, getNFTMetadata } from './methods';
+import { addNameToAccount, getNFTMetadata } from './methods';
 import type { WalletFactory } from '../interface';
 
 export interface AntDesignWeb3ConfigProviderProps {
   assets?: (WalletFactory | Chain)[];
   children?: React.ReactNode;
   ens?: boolean;
-  chains: WagmiChain[];
+  availableChains: WagmiChain[];
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
-  const { children, assets, chains, ens } = props;
+  const { children, assets, availableChains, ens } = props;
   const { address, isDisconnected } = useAccount();
-  const [accounts, setAccounts] = React.useState<Account[]>([]);
+  const [account, setAccount] = React.useState<Account | undefined>();
   const { connectors, connectAsync } = useConnect();
   const { switchNetwork } = useSwitchNetwork();
   const { chain } = useNetwork();
@@ -30,16 +30,14 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
 
   React.useEffect(() => {
     if (!address || isDisconnected) {
-      setAccounts([]);
+      setAccount(undefined);
       return;
     }
     const updateAccounts = async () => {
-      const as: Account[] = [
-        {
-          address,
-        },
-      ];
-      setAccounts(ens ? await addNameToAccounts(as) : as);
+      const a = {
+        address,
+      };
+      setAccount(ens ? await addNameToAccount(a) : a);
     };
     updateAccounts();
   }, [address, isDisconnected, chain, ens]);
@@ -57,7 +55,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   }, [connectors, assets]);
 
   const chainList: Chain[] = React.useMemo(() => {
-    return chains.map((item) => {
+    return availableChains.map((item) => {
       const c = assets?.find((asset) => {
         return (asset as Chain).id === item.id;
       }) as Chain;
@@ -69,14 +67,14 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       }
       return c;
     });
-  }, [chains, assets]);
+  }, [availableChains, assets]);
 
   React.useEffect(() => {
     if (!chain && currentChain) {
       // not connected any chain, keep current chain
       return;
     }
-    const currentWagmiChain = chain ?? chains[0];
+    const currentWagmiChain = chain ?? availableChains[0];
     if (!currentWagmiChain) {
       return;
     }
@@ -89,26 +87,20 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     }
     setCurrentChain(c);
     return;
-  }, [chain, assets, chains, currentChain]);
+  }, [chain, assets, availableChains, currentChain]);
 
   return (
     <Web3ConfigProvider
-      chains={chainList}
-      currentChain={currentChain}
-      accounts={accounts}
-      wallets={wallets}
-      requestAccounts={async (wallet) => {
-        const connector = connectors.find((item) => item.name === wallet);
-        const { account } = await connectAsync({
+      availableChains={chainList}
+      chain={currentChain}
+      account={account}
+      availableWallets={wallets}
+      connect={async (wallet) => {
+        const connector = connectors.find((item) => item.name === wallet?.name);
+        await connectAsync({
           connector,
           chainId: currentChain?.id,
         });
-        const as = [
-          {
-            address: account,
-          },
-        ];
-        return ens ? addNameToAccounts(as, chain?.id) : as;
       }}
       disconnect={async () => {
         await disconnectAsync();

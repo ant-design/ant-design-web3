@@ -14,15 +14,13 @@ import { CopyOutlined, LoginOutlined } from '@ant-design/icons';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const {
-    address,
-    connected,
     onConnectClick,
     onDisconnectClick,
-    chains,
+    availableChains,
     onSwitchChain,
     tooltip,
-    currentChain,
-    name,
+    chain,
+    account,
     avatar,
     profileModal = true,
     onMenuClick,
@@ -36,8 +34,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const [messageApi, contextHolder] = message.useMessage();
   const [showMenu, setShowMenu] = useState(false);
   let buttonText: React.ReactNode = 'Connect Wallet';
-  if (connected) {
-    buttonText = name ?? <Address tooltip={false} ellipsis address={address} />;
+  if (account) {
+    buttonText = account?.name ?? <Address tooltip={false} ellipsis address={account.address} />;
   }
 
   const buttonProps: ButtonProps = {
@@ -50,13 +48,13 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   };
 
   const renderChainSelect = () => {
-    if (chains && chains.length > 1) {
+    if (availableChains && availableChains.length > 1) {
       return (
         <ChainSelect
           hashId={hashId}
           onSwitchChain={onSwitchChain}
-          currentChain={currentChain}
-          chains={chains}
+          currentChain={chain}
+          chains={availableChains}
         />
       );
     }
@@ -76,11 +74,11 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         onClose={() => {
           setProfileOpen(false);
         }}
-        address={address}
-        name={name}
+        address={account?.address}
+        name={account?.name}
         avatar={
           avatar ?? {
-            src: currentChain?.icon,
+            src: chain?.icon,
           }
         }
         modalProps={typeof profileModal === 'object' ? profileModal : undefined}
@@ -89,7 +87,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         className={classNames(`${prefixCls}-text`, hashId)}
         onClick={() => {
           setShowMenu(false);
-          if (connected && !profileOpen && profileModal) {
+          if (account && !profileOpen && profileModal) {
             setProfileOpen(true);
           } else {
             onConnectClick?.();
@@ -108,8 +106,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         key: 'copyAddress',
         onClick: () => {
           setProfileOpen(false);
-          if (address) {
-            writeCopyText(address).then(() => {
+          if (account?.address) {
+            writeCopyText(account?.address).then(() => {
               messageApi.success('Address Copied!');
             });
           }
@@ -126,7 +124,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         icon: <LoginOutlined />,
       },
     ],
-    [address, messageApi, onDisconnectClick],
+    [account?.address, messageApi, onDisconnectClick],
   );
 
   const mergedMenuItems = useMemo<MenuItemType[]>(() => {
@@ -160,7 +158,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const mergedTooltipCopyable: ConnectButtonTooltipProps['copyable'] =
     typeof tooltip === 'object' ? tooltip.copyable !== false : !!tooltip;
 
-  let tooltipTitle: string = tooltip && address ? fillWith0x(address) : '';
+  let tooltipTitle: string = tooltip && account?.address ? fillWith0x(account?.address) : '';
   if (typeof tooltip === 'object' && typeof tooltip.title === 'string') {
     tooltipTitle = tooltip.title;
   }

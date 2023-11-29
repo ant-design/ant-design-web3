@@ -27,7 +27,7 @@ const config = createConfig({
 
 const App: React.FC = () => {
   return (
-    <WagmiWeb3ConfigProvider chains={chains} config={config}>
+    <WagmiWeb3ConfigProvider availableChains={chains} config={config}>
       <Connector>
         <ConnectButton />
       </Connector>

@@ -32,7 +32,11 @@ describe('ProfileModal', () => {
 
   it('open profile modal in ConnectButton', async () => {
     const App = () => (
-      <ConnectButton connected address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />
+      <ConnectButton
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
+      />
     );
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.ant-web3-connect-button-text')).not.toBeNull();
@@ -68,8 +72,9 @@ describe('ProfileModal', () => {
   it('should not display modal when pass false into profileModal', async () => {
     const App = () => (
       <ConnectButton
-        connected
-        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
         profileModal={false}
       />
     );
@@ -82,8 +87,9 @@ describe('ProfileModal', () => {
   it('profile modal should customize by profileModal', async () => {
     const App = () => (
       <ConnectButton
-        connected
-        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
         profileModal={{
           title: 'Custom Title',
           footer: 'Custom Description',

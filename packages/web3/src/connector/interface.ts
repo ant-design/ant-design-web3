@@ -7,15 +7,17 @@ export interface ConnectorProps {
 
   onConnect?: () => void;
   onDisconnect?: () => Promise<void>;
-  onConnected?: (accounts?: Account[]) => void;
+  onConnected?: () => void;
   onDisconnected?: () => void;
   onChainSwitched?: (chain?: Chain) => void;
 
-  wallets?: Wallet[];
-  accounts?: Account[];
-  chains?: Chain[];
-  currentChain?: Chain;
-  requestAccounts?: (wallet?: string) => Promise<Account[]>;
+  account?: Account;
+  chain?: Chain;
+
+  availableChains?: Chain[];
+  availableWallets?: Wallet[];
+
+  connect?: (wallet?: Wallet) => Promise<void>;
   disconnect?: () => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;
 }
