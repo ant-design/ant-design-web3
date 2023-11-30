@@ -15,6 +15,10 @@ group:
 
 <code src="./demos/copyable.tsx"></code>
 
+## Format
+
+<code src="./demos/format.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |
@@ -23,3 +27,4 @@ group:
 | copyable | Address copyable | `boolean` | `false` | - |
 | address | Address | `string` | - | - |
 | tooltip | Show tooltip when hover address | `boolean \|`[Tooltip.title](https://ant.design/components/tooltip-cn#api) | Displays the current full address | - |
+| format | Address format | `boolean \| (input: string) => ReactNode` | `false` | - |
