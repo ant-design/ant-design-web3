@@ -1,7 +1,7 @@
 import { CopyOutlined } from '@ant-design/icons';
 import type { TooltipProps } from 'antd';
 import { Space, Tooltip, message, ConfigProvider } from 'antd';
-import React, { useContext, useMemo } from 'react';
+import React, { ReactNode, useContext, useMemo } from 'react';
 import { useStyle } from './style';
 import classNames from 'classnames';
 import { writeCopyText, fillWith0x, formatAddress } from '../utils';
@@ -16,7 +16,7 @@ export interface AddressProps {
   address?: string;
   copyable?: boolean;
   tooltip?: boolean | TooltipProps['title'];
-  format?: boolean | ((address: string) => string);
+  format?: boolean | ((address: string) => ReactNode);
 }
 
 export const Address: React.FC<AddressProps> = (props) => {

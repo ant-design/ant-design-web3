@@ -27,4 +27,4 @@ group:
 | copyable | 是否可复制 | `boolean` | `false` | - |
 | address | 地址 | `string` | - | - |
 | tooltip | 鼠标移入地址时展示提示 | `boolean \|` [Tooltip.title](https://ant.design/components/tooltip-cn#api) | 展示当前完整地址 | - |
-| format | 地址格式化 | `boolean \| (input: string) => string` | `false` | - |
+| format | 地址格式化 | `boolean \| (input: string) => ReactNode` | `false` | - |
