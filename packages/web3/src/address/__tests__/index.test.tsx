@@ -65,7 +65,7 @@ describe('Address', () => {
       <Address address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" format />,
     );
     expect(baseElement.querySelector('.ant-web3-address')?.textContent).toBe(
-      '0x21 CDf0 974d 53a6 e96e F05d 7B32 4a98 0373 5fFd 3B',
+      '0x 21CD f097 4d53 a6e9 6eF0 5d7B 324a 9803 735f Fd3B',
     );
     expect(baseElement.querySelector('.ant-web3-address')).toMatchSnapshot();
   });

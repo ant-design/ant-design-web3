@@ -6,10 +6,15 @@ export const fillWith0x = (address: string = ''): string => {
 export const formatAddress = (address: string = '', groupSize = 4): string => {
   const formattedGroups = [];
 
-  for (let i = 0; i < address.length; i += groupSize) {
-    const group = address.slice(i, i + groupSize);
+  const has0x = address.startsWith('0x');
+  const formatText = has0x ? address.slice(2) : address;
+
+  for (let i = 0; i < formatText.length; i += groupSize) {
+    const group = formatText.slice(i, i + groupSize);
     formattedGroups.push(group);
   }
 
-  return formattedGroups.join(' ');
+  const formattedText = formattedGroups.join(' ');
+
+  return has0x ? `0x ${formattedText}` : formattedText;
 };
