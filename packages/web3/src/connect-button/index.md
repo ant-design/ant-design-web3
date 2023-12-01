@@ -48,6 +48,7 @@ A Button for connect chain quickly.
 export type ConnectButtonTooltipProps = TooltipProps & {
   copyable?: boolean; // Whether to copy
   title?: boolean | string | React.ReactNode; // Show content
+  format?: boolean | (address: string) => React.ReactNode; // Format content
 };
 ```
 

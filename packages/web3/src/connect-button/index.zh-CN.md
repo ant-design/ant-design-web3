@@ -48,6 +48,7 @@ order: 1
 export type ConnectButtonTooltipProps = TooltipProps & {
   copyable?: boolean; // 是否可复制
   title?: boolean | string | React.ReactNode; // 展示内容
+  format?: boolean | (address: string) => React.ReactNode; // 格式化展示内容
 };
 ```
 
