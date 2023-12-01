@@ -4,7 +4,6 @@ import type { ConnectButtonTooltipProps } from './interface';
 import { useMemo, type PropsWithChildren } from 'react';
 import { formatAddress, writeCopyText } from '../utils';
 import classNames from 'classnames';
-import { useStyle } from './style';
 
 export const ConnectButtonTooltip: React.FC<PropsWithChildren<ConnectButtonTooltipProps>> = ({
   title,
@@ -16,7 +15,6 @@ export const ConnectButtonTooltip: React.FC<PropsWithChildren<ConnectButtonToolt
   ...restProps
 }) => {
   const [messageApi, contextHolder] = message.useMessage();
-  const { wrapSSR, hashId } = useStyle(prefixCls!);
   const mergedFormat = useMemo(() => {
     if (typeof format === 'function') {
       return format;
@@ -62,16 +60,16 @@ export const ConnectButtonTooltip: React.FC<PropsWithChildren<ConnectButtonToolt
   ) : (
     mergedTitle
   );
-  return wrapSSR(
+  return (
     <>
       {contextHolder}
       <Tooltip
-        rootClassName={classNames(`${prefixCls}-tooltip`, hashId)}
+        rootClassName={classNames(`${prefixCls}-tooltip`, __hashId__)}
         title={content}
         {...restProps}
       >
         {children}
       </Tooltip>
-    </>,
+    </>
   );
 };
