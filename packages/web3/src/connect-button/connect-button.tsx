@@ -170,6 +170,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         <ConnectButtonTooltip
           copyable={mergedTooltipCopyable}
           title={tooltipTitle}
+          prefixCls={prefixCls}
+          __hashId__={hashId}
           {...(typeof tooltip === 'object' ? tooltip : {})}
         >
           {content}
