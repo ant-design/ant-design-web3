@@ -34,6 +34,15 @@ group:
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | config | wagmi 配置 | [WagmiConfig](https://wagmi.sh/core/config) | - | - |
-| availableChains | 可用的链 | `WagmiChain[]` | - | - |
-| assets | 钱包或者链的图标等信息 | `Chain \| WalletFactory)[]` | - | - |
+| availableChains | 可用的链 | [WagmiChain[]](https://wagmi.sh/core/chains) | - | - |
+| assets | 钱包或者链的图标等信息 | [Chain](./types#chain)\[\] \| [WalletFactory](#walletfactory)\[\] | - | - |
 | ens | 是否显示 ENS | `boolean` | - | - |
+
+### WalletFactory
+
+| 属性   | 描述           | 类型                                       | 默认值 | 版本 |
+| ------ | -------------- | ------------------------------------------ | ------ | ---- |
+| name   | 钱包名称       | `Connector`                                | -      | -    |
+| create | 创建钱包的方法 | `(connector: Conector) => Promise<Wallet>` | -      | -    |
+
+> 上面的 ` Connector` 是指 wagmi 中的 `Connector`，`Wallet` 则是 [Wallet](./types#wallet)。
