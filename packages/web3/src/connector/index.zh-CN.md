@@ -2,31 +2,11 @@
 nav: 组件
 group:
   title: 连接
-  order: 1
+  order: 2
 order: 0
 ---
 
 # Connector
-
-## 和 wagmi 一起使用
-
-<code src="./demos/wagmi.tsx"></code>
-
-## 支持切换链
-
-<code src="./demos/chains.tsx"></code>
-
-## 显示 ENS
-
-<code src="./demos/name.tsx"></code>
-
-## 使用 web3modal 连接 WallectConnect
-
-<code src="./demos/web3modal.tsx"></code>
-
-## 和 @ant-design/web3-ethereum 一起使用
-
-<code src="./demos/ethereum.tsx"></code>
 
 ## API
 

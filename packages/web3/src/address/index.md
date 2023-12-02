@@ -2,7 +2,7 @@
 nav: Components
 group:
   title: Display
-  order: 2
+  order: 3
 ---
 
 # Address

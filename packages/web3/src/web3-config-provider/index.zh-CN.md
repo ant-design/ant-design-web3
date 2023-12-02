@@ -2,7 +2,7 @@
 nav: 组件
 group:
   title: 高级
-  order: 3
+  order: 4
 ---
 
 # Web3ConfigProvider
