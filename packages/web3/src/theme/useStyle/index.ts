@@ -1,4 +1,4 @@
-import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
@@ -56,16 +56,6 @@ export type Web3AliasToken = GlobalToken & {
    */
   antCls: string;
 };
-
-export const resetComponent = (token: Web3AliasToken): CSSObject => ({
-  boxSizing: 'border-box',
-  margin: 0,
-  padding: 0,
-  color: token.colorText,
-  fontSize: token.fontSize,
-  lineHeight: token.lineHeight,
-  listStyle: 'none',
-});
 
 /**
  * useStyle for css in js

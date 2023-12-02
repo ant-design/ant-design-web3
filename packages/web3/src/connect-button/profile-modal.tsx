@@ -3,7 +3,7 @@ import { Modal, ConfigProvider, Space, Button, Avatar, message, type AvatarProps
 import classNames from 'classnames';
 import { Address } from '@ant-design/web3';
 import { writeCopyText } from '../utils';
-import { ModalProps } from 'antd/lib';
+import type { ModalProps } from 'antd';
 
 export interface ProfileModalProps {
   className?: string;

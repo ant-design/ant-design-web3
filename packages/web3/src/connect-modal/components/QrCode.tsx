@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import type { Wallet } from '../interface';
 import MainPanelHeader from './MainPanelHeader';
 import { connectModalContext } from '../context';
-import { Button, QRCode, theme } from 'antd';
+import { Button, QRCode } from 'antd';
 
 export type QrCodeProps = {
   wallet: Wallet;

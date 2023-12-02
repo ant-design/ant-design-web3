@@ -1,4 +1,4 @@
-import { Wallet } from '../connect-modal/interface';
+import type { Wallet } from '../connect-modal/interface';
 
 export enum WalletsPresets {
   SIMPLE = 'simple',

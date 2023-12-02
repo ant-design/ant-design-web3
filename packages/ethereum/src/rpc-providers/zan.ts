@@ -1,6 +1,7 @@
-import { Chain, ChainIds } from '@ant-design/web3-common';
+import type { Chain } from '@ant-design/web3-common';
+import { ChainIds } from '@ant-design/web3-common';
 import { Mainnet } from '@ant-design/web3-assets';
-import { EIP1193IncludeProvider, JsonRpcProvider } from '../types';
+import type { EIP1193IncludeProvider, JsonRpcProvider } from '../types';
 
 export interface ZANJsonRpcProviderProps {
   apiKey: string;

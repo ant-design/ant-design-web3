@@ -33,9 +33,7 @@ const CardItem: React.FC<{
   );
 };
 
-export type WalletCardProps = {};
-
-const WalletCard: React.FC<WalletCardProps> = (props) => {
+const WalletCard: React.FC = () => {
   const { prefixCls, selectedWallet, updatePanelRoute } = useContext(connectModalContext);
   const selectedExtension = useMemo(
     () =>

@@ -1,7 +1,7 @@
 import type React from 'react';
 import type { Wallet } from '../interface';
 import { getPlatform } from '../../utils';
-import { GlobalToken } from 'antd';
+import type { GlobalToken } from 'antd';
 import { TinyColor } from '@ctrl/tinycolor';
 
 export const mergeReactNodeProps = (
