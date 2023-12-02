@@ -1,0 +1,202 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ConnectButton > should display formatted by custom formatter when pass format into tooltip 1`] = `
+<body>
+  <div>
+    <button
+      class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-default css-dev-only-do-not-override-1ck3jst ant-web3-connect-button ant-tooltip-open"
+      type="button"
+    >
+      <div
+        class="ant-web3-connect-button-text css-dev-only-do-not-override-1ck3jst"
+      >
+        <div
+          class="ant-space css-dev-only-do-not-override-1ck3jst ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-web3-address css-dev-only-do-not-override-1ck3jst"
+        >
+          <div
+            class="ant-space-item"
+          >
+            <span
+              class="ant-web3-address-text"
+            >
+              0x3ea2...7c18
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>
+  <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-web3-connect-button-tooltip css-dev-only-do-not-override-1ck3jst css-dev-only-do-not-override-1ck3jst ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-web3-connect-button-tooltip-title"
+          >
+            Wallet address
+             
+            <span
+              aria-label="copy"
+              class="anticon anticon-copy"
+              role="img"
+              tabindex="-1"
+              title="Copy Address"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="copy"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="ant-web3-connect-button-tooltip-content"
+          >
+            0x3ea2cfd1
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ConnectButton > should display formatted when pass format into tooltip 1`] = `
+<body>
+  <div>
+    <button
+      class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-default css-dev-only-do-not-override-1ck3jst ant-web3-connect-button ant-tooltip-open"
+      type="button"
+    >
+      <div
+        class="ant-web3-connect-button-text css-dev-only-do-not-override-1ck3jst"
+      >
+        <div
+          class="ant-space css-dev-only-do-not-override-1ck3jst ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-web3-address css-dev-only-do-not-override-1ck3jst"
+        >
+          <div
+            class="ant-space-item"
+          >
+            <span
+              class="ant-web3-address-text"
+            >
+              0x3ea2...7c18
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>
+  <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-start ant-zoom-big-fast ant-web3-connect-button-tooltip css-dev-only-do-not-override-1ck3jst css-dev-only-do-not-override-1ck3jst ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; transition: none;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-web3-connect-button-tooltip-title"
+          >
+            Wallet address
+             
+            <span
+              aria-label="copy"
+              class="anticon anticon-copy"
+              role="img"
+              tabindex="-1"
+              title="Copy Address"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="copy"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="ant-web3-connect-button-tooltip-content"
+          >
+            0x 3ea2 cfd1 53b8 d850 5097 b81c 87c1 1f5d 0509 7c18
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-message ant-message-top css-dev-only-do-not-override-1ck3jst"
+    style="left: 50%; transform: translateX(-50%); top: 8px;"
+  >
+    <div
+      class="ant-message-notice ant-message-move-up-appear ant-message-move-up-appear-active ant-message-move-up ant-message-notice-success css-dev-only-do-not-override-1ck3jst"
+    >
+      <div
+        class="ant-message-notice-content"
+      >
+        <div
+          class="ant-message-custom-content ant-message-success"
+        >
+          <span
+            aria-label="check-circle"
+            class="anticon anticon-check-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="check-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+              />
+            </svg>
+          </span>
+          <span>
+            Address Copied!
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
