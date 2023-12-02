@@ -164,7 +164,7 @@ exports[`ConnectButton > should display formatted when pass format into tooltip 
     style="left: 50%; transform: translateX(-50%); top: 8px;"
   >
     <div
-      class="ant-message-notice ant-message-move-up-appear ant-message-move-up-appear-start ant-message-move-up ant-message-notice-success css-dev-only-do-not-override-1ck3jst"
+      class="ant-message-notice ant-message-move-up-appear ant-message-move-up-appear-active ant-message-move-up ant-message-notice-success css-dev-only-do-not-override-1ck3jst"
     >
       <div
         class="ant-message-notice-content"
