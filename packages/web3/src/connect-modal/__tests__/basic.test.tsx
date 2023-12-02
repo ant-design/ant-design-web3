@@ -1,9 +1,10 @@
 import { ConnectModal } from '@ant-design/web3';
-import { groupOrder, guide, mockBrowser, walletList } from './mock';
+import { groupOrder, guide, walletList } from './mock';
 import { fireEvent, render } from '@testing-library/react';
 import { useEffect, useState } from 'react';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { ConfigProvider, theme as antTheme } from 'antd';
+import { mockBrowser } from '../../utils/test-utils';
 
 describe('ConnectModal with guide', () => {
   beforeEach(() => {
@@ -81,7 +82,6 @@ describe('ConnectModal with guide', () => {
         open
         title="ConnectModal"
         footer="蚂蚁链提供技术支持"
-        groupOrder={groupOrder}
         walletList={walletList}
         guide={guide}
       />
@@ -100,6 +100,12 @@ describe('ConnectModal with guide', () => {
 
     fireEvent.click(baseElement.querySelectorAll('.ant-web3-connect-modal-card-item')[1]!);
     expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code-container')).toBeTruthy();
+
+    fireEvent.click(baseElement.querySelectorAll('.ant-web3-connect-modal-wallet-item')[2]!);
+    expect(baseElement).toMatchSnapshot();
+
+    fireEvent.click(baseElement.querySelectorAll('.ant-web3-connect-modal-wallet-item')[4]!);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('should ctrl by open', async () => {

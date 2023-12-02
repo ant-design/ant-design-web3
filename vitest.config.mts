@@ -22,7 +22,7 @@ export default defineConfig({
     reporters: ['default'],
     coverage: {
       include: ['packages/*/src/**/*.ts'],
-      reporter: ['json-summary', ['text', { skipFull: true }], 'cobertura'],
+      reporter: ['json-summary', ['text', { skipFull: true }], 'cobertura', 'html'],
     },
     testTimeout: 3e4,
   },

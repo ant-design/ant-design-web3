@@ -1,5 +1,933 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`ConnectModal with guide > panel route change 1`] = `
+<body>
+  <div />
+  <div>
+    <div
+      class="ant-modal-root css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal-root"
+    >
+      <div
+        class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
+      />
+      <div
+        class="ant-modal-wrap"
+        tabindex="-1"
+      >
+        <div
+          aria-modal="true"
+          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal css-dev-only-do-not-override-1ck3jst ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          role="dialog"
+          style="width: 737px;"
+        >
+          <div
+            aria-hidden="true"
+            style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+            tabindex="0"
+          />
+          <div
+            class="ant-modal-content"
+          >
+            <button
+              aria-label="Close"
+              class="ant-modal-close"
+              type="button"
+            >
+              <span
+                class="ant-modal-close-x"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+            <div
+              class="ant-modal-body"
+            >
+              <div
+                class="ant-web3-connect-modal-body"
+              >
+                <div
+                  class="ant-web3-connect-modal-list-panel"
+                >
+                  <div
+                    class="ant-web3-connect-modal-header"
+                  >
+                    <h2
+                      class="ant-web3-connect-modal-title"
+                    >
+                      ConnectModal
+                    </h2>
+                  </div>
+                  <div
+                    class="ant-web3-connect-modal-list-container"
+                  >
+                    <div
+                      class="ant-web3-connect-modal-wallet-list"
+                    >
+                      <div
+                        class="ant-web3-connect-modal-group"
+                      >
+                        <div
+                          class="ant-web3-connect-modal-group-title"
+                        >
+                          Default
+                        </div>
+                        <div
+                          class="ant-web3-connect-modal-group-content"
+                        >
+                          <div
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                          >
+                            <div
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                            >
+                              <div
+                                class="ant-spin-container"
+                              >
+                                <ul
+                                  class="ant-list-items"
+                                >
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <img
+                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                          />
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包2
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包4
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包5
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包6
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包6
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-web3-connect-modal-group"
+                      >
+                        <div
+                          class="ant-web3-connect-modal-group-title"
+                        >
+                          Popular
+                        </div>
+                        <div
+                          class="ant-web3-connect-modal-group-content"
+                        >
+                          <div
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                          >
+                            <div
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                            >
+                              <div
+                                class="ant-spin-container"
+                              >
+                                <ul
+                                  class="ant-list-items"
+                                >
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item selected"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <img
+                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                          />
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <img
+                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                          />
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包3
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-web3-connect-modal-footer"
+                  >
+                    蚂蚁链提供技术支持
+                  </div>
+                </div>
+                <div
+                  class="ant-web3-connect-modal-main-panel"
+                >
+                  <div
+                    class="ant-web3-connect-modal-qr-code-container"
+                  >
+                    <div
+                      class="ant-web3-connect-modal-main-panel-header"
+                    >
+                      <div
+                        class="ant-web3-connect-modal-main-panel-header-back"
+                      >
+                        <span
+                          aria-label="left"
+                          class="anticon anticon-left"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="left"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                      <div
+                        class="ant-web3-connect-modal-main-panel-header-title"
+                      >
+                        Scan with 测试钱包
+                      </div>
+                    </div>
+                    <div
+                      class="ant-web3-connect-modal-qr-code-box"
+                    >
+                      <div
+                        class="ant-qrcode ant-web3-connect-modal-qr-code css-dev-only-do-not-override-1ck3jst"
+                        style="width: 400px; height: 400px; background-color: transparent;"
+                      >
+                        <div
+                          class="ant-qrcode-mask"
+                        >
+                          <div
+                            aria-busy="true"
+                            aria-live="polite"
+                            class="ant-spin ant-spin-spinning css-dev-only-do-not-override-1ck3jst"
+                          >
+                            <span
+                              class="ant-spin-dot ant-spin-dot-spin"
+                            >
+                              <i
+                                class="ant-spin-dot-item"
+                              />
+                              <i
+                                class="ant-spin-dot-item"
+                              />
+                              <i
+                                class="ant-spin-dot-item"
+                              />
+                              <i
+                                class="ant-spin-dot-item"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                        <svg
+                          height="374"
+                          viewBox="0 0 33 33"
+                          width="374"
+                        >
+                          <path
+                            d="M0,0 h33v33H0z"
+                            fill="transparent"
+                            shape-rendering="crispEdges"
+                          />
+                          <path
+                            d="M0 0h7v1H0zM9 0h1v1H9zM12 0h3v1H12zM17 0h1v1H17zM21 0h1v1H21zM23 0h1v1H23zM26,0 h7v1H26zM0 1h1v1H0zM6 1h1v1H6zM13 1h1v1H13zM16 1h2v1H16zM19 1h1v1H19zM24 1h1v1H24zM26 1h1v1H26zM32,1 h1v1H32zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM8 2h1v1H8zM13 2h1v1H13zM15 2h1v1H15zM21 2h1v1H21zM23 2h2v1H23zM26 2h1v1H26zM28 2h3v1H28zM32,2 h1v1H32zM0 3h1v1H0zM2 3h3v1H2zM6 3h1v1H6zM9 3h3v1H9zM14 3h6v1H14zM23 3h1v1H23zM26 3h1v1H26zM28 3h3v1H28zM32,3 h1v1H32zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM8 4h3v1H8zM18 4h3v1H18zM23 4h1v1H23zM26 4h1v1H26zM28 4h3v1H28zM32,4 h1v1H32zM0 5h1v1H0zM6 5h1v1H6zM8 5h1v1H8zM11 5h2v1H11zM15 5h2v1H15zM19 5h1v1H19zM22 5h1v1H22zM26 5h1v1H26zM32,5 h1v1H32zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18 6h1v1H18zM20 6h1v1H20zM22 6h1v1H22zM24 6h1v1H24zM26,6 h7v1H26zM9 7h1v1H9zM12 7h2v1H12zM15 7h3v1H15zM19 7h1v1H19zM21 7h1v1H21zM1 8h1v1H1zM4 8h1v1H4zM6 8h1v1H6zM8 8h2v1H8zM12 8h1v1H12zM15 8h3v1H15zM19 8h4v1H19zM24 8h2v1H24zM27 8h2v1H27zM30 8h1v1H30zM1 9h1v1H1zM3 9h1v1H3zM7 9h2v1H7zM18 9h1v1H18zM22 9h2v1H22zM25 9h1v1H25zM29 9h3v1H29zM0 10h1v1H0zM2 10h3v1H2zM6 10h4v1H6zM11 10h5v1H11zM17 10h1v1H17zM20 10h1v1H20zM23 10h4v1H23zM29 10h1v1H29zM0 11h1v1H0zM2 11h1v1H2zM5 11h1v1H5zM11 11h1v1H11zM14 11h1v1H14zM16 11h6v1H16zM23 11h2v1H23zM26 11h1v1H26zM32,11 h1v1H32zM0 12h1v1H0zM2 12h2v1H2zM6 12h1v1H6zM8 12h1v1H8zM10 12h1v1H10zM12 12h1v1H12zM15 12h2v1H15zM18 12h2v1H18zM21 12h3v1H21zM26 12h1v1H26zM28 12h2v1H28zM31,12 h2v1H31zM3 13h1v1H3zM5 13h1v1H5zM7 13h1v1H7zM9 13h1v1H9zM11 13h1v1H11zM20 13h1v1H20zM23 13h1v1H23zM27 13h1v1H27zM29 13h1v1H29zM0 14h3v1H0zM6 14h3v1H6zM11 14h1v1H11zM22 14h5v1H22zM28 14h4v1H28zM0 15h6v1H0zM7 15h4v1H7zM21 15h1v1H21zM23 15h6v1H23zM0 16h2v1H0zM3 16h1v1H3zM6 16h1v1H6zM8 16h2v1H8zM12 16h1v1H12zM20 16h3v1H20zM24 16h1v1H24zM26 16h1v1H26zM28 16h1v1H28zM31 16h1v1H31zM0 17h1v1H0zM3 17h1v1H3zM5 17h1v1H5zM8 17h1v1H8zM10 17h3v1H10zM21 17h1v1H21zM23 17h3v1H23zM29 17h3v1H29zM0 18h1v1H0zM2 18h2v1H2zM6 18h1v1H6zM8 18h1v1H8zM10 18h1v1H10zM12 18h1v1H12zM23 18h1v1H23zM25 18h1v1H25zM27 18h1v1H27zM29 18h1v1H29zM31 18h1v1H31zM1 19h1v1H1zM3 19h3v1H3zM7 19h1v1H7zM10 19h1v1H10zM12 19h1v1H12zM20 19h5v1H20zM27 19h1v1H27zM31 19h1v1H31zM1 20h1v1H1zM6 20h1v1H6zM8 20h4v1H8zM13 20h1v1H13zM15 20h1v1H15zM20 20h2v1H20zM24 20h3v1H24zM28 20h2v1H28zM32,20 h1v1H32zM0 21h2v1H0zM8 21h2v1H8zM12 21h1v1H12zM14 21h1v1H14zM16 21h1v1H16zM18 21h1v1H18zM21 21h1v1H21zM23 21h1v1H23zM25 21h1v1H25zM27 21h1v1H27zM31 21h1v1H31zM4 22h1v1H4zM6 22h2v1H6zM9 22h1v1H9zM12 22h1v1H12zM14 22h5v1H14zM20 22h4v1H20zM31 22h1v1H31zM3 23h2v1H3zM10 23h1v1H10zM13 23h1v1H13zM15 23h1v1H15zM18 23h1v1H18zM20 23h2v1H20zM23 23h3v1H23zM0 24h3v1H0zM4 24h6v1H4zM11 24h1v1H11zM13 24h2v1H13zM17 24h6v1H17zM24 24h5v1H24zM8 25h1v1H8zM10 25h2v1H10zM16 25h2v1H16zM20 25h2v1H20zM23 25h2v1H23zM28 25h1v1H28zM30 25h1v1H30zM0 26h7v1H0zM9 26h1v1H9zM11 26h2v1H11zM21 26h1v1H21zM24 26h1v1H24zM26 26h1v1H26zM28 26h2v1H28zM31 26h1v1H31zM0 27h1v1H0zM6 27h1v1H6zM9 27h6v1H9zM16 27h1v1H16zM18 27h4v1H18zM24 27h1v1H24zM28 27h1v1H28zM0 28h1v1H0zM2 28h3v1H2zM6 28h1v1H6zM8 28h3v1H8zM12 28h1v1H12zM16 28h2v1H16zM20 28h3v1H20zM24 28h6v1H24zM31 28h1v1H31zM0 29h1v1H0zM2 29h3v1H2zM6 29h1v1H6zM9 29h2v1H9zM15 29h1v1H15zM17 29h2v1H17zM22 29h1v1H22zM26 29h4v1H26zM31 29h1v1H31zM0 30h1v1H0zM2 30h3v1H2zM6 30h1v1H6zM10 30h3v1H10zM15 30h1v1H15zM20 30h1v1H20zM24 30h1v1H24zM26 30h3v1H26zM30 30h1v1H30zM0 31h1v1H0zM6 31h1v1H6zM8 31h1v1H8zM11 31h2v1H11zM14 31h1v1H14zM18 31h4v1H18zM23 31h4v1H23zM29 31h1v1H29zM0 32h7v1H0zM9 32h2v1H9zM12 32h1v1H12zM14 32h1v1H14zM16 32h2v1H16zM19 32h6v1H19zM26 32h1v1H26zM32,32 h1v1H32z"
+                            fill="rgba(0, 0, 0, 0.88)"
+                            shape-rendering="crispEdges"
+                          />
+                          <image
+                            height="5.294117647058824"
+                            preserveAspectRatio="none"
+                            width="5.294117647058824"
+                            x="13.852941176470587"
+                            xlink:href="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                            y="13.852941176470587"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      class="ant-web3-connect-modal-qr-code-tips"
+                    >
+                      Don't have 
+                      测试钱包
+                      ?
+                      <button
+                        class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-default ant-web3-connect-modal-get-wallet-btn"
+                        type="button"
+                      >
+                        <span>
+                          GET
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+            tabindex="0"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ConnectModal with guide > panel route change 2`] = `
+<body>
+  <div />
+  <div>
+    <div
+      class="ant-modal-root css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal-root"
+    >
+      <div
+        class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
+      />
+      <div
+        class="ant-modal-wrap"
+        tabindex="-1"
+      >
+        <div
+          aria-modal="true"
+          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal css-dev-only-do-not-override-1ck3jst ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          role="dialog"
+          style="width: 737px;"
+        >
+          <div
+            aria-hidden="true"
+            style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+            tabindex="0"
+          />
+          <div
+            class="ant-modal-content"
+          >
+            <button
+              aria-label="Close"
+              class="ant-modal-close"
+              type="button"
+            >
+              <span
+                class="ant-modal-close-x"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+            <div
+              class="ant-modal-body"
+            >
+              <div
+                class="ant-web3-connect-modal-body"
+              >
+                <div
+                  class="ant-web3-connect-modal-list-panel"
+                >
+                  <div
+                    class="ant-web3-connect-modal-header"
+                  >
+                    <h2
+                      class="ant-web3-connect-modal-title"
+                    >
+                      ConnectModal
+                    </h2>
+                  </div>
+                  <div
+                    class="ant-web3-connect-modal-list-container"
+                  >
+                    <div
+                      class="ant-web3-connect-modal-wallet-list"
+                    >
+                      <div
+                        class="ant-web3-connect-modal-group"
+                      >
+                        <div
+                          class="ant-web3-connect-modal-group-title"
+                        >
+                          Default
+                        </div>
+                        <div
+                          class="ant-web3-connect-modal-group-content"
+                        >
+                          <div
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                          >
+                            <div
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                            >
+                              <div
+                                class="ant-spin-container"
+                              >
+                                <ul
+                                  class="ant-list-items"
+                                >
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <img
+                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                          />
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包2
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包4
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包5
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包6
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <span
+                                            class="ant-avatar-string"
+                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
+                                          >
+                                            测
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包6
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-web3-connect-modal-group"
+                      >
+                        <div
+                          class="ant-web3-connect-modal-group-title"
+                        >
+                          Popular
+                        </div>
+                        <div
+                          class="ant-web3-connect-modal-group-content"
+                        >
+                          <div
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                          >
+                            <div
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                            >
+                              <div
+                                class="ant-spin-container"
+                              >
+                                <ul
+                                  class="ant-list-items"
+                                >
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item selected"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <img
+                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                          />
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
+                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                                        >
+                                          <img
+                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                          />
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包3
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-web3-connect-modal-footer"
+                  >
+                    蚂蚁链提供技术支持
+                  </div>
+                </div>
+                <div
+                  class="ant-web3-connect-modal-main-panel"
+                >
+                  <div
+                    class="ant-web3-connect-modal-qr-code-container"
+                  >
+                    <div
+                      class="ant-web3-connect-modal-main-panel-header"
+                    >
+                      <div
+                        class="ant-web3-connect-modal-main-panel-header-back"
+                      >
+                        <span
+                          aria-label="left"
+                          class="anticon anticon-left"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="left"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                      <div
+                        class="ant-web3-connect-modal-main-panel-header-title"
+                      >
+                        Scan with 测试钱包
+                      </div>
+                    </div>
+                    <div
+                      class="ant-web3-connect-modal-qr-code-box"
+                    >
+                      <div
+                        class="ant-qrcode ant-web3-connect-modal-qr-code css-dev-only-do-not-override-1ck3jst"
+                        style="width: 400px; height: 400px; background-color: transparent;"
+                      >
+                        <div
+                          class="ant-qrcode-mask"
+                        >
+                          <div
+                            aria-busy="true"
+                            aria-live="polite"
+                            class="ant-spin ant-spin-spinning css-dev-only-do-not-override-1ck3jst"
+                          >
+                            <span
+                              class="ant-spin-dot ant-spin-dot-spin"
+                            >
+                              <i
+                                class="ant-spin-dot-item"
+                              />
+                              <i
+                                class="ant-spin-dot-item"
+                              />
+                              <i
+                                class="ant-spin-dot-item"
+                              />
+                              <i
+                                class="ant-spin-dot-item"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                        <svg
+                          height="374"
+                          viewBox="0 0 33 33"
+                          width="374"
+                        >
+                          <path
+                            d="M0,0 h33v33H0z"
+                            fill="transparent"
+                            shape-rendering="crispEdges"
+                          />
+                          <path
+                            d="M0 0h7v1H0zM9 0h1v1H9zM12 0h3v1H12zM17 0h1v1H17zM21 0h1v1H21zM23 0h1v1H23zM26,0 h7v1H26zM0 1h1v1H0zM6 1h1v1H6zM13 1h1v1H13zM16 1h2v1H16zM19 1h1v1H19zM24 1h1v1H24zM26 1h1v1H26zM32,1 h1v1H32zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM8 2h1v1H8zM13 2h1v1H13zM15 2h1v1H15zM21 2h1v1H21zM23 2h2v1H23zM26 2h1v1H26zM28 2h3v1H28zM32,2 h1v1H32zM0 3h1v1H0zM2 3h3v1H2zM6 3h1v1H6zM9 3h3v1H9zM14 3h6v1H14zM23 3h1v1H23zM26 3h1v1H26zM28 3h3v1H28zM32,3 h1v1H32zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM8 4h3v1H8zM18 4h3v1H18zM23 4h1v1H23zM26 4h1v1H26zM28 4h3v1H28zM32,4 h1v1H32zM0 5h1v1H0zM6 5h1v1H6zM8 5h1v1H8zM11 5h2v1H11zM15 5h2v1H15zM19 5h1v1H19zM22 5h1v1H22zM26 5h1v1H26zM32,5 h1v1H32zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18 6h1v1H18zM20 6h1v1H20zM22 6h1v1H22zM24 6h1v1H24zM26,6 h7v1H26zM9 7h1v1H9zM12 7h2v1H12zM15 7h3v1H15zM19 7h1v1H19zM21 7h1v1H21zM1 8h1v1H1zM4 8h1v1H4zM6 8h1v1H6zM8 8h2v1H8zM12 8h1v1H12zM15 8h3v1H15zM19 8h4v1H19zM24 8h2v1H24zM27 8h2v1H27zM30 8h1v1H30zM1 9h1v1H1zM3 9h1v1H3zM7 9h2v1H7zM18 9h1v1H18zM22 9h2v1H22zM25 9h1v1H25zM29 9h3v1H29zM0 10h1v1H0zM2 10h3v1H2zM6 10h4v1H6zM11 10h5v1H11zM17 10h1v1H17zM20 10h1v1H20zM23 10h4v1H23zM29 10h1v1H29zM0 11h1v1H0zM2 11h1v1H2zM5 11h1v1H5zM11 11h1v1H11zM14 11h1v1H14zM16 11h6v1H16zM23 11h2v1H23zM26 11h1v1H26zM32,11 h1v1H32zM0 12h1v1H0zM2 12h2v1H2zM6 12h1v1H6zM8 12h1v1H8zM10 12h1v1H10zM12 12h1v1H12zM15 12h2v1H15zM18 12h2v1H18zM21 12h3v1H21zM26 12h1v1H26zM28 12h2v1H28zM31,12 h2v1H31zM3 13h1v1H3zM5 13h1v1H5zM7 13h1v1H7zM9 13h1v1H9zM11 13h1v1H11zM20 13h1v1H20zM23 13h1v1H23zM27 13h1v1H27zM29 13h1v1H29zM0 14h3v1H0zM6 14h3v1H6zM11 14h1v1H11zM22 14h5v1H22zM28 14h4v1H28zM0 15h6v1H0zM7 15h4v1H7zM21 15h1v1H21zM23 15h6v1H23zM0 16h2v1H0zM3 16h1v1H3zM6 16h1v1H6zM8 16h2v1H8zM12 16h1v1H12zM20 16h3v1H20zM24 16h1v1H24zM26 16h1v1H26zM28 16h1v1H28zM31 16h1v1H31zM0 17h1v1H0zM3 17h1v1H3zM5 17h1v1H5zM8 17h1v1H8zM10 17h3v1H10zM21 17h1v1H21zM23 17h3v1H23zM29 17h3v1H29zM0 18h1v1H0zM2 18h2v1H2zM6 18h1v1H6zM8 18h1v1H8zM10 18h1v1H10zM12 18h1v1H12zM23 18h1v1H23zM25 18h1v1H25zM27 18h1v1H27zM29 18h1v1H29zM31 18h1v1H31zM1 19h1v1H1zM3 19h3v1H3zM7 19h1v1H7zM10 19h1v1H10zM12 19h1v1H12zM20 19h5v1H20zM27 19h1v1H27zM31 19h1v1H31zM1 20h1v1H1zM6 20h1v1H6zM8 20h4v1H8zM13 20h1v1H13zM15 20h1v1H15zM20 20h2v1H20zM24 20h3v1H24zM28 20h2v1H28zM32,20 h1v1H32zM0 21h2v1H0zM8 21h2v1H8zM12 21h1v1H12zM14 21h1v1H14zM16 21h1v1H16zM18 21h1v1H18zM21 21h1v1H21zM23 21h1v1H23zM25 21h1v1H25zM27 21h1v1H27zM31 21h1v1H31zM4 22h1v1H4zM6 22h2v1H6zM9 22h1v1H9zM12 22h1v1H12zM14 22h5v1H14zM20 22h4v1H20zM31 22h1v1H31zM3 23h2v1H3zM10 23h1v1H10zM13 23h1v1H13zM15 23h1v1H15zM18 23h1v1H18zM20 23h2v1H20zM23 23h3v1H23zM0 24h3v1H0zM4 24h6v1H4zM11 24h1v1H11zM13 24h2v1H13zM17 24h6v1H17zM24 24h5v1H24zM8 25h1v1H8zM10 25h2v1H10zM16 25h2v1H16zM20 25h2v1H20zM23 25h2v1H23zM28 25h1v1H28zM30 25h1v1H30zM0 26h7v1H0zM9 26h1v1H9zM11 26h2v1H11zM21 26h1v1H21zM24 26h1v1H24zM26 26h1v1H26zM28 26h2v1H28zM31 26h1v1H31zM0 27h1v1H0zM6 27h1v1H6zM9 27h6v1H9zM16 27h1v1H16zM18 27h4v1H18zM24 27h1v1H24zM28 27h1v1H28zM0 28h1v1H0zM2 28h3v1H2zM6 28h1v1H6zM8 28h3v1H8zM12 28h1v1H12zM16 28h2v1H16zM20 28h3v1H20zM24 28h6v1H24zM31 28h1v1H31zM0 29h1v1H0zM2 29h3v1H2zM6 29h1v1H6zM9 29h2v1H9zM15 29h1v1H15zM17 29h2v1H17zM22 29h1v1H22zM26 29h4v1H26zM31 29h1v1H31zM0 30h1v1H0zM2 30h3v1H2zM6 30h1v1H6zM10 30h3v1H10zM15 30h1v1H15zM20 30h1v1H20zM24 30h1v1H24zM26 30h3v1H26zM30 30h1v1H30zM0 31h1v1H0zM6 31h1v1H6zM8 31h1v1H8zM11 31h2v1H11zM14 31h1v1H14zM18 31h4v1H18zM23 31h4v1H23zM29 31h1v1H29zM0 32h7v1H0zM9 32h2v1H9zM12 32h1v1H12zM14 32h1v1H14zM16 32h2v1H16zM19 32h6v1H19zM26 32h1v1H26zM32,32 h1v1H32z"
+                            fill="rgba(0, 0, 0, 0.88)"
+                            shape-rendering="crispEdges"
+                          />
+                          <image
+                            height="5.294117647058824"
+                            preserveAspectRatio="none"
+                            width="5.294117647058824"
+                            x="13.852941176470587"
+                            xlink:href="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                            y="13.852941176470587"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      class="ant-web3-connect-modal-qr-code-tips"
+                    >
+                      Don't have 
+                      测试钱包
+                      ?
+                      <button
+                        class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-default ant-web3-connect-modal-get-wallet-btn"
+                        type="button"
+                      >
+                        <span>
+                          GET
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+            tabindex="0"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`ConnectModal with guide > should render in dark mode 1`] = `
 <body>
   <div />

@@ -1,7 +1,8 @@
 import { CopyOutlined } from '@ant-design/icons';
 import type { TooltipProps } from 'antd';
 import { Space, Tooltip, message, ConfigProvider } from 'antd';
-import React, { ReactNode, useContext, useMemo } from 'react';
+import type { ReactNode } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { useStyle } from './style';
 import classNames from 'classnames';
 import { writeCopyText, fillWith0x, formatAddress } from '../utils';
