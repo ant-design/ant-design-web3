@@ -2,7 +2,7 @@
 nav: Components
 group:
   title: Advanced
-  order: 3
+  order: 4
 ---
 
 # Web3ConfigProvider

@@ -2,7 +2,7 @@
 nav: 组件
 group:
   title: 展示
-  order: 2
+  order: 3
 ---
 
 # Address
