@@ -32,11 +32,11 @@ export const getBrowserLink = (
 export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
   const { icon, ellipsis, address, href, type, chain } = props;
   const filledAddress = fillAddressWith0x(address);
-  const browserLink = href || getBrowserLink(filledAddress, type, chain);
+  const browserLink = href ?? getBrowserLink(filledAddress, type, chain);
 
   return (
     <Tooltip title={filledAddress}>
-      <a href={browserLink}>{icon || <Address ellipsis={ellipsis} address={filledAddress} />}</a>
+      <a href={browserLink}>{icon ?? <Address ellipsis={ellipsis} address={filledAddress} />}</a>
     </Tooltip>
   );
 };
