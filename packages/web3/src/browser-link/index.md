@@ -24,6 +24,7 @@ a quick way to use etherscan adress.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- | --- |
 | `icon` | Optional. Icon property, can be a boolean value or a custom React node. | `boolean \| React.ReactNode` | - | - |
+| `iconOnly` | Optional. Whether to display only the icon. | `boolean` | `false` | - |
 | `ellipsis` | Optional. Whether to enable ellipsis for displaying Ethereum addresses. | `boolean` | - | - |
 | `address` | Required. Ethereum address to generate the link. | `string` | - | - |
 | `href` | Optional. Custom link target. If provided, it will override the generated link. | `string` | - | - |
