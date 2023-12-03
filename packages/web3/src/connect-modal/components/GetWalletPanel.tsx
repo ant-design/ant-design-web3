@@ -9,10 +9,12 @@ export type GetWalletPanelProps = Pick<ConnectModalProps, 'walletList'>;
 
 const GetWalletPanel: React.FC<GetWalletPanelProps> = (props) => {
   const { walletList = [] } = props;
+  const [messageApi, contextHolder] = message.useMessage();
   const { prefixCls, updateSelectedWallet, updatePanelRoute } = useContext(connectModalContext);
 
   const list = (
     <>
+      {contextHolder}
       <div className={`${prefixCls}-list`}>
         <List
           itemLayout="horizontal"
@@ -29,8 +31,7 @@ const GetWalletPanel: React.FC<GetWalletPanelProps> = (props) => {
                   onClick={() => {
                     const route = getWalletRoute(item);
                     if (route === 'unknown') {
-                      // TODO: add error message
-                      message.error('Wallet is not supported');
+                      messageApi.error('Wallet is not supported');
                       return;
                     }
                     updateSelectedWallet(item);

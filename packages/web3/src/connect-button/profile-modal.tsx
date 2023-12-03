@@ -31,37 +31,41 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-button-profile-modal');
+  const [messageApi, contextHolder] = message.useMessage();
 
   return (
-    <Modal
-      footer={
-        <div className={classNames(`${prefixCls}-footer`, __hashId__)}>
-          {address ? (
-            <Button
-              onClick={() => {
-                writeCopyText(address).then(() => {
-                  message.success('Address Copied!');
-                });
-              }}
-            >
-              Copy Address
-            </Button>
-          ) : null}
-          <Button onClick={onDisconnect}>Disconnect</Button>
-        </div>
-      }
-      width={280}
-      {...modalProps}
-      onCancel={onClose}
-      className={classNames(className, __hashId__, prefixCls)}
-      open={open}
-    >
-      <Space align="center" direction="vertical">
-        {avatar ? <Avatar {...avatar} /> : null}
-        {name ? <div className={classNames(`${prefixCls}-name`, __hashId__)}>{name}</div> : null}
-        {address ? <Address ellipsis={false} address={address} tooltip={false} /> : null}
-      </Space>
-    </Modal>
+    <>
+      {contextHolder}
+      <Modal
+        footer={
+          <div className={classNames(`${prefixCls}-footer`, __hashId__)}>
+            {address ? (
+              <Button
+                onClick={() => {
+                  writeCopyText(address).then(() => {
+                    messageApi.success('Address Copied!');
+                  });
+                }}
+              >
+                Copy Address
+              </Button>
+            ) : null}
+            <Button onClick={onDisconnect}>Disconnect</Button>
+          </div>
+        }
+        width={280}
+        {...modalProps}
+        onCancel={onClose}
+        className={classNames(className, __hashId__, prefixCls)}
+        open={open}
+      >
+        <Space align="center" direction="vertical">
+          {avatar ? <Avatar {...avatar} /> : null}
+          {name ? <div className={classNames(`${prefixCls}-name`, __hashId__)}>{name}</div> : null}
+          {address ? <Address ellipsis={false} address={address} tooltip={false} /> : null}
+        </Space>
+      </Modal>
+    </>
   );
 };
 ProfileModal.displayName = 'ProfileModal';

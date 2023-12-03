@@ -48,4 +48,13 @@ describe('BrowserLink', () => {
     expect(link).not.toBeNull();
     expect(link?.textContent).toBe(name);
   });
+  it('renders custom href correctly', () => {
+    const { baseElement } = render(
+      <BrowserLink icon={<LinkOutlined />} address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,
+    );
+
+    const link = baseElement.querySelector('a');
+    expect(link).not.toBeNull();
+    expect(baseElement.querySelector('.anticon-link')).not.toBeNull();
+  });
 });
