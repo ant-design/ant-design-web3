@@ -15,6 +15,10 @@ group: 展示
 
 <code src="./demos/complex.tsx"></code>
 
+## 自定义显示内容
+
+<code src="./demos/customName.tsx"></code>
+
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
@@ -25,3 +29,4 @@ group: 展示
 | `href` | 可选。自定义链接目标。如果提供，将覆盖生成的链接。 | `string` | - | - |
 | `type` | 可选。链接类型，是 'address'（默认）还是 'transaction'。 | `address \| transaction` | `address` | - |
 | `chain` | 可选。以太坊链标识符。默认为主网。 | `ChainIds` | `ChainIds.Mainnet` | - |
+| `name` | 可选。自定义显示名称。不传默认显示 `address` | `string` | - | - |
