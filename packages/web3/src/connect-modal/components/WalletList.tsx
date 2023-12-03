@@ -28,8 +28,11 @@ const WalletList: React.FC<WalletListProps> = (props) => {
     [dataSource, groupOrder],
   );
 
+  const [messageApi, contextHolder] = message.useMessage();
+
   return (
     <div className={`${prefixCls}-wallet-list`}>
+      {contextHolder}
       {groupKeys.map((group) => (
         <div className={`${prefixCls}-group`} key={group}>
           <div className={`${prefixCls}-group-title`}>{group}</div>
@@ -58,8 +61,7 @@ const WalletList: React.FC<WalletListProps> = (props) => {
                       updateSelectedWallet(item);
                       updatePanelRoute(route, true);
                     } else {
-                      // TODO: add error message
-                      message.error('Wallet is not supported');
+                      messageApi.error('Wallet is not supported');
                     }
                   }}
                 >

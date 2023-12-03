@@ -22,6 +22,7 @@ export interface AddressProps {
 
 export const Address: React.FC<AddressProps> = (props) => {
   const { ellipsis, address, copyable, tooltip, format = false } = props;
+  const [messageApi, contextHolder] = message.useMessage();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-address');
   const { wrapSSR, hashId } = useStyle(prefixCls);
@@ -55,24 +56,27 @@ export const Address: React.FC<AddressProps> = (props) => {
   const displayTooltip = tooltip === undefined || tooltip === true ? filledAddress : tooltip;
 
   return wrapSSR(
-    <Space className={classNames(prefixCls, hashId)}>
-      <Tooltip title={displayTooltip}>
-        <span className={`${prefixCls}-text`}>
-          {isEllipsis
-            ? `${filledAddress.slice(0, headClip)}...${filledAddress.slice(-tailClip)}`
-            : formattedAddress}
-        </span>
-      </Tooltip>
-      {copyable && (
-        <CopyOutlined
-          title="Copy Address"
-          onClick={() => {
-            writeCopyText(filledAddress).then(() => {
-              message.success('Address Copied!');
-            });
-          }}
-        />
-      )}
-    </Space>,
+    <>
+      {contextHolder}
+      <Space className={classNames(prefixCls, hashId)}>
+        <Tooltip title={displayTooltip}>
+          <span className={`${prefixCls}-text`}>
+            {isEllipsis
+              ? `${filledAddress.slice(0, headClip)}...${filledAddress.slice(-tailClip)}`
+              : formattedAddress}
+          </span>
+        </Tooltip>
+        {copyable && (
+          <CopyOutlined
+            title="Copy Address"
+            onClick={() => {
+              writeCopyText(filledAddress).then(() => {
+                messageApi.success('Address Copied!');
+              });
+            }}
+          />
+        )}
+      </Space>
+    </>,
   );
 };
