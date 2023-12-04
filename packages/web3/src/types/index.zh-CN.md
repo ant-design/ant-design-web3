@@ -55,6 +55,11 @@ order: 3
 | edition | NFT 的版本号 | `number` | - | - |
 | date | NFT 的日期 | `number` | - | - |
 | attributes | NFT 的附加属性列表。包括 `trait_type` 和 `value` 属性的对象数组 | `Array` | - | - |
-| - trait_type | 属性的类型，表示 NFT 的特征类型 | `string` | - | - |
-| - value | 属性的值，表示 NFT 的特征值 | `string` | - | - |
 | compiler | 用于创建 NFT 的编译器或工具 | `string` | - | - |
+
+### attributes
+
+| 属性       | 描述                            | 类型     | 默认值 | 版本 |
+| ---------- | ------------------------------- | -------- | ------ | ---- |
+| trait_type | 属性的类型，表示 NFT 的特征类型 | `string` | -      | -    |
+| value      | 属性的值，表示 NFT 的特征值     | `string` | -      | -    |

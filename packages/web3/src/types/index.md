@@ -55,6 +55,11 @@ This is an enum type that contains the IDs of some commonly used chains. Its val
 | edition | Version number of the NFT | `number` | - | - |
 | date | Date of the NFT | `number` | - | - |
 | attributes | List of additional attributes of the NFT, including an array of objects with trait_type and value properties. | `Array` | - | - |
-| - trait_type | The type of the attribute representing the characteristic type of the NFT. | `string` | - | - |
-| - value | The value of the attribute representing the characteristic of the NFT. | `string` | - | - |
 | compiler | Compiler or tool used to create the NFT | `string` | - | - |
+
+### attributes
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| trait_type | The type of the attribute representing the characteristic type of the NFT. | `string` | - | - |
+| value | The value of the attribute representing the characteristic of the NFT. | `string` | - | - |
