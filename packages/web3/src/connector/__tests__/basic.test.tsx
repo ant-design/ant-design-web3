@@ -143,7 +143,7 @@ describe('Connector', () => {
     expect(baseElement.querySelector('.ant-btn-loading')).toBeTruthy();
     rerender(<App />);
     expect(baseElement.querySelector('.ant-btn-loading')).toBeFalsy();
-    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button-text')!);
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button')!);
     await vi.waitFor(async () => {
       fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')!);
     });
