@@ -14,7 +14,7 @@ order: 2
 
 ## 简洁模式
 
-<code src="./demos/basic.tsx"></code>
+<code src="./demos/simple.tsx"></code>
 
 ## 暗黑模式
 
