@@ -54,10 +54,10 @@ This is an enum type that contains the IDs of some commonly used chains. Its val
 | dna | DNA or genetic encoding of the NFT | `string` | - | - |
 | edition | Version number of the NFT | `number` | - | - |
 | date | Date of the NFT | `number` | - | - |
-| attributes | List of additional attributes of the NFT, including an array of objects with trait_type and value properties. | `Array` | - | - |
+| attributes | List of additional attributes of the NFT, including an array of objects with trait_type and value properties. | `Attribute[]` | - | - |
 | compiler | Compiler or tool used to create the NFT | `string` | - | - |
 
-### attributes
+### Attribute
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
