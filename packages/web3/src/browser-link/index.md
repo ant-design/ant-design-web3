@@ -7,9 +7,9 @@ group: Display
 
 a quick way to use etherscan adress.
 
-## Simple Usage
+## Basic Usage
 
-<code src="./demos/simple.tsx"></code>
+<code src="./demos/basic.tsx"></code>
 
 ## Complex Usage
 

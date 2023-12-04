@@ -9,7 +9,7 @@ group: 展示
 
 ## 基本使用
 
-<code src="./demos/simple.tsx"></code>
+<code src="./demos/basic.tsx"></code>
 
 ## 复杂场景
 

@@ -7,9 +7,9 @@ group: Display
 
 Components used to display NFT images more conveniently and simply.
 
-## Simple Usage
+## Basic Usage
 
-<code src="./demos/simple.tsx"></code>
+<code src="./demos/basic.tsx"></code>
 
 ## Use with wagmi
 
