@@ -25,6 +25,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     profileModal = true,
     onMenuClick,
     actionsMenu = false,
+    _loading = false,
+    loading,
     ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -44,6 +46,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     size: props.size,
     type: props.type,
     ghost: props.ghost,
+    loading: loading ?? _loading,
     ...restProps,
   };
 

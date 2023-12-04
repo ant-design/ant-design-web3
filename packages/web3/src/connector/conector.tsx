@@ -41,7 +41,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       {contextHolder}
       {React.cloneElement(children as React.ReactElement<ConnectorTriggerProps>, {
         account,
-        loading,
+        _loading: loading,
         onConnectClick: () => {
           setOpen(true);
         },
