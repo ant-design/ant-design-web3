@@ -14,7 +14,7 @@ Connect wallet modal, used with ConnectButton to complete the wallet connection 
 
 ## Simple Mode
 
-<code src="./demos/basic.tsx"></code>
+<code src="./demos/simple.tsx"></code>
 
 ## Dark Mode
 
