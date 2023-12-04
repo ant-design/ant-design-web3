@@ -107,7 +107,7 @@ describe('Connector', () => {
     });
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
   });
-  it.only('should support both of Controlled and uncontrolled loading', async () => {
+  it('should support both of Controlled and uncontrolled loading', async () => {
     const App = ({ loading }: { loading?: boolean }) => {
       const [account, setAccount] = React.useState<Account | undefined>();
       return (
