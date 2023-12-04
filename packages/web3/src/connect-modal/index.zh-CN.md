@@ -6,7 +6,7 @@ order: 2
 
 # ConnectModal
 
-连接钱包弹窗，与 ConnectButton 配合使用完成钱包的链接流程。
+连接钱包弹窗，与 [ConnectButton](../connect-button/index.zh-CN.md) 配合使用完成钱包的链接流程。通常来说，你只要直接使用 [Connector](../connector/index.zh-CN.md) 组件即可。
 
 ## 基本使用
 

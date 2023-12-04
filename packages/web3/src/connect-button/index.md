@@ -6,7 +6,7 @@ order: 1
 
 # ConnectButton
 
-A Button for connect chain quickly.
+The button to connect to the blockchain wallet. Usually, you need to use it with the [Connector](../connector/index.md) component.
 
 ## Basic Usage
 

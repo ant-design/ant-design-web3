@@ -6,7 +6,7 @@ order: 1
 
 # ConnectButton
 
-快速和区块链建立连接。
+连接区块链钱包的按钮。通常来说，你需要配合 [Connector](../connector/index.zh-CN.md) 组件使用。
 
 ## 基本使用
 

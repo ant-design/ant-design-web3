@@ -8,6 +8,12 @@ order: 0
 
 # Connector
 
+`Connector` 组件整合了 [ConnectButton](../connect-button/index.zh-CN.md) 和 [ConnectModal](../connect-modal/index.zh-CN.md) 组件，提供了一个完整的连接钱包的功能的 UI。
+
+和区块链交互相关的属性通过 Connector 配置后会传递给 `ConnectButton` 和 `ConnectModal`，你也可以通过直接配置 `ConnectButton` 的属性或者通过 `modalProps` 来覆盖 `Connector` 提供的值，但是除了部分和链无关的纯 UI 的属性外，你通常并不需要这么做。
+
+另外，`Connector` 通常会配合[适配器](../../guide/adapter)使用，适配器可以帮助你快速和区块链交互，使用适配器的情况下你基本不需要配置 `Connector` 的属性。
+
 ## 基本使用
 
 <code src="./demos/basic.tsx"></code>
