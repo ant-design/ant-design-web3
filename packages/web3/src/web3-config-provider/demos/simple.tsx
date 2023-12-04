@@ -2,10 +2,10 @@ import React from 'react';
 import { Web3ConfigProvider, ConnectButton, type Account } from '@ant-design/web3';
 
 const App: React.FC = () => {
-  const [accounts, setAccounts] = React.useState<Account[]>([]);
+  const [account, setAccount] = React.useState<Account>();
   return (
     <Web3ConfigProvider
-      wallets={[
+      availableWallets={[
         {
           name: 'MetaMask',
           remark: 'Easy-to-use browser extension.',
@@ -21,16 +21,13 @@ const App: React.FC = () => {
           ],
         },
       ]}
-      requestAccounts={async () => {
-        const newAccounts = [
-          {
-            address: '0x1234567890123456789012345678901234567890',
-          },
-        ];
-        setAccounts(newAccounts);
-        return newAccounts;
+      connect={async () => {
+        const newAccount = {
+          address: '0x1234567890123456789012345678901234567890',
+        };
+        setAccount(newAccount);
       }}
-      accounts={accounts}
+      account={account}
     >
       <ConnectButton />
     </Web3ConfigProvider>

@@ -1,5 +1,4 @@
 import type { DefaultGuide } from '@ant-design/web3';
-import { WalletExtensionItem } from '@ant-design/web3-common';
 
 export const walletList = [
   {
@@ -99,19 +98,6 @@ export const walletList = [
     name: '测试钱包6',
     remark: '备注6',
     key: 7,
-    app: {
-      link: 'https://test.com/xxx',
-    },
-    extensions: [
-      {
-        key: 'Chrome',
-        link: 'https://test.com/xxx',
-        browserIcon:
-          'https://github.com/ant-design/ant-design/assets/10286961/0d4e4ac7-8f89-4147-a06a-de72c02e85cb',
-        browserName: 'Chrome',
-        description: 'Access your wallet right from your favorite web browser.',
-      },
-    ],
   },
 ];
 
@@ -151,18 +137,3 @@ export const guide: DefaultGuide = {
   ],
   moreLink: 'https://test.com/xxx',
 };
-
-export const browsers: Record<WalletExtensionItem['key'], string> = {
-  Chrome: 'chrome',
-  Edge: 'edge',
-  Firefox: 'firefox',
-  Safari: 'safari',
-};
-
-export function mockBrowser(browser: WalletExtensionItem['key']) {
-  Object.defineProperty(window, 'navigator', {
-    value: {
-      userAgent: browsers[browser],
-    },
-  });
-}

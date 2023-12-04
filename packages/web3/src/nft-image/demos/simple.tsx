@@ -18,7 +18,7 @@ const provider = createProvider({
 const App: React.FC = () => {
   return (
     <EthereumProvider provider={provider}>
-      <NFTImage address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={42} />
+      <NFTImage address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={42} width={200} />
     </EthereumProvider>
   );
 };

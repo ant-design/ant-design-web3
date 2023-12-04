@@ -34,29 +34,29 @@ describe('Connector', () => {
     const onConnectCallTest = vi.fn();
     const onDisconnected = vi.fn();
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
-      const { address, connected, onConnectClick, onDisconnectClick, children } = props;
+      const { account, onConnectClick, onDisconnectClick, children } = props;
       return (
         <Button
           onClick={() => {
-            if (connected) {
+            if (account) {
               onDisconnectClick?.();
             } else {
               onConnectClick?.();
             }
           }}
         >
-          {address ?? children}
+          {account?.address ?? children}
         </Button>
       );
     };
     const onConnected = vi.fn();
 
     const App = () => {
-      const [accounts, setAccounts] = React.useState<Account[]>();
+      const [account, setAccount] = React.useState<Account | undefined>();
       return (
         <Connector
-          accounts={accounts}
-          wallets={[
+          account={account}
+          availableWallets={[
             {
               ...metadata_MetaMask,
               hasBrowserExtensionInstalled: async () => {
@@ -65,19 +65,16 @@ describe('Connector', () => {
             },
           ]}
           onConnect={onConnectCallTest}
-          requestAccounts={async () => {
-            return [
-              {
-                address: '0x1234567890',
-              },
-            ];
+          connect={async () => {
+            setAccount({
+              address: '0x1234567890',
+            });
           }}
           disconnect={async () => {
-            setAccounts([]);
+            setAccount(undefined);
           }}
           onDisconnected={onDisconnected}
-          onConnected={(as) => {
-            setAccounts(as);
+          onConnected={() => {
             onConnected();
           }}
         >

@@ -93,41 +93,11 @@ exports[`ProfileModal > match snapshot 1`] = `
                     <div
                       class="ant-space-item"
                     >
-                      <span>
+                      <span
+                        class="ant-web3-address-text"
+                      >
                         0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B
                       </span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="ant-space-item"
-                >
-                  <div
-                    class="ant-space css-dev-only-do-not-override-1ck3jst ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                  >
-                    <div
-                      class="ant-space-item"
-                    >
-                      <button
-                        class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-default"
-                        type="button"
-                      >
-                        <span>
-                          Copy Address
-                        </span>
-                      </button>
-                    </div>
-                    <div
-                      class="ant-space-item"
-                    >
-                      <button
-                        class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-default"
-                        type="button"
-                      >
-                        <span>
-                          Disconnect
-                        </span>
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -135,7 +105,28 @@ exports[`ProfileModal > match snapshot 1`] = `
             </div>
             <div
               class="ant-modal-footer"
-            />
+            >
+              <div
+                class="ant-web3-connect-button-profile-modal-footer hashId"
+              >
+                <button
+                  class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-default"
+                  type="button"
+                >
+                  <span>
+                    Copy Address
+                  </span>
+                </button>
+                <button
+                  class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-default"
+                  type="button"
+                >
+                  <span>
+                    Disconnect
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
           <div
             aria-hidden="true"

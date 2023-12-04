@@ -4,12 +4,14 @@ import {
   type GenerateStyle,
   type Web3AliasToken,
 } from '../../theme/useStyle';
+import { TinyColor } from '@ctrl/tinycolor';
 
 export interface ConnectButtonToken extends Web3AliasToken {
   componentCls: string;
 }
 
 const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
+  console.log('token: ', token.componentCls);
   return {
     [token.componentCls]: {
       [`${token.componentCls}-text`]: {
@@ -17,7 +19,30 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
       },
       [`${token.componentCls}-chain-select`]: {
         display: 'inline-block',
-        marginRight: 8,
+        marginRight: token.marginXS,
+      },
+    },
+
+    [`${token.componentCls}-profile-modal`]: {
+      [`${token.antCls}-modal-content`]: {
+        padding: token.padding,
+      },
+      [`&-footer`]: {
+        display: 'flex',
+        [`${token.antCls}-btn`]: {
+          flex: 1,
+        },
+      },
+    },
+    [`${token.componentCls}-tooltip`]: {
+      [`${token.componentCls}-tooltip-title`]: {
+        color: new TinyColor(token.colorWhite).setAlpha(0.65).toRgbString(),
+        fontSize: token.fontSizeSM,
+      },
+      [`${token.componentCls}-tooltip-content`]: {
+        fontSize: token.fontSizeLG,
+        color: token.colorWhite,
+        textAlign: 'justify',
       },
     },
   };

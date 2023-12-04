@@ -3,7 +3,7 @@ import { Modal, ConfigProvider, Space, Button, Avatar, message, type AvatarProps
 import classNames from 'classnames';
 import { Address } from '@ant-design/web3';
 import { writeCopyText } from '../utils';
-import { ModalProps } from 'antd/lib';
+import type { ModalProps } from 'antd';
 
 export interface ProfileModalProps {
   className?: string;
@@ -31,36 +31,41 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-button-profile-modal');
+  const [messageApi, contextHolder] = message.useMessage();
 
   return (
-    <Modal
-      footer={false}
-      width={280}
-      {...modalProps}
-      onCancel={onClose}
-      className={classNames(className, __hashId__, prefixCls)}
-      open={open}
-    >
-      <Space align="center" direction="vertical">
-        {avatar ? <Avatar {...avatar} /> : null}
-        {name ? <div className={classNames(`${prefixCls}-name`, __hashId__)}>{name}</div> : null}
-        {address ? <Address ellipsis={false} address={address} tooltip={false} /> : null}
-        <Space>
-          {address ? (
-            <Button
-              onClick={() => {
-                writeCopyText(address).then(() => {
-                  message.success('Address Copied!');
-                });
-              }}
-            >
-              Copy Address
-            </Button>
-          ) : null}
-          <Button onClick={onDisconnect}>Disconnect</Button>
+    <>
+      {contextHolder}
+      <Modal
+        footer={
+          <div className={classNames(`${prefixCls}-footer`, __hashId__)}>
+            {address ? (
+              <Button
+                onClick={() => {
+                  writeCopyText(address).then(() => {
+                    messageApi.success('Address Copied!');
+                  });
+                }}
+              >
+                Copy Address
+              </Button>
+            ) : null}
+            <Button onClick={onDisconnect}>Disconnect</Button>
+          </div>
+        }
+        width={280}
+        {...modalProps}
+        onCancel={onClose}
+        className={classNames(className, __hashId__, prefixCls)}
+        open={open}
+      >
+        <Space align="center" direction="vertical">
+          {avatar ? <Avatar {...avatar} /> : null}
+          {name ? <div className={classNames(`${prefixCls}-name`, __hashId__)}>{name}</div> : null}
+          {address ? <Address ellipsis={false} address={address} tooltip={false} /> : null}
         </Space>
-      </Space>
-    </Modal>
+      </Modal>
+    </>
   );
 };
 ProfileModal.displayName = 'ProfileModal';

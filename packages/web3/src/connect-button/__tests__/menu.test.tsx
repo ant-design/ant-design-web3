@@ -1,7 +1,7 @@
 import { ConnectButton } from '..';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { mockClipboard, waitFakeTimer } from '../../utils/test-utils';
+import { mockClipboard } from '../../utils/test-utils';
 import { readCopyText } from '../../utils';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 
@@ -34,7 +34,12 @@ describe('ConnectButton', () => {
   });
   it('Should show menu when hover button', async () => {
     const App = () => (
-      <ConnectButton address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" actionsMenu />
+      <ConnectButton
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
+        actionsMenu
+      />
     );
     const { baseElement } = render(<App />);
 
@@ -62,7 +67,12 @@ describe('ConnectButton', () => {
   });
   it('Should show menu when hover button', async () => {
     const App = () => (
-      <ConnectButton address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" actionsMenu />
+      <ConnectButton
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
+        actionsMenu
+      />
     );
     const { baseElement } = render(<App />);
 
@@ -91,7 +101,9 @@ describe('ConnectButton', () => {
     const menuClickFn = vi.fn();
     const App = () => (
       <ConnectButton
-        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
         actionsMenu={{
           extraItems: menuItems,
         }}
@@ -129,7 +141,9 @@ describe('ConnectButton', () => {
     const menuClickFn = vi.fn();
     const App = () => (
       <ConnectButton
-        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
         actionsMenu={{
           items: menuItems,
         }}

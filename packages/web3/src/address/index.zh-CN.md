@@ -1,6 +1,8 @@
 ---
 nav: 组件
-group: 组件
+group:
+  title: 展示
+  order: 3
 ---
 
 # Address
@@ -13,6 +15,10 @@ group: 组件
 
 <code src="./demos/copyable.tsx"></code>
 
+## 格式化
+
+<code src="./demos/format.tsx"></code>
+
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
@@ -21,3 +27,4 @@ group: 组件
 | copyable | 是否可复制 | `boolean` | `false` | - |
 | address | 地址 | `string` | - | - |
 | tooltip | 鼠标移入地址时展示提示 | `boolean \|` [Tooltip.title](https://ant.design/components/tooltip-cn#api) | 展示当前完整地址 | - |
+| format | 地址格式化 | `boolean \| (input: string) => ReactNode` | `false` | - |

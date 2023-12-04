@@ -4,21 +4,27 @@ import { Space } from 'antd';
 const App: React.FC = () => {
   return (
     <Space>
-      <ConnectButton address="3ea2cfd153b8d8505097b81c87c11f5d05097c18" tooltip connected />
+      <ConnectButton account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18' }} tooltip />
       <ConnectButton
-        address="3ea2cfd153b8d8505097b81c87c11f5d05097c18"
+        account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18', name: 'Custom Title' }}
         tooltip={{
           title: 'aaaaaabbbbbbcccccc',
         }}
-        connected
       />
       <ConnectButton
-        address="3ea2cfd153b8d8505097b81c87c11f5d05097c18"
+        account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18', name: 'UnCopyable' }}
         tooltip={{
           title: 'aaaaaabbbbbbcccccc',
           copyable: false,
         }}
-        connected
+      />
+      <ConnectButton
+        account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18', name: 'Default Formatter' }}
+        tooltip={{ format: true }}
+      />
+      <ConnectButton
+        account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18', name: 'Custom Formatter' }}
+        tooltip={{ format: (address) => address.slice(0, 10) }}
       />
     </Space>
   );

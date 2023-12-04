@@ -1,8 +1,7 @@
 ---
 nav: Components
-group:
-  title: Components
-  order: 2
+group: Connect
+order: 1
 ---
 
 # ConnectButton
@@ -37,9 +36,7 @@ A Button for connect chain quickly.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| connected | Whether connected | `boolean` | - | - |
-| address | Address | `string` | - | - |
-| name | Name, like ENS | `string` | - | - |
+| account | Current connected account | `Account` | - | - |
 | tooltip | Show tooltip when mouse enter address | `boolean \|` [ConnectButtonTooltipProps](#connectbuttontooltipprops) | `true`, will display address by default | - |
 | actionsMenu | Config menu items | `boolean \|` [ActionsMenu](#actionsmenu) | - | - |
 | profileModal | Config profile modal | `boolean \|` [ProfileModal](#profilemodal) | - | - |
@@ -51,6 +48,7 @@ A Button for connect chain quickly.
 export type ConnectButtonTooltipProps = TooltipProps & {
   copyable?: boolean; // Whether to copy
   title?: boolean | string | React.ReactNode; // Show content
+  format?: boolean | (address: string) => React.ReactNode; // Format content
 };
 ```
 

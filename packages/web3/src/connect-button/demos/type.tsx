@@ -6,12 +6,19 @@ const App: React.FC = () => {
     <Space>
       <ConnectButton
         type="primary"
-        address="3ea2cfd153b8d8505097b81c87c11f5d05097c18"
+        account={{
+          address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18',
+        }}
         tooltip
-        connected
       />
-      <ConnectButton type="dashed" address="3ea2cfd153b8d8505097b81c87c11f5d05097c18" connected />
-      <ConnectButton type="link" address="3ea2cfd153b8d8505097b81c87c11f5d05097c18" connected />
+      <ConnectButton
+        type="dashed"
+        account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18' }}
+      />
+      <ConnectButton
+        type="link"
+        account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18' }}
+      />
     </Space>
   );
 };

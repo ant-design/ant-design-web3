@@ -1,6 +1,7 @@
 ---
 nav: 组件
-group: 组件
+group: 连接
+order: 1
 ---
 
 # ConnectButton
@@ -35,9 +36,7 @@ group: 组件
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| connected | 是否已连接 | `boolean` | - | - |
-| address | 地址 | `string` | - | - |
-| name | 名称，比如以太坊的 ENS | `string` | - | - |
+| account | 当前连接账号 | `Account` | - | - |
 | tooltip | 鼠标移入地址时展示提示 | `boolean \|` [ConnectButtonTooltipProps](#connectbuttontooltipprops) | `true`，默认显示 address 信息 | - |
 | actionsMenu | 配置菜单项 | `boolean \|` [ActionsMenu](#actionsmenu) | - | - |
 | profileModal | 配置信息弹框 | `boolean \|` [ProfileModal](#profilemodal) | - | - |
@@ -49,6 +48,7 @@ group: 组件
 export type ConnectButtonTooltipProps = TooltipProps & {
   copyable?: boolean; // 是否可复制
   title?: boolean | string | React.ReactNode; // 展示内容
+  format?: boolean | (address: string) => React.ReactNode; // 格式化展示内容
 };
 ```
 

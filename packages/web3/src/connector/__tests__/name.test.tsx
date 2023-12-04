@@ -7,31 +7,29 @@ import { it, describe, expect } from 'vitest';
 describe('Connector', () => {
   it('name', async () => {
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
-      const { name, address, connected, onConnectClick, onDisconnectClick, children } = props;
+      const { account, onConnectClick, onDisconnectClick, children } = props;
       return (
         <Button
           onClick={() => {
-            if (connected) {
+            if (account) {
               onDisconnectClick?.();
             } else {
               onConnectClick?.();
             }
           }}
         >
-          {(name || address) ?? children}
+          {(account?.name || account?.address) ?? children}
         </Button>
       );
     };
 
     const App = () => {
-      const [accounts] = React.useState<Account[]>([
-        {
-          address: '0x1234567890',
-          name: 'wanderingearth.eth',
-        },
-      ]);
+      const [account] = React.useState<Account>({
+        address: '0x1234567890',
+        name: 'wanderingearth.eth',
+      });
       return (
-        <Connector accounts={accounts}>
+        <Connector account={account}>
           <CustomButton>children</CustomButton>
         </Connector>
       );

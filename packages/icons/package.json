@@ -15,7 +15,7 @@
     "README.md"
   ],
   "scripts": {
-    "dev": "father dev",
+    "dev": "FATHER_CACHE=none father dev",
     "build": "father build"
   },
   "devDependencies": {

@@ -1,10 +1,11 @@
 import { CopyOutlined } from '@ant-design/icons';
 import type { TooltipProps } from 'antd';
 import { Space, Tooltip, message, ConfigProvider } from 'antd';
-import React, { useContext } from 'react';
+import type { ReactNode } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { useStyle } from './style';
 import classNames from 'classnames';
-import { writeCopyText, fillWith0x } from '../utils';
+import { writeCopyText, fillWith0x, formatAddress } from '../utils';
 
 export interface AddressProps {
   ellipsis?:
@@ -16,13 +17,25 @@ export interface AddressProps {
   address?: string;
   copyable?: boolean;
   tooltip?: boolean | TooltipProps['title'];
+  format?: boolean | ((address: string) => ReactNode);
 }
 
 export const Address: React.FC<AddressProps> = (props) => {
-  const { ellipsis, address, copyable, tooltip } = props;
+  const { ellipsis, address, copyable, tooltip, format = false } = props;
+  const [messageApi, contextHolder] = message.useMessage();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-address');
   const { wrapSSR, hashId } = useStyle(prefixCls);
+
+  const mergedFormat = useMemo(() => {
+    if (typeof format === 'function') {
+      return format;
+    }
+    if (format) {
+      return formatAddress;
+    }
+    return (input: string) => input;
+  }, [format]);
 
   const isEllipsis = !!ellipsis;
   const { headClip = 6, tailClip = 4 } =
@@ -38,25 +51,32 @@ export const Address: React.FC<AddressProps> = (props) => {
   }
 
   const filledAddress = fillWith0x(address);
+
+  const formattedAddress = mergedFormat(filledAddress);
   const displayTooltip = tooltip === undefined || tooltip === true ? filledAddress : tooltip;
 
   return wrapSSR(
-    <Space className={classNames(prefixCls, hashId)}>
-      <Tooltip title={displayTooltip}>
-        {isEllipsis
-          ? `${filledAddress.slice(0, headClip)}...${filledAddress.slice(-tailClip)}`
-          : filledAddress}
-      </Tooltip>
-      {copyable && (
-        <CopyOutlined
-          title="Copy Address"
-          onClick={() => {
-            writeCopyText(filledAddress).then(() => {
-              message.success('Address Copied!');
-            });
-          }}
-        />
-      )}
-    </Space>,
+    <>
+      {contextHolder}
+      <Space className={classNames(prefixCls, hashId)}>
+        <Tooltip title={displayTooltip}>
+          <span className={`${prefixCls}-text`}>
+            {isEllipsis
+              ? `${filledAddress.slice(0, headClip)}...${filledAddress.slice(-tailClip)}`
+              : formattedAddress}
+          </span>
+        </Tooltip>
+        {copyable && (
+          <CopyOutlined
+            title="Copy Address"
+            onClick={() => {
+              writeCopyText(filledAddress).then(() => {
+                messageApi.success('Address Copied!');
+              });
+            }}
+          />
+        )}
+      </Space>
+    </>,
   );
 };

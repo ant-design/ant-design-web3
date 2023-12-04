@@ -22,26 +22,30 @@ const App: React.FC = () => {
   return (
     <Space>
       <ConnectButton
-        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
-        name="No menu by default"
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+          name: 'No menu by default',
+        }}
         avatar={{
           src: 'https://metamask.io/images/metamask-logo.png',
         }}
         onMenuClick={(item) => console.log('onMenuClick', item)}
-        connected
       />
       <ConnectButton
-        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
-        name="Display default menu"
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+          name: 'Display default menu',
+        }}
         avatar={{
           src: 'https://metamask.io/images/metamask-logo.png',
         }}
         actionsMenu
-        connected
       />
       <ConnectButton
-        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
-        name="Insert menu items before default items"
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+          name: 'Insert menu items before default items',
+        }}
         avatar={{
           src: 'https://metamask.io/images/metamask-logo.png',
         }}
@@ -49,11 +53,12 @@ const App: React.FC = () => {
         actionsMenu={{
           extraItems: menuItems,
         }}
-        connected
       />
       <ConnectButton
-        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
-        name="Override menu items"
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+          name: 'Override menu items',
+        }}
         avatar={{
           src: 'https://metamask.io/images/metamask-logo.png',
         }}
@@ -61,7 +66,6 @@ const App: React.FC = () => {
         actionsMenu={{
           items: menuItems,
         }}
-        connected
       />
     </Space>
   );

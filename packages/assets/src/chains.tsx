@@ -1,51 +1,51 @@
 import { type Chain, ChainIds } from '@ant-design/web3-common';
 
 import {
-  EthereumFilled,
-  OptimismFilled,
-  BSCFilled,
-  ArbitrumFilled,
-  PolygonFilled,
+  EthereumColorful,
+  OptimismColorful,
+  BSCColorful,
+  ArbitrumColorful,
+  PolygonColorful,
 } from '@ant-design/web3-icons';
 
 export const Mainnet: Chain = {
   id: ChainIds.Mainnet,
   name: 'Ethereum',
-  icon: <EthereumFilled />,
+  icon: <EthereumColorful />,
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
 };
 
 export const Goerli: Chain = {
   id: ChainIds.Goerli,
   name: 'Goerli',
-  icon: <EthereumFilled />,
+  icon: <EthereumColorful />,
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
 };
 
 export const Polygon: Chain = {
   id: ChainIds.Polygon,
   name: 'Polygon',
-  icon: <PolygonFilled />,
+  icon: <PolygonColorful />,
   nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },
 };
 
 export const BSC: Chain = {
   id: ChainIds.BSC,
   name: 'BNB Smart Chain',
-  icon: <BSCFilled />,
+  icon: <BSCColorful />,
   nativeCurrency: { decimals: 18, name: 'BNB', symbol: 'BNB' },
 };
 
 export const Arbitrum: Chain = {
   id: ChainIds.Arbitrum,
   name: 'Arbitrum One',
-  icon: <ArbitrumFilled />,
+  icon: <ArbitrumColorful />,
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
 };
 
 export const Optimism: Chain = {
   id: ChainIds.Optimism,
   name: 'OP Mainnet',
-  icon: <OptimismFilled />,
+  icon: <OptimismColorful />,
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
 };

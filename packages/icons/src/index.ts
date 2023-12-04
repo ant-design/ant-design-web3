@@ -1,13 +1,12 @@
-export * from './components/arbitrum-filled';
+export * from './components/arbitrum-colorful';
+export * from './components/bitcoin-colorful';
 export * from './components/bitcoin-filled';
-export * from './components/bitcoin';
-export * from './components/bsc-filled';
+export * from './components/bsc-colorful';
+export * from './components/ethereum-colorful';
 export * from './components/ethereum-filled';
-export * from './components/ethereum';
-export * from './components/optimism-filled';
-export * from './components/polygon-filled';
-export * from './components/usdt';
-export * from './components/wallet';
-
-// FIXME: alias for development
-export { Wallet as WalletWhite } from './components/wallet';
+export * from './components/optimism-colorful';
+export * from './components/polygon-colorful';
+export * from './components/usdt-filled';
+export * from './components/wallet-filled';
+export * from './components/etherscan-colorful';
+export * from './components/metamask-colorful';

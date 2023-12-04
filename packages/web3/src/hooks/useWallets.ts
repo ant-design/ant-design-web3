@@ -1,9 +1,9 @@
 import useProvider from './useProvider';
 
 export default function useWallets() {
-  const { wallets = [] } = useProvider();
+  const { availableWallets = [] } = useProvider();
 
   return {
-    wallets,
+    wallets: availableWallets,
   };
 }

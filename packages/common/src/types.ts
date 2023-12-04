@@ -38,13 +38,15 @@ export interface NFTMetadata {
 }
 
 export interface UniversalWeb3ProviderInterface {
-  accounts?: Account[];
-  wallets?: Wallet[];
-  chains?: Chain[];
-  currentChain?: Chain;
+  // current connected account
+  account?: Account;
+  // current connected chain
+  chain?: Chain;
 
-  // connect and return conneted accounts
-  requestAccounts?: (wallet?: string) => Promise<Account[]>;
+  availableWallets?: Wallet[];
+  availableChains?: Chain[];
+
+  connect?: (wallet?: Wallet) => Promise<void>;
   disconnect?: () => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;
 
@@ -141,14 +143,12 @@ export type Banlance = {
 };
 
 export interface ConnectorTriggerProps {
-  address?: string;
+  account?: Account;
   loading?: boolean;
   onConnectClick?: () => void;
   onDisconnectClick?: () => Promise<void>;
   onSwitchChain?: (chain: Chain) => Promise<void>;
-  name?: string;
-  connected?: boolean;
-  chains?: Chain[];
-  currentChain?: Chain;
+  availableChains?: Chain[];
+  chain?: Chain;
   banlance?: Banlance[] | Banlance;
 }

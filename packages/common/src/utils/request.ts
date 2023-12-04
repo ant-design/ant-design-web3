@@ -13,5 +13,5 @@ export async function requestWeb3Asset<T = any>(url: string): Promise<T> {
   if (!url) {
     throw new Error('URL not set');
   }
-  return fetch(getWeb3AssetUrl(url) || '').then((res) => res.json());
+  return fetch(getWeb3AssetUrl(url)!).then((res) => res.json());
 }
