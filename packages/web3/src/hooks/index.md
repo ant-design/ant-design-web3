@@ -22,16 +22,16 @@ Convenient access to NFT metadata.
 
 | Property | Description | Type |
 | --- | --- | --- |
-| `loading` | Indicate whether the NFT metadata is currently being loaded. | `boolean` |
-| `metadata` | An object containing metadata associated with the specified NFT. Defined by the NFTMetadata type in @ant-design/web3-common. | `NFTMetadata` |
-| `error` | When an error occurs during the process of fetching metadata, the error property stores the error object. | `Error` |
+| loading | Indicate whether the NFT metadata is currently being loaded. | `boolean` |
+| metadata | An object containing metadata associated with the specified NFT. Defined by the NFTMetadata type in @ant-design/web3-common. | `NFTMetadata` |
+| error | When an error occurs during the process of fetching metadata, the error property stores the error object. | `Error` |
 
 #### Params
 
-| Property  | Description                     | Type     |
-| --------- | ------------------------------- | -------- |
-| `address` | Required. NFT contract address. | `string` |
-| `tokenId` | Required. NFT token ID.         | `bigint` |
+| Property | Description                     | Type               |
+| -------- | ------------------------------- | ------------------ |
+| address  | Required. NFT contract address. | `string`           |
+| tokenId  | Required. NFT token ID.         | `bigint \| number` |
 
 ## useAccount
 

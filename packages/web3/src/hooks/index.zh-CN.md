@@ -22,16 +22,16 @@ order: 2
 
 | 参数 | 描述 | 类型 |
 | --- | --- | --- |
-| `loading` | 表示当前是否正在加载 NFT 元数据。 | `boolean` |
-| `metadata` | 包含与指定 NFT 关联的元数据的对象。由 @ant-design/web3-common 中的 NFTMetadata 类型定义。 | `NFTMetadata` |
-| `error` | 在获取元数据过程中发生错误的时候，error 属性保存错误对象。 | `Error` |
+| loading | 表示当前是否正在加载 NFT 元数据。 | `boolean` |
+| metadata | 包含与指定 NFT 关联的元数据的对象。由 @ant-design/web3-common 中的 NFTMetadata 类型定义。 | `NFTMetadata` |
+| error | 在获取元数据过程中发生错误的时候，error 属性保存错误对象。 | `Error` |
 
 #### Params
 
-| 参数      | 描述                 | 类型     |
-| --------- | -------------------- | -------- |
-| `address` | 必需。NFT 合约地址。 | `string` |
-| `tokenId` | 必需。NFT 令牌 ID。  | `bigint` |
+| 参数    | 描述                 | 类型               |
+| ------- | -------------------- | ------------------ |
+| address | 必需。NFT 合约地址。 | `string`           |
+| tokenId | 必需。NFT 令牌 ID。  | `bigint \| number` |
 
 ## useAccount
 
