@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import type { NFTMetadata } from '@ant-design/web3-common';
 import useProvider from './useProvider';
 
-export default function useNFT(address: string, tokenId: bigint | number) {
+export default function useNFT(address: string, tokenId: bigint) {
   const [metadata, setMetadata] = useState<NFTMetadata>({});
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error>();
@@ -13,7 +13,7 @@ export default function useNFT(address: string, tokenId: bigint | number) {
       setLoading(true);
       getNFTMetadata({
         address,
-        tokenId,
+        tokenId: BigInt(tokenId),
       })
         .then((data) => {
           setMetadata(data);

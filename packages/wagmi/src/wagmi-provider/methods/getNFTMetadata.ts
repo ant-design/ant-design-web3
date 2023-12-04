@@ -3,7 +3,7 @@ import { readContract } from '@wagmi/core';
 
 export async function getNFTMetadata(
   address: string,
-  tokenId: bigint | number,
+  tokenId: bigint,
   chainId?: number,
 ): Promise<NFTMetadata> {
   const tokenURI = await readContract({
