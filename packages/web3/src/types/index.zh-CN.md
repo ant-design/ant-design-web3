@@ -46,15 +46,15 @@ order: 3
 
 ## NFTMetadata
 
-| 属性                               | 描述                        | 类型     | 默认值 | 版本 |
-| ---------------------------------- | --------------------------- | -------- | ------ | ---- |
-| name                               | NFT 的名称                  | `string` | -      | -    |
-| description                        | NFT 的描述                  | `string` | -      | -    |
-| image                              | NFT 的图像链接              | `string` | -      | -    |
-| dna                                | NFT 的 DNA 或基因编码       | `string` | -      | -    |
-| edition                            | NFT 的版本号                | `number` | -      | -    |
-| date                               | NFT 的日期                  | `number` | -      | -    |
-| **attributes**                     | NFT 的附加属性列表          | `Array`  | -      | -    |
-| &nbsp;&nbsp;&nbsp;&nbsp;trait_type | 属性类型                    | `string` | -      | -    |
-| &nbsp;&nbsp;&nbsp;&nbsp;value      | 属性值                      | `string` | -      | -    |
-| compiler                           | 用于创建 NFT 的编译器或工具 | `string` | -      | -    |
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| name | NFT 的名称 | `string` | - | - |
+| description | NFT 的描述 | `string` | - | - |
+| image | NFT 的图像链接 | `string` | - | - |
+| dna | NFT 的 DNA 或基因编码 | `string` | - | - |
+| edition | NFT 的版本号 | `number` | - | - |
+| date | NFT 的日期 | `number` | - | - |
+| attributes | NFT 的附加属性列表。包括 `trait_type` 和 `value` 属性的对象数组 | `Array` | - | - |
+| - trait_type | 属性的类型，表示 NFT 的特征类型 | `string` | - | - |
+| - value | 属性的值，表示 NFT 的特征值 | `string` | - | - |
+| compiler | 用于创建 NFT 的编译器或工具 | `string` | - | - |
