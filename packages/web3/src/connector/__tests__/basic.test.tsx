@@ -1,4 +1,9 @@
-import { Connector, type ConnectorTriggerProps, type Account } from '@ant-design/web3';
+import {
+  Connector,
+  type ConnectorTriggerProps,
+  type Account,
+  ConnectButton,
+} from '@ant-design/web3';
 import { metadata_MetaMask } from '@ant-design/web3-assets';
 import React from 'react';
 import { Button } from 'antd';
@@ -101,5 +106,82 @@ describe('Connector', () => {
       expect(onDisconnected).toBeCalled();
     });
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
+  });
+  it('should support controlled  loading', async () => {
+    const App = () => {
+      const [account, setAccount] = React.useState<Account | undefined>();
+      return (
+        <Connector
+          account={account}
+          availableWallets={[
+            {
+              ...metadata_MetaMask,
+              hasBrowserExtensionInstalled: async () => {
+                return true;
+              },
+            },
+          ]}
+          connect={async () =>
+            new Promise((resolve) =>
+              setTimeout(() => {
+                setAccount({
+                  address: '0x1234567890',
+                });
+                resolve();
+              }, 1000),
+            )
+          }
+          disconnect={async () => {
+            setAccount(undefined);
+          }}
+        >
+          <ConnectButton loading>children</ConnectButton>
+        </Connector>
+      );
+    };
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.anticon-loading')).toBeTruthy();
+  });
+  it('should support both of uncontrolled loading', async () => {
+    const App = () => {
+      const [account, setAccount] = React.useState<Account | undefined>();
+      return (
+        <Connector
+          account={account}
+          availableWallets={[
+            {
+              ...metadata_MetaMask,
+              hasBrowserExtensionInstalled: async () => {
+                return true;
+              },
+            },
+          ]}
+          connect={async () =>
+            new Promise((resolve) =>
+              setTimeout(() => {
+                setAccount({
+                  address: '0x1234567890',
+                });
+                resolve();
+              }, 1000),
+            )
+          }
+          disconnect={async () => {
+            setAccount(undefined);
+          }}
+        >
+          <ConnectButton>children</ConnectButton>
+        </Connector>
+      );
+    };
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.anticon-loading')).toBeFalsy();
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button')!);
+    await vi.waitFor(async () => {
+      fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')!);
+    });
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.anticon-loading')).toBeTruthy();
+    });
   });
 });

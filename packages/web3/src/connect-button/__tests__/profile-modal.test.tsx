@@ -39,9 +39,9 @@ describe('ProfileModal', () => {
       />
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.ant-web3-connect-button-text')).not.toBeNull();
+    expect(baseElement.querySelector('.ant-web3-connect-button')).not.toBeNull();
 
-    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button-text')!);
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button')!);
 
     await vi.waitFor(() => {
       expect(
@@ -79,7 +79,7 @@ describe('ProfileModal', () => {
       />
     );
     const { baseElement } = render(<App />);
-    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button-text')!);
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button')!);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-web3-connect-button-profile-modal')).toBeNull();
     });
@@ -98,7 +98,7 @@ describe('ProfileModal', () => {
       />
     );
     const { baseElement } = render(<App />);
-    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button-text')!);
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button')!);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-web3-connect-button-profile-modal')).not.toBeNull();
       expect(

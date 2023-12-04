@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { isValidElement } from 'react';
 import { ConnectModal } from '@ant-design/web3';
 import type { Wallet, ConnectorTriggerProps, Chain } from '@ant-design/web3-common';
 import { message } from 'antd';
@@ -41,7 +41,6 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       {contextHolder}
       {React.cloneElement(children as React.ReactElement<ConnectorTriggerProps>, {
         account,
-        loading,
         onConnectClick: () => {
           setOpen(true);
         },
@@ -58,6 +57,8 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
           await switchChain?.(c);
           onChainSwitched?.(c);
         },
+        loading,
+        ...(isValidElement(children) ? children.props : {}),
       })}
 
       <ConnectModal

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Dropdown, Space, ConfigProvider, Divider } from 'antd';
+import { Dropdown, Space, ConfigProvider, Divider, Button } from 'antd';
 import type { Chain } from '@ant-design/web3-common';
 import classNames from 'classnames';
 import { DownOutlined } from '@ant-design/icons';
@@ -25,29 +25,30 @@ export const ChainSelect: React.FC<ChainSelectProps> = ({
   const prefixCls = getPrefixCls('web3-connect-button-chain-select');
 
   return (
-    <Dropdown
-      className={classNames(className, hashId, prefixCls)}
-      menu={{
-        items: chains.map((chain) => ({
-          key: chain.id,
-          label: chain.name,
-          icon: chain.icon,
-          onClick: () => {
-            onSwitchChain?.(chain);
-          },
-        })),
-      }}
-      trigger={['click']}
-    >
-      <div style={style}>
-        <Space>
-          {currentChain?.icon}
-          {currentChain?.name}
-          <DownOutlined />
-          <Divider type="vertical" />
-        </Space>
-      </div>
-    </Dropdown>
+    <Button>
+      <Dropdown
+        className={classNames(className, hashId, prefixCls)}
+        menu={{
+          items: chains.map((chain) => ({
+            key: chain.id,
+            label: chain.name,
+            icon: chain.icon,
+            onClick: () => {
+              onSwitchChain?.(chain);
+            },
+          })),
+        }}
+        trigger={['click']}
+      >
+        <div style={style}>
+          <Space>
+            {currentChain?.icon}
+            {currentChain?.name}
+            <DownOutlined />
+          </Space>
+        </div>
+      </Dropdown>
+    </Button>
   );
 };
 ChainSelect.displayName = 'ChainSelect';

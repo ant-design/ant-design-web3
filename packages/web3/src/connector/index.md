@@ -8,6 +8,10 @@ order: 0
 
 # Connector
 
+## Basic Usage
+
+<code src="./demos/basic.tsx"></code>
+
 ## API
 
 ### ConnectorProps

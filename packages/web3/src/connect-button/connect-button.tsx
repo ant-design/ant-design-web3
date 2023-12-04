@@ -1,6 +1,6 @@
 import React, { useContext, useMemo, useState } from 'react';
 import type { ButtonProps } from 'antd';
-import { Button, ConfigProvider, Dropdown, message } from 'antd';
+import { Button, ConfigProvider, Dropdown, Space, message } from 'antd';
 import classNames from 'classnames';
 import { Address } from '../address';
 import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
@@ -25,6 +25,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     profileModal = true,
     onMenuClick,
     actionsMenu = false,
+    loading,
+    onClick,
     ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -44,6 +46,16 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     size: props.size,
     type: props.type,
     ghost: props.ghost,
+    loading,
+    onClick: (e) => {
+      setShowMenu(false);
+      if (account && !profileOpen && profileModal) {
+        setProfileOpen(true);
+      } else {
+        onConnectClick?.();
+      }
+      onClick?.(e);
+    },
     ...restProps,
   };
 
@@ -61,43 +73,44 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     return null;
   };
 
-  let content = (
-    <Button {...buttonProps}>
-      {renderChainSelect()}
-      <ProfileModal
-        open={profileOpen}
-        __hashId__={hashId}
-        onDisconnect={() => {
-          setProfileOpen(false);
-          onDisconnectClick?.();
-        }}
-        onClose={() => {
-          setProfileOpen(false);
-        }}
-        address={account?.address}
-        name={account?.name}
-        avatar={
-          avatar ?? {
-            src: chain?.icon,
-          }
-        }
-        modalProps={typeof profileModal === 'object' ? profileModal : undefined}
-      />
-      <div
-        className={classNames(`${prefixCls}-text`, hashId)}
-        onClick={() => {
-          setShowMenu(false);
-          if (account && !profileOpen && profileModal) {
-            setProfileOpen(true);
-          } else {
-            onConnectClick?.();
-          }
-        }}
-      >
-        {buttonText}
-      </div>
-    </Button>
+  const chainSelect = renderChainSelect();
+
+  const buttonInnerText = (
+    <div className={classNames(`${prefixCls}-text`, hashId)}>{buttonText}</div>
   );
+
+  const buttonContent = chainSelect ? (
+    <Space.Compact>
+      {chainSelect}
+      <Button {...buttonProps}>{buttonInnerText}</Button>
+    </Space.Compact>
+  ) : (
+    <Button {...buttonProps}>{buttonInnerText}</Button>
+  );
+
+  const profileModalContent = (
+    <ProfileModal
+      open={profileOpen}
+      __hashId__={hashId}
+      onDisconnect={() => {
+        setProfileOpen(false);
+        onDisconnectClick?.();
+      }}
+      onClose={() => {
+        setProfileOpen(false);
+      }}
+      address={account?.address}
+      name={account?.name}
+      avatar={
+        avatar ?? {
+          src: chain?.icon,
+        }
+      }
+      modalProps={typeof profileModal === 'object' ? profileModal : undefined}
+    />
+  );
+
+  let content = buttonContent;
 
   const defaultMenuItems: MenuItemType[] = useMemo(
     () => [
@@ -142,16 +155,18 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
   if (mergedMenuItems.length > 0) {
     content = (
-      <Dropdown
-        open={showMenu}
-        onOpenChange={setShowMenu}
-        menu={{
-          items: mergedMenuItems,
-          onClick: onMenuClick,
-        }}
-      >
-        {content}
-      </Dropdown>
+      <>
+        <Dropdown
+          open={showMenu}
+          onOpenChange={setShowMenu}
+          menu={{
+            items: mergedMenuItems,
+            onClick: onMenuClick,
+          }}
+        >
+          {buttonContent}
+        </Dropdown>
+      </>
     );
   }
 
@@ -179,6 +194,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       ) : (
         content
       )}
+      {profileModalContent}
     </>
   );
 
