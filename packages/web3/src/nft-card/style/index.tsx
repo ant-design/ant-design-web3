@@ -1,14 +1,15 @@
+import type React from 'react';
 import {
-  genComponentStyleHook,
-  type FullToken,
+  useStyle as useAntdStyle,
   type GenerateStyle,
-  mergeToken,
-} from 'antd/es/theme/internal';
+  type Web3AliasToken,
+} from '../../theme/useStyle';
 
-export interface NFTCardToken extends FullToken<'Card'> {
+export interface NFTCardToken extends Web3AliasToken {
   // NFTCard token here
   nftCardWidth: number;
   nftCardBorderRadius: number;
+  componentCls: string;
 }
 
 const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
@@ -177,10 +178,14 @@ const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
   };
 };
 
-export default genComponentStyleHook('Card', (token) => {
-  const nftCardToken = mergeToken<NFTCardToken>(token, {
-    nftCardWidth: 282,
-    nftCardBorderRadius: token.borderRadiusLG * 2,
+export function useStyle(prefixCls: string) {
+  return useAntdStyle('NFTCard', (token) => {
+    const nftCardToken: NFTCardToken = {
+      nftCardWidth: 282,
+      nftCardBorderRadius: token.borderRadiusLG * 2,
+      ...token,
+      componentCls: `.${prefixCls}`,
+    };
+    return [genNFTCardStyle(nftCardToken)];
   });
-  return [genNFTCardStyle(nftCardToken)];
-});
+}

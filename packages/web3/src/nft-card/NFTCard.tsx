@@ -1,16 +1,15 @@
-import { ConfigContext } from 'antd/es/config-provider';
-import useStyle from './style';
+import { useStyle } from './style';
 import type { ReactNode } from 'react';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import type { ImageProps } from 'antd';
-import { Button, Divider, Image } from 'antd';
+import { Button, Divider, Image, ConfigProvider } from 'antd';
 import Icon from '@ant-design/icons';
 import { ReactComponent as ETHSvg } from './icons/eth.svg';
 import { ReactComponent as HeartSvg } from './icons/heart.svg';
 import { ReactComponent as HeartFilledSvg } from './icons/heart-filled.svg';
 import useToken from 'antd/es/theme/useToken';
-import { formatNumUnit, isDarkTheme } from '../utils';
+import { formatNumUnit, isDarkTheme } from '../utils/tool';
 
 const customizePrefixCls = 'ant-nft-card';
 
@@ -52,10 +51,10 @@ const NFTCard: React.FC<NFTCardProps> = ({
 }) => {
   const { liked, totalLikes = 0, onLikeChange } = likeConfig || {};
   const [, token] = useToken();
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('nft-card', customizePrefixCls);
   //================== Style ==================
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const { wrapSSR, hashId } = useStyle(prefixCls);
   const mergeCls = classNames(
     `${prefixCls}-container`,
     {
