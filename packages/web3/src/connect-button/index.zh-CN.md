@@ -24,6 +24,10 @@ order: 1
 
 <code src="./demos/profileModal.tsx"></code>
 
+## 头像
+
+<code src="./demos/avatar.tsx"></code>
+
 ## 显示名称
 
 <code src="./demos/name.tsx"></code>
