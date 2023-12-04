@@ -6,7 +6,7 @@ order: 2
 
 # ConnectModal
 
-Connect wallet modal, used with ConnectButton to complete the wallet connection process.
+The connection wallet popup, used with [ConnectButton](../connect-button) to complete the wallet connection process. Usually, you only need to use the [Connector](../connector) component directly.
 
 ## Basic Usage
 

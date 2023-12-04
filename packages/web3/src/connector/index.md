@@ -8,6 +8,12 @@ order: 0
 
 # Connector
 
+The `Connector` component integrates the [ConnectButton](../connect-button/index.md) and [ConnectModal](../connect-modal/index.md) components to provide a complete UI for connecting wallets.
+
+The properties related to blockchain interaction are configured through Connector and passed to `ConnectButton` and `ConnectModal`. You can also override the values provided by `Connector` by directly configuring the properties of `ConnectButton` or through `modalProps`, but in addition to some pure UI properties that are not related to the chain, you usually don’t need to do this.
+
+In addition, `Connector` is usually used with [adapter](../../guide/adapter). The adapter can help you quickly interact with the blockchain. In the case of using the adapter, you basically don’t need to configure the properties of `Connector`.
+
 ## Basic Usage
 
 <code src="./demos/basic.tsx"></code>
