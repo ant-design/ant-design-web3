@@ -83,7 +83,7 @@ export class UniversalProvider extends EventEmitter implements UniversalWeb3Prov
 
   getNFTMetadata = async (params: {
     address: string;
-    tokenId: bigint | number;
+    tokenId: bigint;
   }): Promise<NFTMetadata> => {
     const provider = new ethers.BrowserProvider(this.eip1193Provider);
     const contract = new ethers.Contract(
