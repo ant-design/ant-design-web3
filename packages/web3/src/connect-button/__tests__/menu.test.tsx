@@ -80,7 +80,7 @@ describe('ConnectButton', () => {
     await vi.waitFor(async () => {
       expect(baseElement.querySelector('.ant-dropdown')).not.toBeNull();
     });
-    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button-text') as Element);
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button') as Element);
     await vi.waitFor(async () => {
       expect(baseElement.querySelector('.ant-dropdown')).toBeNull();
     });
