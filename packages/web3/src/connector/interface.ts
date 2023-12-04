@@ -6,7 +6,7 @@ export interface ConnectorProps {
   modalProps?: ConnectModalProps;
 
   onConnect?: () => void;
-  onDisconnect?: () => Promise<void>;
+  onDisconnect?: () => void;
   onConnected?: () => void;
   onDisconnected?: () => void;
   onChainSwitched?: (chain?: Chain) => void;
