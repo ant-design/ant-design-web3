@@ -1,6 +1,16 @@
 import React from 'react';
-import type { Account } from '@ant-design/web3';
-import { Connector, ConnectButton } from '@ant-design/web3';
+import type { Account, ConnectorTriggerProps } from '@ant-design/web3';
+import { Connector } from '@ant-design/web3';
+import { Typography } from 'antd';
+
+const CustomTrigger: React.FC<ConnectorTriggerProps> = (props) => {
+  const { loading, openConnectModal, account } = props;
+  return (
+    <Typography.Title level={2} onClick={() => openConnectModal?.()}>
+      {loading ? 'Connecting...' : account?.address || 'Connect Your Wallet'}
+    </Typography.Title>
+  );
+};
 
 const App: React.FC = () => {
   const [account, setAccount] = React.useState<Account>();
@@ -47,7 +57,7 @@ const App: React.FC = () => {
         console.log('onDisconnected');
       }}
     >
-      <ConnectButton />
+      <CustomTrigger />
     </Connector>
   );
 };

@@ -12,6 +12,14 @@ order: 0
 
 <code src="./demos/basic.tsx"></code>
 
+## Switch Chain
+
+<code src="./demos/switch-chain.tsx"></code>
+
+## Custom Trigger
+
+<code src="./demos/custom-trigger.tsx"></code>
+
 ## API
 
 ### ConnectorProps

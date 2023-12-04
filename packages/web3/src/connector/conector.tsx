@@ -51,6 +51,9 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
           onDisconnected?.();
           setLoading(false);
         },
+        openConnectModal: () => {
+          setOpen(true);
+        },
         availableChains,
         chain,
         onSwitchChain: async (c: Chain) => {
