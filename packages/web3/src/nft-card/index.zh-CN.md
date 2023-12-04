@@ -9,7 +9,7 @@ group: 展示
 
 ## 基础例子
 
-<code src="./demos/simple.tsx"></code>
+<code src="./demos/basic.tsx"></code>
 
 ## 暗黑模式
 

@@ -9,6 +9,6 @@ group:
 
 Provide global configuration and states for components.
 
-## Simple Usage
+## Basic Usage
 
-<code src="./demos/simple.tsx"></code>
+<code src="./demos/basic.tsx"></code>

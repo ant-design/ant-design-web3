@@ -8,9 +8,9 @@ order: 1
 
 A Button for connect chain quickly.
 
-## Simple Usage
+## Basic Usage
 
-<code src="./demos/simple.tsx"></code>
+<code src="./demos/basic.tsx"></code>
 
 ## Show Tooltip
 
