@@ -24,6 +24,10 @@ The button to connect to the blockchain wallet. Usually, you need to use it with
 
 <code src="./demos/profileModal.tsx"></code>
 
+## Avatar
+
+<code src="./demos/avatar.tsx"></code>
+
 ## Show Name
 
 <code src="./demos/name.tsx"></code>
