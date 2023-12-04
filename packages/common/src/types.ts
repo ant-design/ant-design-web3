@@ -151,5 +151,4 @@ export interface ConnectorTriggerProps {
   availableChains?: Chain[];
   chain?: Chain;
   banlance?: Banlance[] | Banlance;
-  openConnectModal?: () => void;
 }

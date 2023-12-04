@@ -4,9 +4,9 @@ import { Connector } from '@ant-design/web3';
 import { Typography } from 'antd';
 
 const CustomTrigger: React.FC<ConnectorTriggerProps> = (props) => {
-  const { loading, openConnectModal, account } = props;
+  const { loading, onConnectClick, account } = props;
   return (
-    <Typography.Title level={2} onClick={() => openConnectModal?.()}>
+    <Typography.Title level={2} onClick={() => onConnectClick?.()}>
       {loading ? 'Connecting...' : account?.address || 'Connect Your Wallet'}
     </Typography.Title>
   );
