@@ -13,7 +13,7 @@ export default function useNFT(address: string, tokenId: bigint) {
       setLoading(true);
       getNFTMetadata({
         address,
-        tokenId,
+        tokenId: BigInt(tokenId),
       })
         .then((data) => {
           setMetadata(data);

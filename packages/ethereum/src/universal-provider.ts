@@ -81,7 +81,10 @@ export class UniversalProvider extends EventEmitter implements UniversalWeb3Prov
     return this.eip1193Provider.getAvaliableWallets();
   };
 
-  getNFTMetadata = async (params: { address: string; tokenId: bigint }): Promise<NFTMetadata> => {
+  getNFTMetadata = async (params: {
+    address: string;
+    tokenId: bigint | number;
+  }): Promise<NFTMetadata> => {
     const provider = new ethers.BrowserProvider(this.eip1193Provider);
     const contract = new ethers.Contract(
       params.address,
