@@ -107,8 +107,8 @@ describe('Connector', () => {
     });
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
   });
-  it('should support both of Controlled and uncontrolled loading', async () => {
-    const App = ({ loading }: { loading?: boolean }) => {
+  it('should support controlled  loading', async () => {
+    const App = () => {
       const [account, setAccount] = React.useState<Account | undefined>();
       return (
         <Connector
@@ -135,20 +135,53 @@ describe('Connector', () => {
             setAccount(undefined);
           }}
         >
-          <ConnectButton loading={loading}>children</ConnectButton>
+          <ConnectButton loading>children</ConnectButton>
         </Connector>
       );
     };
-    const { baseElement, rerender } = render(<App loading />);
-    expect(baseElement.querySelector('.ant-btn-loading')).toBeTruthy();
-    rerender(<App />);
-    expect(baseElement.querySelector('.ant-btn-loading')).toBeFalsy();
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.anticon-loading')).toBeTruthy();
+  });
+  it('should support both of uncontrolled loading', async () => {
+    const App = () => {
+      const [account, setAccount] = React.useState<Account | undefined>();
+      return (
+        <Connector
+          account={account}
+          availableWallets={[
+            {
+              ...metadata_MetaMask,
+              hasBrowserExtensionInstalled: async () => {
+                return true;
+              },
+            },
+          ]}
+          connect={async () =>
+            new Promise((resolve) =>
+              setTimeout(() => {
+                setAccount({
+                  address: '0x1234567890',
+                });
+                resolve();
+              }, 1000),
+            )
+          }
+          disconnect={async () => {
+            setAccount(undefined);
+          }}
+        >
+          <ConnectButton>children</ConnectButton>
+        </Connector>
+      );
+    };
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.anticon-loading')).toBeFalsy();
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-button')!);
     await vi.waitFor(async () => {
       fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')!);
     });
     await vi.waitFor(() => {
-      expect(baseElement.querySelector('.ant-btn-loading')).toBeTruthy();
+      expect(baseElement.querySelector('.anticon-loading')).toBeTruthy();
     });
   });
 });

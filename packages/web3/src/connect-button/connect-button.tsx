@@ -25,7 +25,6 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     profileModal = true,
     onMenuClick,
     actionsMenu = false,
-    _loading = false,
     loading,
     onClick,
     ...restProps
@@ -47,7 +46,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     size: props.size,
     type: props.type,
     ghost: props.ghost,
-    loading: loading ?? _loading,
+    loading,
     onClick: (e) => {
       setShowMenu(false);
       if (account && !profileOpen && profileModal) {
