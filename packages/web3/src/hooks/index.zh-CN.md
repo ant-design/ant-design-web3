@@ -35,4 +35,16 @@ order: 2
 
 ## useAccount
 
+用于获取当前用户的账户地址。
+
+### 代码演示
+
 <code src="./demos/useAccount.tsx"></code>
+
+### API
+
+#### Result
+
+| 参数    | 描述                           | 类型     |
+| ------- | ------------------------------ | -------- |
+| account | 表示当前用户的 web3 账户地址。 | `string` |

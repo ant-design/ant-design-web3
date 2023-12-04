@@ -35,4 +35,16 @@ Convenient access to NFT metadata.
 
 ## useAccount
 
+Used to retrieve the account address of the current user.
+
+### Examples
+
 <code src="./demos/useAccount.tsx"></code>
+
+### API
+
+#### Result
+
+| Property | Description                                              | Type     |
+| -------- | -------------------------------------------------------- | -------- |
+| account  | Represents the web3 account address of the current user. | `string` |
