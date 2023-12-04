@@ -25,7 +25,7 @@ group:
 | --- | --- | --- |
 | account | [Account](../../packages/web3/src/types/index.zh-CN.md#account) | 当前连接的账户 |
 | chain | [Chain](../../packages/web3/src/types/index.zh-CN.md#chain) | 当前连接的链 |
-| availableWallets | [Wallet](<](../../packages/web3/src/types/index.zh-CN.md#wallet)>)\[\] | 可用的钱包列表 |
+| availableWallets | [Wallet](../../packages/web3/src/types/index.zh-CN.md#wallet)\[\] | 可用的钱包列表 |
 | availableChains | `Chain[]` | 可用的链列表 |
 | connect | `(wallet?: Wallet) => Promise<void>` | 连接钱包 |
 | disconnect | `() => Promise<void>` | 断开连接 |

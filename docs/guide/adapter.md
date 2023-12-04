@@ -25,7 +25,7 @@ In the [types](https://github.com/ant-design/ant-design-web3/blob/main/packages/
 | --- | --- | --- |
 | account | [Account](../../packages/web3/src/types/index.md#account) | The currently connected account |
 | chain | [Chain](../../packages/web3/src/types/index.md#chain) | The currently connected chain |
-| availableWallets | [Wallet](../../packages/web3/src/types/index.md#wallet)[] | Available wallets |
+| availableWallets | [Wallet](../../packages/web3/src/types/index.md#wallet)\[\] | Available wallets |
 | availableChains | `Chain[]` | Available chains |
 | connect | `(wallet?: Wallet) => Promise<void>` | Connect wallet |
 | disconnect | `() => Promise<void>` | Disconnect |
