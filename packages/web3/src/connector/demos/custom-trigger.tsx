@@ -6,7 +6,7 @@ import { Typography } from 'antd';
 const CustomTrigger: React.FC<ConnectorTriggerProps> = (props) => {
   const { loading, onConnectClick, account } = props;
   return (
-    <Typography.Title level={2} onClick={() => onConnectClick?.()}>
+    <Typography.Title level={5} onClick={() => onConnectClick?.()}>
       {loading ? 'Connecting...' : account?.address || 'Connect Your Wallet'}
     </Typography.Title>
   );
