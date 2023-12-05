@@ -19,7 +19,7 @@ const config = createConfig({
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider config={config}>
-      <NFTCard address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={42n} width={200} />
+      <NFTCard address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={42n} />
     </WagmiWeb3ConfigProvider>
   );
 };

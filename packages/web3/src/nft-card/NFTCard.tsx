@@ -22,7 +22,7 @@ interface NFTCardProps {
   antdImageProps?: ImageProps;
   className?: string;
   description?: ReactNode;
-  image: string | ReactNode;
+  image?: string | ReactNode;
   like?: {
     liked?: boolean;
     totalLikes?: number;
