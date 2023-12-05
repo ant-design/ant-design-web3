@@ -29,7 +29,7 @@ const App: React.FC = () => {
         avatar={{
           src: 'https://metamask.io/images/metamask-logo.png',
         }}
-        onMenuClick={(item) => console.log('onMenuClick', item)}
+        onMenuItemClick={(item) => console.log('onMenuItemClick', item)}
       />
       <ConnectButton
         account={{
@@ -49,7 +49,7 @@ const App: React.FC = () => {
         avatar={{
           src: 'https://metamask.io/images/metamask-logo.png',
         }}
-        onMenuClick={(item) => console.log('onMenuClick', item)}
+        onMenuItemClick={(item) => console.log('onMenuItemClick', item)}
         actionsMenu={{
           extraItems: menuItems,
         }}
@@ -62,7 +62,7 @@ const App: React.FC = () => {
         avatar={{
           src: 'https://metamask.io/images/metamask-logo.png',
         }}
-        onMenuClick={(item) => console.log('onMenuClick', item)}
+        onMenuItemClick={(item) => console.log('onMenuItemClick', item)}
         actionsMenu={{
           items: menuItems,
         }}

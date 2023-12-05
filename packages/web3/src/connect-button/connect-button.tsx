@@ -23,7 +23,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     account,
     avatar,
     profileModal = true,
-    onMenuClick,
+    onMenuItemClick,
     actionsMenu = false,
     loading,
     onClick,
@@ -161,7 +161,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
           onOpenChange={setShowMenu}
           menu={{
             items: mergedMenuItems,
-            onClick: onMenuClick,
+            onClick: onMenuItemClick,
           }}
         >
           {buttonContent}

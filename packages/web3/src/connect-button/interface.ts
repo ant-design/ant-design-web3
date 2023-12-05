@@ -15,8 +15,7 @@ export type ConnectButtonProps = ButtonProps &
   ConnectorTriggerProps & {
     prefixCls?: string;
     avatar?: AvatarProps;
-    onMenuClick?: (e: NonNullable<MenuProps['items']>[number]) => void;
-    walletIcon?: React.ReactNode;
+    onMenuItemClick?: (e: NonNullable<MenuProps['items']>[number]) => void;
     tooltip?: boolean | ConnectButtonTooltipProps;
     profileModal?: boolean | ProfileModalProps['modalProps'];
     actionsMenu?:
