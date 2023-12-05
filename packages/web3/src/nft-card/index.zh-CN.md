@@ -23,6 +23,9 @@ group: 展示
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| address | NFT 的地址 | `string` | - | - |
+| tokenId | NFT 的 tokenId | `number \| bigint` | - | - |
+| getNFTMetadata | 获取 NFT 元数据的方法 | `(address: string, tokenId: number \| bigint) => Promise<NFTMetadata>` | - | - |
 | actionText | 卡片中主要按钮文案 | `React.ReactNode` | 'Buy Now' | - |
 | antdImageProps | antd Image 组件的 props | [ImageProps](https://ant-design.antgroup.com/components/image#api) | - | - |
 | className | 卡片的类名 | `string` | - | - |
@@ -32,11 +35,12 @@ group: 展示
 | price | 卡片的价格 | `number` | `0` | - |
 | footer | 卡片的底部内容 | `React.ReactNode` | - | - |
 | name | 卡片的名称 | `string` | - | - |
-| tokenId | NFT 的 tokenId | `number` | - | - |
 | style | 卡片的样式 | `React.CSSProperties` | - | - |
 | showAction | 是否显示卡片的主要按钮 | `boolean` | `true` | - |
 | type | 卡片的类型 | `'default' \| 'pithy'` | `'default'` | - |
 | onActionChange | 点击卡片的主要按钮时的回调 | `() => void` | - | - |
+
+`NFTMetadata` 的定义参考以太坊 ERC721 的标准，具体见 [NFTMetadata 文档](../types/index.zh-CN.md#nftmetadata)。
 
 ### LikeProps
 

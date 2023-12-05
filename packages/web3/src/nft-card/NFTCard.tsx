@@ -11,13 +11,18 @@ import { ReactComponent as HeartSvg } from './icons/heart.svg';
 import { ReactComponent as HeartFilledSvg } from './icons/heart-filled.svg';
 import useToken from 'antd/es/theme/useToken';
 import { formatNumUnit, isDarkTheme } from '../utils/tool';
-import { parseNumberToBigint, getWeb3AssetUrl } from '@ant-design/web3-common';
+import {
+  parseNumberToBigint,
+  getWeb3AssetUrl,
+  type Web3ConfigProviderProps,
+} from '@ant-design/web3-common';
 
 const customizePrefixCls = 'ant-nft-card';
 
 interface NFTCardProps {
   address?: string;
   tokenId?: number | bigint;
+  getNFTMetadata?: Web3ConfigProviderProps['getNFTMetadata'];
   actionText?: ReactNode;
   antdImageProps?: ImageProps;
   className?: string;
@@ -49,11 +54,12 @@ const NFTCard: React.FC<NFTCardProps> = ({
   showAction,
   actionText = 'Buy Now',
   footer,
+  getNFTMetadata,
   ...metadataProps
 }) => {
   const { liked, totalLikes = 0, onLikeChange } = likeConfig || {};
   const [, token] = useToken();
-  const { metadata } = useNFT(address, parseNumberToBigint(tokenId));
+  const { metadata } = useNFT(address, parseNumberToBigint(tokenId), getNFTMetadata);
   const {
     name = metadata.name,
     image = metadata.image,

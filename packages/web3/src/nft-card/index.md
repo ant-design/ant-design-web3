@@ -23,6 +23,9 @@ Components used to display NFTCard.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| address | The address of the NFT | `string` | - | - |
+| tokenId | The tokenId of the NFT | `number \| bigint` | - | - |
+| getNFTMetadata | The method to get the metadata of the NFT | `(address: string, tokenId: number \| bigint) => Promise<NFTMetadata>` | - | - |
 | actionText | The text of the main button in the card | `React.ReactNode` | 'Buy Now' | - |
 | antdImageProps | The props of antd Image component | [ImageProps](https://ant-design.antgroup.com/components/image#api) | - | - |
 | className | The className of the card | `string` | - | - |
@@ -32,11 +35,12 @@ Components used to display NFTCard.
 | price | The price of the card | `number` | `0` | - |
 | footer | The footer of the card | `React.ReactNode` | - | - |
 | name | The name of the card | `string` | - | - |
-| tokenId | The tokenId of the NFT | `number` | - | - |
 | style | The style of the card | `React.CSSProperties` | - | - |
 | showAction | Whether to show the main button of the card | `boolean` | `true` | - |
 | type | The type of the card | `'default' \| 'pithy'` | `'default'` | - |
 | onActionChange | The callback when the main button of the card is clicked | `() => void` | - | - |
+
+The definition of `NFTMetadata` refers to the Ethereum ERC721 standard, see [NFTMetadata document](../types/index.md#nftmetadata) for details.
 
 ### LikeProps
 
