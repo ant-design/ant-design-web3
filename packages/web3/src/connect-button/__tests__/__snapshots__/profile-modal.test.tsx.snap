@@ -60,6 +60,7 @@ exports[`ProfileModal > match snapshot 1`] = `
             </button>
             <div
               class="ant-modal-body"
+              style="text-align: center;"
             >
               <div
                 class="ant-space css-dev-only-do-not-override-1ck3jst ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
