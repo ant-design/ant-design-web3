@@ -15,6 +15,10 @@ group: 展示
 
 <code src="./demos/dark-mode.tsx"></code>
 
+## 和 wagmi 一起使用
+
+<code src="./demos/wagmi.tsx"></code>
+
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |

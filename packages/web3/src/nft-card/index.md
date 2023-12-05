@@ -15,12 +15,16 @@ Components used to display NFTCard.
 
 <code src="./demos/dark-mode.tsx"></code>
 
+## Use with wagmi
+
+<code src="./demos/wagmi.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | actionText | The text of the main button in the card | `React.ReactNode` | 'Buy Now' | - |
-| antdImageProps | The props of antd Image component | [ImageProps](https://ant-design.antgroup.com/components/image#api)| - | - |
+| antdImageProps | The props of antd Image component | [ImageProps](https://ant-design.antgroup.com/components/image#api) | - | - |
 | className | The className of the card | `string` | - | - |
 | description | The description of the card | `React.ReactNode` | - | - |
 | image | The image of the card | `string \| React.ReactNode` | - | - |

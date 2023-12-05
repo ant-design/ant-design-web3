@@ -5,15 +5,19 @@ import classNames from 'classnames';
 import type { ImageProps } from 'antd';
 import { Button, Divider, Image, ConfigProvider } from 'antd';
 import Icon from '@ant-design/icons';
+import useNFT from '../hooks/useNFT';
 import { ReactComponent as ETHSvg } from './icons/eth.svg';
 import { ReactComponent as HeartSvg } from './icons/heart.svg';
 import { ReactComponent as HeartFilledSvg } from './icons/heart-filled.svg';
 import useToken from 'antd/es/theme/useToken';
 import { formatNumUnit, isDarkTheme } from '../utils/tool';
+import { parseNumberToBigint, getWeb3AssetUrl } from '@ant-design/web3-common';
 
 const customizePrefixCls = 'ant-nft-card';
 
 interface NFTCardProps {
+  address?: string;
+  tokenId?: number | bigint;
   actionText?: ReactNode;
   antdImageProps?: ImageProps;
   className?: string;
@@ -27,7 +31,6 @@ interface NFTCardProps {
   price?: number;
   footer?: ReactNode;
   name?: string;
-  tokenId?: number;
   style?: React.CSSProperties;
   showAction?: boolean;
   type?: 'default' | 'pithy';
@@ -38,19 +41,24 @@ const NFTCard: React.FC<NFTCardProps> = ({
   style,
   antdImageProps,
   className,
-  description,
   type = 'default',
-  image,
-  name,
+  address,
   tokenId,
   price = 0,
   like: likeConfig,
   showAction,
   actionText = 'Buy Now',
   footer,
+  ...metadataProps
 }) => {
   const { liked, totalLikes = 0, onLikeChange } = likeConfig || {};
   const [, token] = useToken();
+  const { metadata } = useNFT(address, parseNumberToBigint(tokenId));
+  const {
+    name = metadata.name,
+    image = metadata.image,
+    description = metadata.description,
+  } = metadataProps;
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('nft-card', customizePrefixCls);
   //================== Style ==================
@@ -120,14 +128,14 @@ const NFTCard: React.FC<NFTCardProps> = ({
             <div className={`${prefixCls}-serial-number`}>{`#${tokenId}`}</div>
           ) : null}
           {typeof image === 'string' ? (
-            <Image width="100%" src={image} {...antdImageProps} />
+            <Image width="100%" src={getWeb3AssetUrl(image)} {...antdImageProps} />
           ) : (
             image
           )}
         </div>
         <div className={`${prefixCls}-body`}>
           {tokenId !== undefined && type === 'pithy' ? (
-            <div className={`${prefixCls}-serial-number`}>No:{tokenId}</div>
+            <div className={`${prefixCls}-serial-number`}>No:{tokenId.toString()}</div>
           ) : null}
           {name ? <div className={`${prefixCls}-name`}>{name}</div> : null}
           {description ? <div className={`${prefixCls}-description`}>{description}</div> : null}
