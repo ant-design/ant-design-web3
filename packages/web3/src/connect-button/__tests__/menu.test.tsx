@@ -107,7 +107,7 @@ describe('ConnectButton', () => {
         actionsMenu={{
           extraItems: menuItems,
         }}
-        onMenuClick={(info) => menuClickFn(info?.key)}
+        onMenuItemClick={(info) => menuClickFn(info?.key)}
       />
     );
     const { baseElement } = render(<App />);
@@ -147,7 +147,7 @@ describe('ConnectButton', () => {
         actionsMenu={{
           items: menuItems,
         }}
-        onMenuClick={(info) => menuClickFn(info?.key)}
+        onMenuItemClick={(info) => menuClickFn(info?.key)}
       />
     );
     const { baseElement } = render(<App />);

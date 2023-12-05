@@ -41,7 +41,7 @@ order: 1
 | actionsMenu | 配置菜单项 | `boolean \|` [ActionsMenu](#actionsmenu) | - | - |
 | profileModal | 配置信息弹框 | `boolean \|` [ProfileModal](#profilemodal) | - | - |
 | avatar | 配置头像，用于在个人信息弹框中展示用户头像 | [AvatarProps](https://ant.design/components/avatar-cn#api) | - | - |
-| onMenuClick | 菜单项点击事件 | `(e: NonNullable<MenuProps['items']>[number]) => void` | - | - |
+| onMenuItemClick | 菜单项点击事件 | `(e: NonNullable<MenuProps['items']>[number]) => void` | - | - |
 
 ### ConnectButtonTooltipProps
 
