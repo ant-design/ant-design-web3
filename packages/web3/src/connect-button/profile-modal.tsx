@@ -1,14 +1,5 @@
 import React, { useContext } from 'react';
-import {
-  Modal,
-  ConfigProvider,
-  Space,
-  Button,
-  Avatar,
-  message,
-  type AvatarProps,
-  Typography,
-} from 'antd';
+import { Modal, ConfigProvider, Space, Button, Avatar, message, type AvatarProps } from 'antd';
 import classNames from 'classnames';
 import { Address } from '@ant-design/web3';
 import { writeCopyText } from '../utils';
