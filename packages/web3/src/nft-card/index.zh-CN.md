@@ -20,7 +20,7 @@ group: 展示
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | actionText | 卡片中主要按钮文案 | `React.ReactNode` | 'Buy Now' | - |
-| antdImageProps | antd Image 组件的 props | [ImageProps](https://ant-design.antgroup.com/components/image#api)\[\] | - | - |
+| antdImageProps | antd Image 组件的 props | [ImageProps](https://ant-design.antgroup.com/components/image#api) | - | - |
 | className | 卡片的类名 | `string` | - | - |
 | description | 卡片的描述 | `React.ReactNode` | - | - |
 | image | 卡片的图片 | `string \| React.ReactNode` | - | - |
