@@ -15,11 +15,16 @@ group: 展示
 
 <code src="./demos/wagmi.tsx"></code>
 
+## 自定义 getNFTMetadata
+
+<code src="./demos/customGetNFTMetadata.tsx"></code>
+
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| `address` | 必需。NFT 合约地址。 | `string` | - | - |
-| `tokenId` | 必需。NFT 令牌 ID，可以是 bigint 或 number 类型。 | `bigint \| number` | - | - |
+| address | 必需。NFT 合约地址。 | `string` | - | - |
+| tokenId | 必需。NFT 令牌 ID，可以是 bigint 或 number 类型。 | `bigint \| number` | - | - |
+| getNFTMetadata | 可选。自定义获取 NFT 元数据的方法。 | `(address: string, tokenId: bigint \| number) => Promise<NFTMetadata>` | - | - |
 
 其他属性继承自[Ant Design Image](https://ant-design.antgroup.com/components/image-cn)
