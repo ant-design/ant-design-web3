@@ -7,6 +7,7 @@ import {
   ArbitrumColorful,
   EtherscanColorful,
   MetaMaskColorful,
+  WalletConnectColorful,
 } from '@ant-design/web3-icons';
 import { Space } from 'antd';
 
@@ -25,6 +26,7 @@ const App: React.FC = () => {
       <ArbitrumColorful style={style} />
       <EtherscanColorful style={style} />
       <MetaMaskColorful style={style} />
+      <WalletConnectColorful style={style} />
     </Space>
   );
 };

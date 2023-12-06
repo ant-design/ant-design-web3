@@ -10,3 +10,4 @@ export * from './components/usdt-filled';
 export * from './components/wallet-filled';
 export * from './components/etherscan-colorful';
 export * from './components/metamask-colorful';
+export * from './components/wallectconnect-colorful';
