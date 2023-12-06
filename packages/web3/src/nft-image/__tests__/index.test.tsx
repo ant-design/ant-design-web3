@@ -1,14 +1,8 @@
 import { NFTImage } from '..';
 import { render } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('NFTImage', () => {
-  beforeEach(() => {
-    vi.useFakeTimers();
-  });
-  afterEach(() => {
-    vi.useRealTimers();
-  });
   it('renders correctly with valid address and tokenId', () => {
     const address = '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B';
     const tokenId = 123;
@@ -44,14 +38,10 @@ describe('NFTImage', () => {
       />,
     );
     await vi.waitFor(async () => {
-      await vi.runAllTimersAsync();
-      await vi.waitFor(async () => {
-        await vi.runAllTimersAsync();
-        const img = baseElement.querySelector('img');
-        expect(img).toHaveProperty('src', 'https://example.com/nft.png');
-        expect(img).toHaveProperty('alt', 'Test_0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B_123');
-        expect(baseElement).toMatchSnapshot();
-      });
+      const img = baseElement.querySelector('img');
+      expect(img).toHaveProperty('src', 'https://example.com/nft.png');
+      expect(img).toHaveProperty('alt', 'Test_0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B_123');
+      expect(baseElement).toMatchSnapshot();
     });
   });
 });
