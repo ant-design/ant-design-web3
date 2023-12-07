@@ -114,14 +114,10 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                       <div
                                         class="ant-web3-connect-modal-icon"
                                       >
-                                        <span
-                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-15xztg8"
-                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
-                                        >
-                                          <img
-                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
-                                          />
-                                        </span>
+                                        <img
+                                          alt="测试钱包"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                        />
                                       </div>
                                       <div
                                         class="ant-web3-connect-modal-name"
@@ -139,14 +135,10 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                       <div
                                         class="ant-web3-connect-modal-icon"
                                       >
-                                        <span
-                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-15xztg8"
-                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
-                                        >
-                                          <img
-                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
-                                          />
-                                        </span>
+                                        <img
+                                          alt="测试钱包3"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                        />
                                       </div>
                                       <div
                                         class="ant-web3-connect-modal-name"
@@ -167,7 +159,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                         <div
                           class="ant-web3-connect-modal-group-title"
                         >
-                          Default
+                          More
                         </div>
                         <div
                           class="ant-web3-connect-modal-group-content"
@@ -193,14 +185,10 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                       <div
                                         class="ant-web3-connect-modal-icon"
                                       >
-                                        <span
-                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-15xztg8"
-                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
-                                        >
-                                          <img
-                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
-                                          />
-                                        </span>
+                                        <img
+                                          alt="测试钱包2"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                        />
                                       </div>
                                       <div
                                         class="ant-web3-connect-modal-name"
@@ -218,17 +206,9 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                       <div
                                         class="ant-web3-connect-modal-icon"
                                       >
-                                        <span
-                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-15xztg8"
-                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
-                                        >
-                                          <span
-                                            class="ant-avatar-string"
-                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
-                                          >
-                                            测
-                                          </span>
-                                        </span>
+                                        <img
+                                          alt="测试钱包4"
+                                        />
                                       </div>
                                       <div
                                         class="ant-web3-connect-modal-name"
@@ -246,17 +226,9 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                       <div
                                         class="ant-web3-connect-modal-icon"
                                       >
-                                        <span
-                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-15xztg8"
-                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
-                                        >
-                                          <span
-                                            class="ant-avatar-string"
-                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
-                                          >
-                                            测
-                                          </span>
-                                        </span>
+                                        <img
+                                          alt="测试钱包5"
+                                        />
                                       </div>
                                       <div
                                         class="ant-web3-connect-modal-name"
@@ -274,17 +246,9 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                       <div
                                         class="ant-web3-connect-modal-icon"
                                       >
-                                        <span
-                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-15xztg8"
-                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
-                                        >
-                                          <span
-                                            class="ant-avatar-string"
-                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
-                                          >
-                                            测
-                                          </span>
-                                        </span>
+                                        <img
+                                          alt="测试钱包6"
+                                        />
                                       </div>
                                       <div
                                         class="ant-web3-connect-modal-name"
@@ -302,17 +266,9 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                       <div
                                         class="ant-web3-connect-modal-icon"
                                       >
-                                        <span
-                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-15xztg8"
-                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
-                                        >
-                                          <span
-                                            class="ant-avatar-string"
-                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
-                                          >
-                                            测
-                                          </span>
-                                        </span>
+                                        <img
+                                          alt="测试钱包6"
+                                        />
                                       </div>
                                       <div
                                         class="ant-web3-connect-modal-name"
@@ -464,14 +420,10 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                       <div
                                         class="ant-web3-connect-modal-icon"
                                       >
-                                        <span
-                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
-                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
-                                        >
-                                          <img
-                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
-                                          />
-                                        </span>
+                                        <img
+                                          alt="测试钱包"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                        />
                                       </div>
                                       <div
                                         class="ant-web3-connect-modal-name"
@@ -489,14 +441,10 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                       <div
                                         class="ant-web3-connect-modal-icon"
                                       >
-                                        <span
-                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
-                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
-                                        >
-                                          <img
-                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
-                                          />
-                                        </span>
+                                        <img
+                                          alt="测试钱包3"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                        />
                                       </div>
                                       <div
                                         class="ant-web3-connect-modal-name"
@@ -517,7 +465,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                         <div
                           class="ant-web3-connect-modal-group-title"
                         >
-                          Default
+                          More
                         </div>
                         <div
                           class="ant-web3-connect-modal-group-content"
@@ -543,14 +491,10 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                       <div
                                         class="ant-web3-connect-modal-icon"
                                       >
-                                        <span
-                                          class="ant-avatar ant-avatar-square ant-avatar-image css-dev-only-do-not-override-1ck3jst"
-                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
-                                        >
-                                          <img
-                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
-                                          />
-                                        </span>
+                                        <img
+                                          alt="测试钱包2"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                        />
                                       </div>
                                       <div
                                         class="ant-web3-connect-modal-name"
@@ -568,17 +512,9 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                       <div
                                         class="ant-web3-connect-modal-icon"
                                       >
-                                        <span
-                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
-                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
-                                        >
-                                          <span
-                                            class="ant-avatar-string"
-                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
-                                          >
-                                            测
-                                          </span>
-                                        </span>
+                                        <img
+                                          alt="测试钱包4"
+                                        />
                                       </div>
                                       <div
                                         class="ant-web3-connect-modal-name"
@@ -596,17 +532,9 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                       <div
                                         class="ant-web3-connect-modal-icon"
                                       >
-                                        <span
-                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
-                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
-                                        >
-                                          <span
-                                            class="ant-avatar-string"
-                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
-                                          >
-                                            测
-                                          </span>
-                                        </span>
+                                        <img
+                                          alt="测试钱包5"
+                                        />
                                       </div>
                                       <div
                                         class="ant-web3-connect-modal-name"
@@ -624,17 +552,9 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                       <div
                                         class="ant-web3-connect-modal-icon"
                                       >
-                                        <span
-                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
-                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
-                                        >
-                                          <span
-                                            class="ant-avatar-string"
-                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
-                                          >
-                                            测
-                                          </span>
-                                        </span>
+                                        <img
+                                          alt="测试钱包6"
+                                        />
                                       </div>
                                       <div
                                         class="ant-web3-connect-modal-name"
@@ -652,17 +572,9 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                       <div
                                         class="ant-web3-connect-modal-icon"
                                       >
-                                        <span
-                                          class="ant-avatar ant-avatar-square css-dev-only-do-not-override-1ck3jst"
-                                          style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
-                                        >
-                                          <span
-                                            class="ant-avatar-string"
-                                            style="line-height: 32px; transform: scale(1) translateX(-50%);"
-                                          >
-                                            测
-                                          </span>
-                                        </span>
+                                        <img
+                                          alt="测试钱包6"
+                                        />
                                       </div>
                                       <div
                                         class="ant-web3-connect-modal-name"
