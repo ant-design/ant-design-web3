@@ -2,6 +2,7 @@ import { BrowserLink } from '..';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { LinkOutlined } from '@ant-design/icons';
+import { ChainIds, Web3ConfigProvider } from '@ant-design/web3-common';
 
 describe('BrowserLink', () => {
   it('mount correctly', () => {
@@ -56,5 +57,43 @@ describe('BrowserLink', () => {
     const link = baseElement.querySelector('a');
     expect(link).not.toBeNull();
     expect(baseElement.querySelector('.anticon-link')).not.toBeNull();
+  });
+  it('support get chain from provider', async () => {
+    const fn = vi.fn();
+    try {
+      render(
+        <Web3ConfigProvider
+          chain={{
+            id: ChainIds.Arbitrum,
+            name: 'Arbitrum',
+          }}
+        >
+          <BrowserLink address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,
+        </Web3ConfigProvider>,
+      );
+    } catch (error: any) {
+      fn(error.message);
+    }
+    expect(fn).toHaveBeenCalledWith('Unsupported chain 42161');
+    const fn2 = vi.fn();
+    try {
+      render(
+        <Web3ConfigProvider
+          chain={{
+            id: ChainIds.Arbitrum,
+            name: 'Arbitrum',
+          }}
+        >
+          <BrowserLink
+            address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+            chain={ChainIds.Mainnet}
+          />
+          ,
+        </Web3ConfigProvider>,
+      );
+    } catch (error: any) {
+      fn2(error.message);
+    }
+    expect(fn2).not.toHaveBeenCalled();
   });
 });

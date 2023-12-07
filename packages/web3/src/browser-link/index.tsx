@@ -3,6 +3,7 @@ import React from 'react';
 import { Space, Tooltip } from 'antd';
 import { ChainIds, fillAddressWith0x } from '@ant-design/web3-common';
 import { Address } from '../address';
+import useProvider from '../hooks/useProvider';
 
 export type BrowserLinkType = 'address' | 'transaction';
 
@@ -34,8 +35,10 @@ export const getBrowserLink = (
 
 export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
   const { icon, ellipsis, address, href, type, chain, name, iconOnly = false } = props;
+  const { chain: contextChain } = useProvider();
+  const mergedChain = chain ?? contextChain?.id;
   const filledAddress = fillAddressWith0x(address);
-  const browserLink = href ?? getBrowserLink(filledAddress, type, chain);
+  const browserLink = href ?? getBrowserLink(filledAddress, type, mergedChain);
 
   const renderContent = (content: React.ReactNode) => (
     <Tooltip title={filledAddress}>
