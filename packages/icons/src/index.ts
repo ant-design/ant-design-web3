@@ -16,3 +16,6 @@ export * from './components/coinbase-wallet-colorful';
 export * from './components/bitcoin-circle-filled';
 export * from './components/ethereum-circle-filled';
 export * from './components/usdt-circle-filled';
+export * from './components/sui-colorful';
+export * from './components/sui-filled';
+export * from './components/sui-circle-filled';

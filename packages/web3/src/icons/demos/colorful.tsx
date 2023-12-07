@@ -11,6 +11,7 @@ import {
   CoinbaseWallectColorful,
   WalletColorful,
   WalletWhiteColorful,
+  SuiColorful,
 } from '@ant-design/web3-icons';
 import { Space } from 'antd';
 
@@ -38,6 +39,7 @@ const App: React.FC = () => {
           backgroundColor: '#000',
         }}
       />
+      <SuiColorful style={style} />
     </Space>
   );
 };
