@@ -49,7 +49,13 @@ const WalletCard: React.FC = () => {
         {selectedExtension && (
           <CardItem
             link={selectedExtension.link}
-            icon={<img src={selectedExtension.browserIcon} />}
+            icon={
+              typeof selectedExtension.browserIcon === 'string' ? (
+                <img src={selectedExtension.browserIcon} />
+              ) : (
+                selectedExtension.browserIcon
+              )
+            }
             title={`${selectedWallet!.name} for ${selectedExtension.browserName}`}
             desc={selectedExtension.description}
           />

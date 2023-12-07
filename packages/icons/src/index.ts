@@ -19,3 +19,4 @@ export * from './components/usdt-circle-filled';
 export * from './components/sui-colorful';
 export * from './components/sui-filled';
 export * from './components/sui-circle-filled';
+export * from './components/chrome-colorful';

@@ -78,7 +78,7 @@ export type WalletExtensionItem = {
    * @desc 浏览器扩展程序的图标
    * @descEn Icon of browser extension
    */
-  browserIcon: string;
+  browserIcon: React.ReactNode | string;
   /**
    * @desc 浏览器扩展程序的名称
    * @descEn Name of browser extension

@@ -5,7 +5,6 @@ export * from './address';
 export * from './browser-link';
 export * from './nft-image';
 export * from './nft-card';
-export * from './constants';
 export * from './hooks';
 export * from './web3-config-provider';
 
