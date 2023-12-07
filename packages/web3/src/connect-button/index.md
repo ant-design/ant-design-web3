@@ -36,6 +36,10 @@ The button to connect to the blockchain wallet. Usually, you need to use it with
 
 <code src="./demos/type.tsx"></code>
 
+## Icon
+
+<code src="./demos/icon.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |

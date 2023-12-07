@@ -6,4 +6,5 @@ import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
 export const BitcoinFilled = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => (
   <AntdIcon {...props} ref={ref} component={SVGComponent} />
 ));
+
 BitcoinFilled.displayName = 'BitcoinFilled';
