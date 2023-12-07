@@ -1,7 +1,8 @@
 import type { WalletMetadata } from '@ant-design/web3-common';
+import { MetaMaskColorful } from '@ant-design/web3-icons';
 
 export const metadata_MetaMask: WalletMetadata = {
-  icon: 'https://metamask.io/images/metamask-logo.png',
+  icon: <MetaMaskColorful />,
   name: 'MetaMask',
   remark: 'MetaMask Wallet',
   app: {
@@ -17,4 +18,5 @@ export const metadata_MetaMask: WalletMetadata = {
       description: 'Access your wallet right from your favorite web browser.',
     },
   ],
+  group: 'Popular',
 };

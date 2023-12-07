@@ -38,7 +38,6 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
           value={qrCodeValue}
           status={!loading ? 'active' : 'loading'}
           size={isSimple ? 334 : 400}
-          icon={wallet.icon as string}
           iconSize={60}
           type="svg"
         />

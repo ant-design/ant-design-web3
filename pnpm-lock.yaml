@@ -11,6 +11,9 @@ importers:
       '@ant-design/web3':
         specifier: workspace:*
         version: link:packages/web3
+      '@ant-design/web3-assets':
+        specifier: workspace:*
+        version: link:packages/assets
       '@ant-design/web3-common':
         specifier: workspace:*
         version: link:packages/common

@@ -25,6 +25,7 @@ export interface ConnectModalToken extends Web3AliasToken {
   groupTextColor: string;
   listItemDescriptionColor: string;
   cardBg: string;
+  iconSize: number;
 }
 
 const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
@@ -78,6 +79,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           margin: 0,
+          paddingInline: 6,
         },
         [`${componentCls}-body`]: {
           height: 557,
@@ -135,7 +137,14 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                         [`${componentCls}-icon`]: {
                           borderRadius: 8,
                           overflow: 'hidden',
-                          background: new TinyColor(token.colorText).setAlpha(0.25).toRgbString(),
+                          width: token.iconSize,
+                          height: token.iconSize,
+                          fontSize: token.iconSize,
+                          lineHeight: 1,
+                          img: {
+                            width: '100%',
+                            height: '100%',
+                          },
                         },
                         [`${componentCls}-name`]: {
                           fontSize: token.fontSizeLG,
@@ -325,6 +334,8 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 [`${componentCls}-card-icon`]: {
                   width: 64,
                   height: 64,
+                  fontSize: 64,
+                  lineHeight: 1,
                   flexShrink: 0,
                   img: {
                     width: '100%',
@@ -423,7 +434,7 @@ export function useStyle(prefixCls: string) {
         .onBackground(token.colorBgContainer)
         .toRgbString(),
       splitColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
-      modalTitleStartColor: isDark ? token.colorWhite : '#1677ff',
+      modalTitleStartColor: isDark ? token.colorWhite : token.colorPrimary,
       modalTitleEndColor: new TinyColor('#000')
         .setAlpha(0.85)
         .onBackground(token.colorWhite)
@@ -431,6 +442,7 @@ export function useStyle(prefixCls: string) {
       groupTextColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
       listItemDescriptionColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
       cardBg: new TinyColor(token.colorText).setAlpha(0.1).toRgbString(),
+      iconSize: token.sizeXL,
       web3ComponentsCls: `.${prefixCls}`,
     });
     return [genModalStyle(connectModalToken)];

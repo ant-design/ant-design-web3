@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from 'react';
-import { Avatar, List, message } from 'antd';
+import { List, message } from 'antd';
 import type { ConnectModalProps, Wallet } from '../interface';
 import { defaultGroupOrder, getWalletRoute } from '../utils';
 import { connectModalContext } from '../context';
@@ -14,7 +14,7 @@ const WalletList: React.FC<WalletListProps> = (props) => {
   const dataSource: Record<string, Wallet[]> = useMemo(() => {
     const result: Record<string, Wallet[]> = {};
     walletList.forEach((wallet) => {
-      const { group = 'Default' } = wallet;
+      const { group = 'More' } = wallet;
       if (!result[group]) {
         result[group] = [];
       }
@@ -68,9 +68,7 @@ const WalletList: React.FC<WalletListProps> = (props) => {
                   <div className={`${prefixCls}-content`}>
                     <div className={`${prefixCls}-icon`}>
                       {typeof item.icon === 'string' || item.icon === undefined ? (
-                        <Avatar size={32} shape="square" src={item.icon}>
-                          {item.name[0].toUpperCase()}
-                        </Avatar>
+                        <img src={item.icon} alt={item.name} />
                       ) : (
                         item.icon
                       )}
