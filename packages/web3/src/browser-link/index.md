@@ -5,7 +5,7 @@ group: Display
 
 # BrowserLink
 
-a quick way to use etherscan adress.
+a quick way to use etherscan address.
 
 ## Basic Usage
 
