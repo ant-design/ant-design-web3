@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Account, ConnectorTriggerProps } from '@ant-design/web3';
+import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import { Connector } from '@ant-design/web3';
 import { Typography } from 'antd';
 
@@ -16,22 +17,7 @@ const App: React.FC = () => {
   const [account, setAccount] = React.useState<Account>();
   return (
     <Connector
-      availableWallets={[
-        {
-          name: 'MetaMask',
-          remark: 'Easy-to-use browser extension.',
-          extensions: [
-            {
-              key: 'Chrome',
-              browserIcon:
-                'https://github.com/ant-design/ant-design/assets/10286961/0d4e4ac7-8f89-4147-a06a-de72c02e85cb',
-              browserName: 'Chrome',
-              link: 'https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn',
-              description: 'Access your wallet right from your favorite web browser.',
-            },
-          ],
-        },
-      ]}
+      availableWallets={[metadata_MetaMask, metadata_WalletConnect]}
       connect={async () =>
         new Promise((resolve) => {
           setTimeout(() => {
