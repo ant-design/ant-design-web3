@@ -1,7 +1,8 @@
 import type { WalletMetadata } from '@ant-design/web3-common';
+import { WalletConnectColorful } from '@ant-design/web3-icons';
 
 export const metadata_WalletConnect: WalletMetadata = {
-  icon: 'https://docs.walletconnect.com/img/walletconnect-logo-black.svg#light-mode-only',
+  icon: <WalletConnectColorful />,
   name: 'WalletConnect',
   remark: 'Connect with mobile APP',
   app: {

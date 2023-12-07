@@ -43,7 +43,7 @@ describe('ConnectModal without guide', () => {
       'Popular',
     );
     expect(baseElement.querySelectorAll('.ant-web3-connect-modal-group-title')[1].textContent).toBe(
-      'Default',
+      'More',
     );
 
     // wallet list items
