@@ -9,6 +9,8 @@ import {
   MetaMaskColorful,
   WalletConnectColorful,
   CoinbaseWallectColorful,
+  WalletColorful,
+  WalletWhiteColorful,
 } from '@ant-design/web3-icons';
 import { Space } from 'antd';
 
@@ -29,6 +31,13 @@ const App: React.FC = () => {
       <MetaMaskColorful style={style} />
       <WalletConnectColorful style={style} />
       <CoinbaseWallectColorful style={style} />
+      <WalletColorful style={style} />
+      <WalletWhiteColorful
+        style={{
+          ...style,
+          backgroundColor: '#000',
+        }}
+      />
     </Space>
   );
 };

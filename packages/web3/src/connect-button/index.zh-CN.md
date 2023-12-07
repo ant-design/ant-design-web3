@@ -36,6 +36,10 @@ order: 1
 
 <code src="./demos/type.tsx"></code>
 
+## 图标
+
+<code src="./demos/icon.tsx"></code>
+
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |

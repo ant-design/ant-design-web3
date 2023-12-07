@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg">
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <circle fill="#000000" cx="513" cy="512" r="512"></circle>
+    <g fill="#FFFFFF">
+        <rect fill-opacity="0" x="0" y="0" width="1024" height="1024"></rect>
+        <g transform="translate(286, 152)">
+            <polygon points="0 407 226.5 536.711934 453 407 226.5 718"></polygon>
+            <polygon points="226.528654 0 2.5619928e-15 366.452902 226.528654 497 453 366.452902"></polygon>
+        </g>
+    </g>
+  </g>
+</svg>

@@ -1,4 +1,11 @@
-import { BitcoinFilled, EthereumFilled, USDTFilled, WalletFilled } from '@ant-design/web3-icons';
+import {
+  BitcoinFilled,
+  BitcoinCircleFilled,
+  EthereumFilled,
+  EthereumCircleFilled,
+  USDTFilled,
+  USDTCircleFilled,
+} from '@ant-design/web3-icons';
 import { Space } from 'antd';
 
 const style = {
@@ -9,9 +16,11 @@ const App: React.FC = () => {
   return (
     <Space>
       <BitcoinFilled style={style} />
+      <BitcoinCircleFilled style={style} />
       <EthereumFilled style={style} />
-      <WalletFilled style={style} />
+      <EthereumCircleFilled style={style} />
       <USDTFilled style={style} />
+      <USDTCircleFilled style={style} />
     </Space>
   );
 };
