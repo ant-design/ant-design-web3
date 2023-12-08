@@ -22,7 +22,7 @@ const style = {
 
 const App: React.FC = () => {
   return (
-    <Space>
+    <Space wrap>
       <BitcoinColorful style={style} />
       <EthereumColorful style={style} />
       <BSCColorful style={style} />
