@@ -48,17 +48,7 @@ export type DefaultGuide = {
   moreLink: string;
 };
 
-export type ConnectModalProps = {
-  /**
-   * @desc ConnectModal 的标题，与 Modal 的 title 类型相同
-   * @descEn The title of ConnectModal, the same as Modal's title type
-   */
-  title?: ModalProps['title'];
-  /**
-   * @desc 弹框是否展示，与 Modal 的 open 类型相同
-   * @descEn Whether the Modal is displayed, the same as the Modal's open type
-   */
-  open?: ModalProps['open'];
+export type ConnectModalProps = ModalProps & {
   /**
    * @desc 弹框可见性改变回调
    * @descEn Callback when the Modal visibility changes
@@ -73,14 +63,6 @@ export type ConnectModalProps = {
    * @returns
    */
   onSelectWallet?: (wallet: Wallet) => void;
-  /**
-   * @desc 透传 Modal 的 props，需要注意的是以下属性将会被内部逻辑覆盖，配置不生效。
-   * - title
-   * - open
-   * - onOpenChange
-   * @descEn Pass through the props of Modal. Note that the following attributes will be overwritten by internal logic and the configuration will not take effect.
-   */
-  modalProps?: ModalProps;
   /**
    * @desc class 前缀
    * @descEn Class prefix

@@ -120,9 +120,7 @@ describe('ConnectModal with guide', () => {
           groupOrder={groupOrder}
           walletList={walletList}
           guide={guide}
-          modalProps={{
-            destroyOnClose: true,
-          }}
+          destroyOnClose={true}
           onOpenChange={setOpen}
         />
       );

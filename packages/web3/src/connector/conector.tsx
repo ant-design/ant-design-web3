@@ -72,12 +72,10 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
           }
           await connectWallet(wallet);
         }}
-        modalProps={{
-          ...modalProps?.modalProps,
-          onCancel: (e) => {
-            setLoading(false);
-            modalProps?.modalProps?.onCancel?.(e);
-          },
+        {...modalProps}
+        onCancel={(e) => {
+          modalProps?.onCancel?.(e);
+          setLoading(false);
         }}
       />
     </>
