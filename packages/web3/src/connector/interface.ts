@@ -4,7 +4,6 @@ import type { Account, Wallet, Chain } from '@ant-design/web3-common';
 export interface ConnectorProps {
   children: React.ReactNode;
   modalProps?: ConnectModalProps;
-
   onConnect?: () => void;
   onDisconnect?: () => void;
   onConnected?: () => void;
