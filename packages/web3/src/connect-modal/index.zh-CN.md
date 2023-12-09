@@ -29,18 +29,14 @@ order: 2
 ### ConnectModalProps
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| title | ConnectModal 的标题，与 Modal 的 title 类型相同 | `ModalProps['title']` | - | - |
-| open | 弹框是否展示，与 Modal 的 open 类型相同 | `ModalProps['open']` | - | - |
-| onOpenChange | 弹框可见性改变回调 | `(open: boolean) => void` | - | - |
+| --- | --- | --- | --- | --- | --- |
 | onSelectWallet | 选中钱包回调 | `(wallet: Wallet) => void` | - | - |
-| modalProps | 透传 Modal 的 props | `ModalProps` | - | - |
-| prefixCls | class 前缀 | `string` | - | - |
 | footer | 自定义 footer | `React.ReactNode` | - | - |
 | walletList | 钱包列表 | [Wallet](./types#wallet)\[\] | - | - |
 | groupOrder | 钱包分组排序函数 | `(a: string, b: string) => number` | - | - |
-| guide | 新手指引面板 | `false \| null` | [DefaultGuide](#defaultguide) | - |
-| className | 自定义类名 | `string` | - | - |
+| guide | 新手指引面板 | `false \| null` | [DefaultGuide](#defaultguide) | - |  |
+
+其他弹框属性详见： [ModalProps](https://ant.design/components/modal-cn#api)
 
 ### DefaultGuide
 

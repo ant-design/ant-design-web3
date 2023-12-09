@@ -30,16 +30,12 @@ The connection wallet popup, used with [ConnectButton](../connect-button) to com
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| title | The title of ConnectModal, same as Modal's title | `ModalProps['title']` | - | - |
-| open | Whether the modal is visible, same as Modal's open | `ModalProps['open']` | - | - |
-| onOpenChange | Callback when the modal visibility changes | `(open: boolean) => void` | - | - |
-| onSelectWallet | Callback when the wallet is selected | `(wallet: Wallet) => void` | - | - |
-| modalProps | Pass through the props of Modal | `ModalProps` | - | - |
-| prefixCls | Class prefix | `string` | - | - |
 | footer | Custom footer | `React.ReactNode` | - | - |
 | walletList | Wallet list | `Wallet[]` | - | - |
 | groupOrder | Wallet group sorting function | `(a: string, b: string) => number` | - | - |
 | guide | Newbie guide panel | `false \| null` | [DefaultGuide](#defaultguide) | - |
+
+Other modal properties see: [ModalProps](https://ant.design/components/modal#API)
 
 ### DefaultGuide
 
