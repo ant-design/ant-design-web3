@@ -7,6 +7,8 @@ import {
   USDTCircleFilled,
   SuiFilled,
   SuiCircleFilled,
+  TronFilled,
+  TronCircleFilled,
 } from '@ant-design/web3-icons';
 import { Space } from 'antd';
 
@@ -16,7 +18,7 @@ const style = {
 
 const App: React.FC = () => {
   return (
-    <Space>
+    <Space wrap>
       <BitcoinFilled style={style} />
       <BitcoinCircleFilled style={style} />
       <EthereumFilled style={style} />
@@ -25,6 +27,8 @@ const App: React.FC = () => {
       <USDTCircleFilled style={style} />
       <SuiFilled style={style} />
       <SuiCircleFilled style={style} />
+      <TronFilled style={style} />
+      <TronCircleFilled style={style} />
     </Space>
   );
 };
