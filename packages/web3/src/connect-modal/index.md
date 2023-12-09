@@ -30,6 +30,7 @@ The connection wallet popup, used with [ConnectButton](../connect-button) to com
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| onSelectWallet | Callback when the wallet is selected | `(wallet: Wallet) => void` | - | - |
 | footer | Custom footer | `React.ReactNode` | - | - |
 | walletList | Wallet list | `Wallet[]` | - | - |
 | groupOrder | Wallet group sorting function | `(a: string, b: string) => number` | - | - |
