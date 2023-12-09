@@ -121,7 +121,7 @@ describe('ConnectModal with guide', () => {
           walletList={walletList}
           guide={guide}
           destroyOnClose={true}
-          onOpenChange={setOpen}
+          afterOpenChange={setOpen}
         />
       );
     };
