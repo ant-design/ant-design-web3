@@ -11,7 +11,7 @@ import { ConnectModalContextProvider } from './context';
 export type * from './interface';
 
 export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
-  const { open, afterOpenChange, guide, onSelectWallet, className } = props;
+  const { open, guide, onSelectWallet, className } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const [selectedWallet, setSelectedWallet] = React.useState<Wallet>();
   const [panelRoute, setPanelRoute] = React.useState<PanelRoute>('guide');
@@ -72,7 +72,6 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
           className={classNames(prefixCls, className, hashId)}
           rootClassName={classNames(`${prefixCls}-root`, props?.rootClassName)}
           open={open}
-          afterOpenChange={afterOpenChange}
           closeIcon={<CloseCircleFilled />}
           onCancel={(e) => {
             props?.onCancel?.(e);
