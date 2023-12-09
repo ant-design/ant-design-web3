@@ -51,6 +51,8 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
   const prefixCls = getPrefixCls('web3-connect-modal');
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
+  const { title, footer, ...restProps } = props;
+
   return (
     <ConnectModalContextProvider
       value={{
@@ -65,13 +67,14 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
     >
       {wrapSSR(
         <Modal
+          {...restProps}
           width={guide ? 737 : 380}
           className={classNames(prefixCls, className, hashId)}
           rootClassName={classNames(`${prefixCls}-root`, props?.rootClassName)}
           open={open}
+          afterOpenChange={afterOpenChange}
           closeIcon={<CloseCircleFilled />}
           onCancel={(e) => {
-            afterOpenChange?.(false);
             props?.onCancel?.(e);
           }}
           footer={null}
