@@ -13,6 +13,7 @@ import {
   WalletWhiteColorful,
   SuiColorful,
   ChromeColorful,
+  TronColorful,
 } from '@ant-design/web3-icons';
 import { Space } from 'antd';
 
@@ -42,6 +43,7 @@ const App: React.FC = () => {
       />
       <SuiColorful style={style} />
       <ChromeColorful style={style} />
+      <TronColorful style={style} />
     </Space>
   );
 };
