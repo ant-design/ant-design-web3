@@ -135,7 +135,6 @@ describe('ConnectModal with guide', () => {
 
     fireEvent.click(baseElement.querySelector('.ant-modal-close')!);
     await vi.waitFor(() => {
-      console.log(baseElement.innerHTML);
       expect(baseElement.querySelector('.ant-web3-connect-modal')?.className).toContain(
         'ant-zoom-leave',
       );
