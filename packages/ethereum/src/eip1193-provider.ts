@@ -16,7 +16,7 @@ export interface CreateProviderOptions {
 
 const debug = createDebug('eip1193-provider');
 
-const wallectsMethods = ['eth_requestAccounts', 'eth_accounts'];
+const walletsMethods = ['eth_requestAccounts', 'eth_accounts'];
 
 export class EthereumEIP1193LikeProvider implements EIP1193LikeProvider {
   constructor(private options: CreateProviderOptions) {}
@@ -73,7 +73,7 @@ export class EthereumEIP1193LikeProvider implements EIP1193LikeProvider {
     debug('request', requestParams);
     const { method } = requestParams;
 
-    if (wallectsMethods.includes(method)) {
+    if (walletsMethods.includes(method)) {
       const walletProvider = await this.getWalletProvider();
       if (!walletProvider) {
         throw new Error('No wallet provider found');
