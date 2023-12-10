@@ -97,7 +97,7 @@ describe('BrowserLink', () => {
     }
     expect(fn2).not.toHaveBeenCalled();
   });
-  it.skip('support get chain icon from provider', async () => {
+  it('support get chain icon from provider', async () => {
     const { baseElement, rerender } = render(
       <Web3ConfigProvider
         chain={{
@@ -127,7 +127,7 @@ describe('BrowserLink', () => {
     expect(baseElement.querySelector('.ant-web3-icon-ethereum-colorful')).toBeNull();
     expect(baseElement.querySelector('.ant-web3-icon-bitcoin-colorful')).not.toBeNull();
   });
-  it.skip('support iconStyle', async () => {
+  it('support iconStyle', async () => {
     const { baseElement } = render(
       <Web3ConfigProvider
         chain={{
