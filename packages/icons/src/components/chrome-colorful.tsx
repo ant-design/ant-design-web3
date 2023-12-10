@@ -3,14 +3,19 @@ import AntdIcon from '@ant-design/icons';
 import { ReactComponent as SVGComponent } from '../svgs/chrome-colorful.svg';
 import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
 import classnames from 'classnames';
+import { ConfigProvider } from 'antd';
 
-export const ChromeColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => (
-  <AntdIcon
-    {...props}
-    className={classnames('ant-web3-icon-chrome-colorful', props.className)}
-    ref={ref}
-    component={SVGComponent}
-  />
-));
+export const ChromeColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('web3-icon-chrome-colorful');
+  return (
+    <AntdIcon
+      {...props}
+      className={classnames(prefixCls, props.className)}
+      ref={ref}
+      component={SVGComponent}
+    />
+  );
+});
 
 ChromeColorful.displayName = 'ChromeColorful';
