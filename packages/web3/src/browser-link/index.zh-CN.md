@@ -23,11 +23,12 @@ group: 展示
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| `icon` | 图标属性，可以是布尔值或自定义 React 节点。 | `boolean \| React.ReactNode` | - | - |
-| `iconOnly` | 是否只显示图标。 | `boolean` | `false` | - |
-| `ellipsis` | 是否启用省略号来显示以太坊地址。 | `boolean` | - | - |
-| `address` | 要生成链接的以太坊地址。 | `string` | - | - |
-| `href` | 自定义链接目标。如果提供，将覆盖生成的链接。 | `string` | - | - |
-| `type` | 链接类型，是 'address'（默认）还是 'transaction'。 | `address \| transaction` | `address` | - |
-| `chain` | 以太坊链标识符。默认为主网。 | `ChainIds` | `ChainIds.Mainnet` | - |
-| `name` | 自定义显示名称。不传默认显示 `address` | `string` | - | - |
+| icon | 图标属性，可以是布尔值或自定义 React 节点。 | `boolean \| React.ReactNode` | - | - |
+| iconOnly | 是否只显示图标。 | `boolean` | `false` | - |
+| iconStyle | 图标样式。 | `React.CSSProperties` | - | - |
+| ellipsis | 是否启用省略号来显示以太坊地址。 | `boolean` | - | - |
+| address | 要生成链接的以太坊地址。 | `string` | - | - |
+| href | 自定义链接目标。如果提供，将覆盖生成的链接。 | `string` | - | - |
+| type | 链接类型，是 'address'（默认）还是 'transaction'。 | `address \| transaction` | `address` | - |
+| chain | 以太坊链标识符。默认为主网。 | `ChainIds` | `ChainIds.Mainnet` | - |
+| name | 自定义显示名称。不传默认显示 `address` | `string` | - | - |

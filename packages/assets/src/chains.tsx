@@ -49,3 +49,5 @@ export const Optimism: Chain = {
   icon: <OptimismColorful />,
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
 };
+
+export const defaultAvailableChains = [Mainnet, Goerli, Polygon, BSC, Arbitrum, Optimism];

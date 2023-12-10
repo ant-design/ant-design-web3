@@ -96,4 +96,17 @@ describe('BrowserLink', () => {
     }
     expect(fn2).not.toHaveBeenCalled();
   });
+  it('support get chain icon from provider', async () => {
+    const { baseElement } = render(
+      <Web3ConfigProvider
+        chain={{
+          id: ChainIds.Mainnet,
+          name: 'Mainnet',
+        }}
+      >
+        <BrowserLink address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,
+      </Web3ConfigProvider>,
+    );
+    expect(baseElement.querySelector('.anticon-ethereum')).not.toBeNull();
+  });
 });
