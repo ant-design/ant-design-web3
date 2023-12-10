@@ -6,7 +6,7 @@ group:
 order: 1
 ---
 
-## 图表列表
+## 图标列表
 
 <IconSearch></IconSearch>
 
