@@ -29,18 +29,15 @@ const App: React.FC = () => {
       <BSCColorful style={style} />
       <OptimismColorful style={style} />
       <PolygonColorful style={style} />
+
       <ArbitrumColorful style={style} />
       <EtherscanColorful style={style} />
       <MetaMaskColorful style={style} />
       <WalletConnectColorful style={style} />
       <CoinbaseWallectColorful style={style} />
+
       <WalletColorful style={style} />
-      <WalletWhiteColorful
-        style={{
-          ...style,
-          backgroundColor: '#000',
-        }}
-      />
+      <WalletWhiteColorful style={{ ...style, backgroundColor: '#000' }} />
       <SuiColorful style={style} />
       <ChromeColorful style={style} />
       <TronColorful style={style} />

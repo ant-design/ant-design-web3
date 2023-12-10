@@ -24,6 +24,7 @@ const App: React.FC = () => {
       <EthereumFilled style={style} />
       <EthereumCircleFilled style={style} />
       <USDTFilled style={style} />
+
       <USDTCircleFilled style={style} />
       <SuiFilled style={style} />
       <SuiCircleFilled style={style} />

@@ -6,6 +6,10 @@ group:
 order: 1
 ---
 
+## 图表列表
+
+<IconSearch></IconSearch>
+
 ## 彩色风格
 
 <code src="./demos/colorful.tsx"></code>

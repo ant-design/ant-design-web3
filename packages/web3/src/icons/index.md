@@ -6,6 +6,10 @@ group:
 order: 1
 ---
 
+## List of icons
+
+<IconSearch></IconSearch>
+
 ## Colorful style
 
 <code src="./demos/colorful.tsx"></code>
