@@ -10,7 +10,7 @@ order: 1
 
 Before use icons, you need to install [@ant-design/web3-icons](https://www.npmjs.com/package/@ant-design/web3-icons) package:
 
-```sh
+```shell
 # npm
 npm install @ant-design/web3-icons --save
 
@@ -27,5 +27,6 @@ pnpm install @ant-design/web3-icons --save
 
 ## Examples
 
-<!-- prettier-ignore -->
 <code src="./demos/basic.tsx">Basic</code>
+
+<code src="./demos/size.tsx">Custom size</code>

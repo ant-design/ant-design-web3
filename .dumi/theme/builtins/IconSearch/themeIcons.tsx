@@ -1,20 +1,13 @@
 import * as React from 'react';
 import type { CustomIconComponentProps } from '@ant-design/icons/es/components/Icon';
+import { BitcoinColorful } from '@ant-design/web3-icons';
 
 type CustomIconComponent = React.ComponentType<
   CustomIconComponentProps | React.SVGProps<SVGSVGElement>
 >;
 
-export const ColorfulIcon: CustomIconComponent = (props) => {
-  const path =
-    'M864 64H160C107 64 64 107 64 160v' +
-    '704c0 53 43 96 96 96h704c53 0 96-43 96-96V16' +
-    '0c0-53-43-96-96-96z';
-  return (
-    <svg {...props} viewBox="0 0 1024 1024">
-      <path d={path} />
-    </svg>
-  );
+export const ColorfulIcon: CustomIconComponent = () => {
+  return <BitcoinColorful />;
 };
 
 export const FilledIcon: CustomIconComponent = (props) => {

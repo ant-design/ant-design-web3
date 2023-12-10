@@ -17,15 +17,7 @@ const chain = [
   'USDT',
 ];
 
-const tool = [
-  'CoinbaseWallect',
-  'Etherscan',
-  'MetaMask',
-  'WalletConnect',
-  'Wallet',
-
-  'WalletWhite',
-];
+const tool = ['CoinbaseWallect', 'Etherscan', 'MetaMask', 'WalletConnect'];
 
 const datum = [...chain, ...tool];
 
