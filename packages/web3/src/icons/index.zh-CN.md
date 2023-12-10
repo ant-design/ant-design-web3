@@ -6,10 +6,26 @@ group:
 order: 1
 ---
 
-## 彩色风格
+## 使用方法
 
-<code src="./demos/colorful.tsx"></code>
+使用图标组件，你需要安装 [@ant-design/web3-icons](https://www.npmjs.com/package/@ant-design/web3-icons) 图标组件包：
 
-## 单色风格
+```sh
+# npm
+npm install @ant-design/web3-icons --save
 
-<code src="./demos/filled.tsx"></code>
+# yarn
+yarn add @ant-design/web3-icons
+
+# pnpm
+pnpm install @ant-design/web3-icons --save
+```
+
+## 图标列表
+
+<IconSearch></IconSearch>
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demos/basic.tsx">基本用法</code>
