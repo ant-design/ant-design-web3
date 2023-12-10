@@ -1,10 +1,13 @@
 import React from 'react';
+import { useOutlet, usePrefersColor } from 'dumi';
+
 import SiteThemeProvider from '../SiteThemeProvider';
-import { useOutlet } from 'dumi';
 
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
-  return <SiteThemeProvider>{outlet}</SiteThemeProvider>;
+  const [color] = usePrefersColor();
+
+  return <SiteThemeProvider themeMode={color || 'auto'}>{outlet}</SiteThemeProvider>;
 };
 
 export default GlobalLayout;
