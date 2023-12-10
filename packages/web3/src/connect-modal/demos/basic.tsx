@@ -93,7 +93,7 @@ const App: React.FC = () => {
         footer="蚂蚁链提供技术支持"
         groupOrder={groupOrder}
         walletList={walletList}
-        onOpenChange={setOpen}
+        onCancel={() => setOpen(false)}
         guide={guide}
       />
     </>

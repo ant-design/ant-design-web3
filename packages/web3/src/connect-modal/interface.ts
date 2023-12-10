@@ -50,12 +50,6 @@ export type DefaultGuide = {
 
 export type ConnectModalProps = ModalProps & {
   /**
-   * @desc 弹框可见性改变回调
-   * @descEn Callback when the Modal visibility changes
-   * @param open 弹框是否展示
-   */
-  onOpenChange?: (open: boolean) => void;
-  /**
    * @desc 选中钱包回调
    * @descEn Callback when the wallet is selected
    * @param wallet 选中的钱包
@@ -63,11 +57,6 @@ export type ConnectModalProps = ModalProps & {
    * @returns
    */
   onSelectWallet?: (wallet: Wallet) => void;
-  /**
-   * @desc class 前缀
-   * @descEn Class prefix
-   */
-  prefixCls?: string;
   /**
    * @desc 自定义 footer
    * @descEn Custom footer
@@ -91,11 +80,6 @@ export type ConnectModalProps = ModalProps & {
    * @descEn Newbie guide panel
    */
   guide?: false | null | DefaultGuide;
-  /**
-   * @desc 自定义类名
-   * @descEn Custom class name
-   */
-  className?: string;
 };
 
 export type PanelRoute = 'guide' | 'getWallet' | 'wallet' | 'qrCode';
