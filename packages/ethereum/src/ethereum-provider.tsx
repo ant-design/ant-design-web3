@@ -19,11 +19,11 @@ export const EthereumProvider: React.FC<Web3ProviderProps> = (props) => {
   }, [eip1193Provider]);
 
   React.useEffect(() => {
-    const getAvaliableWallets = async () => {
-      const avaliableWallets = await provider.getAvaliableWallets();
-      setWallets(avaliableWallets);
+    const getAvailableWallets = async () => {
+      const availableWallets = await provider.getAvailableWallets();
+      setWallets(availableWallets);
     };
-    getAvaliableWallets();
+    getAvailableWallets();
   }, [provider]);
 
   React.useEffect(() => {

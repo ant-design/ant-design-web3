@@ -112,7 +112,7 @@ export class EthereumEIP1193LikeProvider implements EIP1193LikeProvider {
     }
   };
 
-  getAvaliableWallets = async (): Promise<EthereumWallet[]> => {
+  getAvailableWallets = async (): Promise<EthereumWallet[]> => {
     await this.getAllWallet();
     return this.walletProviders || [];
   };
