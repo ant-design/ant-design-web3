@@ -10,7 +10,7 @@ order: 1
 
 使用图标组件，你需要安装 [@ant-design/web3-icons](https://www.npmjs.com/package/@ant-design/web3-icons) 图标组件包：
 
-```sh
+```shell
 # npm
 npm install @ant-design/web3-icons --save
 
@@ -27,5 +27,6 @@ pnpm install @ant-design/web3-icons --save
 
 ## 代码演示
 
-<!-- prettier-ignore -->
 <code src="./demos/basic.tsx">基本用法</code>
+
+<code src="./demos/size.tsx">尺寸修改</code>
