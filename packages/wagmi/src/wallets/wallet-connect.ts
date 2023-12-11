@@ -3,7 +3,7 @@ import { metadata_WalletConnect } from '@ant-design/web3-assets';
 import type { WalletFactory } from '../interface';
 import type { Connector } from 'wagmi';
 
-export const WallectConnect: WalletFactory = {
+export const WalletConnect: WalletFactory = {
   name: 'WalletConnect',
   create: (connector?: Connector): Wallet => {
     const getQrCode = async () => {

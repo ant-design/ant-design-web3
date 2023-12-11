@@ -6,7 +6,7 @@ export * from './components/wallet-colorful';
 export * from './components/wallet-white-colorful';
 export * from './components/etherscan-colorful';
 export * from './components/metamask-colorful';
-export * from './components/wallectconnect-colorful';
+export * from './components/wallet-connect-colorful';
 export * from './components/coinbase-wallet-colorful';
 
 export * from './components/usdt-filled';

@@ -5,7 +5,7 @@ import type { Chain, Wallet, WalletMetadata } from '@ant-design/web3-common';
  */
 export interface EIP1193LikeProvider {
   request: (request: { method: string; params?: any }) => Promise<any>;
-  // connect and disconnect for WallectConnect
+  // connect and disconnect for WalletConnect
   connect?: () => Promise<void>;
   disconnect?: () => Promise<void>;
   networkVersion?: string;

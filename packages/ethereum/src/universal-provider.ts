@@ -77,8 +77,8 @@ export class UniversalProvider extends EventEmitter implements UniversalWeb3Prov
     this.emit(UniversalWeb3ProviderEventType.AccountsChanged, []);
   };
 
-  getAvaliableWallets = async (): Promise<Wallet[]> => {
-    return this.eip1193Provider.getAvaliableWallets();
+  getAvailableWallets = async (): Promise<Wallet[]> => {
+    return this.eip1193Provider.getAvailableWallets();
   };
 
   getNFTMetadata = async (params: { address: string; tokenId: bigint }): Promise<NFTMetadata> => {

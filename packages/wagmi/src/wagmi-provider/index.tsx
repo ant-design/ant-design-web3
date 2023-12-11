@@ -6,8 +6,8 @@ import type { Chain } from '@ant-design/web3-common';
 import type { WalletFactory } from '../interface';
 // Built in popular chains
 import { Mainnet, Polygon, BSC, Goerli } from '@ant-design/web3-assets';
-// MetaMask and WallectConnect built-in
-import { MetaMask, WallectConnect } from '../wallets';
+// MetaMask and WalletConnect built-in
+import { MetaMask, WalletConnect } from '../wallets';
 
 export type WagmiWeb3ConfigProviderProps<
   TPublicClient extends PublicClient = PublicClient,
@@ -34,7 +34,7 @@ export function WagmiWeb3ConfigProvider<
   return (
     <WagmiConfig {...restProps}>
       <AntDesignWeb3ConfigProvider
-        assets={[...assets, MetaMask, WallectConnect, Mainnet, Polygon, BSC, Goerli]}
+        assets={[...assets, MetaMask, WalletConnect, Mainnet, Polygon, BSC, Goerli]}
         availableChains={availableChains}
         ens={ens}
       >

@@ -25,7 +25,7 @@ Currently, we officially provide the adapter of Ethereum, and you can also devel
 
 <code src="./demos/name.tsx"></code>
 
-## Use web3modal for WallectConnect
+## Use web3modal for WalletConnect
 
 <code src="./demos/web3modal.tsx"></code>
 

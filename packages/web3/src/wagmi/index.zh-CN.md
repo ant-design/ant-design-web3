@@ -23,7 +23,7 @@ group:
 
 <code src="./demos/name.tsx"></code>
 
-## 使用 web3modal 连接 WallectConnect
+## 使用 web3modal 连接 WalletConnect
 
 <code src="./demos/web3modal.tsx"></code>
 
