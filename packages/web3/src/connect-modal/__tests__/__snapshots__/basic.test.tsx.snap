@@ -1136,7 +1136,7 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
                           class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
                         >
                           <img
-                            src="https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/ethereum.svg"
+                            src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ApSUSaoUa_sAAAAAAAAAAAAADlrGAQ/original"
                           />
                         </span>
                         <div
@@ -1161,7 +1161,7 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
                           class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
                         >
                           <img
-                            src="https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/bitcoin.svg"
+                            src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*3lD7QpnbCPcAAAAAAAAAAAAADlrGAQ/original"
                           />
                         </span>
                         <div
@@ -1186,7 +1186,7 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
                           class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
                         >
                           <img
-                            src="https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/binance.svg"
+                            src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*gTROQqEY_TcAAAAAAAAAAAAADlrGAQ/original"
                           />
                         </span>
                         <div

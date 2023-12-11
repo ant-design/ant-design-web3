@@ -7,17 +7,17 @@ const defaultGuide: MainPanelProps['guide'] = {
   title: 'What is a Wallet?',
   infos: [
     {
-      icon: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/ethereum.svg',
+      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ApSUSaoUa_sAAAAAAAAAAAAADlrGAQ/original',
       title: 'Manage your private key and assets',
       description: 'Manage your private key and the assets of the corresponding chain address',
     },
     {
-      icon: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/bitcoin.svg',
+      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*3lD7QpnbCPcAAAAAAAAAAAAADlrGAQ/original',
       title: 'Help you connect to DApp',
       description: 'Authorize DApp to get your address, similar to login',
     },
     {
-      icon: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/binance.svg',
+      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*gTROQqEY_TcAAAAAAAAAAAAADlrGAQ/original',
       title: 'Call smart contract',
       description:
         'Through authorization of private key signature, initiate interaction with smart contract on the chain',
