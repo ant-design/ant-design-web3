@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Space, Tooltip } from 'antd';
 import { ChainIds, fillAddressWith0x } from '@ant-design/web3-common';
 import { Address } from '../address';
@@ -9,6 +9,7 @@ export type BrowserLinkType = 'address' | 'transaction';
 
 export interface BrowserLinkProps {
   icon?: boolean | React.ReactNode;
+  iconStyle?: React.CSSProperties;
   iconOnly?: boolean;
   ellipsis?: boolean;
   address: string;
@@ -35,16 +36,33 @@ export const getBrowserLink = (
 
 export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
   const { icon, ellipsis, address, href, type, chain, name, iconOnly = false } = props;
-  const { chain: contextChain } = useProvider();
-  const mergedChain = chain ?? contextChain?.id;
+  const { chain: contextChain, availableChains } = useProvider();
+  const mergedChainId = chain ?? contextChain?.id;
+
+  const currentChain = useMemo(
+    () => availableChains?.find((c) => c.id === mergedChainId),
+    [availableChains, mergedChainId],
+  );
+
+  const mergedIcon = icon ?? currentChain?.icon;
+  const displayIcon = React.isValidElement(mergedIcon)
+    ? React.cloneElement<any>(mergedIcon, {
+        style: {
+          fontSize: iconOnly ? 24 : 16,
+          ...props.iconStyle,
+          ...(React.isValidElement(mergedIcon) ? mergedIcon.props.style : {}),
+        },
+      })
+    : mergedIcon;
+
   const filledAddress = fillAddressWith0x(address);
-  const browserLink = href ?? getBrowserLink(filledAddress, type, mergedChain);
+  const browserLink = href ?? getBrowserLink(filledAddress, type, mergedChainId);
 
   const renderContent = (content: React.ReactNode) => (
     <Tooltip title={filledAddress}>
-      <a href={browserLink}>
+      <a href={browserLink} style={{ display: 'inline-block' }}>
         <Space size="small">
-          {icon}
+          {displayIcon}
           {!iconOnly && content}
         </Space>
       </a>
