@@ -13,6 +13,8 @@ All work on Ant Design Web3 happens directly on [GitHub](https://github.com/ant-
 
 ## How to Contribute
 
+**When submitting a PR, please execute `pnpm changeset` to generate the change description first, and then submit the PR.** We manage version releases through [changesets](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md). Executing this command will generate change description files under `.changeset`, and these files will be automatically merged into `CHANGELOG.md` when released. But not every PR needs a change description, for example, PRs that do not involve package content modifications such as documents and official websites do not need to execute this command.
+
 ### Contribute Code
 
 Go to [issues](https://github.com/ant-design/ant-design-web3/issues) to find issues marked with `development task` and `bug` labels, assign them to yourself, and complete the development as soon as possible within **three days** and submit a PR. Except for bugs, all development tasks should be split into small tasks that can be completed within one hour or one day. Assigning an issue to yourself means claiming the task, please make sure you understand the task before claiming it, and if you have any questions, you can discuss it in the issue. Also try to arrange time reasonably to ensure that you can submit a high-quality PR within three days. PR needs to be assigned to the core development members, and can be merged after at least one person approves (Approved).
@@ -30,6 +32,16 @@ Before reporting a bug, please search existing [issues](https://github.com/ant-d
 Create a new issue to track the clear feature, and add the `feature` label. Before development, the task needs to be split. **Ensure that the split of each task can be completed within one hour or one day.** Create a separate issue for each split task and associate it, and add the `development task` label to facilitate multi-person collaboration. If the feature is small, you may not need to split it, and directly add the `development task` label. Adding the `development task` label means that no further discussion is needed and you can go directly to development. If the split task is not clear, please discuss it in the issue. If the entire feature is not clear, please close the issue and refer to the instructions below to discuss in the discussion.
 
 For unclear features and proposals that need to be discussed, please create a discussion in the [discussion](https://github.com/ant-design/ant-design-web3/discussions).
+
+## How to Release
+
+The release is responsible by the core members, and one version is released every week. If there is an urgent bug fix, it can be released at any time. The release complies with the [Semver](https://semver.org/) specification.
+
+The release is published by executing `pnpm run release`, which will first execute `changeset version` to merge the change description under `.changeset` into `CHANGELOG.md` and update the version of the package. Then execute `changeset publish` to publish to npm and add the corresponding tag.
+
+After the release, the related modifications are submitted to the main branch, and the corresponding tag also needs to be pushed to GitHub.
+
+If it is an alpha or beta version, please execute `pnpm run release:alpha` or `pnpm run release:beta` to release.
 
 ## Core Members
 
