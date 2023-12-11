@@ -8,6 +8,13 @@ order: 3
 
 This defines the unified types of Ant Design Web3, which may be used in multiple components.
 
+## Account
+
+| Property | Description                                | Type     | Default | Version |
+| -------- | ------------------------------------------ | -------- | ------- | ------- |
+| address  | Account address                            | `string` | -       | -       |
+| name     | Account name, For example, ENS in Ethereum | `string` | -       | -       |
+
 ## ChainIds
 
 This is an enum type that contains the IDs of some commonly used chains. Its value is a number, which can be used to determine whether the current chain is a specific chain.
@@ -63,3 +70,16 @@ This is an enum type that contains the IDs of some commonly used chains. Its val
 | --- | --- | --- | --- | --- |
 | trait_type | The type of the attribute representing the characteristic type of the NFT. | `string` | - | - |
 | value | The value of the attribute representing the characteristic of the NFT. | `string` | - | - |
+
+## UniversalWeb3ProviderInterface
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| account | Current account | [Account](#account) | - | - |
+| chain | Current chain | [Chain](#chain) | - | - |
+| availableChains | List of available chains | [Chain](#chain)\[] | - | - |
+| availableWallets | List of available wallets | [Wallet](#wallet)\[] | - | - |
+| connect | Connect to the chain | `(chainId: ChainIds) => Promise<void>` | - | - |
+| disconnect | Disconnect from the chain | `() => Promise<void>` | - | - |
+| switchChain | Switch to another chain | `(chainId: ChainIds) => Promise<void>` | - | - |
+| getNFTMetadata | Get the metadata of the NFT | `(contractAddress: string, tokenId: string) => Promise<NFTMetadata>` | - | - |

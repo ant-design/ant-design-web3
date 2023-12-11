@@ -19,20 +19,9 @@ group:
 
 ## 适配器是如何工作的？
 
-在 `@ant-design/web3-common` 的[类型](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/types.ts)中，我们定义了 `UniversalWeb3ProviderInterface`，它包含了如下类型：
+在 `@ant-design/web3-common` 的[类型](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/types.ts)中，我们定义了 [UniversalWeb3ProviderInterface](../../packages/web3/src/types/index.zh-CN.md#universalweb3providerinterface)。
 
-| 名称 | 类型 | 说明 |
-| --- | --- | --- |
-| account | [Account](../../packages/web3/src/types/index.zh-CN.md#account) | 当前连接的账户 |
-| chain | [Chain](../../packages/web3/src/types/index.zh-CN.md#chain) | 当前连接的链 |
-| availableWallets | [Wallet](../../packages/web3/src/types/index.zh-CN.md#wallet)\[\] | 可用的钱包列表 |
-| availableChains | `Chain[]` | 可用的链列表 |
-| connect | `(wallet?: Wallet) => Promise<void>` | 连接钱包 |
-| disconnect | `() => Promise<void>` | 断开连接 |
-| switchChain | `(chain: Chain) => Promise<void>` | 切换链 |
-| getNFTMetadata | `(params: { address: string; tokenId: bigint }) => Promise<NFTMetadata>` | 获取 NFT 元数据 |
-
-在 `@ant-design/web3` 中你可以通过 [Web3ConfigProvider](../../packages/web3/src/web3-config-provider/index/zh-CN.md) 全局配置这些属性，Ant Design Web3 的组件会通过 React Context 获取到相关内容并使用。而适配器则是通过帮你配置了这些属性而实现相关功能，当然你也可以自己通过全局配置 `Web3ConfigProvider` 来实现和适配器类似的功能。实际上，开发适配器便是基于这个逻辑。
+在 `@ant-design/web3` 中你可以通过 [Web3ConfigProvider](../../packages/web3/src/web3-config-provider/index/zh-CN.md) 全局配置 `UniversalWeb3ProviderInterface`，Ant Design Web3 的组件会通过 React Context 获取到相关内容并使用。而适配器则是通过帮你配置了这些属性而实现相关功能，当然你也可以自己通过全局配置 `Web3ConfigProvider` 来实现和适配器类似的功能。实际上，开发适配器便是基于这个逻辑。
 
 ## 开发适配器
 

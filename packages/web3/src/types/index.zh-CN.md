@@ -8,6 +8,13 @@ order: 3
 
 这里定义了 Ant Design Web3 统一类型，在多个组件中可能都会用到。
 
+## Account
+
+| 属性    | 描述                       | 类型     | 默认值 | 版本 |
+| ------- | -------------------------- | -------- | ------ | ---- |
+| address | 账户地址                   | `string` | -      | -    |
+| name    | 账户名称，比如以太坊的 ENS | `string` | -      | -    |
+
 ## ChainIds
 
 这是一个枚举类型，包含了一些常用的链的 ID，它的值是一个数字，你可以通过它来判断当前链是否是某个特定的链。
@@ -34,7 +41,7 @@ order: 3
 | hasBrowserExtensionInstalled | 是否已安装浏览器扩展程序 | `() => boolean` | - | - |
 | getQrCode | 获取钱包的二维码 | `() => { uri: string }` | - | - |
 
-## ExtensionItem
+### ExtensionItem
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -63,3 +70,16 @@ order: 3
 | ---------- | ------------------------------- | -------- | ------ | ---- |
 | trait_type | 属性的类型，表示 NFT 的特征类型 | `string` | -      | -    |
 | value      | 属性的值，表示 NFT 的特征值     | `string` | -      | -    |
+
+## UniversalWeb3ProviderInterface
+
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| account | 当前账户 | [Account](#account) | - | - |
+| chain | 当前链 | [Chain](#chain) | - | - |
+| availableChains | 可用的链列表 | [Chain](#chain)[] | - | - |
+| availableWallets | 可用的钱包列表 | [Wallet](#wallet)[] | - | - |
+| connect | 连接钱包 | `(wallet: Wallet) => Promise<void>` | - | - |
+| disconnect | 断开钱包连接 | `() => Promise<void>` | - | - |
+| switchChain | 切换链 | `(chain: Chain) => Promise<void>` | - | - |
+| getNFTMetadata | 获取 NFT 的元数据 | `(params: { address: string; tokenId: bigint \| number }) => Promise<NFTMetadata>` | - | - |
