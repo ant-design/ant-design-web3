@@ -13,7 +13,7 @@ All work on Ant Design Web3 happens directly on [GitHub](https://github.com/ant-
 
 ## How to Contribute
 
-**When submitting a PR, please execute `pnpm changeset` to generate the change description first, and then submit the PR.** We manage version releases through [changesets](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md). Executing this command will generate change description files under `.changeset`, and these files will be automatically merged into `CHANGELOG.md` when released. But not every PR needs a change description, for example, PRs that do not involve package content modifications such as documents and official websites do not need to execute this command.
+**When submitting a PR, please execute `pnpm changeset` to generate the changelog first, and then submit the PR.** We manage version releases through [changesets](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md). Executing this command will generate changelog files under `.changeset`, and these files will be automatically merged into `CHANGELOG.md` when released. But not every PR needs a changelog, for example, PRs that do not involve package content modifications such as documents and official websites do not need to execute this command.
 
 ### Contribute Code
 
@@ -37,7 +37,7 @@ For unclear features and proposals that need to be discussed, please create a di
 
 The release is responsible by the core members, and one version is released every week. If there is an urgent bug fix, it can be released at any time. The release complies with the [Semver](https://semver.org/) specification.
 
-The release is published by executing `pnpm run release`, which will first execute `changeset version` to merge the change description under `.changeset` into `CHANGELOG.md` and update the version of the package. Then execute `changeset publish` to publish to npm and add the corresponding tag.
+The release is published by executing `pnpm run release`, which will first execute `changeset version` to merge the changelog under `.changeset` into `CHANGELOG.md` and update the version of the package. Then execute `changeset publish` to publish to npm and add the corresponding tag.
 
 After the release, the related modifications are submitted to the main branch, and the corresponding tag also needs to be pushed to GitHub.
 
