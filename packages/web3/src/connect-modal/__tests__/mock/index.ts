@@ -3,7 +3,7 @@ import type { DefaultGuide } from '@ant-design/web3';
 export const walletList = [
   {
     icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
-    name: '测试钱包',
+    name: 'Test Wallet',
     remark: '备注',
     app: {
       link: 'https://test.com/xxx',
@@ -30,7 +30,7 @@ export const walletList = [
   },
   {
     icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=1',
-    name: '测试钱包2',
+    name: 'Test Wallet2',
     remark: '备注2',
     app: {
       link: 'https://test.com/xxx',
@@ -48,7 +48,7 @@ export const walletList = [
   },
   {
     icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
-    name: '测试钱包3',
+    name: 'Test Wallet3',
     remark: '备注3',
     group: 'Popular',
     app: {
@@ -56,7 +56,7 @@ export const walletList = [
     },
   },
   {
-    name: '测试钱包4',
+    name: 'Test Wallet4',
     remark: '备注4',
     extensions: [
       {
@@ -70,14 +70,14 @@ export const walletList = [
     ],
   },
   {
-    name: '测试钱包5',
+    name: 'Test Wallet5',
     remark: '备注5',
     app: {
       link: 'https://test.com/xxx',
     },
   },
   {
-    name: '测试钱包6',
+    name: 'Test Wallet6',
     remark: '备注6',
     key: 6,
     app: {
@@ -95,7 +95,7 @@ export const walletList = [
     ],
   },
   {
-    name: '测试钱包6',
+    name: 'Test Wallet6',
     remark: '备注6',
     key: 7,
   },
