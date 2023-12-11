@@ -1215,7 +1215,7 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
                     </button>
                     <a
                       class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-link ant-btn-block ant-web3-connect-modal-more"
-                      href="https://docs.ethers.io/v5/getting-started/#getting-started--connecting-to-a-provider"
+                      href="https://ethereum.org/en/wallets/"
                       target="_blank"
                     >
                       <span>

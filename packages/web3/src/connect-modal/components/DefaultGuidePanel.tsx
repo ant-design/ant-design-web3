@@ -23,7 +23,7 @@ const defaultGuide: MainPanelProps['guide'] = {
         'Through authorization of private key signature, initiate interaction with smart contract on the chain',
     },
   ],
-  moreLink: 'https://docs.ethers.io/v5/getting-started/#getting-started--connecting-to-a-provider',
+  moreLink: 'https://ethereum.org/en/wallets/',
 };
 
 const DefaultGuidePanel: React.FC<MainPanelProps> = (props) => {
