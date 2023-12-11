@@ -1,4 +1,4 @@
-# @ant-design/web3-assets
+# @ant-design/web3-wagmi
 
 ## 0.1.0
 
@@ -6,5 +6,5 @@
 
 - Release new alpha version
 - Updated dependencies
+  - @ant-design/web3-assets@0.1.0
   - @ant-design/web3-common@0.1.0
-  - @ant-design/web3-icons@0.1.0
