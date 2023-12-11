@@ -35,7 +35,7 @@ group:
 
 ## 如何发布
 
-发布由核心成员负责，每周发布一个版本，如果遇到紧急 bug 修复，可以随时发布。发布准守 [Semver](https://semver.org/lang/zh-CN/) 规范。
+发布由核心成员负责，每周发布一个版本，如果遇到紧急 bug 修复，可以随时发布。发布遵守 [Semver](https://semver.org/lang/zh-CN/) 规范。
 
 发布通过执行 `pnpm run release` 发布，该命令会先执行 `changeset version` 将 `.changeset` 下的变更说明合并到 `CHANGELOG.md` 中，并更新包的版本。然后执行 `changeset publish` 发布到 npm 并新增对应 tag。
 
