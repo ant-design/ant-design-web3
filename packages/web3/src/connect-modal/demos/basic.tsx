@@ -60,7 +60,7 @@ const App: React.FC = () => {
       <ConnectModal
         open={open}
         title="Connect Wallet"
-        footer="蚂蚁链提供技术支持"
+        footer="Powered by AntChain"
         groupOrder={groupOrder}
         walletList={walletList}
         onCancel={() => setOpen(false)}

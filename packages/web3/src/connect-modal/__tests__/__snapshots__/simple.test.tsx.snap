@@ -288,7 +288,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                   <div
                     class="ant-web3-connect-modal-footer"
                   >
-                    蚂蚁链提供技术支持
+                    Powered by AntChain
                   </div>
                 </div>
               </div>
@@ -594,7 +594,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                   <div
                     class="ant-web3-connect-modal-footer"
                   >
-                    蚂蚁链提供技术支持
+                    Powered by AntChain
                   </div>
                 </div>
               </div>

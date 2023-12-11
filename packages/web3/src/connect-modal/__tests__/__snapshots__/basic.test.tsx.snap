@@ -288,7 +288,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                   <div
                     class="ant-web3-connect-modal-footer"
                   >
-                    蚂蚁链提供技术支持
+                    Powered by AntChain
                   </div>
                 </div>
                 <div
@@ -700,7 +700,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                   <div
                     class="ant-web3-connect-modal-footer"
                   >
-                    蚂蚁链提供技术支持
+                    Powered by AntChain
                   </div>
                 </div>
                 <div
@@ -1112,7 +1112,7 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
                   <div
                     class="ant-web3-connect-modal-footer"
                   >
-                    蚂蚁链提供技术支持
+                    Powered by AntChain
                   </div>
                 </div>
                 <div
@@ -1527,7 +1527,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                   <div
                     class="ant-web3-connect-modal-footer"
                   >
-                    蚂蚁链提供技术支持
+                    Powered by AntChain
                   </div>
                 </div>
                 <div
@@ -1967,7 +1967,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                   <div
                     class="ant-web3-connect-modal-footer"
                   >
-                    蚂蚁链提供技术支持
+                    Powered by AntChain
                   </div>
                 </div>
                 <div

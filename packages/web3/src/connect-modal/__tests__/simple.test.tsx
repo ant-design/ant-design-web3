@@ -15,7 +15,7 @@ describe('ConnectModal without guide', () => {
         <ConnectModal
           open
           title="ConnectModal"
-          footer="蚂蚁链提供技术支持"
+          footer="Powered by AntChain"
           groupOrder={groupOrder}
           walletList={walletList}
         />
@@ -35,7 +35,7 @@ describe('ConnectModal without guide', () => {
       'ConnectModal',
     );
     expect(baseElement.querySelector('.ant-web3-connect-modal-footer')?.textContent).toBe(
-      '蚂蚁链提供技术支持',
+      'Powered by AntChain',
     );
 
     // group order
