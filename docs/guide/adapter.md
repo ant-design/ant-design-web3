@@ -19,20 +19,9 @@ Therefore, we put forward the concept of an adapter, which can connect Ant Desig
 
 ## How does the adapter work?
 
-In the [types](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/types.ts) of `@ant-design/web3-common`, we define `UniversalWeb3ProviderInterface`, which contains the following types:
+In the [types](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/types.ts) of `@ant-design/web3-common`, we define [UniversalWeb3ProviderInterface](../../packages/web3/src/types/index.md#universalweb3providerinterface).
 
-| Name | Type | Description |
-| --- | --- | --- |
-| account | [Account](../../packages/web3/src/types/index.md#account) | The currently connected account |
-| chain | [Chain](../../packages/web3/src/types/index.md#chain) | The currently connected chain |
-| availableWallets | [Wallet](../../packages/web3/src/types/index.md#wallet)\[\] | Available wallets |
-| availableChains | `Chain[]` | Available chains |
-| connect | `(wallet?: Wallet) => Promise<void>` | Connect wallet |
-| disconnect | `() => Promise<void>` | Disconnect |
-| switchChain | `(chain: Chain) => Promise<void>` | Switch chain |
-| getNFTMetadata | `(params: { address: string; tokenId: bigint }) => Promise<NFTMetadata>` | Get NFT metadata |
-
-In `@ant-design/web3` you can use [Web3ConfigProvider](../../packages/web3/src/web3-config-provider/index.md) to globally configure these properties, and Ant Design Web3 components will get the relevant content through React Context and use it. The adapter configures these properties for you to implement related functions, and of course you can also implement similar functions to the adapter by globally configuring `Web3ConfigProvider`. In fact, developing an adapter is based on this logic.
+In `@ant-design/web3` you can use [Web3ConfigProvider](../../packages/web3/src/web3-config-provider/index.md) to globally configure `UniversalWeb3ProviderInterface`, and Ant Design Web3 components will get the relevant content through React Context and use it. The adapter configures these properties for you to implement related functions, and of course you can also implement similar functions to the adapter by globally configuring `Web3ConfigProvider`. In fact, developing an adapter is based on this logic.
 
 ## Develop an adapter
 
