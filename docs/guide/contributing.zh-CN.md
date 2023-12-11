@@ -13,6 +13,8 @@ group:
 
 ## 如何贡献
 
+**提交 PR 时请先执行 `pnpm changeset` 生成变更说明，然后再提交 PR。** 我们通过 [changesets](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md) 管理版本发布，执行该命令会在 `.changeset` 下生成变更说明文件，这些文件会在发布时自动合并到 `CHANGELOG.md` 中。但是并不是每个 PR 都需要变更说明，比如文档、官网等不涉及到包内容修改的 PR，可以不用执行该命令。
+
 ### 贡献代码
 
 前往 [issues](https://github.com/ant-design/ant-design-web3/issues) 中寻找被标记上 `development task` 和 `bug` 标签的 issue，指派给自己，然后尽可能在**三天内**完成开发并提交 PR。除了 bug 外，所有的开发任务都应该被拆分为开发工作量在一个小时内，一天内可以完成的小任务。issue 指派给自己就代表认领任务，请确保认领前对任务已经理解，如果有问题可以在 issue 中回复讨论。另外尽量合理安排时间，确保在三天内能够提交较高质量的 PR。PR 需要指派给核心开发成员，需要至少一人通过（Approved）后可以合并。
@@ -30,6 +32,16 @@ group:
 明确的 Feature 新建 issue 来跟进，需要打上 `feature` 标签，在开发之前需要对任务进行拆分，**请确保拆分的任务开发工作量在一个小时内，一天内可以完成**。每个拆分的任务建立单独的 issue 并关联，并打上 `development task` 标签，方便多人协作共建。如果 feature 较小，可以不拆分，直接打上 `development task` 标签。打上 `development task` 标签意味找不需要再讨论，可以直接进入开发，如果还有不明确的地方，请在 issue 中讨论。如果整个 Feature 都不明确，那么请关闭 Issue 并参考下方的说明在讨论区讨论。
 
 对于不明确的 Feature 和需要讨论的提案请在[讨论区](https://github.com/ant-design/ant-design-web3/discussions) 新建讨论。
+
+## 如何发布
+
+发布由核心成员负责，每周发布一个版本，如果遇到紧急 bug 修复，可以随时发布。发布遵守 [Semver](https://semver.org/lang/zh-CN/) 规范。
+
+发布通过执行 `pnpm run release` 发布，该命令会先执行 `changeset version` 将 `.changeset` 下的变更说明合并到 `CHANGELOG.md` 中，并更新包的版本。然后执行 `changeset publish` 发布到 npm 并新增对应 tag。
+
+发布后将相关修改提交 PR 更新到 main 分支，对应 tag 也需要 push 到 GitHub。
+
+如果是 alpha 或者 beta 版本，请执行 `pnpm run release:alpha` 或者 `pnpm run release:beta` 发布。
 
 ## 核心成员
 
