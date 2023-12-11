@@ -32,6 +32,9 @@ const App: React.FC = () => {
       onDisconnected={() => {
         console.log('onDisconnected');
       }}
+      modalProps={{
+        guide: true,
+      }}
     >
       <ConnectButton />
     </Connector>
