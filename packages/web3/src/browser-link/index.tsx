@@ -1,10 +1,9 @@
 import type { ReactNode } from 'react';
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Space, Tooltip } from 'antd';
 import { ChainIds, fillAddressWith0x } from '@ant-design/web3-common';
 import { Address } from '../address';
 import useProvider from '../hooks/useProvider';
-import { defaultAvailableChains } from '@ant-design/web3-assets';
 
 export type BrowserLinkType = 'address' | 'transaction';
 
@@ -37,7 +36,7 @@ export const getBrowserLink = (
 
 export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
   const { icon, ellipsis, address, href, type, chain, name, iconOnly = false } = props;
-  const { chain: contextChain, availableChains = defaultAvailableChains } = useProvider();
+  const { chain: contextChain, availableChains } = useProvider();
   const mergedChainId = chain ?? contextChain?.id;
 
   const currentChain = useMemo(
