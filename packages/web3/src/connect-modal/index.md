@@ -24,6 +24,10 @@ The connection wallet popup, used with [ConnectButton](../connect-button) to com
 
 <code src="./demos/theme.tsx"></code>
 
+## Custom Guide Panel
+
+<code src="./demos/customGuide.tsx"></code>
+
 ## API
 
 ### ConnectModalProps
@@ -34,7 +38,7 @@ The connection wallet popup, used with [ConnectButton](../connect-button) to com
 | footer | Custom footer | `React.ReactNode` | - | - |
 | walletList | Wallet list | `Wallet[]` | - | - |
 | groupOrder | Wallet group sorting function | `(a: string, b: string) => number` | - | - |
-| guide | Newbie guide panel | `false \| null` | [DefaultGuide](#defaultguide) | - |
+| guide | Newbie guide panel | `boolean \| null` | [DefaultGuide](#defaultguide) | - |
 
 Other modal properties see: [ModalProps](https://ant.design/components/modal#API)
 

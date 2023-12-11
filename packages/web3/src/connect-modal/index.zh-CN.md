@@ -24,6 +24,10 @@ order: 2
 
 <code src="./demos/theme.tsx"></code>
 
+## 自定义新手指引面板
+
+<code src="./demos/customGuide.tsx"></code>
+
 ## API
 
 ### ConnectModalProps
@@ -34,7 +38,7 @@ order: 2
 | footer | 自定义 footer | `React.ReactNode` | - | - |
 | walletList | 钱包列表 | [Wallet](./types#wallet)\[\] | - | - |
 | groupOrder | 钱包分组排序函数 | `(a: string, b: string) => number` | - | - |
-| guide | 新手指引面板 | `false \| null` | [DefaultGuide](#defaultguide) | - |  |
+| guide | 新手指引面板 | `boolean \| null` | [DefaultGuide](#defaultguide) | - |  |
 
 其他弹框属性详见： [ModalProps](https://ant.design/components/modal-cn#api)
 

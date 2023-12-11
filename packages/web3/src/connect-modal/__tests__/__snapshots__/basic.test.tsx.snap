@@ -824,6 +824,421 @@ exports[`ConnectModal with guide > panel route change 2`] = `
 </body>
 `;
 
+exports[`ConnectModal with guide > should display default guide when guide is true 1`] = `
+<body>
+  <div />
+  <div>
+    <div
+      class="ant-modal-root css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal-root"
+    >
+      <div
+        class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
+      />
+      <div
+        class="ant-modal-wrap"
+        tabindex="-1"
+      >
+        <div
+          aria-modal="true"
+          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal css-dev-only-do-not-override-1ck3jst ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          role="dialog"
+          style="width: 737px; transform-origin: 0px 0px;"
+        >
+          <div
+            aria-hidden="true"
+            style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+            tabindex="0"
+          />
+          <div
+            class="ant-modal-content"
+          >
+            <button
+              aria-label="Close"
+              class="ant-modal-close"
+              type="button"
+            >
+              <span
+                class="ant-modal-close-x"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+            <div
+              class="ant-modal-body"
+            >
+              <div
+                class="ant-web3-connect-modal-body"
+              >
+                <div
+                  class="ant-web3-connect-modal-list-panel"
+                >
+                  <div
+                    class="ant-web3-connect-modal-header"
+                  >
+                    <h2
+                      class="ant-web3-connect-modal-title"
+                    >
+                      ConnectModal
+                    </h2>
+                  </div>
+                  <div
+                    class="ant-web3-connect-modal-list-container"
+                  >
+                    <div
+                      class="ant-web3-connect-modal-wallet-list"
+                    >
+                      <div
+                        class="ant-web3-connect-modal-group"
+                      >
+                        <div
+                          class="ant-web3-connect-modal-group-title"
+                        >
+                          Popular
+                        </div>
+                        <div
+                          class="ant-web3-connect-modal-group-content"
+                        >
+                          <div
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                          >
+                            <div
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                            >
+                              <div
+                                class="ant-spin-container"
+                              >
+                                <ul
+                                  class="ant-list-items"
+                                >
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <img
+                                          alt="测试钱包"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <img
+                                          alt="测试钱包3"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包3
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-web3-connect-modal-group"
+                      >
+                        <div
+                          class="ant-web3-connect-modal-group-title"
+                        >
+                          More
+                        </div>
+                        <div
+                          class="ant-web3-connect-modal-group-content"
+                        >
+                          <div
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                          >
+                            <div
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                            >
+                              <div
+                                class="ant-spin-container"
+                              >
+                                <ul
+                                  class="ant-list-items"
+                                >
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <img
+                                          alt="测试钱包2"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包2
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <img
+                                          alt="测试钱包4"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包4
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <img
+                                          alt="测试钱包5"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包5
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <img
+                                          alt="测试钱包6"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包6
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <img
+                                          alt="测试钱包6"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        测试钱包6
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-web3-connect-modal-footer"
+                  >
+                    蚂蚁链提供技术支持
+                  </div>
+                </div>
+                <div
+                  class="ant-web3-connect-modal-main-panel"
+                >
+                  <div
+                    class="ant-web3-connect-modal-guide-panel"
+                  >
+                    <h2
+                      class="ant-web3-connect-modal-guide-title"
+                    >
+                      What is a Wallet?
+                    </h2>
+                    <div
+                      class="ant-web3-connect-modal-guide-list"
+                    >
+                      <div
+                        class="ant-web3-connect-modal-guide-item"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                        >
+                          <img
+                            src="https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/ethereum.svg"
+                          />
+                        </span>
+                        <div
+                          class="ant-web3-connect-modal-guide-item-content"
+                        >
+                          <h3
+                            class="ant-web3-connect-modal-guide-item-title"
+                          >
+                            Manage your private key and assets
+                          </h3>
+                          <div
+                            class="ant-web3-connect-modal-guide-item-description"
+                          >
+                            Manage your private key and the assets of the corresponding chain address
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-web3-connect-modal-guide-item"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                        >
+                          <img
+                            src="https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/bitcoin.svg"
+                          />
+                        </span>
+                        <div
+                          class="ant-web3-connect-modal-guide-item-content"
+                        >
+                          <h3
+                            class="ant-web3-connect-modal-guide-item-title"
+                          >
+                            Help you connect to DApp
+                          </h3>
+                          <div
+                            class="ant-web3-connect-modal-guide-item-description"
+                          >
+                            Authorize DApp to get your address, similar to login
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-web3-connect-modal-guide-item"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                        >
+                          <img
+                            src="https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/binance.svg"
+                          />
+                        </span>
+                        <div
+                          class="ant-web3-connect-modal-guide-item-content"
+                        >
+                          <h3
+                            class="ant-web3-connect-modal-guide-item-title"
+                          >
+                            Call smart contract
+                          </h3>
+                          <div
+                            class="ant-web3-connect-modal-guide-item-description"
+                          >
+                            Through authorization of private key signature, initiate interaction with smart contract on the chain
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-primary ant-btn-block ant-web3-connect-modal-get-btn"
+                      type="button"
+                    >
+                      <span>
+                        Get a Wallet
+                      </span>
+                    </button>
+                    <a
+                      class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-link ant-btn-block ant-web3-connect-modal-more"
+                      href="https://docs.ethers.io/v5/getting-started/#getting-started--connecting-to-a-provider"
+                      target="_blank"
+                    >
+                      <span>
+                        Learn More
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+            tabindex="0"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`ConnectModal with guide > should render in dark mode 1`] = `
 <body>
   <div />

@@ -140,4 +140,18 @@ describe('ConnectModal with guide', () => {
       );
     });
   });
+  it('should display default guide when guide is true', async () => {
+    const App = () => (
+      <ConnectModal
+        open
+        title="ConnectModal"
+        footer="蚂蚁链提供技术支持"
+        groupOrder={groupOrder}
+        walletList={walletList}
+        guide
+      />
+    );
+    const { baseElement } = render(<App />);
+    expect(baseElement).toMatchSnapshot();
+  });
 });

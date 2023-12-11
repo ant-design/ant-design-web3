@@ -23,7 +23,7 @@ export type GuideInfoItem = {
    * @desc 新手指引面板的信息项描述
    * @descEn The description of the information item of the newbie guide panel
    */
-  description: string | React.ReactNode;
+  description?: string | React.ReactNode;
 };
 
 /**
@@ -79,7 +79,7 @@ export type ConnectModalProps = ModalProps & {
    * @desc 新手指引面板
    * @descEn Newbie guide panel
    */
-  guide?: false | null | DefaultGuide;
+  guide?: boolean | null | DefaultGuide;
 };
 
 export type PanelRoute = 'guide' | 'getWallet' | 'wallet' | 'qrCode';
