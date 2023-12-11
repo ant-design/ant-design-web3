@@ -10,7 +10,7 @@ order: 2
 
 ## useConnection
 
-连接或者断开连接钱包，通常来说，你不需要直接使用这个 Hook，而是使用 [Connector](../connector/index.zh-CN.md) 组件。该 Hook 是当你需要在自定义的组件或者时间触发连接或者断开连接时使用。
+连接或者断开连接钱包，通常来说，你不需要直接使用这个 Hook，而是使用 [Connector](../connector/index.zh-CN.md) 组件。该 Hook 是当你需要在自定义的组件或者事件触发连接或者断开连接时使用。
 
 ### 代码演示
 
