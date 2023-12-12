@@ -36,6 +36,7 @@ const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
     lineHeightHeading5,
     fontSize,
     lineHeight,
+    antCls,
   } = token;
   return {
     [`${componentCls}-container`]: {
@@ -152,6 +153,24 @@ const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
           },
         },
       },
+      [`${componentCls}-skeleton`]: {
+        [`&-wrap`]: {
+          borderRadius: `${nftCardBorderRadius}px ${nftCardBorderRadius}px 0 0`,
+          boxSizing: 'border-box',
+          overflow: 'hidden',
+        },
+        [`&-content${antCls}-skeleton-element`]: {
+          width: '100%',
+          [`${antCls}-skeleton-image`]: {
+            width: '100%',
+            height: 200,
+            borderRadius: nftCardBorderRadius,
+          },
+        },
+        ['&-body']: {
+          width: `calc(100% - ${padding * 2}px)`,
+        },
+      },
       [`&${componentCls}-pithy`]: {
         [`${componentCls}-inner`]: {
           padding: 0,
@@ -161,6 +180,24 @@ const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
         },
         [`${componentCls}-body`]: {
           padding: `0 ${padding}px ${padding}px`,
+        },
+        [`${componentCls}-skeleton`]: {
+          [`&-content${antCls}-skeleton-element`]: {
+            [`${antCls}-skeleton-image`]: {
+              borderRadius: 0,
+            },
+          },
+          ['&-body']: {
+            marginInline: padding,
+          },
+          [`&-button${antCls}-skeleton-element`]: {
+            marginInline: padding,
+            width: `calc(100% - ${padding * 2}px)`,
+          },
+          [`&-footer${antCls}-skeleton-element`]: {
+            marginBlockEnd: padding,
+            marginInlineStart: padding,
+          },
         },
       },
       [`&${componentCls}-theme-dark`]: {
