@@ -25,7 +25,6 @@
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@ant-design/web3-ethereum": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
