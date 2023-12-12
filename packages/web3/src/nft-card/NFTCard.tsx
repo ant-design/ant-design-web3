@@ -8,7 +8,7 @@ import Icon from '@ant-design/icons';
 import useNFT from '../hooks/useNFT';
 import { ReactComponent as HeartSvg } from './icons/heart.svg';
 import { ReactComponent as HeartFilledSvg } from './icons/heart-filled.svg';
-import { EthereumCircleFilled } from '@ant-design/web3-icons';
+import { EthereumFilled } from '@ant-design/web3-icons';
 import useToken from 'antd/es/theme/useToken';
 import { formatNumUnit, isDarkTheme } from '../utils/tool';
 import {
@@ -166,7 +166,7 @@ const NFTCard: React.FC<NFTCardProps> = ({
         <div className={`${prefixCls}-info`}>
           <div className={`${prefixCls}-price`}>
             <div className={`${prefixCls}-price-icon`}>
-              <EthereumCircleFilled />
+              <EthereumFilled />
             </div>
             <span className={`${prefixCls}-price-value`}>{formatNumUnit(price)}</span>
             <span className={`${prefixCls}-price-unit`}>ETH</span>
