@@ -49,7 +49,9 @@ const CardSkeleton: React.FC<
     return (
       <Space
         direction="vertical"
-        className={classNames(`${prefixCls}-wrap`, `${prefixCls}-theme-dark`)}
+        className={classNames(`${prefixCls}-wrap`, {
+          [`${prefixCls}-theme-dark`]: dark,
+        })}
       >
         <Skeleton.Image active className={`${prefixCls}-content`} />
         <Skeleton active className={`${prefixCls}-body`} />
@@ -59,7 +61,7 @@ const CardSkeleton: React.FC<
       </Space>
     );
   }
-  return children;
+  return <>{children}</>;
 };
 
 const NFTCard: React.FC<NFTCardProps> = ({
