@@ -51,6 +51,32 @@ describe('ProfileModal', () => {
     });
   });
 
+  it('show balance', async () => {
+    const App = () => (
+      <ConnectButton
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
+        banlance={{
+          symbol: 'ETH',
+          decimals: 18,
+          value: 1230000000000000000n,
+        }}
+      />
+    );
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.ant-web3-connect-button')).not.toBeNull();
+
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button')!);
+
+    await vi.waitFor(() => {
+      expect(
+        baseElement.querySelector('.ant-web3-connect-button-profile-modal .ant-web3-address')
+          ?.textContent,
+      ).toBe('1.23 ETH');
+    });
+  });
+
   it('Disconnect & Copy Address Button', () => {
     const disconnectTestFn = vi.fn();
     const App = () => (

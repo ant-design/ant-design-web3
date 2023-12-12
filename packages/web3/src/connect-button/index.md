@@ -40,6 +40,10 @@ The button to connect to the blockchain wallet. Usually, you need to use it with
 
 <code src="./demos/icon.tsx"></code>
 
+## Balance
+
+<code src="./demos/balance.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |
@@ -50,6 +54,15 @@ The button to connect to the blockchain wallet. Usually, you need to use it with
 | profileModal | Config profile modal | `boolean \|` [ProfileModal](#profilemodal) | - | - |
 | avatar | Config avatar, used to display user avatar in profile modal | [AvatarProps](https://ant.design/components/avatar-cn#api) | - | - |
 | onMenuItemClick | Menu item click event | `(e: NonNullable<MenuProps['items']>[number]) => void` | - | - |
+| balance | Balance | [Balance](#balance) | - | - |
+
+### Balance
+
+| Property | Description    | Type               | Default | Version |
+| -------- | -------------- | ------------------ | ------- | ------- |
+| value    | Balance        | `bigint \| number` | -       | -       |
+| symbol   | Token symbol   | `string`           | -       | -       |
+| decimals | Token decimals | `number`           | -       | -       |
 
 ### ConnectButtonTooltipProps
 

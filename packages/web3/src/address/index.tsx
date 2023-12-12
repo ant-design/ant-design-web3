@@ -20,8 +20,8 @@ export interface AddressProps {
   format?: boolean | ((address: string) => ReactNode);
 }
 
-export const Address: React.FC<AddressProps> = (props) => {
-  const { ellipsis, address, copyable, tooltip, format = false } = props;
+export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) => {
+  const { ellipsis, address, copyable, tooltip, format = false, children } = props;
   const [messageApi, contextHolder] = message.useMessage();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-address');
@@ -61,9 +61,10 @@ export const Address: React.FC<AddressProps> = (props) => {
       <Space className={classNames(prefixCls, hashId)}>
         <Tooltip title={displayTooltip}>
           <span className={`${prefixCls}-text`}>
-            {isEllipsis
-              ? `${filledAddress.slice(0, headClip)}...${filledAddress.slice(-tailClip)}`
-              : formattedAddress}
+            {children ??
+              (isEllipsis
+                ? `${filledAddress.slice(0, headClip)}...${filledAddress.slice(-tailClip)}`
+                : formattedAddress)}
           </span>
         </Tooltip>
         {copyable && (

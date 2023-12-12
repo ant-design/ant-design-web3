@@ -6,6 +6,7 @@ import { Address } from '../address';
 import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
 import { ConnectButtonTooltip } from './tooltip';
 import { ChainSelect } from './chain-select';
+import { ConnectButtonBanlance } from './balance';
 import { ProfileModal } from './profile-modal';
 import { useStyle } from './style';
 import { fillWith0x, writeCopyText } from '../utils';
@@ -27,6 +28,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     actionsMenu = false,
     loading,
     onClick,
+    banlance,
     ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -37,7 +39,14 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const [showMenu, setShowMenu] = useState(false);
   let buttonText: React.ReactNode = 'Connect Wallet';
   if (account) {
-    buttonText = account?.name ?? <Address tooltip={false} ellipsis address={account.address} />;
+    buttonText =
+      account?.name && !banlance ? (
+        account?.name
+      ) : (
+        <Address tooltip={false} ellipsis address={account.address}>
+          {banlance ? <ConnectButtonBanlance hashId={hashId} {...banlance} /> : undefined}
+        </Address>
+      );
   }
 
   const buttonProps: ButtonProps = {
@@ -106,6 +115,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
           src: chain?.icon,
         }
       }
+      balance={banlance}
       modalProps={typeof profileModal === 'object' ? profileModal : undefined}
     />
   );

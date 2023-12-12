@@ -40,6 +40,10 @@ order: 1
 
 <code src="./demos/icon.tsx"></code>
 
+## 余额
+
+<code src="./demos/balance.tsx"></code>
+
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
@@ -50,6 +54,15 @@ order: 1
 | profileModal | 配置信息弹框 | `boolean \|` [ProfileModal](#profilemodal) | - | - |
 | avatar | 配置头像，用于在个人信息弹框中展示用户头像 | [AvatarProps](https://ant.design/components/avatar-cn#api) | - | - |
 | onMenuItemClick | 菜单项点击事件 | `(e: NonNullable<MenuProps['items']>[number]) => void` | - | - |
+| balance | 余额 | [Balance](#balance) | - | - |
+
+### Balance
+
+| 属性     | 描述     | 类型               | 默认值 | 版本 |
+| -------- | -------- | ------------------ | ------ | ---- |
+| value    | 余额     | `bigint \| number` | -      | -    |
+| symbol   | 代币符号 | `string`           | -      | -    |
+| decimals | 代币精度 | `number`           | -      | -    |
 
 ### ConnectButtonTooltipProps
 

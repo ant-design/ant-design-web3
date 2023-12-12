@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { browsers, mockBrowser, mockClipboard } from '../test-utils';
 import { getPlatform, readCopyText, writeCopyText } from '../browser';
 
-describe('utils', () => {
+describe('utils/browser', () => {
   let resetMockClipboard: () => void;
   it('getPlatform', () => {
     Object.keys(browsers).forEach((key) => {

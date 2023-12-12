@@ -137,9 +137,10 @@ export type WalletMetadata = {
   group?: string;
 };
 
-export type Banlance = {
-  amount: number | bigint;
-  type: string;
+export type Balance = {
+  value: bigint | number;
+  symbol: string;
+  decimals: number;
 };
 
 export interface ConnectorTriggerProps {
@@ -150,5 +151,5 @@ export interface ConnectorTriggerProps {
   onSwitchChain?: (chain: Chain) => Promise<void>;
   availableChains?: Chain[];
   chain?: Chain;
-  banlance?: Banlance[] | Banlance;
+  banlance?: Balance;
 }
