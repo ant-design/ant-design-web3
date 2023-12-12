@@ -12,7 +12,7 @@ group: 基础
 你可以通过 `npm` 或者 `pnpm` 等包管理工具安装相关依赖，示例如下：
 
 ```shell
-npm i @ant-design/web3 @ant-design/web3-wagmi --save
+npm i @ant-design/web3 @ant-design/web3-wagmi wagmi --save
 ```
 
 ## 使用 UI 组件
