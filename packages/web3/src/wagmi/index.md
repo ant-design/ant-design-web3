@@ -5,9 +5,9 @@ group:
   order: 1
 ---
 
-# wagmi
+# Ethereum
 
-`@ant-design/web3-wagmi` is an Ant Design Web3 Ethereum adapter based on [wagmi](https://wagmi.sh/). It provides the ability to connect to Ethereum and other EVM compatible chains for the components of `@ant-design/web3`.
+Ant Design Web3 officially provides `@ant-design/web3-wagmi` to adapt to Ethereum. It is an Ant Design Web3 Ethereum adapter based on [wagmi](https://wagmi.sh/). It provides the ability to connect to Ethereum and other EVM compatible chains for the components of `@ant-design/web3`.
 
 Through it, you don't need to handle the connection status of the component, chain data request and other logic by yourself. It will provide relevant global status and interfaces for the components through [Web3ConfigProvider](../web3-config-provider/index.md).
 
@@ -26,6 +26,8 @@ Currently, we officially provide the adapter of Ethereum, and you can also devel
 <code src="./demos/name.tsx"></code>
 
 ## Use web3modal for WalletConnect
+
+When the `showQrModal` configuration is not `false`, the built-in [web3modal](https://web3modal.com/) pop-up window of WallectConnect will be used.
 
 <code src="./demos/web3modal.tsx"></code>
 

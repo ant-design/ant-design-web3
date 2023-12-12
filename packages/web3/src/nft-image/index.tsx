@@ -5,8 +5,8 @@ import { getWeb3AssetUrl, parseNumberToBigint } from '@ant-design/web3-common';
 import useNFT from '../hooks/useNFT';
 
 export interface NFTCardProps extends ImageProps {
-  address: string;
-  tokenId: bigint | number;
+  address?: string;
+  tokenId?: bigint | number;
   getNFTMetadata?: UniversalWeb3ProviderInterface['getNFTMetadata'];
 }
 
