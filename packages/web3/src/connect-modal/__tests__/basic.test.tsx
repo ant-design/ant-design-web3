@@ -104,7 +104,7 @@ describe('ConnectModal with guide', () => {
     fireEvent.click(baseElement.querySelectorAll('.ant-web3-connect-modal-wallet-item')[2]!);
     expect(baseElement).toMatchSnapshot();
 
-    fireEvent.click(baseElement.querySelectorAll('.ant-web3-connect-modal-wallet-item')[4]!);
+    fireEvent.click(baseElement.querySelectorAll('.ant-web3-connect-modal-wallet-item')[6]!);
     expect(baseElement).toMatchSnapshot();
   });
 

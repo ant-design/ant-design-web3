@@ -131,7 +131,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                         color: token.colorTextDescription,
                       },
                       [`${componentCls}-content`]: {
-                        width: '70%',
                         display: 'flex',
                         alignItems: 'center',
                         [`${componentCls}-icon`]: {
