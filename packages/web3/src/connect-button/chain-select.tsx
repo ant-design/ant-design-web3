@@ -51,4 +51,5 @@ export const ChainSelect: React.FC<ChainSelectProps> = ({
     </Button>
   );
 };
+
 ChainSelect.displayName = 'ChainSelect';
