@@ -145,29 +145,32 @@ const NFTCard: React.FC<NFTCardProps> = ({
           ) : null}
           {name ? <div className={`${prefixCls}-name`}>{name}</div> : null}
           {description ? <div className={`${prefixCls}-description`}>{description}</div> : null}
-          <div className={`${prefixCls}-info`}>
-            <div className={`${prefixCls}-price`}>
-              <div className={`${prefixCls}-price-icon`}>
-                <Icon component={ETHSvg} />
+          {likeConfig ? (
+            <div className={`${prefixCls}-info`}>
+              <div className={`${prefixCls}-price`}>
+                <div className={`${prefixCls}-price-icon`}>
+                  <Icon component={ETHSvg} />
+                </div>
+                <span className={`${prefixCls}-price-value`}>{formatNumUnit(price)}</span>
+                <span className={`${prefixCls}-price-unit`}>ETH</span>
               </div>
-              <span className={`${prefixCls}-price-value`}>{formatNumUnit(price)}</span>
-              <span className={`${prefixCls}-price-unit`}>ETH</span>
-            </div>
-            <div className={`${prefixCls}-likes`}>
-              <div
-                className={classNames(`${prefixCls}-like-icon`, {
-                  [`${prefixCls}-like-icon-liked`]: like,
-                })}
-                onClick={handleLikeChange}
-              >
-                {iconLikeGroup}
-                {!like ? (
-                  <Icon component={HeartSvg} className={`${prefixCls}-like-icon-icon-heart`} />
-                ) : null}
+              <div className={`${prefixCls}-likes`}>
+                <div
+                  className={classNames(`${prefixCls}-like-icon`, {
+                    [`${prefixCls}-like-icon-liked`]: like,
+                  })}
+                  onClick={handleLikeChange}
+                >
+                  {iconLikeGroup}
+                  {!like ? (
+                    <Icon component={HeartSvg} className={`${prefixCls}-like-icon-icon-heart`} />
+                  ) : null}
+                </div>
+                <span className={`${prefixCls}-like-value`}>{formatNumUnit(totalLikes)}</span>
               </div>
-              <span className={`${prefixCls}-like-value`}>{formatNumUnit(totalLikes)}</span>
             </div>
-          </div>
+          ) : null}
+
           {showAction ? (
             <div className={`${prefixCls}-action`}>
               <Button
