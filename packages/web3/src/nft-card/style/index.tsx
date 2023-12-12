@@ -100,6 +100,9 @@ const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
               alignItems: 'center',
               [`${componentCls}-price-icon`]: {
                 fontSize: fontSizeHeading3,
+                lineHeight: 1,
+                background: colorFillSecondary,
+                borderRadius: '50%',
               },
             },
             [`${componentCls}-likes`]: {
