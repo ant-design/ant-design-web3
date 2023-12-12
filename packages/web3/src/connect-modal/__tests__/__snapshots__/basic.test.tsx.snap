@@ -88,6 +88,77 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                         <div
                           class="ant-web3-connect-modal-group-title"
                         >
+                          Popular
+                        </div>
+                        <div
+                          class="ant-web3-connect-modal-group-content"
+                        >
+                          <div
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                          >
+                            <div
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                            >
+                              <div
+                                class="ant-spin-container"
+                              >
+                                <ul
+                                  class="ant-list-items"
+                                >
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item selected"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <img
+                                          alt="Test Wallet"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        Test Wallet
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <img
+                                          alt="Test Wallet3"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        Test Wallet3
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-web3-connect-modal-group"
+                      >
+                        <div
+                          class="ant-web3-connect-modal-group-title"
+                        >
                           More
                         </div>
                         <div
@@ -203,77 +274,6 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                         class="ant-web3-connect-modal-name"
                                       >
                                         Test Wallet6
-                                      </div>
-                                    </div>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="ant-web3-connect-modal-group"
-                      >
-                        <div
-                          class="ant-web3-connect-modal-group-title"
-                        >
-                          Popular
-                        </div>
-                        <div
-                          class="ant-web3-connect-modal-group-content"
-                        >
-                          <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
-                          >
-                            <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
-                            >
-                              <div
-                                class="ant-spin-container"
-                              >
-                                <ul
-                                  class="ant-list-items"
-                                >
-                                  <li
-                                    class="ant-list-item ant-web3-connect-modal-wallet-item selected"
-                                  >
-                                    <div
-                                      class="ant-web3-connect-modal-content"
-                                    >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
-                                        />
-                                      </div>
-                                      <div
-                                        class="ant-web3-connect-modal-name"
-                                      >
-                                        Test Wallet
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li
-                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
-                                  >
-                                    <div
-                                      class="ant-web3-connect-modal-content"
-                                    >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet3"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
-                                        />
-                                      </div>
-                                      <div
-                                        class="ant-web3-connect-modal-name"
-                                      >
-                                        Test Wallet3
                                       </div>
                                     </div>
                                   </li>
@@ -500,6 +500,77 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                         <div
                           class="ant-web3-connect-modal-group-title"
                         >
+                          Popular
+                        </div>
+                        <div
+                          class="ant-web3-connect-modal-group-content"
+                        >
+                          <div
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                          >
+                            <div
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                            >
+                              <div
+                                class="ant-spin-container"
+                              >
+                                <ul
+                                  class="ant-list-items"
+                                >
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item selected"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <img
+                                          alt="Test Wallet"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        Test Wallet
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                  >
+                                    <div
+                                      class="ant-web3-connect-modal-content"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-icon"
+                                      >
+                                        <img
+                                          alt="Test Wallet3"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-web3-connect-modal-name"
+                                      >
+                                        Test Wallet3
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-web3-connect-modal-group"
+                      >
+                        <div
+                          class="ant-web3-connect-modal-group-title"
+                        >
                           More
                         </div>
                         <div
@@ -615,77 +686,6 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                         class="ant-web3-connect-modal-name"
                                       >
                                         Test Wallet6
-                                      </div>
-                                    </div>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="ant-web3-connect-modal-group"
-                      >
-                        <div
-                          class="ant-web3-connect-modal-group-title"
-                        >
-                          Popular
-                        </div>
-                        <div
-                          class="ant-web3-connect-modal-group-content"
-                        >
-                          <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
-                          >
-                            <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
-                            >
-                              <div
-                                class="ant-spin-container"
-                              >
-                                <ul
-                                  class="ant-list-items"
-                                >
-                                  <li
-                                    class="ant-list-item ant-web3-connect-modal-wallet-item selected"
-                                  >
-                                    <div
-                                      class="ant-web3-connect-modal-content"
-                                    >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
-                                        />
-                                      </div>
-                                      <div
-                                        class="ant-web3-connect-modal-name"
-                                      >
-                                        Test Wallet
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li
-                                    class="ant-list-item ant-web3-connect-modal-wallet-item"
-                                  >
-                                    <div
-                                      class="ant-web3-connect-modal-content"
-                                    >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet3"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
-                                        />
-                                      </div>
-                                      <div
-                                        class="ant-web3-connect-modal-name"
-                                      >
-                                        Test Wallet3
                                       </div>
                                     </div>
                                   </li>
