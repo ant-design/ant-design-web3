@@ -1,9 +1,9 @@
 import { useStyle } from './style';
-import type { ReactNode } from 'react';
+import type { PropsWithChildren, ReactNode } from 'react';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import type { ImageProps } from 'antd';
-import { Button, Divider, Image, ConfigProvider } from 'antd';
+import { Button, Divider, Image, ConfigProvider, Space, Skeleton } from 'antd';
 import Icon from '@ant-design/icons';
 import useNFT from '../hooks/useNFT';
 import { ReactComponent as HeartSvg } from './icons/heart.svg';
@@ -42,6 +42,25 @@ interface NFTCardProps {
   onActionChange?: () => void;
 }
 
+const CardSkeleton: React.FC<PropsWithChildren<{ loading: boolean; prefixCls: string }>> = ({
+  children,
+  loading,
+  prefixCls,
+}) => {
+  if (loading) {
+    return (
+      <Space direction="vertical" className={classNames(`${prefixCls}-wrap`)}>
+        <Skeleton.Image active className={`${prefixCls}-content`} />
+        <Skeleton active className={`${prefixCls}-body`} />
+        <Skeleton.Button block active className={`${prefixCls}-button`} />
+        <Divider dashed style={{ marginBlock: 0 }} />
+        <Skeleton.Input active className={`${prefixCls}-footer`} />
+      </Space>
+    );
+  }
+  return <>{children}</>;
+};
+
 const NFTCard: React.FC<NFTCardProps> = ({
   style,
   antdImageProps,
@@ -59,7 +78,7 @@ const NFTCard: React.FC<NFTCardProps> = ({
 }) => {
   const { liked, totalLikes = 0, onLikeChange } = likeConfig || {};
   const [, token] = useToken();
-  const { metadata } = useNFT(address, parseNumberToBigint(tokenId), getNFTMetadata);
+  const { metadata, loading } = useNFT(address, parseNumberToBigint(tokenId), getNFTMetadata);
   const {
     name = metadata.name,
     image = metadata.image,
@@ -126,66 +145,74 @@ const NFTCard: React.FC<NFTCardProps> = ({
     }
   }, [liked]);
 
+  const content = (
+    <>
+      <div className={`${prefixCls}-content`}>
+        {type !== 'pithy' && tokenId !== undefined ? (
+          <div className={`${prefixCls}-serial-number`}>{`#${tokenId}`}</div>
+        ) : null}
+        {typeof image === 'string' ? (
+          <Image width="100%" src={getWeb3AssetUrl(image)} {...antdImageProps} />
+        ) : (
+          image
+        )}
+      </div>
+      <div className={`${prefixCls}-body`}>
+        {tokenId !== undefined && type === 'pithy' ? (
+          <div className={`${prefixCls}-serial-number`}>No:{tokenId.toString()}</div>
+        ) : null}
+        {name ? <div className={`${prefixCls}-name`}>{name}</div> : null}
+        {description ? <div className={`${prefixCls}-description`}>{description}</div> : null}
+        <div className={`${prefixCls}-info`}>
+          <div className={`${prefixCls}-price`}>
+            <div className={`${prefixCls}-price-icon`}>
+              <EthereumCircleFilled />
+            </div>
+            <span className={`${prefixCls}-price-value`}>{formatNumUnit(price)}</span>
+            <span className={`${prefixCls}-price-unit`}>ETH</span>
+          </div>
+          <div className={`${prefixCls}-likes`}>
+            <div
+              className={classNames(`${prefixCls}-like-icon`, {
+                [`${prefixCls}-like-icon-liked`]: like,
+              })}
+              onClick={handleLikeChange}
+            >
+              {iconLikeGroup}
+              {!like ? (
+                <Icon component={HeartSvg} className={`${prefixCls}-like-icon-icon-heart`} />
+              ) : null}
+            </div>
+            <span className={`${prefixCls}-like-value`}>{formatNumUnit(totalLikes)}</span>
+          </div>
+        </div>
+        {showAction ? (
+          <div className={`${prefixCls}-action`}>
+            <Button
+              style={{
+                width: '100%',
+              }}
+            >
+              {actionText}
+            </Button>
+          </div>
+        ) : null}
+        {footer ? (
+          <div className={`${prefixCls}-footer`}>
+            <Divider dashed />
+            {footer}
+          </div>
+        ) : null}
+      </div>
+    </>
+  );
+
   return wrapSSR(
     <div className={mergeCls} style={style}>
       <div className={`${prefixCls}-inner`}>
-        <div className={`${prefixCls}-content`}>
-          {type !== 'pithy' && tokenId !== undefined ? (
-            <div className={`${prefixCls}-serial-number`}>{`#${tokenId}`}</div>
-          ) : null}
-          {typeof image === 'string' ? (
-            <Image width="100%" src={getWeb3AssetUrl(image)} {...antdImageProps} />
-          ) : (
-            image
-          )}
-        </div>
-        <div className={`${prefixCls}-body`}>
-          {tokenId !== undefined && type === 'pithy' ? (
-            <div className={`${prefixCls}-serial-number`}>No:{tokenId.toString()}</div>
-          ) : null}
-          {name ? <div className={`${prefixCls}-name`}>{name}</div> : null}
-          {description ? <div className={`${prefixCls}-description`}>{description}</div> : null}
-          <div className={`${prefixCls}-info`}>
-            <div className={`${prefixCls}-price`}>
-              <div className={`${prefixCls}-price-icon`}>
-                <EthereumCircleFilled />
-              </div>
-              <span className={`${prefixCls}-price-value`}>{formatNumUnit(price)}</span>
-              <span className={`${prefixCls}-price-unit`}>ETH</span>
-            </div>
-            <div className={`${prefixCls}-likes`}>
-              <div
-                className={classNames(`${prefixCls}-like-icon`, {
-                  [`${prefixCls}-like-icon-liked`]: like,
-                })}
-                onClick={handleLikeChange}
-              >
-                {iconLikeGroup}
-                {!like ? (
-                  <Icon component={HeartSvg} className={`${prefixCls}-like-icon-icon-heart`} />
-                ) : null}
-              </div>
-              <span className={`${prefixCls}-like-value`}>{formatNumUnit(totalLikes)}</span>
-            </div>
-          </div>
-          {showAction ? (
-            <div className={`${prefixCls}-action`}>
-              <Button
-                style={{
-                  width: '100%',
-                }}
-              >
-                {actionText}
-              </Button>
-            </div>
-          ) : null}
-          {footer ? (
-            <div className={`${prefixCls}-footer`}>
-              <Divider dashed />
-              {footer}
-            </div>
-          ) : null}
-        </div>
+        <CardSkeleton prefixCls={`${prefixCls}-skeleton`} loading={loading}>
+          {content}
+        </CardSkeleton>
       </div>
     </div>,
   );
