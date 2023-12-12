@@ -14,7 +14,15 @@ export const mergeReactNodeProps = (
   return node ?? defaultNode;
 };
 
-export const defaultGroupOrder = (a: string, b: string) => a.localeCompare(b);
+export const defaultGroupOrder = (a: string, b: string) => {
+  if (a === 'Popular' && b !== 'Popular') {
+    return -1;
+  }
+  if (a === 'More' && b !== 'More') {
+    return 1;
+  }
+  return a.localeCompare(b);
+};
 
 export const getWalletRoute = (wallet: Wallet) => {
   const curExtensions =
