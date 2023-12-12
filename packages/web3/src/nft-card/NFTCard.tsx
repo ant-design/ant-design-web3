@@ -210,7 +210,7 @@ const NFTCard: React.FC<NFTCardProps> = ({
   return wrapSSR(
     <div className={mergeCls} style={style}>
       <div className={`${prefixCls}-inner`}>
-        <CardSkeleton prefixCls={`${prefixCls}-skeleton`} loading={true}>
+        <CardSkeleton prefixCls={`${prefixCls}-skeleton`} loading={loading}>
           {content}
         </CardSkeleton>
       </div>
