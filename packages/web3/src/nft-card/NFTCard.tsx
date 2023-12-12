@@ -42,20 +42,17 @@ interface NFTCardProps {
   onActionChange?: () => void;
 }
 
-const CardSkeleton: React.FC<
-  PropsWithChildren<{ loading: boolean; prefixCls: string; dark: boolean }>
-> = ({ children, loading, prefixCls, dark }) => {
+const CardSkeleton: React.FC<PropsWithChildren<{ loading: boolean; prefixCls: string }>> = ({
+  children,
+  loading,
+  prefixCls,
+}) => {
   if (loading) {
     return (
-      <Space
-        direction="vertical"
-        className={classNames(`${prefixCls}-wrap`, {
-          [`${prefixCls}-theme-dark`]: dark,
-        })}
-      >
+      <Space direction="vertical" className={classNames(`${prefixCls}-wrap`)}>
         <Skeleton.Image active className={`${prefixCls}-content`} />
         <Skeleton active className={`${prefixCls}-body`} />
-        <Skeleton.Button active className={`${prefixCls}-button`} />
+        <Skeleton.Button block active className={`${prefixCls}-button`} />
         <Divider dashed style={{ marginBlock: 0 }} />
         <Skeleton.Input active className={`${prefixCls}-footer`} />
       </Space>
@@ -213,11 +210,7 @@ const NFTCard: React.FC<NFTCardProps> = ({
   return wrapSSR(
     <div className={mergeCls} style={style}>
       <div className={`${prefixCls}-inner`}>
-        <CardSkeleton
-          dark={isDarkTheme(token)}
-          prefixCls={`${prefixCls}-skeleton`}
-          loading={loading}
-        >
+        <CardSkeleton prefixCls={`${prefixCls}-skeleton`} loading={true}>
           {content}
         </CardSkeleton>
       </div>

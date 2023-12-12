@@ -170,13 +170,6 @@ const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
         ['&-body']: {
           width: `calc(100% - ${padding * 2}px)`,
         },
-        [`&-button${antCls}-skeleton-element`]: {
-          width: `calc(100% - ${padding * 2}px)`,
-          display: 'block',
-          [`${antCls}-skeleton-button`]: {
-            width: '100%',
-          },
-        },
       },
       [`&${componentCls}-pithy`]: {
         [`${componentCls}-inner`]: {
@@ -199,6 +192,7 @@ const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
           },
           [`&-button${antCls}-skeleton-element`]: {
             marginInline: padding,
+            width: `calc(100% - ${padding * 2}px)`,
           },
           [`&-footer${antCls}-skeleton-element`]: {
             marginBlockEnd: padding,
