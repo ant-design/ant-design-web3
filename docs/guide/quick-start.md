@@ -12,7 +12,7 @@ group: Basic
 You can install the relevant dependencies through `npm` or `pnpm` and other package management tools, as shown below:
 
 ```shell
-npm i @ant-design/web3 @ant-design/web3-wagmi --save
+npm i @ant-design/web3 @ant-design/web3-wagmi wagmi --save
 ```
 
 ## Use UI components
