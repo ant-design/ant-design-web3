@@ -168,4 +168,61 @@ describe('ConnectButton', () => {
       expect(menuClickFn).toBeCalledWith('1');
     });
   });
+
+  it('Should show default menu items when account is provided', async () => {
+    const App = () => (
+      <ConnectButton
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
+        actionsMenu
+      />
+    );
+    const { baseElement } = render(<App />);
+
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-dropdown-trigger') as Element);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-dropdown')).not.toBeNull();
+      // Ensure defaultMenuItems are present
+      expect(baseElement.querySelectorAll('.ant-dropdown-menu-item')?.length).toBeGreaterThan(0);
+    });
+  });
+
+  it('Should not show default menu items when account is not provided', async () => {
+    const App = () => <ConnectButton actionsMenu />;
+    const { baseElement } = render(<App />);
+
+    const dropdownTrigger = baseElement.querySelector('.ant-web3-connect-button')!;
+    fireEvent.mouseEnter(dropdownTrigger);
+
+    await vi.waitFor(() => {
+      const dropdown = baseElement.querySelector('.ant-dropdown');
+      expect(dropdown).toBeNull();
+      // Ensure defaultMenuItems are not present
+      expect(baseElement.querySelectorAll('.ant-dropdown-menu-item')).toHaveLength(0);
+    });
+  });
+
+  it('Should show both default and extraItems when account and extraItems are provided', async () => {
+    const App = () => (
+      <ConnectButton
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
+        actionsMenu={{
+          extraItems: menuItems,
+        }}
+      />
+    );
+    const { baseElement } = render(<App />);
+
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-dropdown-trigger') as Element);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-dropdown')).not.toBeNull();
+      // Ensure both defaultMenuItems and extraItems are present
+      expect(baseElement.querySelectorAll('.ant-dropdown-menu-item')?.length).toBeGreaterThan(
+        menuItems.length,
+      );
+    });
+  });
 });
