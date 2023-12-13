@@ -163,8 +163,8 @@ const NFTCard: React.FC<NFTCardProps> = ({
         ) : null}
         {name ? <div className={`${prefixCls}-name`}>{name}</div> : null}
         {description ? <div className={`${prefixCls}-description`}>{description}</div> : null}
-        {likeConfig ? (
-          <div className={`${prefixCls}-info`}>
+        <div className={`${prefixCls}-info`}>
+          {likeConfig ? (
             <div className={`${prefixCls}-price`}>
               <div className={`${prefixCls}-price-icon`}>
                 <Icon component={ETHSvg} />
@@ -172,6 +172,8 @@ const NFTCard: React.FC<NFTCardProps> = ({
               <span className={`${prefixCls}-price-value`}>{formatNumUnit(price)}</span>
               <span className={`${prefixCls}-price-unit`}>ETH</span>
             </div>
+          ) : null}
+          {price ? (
             <div className={`${prefixCls}-likes`}>
               <div
                 className={classNames(`${prefixCls}-like-icon`, {
@@ -186,8 +188,8 @@ const NFTCard: React.FC<NFTCardProps> = ({
               </div>
               <span className={`${prefixCls}-like-value`}>{formatNumUnit(totalLikes)}</span>
             </div>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
 
         {showAction ? (
           <div className={`${prefixCls}-action`}>

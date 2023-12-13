@@ -21,6 +21,7 @@ const App: React.FC = () => {
     <WagmiWeb3ConfigProvider config={config}>
       <NFTCard
         like={{ liked: false }}
+        price={0.1}
         address="0x79fcdef22feed20eddacbb2587640e45491b757f"
         tokenId={42n}
       />
