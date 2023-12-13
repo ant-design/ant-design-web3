@@ -3,7 +3,7 @@ import { publicProvider } from 'wagmi/providers/public';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { WagmiWeb3ConfigProvider, CoinbaseWallet } from '@ant-design/web3-wagmi';
-import { ConnectButton, Connector } from '@ant-design/web3';
+import { NFTCard } from '@ant-design/web3';
 
 const { publicClient, chains } = configureChains([mainnet], [publicProvider()]);
 
@@ -27,9 +27,7 @@ const config = createConfig({
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider assets={[CoinbaseWallet]} config={config}>
-      <Connector modalProps={{ guide: true }}>
-        <ConnectButton />
-      </Connector>
+      <NFTCard address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={8540} />
     </WagmiWeb3ConfigProvider>
   );
 };

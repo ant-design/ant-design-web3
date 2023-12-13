@@ -31,6 +31,18 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 
 <code src="./demos/web3modal.tsx"></code>
 
+## Configure more UI
+
+Most of the UI attributes that are not related to the chain can be configured directly on the component. The adapter is usually only used to configure content related to the chain. Here is a configuration example. You can refer to the [ConnectButton](../connect-button/index.md), [ConnectModal](../connect-modal/index.md) and other component documents for more details.
+
+<code src="./demos/uiconfig.tsx"></code>
+
+## More components
+
+You can use more components together. The content related to the chain in the component will be obtained from the adapter. Of course, the properties configured directly on the component have a higher priority.
+
+<code src="./demos/more-components.tsx"></code>
+
 ## API
 
 ### WagmiWeb3ConfigProviderProps
