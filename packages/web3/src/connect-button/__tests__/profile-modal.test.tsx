@@ -73,7 +73,7 @@ describe('ProfileModal', () => {
       expect(
         baseElement.querySelector('.ant-web3-connect-button-profile-modal .ant-web3-address')
           ?.textContent,
-      ).toBe('1.23 ETH');
+      ).toBe(' 1.23 ETH');
     });
   });
 
