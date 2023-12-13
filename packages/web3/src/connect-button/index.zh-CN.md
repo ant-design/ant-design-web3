@@ -66,34 +66,22 @@ order: 1
 
 ### ConnectButtonTooltipProps
 
-```ts
-// TooltipProps: https://ant.design/components/tooltip-cn#api
-export type ConnectButtonTooltipProps = TooltipProps & {
-  copyable?: boolean; // 是否可复制
-  title?: boolean | string | React.ReactNode; // 展示内容
-  format?: boolean | (address: string) => React.ReactNode; // 格式化展示内容
-};
-```
+| 属性     | 描述           | 类型                                              | 默认值 | 版本 |
+| -------- | -------------- | ------------------------------------------------- | ------ | ---- |
+| copyable | 是否可复制     | `boolean`                                         | -      | -    |
+| title    | 展示内容       | `boolean \| string \| React.ReactNode`            | -      | -    |
+| format   | 格式化展示内容 | `boolean \| (address: string) => React.ReactNode` | -      | -    |
+
+更多属性继承自 Ant Design 的 Tooltip 组件，你可以查看[组件文档](https://ant.design/components/tooltip-cn#api)了解更多。
 
 ### ActionsMenu
 
-```ts
-export type ActionsMenu = {
-  /**
-   * 配置 items 将会覆盖默认菜单，仅展示自定义菜单
-   */
-  items?: MenuItemType[];
-  /**
-   * 配置 extraItems 将会在默认菜单前追加自定义菜单
-   */
-  extraItems?: MenuItemType[];
-};
-```
+| 属性       | 描述     | 类型             | 默认值 | 版本 |
+| ---------- | -------- | ---------------- | ------ | ---- |
+| extraItems | 额外菜单 | `MenuItemType[]` | -      | -    |
+
+更多属性继承自 Ant Design 的 Menu 组件，你可以查看[组件文档](https://ant.design/components/menu-cn#api)了解更多。
 
 ### ProfileModal
 
-```ts
-export type ProfileModal = Omit<ModalProps, 'open' | 'onClose' | 'className'>;
-```
-
-Ref: [ModalProps](https://ant.design/components/modal-cn#api)
+`ProfileModal` 属性继承自 Ant Design 的 Modal 组件，你可以查看[组件文档](https://ant.design/components/modal-cn#api)了解更多。

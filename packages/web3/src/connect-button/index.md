@@ -66,34 +66,22 @@ The button to connect to the blockchain wallet. Usually, you need to use it with
 
 ### ConnectButtonTooltipProps
 
-```ts
-// TooltipProps: https://ant.design/components/tooltip-cn#api
-export type ConnectButtonTooltipProps = TooltipProps & {
-  copyable?: boolean; // Whether to copy
-  title?: boolean | string | React.ReactNode; // Show content
-  format?: boolean | (address: string) => React.ReactNode; // Format content
-};
-```
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| title | Tooltip title | `ReactNode` | - | - |
+| copyable | Whether to copy | `boolean` | - | - |
+| format | Format address | `boolean \| (address: string) => React.ReactNode` | - | - |
+
+More properties inherit from Ant Design's Tooltip component, you can check the [component documentation](https://ant.design/components/tooltip) for more information.
 
 ### ActionsMenu
 
-```ts
-export type ActionsMenu = {
-  /**
-   * Config items will override default menu, only display custom menu
-   */
-  items?: React.ReactNode[];
-  /**
-   * Config items will be displayed after default menu
-   */
-  extraItems?: React.ReactNode[];
-};
-```
+| Property   | Description      | Type             | Default | Version |
+| ---------- | ---------------- | ---------------- | ------- | ------- |
+| extraItems | Extra menu items | `MenuItemType[]` | -       | -       |
+
+More properties inherit from Ant Design's Menu component, you can check the [component documentation](https://ant.design/components/menu) for more information.
 
 ### ProfileModal
 
-```ts
-export type ProfileModal = Omit<ModalProps, 'open' | 'onClose' | 'className'>;
-```
-
-Ref: [ModalProps](https://ant.design/components/modal#api)
+`ProfileModal` properties inherit from Ant Design's Modal component, you can check the [component documentation](https://ant.design/components/modal) for more information.
