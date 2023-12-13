@@ -10,7 +10,7 @@ const GlobalLayout: React.FC = () => {
 
   return (
     <SiteThemeProvider themeMode={color || 'auto'}>
-      <div className={pathname === '/' ? 'home' : ''}>{outlet}</div>
+      <div className={pathname === '/' || pathname === '/zh-CN' ? 'home' : ''}>{outlet}</div>
     </SiteThemeProvider>
   );
 };
