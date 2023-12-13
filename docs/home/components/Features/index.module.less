@@ -29,3 +29,30 @@
     }
   }
 }
+
+[data-prefers-color='dark'] {
+  .item {
+    .icon {
+      background-color: #262626;
+    }
+    .title {
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .desc {
+      color: rgba(255, 255, 255, 0.45);
+    }
+  }
+}
+
+// 移动端预览时采用垂直布局展示每个 item
+@media screen and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    .item {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+  }
+}
