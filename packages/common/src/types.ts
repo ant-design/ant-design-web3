@@ -12,10 +12,16 @@ export enum ChainIds {
   Goerli = 5,
 }
 
+export type BrowserLinkType = 'address' | 'transaction';
+
 export interface Chain {
   id: ChainIds;
   name: string;
   icon?: React.ReactNode;
+  browser?: {
+    icon?: React.ReactNode;
+    getBrowserLink?: (address: string, type: BrowserLinkType) => string;
+  };
   nativeCurrency?: {
     decimals: number;
     name: string;

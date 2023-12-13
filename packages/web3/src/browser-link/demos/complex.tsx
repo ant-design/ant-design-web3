@@ -1,6 +1,5 @@
 import { BrowserLink } from '@ant-design/web3';
-import { Arbitrum, Polygon } from '@ant-design/web3-assets';
-import { ChainIds, Web3ConfigProvider } from '@ant-design/web3-common';
+import { Mainnet } from '@ant-design/web3-assets';
 import { Space } from 'antd';
 
 const App: React.FC = () => {
@@ -10,41 +9,7 @@ const App: React.FC = () => {
         ellipsis
         address="3ea2cfd153b8d8505097b81c87c11f5d05097c18"
         href="https://etherscan.io/address/3ea2cfd153b8d8505097b81c87c11f5d05097c18"
-      />
-      <BrowserLink
-        ellipsis
-        address="3ea2cfd153b8d8505097b81c87c11f5d05097c18"
-        href="https://etherscan.io/address/3ea2cfd153b8d8505097b81c87c11f5d05097c18"
-        chain={ChainIds.Mainnet}
-      />
-      <Web3ConfigProvider chain={Polygon}>
-        <BrowserLink
-          ellipsis
-          address="3ea2cfd153b8d8505097b81c87c11f5d05097c18"
-          href="https://etherscan.io/address/3ea2cfd153b8d8505097b81c87c11f5d05097c18"
-        />
-      </Web3ConfigProvider>
-      <BrowserLink
-        ellipsis
-        address="3ea2cfd153b8d8505097b81c87c11f5d05097c18"
-        href="https://etherscan.io/address/3ea2cfd153b8d8505097b81c87c11f5d05097c18"
-        chain={ChainIds.BSC}
-        iconOnly
-      />
-      <Web3ConfigProvider chain={Arbitrum}>
-        <BrowserLink
-          ellipsis
-          address="3ea2cfd153b8d8505097b81c87c11f5d05097c18"
-          href="https://etherscan.io/address/3ea2cfd153b8d8505097b81c87c11f5d05097c18"
-          iconOnly
-        />
-      </Web3ConfigProvider>
-      <BrowserLink
-        ellipsis
-        address="3ea2cfd153b8d8505097b81c87c11f5d05097c18"
-        href="https://etherscan.io/address/3ea2cfd153b8d8505097b81c87c11f5d05097c18"
-        chain={ChainIds.Polygon}
-        iconOnly
+        chain={Mainnet}
         iconStyle={{
           fontSize: 40,
           background: '#eee',

@@ -11,6 +11,10 @@ a quick way to use etherscan address.
 
 <code src="./demos/basic.tsx"></code>
 
+## Only Icon
+
+<code src="./demos/icononly.tsx"></code>
+
 ## Complex Usage
 
 <code src="./demos/complex.tsx"></code>
@@ -30,5 +34,5 @@ a quick way to use etherscan address.
 | address | Ethereum address to generate the link. | `string` | - | - |
 | href | Custom link target. If provided, it will override the generated link. | `string` | - | - |
 | type | The type of link, either 'address' (default) or 'transaction'. | `address \| transaction` | `address` | - |
-| chain | Ethereum chain identifier. Defaults to the mainnet. | `ChainIds` | `ChainIds.Mainnet` | - |
+| chain | The chain of the corresponding address | `Chain` | `Mainnet` | - |
 | name | Custom display name. Display `address` default. | `string` | - | - |
