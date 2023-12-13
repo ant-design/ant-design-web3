@@ -29,6 +29,18 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 
 <code src="./demos/web3modal.tsx"></code>
 
+## 配置更多 UI
+
+大部分和链无关的 UI 属性你都可以直接在组件上配置，适配器通常只用于配置和链相关的内容。下面是一个配置示例，更多的配置你可以具体参考 [ConnectButton](../connect-button/index.zh-CN.md)、[ConnectModal](../connect-modal/index.zh-CN.md) 等组件文档查看更多细节。
+
+<code src="./demos/uiconfig.tsx"></code>
+
+## 更多组件
+
+你可以配合更多组件使用，组件中涉及到链部分的内容都会从适配器中获取。当然，在组件上直接配置的属性优先级更高。
+
+<code src="./demos/more-components.tsx"></code>
+
 ## API
 
 ### WagmiWeb3ConfigProviderProps
