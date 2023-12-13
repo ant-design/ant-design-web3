@@ -11,6 +11,10 @@ group: 展示
 
 <code src="./demos/basic.tsx"></code>
 
+## 只显示图标
+
+<code src="./demos/icononly.tsx"></code>
+
 ## 复杂场景
 
 <code src="./demos/complex.tsx"></code>
@@ -30,5 +34,5 @@ group: 展示
 | address | 要生成链接的以太坊地址。 | `string` | - | - |
 | href | 自定义链接目标。如果提供，将覆盖生成的链接。 | `string` | - | - |
 | type | 链接类型，是 'address'（默认）还是 'transaction'。 | `address \| transaction` | `address` | - |
-| chain | 以太坊链标识符。默认为主网。 | `ChainIds` | `ChainIds.Mainnet` | - |
+| chain | 对应地址的链 | `Chain` | `Mainnet` | - |
 | name | 自定义显示名称。不传默认显示 `address` | `string` | - | - |

@@ -6,12 +6,24 @@ import {
   BSCColorful,
   ArbitrumColorful,
   PolygonColorful,
+  EtherscanColorful,
 } from '@ant-design/web3-icons';
 
 export const Mainnet: Chain = {
   id: ChainIds.Mainnet,
   name: 'Ethereum',
   icon: <EthereumColorful />,
+  browser: {
+    icon: <EtherscanColorful />,
+    getBrowserLink: (address: string, type: string) => {
+      if (type === 'address') {
+        return `https://etherscan.io/address/${address}`;
+      } else if (type === 'transaction') {
+        return `https://etherscan.io/tx/${address}`;
+      }
+      throw new Error(`getBrowserLink unsupported type ${type}`);
+    },
+  },
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
 };
 
