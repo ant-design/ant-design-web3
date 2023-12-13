@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { ConfigProvider, theme as antTheme } from 'antd';
 import { mockBrowser } from '../../utils/test-utils';
+import ModalPanel from '../components/ModalPanel';
 
 describe('ConnectModal with guide', () => {
   beforeEach(() => {
@@ -140,6 +141,7 @@ describe('ConnectModal with guide', () => {
       );
     });
   });
+
   it('should display default guide when guide is true', async () => {
     const App = () => (
       <ConnectModal
@@ -153,5 +155,9 @@ describe('ConnectModal with guide', () => {
     );
     const { baseElement } = render(<App />);
     expect(baseElement).toMatchSnapshot();
+  });
+
+  it('ModalPanel', async () => {
+    expect(ConnectModal.ModalPanel).not.toBeUndefined();
   });
 });

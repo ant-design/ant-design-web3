@@ -62,7 +62,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
               class="ant-modal-body"
             >
               <div
-                class="ant-web3-connect-modal-body"
+                class="ant-web3-connect-modal-body css-dev-only-do-not-override-1ck3jst"
               >
                 <div
                   class="ant-web3-connect-modal-list-panel"
@@ -474,7 +474,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
               class="ant-modal-body"
             >
               <div
-                class="ant-web3-connect-modal-body"
+                class="ant-web3-connect-modal-body css-dev-only-do-not-override-1ck3jst"
               >
                 <div
                   class="ant-web3-connect-modal-list-panel"
@@ -886,7 +886,7 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
               class="ant-modal-body"
             >
               <div
-                class="ant-web3-connect-modal-body"
+                class="ant-web3-connect-modal-body css-dev-only-do-not-override-1ck3jst"
               >
                 <div
                   class="ant-web3-connect-modal-list-panel"
@@ -1301,7 +1301,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
               class="ant-modal-body"
             >
               <div
-                class="ant-web3-connect-modal-body"
+                class="ant-web3-connect-modal-body css-dev-only-do-not-override-15xztg8"
               >
                 <div
                   class="ant-web3-connect-modal-list-panel"
@@ -1741,7 +1741,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
               class="ant-modal-body"
             >
               <div
-                class="ant-web3-connect-modal-body"
+                class="ant-web3-connect-modal-body css-dev-only-do-not-override-1ck3jst"
               >
                 <div
                   class="ant-web3-connect-modal-list-panel"
