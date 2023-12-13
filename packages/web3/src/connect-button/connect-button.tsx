@@ -6,11 +6,11 @@ import { Address } from '../address';
 import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
 import { ConnectButtonTooltip } from './tooltip';
 import { ChainSelect } from './chain-select';
-import { ConnectButtonBanlance } from './balance';
 import { ProfileModal } from './profile-modal';
 import { useStyle } from './style';
 import { fillWith0x, writeCopyText } from '../utils';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
+import { CryptoPrice } from '../crypto-price';
 import { CopyOutlined, LoginOutlined } from '@ant-design/icons';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
@@ -44,7 +44,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         account?.name
       ) : (
         <Address tooltip={false} ellipsis address={account.address}>
-          {banlance ? <ConnectButtonBanlance hashId={hashId} {...banlance} /> : undefined}
+          {banlance ? <CryptoPrice {...banlance} /> : undefined}
         </Address>
       );
   }

@@ -32,7 +32,7 @@ group: 展示
 | description | 卡片的描述 | `React.ReactNode` | - | - |
 | image | 卡片的图片 | `string \| React.ReactNode` | - | - |
 | like | 点赞相关的配置 | [LikeProps](#likeprops) | - | - |
-| price | 卡片的价格 | `number` | `0` | - |
+| price | 资产价格 | [CryptoPriceProps](../crypto-price/index.zh-CN.md#api) | - | - |
 | footer | 卡片的底部内容 | `React.ReactNode` | - | - |
 | name | 卡片的名称 | `string` | - | - |
 | style | 卡片的样式 | `React.CSSProperties` | - | - |

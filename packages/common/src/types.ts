@@ -23,6 +23,7 @@ export interface Chain {
     getBrowserLink?: (address: string, type: BrowserLinkType) => string;
   };
   nativeCurrency?: {
+    icon?: React.ReactNode;
     decimals: number;
     name: string;
     symbol: string;
@@ -144,7 +145,7 @@ export type WalletMetadata = {
 };
 
 export type Balance = {
-  value: bigint | number;
+  value: bigint;
   symbol: string;
   decimals: number;
 };

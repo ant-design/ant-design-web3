@@ -98,9 +98,7 @@ const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
               gap: marginXS,
               display: 'flex',
               alignItems: 'center',
-              [`${componentCls}-price-icon`]: {
-                fontSize: fontSizeHeading3,
-                lineHeight: 1,
+              [`${antCls}icon`]: {
                 background: colorFillSecondary,
                 borderRadius: '50%',
               },

@@ -29,7 +29,7 @@ describe('ConnectButton', () => {
         }}
       />,
     );
-    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('1.23 ETH');
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe(' 1.23 ETH');
   });
 
   it('show balance when has name', () => {
@@ -46,6 +46,6 @@ describe('ConnectButton', () => {
         }}
       />,
     );
-    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('1.23 ETH');
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe(' 1.23 ETH');
   });
 });
