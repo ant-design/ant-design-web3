@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import type { Balance } from '@ant-design/web3-common';
 import { Address } from '@ant-design/web3';
 import { writeCopyText } from '../utils';
-import { ConnectButtonBanlance } from './balance';
+import { CryptoPrice } from '../crypto-price';
 import type { ModalProps } from 'antd';
 
 export interface ProfileModalProps {
@@ -72,7 +72,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
           {name ? <div className={classNames(`${prefixCls}-name`, __hashId__)}>{name}</div> : null}
           {address ? (
             <Address ellipsis={false} address={address} tooltip={false}>
-              {balance ? <ConnectButtonBanlance hashId={__hashId__} {...balance} /> : null}
+              {balance ? <CryptoPrice {...balance} /> : null}
             </Address>
           ) : null}
         </Space>

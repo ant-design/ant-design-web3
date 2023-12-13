@@ -7,6 +7,7 @@ import {
   ArbitrumColorful,
   PolygonColorful,
   EtherscanColorful,
+  EthereumFilled,
 } from '@ant-design/web3-icons';
 
 export const Mainnet: Chain = {
@@ -24,7 +25,7 @@ export const Mainnet: Chain = {
       throw new Error(`getBrowserLink unsupported type ${type}`);
     },
   },
-  nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
+  nativeCurrency: { icon: <EthereumFilled />, name: 'Ether', symbol: 'ETH', decimals: 18 },
 };
 
 export const Goerli: Chain = {
