@@ -165,8 +165,10 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
     const combinedItems = account
       ? actionsMenu.extraItems
-        ? [...actionsMenu.extraItems, ...defaultMenuItems]
-        : defaultMenuItems
+        ? [...actionsMenu.extraItems, ...(account ? defaultMenuItems : [])]
+        : account
+        ? defaultMenuItems
+        : []
       : actionsMenu.extraItems || [];
 
     return combinedItems;
