@@ -2,14 +2,16 @@ import { NFTCard } from '@ant-design/web3';
 import { ConfigProvider, Space, theme } from 'antd';
 const { darkAlgorithm } = theme;
 
-export default () => {
+const App: React.FC = () => {
   return (
     <ConfigProvider theme={{ algorithm: darkAlgorithm }}>
       <Space size={16}>
         <NFTCard
           name="My NFT"
           tokenId={16}
-          price={1.6}
+          price={{
+            value: 1230000000000000000n,
+          }}
           like={{
             totalLikes: 1600,
           }}
@@ -22,7 +24,9 @@ export default () => {
           type="pithy"
           name="My NFT"
           tokenId={16}
-          price={1.6}
+          price={{
+            value: 1230000000000000000n,
+          }}
           like={{
             totalLikes: 1600,
           }}
@@ -35,3 +39,5 @@ export default () => {
     </ConfigProvider>
   );
 };
+
+export default App;

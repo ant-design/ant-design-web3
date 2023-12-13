@@ -32,7 +32,7 @@ Components used to display NFTCard.
 | description | The description of the card | `React.ReactNode` | - | - |
 | image | The image of the card | `string \| React.ReactNode` | - | - |
 | like | The props of like | [LikeProps](#likeprops) | - | - |
-| price | The price of the card | `number` | `0` | - |
+| price | Asset price | [CryptoPriceProps](../crypto-price/index.zh-CN.md#api) | - | - |
 | footer | The footer of the card | `React.ReactNode` | - | - |
 | name | The name of the card | `string` | - | - |
 | style | The style of the card | `React.CSSProperties` | - | - |

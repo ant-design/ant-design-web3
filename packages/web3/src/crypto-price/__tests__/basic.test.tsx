@@ -2,10 +2,7 @@ import { CryptoPrice } from '..';
 import { render } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { EthereumCircleFilled } from '@ant-design/web3-icons';
-import { LinkOutlined } from '@ant-design/icons';
-import { ChainIds, Web3ConfigProvider } from '@ant-design/web3-common';
-import { BitcoinColorful } from '@ant-design/web3-icons';
-import { Mainnet } from '@ant-design/web3-assets';
+import { Web3ConfigProvider } from '@ant-design/web3-common';
 
 describe('CryptoPrice', () => {
   it('renders CryptoPrice correctly', () => {
