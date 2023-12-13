@@ -130,6 +130,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     borderRadius: 8,
                     transition: 'background .3s, color .3s',
                     marginBlockEnd: 5,
+                    border: 'none',
                     [`${componentCls}-extra`]: {
                       fontSize: token.fontSizeSM,
                       color: token.colorTextDescription,
