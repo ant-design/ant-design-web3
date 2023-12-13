@@ -154,14 +154,22 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     if (!actionsMenu) {
       return [];
     }
+
     if (typeof actionsMenu === 'boolean') {
-      return defaultMenuItems;
+      return account ? defaultMenuItems : [];
     }
+
     if (actionsMenu.items) {
       return actionsMenu.items;
     }
-    return [...(actionsMenu.extraItems ?? []), ...defaultMenuItems];
-  }, [actionsMenu, defaultMenuItems]);
+
+    const combinedItems =
+      account && actionsMenu.extraItems
+        ? [...(actionsMenu.extraItems ?? []), ...defaultMenuItems]
+        : defaultMenuItems;
+
+    return combinedItems;
+  }, [actionsMenu, defaultMenuItems, account]);
 
   if (mergedMenuItems.length > 0) {
     content = (
