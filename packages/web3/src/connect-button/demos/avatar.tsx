@@ -5,12 +5,34 @@ const App: React.FC = () => {
   return (
     <Space>
       <ConnectButton
+        size="small"
         account={{
           address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18',
           name: 'Display custom avatar',
         }}
         avatar={{
-          src: 'https://avatars.githubusercontent.com/u/10286961?s=60&v=4',
+          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
+        }}
+        actionsMenu={false}
+      />
+      <ConnectButton
+        account={{
+          address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18',
+          name: 'Display custom avatar',
+        }}
+        avatar={{
+          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
+        }}
+        actionsMenu={false}
+      />
+      <ConnectButton
+        size="large"
+        account={{
+          address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18',
+          name: 'Display custom avatar',
+        }}
+        avatar={{
+          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
         }}
         actionsMenu={false}
       />

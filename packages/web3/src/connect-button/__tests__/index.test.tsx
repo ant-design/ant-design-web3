@@ -50,7 +50,7 @@ describe('ConnectButton', () => {
           name: 'wanderingearth.eth',
         }}
         avatar={{
-          src: 'https://avatars.githubusercontent.com/u/10286961?s=60&v=4',
+          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
         }}
         icon={<WalletColorful />}
       />,
@@ -66,7 +66,7 @@ describe('ConnectButton', () => {
           name: 'wanderingearth.eth',
         }}
         avatar={{
-          src: 'https://avatars.githubusercontent.com/u/10286961?s=60&v=4',
+          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
         }}
       />,
     );
@@ -81,7 +81,7 @@ describe('ConnectButton', () => {
           name: 'Display custom avatar',
         }}
         avatar={{
-          src: 'https://avatars.githubusercontent.com/u/10286961?s=60&v=4',
+          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
         }}
         size="middle"
         actionsMenu={false}

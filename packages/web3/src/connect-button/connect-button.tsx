@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import type { ButtonProps } from 'antd';
-import { Avatar, Button, ConfigProvider, Dropdown, Space, message } from 'antd';
+import { Avatar, Button, ConfigProvider, Dropdown, Space, message, Divider } from 'antd';
 import classNames from 'classnames';
 import { Address } from '../address';
 import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
@@ -29,11 +29,10 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     loading,
     onClick,
     balance,
+    className,
     ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const parentRef = useRef<HTMLDivElement>(null);
-  const [parentHeight, setParentHeight] = useState<number>(0);
   const prefixCls = getPrefixCls('web3-connect-button');
   const [profileOpen, setProfileOpen] = useState(false);
   const { wrapSSR, hashId } = useStyle(prefixCls);
@@ -51,15 +50,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       );
   }
 
-  useEffect(() => {
-    if (parentRef.current) {
-      setParentHeight(parentRef.current.offsetHeight);
-    }
-  }, []);
-
   const buttonProps: ButtonProps = {
     style: props.style,
-    className: classNames(props.className, hashId, prefixCls),
     size: props.size,
     type: props.type,
     ghost: props.ghost,
@@ -93,24 +85,19 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const chainSelect = renderChainSelect();
 
   const buttonInnerText = (
-    <>
-      {avatar ? (
-        <div ref={parentRef} style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-          <div
-            className={classNames(`${prefixCls}-text`, hashId)}
-            style={{ order: restProps?.icon ? 0 : 1 }}
-          >
-            {buttonText}
-          </div>
-          <Avatar
-            {...avatar}
-            style={{ height: parentHeight, width: parentHeight, order: restProps?.icon ? 1 : 0 }}
-          />
-        </div>
-      ) : (
-        <div className={classNames(`${prefixCls}-text`, hashId)}>{buttonText}</div>
-      )}
-    </>
+    <div className={`${prefixCls}-content`}>
+      <div className={`${prefixCls}-content-inner`}>
+        <div className={`${prefixCls}-text`}>{buttonText}</div>
+        {avatar && (
+          <>
+            <Divider type="vertical" />
+            <div className={`${prefixCls}-avatar`}>
+              <Avatar {...avatar} />
+            </div>
+          </>
+        )}
+      </div>
+    </div>
   );
 
   const buttonContent = chainSelect ? (
@@ -225,7 +212,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   }
 
   const main = (
-    <>
+    <div className={classNames(className, prefixCls, hashId)}>
       {contextHolder}
       {tooltipTitle ? (
         <ConnectButtonTooltip
@@ -241,7 +228,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         content
       )}
       {profileModalContent}
-    </>
+    </div>
   );
 
   return wrapSSR(main);
