@@ -237,8 +237,8 @@ importers:
   packages/web3:
     dependencies:
       '@ant-design/cssinjs':
-        specifier: ^1.17.0
-        version: 1.17.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^1.18.0
+        version: 1.18.1(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/icons':
         specifier: ^5.2.6
         version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
@@ -322,6 +322,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       stylis: 4.3.0
+    dev: true
 
   /@ant-design/cssinjs@1.18.1(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-1JURAPrsjK1GwpqByTq3bJ7nF7lbMKDZpehqeR2n8/IR5O58/W1U4VcOeaw5ZyTHri3tEMcom7dyP2tvxpW54g==}
