@@ -20,7 +20,7 @@ export default defineConfig({
     setupFiles: ['./tests/setup.ts'],
     reporters: ['default'],
     coverage: {
-      include: ['packages/*/src/**/*.ts'],
+      include: ['packages/*/src/**/*.{tx,tsx}'],
       reporter: ['json-summary', ['text', { skipFull: true }], 'cobertura', 'html'],
     },
     testTimeout: 3e4,
