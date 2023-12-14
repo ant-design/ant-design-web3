@@ -1,7 +1,9 @@
 import React from 'react';
+import { useLocation } from 'dumi';
 import styles from './index.module.less';
 
 const Banner: React.FC = () => {
+  const { pathname } = useLocation();
   return (
     <div className={styles.container}>
       <img
@@ -18,7 +20,7 @@ const Banner: React.FC = () => {
           alt="title"
         />
         <div className={styles.btn}>
-          <a href="/zh-CN/guide">开始使用</a>
+          <a href="/zh-CN/guide">{pathname.includes('zh-CN') ? '开始使用' : 'Start'}</a>
           <a href="https://github.com/ant-design/ant-design-web3" target="_blank" rel="noreferrer">
             GitHub
           </a>
