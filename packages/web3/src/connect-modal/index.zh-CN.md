@@ -12,6 +12,10 @@ order: 2
 
 <code src="./demos/basic.tsx"></code>
 
+## 面板方式嵌入
+
+<code src="./demos/panel.tsx"></code>
+
 ## 简洁模式
 
 <code src="./demos/simple.tsx"></code>
@@ -57,3 +61,7 @@ order: 2
 | title       | 新手指引面板的信息项标题 | `string \| React.ReactNode` | -      | -    |
 | icon        | 新手指引面板的信息项图标 | `string \| React.ReactNode` | -      | -    |
 | description | 新手指引面板的信息项描述 | `string \| React.ReactNode` | -      | -    |
+
+### ConnectModal.ModalPanel
+
+除了和控制弹窗相关属性外，其它和 `ConnectModal` 相同。
