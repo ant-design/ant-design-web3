@@ -1,5 +1,11 @@
 import React from 'react';
-import { type Account, type Wallet, type Chain, Web3ConfigProvider } from '@ant-design/web3-common';
+import {
+  type Account,
+  type Wallet,
+  type Chain,
+  Web3ConfigProvider,
+  fillAddressWith0x,
+} from '@ant-design/web3-common';
 import {
   useAccount,
   useConnect,
@@ -30,7 +36,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   const { disconnectAsync } = useDisconnect();
   const [currentChain, setCurrentChain] = React.useState<Chain | undefined>(undefined);
   const { data: balanceData } = useBalance({
-    address: balance && account ? account.address : undefined,
+    address: balance && account ? fillAddressWith0x(account.address) : undefined,
   });
 
   React.useEffect(() => {

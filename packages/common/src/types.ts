@@ -1,5 +1,5 @@
 export interface Account {
-  address: `0x${string}`;
+  address: string;
   name?: string;
 }
 

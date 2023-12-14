@@ -97,7 +97,7 @@ describe('web3-config-provider', () => {
           {...baseProps}
           connect={async () => {
             const newAccount = {
-              address: '0x1234567890123456789012345678901234567890',
+              address: '0x1234567890123456789012345678901234567890' as `0x${string}`,
             };
             setAccount(newAccount);
           }}
@@ -129,7 +129,7 @@ describe('web3-config-provider', () => {
           {...baseProps}
           connect={async () => {
             const newAccount = {
-              address: '0x1234567890123456789012345678901234567890',
+              address: '0x1234567890123456789012345678901234567890' as `0x${string}`,
             };
             setAccount(newAccount);
           }}
