@@ -59,7 +59,7 @@ The button to connect to the blockchain wallet. Usually, you need to use it with
 | avatar | Config avatar, used to display user avatar in profile modal | [AvatarProps](https://ant.design/components/avatar-cn#api) | - | - |
 | onMenuItemClick | Menu item click event | `(e: NonNullable<MenuProps['items']>[number]) => void` | - | - |
 | balance | Balance | [Balance](#balance) | - | - |
-| availableChains | Available chains | [Chain](../types/index.md#chain)[] | - | - |
+| availableChains | Available chains | [Chain](../types/index.md#chain)\[] | - | - |
 
 ### Balance
 
