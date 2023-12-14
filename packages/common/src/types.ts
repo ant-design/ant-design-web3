@@ -21,7 +21,7 @@ export type BalanceMetadata = {
 };
 
 export interface Chain {
-  id: ChainIds;
+  id: ChainIds | number;
   name: string;
   icon?: React.ReactNode;
   browser?: {

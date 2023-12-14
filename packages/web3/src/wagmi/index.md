@@ -17,7 +17,15 @@ Currently, we officially provide the adapter of Ethereum, and you can also devel
 
 <code src="./demos/basic.tsx"></code>
 
+## Add more wallets
+
+We have built-in wallets with `group` as `Popular`. For other wallets, you need to configure `assets` to import related resources. You can export related resources from `@ant-design/web3-wagmi`. If you don't have the resources you need, you can submit [Github issue](https://github.com/ant-design/ant-design-web3/issues) to tell us. You can also configure it yourself or submit a PR to support it.
+
+<code src="./demos/more-wallets.tsx"></code>
+
 ## Support switch chains
+
+We have built-in `Mainnet` and `Goerli`, and the remaining chains need to configure `assets` to import related resources to support. The import method is similar to the wallet.
 
 <code src="./demos/chains.tsx"></code>
 
@@ -28,12 +36,6 @@ Currently, we officially provide the adapter of Ethereum, and you can also devel
 ## Display balance
 
 <code src="./demos/balance.tsx"></code>
-
-## Use web3modal for WalletConnect
-
-When the `showQrModal` configuration is not `false`, the built-in [web3modal](https://web3modal.com/) pop-up window of WallectConnect will be used.
-
-<code src="./demos/web3modal.tsx"></code>
 
 ## Configure more UI
 
@@ -47,6 +49,12 @@ You can use more components together. The content related to the chain in the co
 
 <code src="./demos/more-components.tsx"></code>
 
+## Use web3modal for WalletConnect
+
+When the `showQrModal` configuration is not `false`, the built-in [web3modal](https://web3modal.com/) pop-up window of WallectConnect will be used.
+
+<code src="./demos/web3modal.tsx"></code>
+
 ## API
 
 ### WagmiWeb3ConfigProviderProps
@@ -54,9 +62,9 @@ You can use more components together. The content related to the chain in the co
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | config | wagmi config | [WagmiConfig](https://wagmi.sh/core/config) | - | - |
-| availableChains | Available chains | [WagmiChain[]](https://wagmi.sh/core/chains) | - | - |
 | assets | Wallet or chain icon and other information | [Chain](./types#chain)\[\] \| [WalletFactory](#walletfactory)\[\] | - | - |
 | ens | Whether to display ENS | `boolean` | - | - |
+| balance | Whether to display balance | `boolean` | - | - |
 
 ### WalletFactory
 

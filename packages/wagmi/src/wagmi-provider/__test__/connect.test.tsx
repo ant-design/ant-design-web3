@@ -89,7 +89,11 @@ describe('WagmiWeb3ConfigProvider connect', () => {
     };
 
     const App = () => (
-      <AntDesignWeb3ConfigProvider availableChains={[mainnet]} assets={[Mainnet, MetaMask]}>
+      <AntDesignWeb3ConfigProvider
+        availableChains={[mainnet]}
+        availableConnectors={[]}
+        assets={[Mainnet, MetaMask]}
+      >
         <CustomConnector />
       </AntDesignWeb3ConfigProvider>
     );

@@ -54,7 +54,12 @@ vi.mock('wagmi', () => {
 describe('WagmiWeb3ConfigProvider balance', () => {
   it('show balance', () => {
     const App = () => (
-      <AntDesignWeb3ConfigProvider balance availableChains={[mainnet]} assets={[Mainnet, MetaMask]}>
+      <AntDesignWeb3ConfigProvider
+        availableConnectors={[]}
+        balance
+        availableChains={[mainnet]}
+        assets={[Mainnet, MetaMask]}
+      >
         <Connector>
           <ConnectButton />
         </Connector>
@@ -69,7 +74,11 @@ describe('WagmiWeb3ConfigProvider balance', () => {
 
   it('show address', () => {
     const App = () => (
-      <AntDesignWeb3ConfigProvider availableChains={[mainnet]} assets={[Mainnet, MetaMask]}>
+      <AntDesignWeb3ConfigProvider
+        availableConnectors={[]}
+        availableChains={[mainnet]}
+        assets={[Mainnet, MetaMask]}
+      >
         <Connector>
           <ConnectButton />
         </Connector>

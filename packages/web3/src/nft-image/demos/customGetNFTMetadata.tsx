@@ -9,7 +9,8 @@ const App: React.FC = () => {
       getNFTMetadata={({ address: _address, tokenId: _tokenId }) => {
         return Promise.resolve({
           name: `Test_${_address}_${_tokenId}`,
-          image: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+          image:
+            'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
         });
       }}
     />
