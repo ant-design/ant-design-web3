@@ -15,8 +15,16 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     onDisconnected,
     onChainSwitched,
   } = props;
-  const { availableWallets, connect, disconnect, account, availableChains, chain, switchChain } =
-    useProvider(props);
+  const {
+    availableWallets,
+    connect,
+    disconnect,
+    account,
+    availableChains,
+    chain,
+    switchChain,
+    balance,
+  } = useProvider(props);
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [messageApi, contextHolder] = message.useMessage();
@@ -51,6 +59,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
           onDisconnected?.();
           setLoading(false);
         },
+        balance,
         availableChains,
         chain,
         onSwitchChain: async (c: Chain) => {

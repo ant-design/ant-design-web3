@@ -6,6 +6,7 @@ import {
   useDisconnect,
   useNetwork,
   useSwitchNetwork,
+  useBalance,
   type Chain as WagmiChain,
 } from 'wagmi';
 import { addNameToAccount, getNFTMetadata } from './methods';
@@ -15,11 +16,12 @@ export interface AntDesignWeb3ConfigProviderProps {
   assets?: (WalletFactory | Chain)[];
   children?: React.ReactNode;
   ens?: boolean;
+  balance?: boolean;
   availableChains: WagmiChain[];
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
-  const { children, assets, availableChains, ens } = props;
+  const { children, assets, availableChains, ens, balance } = props;
   const { address, isDisconnected } = useAccount();
   const [account, setAccount] = React.useState<Account | undefined>();
   const { connectors, connectAsync } = useConnect();
@@ -27,6 +29,9 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   const { chain } = useNetwork();
   const { disconnectAsync } = useDisconnect();
   const [currentChain, setCurrentChain] = React.useState<Chain | undefined>(undefined);
+  const { data: balanceData } = useBalance({
+    address: balance && account ? account.address : undefined,
+  });
 
   React.useEffect(() => {
     if (!address || isDisconnected) {
@@ -94,6 +99,16 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       availableChains={chainList}
       chain={currentChain}
       account={account}
+      balance={
+        balance
+          ? {
+              symbol: balanceData?.symbol,
+              value: balanceData?.value,
+              decimals: balanceData?.decimals,
+              icon: currentChain?.nativeCurrency?.icon,
+            }
+          : undefined
+      }
       availableWallets={wallets}
       connect={async (wallet) => {
         const connector = connectors.find((item) => item.name === wallet?.name);
