@@ -1,6 +1,6 @@
 import { globSync } from 'glob';
 import path from 'path';
-import { ComponentType } from 'react';
+import { type ComponentType } from 'react';
 
 export async function getComponents(dir: string): Promise<ComponentType[]> {
   return new Promise(async (resolve) => {
@@ -11,6 +11,7 @@ export async function getComponents(dir: string): Promise<ComponentType[]> {
       const displayNames = Object.keys(comp);
       displayNames.forEach((displayName) => {
         const Icon = comp[displayName];
+        console.log('get Icon', Icon);
         res.push(Icon);
       });
     }

@@ -43,8 +43,8 @@
     "@ant-design/web3": "workspace:*",
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
-    "@ant-design/web3-wagmi": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
+    "@ant-design/web3-wagmi": "workspace:*",
     "@biomejs/biome": "^1.0.0",
     "@changesets/changelog-git": "^0.1.14",
     "@changesets/cli": "^2.26.2",
@@ -72,6 +72,7 @@
     "react-dom": "^18.2.0",
     "rimraf": "^5.0.0",
     "typescript": "^5.0.4",
+    "vite-plugin-svgr": "^4.2.0",
     "vitest": "^0.34.6",
     "wagmi": "^1.4.5"
   },

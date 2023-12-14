@@ -10,4 +10,5 @@ export default defineConfig({
     output: 'dist/esm',
     transformer: 'babel',
   },
+  extraBabelPlugins: ['inline-react-svg'],
 });

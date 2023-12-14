@@ -5,7 +5,6 @@ declare module '*.svg' {
 
   export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
 
-  const src: string;
-  export default src;
+  export default ReactComponent;
 }
 declare const YOUR_INFURA_API_KEY: string;
