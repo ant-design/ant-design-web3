@@ -1,12 +1,20 @@
 import path from 'path';
 import { defineConfig } from 'vitest/config';
-import svgLoader from 'vite-svg-loader';
+import svgr from 'vite-plugin-svgr';
 
 const resolve = (src: string) => {
   return path.resolve(__dirname, src);
 };
+
 export default defineConfig({
-  plugins: [svgLoader()],
+  plugins: [
+    svgr({
+      svgrOptions: {
+        exportType: 'default',
+      },
+      include: ['**/*.svg'],
+    }),
+  ],
   resolve: {
     alias: {
       '@ant-design/web3': resolve('./packages/web3/src/index'),
