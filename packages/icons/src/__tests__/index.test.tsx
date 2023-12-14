@@ -1,7 +1,5 @@
 import { render } from '@testing-library/react';
 import { it, describe, expect } from 'vitest';
-import { resolve } from 'path';
-import fs from 'fs';
 import { getComponents } from './iconTest';
 
 describe('Test Icons', () => {

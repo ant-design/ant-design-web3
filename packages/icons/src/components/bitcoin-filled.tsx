@@ -1,6 +1,6 @@
 import * as React from 'react';
 import AntdIcon from '@ant-design/icons';
-import { ReactComponent as SVGComponent } from '../svgs/bitcoin-filled.svg';
+import SVGComponent from '../svgs/bitcoin-filled.svg';
 import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
 import classnames from 'classnames';
 import { ConfigProvider } from 'antd';
