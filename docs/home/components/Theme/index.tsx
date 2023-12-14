@@ -1,6 +1,8 @@
+import React from 'react';
 import styles from './index.module.less';
 import { ConnectModal, type Wallet } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
+import { Space, Tooltip, ConfigProvider, theme, Card } from 'antd';
 
 const walletList: Wallet[] = [
   metadata_MetaMask,
@@ -44,19 +46,49 @@ const walletList: Wallet[] = [
 ];
 
 const App: React.FC = () => {
+  const [isDard, setIsDard] = React.useState(false);
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>Customize the theme as you like</h3>
       <div className={styles.desc}>
         Open more style algorithms to make it easier to customize your theme
       </div>
-      <div className={styles.card}>
-        <ConnectModal.ModalPanel
-          title="Connect Wallet"
-          footer="Powered by AntChain"
-          walletList={walletList}
-          guide
-        />
+      <ConfigProvider
+        theme={{
+          algorithm: isDard ? theme.darkAlgorithm : undefined,
+        }}
+      >
+        <Card
+          className={styles.card}
+          bodyStyle={{
+            padding: 0,
+          }}
+        >
+          <ConnectModal.ModalPanel
+            title="Connect Wallet"
+            footer="Powered by AntChain"
+            walletList={walletList}
+            guide
+          />
+        </Card>
+      </ConfigProvider>
+      <div className={styles.themeBtns}>
+        <Space size="large">
+          <Tooltip title="Light Mode">
+            <img
+              onClick={() => setIsDard(false)}
+              src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8ODgS7sV7HIAAAAAAAAAAAAADlrGAQ/original"
+              alt=""
+            />
+          </Tooltip>
+          <Tooltip title="Dark Mode">
+            <img
+              onClick={() => setIsDard(true)}
+              src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*lzNiRZu_XdsAAAAAAAAAAAAADlrGAQ/original"
+              alt=""
+            />
+          </Tooltip>
+        </Space>
       </div>
     </div>
   );
