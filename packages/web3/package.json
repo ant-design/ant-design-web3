@@ -16,12 +16,12 @@
     "build": "father build"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "^1.17.0",
+    "@ant-design/cssinjs": "^1.18.0",
     "@ant-design/icons": "^5.2.6",
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
     "@ctrl/tinycolor": "^4.0.2",
-    "antd": "^5.8.3",
+    "antd": "^5.10.0",
     "classnames": "^2.3.2"
   },
   "devDependencies": {

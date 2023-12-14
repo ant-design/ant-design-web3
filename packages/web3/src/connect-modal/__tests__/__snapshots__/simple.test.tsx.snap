@@ -5,7 +5,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-15xztg8 ant-web3-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-1v7djfy ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -16,7 +16,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-15xztg8 ant-web3-connect-modal css-dev-only-do-not-override-15xztg8 ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-1v7djfy ant-web3-connect-modal css-dev-only-do-not-override-1v7djfy ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 380px;"
         >
@@ -62,7 +62,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
               class="ant-modal-body"
             >
               <div
-                class="ant-web3-connect-modal-body simple css-dev-only-do-not-override-15xztg8"
+                class="ant-web3-connect-modal-body simple css-dev-only-do-not-override-1v7djfy"
               >
                 <div
                   class="ant-web3-connect-modal-list-panel"
@@ -94,10 +94,10 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                           class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-15xztg8"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1v7djfy"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-15xztg8"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1v7djfy"
                             >
                               <div
                                 class="ant-spin-container"
@@ -165,10 +165,10 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                           class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-15xztg8"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1v7djfy"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-15xztg8"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1v7djfy"
                             >
                               <div
                                 class="ant-spin-container"
@@ -311,7 +311,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-p7e5j5 ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -322,7 +322,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal css-dev-only-do-not-override-1ck3jst ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-p7e5j5 ant-web3-connect-modal css-dev-only-do-not-override-p7e5j5 ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 380px;"
         >
@@ -368,7 +368,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
               class="ant-modal-body"
             >
               <div
-                class="ant-web3-connect-modal-body simple css-dev-only-do-not-override-1ck3jst"
+                class="ant-web3-connect-modal-body simple css-dev-only-do-not-override-p7e5j5"
               >
                 <div
                   class="ant-web3-connect-modal-list-panel"
@@ -400,10 +400,10 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                           class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-p7e5j5"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-p7e5j5"
                             >
                               <div
                                 class="ant-spin-container"
@@ -471,10 +471,10 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                           class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-p7e5j5"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-p7e5j5"
                             >
                               <div
                                 class="ant-spin-container"
