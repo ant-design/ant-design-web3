@@ -200,7 +200,6 @@ describe('WagmiWeb3ConfigProvider', () => {
     const config = createConfig({
       autoConnect: true,
       publicClient,
-      connectors: [],
     });
 
     const CustomConnector: React.FC = () => {

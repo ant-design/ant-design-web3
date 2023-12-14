@@ -16,6 +16,10 @@ order: 1
 
 <code src="./demos/tooltip.tsx"></code>
 
+## 可选择链
+
+<code src="./demos/chains.tsx"></code>
+
 ## 展示菜单
 
 <code src="./demos/menu.tsx"></code>
@@ -55,6 +59,7 @@ order: 1
 | avatar | 配置头像，用于在个人信息弹框中展示用户头像 | [AvatarProps](https://ant.design/components/avatar-cn#api) | - | - |
 | onMenuItemClick | 菜单项点击事件 | `(e: NonNullable<MenuProps['items']>[number]) => void` | - | - |
 | balance | 余额 | [Balance](#balance) | - | - |
+| availableChains | 可用的链 | [Chain](../types/index.zh-CN.md#chain)[] | - | - |
 
 ### Balance
 
