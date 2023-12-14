@@ -20,8 +20,8 @@ group:
 
 | 属性     | 描述                   | 类型     | 默认值    | 版本 |
 | -------- | ---------------------- | -------- | --------- | ---- |
-| value    | 值，基于代币的最小单位 | `bigint` | -         | -    |
-| decimals | 小数位数               | `number` | -         | -    |
-| symbol   | 代币符号               | `string` | -         | -    |
+| value    | 值，基于代币的最小单位 | `bigint` | `0`       | -    |
+| decimals | 小数位数               | `number` | `18`      | -    |
+| symbol   | 代币符号               | `string` | `ETH`     | -    |
 | chain    | 链                     | `Chain`  | `Mainnet` | -    |
 | fixed    | 小数点后固定位数       | `number` | -         | -    |

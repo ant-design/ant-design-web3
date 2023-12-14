@@ -9,7 +9,7 @@ const App: React.FC = () => {
           address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18',
           name: 'test.eth',
         }}
-        banlance={{
+        balance={{
           symbol: 'ETH',
           decimals: 18,
           value: 1000000000000000000n,

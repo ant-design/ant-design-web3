@@ -1,0 +1,176 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Test Icons > should render all icons 1`] = `
+<span
+  class="anticon ant-web3-icon-wallet-white-colorful"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 2`] = `
+<span
+  class="anticon ant-web3-icon-wallet-connect-colorful"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 3`] = `
+<span
+  class="anticon ant-web3-icon-wallet-colorful"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 4`] = `
+<span
+  class="anticon ant-web3-icon-usdt-filled"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 5`] = `
+<span
+  class="anticon ant-web3-icon-usdt-circle-filled"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 6`] = `
+<span
+  class="anticon ant-web3-icon-tron-filled"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 7`] = `
+<span
+  class="anticon ant-web3-icon-tron-colorful"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 8`] = `
+<span
+  class="anticon ant-web3-icon-tron-circle-filled"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 9`] = `
+<span
+  class="anticon ant-web3-icon-sui-filled"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 10`] = `
+<span
+  class="anticon ant-web3-icon-sui-colorful"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 11`] = `
+<span
+  class="anticon ant-web3-icon-sui-circle-filled"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 12`] = `
+<span
+  class="anticon ant-web3-icon-polygon-colorful"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 13`] = `
+<span
+  class="anticon ant-web3-icon-optimism-colorful"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 14`] = `
+<span
+  class="anticon ant-web3-icon-metamask-colorful"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 15`] = `
+<span
+  class="anticon ant-web3-icon-etherscan-colorful"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 16`] = `
+<span
+  class="anticon ant-web3-icon-ethereum-filled"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 17`] = `
+<span
+  class="anticon ant-web3-icon-ethereum-colorful"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 18`] = `
+<span
+  class="anticon ant-web3-icon-ethereum-circle-filled"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 19`] = `
+<span
+  class="anticon ant-web3-icon-coinbase-wallet-colorful"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 20`] = `
+<span
+  class="anticon ant-web3-icon-chrome-colorful"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 21`] = `
+<span
+  class="anticon ant-web3-icon-bsc-colorful"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 22`] = `
+<span
+  class="anticon ant-web3-icon-bitcoin-filled"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 23`] = `
+<span
+  class="anticon ant-web3-icon-bitcoin-colorful"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 24`] = `
+<span
+  class="anticon ant-web3-icon-bitcoin-circle-filled"
+  role="img"
+/>
+`;
+
+exports[`Test Icons > should render all icons 25`] = `
+<span
+  class="anticon ant-web3-icon-arbitrum-colorful"
+  role="img"
+/>
+`;

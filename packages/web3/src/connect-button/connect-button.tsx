@@ -28,7 +28,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     actionsMenu = false,
     loading,
     onClick,
-    banlance,
+    balance,
     ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -40,11 +40,11 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   let buttonText: React.ReactNode = 'Connect Wallet';
   if (account) {
     buttonText =
-      account?.name && !banlance ? (
+      account?.name && !balance ? (
         account?.name
       ) : (
         <Address tooltip={false} ellipsis address={account.address}>
-          {banlance ? <CryptoPrice {...banlance} /> : undefined}
+          {balance ? <CryptoPrice {...balance} /> : undefined}
         </Address>
       );
   }
@@ -115,7 +115,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
           src: chain?.icon,
         }
       }
-      balance={banlance}
+      balance={balance}
       modalProps={typeof profileModal === 'object' ? profileModal : undefined}
     />
   );

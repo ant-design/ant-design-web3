@@ -16,9 +16,9 @@ export const CryptoPriceBalance: React.FC<CryptoPriceBalanceProps> = ({
   className,
   style,
   hashId,
-  symbol,
-  decimals,
-  value,
+  symbol = 'ETH',
+  decimals = 18,
+  value = 0,
   fixed,
   icon,
 }) => {
