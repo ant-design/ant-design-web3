@@ -23,6 +23,10 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 
 <code src="./demos/name.tsx"></code>
 
+## 显示余额
+
+<code src="./demos/balance.tsx"></code>
+
 ## 使用 web3modal 连接 WalletConnect
 
 当 `showQrModal` 配置不为 `false` 时，会使用 WallectConnect 自带的 [web3modal](https://web3modal.com/) 弹窗。

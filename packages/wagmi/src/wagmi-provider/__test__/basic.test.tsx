@@ -4,7 +4,7 @@ import { createConfig, configureChains } from 'wagmi';
 import { polygon, mainnet } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 import { Connector, type ConnectorTriggerProps } from '@ant-design/web3';
-import { WagmiWeb3ConfigProvider } from '.';
+import { WagmiWeb3ConfigProvider } from '..';
 import { Mainnet } from '@ant-design/web3-assets';
 
 describe('WagmiWeb3ConfigProvider', () => {

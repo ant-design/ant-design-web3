@@ -25,6 +25,10 @@ Currently, we officially provide the adapter of Ethereum, and you can also devel
 
 <code src="./demos/name.tsx"></code>
 
+## Display balance
+
+<code src="./demos/balance.tsx"></code>
+
 ## Use web3modal for WalletConnect
 
 When the `showQrModal` configuration is not `false`, the built-in [web3modal](https://web3modal.com/) pop-up window of WallectConnect will be used.
