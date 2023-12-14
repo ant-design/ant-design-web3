@@ -1,2 +1,35 @@
 .container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  .cardBg {
+    position: relative;
+    background: #f5f8ff;
+    background-image: radial-gradient(circle at 94% 97%, #e5efff 0%, rgba(233, 240, 255, 0) 53%);
+    border-radius: 16px;
+    padding: 133px 40px 85px;
+    .title {
+      position: absolute;
+      left: 40px;
+      top: 36px;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.85);
+    }
+  }
+
+  .buttonsCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dropdownContainer {
+    border: 1px solid rgba(0, 0, 0, 0.85);
+    border-radius: 10px;
+  }
+
+  .divider {
+    border-color: rgba(0, 0, 0, 0.85);
+  }
 }
