@@ -8,5 +8,4 @@ export * from './nft-card';
 export * from './crypto-price';
 export * from './hooks';
 export * from './web3-config-provider';
-
-export type { Account } from '@ant-design/web3-common';
+export * from '@ant-design/web3-common';
