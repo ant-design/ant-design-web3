@@ -1,11 +1,9 @@
-import type { ReactNode } from 'react';
-import React, { useEffect, useMemo } from 'react';
+import React from 'react';
 import { Space, Tooltip } from 'antd';
-import { ChainIds, fillAddressWith0x } from '@ant-design/web3-common';
+import { Mainnet } from '@ant-design/web3-assets';
+import { fillAddressWith0x, type BrowserLinkType, type Chain } from '@ant-design/web3-common';
 import { Address } from '../address';
 import useProvider from '../hooks/useProvider';
-
-export type BrowserLinkType = 'address' | 'transaction';
 
 export interface BrowserLinkProps {
   icon?: boolean | React.ReactNode;
@@ -14,7 +12,7 @@ export interface BrowserLinkProps {
   ellipsis?: boolean;
   address: string;
   href?: string;
-  chain?: ChainIds;
+  chain?: Chain;
   type?: BrowserLinkType;
   name?: string;
 }
@@ -22,33 +20,24 @@ export interface BrowserLinkProps {
 export const getBrowserLink = (
   address: string,
   type: BrowserLinkType = 'address',
-  chain: ChainIds = ChainIds.Mainnet,
+  chain?: Chain,
 ) => {
-  if (chain === ChainIds.Mainnet) {
-    if (type === 'address') {
-      return `https://etherscan.io/address/${address}`;
-    } else if (type === 'transaction') {
-      return `https://etherscan.io/tx/${address}`;
-    }
+  if (!chain || !chain.browser?.getBrowserLink) {
+    throw new Error(`getBrowserLink unsupported chain ${chain?.id}`);
   }
-  throw new Error(`Unsupported chain ${chain}`);
+  return chain.browser.getBrowserLink(address, type);
 };
 
 export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
   const { icon, ellipsis, address, href, type, chain, name, iconOnly = false } = props;
-  const { chain: contextChain, availableChains } = useProvider();
-  const mergedChainId = chain ?? contextChain?.id;
+  const { chain: currentChain = Mainnet } = useProvider({
+    chain,
+  });
 
-  const currentChain = useMemo(
-    () => availableChains?.find((c) => c.id === mergedChainId),
-    [availableChains, mergedChainId],
-  );
-
-  const mergedIcon = icon ?? currentChain?.icon;
+  const mergedIcon = icon || currentChain?.browser?.icon || currentChain?.icon;
   const displayIcon = React.isValidElement(mergedIcon)
     ? React.cloneElement<any>(mergedIcon, {
         style: {
-          fontSize: iconOnly ? 24 : 16,
           ...props.iconStyle,
           ...(React.isValidElement(mergedIcon) ? mergedIcon.props.style : {}),
         },
@@ -56,7 +45,7 @@ export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
     : mergedIcon;
 
   const filledAddress = fillAddressWith0x(address);
-  const browserLink = href ?? getBrowserLink(filledAddress, type, mergedChainId);
+  const browserLink = href ?? getBrowserLink(filledAddress, type, currentChain);
 
   const renderContent = (content: React.ReactNode) => (
     <Tooltip title={filledAddress}>

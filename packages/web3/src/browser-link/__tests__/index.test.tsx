@@ -76,7 +76,7 @@ describe('BrowserLink', () => {
     } catch (error: any) {
       fn(error.message);
     }
-    expect(fn).toHaveBeenCalledWith('Unsupported chain 42161');
+    expect(fn).toHaveBeenCalledWith('getBrowserLink unsupported chain 42161');
     const fn2 = vi.fn();
     try {
       render(
@@ -86,11 +86,7 @@ describe('BrowserLink', () => {
             name: 'Arbitrum',
           }}
         >
-          <BrowserLink
-            address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
-            chain={ChainIds.Mainnet}
-          />
-          ,
+          <BrowserLink address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" chain={Mainnet} />,
         </Web3ConfigProvider>,
       );
     } catch (error: any) {
@@ -100,27 +96,14 @@ describe('BrowserLink', () => {
   });
   it('support get chain icon from provider', async () => {
     const { baseElement, rerender } = render(
-      <Web3ConfigProvider
-        availableChains={[Mainnet]}
-        chain={{
-          id: ChainIds.Mainnet,
-          name: 'Mainnet',
-        }}
-      >
+      <Web3ConfigProvider availableChains={[Mainnet]} chain={Mainnet}>
         <BrowserLink address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,
       </Web3ConfigProvider>,
     );
-    console.log(baseElement.innerHTML);
-    expect(baseElement.querySelector('.ant-web3-icon-ethereum-colorful')).not.toBeNull();
+    expect(baseElement.querySelector('.ant-web3-icon-etherscan-colorful')).not.toBeNull();
 
     rerender(
-      <Web3ConfigProvider
-        availableChains={[Mainnet]}
-        chain={{
-          id: ChainIds.Mainnet,
-          name: 'Mainnet',
-        }}
-      >
+      <Web3ConfigProvider availableChains={[Mainnet]} chain={Mainnet}>
         <BrowserLink
           icon={<BitcoinColorful />}
           address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
@@ -133,12 +116,7 @@ describe('BrowserLink', () => {
   });
   it('support iconStyle', async () => {
     const { baseElement } = render(
-      <Web3ConfigProvider
-        chain={{
-          id: ChainIds.Mainnet,
-          name: 'Mainnet',
-        }}
-      >
+      <Web3ConfigProvider chain={Mainnet}>
         <BrowserLink
           icon={<BitcoinColorful />}
           address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
@@ -150,5 +128,35 @@ describe('BrowserLink', () => {
     const icon = baseElement.querySelector('.ant-web3-icon-bitcoin-colorful') as HTMLSpanElement;
     expect(icon).not.toBeNull();
     expect(icon?.style.fontSize).toBe('40px');
+  });
+
+  it('custom getBrowserLink', async () => {
+    const { baseElement } = render(
+      <Web3ConfigProvider chain={Mainnet}>
+        <BrowserLink
+          icon={<BitcoinColorful />}
+          address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+          iconStyle={{ fontSize: 40 }}
+          type="transaction"
+          chain={{
+            id: ChainIds.BSC,
+            name: 'custom',
+            icon: <BitcoinColorful />,
+            browser: {
+              getBrowserLink: (address: string, type: string) => {
+                return `https://custom.com/${address}/${type}`;
+              },
+            },
+          }}
+        />
+        ,
+      </Web3ConfigProvider>,
+    );
+    const icon = baseElement.querySelector('.ant-web3-icon-bitcoin-colorful') as HTMLSpanElement;
+    expect(icon).not.toBeNull();
+    expect(icon?.style.fontSize).toBe('40px');
+    expect(baseElement.querySelector('a')?.getAttribute('href')).toBe(
+      'https://custom.com/0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B/transaction',
+    );
   });
 });

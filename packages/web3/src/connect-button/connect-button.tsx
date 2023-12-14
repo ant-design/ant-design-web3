@@ -1,16 +1,16 @@
 import React, { useContext, useMemo, useState } from 'react';
 import type { ButtonProps } from 'antd';
-import { Button, ConfigProvider, Dropdown, Space, message } from 'antd';
+import { Avatar, Button, ConfigProvider, Dropdown, Space, message, Divider } from 'antd';
 import classNames from 'classnames';
 import { Address } from '../address';
 import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
 import { ConnectButtonTooltip } from './tooltip';
 import { ChainSelect } from './chain-select';
-import { ConnectButtonBanlance } from './balance';
 import { ProfileModal } from './profile-modal';
 import { useStyle } from './style';
 import { fillWith0x, writeCopyText } from '../utils';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
+import { CryptoPrice } from '../crypto-price';
 import { CopyOutlined, LoginOutlined } from '@ant-design/icons';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
@@ -28,7 +28,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     actionsMenu = false,
     loading,
     onClick,
-    banlance,
+    balance,
+    className,
     ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -40,22 +41,22 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   let buttonText: React.ReactNode = 'Connect Wallet';
   if (account) {
     buttonText =
-      account?.name && !banlance ? (
+      account?.name && !balance ? (
         account?.name
       ) : (
         <Address tooltip={false} ellipsis address={account.address}>
-          {banlance ? <ConnectButtonBanlance hashId={hashId} {...banlance} /> : undefined}
+          {balance ? <CryptoPrice {...balance} /> : undefined}
         </Address>
       );
   }
 
   const buttonProps: ButtonProps = {
     style: props.style,
-    className: classNames(props.className, hashId, prefixCls),
     size: props.size,
     type: props.type,
     ghost: props.ghost,
     loading,
+    className: classNames(className, prefixCls, hashId),
     onClick: (e) => {
       setShowMenu(false);
       if (account && !profileOpen && profileModal) {
@@ -85,7 +86,19 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const chainSelect = renderChainSelect();
 
   const buttonInnerText = (
-    <div className={classNames(`${prefixCls}-text`, hashId)}>{buttonText}</div>
+    <div className={`${prefixCls}-content`}>
+      <div className={`${prefixCls}-content-inner`}>
+        <div className={`${prefixCls}-text`}>{buttonText}</div>
+        {avatar && (
+          <>
+            <Divider type="vertical" />
+            <div className={`${prefixCls}-avatar`}>
+              <Avatar {...avatar} />
+            </div>
+          </>
+        )}
+      </div>
+    </div>
   );
 
   const buttonContent = chainSelect ? (
@@ -115,7 +128,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
           src: chain?.icon,
         }
       }
-      balance={banlance}
+      balance={balance}
       modalProps={typeof profileModal === 'object' ? profileModal : undefined}
     />
   );
@@ -154,14 +167,25 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     if (!actionsMenu) {
       return [];
     }
+
     if (typeof actionsMenu === 'boolean') {
-      return defaultMenuItems;
+      return account ? defaultMenuItems : [];
     }
+
     if (actionsMenu.items) {
       return actionsMenu.items;
     }
-    return [...(actionsMenu.extraItems ?? []), ...defaultMenuItems];
-  }, [actionsMenu, defaultMenuItems]);
+
+    const combinedItems = account
+      ? actionsMenu.extraItems
+        ? [...actionsMenu.extraItems, ...(account ? defaultMenuItems : [])]
+        : account
+        ? defaultMenuItems
+        : []
+      : actionsMenu.extraItems || [];
+
+    return combinedItems;
+  }, [actionsMenu, defaultMenuItems, account]);
 
   if (mergedMenuItems.length > 0) {
     content = (

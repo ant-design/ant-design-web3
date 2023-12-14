@@ -4,23 +4,31 @@ exports[`ConnectButton > should display formatted by custom formatter when pass 
 <body>
   <div>
     <button
-      class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-default css-dev-only-do-not-override-1ck3jst ant-web3-connect-button ant-tooltip-open"
+      class="ant-btn css-dev-only-do-not-override-p7e5j5 ant-btn-default ant-web3-connect-button css-dev-only-do-not-override-p7e5j5 ant-tooltip-open"
       type="button"
     >
       <div
-        class="ant-web3-connect-button-text css-dev-only-do-not-override-1ck3jst"
+        class="ant-web3-connect-button-content"
       >
         <div
-          class="ant-space css-dev-only-do-not-override-1ck3jst ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-web3-address css-dev-only-do-not-override-1ck3jst"
+          class="ant-web3-connect-button-content-inner"
         >
           <div
-            class="ant-space-item"
+            class="ant-web3-connect-button-text"
           >
-            <span
-              class="ant-web3-address-text"
+            <div
+              class="ant-space css-dev-only-do-not-override-p7e5j5 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-web3-address css-dev-only-do-not-override-p7e5j5"
             >
-              0x3ea2...7c18
-            </span>
+              <div
+                class="ant-space-item"
+              >
+                <span
+                  class="ant-web3-address-text"
+                >
+                  0x3ea2...7c18
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -28,7 +36,7 @@ exports[`ConnectButton > should display formatted by custom formatter when pass 
   </div>
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-web3-connect-button-tooltip css-dev-only-do-not-override-1ck3jst css-dev-only-do-not-override-1ck3jst ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-web3-connect-button-tooltip css-dev-only-do-not-override-p7e5j5 css-dev-only-do-not-override-p7e5j5 ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div

@@ -8,5 +8,4 @@ export const metadata_WalletConnect: WalletMetadata = {
   app: {
     link: 'https://walletconnect.com/',
   },
-  group: 'Popular',
 };

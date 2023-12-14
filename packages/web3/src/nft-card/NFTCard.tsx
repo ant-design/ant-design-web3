@@ -6,9 +6,8 @@ import type { ImageProps } from 'antd';
 import { Button, Divider, Image, ConfigProvider, Space, Skeleton } from 'antd';
 import Icon from '@ant-design/icons';
 import useNFT from '../hooks/useNFT';
-import { ReactComponent as HeartSvg } from './icons/heart.svg';
-import { ReactComponent as HeartFilledSvg } from './icons/heart-filled.svg';
-import { EthereumFilled } from '@ant-design/web3-icons';
+import HeartSvg from './icons/heart.svg';
+import HeartFilledSvg from './icons/heart-filled.svg';
 import useToken from 'antd/es/theme/useToken';
 import { formatNumUnit, isDarkTheme } from '../utils/tool';
 import {
@@ -16,6 +15,7 @@ import {
   getWeb3AssetUrl,
   type Web3ConfigProviderProps,
 } from '@ant-design/web3-common';
+import { CryptoPrice, type CryptoPriceProps } from '../crypto-price';
 
 const customizePrefixCls = 'ant-nft-card';
 
@@ -33,7 +33,7 @@ interface NFTCardProps {
     totalLikes?: number;
     onLikeChange?: (isLike: boolean) => void;
   };
-  price?: number;
+  price?: CryptoPriceProps;
   footer?: ReactNode;
   name?: string;
   style?: React.CSSProperties;
@@ -68,7 +68,7 @@ const NFTCard: React.FC<NFTCardProps> = ({
   type = 'default',
   address,
   tokenId,
-  price = 0,
+  price,
   like: likeConfig,
   showAction,
   actionText = 'Buy Now',
@@ -166,11 +166,7 @@ const NFTCard: React.FC<NFTCardProps> = ({
         <div className={`${prefixCls}-info`}>
           {price ? (
             <div className={`${prefixCls}-price`}>
-              <div className={`${prefixCls}-price-icon`}>
-                <EthereumFilled />
-              </div>
-              <span className={`${prefixCls}-price-value`}>{formatNumUnit(price)}</span>
-              <span className={`${prefixCls}-price-unit`}>ETH</span>
+              <CryptoPrice {...price} />
             </div>
           ) : null}
           {likeConfig ? (

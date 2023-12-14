@@ -6,7 +6,7 @@ describe('ConnectButton', () => {
   it('do not show balance when not connect', () => {
     const { baseElement } = render(
       <ConnectButton
-        banlance={{
+        balance={{
           symbol: 'ETH',
           decimals: 18,
           value: 1230000000000000000n,
@@ -22,14 +22,14 @@ describe('ConnectButton', () => {
         account={{
           address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
         }}
-        banlance={{
+        balance={{
           symbol: 'ETH',
           decimals: 18,
           value: 1230000000000000000n,
         }}
       />,
     );
-    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('1.23 ETH');
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe(' 1.23 ETH');
   });
 
   it('show balance when has name', () => {
@@ -39,13 +39,13 @@ describe('ConnectButton', () => {
           address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
           name: 'wanderingearth.eth',
         }}
-        banlance={{
+        balance={{
           symbol: 'ETH',
           decimals: 18,
           value: 1230000000000000000n,
         }}
       />,
     );
-    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('1.23 ETH');
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe(' 1.23 ETH');
   });
 });

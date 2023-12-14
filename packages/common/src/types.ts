@@ -12,14 +12,24 @@ export enum ChainIds {
   Goerli = 5,
 }
 
+export type BrowserLinkType = 'address' | 'transaction';
+
+export type BalanceMetadata = {
+  icon?: React.ReactNode;
+  decimals?: number;
+  symbol?: string;
+};
+
 export interface Chain {
-  id: ChainIds;
+  id: ChainIds | number;
   name: string;
   icon?: React.ReactNode;
-  nativeCurrency?: {
-    decimals: number;
+  browser?: {
+    icon?: React.ReactNode;
+    getBrowserLink?: (address: string, type: BrowserLinkType) => string;
+  };
+  nativeCurrency?: BalanceMetadata & {
     name: string;
-    symbol: string;
   };
 }
 
@@ -42,6 +52,8 @@ export interface UniversalWeb3ProviderInterface {
   account?: Account;
   // current connected chain
   chain?: Chain;
+  // current account balance
+  balance?: Balance;
 
   availableWallets?: Wallet[];
   availableChains?: Chain[];
@@ -137,10 +149,8 @@ export type WalletMetadata = {
   group?: string;
 };
 
-export type Balance = {
-  value: bigint | number;
-  symbol: string;
-  decimals: number;
+export type Balance = BalanceMetadata & {
+  value?: bigint;
 };
 
 export interface ConnectorTriggerProps {
@@ -151,5 +161,5 @@ export interface ConnectorTriggerProps {
   onSwitchChain?: (chain: Chain) => Promise<void>;
   availableChains?: Chain[];
   chain?: Chain;
-  banlance?: Balance;
+  balance?: Balance;
 }

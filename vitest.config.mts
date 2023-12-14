@@ -1,10 +1,20 @@
 import path from 'path';
 import { defineConfig } from 'vitest/config';
+import svgr from 'vite-plugin-svgr';
 
 const resolve = (src: string) => {
   return path.resolve(__dirname, src);
 };
+
 export default defineConfig({
+  plugins: [
+    svgr({
+      svgrOptions: {
+        exportType: 'default',
+      },
+      include: ['**/*.svg'],
+    }),
+  ],
   resolve: {
     alias: {
       '@ant-design/web3': resolve('./packages/web3/src/index'),
@@ -20,7 +30,7 @@ export default defineConfig({
     setupFiles: ['./tests/setup.ts'],
     reporters: ['default'],
     coverage: {
-      include: ['packages/*/src/**/*.ts'],
+      include: ['packages/*/src/**/*.{tx,tsx}'],
       reporter: ['json-summary', ['text', { skipFull: true }], 'cobertura', 'html'],
     },
     testTimeout: 3e4,

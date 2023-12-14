@@ -10,7 +10,9 @@ import { ConnectModalContextProvider } from './context';
 
 export type * from './interface';
 
-export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
+export const ConnectModal: React.FC<ConnectModalProps> & {
+  ModalPanel: typeof ModalPanel;
+} = (props) => {
   const { open, guide, onSelectWallet, className } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const [selectedWallet, setSelectedWallet] = React.useState<Wallet>();
@@ -78,10 +80,13 @@ export const ConnectModal: React.FC<ConnectModalProps> = (props) => {
           }}
           footer={null}
         >
-          <ModalPanel {...props} prefixCls={prefixCls} />
+          <ModalPanel {...props} />
         </Modal>,
       )}
     </ConnectModalContextProvider>
   );
 };
+
 ConnectModal.displayName = 'ConnectModal';
+
+ConnectModal.ModalPanel = ModalPanel;

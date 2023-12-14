@@ -27,7 +27,7 @@ const App: React.FC = () => {
           name: 'No menu by default',
         }}
         avatar={{
-          src: 'https://metamask.io/images/metamask-logo.png',
+          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
         }}
         onMenuItemClick={(item) => console.log('onMenuItemClick', item)}
       />
@@ -37,7 +37,7 @@ const App: React.FC = () => {
           name: 'Display default menu',
         }}
         avatar={{
-          src: 'https://metamask.io/images/metamask-logo.png',
+          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
         }}
         actionsMenu
       />
@@ -47,7 +47,7 @@ const App: React.FC = () => {
           name: 'Insert menu items before default items',
         }}
         avatar={{
-          src: 'https://metamask.io/images/metamask-logo.png',
+          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
         }}
         onMenuItemClick={(item) => console.log('onMenuItemClick', item)}
         actionsMenu={{
@@ -60,7 +60,7 @@ const App: React.FC = () => {
           name: 'Override menu items',
         }}
         avatar={{
-          src: 'https://metamask.io/images/metamask-logo.png',
+          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
         }}
         onMenuItemClick={(item) => console.log('onMenuItemClick', item)}
         actionsMenu={{

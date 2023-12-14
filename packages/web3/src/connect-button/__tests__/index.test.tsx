@@ -1,3 +1,4 @@
+import { WalletColorful } from '@ant-design/web3-icons';
 import { ConnectButton } from '..';
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
@@ -40,5 +41,54 @@ describe('ConnectButton', () => {
       />,
     );
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('wanderingearth.eth');
+  });
+  it('renders without crashing with avatar and icon', () => {
+    const { baseElement } = render(
+      <ConnectButton
+        account={{
+          address: '',
+          name: 'wanderingearth.eth',
+        }}
+        avatar={{
+          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
+        }}
+        icon={<WalletColorful />}
+      />,
+    );
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('wanderingearth.eth');
+  });
+
+  it('renders without crashing with avatar but no icon', () => {
+    const { baseElement } = render(
+      <ConnectButton
+        account={{
+          address: '',
+          name: 'wanderingearth.eth',
+        }}
+        avatar={{
+          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
+        }}
+      />,
+    );
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('wanderingearth.eth');
+  });
+
+  it('check if icon exists', () => {
+    const { baseElement } = render(
+      <ConnectButton
+        account={{
+          address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18',
+          name: 'Display custom avatar',
+        }}
+        avatar={{
+          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
+        }}
+        size="middle"
+        actionsMenu={false}
+        icon={<WalletColorful />}
+      />,
+    );
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('Display custom avatar');
+    expect(baseElement.querySelector('.anticon-wallet-colorful')).toBeDefined(); // Check if the icon exists
   });
 });

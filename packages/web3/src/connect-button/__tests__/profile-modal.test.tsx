@@ -22,7 +22,7 @@ describe('ProfileModal', () => {
         address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
         name="wanderingearth.eth"
         avatar={{
-          src: 'https://metamask.io/images/metamask-logo.png',
+          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
         }}
       />
     );
@@ -57,7 +57,7 @@ describe('ProfileModal', () => {
         account={{
           address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
         }}
-        banlance={{
+        balance={{
           symbol: 'ETH',
           decimals: 18,
           value: 1230000000000000000n,
@@ -73,7 +73,7 @@ describe('ProfileModal', () => {
       expect(
         baseElement.querySelector('.ant-web3-connect-button-profile-modal .ant-web3-address')
           ?.textContent,
-      ).toBe('1.23 ETH');
+      ).toBe(' 1.23 ETH');
     });
   });
 

@@ -15,7 +15,15 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 
 <code src="./demos/basic.tsx"></code>
 
+## 添加更多钱包
+
+我们内置了 `group` 为 `Popular` 的钱包，对于其它钱包，你需要配置 `assets` 引入相关资源。你可以从 `@ant-design/web3-wagmi` 中导出相关资源，如果没有你需要的资源，你可以通过提交 [Github issue](https://github.com/ant-design/ant-design-web3/issues) 告诉我们。也自己配置或者给我们提交 PR 支持。
+
+<code src="./demos/more-wallets.tsx"></code>
+
 ## 支持切换链
+
+我们内置了 `Mainnet` 和 `Goerli`，其余的链需要配置 `assets`，引入相关资源才可支持。引入方式和钱包类似。
 
 <code src="./demos/chains.tsx"></code>
 
@@ -23,11 +31,9 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 
 <code src="./demos/name.tsx"></code>
 
-## 使用 web3modal 连接 WalletConnect
+## 显示余额
 
-当 `showQrModal` 配置不为 `false` 时，会使用 WallectConnect 自带的 [web3modal](https://web3modal.com/) 弹窗。
-
-<code src="./demos/web3modal.tsx"></code>
+<code src="./demos/balance.tsx"></code>
 
 ## 配置更多 UI
 
@@ -41,6 +47,12 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 
 <code src="./demos/more-components.tsx"></code>
 
+## 使用 web3modal 连接 WalletConnect
+
+当 `showQrModal` 配置不为 `false` 时，会使用 WallectConnect 自带的 [web3modal](https://web3modal.com/) 弹窗。
+
+<code src="./demos/web3modal.tsx"></code>
+
 ## API
 
 ### WagmiWeb3ConfigProviderProps
@@ -48,9 +60,9 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | config | wagmi 配置 | [WagmiConfig](https://wagmi.sh/core/config) | - | - |
-| availableChains | 可用的链 | [WagmiChain[]](https://wagmi.sh/core/chains) | - | - |
 | assets | 钱包或者链的图标等信息 | [Chain](./types#chain)\[\] \| [WalletFactory](#walletfactory)\[\] | - | - |
 | ens | 是否显示 ENS | `boolean` | - | - |
+| balance | 是否显示余额 | `boolean` | - | - |
 
 ### WalletFactory
 
