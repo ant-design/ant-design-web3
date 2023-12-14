@@ -46,12 +46,18 @@ const walletList: Wallet[] = [
 const App: React.FC = () => {
   return (
     <div className={styles.container}>
-      <ConnectModal.ModalPanel
-        title="Connect Wallet"
-        footer="Powered by AntChain"
-        walletList={walletList}
-        guide
-      />
+      <h3 className={styles.title}>Customize the theme as you like</h3>
+      <div className={styles.desc}>
+        Open more style algorithms to make it easier to customize your theme
+      </div>
+      <div className={styles.card}>
+        <ConnectModal.ModalPanel
+          title="Connect Wallet"
+          footer="Powered by AntChain"
+          walletList={walletList}
+          guide
+        />
+      </div>
     </div>
   );
 };
