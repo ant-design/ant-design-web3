@@ -11,7 +11,6 @@ export interface ConnectButtonToken extends Web3AliasToken {
 }
 
 const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
-  console.log('token: ', token.componentCls);
   return {
     [token.componentCls]: {
       [`${token.componentCls}-text`]: {
