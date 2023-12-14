@@ -56,6 +56,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     type: props.type,
     ghost: props.ghost,
     loading,
+    className: classNames(className, prefixCls, hashId),
     onClick: (e) => {
       setShowMenu(false);
       if (account && !profileOpen && profileModal) {
@@ -212,7 +213,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   }
 
   const main = (
-    <div className={classNames(className, prefixCls, hashId)}>
+    <>
       {contextHolder}
       {tooltipTitle ? (
         <ConnectButtonTooltip
@@ -228,7 +229,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         content
       )}
       {profileModalContent}
-    </div>
+    </>
   );
 
   return wrapSSR(main);
