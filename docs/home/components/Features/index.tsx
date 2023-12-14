@@ -17,13 +17,13 @@ const features: FeatureType[] = [
     icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*VbthS5vDlCQAAAAAAAAAAAAADlrGAQ/original',
     title: 'Out-of-the-Box Experience',
     description:
-      'You can quickly set up their projects and leverage the pre-built components to create user interfaces that interact with blockchain networks and DApps.',
+      'You can quickly set up their projects and leverage the pre-built components to create your DApps.',
   },
   {
     icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*agjbQpbtY2kAAAAAAAAAAAAADlrGAQ/original',
-    title: 'Compatibility with Different SDKs',
+    title: 'Compatibility with Different Chains',
     description:
-      'Ant Design Web3 is designed to be compatible with various Software Development Kits (SDKs) used in the Web3 ecosystem.',
+      'Ant Design Web3 is designed with good extensibility, allowing you to adapt to different chains through adapters.',
   },
 ];
 
