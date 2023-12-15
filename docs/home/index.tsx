@@ -11,16 +11,8 @@ export default () => {
       <div className={styles.centerbg}>
         <Features />
         <Theme />
-        <img
-          className={styles.rightTopImage}
-          src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*a8GvQ50c-SUAAAAAAAAAAAAADlrGAQ/original"
-          alt=""
-        />
-        <img
-          className={styles.leftBottomImage}
-          src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*IfSxQK7EuKYAAAAAAAAAAAAADlrGAQ/original"
-          alt=""
-        />
+        <div className={styles.rightTopImage} />
+        <div className={styles.leftBottomImage} />
       </div>
       <ShowCase />
     </div>
