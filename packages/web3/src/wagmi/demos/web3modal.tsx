@@ -2,7 +2,7 @@ import { createConfig, configureChains, mainnet } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
-import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { WagmiWeb3ConfigProvider, WalletConnect } from '@ant-design/web3-wagmi';
 import { ConnectButton, Connector } from '@ant-design/web3';
 
 const { publicClient, chains } = configureChains([mainnet], [publicProvider()]);
@@ -23,7 +23,7 @@ const config = createConfig({
 
 const App: React.FC = () => {
   return (
-    <WagmiWeb3ConfigProvider config={config}>
+    <WagmiWeb3ConfigProvider assets={[WalletConnect]} config={config}>
       <Connector>
         <ConnectButton />
       </Connector>

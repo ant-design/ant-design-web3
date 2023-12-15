@@ -5,7 +5,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-p7e5j5 ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -16,7 +16,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal css-dev-only-do-not-override-1ck3jst ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-p7e5j5 ant-web3-connect-modal css-dev-only-do-not-override-p7e5j5 ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 737px;"
         >
@@ -62,7 +62,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
               class="ant-modal-body"
             >
               <div
-                class="ant-web3-connect-modal-body css-dev-only-do-not-override-1ck3jst"
+                class="ant-web3-connect-modal-body css-dev-only-do-not-override-p7e5j5"
               >
                 <div
                   class="ant-web3-connect-modal-list-panel"
@@ -94,10 +94,10 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                           class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-p7e5j5"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-p7e5j5"
                             >
                               <div
                                 class="ant-spin-container"
@@ -165,10 +165,10 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                           class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-p7e5j5"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-p7e5j5"
                             >
                               <div
                                 class="ant-spin-container"
@@ -333,7 +333,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                       class="ant-web3-connect-modal-qr-code-box"
                     >
                       <div
-                        class="ant-qrcode ant-web3-connect-modal-qr-code css-dev-only-do-not-override-1ck3jst"
+                        class="ant-qrcode ant-web3-connect-modal-qr-code css-dev-only-do-not-override-p7e5j5"
                         style="width: 400px; height: 400px; background-color: transparent;"
                       >
                         <div
@@ -342,7 +342,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                           <div
                             aria-busy="true"
                             aria-live="polite"
-                            class="ant-spin ant-spin-spinning css-dev-only-do-not-override-1ck3jst"
+                            class="ant-spin ant-spin-spinning css-dev-only-do-not-override-p7e5j5"
                           >
                             <span
                               class="ant-spin-dot ant-spin-dot-spin"
@@ -363,9 +363,9 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                           </div>
                         </div>
                         <svg
-                          height="374"
+                          height="400"
                           viewBox="0 0 33 33"
-                          width="374"
+                          width="400"
                         >
                           <path
                             d="M0,0 h33v33H0z"
@@ -387,7 +387,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                       Test Wallet
                       ?
                       <button
-                        class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-default ant-web3-connect-modal-get-wallet-btn"
+                        class="ant-btn css-dev-only-do-not-override-p7e5j5 ant-btn-default ant-web3-connect-modal-get-wallet-btn"
                         type="button"
                       >
                         <span>
@@ -417,7 +417,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-p7e5j5 ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -428,7 +428,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal css-dev-only-do-not-override-1ck3jst ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-p7e5j5 ant-web3-connect-modal css-dev-only-do-not-override-p7e5j5 ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 737px;"
         >
@@ -474,7 +474,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
               class="ant-modal-body"
             >
               <div
-                class="ant-web3-connect-modal-body css-dev-only-do-not-override-1ck3jst"
+                class="ant-web3-connect-modal-body css-dev-only-do-not-override-p7e5j5"
               >
                 <div
                   class="ant-web3-connect-modal-list-panel"
@@ -506,10 +506,10 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                           class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-p7e5j5"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-p7e5j5"
                             >
                               <div
                                 class="ant-spin-container"
@@ -577,10 +577,10 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                           class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-p7e5j5"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-p7e5j5"
                             >
                               <div
                                 class="ant-spin-container"
@@ -745,7 +745,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                       class="ant-web3-connect-modal-qr-code-box"
                     >
                       <div
-                        class="ant-qrcode ant-web3-connect-modal-qr-code css-dev-only-do-not-override-1ck3jst"
+                        class="ant-qrcode ant-web3-connect-modal-qr-code css-dev-only-do-not-override-p7e5j5"
                         style="width: 400px; height: 400px; background-color: transparent;"
                       >
                         <div
@@ -754,7 +754,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                           <div
                             aria-busy="true"
                             aria-live="polite"
-                            class="ant-spin ant-spin-spinning css-dev-only-do-not-override-1ck3jst"
+                            class="ant-spin ant-spin-spinning css-dev-only-do-not-override-p7e5j5"
                           >
                             <span
                               class="ant-spin-dot ant-spin-dot-spin"
@@ -775,9 +775,9 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                           </div>
                         </div>
                         <svg
-                          height="374"
+                          height="400"
                           viewBox="0 0 33 33"
-                          width="374"
+                          width="400"
                         >
                           <path
                             d="M0,0 h33v33H0z"
@@ -799,7 +799,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                       Test Wallet
                       ?
                       <button
-                        class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-default ant-web3-connect-modal-get-wallet-btn"
+                        class="ant-btn css-dev-only-do-not-override-p7e5j5 ant-btn-default ant-web3-connect-modal-get-wallet-btn"
                         type="button"
                       >
                         <span>
@@ -829,7 +829,7 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-p7e5j5 ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -840,7 +840,7 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal css-dev-only-do-not-override-1ck3jst ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-p7e5j5 ant-web3-connect-modal css-dev-only-do-not-override-p7e5j5 ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 737px; transform-origin: 0px 0px;"
         >
@@ -886,7 +886,7 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
               class="ant-modal-body"
             >
               <div
-                class="ant-web3-connect-modal-body css-dev-only-do-not-override-1ck3jst"
+                class="ant-web3-connect-modal-body css-dev-only-do-not-override-p7e5j5"
               >
                 <div
                   class="ant-web3-connect-modal-list-panel"
@@ -918,10 +918,10 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
                           class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-p7e5j5"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-p7e5j5"
                             >
                               <div
                                 class="ant-spin-container"
@@ -989,10 +989,10 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
                           class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-p7e5j5"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-p7e5j5"
                             >
                               <div
                                 class="ant-spin-container"
@@ -1133,7 +1133,7 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
                         class="ant-web3-connect-modal-guide-item"
                       >
                         <span
-                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-p7e5j5"
                         >
                           <img
                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ApSUSaoUa_sAAAAAAAAAAAAADlrGAQ/original"
@@ -1158,7 +1158,7 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
                         class="ant-web3-connect-modal-guide-item"
                       >
                         <span
-                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-p7e5j5"
                         >
                           <img
                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*3lD7QpnbCPcAAAAAAAAAAAAADlrGAQ/original"
@@ -1183,7 +1183,7 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
                         class="ant-web3-connect-modal-guide-item"
                       >
                         <span
-                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-p7e5j5"
                         >
                           <img
                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*gTROQqEY_TcAAAAAAAAAAAAADlrGAQ/original"
@@ -1206,7 +1206,7 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
                       </div>
                     </div>
                     <button
-                      class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-primary ant-btn-block ant-web3-connect-modal-get-btn"
+                      class="ant-btn css-dev-only-do-not-override-p7e5j5 ant-btn-primary ant-btn-block ant-web3-connect-modal-get-btn"
                       type="button"
                     >
                       <span>
@@ -1214,8 +1214,9 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
                       </span>
                     </button>
                     <a
-                      class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-link ant-btn-block ant-web3-connect-modal-more"
+                      class="ant-btn css-dev-only-do-not-override-p7e5j5 ant-btn-link ant-btn-block ant-web3-connect-modal-more"
                       href="https://ethereum.org/en/wallets/"
+                      tabindex="0"
                       target="_blank"
                     >
                       <span>
@@ -1244,7 +1245,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-15xztg8 ant-web3-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-1v7djfy ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -1255,7 +1256,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-15xztg8 ant-web3-connect-modal css-dev-only-do-not-override-15xztg8 ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-1v7djfy ant-web3-connect-modal css-dev-only-do-not-override-1v7djfy ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 737px;"
         >
@@ -1301,7 +1302,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
               class="ant-modal-body"
             >
               <div
-                class="ant-web3-connect-modal-body css-dev-only-do-not-override-15xztg8"
+                class="ant-web3-connect-modal-body css-dev-only-do-not-override-1v7djfy"
               >
                 <div
                   class="ant-web3-connect-modal-list-panel"
@@ -1333,10 +1334,10 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                           class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-15xztg8"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1v7djfy"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-15xztg8"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1v7djfy"
                             >
                               <div
                                 class="ant-spin-container"
@@ -1404,10 +1405,10 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                           class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-15xztg8"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-1v7djfy"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-15xztg8"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-1v7djfy"
                             >
                               <div
                                 class="ant-spin-container"
@@ -1548,7 +1549,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                         class="ant-web3-connect-modal-guide-item"
                       >
                         <span
-                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-15xztg8"
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1v7djfy"
                         >
                           <img
                             src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=4"
@@ -1573,7 +1574,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                         class="ant-web3-connect-modal-guide-item"
                       >
                         <span
-                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-15xztg8"
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1v7djfy"
                         >
                           <img
                             src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
@@ -1598,7 +1599,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                         class="ant-web3-connect-modal-guide-item"
                       >
                         <span
-                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-15xztg8"
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1v7djfy"
                         >
                           <img
                             src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
@@ -1623,7 +1624,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                         class="ant-web3-connect-modal-guide-item"
                       >
                         <span
-                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-15xztg8"
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1v7djfy"
                         >
                           <img
                             src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
@@ -1646,7 +1647,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                       </div>
                     </div>
                     <button
-                      class="ant-btn css-dev-only-do-not-override-15xztg8 ant-btn-primary ant-btn-block ant-web3-connect-modal-get-btn"
+                      class="ant-btn css-dev-only-do-not-override-1v7djfy ant-btn-primary ant-btn-block ant-web3-connect-modal-get-btn"
                       type="button"
                     >
                       <span>
@@ -1654,8 +1655,9 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                       </span>
                     </button>
                     <a
-                      class="ant-btn css-dev-only-do-not-override-15xztg8 ant-btn-link ant-btn-block ant-web3-connect-modal-more"
+                      class="ant-btn css-dev-only-do-not-override-1v7djfy ant-btn-link ant-btn-block ant-web3-connect-modal-more"
                       href="https://test.com/xxx"
+                      tabindex="0"
                       target="_blank"
                     >
                       <span>
@@ -1684,7 +1686,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-p7e5j5 ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -1695,7 +1697,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-1ck3jst ant-web3-connect-modal css-dev-only-do-not-override-1ck3jst ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-p7e5j5 ant-web3-connect-modal css-dev-only-do-not-override-p7e5j5 ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 737px;"
         >
@@ -1741,7 +1743,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
               class="ant-modal-body"
             >
               <div
-                class="ant-web3-connect-modal-body css-dev-only-do-not-override-1ck3jst"
+                class="ant-web3-connect-modal-body css-dev-only-do-not-override-p7e5j5"
               >
                 <div
                   class="ant-web3-connect-modal-list-panel"
@@ -1773,10 +1775,10 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                           class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-p7e5j5"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-p7e5j5"
                             >
                               <div
                                 class="ant-spin-container"
@@ -1844,10 +1846,10 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                           class="ant-web3-connect-modal-group-content"
                         >
                           <div
-                            class="ant-list ant-list-split css-dev-only-do-not-override-1ck3jst"
+                            class="ant-list ant-list-split css-dev-only-do-not-override-p7e5j5"
                           >
                             <div
-                              class="ant-spin-nested-loading css-dev-only-do-not-override-1ck3jst"
+                              class="ant-spin-nested-loading css-dev-only-do-not-override-p7e5j5"
                             >
                               <div
                                 class="ant-spin-container"
@@ -1988,7 +1990,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                         class="ant-web3-connect-modal-guide-item"
                       >
                         <span
-                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-p7e5j5"
                         >
                           <img
                             src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=4"
@@ -2013,7 +2015,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                         class="ant-web3-connect-modal-guide-item"
                       >
                         <span
-                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-p7e5j5"
                         >
                           <img
                             src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
@@ -2038,7 +2040,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                         class="ant-web3-connect-modal-guide-item"
                       >
                         <span
-                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-p7e5j5"
                         >
                           <img
                             src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
@@ -2063,7 +2065,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                         class="ant-web3-connect-modal-guide-item"
                       >
                         <span
-                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1ck3jst"
+                          class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-p7e5j5"
                         >
                           <img
                             src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
@@ -2086,7 +2088,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                       </div>
                     </div>
                     <button
-                      class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-primary ant-btn-block ant-web3-connect-modal-get-btn"
+                      class="ant-btn css-dev-only-do-not-override-p7e5j5 ant-btn-primary ant-btn-block ant-web3-connect-modal-get-btn"
                       type="button"
                     >
                       <span>
@@ -2094,8 +2096,9 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                       </span>
                     </button>
                     <a
-                      class="ant-btn css-dev-only-do-not-override-1ck3jst ant-btn-link ant-btn-block ant-web3-connect-modal-more"
+                      class="ant-btn css-dev-only-do-not-override-p7e5j5 ant-btn-link ant-btn-block ant-web3-connect-modal-more"
                       href="https://test.com/xxx"
+                      tabindex="0"
                       target="_blank"
                     >
                       <span>

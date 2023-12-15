@@ -1,6 +1,6 @@
 import React, { useContext, useMemo, useState } from 'react';
 import type { ButtonProps } from 'antd';
-import { Button, ConfigProvider, Dropdown, Space, message } from 'antd';
+import { Avatar, Button, ConfigProvider, Dropdown, Space, message, Divider } from 'antd';
 import classNames from 'classnames';
 import { Address } from '../address';
 import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
@@ -29,6 +29,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     loading,
     onClick,
     balance,
+    className,
     ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -51,11 +52,11 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
   const buttonProps: ButtonProps = {
     style: props.style,
-    className: classNames(props.className, hashId, prefixCls),
     size: props.size,
     type: props.type,
     ghost: props.ghost,
     loading,
+    className: classNames(className, prefixCls, hashId),
     onClick: (e) => {
       setShowMenu(false);
       if (account && !profileOpen && profileModal) {
@@ -85,7 +86,19 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const chainSelect = renderChainSelect();
 
   const buttonInnerText = (
-    <div className={classNames(`${prefixCls}-text`, hashId)}>{buttonText}</div>
+    <div className={`${prefixCls}-content`}>
+      <div className={`${prefixCls}-content-inner`}>
+        <div className={`${prefixCls}-text`}>{buttonText}</div>
+        {avatar && (
+          <>
+            <Divider type="vertical" />
+            <div className={`${prefixCls}-avatar`}>
+              <Avatar {...avatar} />
+            </div>
+          </>
+        )}
+      </div>
+    </div>
   );
 
   const buttonContent = chainSelect ? (

@@ -6,8 +6,8 @@ import type { ImageProps } from 'antd';
 import { Button, Divider, Image, ConfigProvider, Space, Skeleton } from 'antd';
 import Icon from '@ant-design/icons';
 import useNFT from '../hooks/useNFT';
-import { ReactComponent as HeartSvg } from './icons/heart.svg';
-import { ReactComponent as HeartFilledSvg } from './icons/heart-filled.svg';
+import HeartSvg from './icons/heart.svg';
+import HeartFilledSvg from './icons/heart-filled.svg';
 import useToken from 'antd/es/theme/useToken';
 import { formatNumUnit, isDarkTheme } from '../utils/tool';
 import {
