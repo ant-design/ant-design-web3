@@ -6,6 +6,7 @@ import { Address } from '@ant-design/web3';
 import { writeCopyText } from '../utils';
 import { CryptoPrice } from '../crypto-price';
 import type { ModalProps } from 'antd';
+import { Profile } from './profile';
 
 export interface ProfileModalProps {
   className?: string;
@@ -67,7 +68,14 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
         }}
         open={open}
       >
-        <Space align="center" direction="vertical">
+        <Profile
+          avatar={avatar}
+          address={address}
+          __hashId__={__hashId__}
+          balance={balance}
+          name={name}
+        />
+        {/* <Space align="center" direction="vertical">
           {avatar ? <Avatar {...avatar} /> : null}
           {name ? <div className={classNames(`${prefixCls}-name`, __hashId__)}>{name}</div> : null}
           {address ? (
@@ -75,7 +83,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               {balance && <CryptoPrice {...balance} />}
             </Address>
           ) : null}
-        </Space>
+        </Space> */}
       </Modal>
     </>
   );
