@@ -9,3 +9,5 @@ export * from './crypto-price';
 export * from './hooks';
 export * from './web3-config-provider';
 export * from '@ant-design/web3-common';
+
+console.log('Test do not merge');
