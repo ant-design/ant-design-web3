@@ -8,11 +8,6 @@ order: 1
 
 # 初始化合约
 
-<!-- prettier-ignore -->
-:::warning
-课程编写中，欢迎给我们提建议或者直接提 PR。
-:::
-
 ### 打开 Remix
 
 > [Remix](https://remix.ethereum.org)是一个集成开发环境（IDE），用于在以太坊和以太坊兼容链上开发智能合约。它提供了一个易于使用的界面，供开发者编写、编译和部署智能合约。

@@ -7,17 +7,14 @@ order: 2
 
 # 合约开发和测试
 
-<!-- prettier-ignore -->
-:::warning
-课程编写中，欢迎给我们提建议或者直接提 PR。
-:::
-
 ### 开发合约
 
-OpenZeppelin 的模板合约所需版本为^0.8.20，因此编译器需要设置为 0.8.20 及以上的版本。  
+OpenZeppelin 的模板合约所需版本为`^0.8.20`，因此编译器需要设置为 `0.8.20` 及以上的版本。  
 我们简单实现一个 tokenId 自增的功能，并把 initialOwner 传为合约发行人
 
-```
+> [OpenZeppelin](https://docs.openzeppelin.com/contracts/5.x/)是一个用于安全智能合约开发的库，内置了很多常用合约的标准实现。
+
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
