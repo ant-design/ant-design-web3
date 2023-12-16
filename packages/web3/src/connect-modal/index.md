@@ -12,6 +12,10 @@ The connection wallet popup, used with [ConnectButton](../connect-button) to com
 
 <code src="./demos/basic.tsx"></code>
 
+## Panel Mode
+
+<code src="./demos/panel.tsx"></code>
+
 ## Simple Mode
 
 <code src="./demos/simple.tsx"></code>
@@ -57,3 +61,7 @@ Other modal properties see: [ModalProps](https://ant.design/components/modal#API
 | title | The title of the information item of the newbie guide panel | `string \| React.ReactNode` | - | - |
 | icon | The icon of the information item of the newbie guide panel | `string \| React.ReactNode` | - | - |
 | description | The description of the information item of the newbie guide panel | `string \| React.ReactNode` | - | - |
+
+### ConnectModal.ModalPanel
+
+Besides properties related to controlling pop-ups, it is the same as `ConnectModal`.

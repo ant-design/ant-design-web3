@@ -8,8 +8,12 @@ export default () => {
   return (
     <div className={styles.container}>
       <HomeBanner />
-      <Features />
-      <Theme />
+      <div className={styles.centerbg}>
+        <Features />
+        <Theme />
+        <div className={styles.rightTopImage} />
+        <div className={styles.leftBottomImage} />
+      </div>
       <ShowCase />
     </div>
   );

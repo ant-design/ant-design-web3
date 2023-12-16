@@ -26,7 +26,7 @@ A collection of components for Web3.
 
 - 🎨 Ant Design Friendly
 - 📦 Out-of-the-Box Experience
-- 🔌 Compatibility with Different SDKs
+- 🔌 Compatibility with Different Chains
 
 ## Development
 
