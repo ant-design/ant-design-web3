@@ -39,6 +39,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const [messageApi, contextHolder] = message.useMessage();
   const [showMenu, setShowMenu] = useState(false);
   let buttonText: React.ReactNode = 'Connect Wallet';
+
+  // test comment
   if (account) {
     buttonText =
       account?.name && !balance ? (
