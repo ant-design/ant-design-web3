@@ -71,6 +71,6 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | name | Wallet name | `Connector` | - | - |
-| create | Method for creating a wallet | `(connector: Conector) => Promise<Wallet>` | - | - |
+| create | Method for creating a wallet | `(connector: Connector) => Promise<Wallet>` | - | - |
 
 > The above `Connector` refers to the `Connector` in wagmi, and `Wallet` is [Wallet](./types#wallet).
