@@ -54,4 +54,4 @@ order: 0
 | onSwitchChain     | 切换网络事件       | `(chain: Chain) => Promise<viod>` | -      | -    |
 | connected         | 是否已连接         | `boolean`                         | -      | -    |
 | chains            | 当前连接的网络列表 | `ChainSelectItem[]`               | -      | -    |
-| banlance          | 当前连接的账户余额 | `Banlance[]` \| `Banlance`        | -      | -    |
+| balance           | 当前连接的账户余额 | `Balance[]` \| `Balance`          | -      | -    |
