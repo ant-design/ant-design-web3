@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './index.module.less';
 
 const Banner: React.FC = () => {
-  const isZh = location.pathname.includes('zh-CN');
+  const isZh = location.pathname?.includes('zh-CN');
   return (
-    <div className={styles.container}>
+    <div className={styles.bannerContainer}>
       <img
         draggable={false}
         className={styles.bgImg}
@@ -14,7 +14,7 @@ const Banner: React.FC = () => {
       <div className={styles.wrap}>
         <img
           draggable={false}
-          className={styles.title}
+          className={styles.titleImg}
           src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*zaaqSqbOOrkAAAAAAAAAAAAADlrGAQ/original"
           alt="title"
         />

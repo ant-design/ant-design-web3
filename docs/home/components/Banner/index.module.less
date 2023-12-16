@@ -1,10 +1,11 @@
-.container {
+.bannerContainer {
   width: 100%;
   position: relative;
   .bgImg {
     display: block;
-    inset: 0;
     width: 100%;
+    height: auto;
+    min-height: 256px;
   }
   .wrap {
     position: absolute;
@@ -15,8 +16,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 64px;
-    .title {
+    row-gap: 60px;
+    .titleImg {
       display: block;
       width: 658px;
       max-width: 100%;
@@ -24,6 +25,10 @@
     }
     .btn {
       z-index: 9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 28px;
       a {
         width: 146px;
         min-width: 146px;
@@ -40,14 +45,30 @@
           color: #fff;
           background-color: #1677ff;
         }
-        &:not(:first-child) {
-          margin-inline-start: 28px;
+        &:last-child {
           color: #1677ff;
           border: 1px solid #1677ff;
         }
         &:hover {
           opacity: 0.8;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .bannerContainer {
+    .bgImg {
+      object-fit: cover;
+      object-position: left center;
+    }
+    .wrap {
+      inset: 0 20px;
+      width: calc(100% - 40px);
+      row-gap: 30px;
+      .btn {
+        column-gap: 14px;
       }
     }
   }
