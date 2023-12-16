@@ -1,27 +1,5 @@
 import styles from './index.module.less';
-
-const imgConfig = [
-  {
-    src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*VTYWRbrrhkUAAAAAAAAAAAAADlrGAQ/original',
-    className: styles.buttons,
-  },
-  {
-    src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*NcnYRIaOk1UAAAAAAAAAAAAADlrGAQ/original',
-    className: styles.dropdown,
-  },
-  {
-    src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*mfEkTb6kbdkAAAAAAAAAAAAADlrGAQ/original',
-    className: styles.tooltip,
-  },
-  {
-    src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*5wVDTbE3GaUAAAAAAAAAAAAADlrGAQ/original',
-    className: styles.profile,
-  },
-  {
-    src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*rvzARY77xtwAAAAAAAAAAAAADlrGAQ/original',
-    className: styles.connect,
-  },
-];
+import classNames from 'classnames';
 
 export default () => {
   return (
@@ -32,9 +10,11 @@ export default () => {
         expansion
       </div>
       <div className={styles.imgList}>
-        {imgConfig.map((cfg, index) => {
-          return <img src={cfg.src} key={index} className={cfg.className} />;
-        })}
+        <div className={classNames(styles.img, styles.buttons)} />
+        <div className={classNames(styles.img, styles.dropdown)} />
+        <div className={classNames(styles.img, styles.tooltip)} />
+        <div className={classNames(styles.img, styles.profile)} />
+        <div className={classNames(styles.img, styles.connect)} />
       </div>
       <div className={styles.footer}>
         <div className={styles.footerText}>Made with ❤ by</div>
