@@ -6,6 +6,7 @@
   "app.docs.components.icon.category.chain": "链图标",
   "app.docs.components.icon.category.tool": "工具图标",
   "app.docs.components.icon.category.other": "其他图标",
+  "app.docs.components.index.banner.button-text": "开始使用",
 
   "app.docs.site.features.0.title": "Ant Design 友好",
   "app.docs.site.features.0.description": "Ant Design Web3 的设计体系与 Ant Design 无缝衔接，开发者使用更容易。",

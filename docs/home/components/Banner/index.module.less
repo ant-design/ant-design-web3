@@ -1,5 +1,75 @@
-.container {
-  img {
+.bannerContainer {
+  width: 100%;
+  position: relative;
+  .bgImg {
+    display: block;
     width: 100%;
+    height: auto;
+    min-height: 256px;
+  }
+  .wrap {
+    position: absolute;
+    inset: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 60px;
+    .titleImg {
+      display: block;
+      width: 658px;
+      max-width: 100%;
+      z-index: 9;
+    }
+    .btn {
+      z-index: 9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 28px;
+      a {
+        width: 146px;
+        min-width: 146px;
+        height: 46px;
+        line-height: 46px;
+        border-radius: 9999px;
+        text-align: center;
+        display: inline-block;
+        font-size: 18px;
+        text-decoration: none;
+        box-sizing: border-box;
+        transition: opacity 0.2s;
+        &:first-child {
+          color: #fff;
+          background-color: #1677ff;
+        }
+        &:last-child {
+          color: #1677ff;
+          border: 1px solid #1677ff;
+        }
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .bannerContainer {
+    .bgImg {
+      object-fit: cover;
+      object-position: left center;
+    }
+    .wrap {
+      inset: 0 20px;
+      width: calc(100% - 40px);
+      row-gap: 30px;
+      .btn {
+        column-gap: 14px;
+      }
+    }
   }
 }
