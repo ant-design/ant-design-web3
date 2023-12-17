@@ -13,5 +13,9 @@
   "app.docs.site.features.1.title": "Out-of-the-Box Experience",
   "app.docs.site.features.1.description": "You can quickly set up their projects and leverage the pre-built components to create your DApps.",
   "app.docs.site.features.2.title": "Compatibility with Different Chains",
-  "app.docs.site.features.2.description": "Ant Design Web3 is designed with good extensibility, allowing you to adapt to different chains through adapters."
+  "app.docs.site.features.2.description": "Ant Design Web3 is designed with good extensibility, allowing you to adapt to different chains through adapters.",
+
+  "app.docs.site.theme.title": "Customize the theme as you like",
+  "app.docs.site.theme.description": "Open more style algorithms to make it easier to customize your theme",
+  "app.docs.site.theme.modal.footer": "Powered by AntChain"
 }

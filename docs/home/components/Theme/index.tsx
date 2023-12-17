@@ -3,6 +3,7 @@ import styles from './index.module.less';
 import { ConnectModal, type Wallet } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import { Space, Tooltip, ConfigProvider, theme, Card } from 'antd';
+import { useIntl } from 'dumi';
 
 const walletList: Wallet[] = [
   metadata_MetaMask,
@@ -46,12 +47,13 @@ const walletList: Wallet[] = [
 ];
 
 const App: React.FC = () => {
+  const intl = useIntl();
   const [isDard, setIsDard] = React.useState(false);
   return (
     <div className={styles.container}>
-      <h3 className={styles.title}>Customize the theme as you like</h3>
+      <h3 className={styles.title}>{intl.formatMessage({ id: 'app.docs.site.theme.title' })}</h3>
       <div className={styles.desc}>
-        Open more style algorithms to make it easier to customize your theme
+        {intl.formatMessage({ id: 'app.docs.site.theme.description' })}
       </div>
       <ConfigProvider
         theme={{
@@ -66,7 +68,7 @@ const App: React.FC = () => {
         >
           <ConnectModal.ModalPanel
             title="Connect Wallet"
-            footer="Powered by AntChain"
+            footer={intl.formatMessage({ id: 'app.docs.site.theme.modal.footer' })}
             walletList={walletList}
             guide
           />
