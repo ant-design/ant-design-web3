@@ -1,4 +1,5 @@
 import React from 'react';
+// @ts-ignore
 import { useIntl, Link } from 'dumi';
 import styles from './index.module.less';
 
