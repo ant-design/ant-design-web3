@@ -1,8 +1,9 @@
 import React from 'react';
+import { useIntl, Link } from 'dumi';
 import styles from './index.module.less';
 
 const Banner: React.FC = () => {
-  const isZh = location.pathname?.includes('zh-CN');
+  const intl = useIntl();
   return (
     <div className={styles.bannerContainer}>
       <img
@@ -19,7 +20,9 @@ const Banner: React.FC = () => {
           alt="title"
         />
         <div className={styles.btn}>
-          <a href="/zh-CN/guide">{isZh ? '开始使用' : 'Start'}</a>
+          <Link to="/zh-CN/guide">
+            {intl.formatMessage({ id: 'app.docs.components.index.banner.button-text' })}
+          </Link>
           <a href="https://github.com/ant-design/ant-design-web3" target="_blank" rel="noreferrer">
             GitHub
           </a>
