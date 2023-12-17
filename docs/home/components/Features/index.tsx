@@ -10,9 +10,6 @@ type FeatureType = {
 export default () => {
   const intl = useIntl();
 
-  console.log(intl.formatMessage({ id: 'app.docs.site.features.0.title' }));
-  console.log(intl);
-
   const features: FeatureType[] = [
     {
       icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*HR6IRIi3eDIAAAAAAAAAAAAADlrGAQ/original',
@@ -30,6 +27,7 @@ export default () => {
       description: intl.formatMessage({ id: 'app.docs.site.features.2.description' }),
     },
   ];
+
   return (
     <div className={styles.container}>
       {features.map((feature, index) => (
