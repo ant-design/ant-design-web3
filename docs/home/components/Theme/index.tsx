@@ -48,23 +48,11 @@ const walletList: Wallet[] = [
 
 const App: React.FC = () => {
   const [isDark, setIsDark] = React.useState(false);
-  const [color, prefersColor] = usePrefersColor();
+  const [color] = usePrefersColor();
 
   useEffect(() => {
     setIsDark(color === 'dark');
   }, [color]);
-
-  useEffect(() => {
-    // zh-CN: 临时修复主题跟随系统时先切换到亮色主题的问题，后续在 dumi 中修复后再删掉
-    // en-US: Temporarily fix the problem that the theme follows the system and switch to the light theme first,
-    // and then delete it after fixing it in dumi
-    if (prefersColor === 'auto') {
-      document.documentElement.setAttribute(
-        'data-prefers-color',
-        window.matchMedia(`(prefers-color-scheme: dark)`).matches ? 'dark' : 'light',
-      );
-    }
-  }, [prefersColor]);
 
   return (
     <div className={styles.container}>
