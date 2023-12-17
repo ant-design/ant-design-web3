@@ -17,5 +17,12 @@
 
   "app.docs.site.theme.title": "Customize the theme as you like",
   "app.docs.site.theme.description": "Open more style algorithms to make it easier to customize your theme",
-  "app.docs.site.theme.modal.footer": "Powered by AntChain"
+  "app.docs.site.theme.modal.footer": "Powered by AntChain",
+  "app.docs.site.theme.modal.guide.title": "What is a Wallet?",
+  "app.docs.site.theme.modal.guide.item.0.title": "Manage your private key and assets",
+  "app.docs.site.theme.modal.guide.item.0.description": "Manage your private key and the assets of the corresponding chain address",
+  "app.docs.site.theme.modal.guide.item.1.title": "Help you connect to DApp",
+  "app.docs.site.theme.modal.guide.item.1.description": "Authorize DApp to get your address, similar to login",
+  "app.docs.site.theme.modal.guide.item.2.title": "Call smart contract",
+  "app.docs.site.theme.modal.guide.item.2.description": "Through authorization of private key signature, initiate interaction with smart contract on the chain"
 }

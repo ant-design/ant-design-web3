@@ -17,5 +17,13 @@
 
   "app.docs.site.theme.title": "随心所欲地定制主题",
   "app.docs.site.theme.description": "开放更多的样式算法，使定制你的主题更加容易",
-  "app.docs.site.theme.modal.footer": "由蚂蚁链提供技术支持"
+  "app.docs.site.theme.modal.footer": "由蚂蚁链提供技术支持",
+
+  "app.docs.site.theme.modal.guide.title": "什么是钱包？",
+  "app.docs.site.theme.modal.guide.item.0.title": "管理你的私钥和资产",
+  "app.docs.site.theme.modal.guide.item.0.description": "管理你的私钥，和它对应的链上地址的资产",
+  "app.docs.site.theme.modal.guide.item.1.title": "帮助你连接上 DApp",
+  "app.docs.site.theme.modal.guide.item.1.description": "授权 DApp 获取你的地址，起到类似登录的作用",
+  "app.docs.site.theme.modal.guide.item.2.title": "调用智能合约",
+  "app.docs.site.theme.modal.guide.item.2.description": "通过授权私钥签名，发起和链上智能合约的交互"
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './index.module.less';
+import type { MainPanelProps } from '@ant-design/web3';
 import { ConnectModal, type Wallet } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import { Space, Tooltip, ConfigProvider, theme, Card } from 'antd';
@@ -26,7 +27,7 @@ const walletList: Wallet[] = [
   {
     icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
     name: 'Test Wallet3',
-    remark: '备注3',
+    remark: 'remark 3',
     app: {
       link: 'https://test.com/xxx',
     },
@@ -49,6 +50,34 @@ const walletList: Wallet[] = [
 const App: React.FC = () => {
   const intl = useIntl();
   const [isDard, setIsDard] = React.useState(false);
+
+  const defaultGuide: MainPanelProps['guide'] = {
+    title: intl.formatMessage({ id: 'app.docs.site.theme.modal.guide.title' }),
+    infos: [
+      {
+        icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ApSUSaoUa_sAAAAAAAAAAAAADlrGAQ/original',
+        title: intl.formatMessage({ id: 'app.docs.site.theme.modal.guide.item.0.title' }),
+        description: intl.formatMessage({
+          id: 'app.docs.site.theme.modal.guide.item.0.description',
+        }),
+      },
+      {
+        icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*3lD7QpnbCPcAAAAAAAAAAAAADlrGAQ/original',
+        title: intl.formatMessage({ id: 'app.docs.site.theme.modal.guide.item.1.title' }),
+        description: intl.formatMessage({
+          id: 'app.docs.site.theme.modal.guide.item.1.description',
+        }),
+      },
+      {
+        icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*gTROQqEY_TcAAAAAAAAAAAAADlrGAQ/original',
+        title: intl.formatMessage({ id: 'app.docs.site.theme.modal.guide.item.2.title' }),
+        description: intl.formatMessage({
+          id: 'app.docs.site.theme.modal.guide.item.2.description',
+        }),
+      },
+    ],
+    moreLink: 'https://ethereum.org/en/wallets/',
+  };
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>{intl.formatMessage({ id: 'app.docs.site.theme.title' })}</h3>
@@ -70,7 +99,7 @@ const App: React.FC = () => {
             title="Connect Wallet"
             footer={intl.formatMessage({ id: 'app.docs.site.theme.modal.footer' })}
             walletList={walletList}
-            guide
+            guide={defaultGuide}
           />
         </Card>
       </ConfigProvider>
