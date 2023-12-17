@@ -81,7 +81,10 @@ const DefaultGuidePanel: React.FC<MainPanelProps> = (props) => {
     );
   };
 
-  const { getWalletBtnText, moreLinkText } = mergedGuide;
+  const {
+    getWalletBtnText = defaultGuide.getWalletBtnText,
+    moreLinkText = defaultGuide.moreLinkText,
+  } = mergedGuide;
 
   return (
     <div className={`${prefixCls}-guide-panel`}>
