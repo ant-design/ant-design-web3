@@ -59,7 +59,6 @@ const App: React.FC = () => {
     // en-US: Temporarily fix the problem that the theme follows the system and switch to the light theme first,
     // and then delete it after fixing it in dumi
     if (prefersColor === 'auto') {
-      // @ts-ignore
       document.documentElement.setAttribute(
         'data-prefers-color',
         window.matchMedia(`(prefers-color-scheme: dark)`).matches ? 'dark' : 'light',
