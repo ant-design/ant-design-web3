@@ -5,5 +5,6 @@
   "app.docs.components.icon.circle-filled": "圆底单色",
   "app.docs.components.icon.category.chain": "链图标",
   "app.docs.components.icon.category.tool": "工具图标",
-  "app.docs.components.icon.category.other": "其他图标"
+  "app.docs.components.icon.category.other": "其他图标",
+  "app.docs.components.index.banner.button-text": "开始使用"
 }
