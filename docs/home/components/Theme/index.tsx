@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './index.module.less';
 import { ConnectModal, type Wallet } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import { Space, Tooltip, ConfigProvider, theme, Card } from 'antd';
+import { usePrefersColor } from 'dumi';
 
 const walletList: Wallet[] = [
   metadata_MetaMask,
@@ -46,7 +47,13 @@ const walletList: Wallet[] = [
 ];
 
 const App: React.FC = () => {
-  const [isDard, setIsDard] = React.useState(false);
+  const [isDark, setIsDark] = React.useState(false);
+  const [color] = usePrefersColor();
+
+  useEffect(() => {
+    setIsDark(color === 'dark');
+  }, [color]);
+
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>Customize the theme as you like</h3>
@@ -55,7 +62,7 @@ const App: React.FC = () => {
       </div>
       <ConfigProvider
         theme={{
-          algorithm: isDard ? theme.darkAlgorithm : undefined,
+          algorithm: isDark ? theme.darkAlgorithm : undefined,
         }}
       >
         <Card
@@ -76,14 +83,14 @@ const App: React.FC = () => {
         <Space size="large">
           <Tooltip title="Light Mode">
             <img
-              onClick={() => setIsDard(false)}
+              onClick={() => setIsDark(false)}
               src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8ODgS7sV7HIAAAAAAAAAAAAADlrGAQ/original"
               alt=""
             />
           </Tooltip>
           <Tooltip title="Dark Mode">
             <img
-              onClick={() => setIsDard(true)}
+              onClick={() => setIsDark(true)}
               src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*lzNiRZu_XdsAAAAAAAAAAAAADlrGAQ/original"
               alt=""
             />
