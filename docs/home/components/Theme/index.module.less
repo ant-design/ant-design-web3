@@ -13,11 +13,27 @@
   }
   .themeBtns {
     text-align: center;
-    img {
-      cursor: pointer;
-      opacity: 0.7;
-      width: 32px;
-      height: 32px;
+    span {
+      display: inline-block;
+      svg {
+        cursor: pointer;
+        opacity: 0.5;
+        width: 32px;
+        height: 32px;
+      }
+      .lightIcon,
+      .darkIcon {
+        color: #333;
+        &.selected {
+          opacity: 1;
+        }
+      }
+    }
+    &.dark {
+      .lightIcon,
+      .darkIcon {
+        color: #fff;
+      }
     }
   }
 }
