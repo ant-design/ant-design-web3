@@ -17,6 +17,7 @@
 
   "app.docs.site.theme.title": "随心所欲地定制主题",
   "app.docs.site.theme.description": "开放更多的样式算法，使定制你的主题更加容易",
+  "app.docs.site.theme.modal.title": "连接钱包",
   "app.docs.site.theme.modal.footer": "由蚂蚁链提供技术支持",
 
   "app.docs.site.theme.modal.guide.title": "什么是钱包？",

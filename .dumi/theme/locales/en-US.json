@@ -17,6 +17,7 @@
 
   "app.docs.site.theme.title": "Customize the theme as you like",
   "app.docs.site.theme.description": "Open more style algorithms to make it easier to customize your theme",
+  "app.docs.site.theme.modal.title": "Connect Wallet",
   "app.docs.site.theme.modal.footer": "Powered by AntChain",
   "app.docs.site.theme.modal.guide.title": "What is a Wallet?",
   "app.docs.site.theme.modal.guide.item.0.title": "Manage your private key and assets",

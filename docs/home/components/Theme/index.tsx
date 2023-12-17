@@ -96,7 +96,7 @@ const App: React.FC = () => {
           }}
         >
           <ConnectModal.ModalPanel
-            title="Connect Wallet"
+            title={intl.formatMessage({ id: 'app.docs.site.theme.modal.title' })}
             footer={intl.formatMessage({ id: 'app.docs.site.theme.modal.footer' })}
             walletList={walletList}
             guide={defaultGuide}
