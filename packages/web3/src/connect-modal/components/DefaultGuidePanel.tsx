@@ -24,6 +24,8 @@ const defaultGuide: MainPanelProps['guide'] = {
     },
   ],
   moreLink: 'https://ethereum.org/en/wallets/',
+  getWalletBtnText: 'Get a Wallet',
+  moreLinkText: 'Learn More',
 };
 
 const DefaultGuidePanel: React.FC<MainPanelProps> = (props) => {
@@ -79,6 +81,8 @@ const DefaultGuidePanel: React.FC<MainPanelProps> = (props) => {
     );
   };
 
+  const { getWalletBtnText, moreLinkText } = mergedGuide;
+
   return (
     <div className={`${prefixCls}-guide-panel`}>
       {renderContent()}
@@ -88,7 +92,7 @@ const DefaultGuidePanel: React.FC<MainPanelProps> = (props) => {
         className={`${prefixCls}-get-btn`}
         onClick={() => updatePanelRoute('getWallet')}
       >
-        Get a Wallet
+        {getWalletBtnText}
       </Button>
       <Button
         block
@@ -97,7 +101,7 @@ const DefaultGuidePanel: React.FC<MainPanelProps> = (props) => {
         href={mergedGuide?.moreLink}
         target="_blank"
       >
-        Learn More
+        {moreLinkText}
       </Button>
     </div>
   );

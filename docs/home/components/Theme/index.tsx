@@ -6,50 +6,55 @@ import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-asse
 import { Space, Tooltip, ConfigProvider, theme, Card } from 'antd';
 import { useIntl } from 'dumi';
 
-const walletList: Wallet[] = [
-  metadata_MetaMask,
-  {
-    ...metadata_WalletConnect,
-    getQrCode: () => {
-      return new Promise<{
-        uri: string;
-      }>((resolve) =>
-        setTimeout(
-          () =>
-            resolve({
-              uri: `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
-            }),
-          2000,
-        ),
-      );
-    },
-  },
-  {
-    icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
-    name: 'Test Wallet3',
-    remark: 'remark 3',
-    app: {
-      link: 'https://test.com/xxx',
-    },
-    getQrCode: () => {
-      return new Promise<{
-        uri: string;
-      }>((resolve) =>
-        setTimeout(
-          () =>
-            resolve({
-              uri: `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
-            }),
-          2000,
-        ),
-      );
-    },
-  },
-];
-
 const App: React.FC = () => {
   const intl = useIntl();
   const [isDard, setIsDard] = React.useState(false);
+
+  const walletList: Wallet[] = [
+    {
+      ...metadata_MetaMask,
+      group: intl.formatMessage({ id: 'app.docs.site.theme.modal.walletList.group.popular' }),
+    },
+    {
+      ...metadata_WalletConnect,
+      group: intl.formatMessage({ id: 'app.docs.site.theme.modal.walletList.group.popular' }),
+      getQrCode: () => {
+        return new Promise<{
+          uri: string;
+        }>((resolve) =>
+          setTimeout(
+            () =>
+              resolve({
+                uri: `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
+              }),
+            2000,
+          ),
+        );
+      },
+    },
+    {
+      icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
+      group: intl.formatMessage({ id: 'app.docs.site.theme.modal.walletList.group.more' }),
+      name: 'Test Wallet3',
+      remark: 'remark 3',
+      app: {
+        link: 'https://test.com/xxx',
+      },
+      getQrCode: () => {
+        return new Promise<{
+          uri: string;
+        }>((resolve) =>
+          setTimeout(
+            () =>
+              resolve({
+                uri: `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
+              }),
+            2000,
+          ),
+        );
+      },
+    },
+  ];
 
   const defaultGuide: MainPanelProps['guide'] = {
     title: intl.formatMessage({ id: 'app.docs.site.theme.modal.guide.title' }),
@@ -77,6 +82,10 @@ const App: React.FC = () => {
       },
     ],
     moreLink: 'https://ethereum.org/en/wallets/',
+    getWalletBtnText: intl.formatMessage({
+      id: 'app.docs.site.theme.modal.guide.getWalletBtnText',
+    }),
+    moreLinkText: intl.formatMessage({ id: 'app.docs.site.theme.modal.guide.moreLinkText' }),
   };
   return (
     <div className={styles.container}>
@@ -100,6 +109,26 @@ const App: React.FC = () => {
             footer={intl.formatMessage({ id: 'app.docs.site.theme.modal.footer' })}
             walletList={walletList}
             guide={defaultGuide}
+            groupOrder={(a, b) => {
+              if (
+                a ===
+                  intl.formatMessage({
+                    id: 'app.docs.site.theme.modal.walletList.group.popular',
+                  }) &&
+                b !==
+                  intl.formatMessage({ id: 'app.docs.site.theme.modal.walletList.group.popular' })
+              ) {
+                return -1;
+              }
+              if (
+                a ===
+                  intl.formatMessage({ id: 'app.docs.site.theme.modal.walletList.group.more' }) &&
+                b !== intl.formatMessage({ id: 'app.docs.site.theme.modal.walletList.group.more' })
+              ) {
+                return 1;
+              }
+              return a.localeCompare(b);
+            }}
           />
         </Card>
       </ConfigProvider>

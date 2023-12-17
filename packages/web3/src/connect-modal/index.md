@@ -48,11 +48,13 @@ Other modal properties see: [ModalProps](https://ant.design/components/modal#API
 
 ### DefaultGuide
 
-| Property | Description     | Type                       | Default | Version |
-| -------- | --------------- | -------------------------- | ------- | ------- |
-| title    | Guide title     | `string`                   | -       | -       |
-| infos    | Guide info list | [GuideInfo](#guideinfo)\[] | -       | -       |
-| moreLink | More link       | `string`                   | -       | -       |
+| Property         | Description            | Type                       | Default | Version |
+| ---------------- | ---------------------- | -------------------------- | ------- | ------- |
+| title            | Guide title            | `string`                   | -       | -       |
+| infos            | Guide info list        | [GuideInfo](#guideinfo)\[] | -       | -       |
+| moreLink         | More link              | `string`                   | -       | -       |
+| getWalletBtnText | Get wallet button text | `string`                   | -       | -       |
+| moreLinkText     | More link text         | `string`                   | -       | -       |
 
 ### GuideInfoItem
 
