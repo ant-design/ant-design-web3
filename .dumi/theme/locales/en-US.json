@@ -6,5 +6,12 @@
   "app.docs.components.icon.category.chain": "Chain Icons",
   "app.docs.components.icon.category.tool": "Tool Icons",
   "app.docs.components.icon.category.other": "Other Icons",
-  "app.docs.components.index.banner.button-text": "Start"
+  "app.docs.components.index.banner.button-text": "Start",
+
+  "app.docs.site.features.0.title": "Ant Design Friendly",
+  "app.docs.site.features.0.description": "Ant Design Web3 is Specifically designed to seamlessly integrate with Ant Design, making it easy for developers.",
+  "app.docs.site.features.1.title": "Out-of-the-Box Experience",
+  "app.docs.site.features.1.description": "You can quickly set up their projects and leverage the pre-built components to create your DApps.",
+  "app.docs.site.features.2.title": "Compatibility with Different Chains",
+  "app.docs.site.features.2.description": "Ant Design Web3 is designed with good extensibility, allowing you to adapt to different chains through adapters."
 }
