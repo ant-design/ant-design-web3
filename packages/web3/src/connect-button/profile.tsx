@@ -2,7 +2,7 @@ import type { AvatarProps } from 'antd';
 import { Space, Avatar, ConfigProvider } from 'antd';
 import type { Balance } from '@ant-design/web3';
 import { Address, CryptoPrice } from '@ant-design/web3';
-import classNames from 'classNames';
+import classNames from 'classnames';
 import React, { useContext } from 'react';
 
 interface ProfileProps {
