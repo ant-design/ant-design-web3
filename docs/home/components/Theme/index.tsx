@@ -3,50 +3,10 @@ import styles from './index.module.less';
 import { ConnectModal, type Wallet } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import { Space, Tooltip, ConfigProvider, theme, Card } from 'antd';
-import { usePrefersColor } from 'dumi';
-
-const walletList: Wallet[] = [
-  metadata_MetaMask,
-  {
-    ...metadata_WalletConnect,
-    getQrCode: () => {
-      return new Promise<{
-        uri: string;
-      }>((resolve) =>
-        setTimeout(
-          () =>
-            resolve({
-              uri: `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
-            }),
-          2000,
-        ),
-      );
-    },
-  },
-  {
-    icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
-    name: 'Test Wallet3',
-    remark: '备注3',
-    app: {
-      link: 'https://test.com/xxx',
-    },
-    getQrCode: () => {
-      return new Promise<{
-        uri: string;
-      }>((resolve) =>
-        setTimeout(
-          () =>
-            resolve({
-              uri: `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
-            }),
-          2000,
-        ),
-      );
-    },
-  },
-];
+import { useIntl, usePrefersColor } from 'dumi';
 
 const App: React.FC = () => {
+  const intl = useIntl();
   const [isDark, setIsDark] = React.useState(false);
   const [color] = usePrefersColor();
 
@@ -54,11 +14,55 @@ const App: React.FC = () => {
     setIsDark(color === 'dark');
   }, [color]);
 
+  const walletList: Wallet[] = [
+    {
+      ...metadata_MetaMask,
+    },
+    {
+      ...metadata_WalletConnect,
+      getQrCode: () => {
+        return new Promise<{
+          uri: string;
+        }>((resolve) =>
+          setTimeout(
+            () =>
+              resolve({
+                uri: `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
+              }),
+            2000,
+          ),
+        );
+      },
+    },
+    {
+      icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
+      group: 'More',
+      name: 'Test Wallet3',
+      remark: 'remark 3',
+      app: {
+        link: 'https://test.com/xxx',
+      },
+      getQrCode: () => {
+        return new Promise<{
+          uri: string;
+        }>((resolve) =>
+          setTimeout(
+            () =>
+              resolve({
+                uri: `https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=${Date.now()}&random=${Math.random()}`,
+              }),
+            2000,
+          ),
+        );
+      },
+    },
+  ];
+
   return (
     <div className={styles.container}>
-      <h3 className={styles.title}>Customize the theme as you like</h3>
+      <h3 className={styles.title}>{intl.formatMessage({ id: 'app.docs.site.theme.title' })}</h3>
       <div className={styles.desc}>
-        Open more style algorithms to make it easier to customize your theme
+        {intl.formatMessage({ id: 'app.docs.site.theme.description' })}
       </div>
       <ConfigProvider
         theme={{
@@ -71,12 +75,7 @@ const App: React.FC = () => {
             padding: 0,
           }}
         >
-          <ConnectModal.ModalPanel
-            title="Connect Wallet"
-            footer="Powered by AntChain"
-            walletList={walletList}
-            guide
-          />
+          <ConnectModal.ModalPanel walletList={walletList} guide />
         </Card>
       </ConfigProvider>
       <div className={`${styles.themeBtns}${color === 'dark' ? ` ${styles.dark}` : ''}`}>

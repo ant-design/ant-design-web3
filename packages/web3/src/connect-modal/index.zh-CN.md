@@ -48,11 +48,13 @@ order: 2
 
 ### DefaultGuide
 
-| 属性     | 描述                   | 类型                               | 默认值 | 版本 |
-| -------- | ---------------------- | ---------------------------------- | ------ | ---- |
-| title    | 新手指引面板的标题     | `string`                           | -      | -    |
-| infos    | 新手指引面板的信息列表 | [GuideInfoItem](#guideinfoitem)\[] | -      | -    |
-| moreLink | 新手指引面板的更多链接 | `string`                           | -      | -    |
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| title | 新手指引面板的标题 | `string` | - | - |
+| infos | 新手指引面板的信息列表 | [GuideInfoItem](#guideinfoitem)\[] | - | - |
+| moreLink | 新手指引面板的更多链接 | `string` | - | - |
+| getWalletBtnText | 新手指引面板的获取钱包按钮文案 | `string` | - | - |
+| moreLinkText | 新手指引面板的更多链接文案 | `string` | - | - |
 
 ### GuideInfoItem
 
