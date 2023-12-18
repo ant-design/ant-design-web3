@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { Modal, ConfigProvider, Button, message, type AvatarProps } from 'antd';
+import { Modal, ConfigProvider, Space, Button, Avatar, message, type AvatarProps } from 'antd';
 import classNames from 'classnames';
 import type { Balance } from '@ant-design/web3-common';
+import { Address } from '@ant-design/web3';
 import { writeCopyText } from '../utils';
+import { CryptoPrice } from '../crypto-price';
 import type { ModalProps } from 'antd';
-import { Profile } from './profile';
 
 export interface ProfileModalProps {
   className?: string;
@@ -66,13 +67,15 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
         }}
         open={open}
       >
-        <Profile
-          avatar={avatar}
-          address={address}
-          __hashId__={__hashId__}
-          balance={balance}
-          name={name}
-        />
+        <Space align="center" direction="vertical">
+          {avatar ? <Avatar {...avatar} /> : null}
+          {name ? <div className={classNames(`${prefixCls}-name`, __hashId__)}>{name}</div> : null}
+          {address ? (
+            <Address ellipsis={false} address={address} tooltip={false}>
+              {balance && <CryptoPrice {...balance} />}
+            </Address>
+          ) : null}
+        </Space>
       </Modal>
     </>
   );
