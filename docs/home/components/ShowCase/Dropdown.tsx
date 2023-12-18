@@ -1,6 +1,6 @@
 import { EthereumCircleFilled, USDTCircleFilled, WalletColorful } from '@ant-design/web3-icons';
 import styles from './index.module.less';
-import type { MenuProps, MenuItemType } from 'antd';
+import type { MenuProps } from 'antd';
 import { Button, Dropdown, Divider } from 'antd';
 import classNames from 'classnames';
 import React from 'react';
