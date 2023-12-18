@@ -1,2 +1,86 @@
 .container {
+  background-color: #fff;
+  padding: 67px 0;
+  .title {
+    text-align: center;
+    font-size: 38px;
+    margin: 0 0 24px 0;
+  }
+
+  .desc {
+    text-align: center;
+  }
+
+  .componentList {
+    display: flex;
+    justify-content: center;
+    margin-top: 67px;
+    .cardBg {
+      position: relative;
+      background: #f5f8ff;
+      background-image: radial-gradient(circle at 94% 97%, #e5efff 0%, rgba(233, 240, 255, 0) 53%);
+      border-radius: 16px;
+      padding: 102px 36px 32px;
+      margin: 0 10px;
+      .title {
+        position: absolute;
+        left: 40px;
+        top: 36px;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.85);
+      }
+    }
+
+    .NTFCard {
+      display: flex;
+      justify-content: center;
+    }
+
+    .connectContainer {
+      border-radius: 13px;
+      height: 300px;
+      width: 400px;
+      background-color: #fff;
+    }
+  }
+
+  .footer {
+    margin-top: 67px;
+    text-align: center;
+    line-height: 22px;
+  }
+
+  .footerText {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.45);
+  }
+
+  .footerDesc {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    .componentList {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding-top: 40px;
+      .cardBg {
+        text-align: center;
+        max-width: 400px;
+        width: 80%;
+        margin-bottom: 32px;
+      }
+      .connectContainer {
+        width: 100%;
+      }
+    }
+    .footer {
+      margin-top: 33px;
+    }
+  }
 }
