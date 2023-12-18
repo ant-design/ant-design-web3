@@ -31,20 +31,9 @@
       }
     }
 
-    .buttonsCard {
+    .NTFCard {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .dropdownContainer {
-      border: 1px solid rgba(0, 0, 0, 0.85);
-      border-radius: 10px;
-    }
-
-    .divider {
-      border-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
     }
 
     .connectContainer {
@@ -52,20 +41,6 @@
       height: 300px;
       width: 400px;
       background-color: #fff;
-    }
-
-    .profileContainer {
-      max-width: 255px;
-      background: #ffffff;
-      box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.1);
-      border-radius: 14px;
-      margin: 0 auto;
-      padding: 16px;
-      .footer {
-        display: flex;
-        justify-content: center;
-        margin-top: 16px;
-      }
     }
   }
 
@@ -87,7 +62,6 @@
   }
 }
 
-// 移动端预览时采用垂直布局展示每个 item
 @media screen and (max-width: 767px) {
   .container {
     .componentList {
@@ -97,12 +71,16 @@
       padding-top: 40px;
       .cardBg {
         text-align: center;
+        max-width: 400px;
         width: 80%;
-        height: 306px;
+        margin-bottom: 32px;
       }
       .connectContainer {
         width: 100%;
       }
+    }
+    .footer {
+      margin-top: 33px;
     }
   }
 }

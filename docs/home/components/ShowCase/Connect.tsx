@@ -47,7 +47,7 @@ const walletList: Wallet[] = [
 
 export default () => {
   return (
-    <div className={classNames(styles.cardBg)}>
+    <div className={styles.cardBg}>
       <span className={styles.title}>Connect Wallet</span>
       <div className={classNames(styles.connectContainer, 'connect-container')}>
         <ConnectModal.ModalPanel

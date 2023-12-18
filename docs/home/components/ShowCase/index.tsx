@@ -1,9 +1,8 @@
 import styles from './index.module.less';
-import Buttons from './Buttons';
-import Dropdown from './Dropdown';
-import Tooltip from './Tooltip';
-import Profile from './Profile';
+import ConnectButton from './ConnectButton';
+import Address from './Address';
 import Connect from './Connect';
+import NFTCard from './NFTCard';
 
 export default () => {
   return (
@@ -14,10 +13,9 @@ export default () => {
         expansion
       </div>
       <div className={styles.componentList}>
-        <Buttons />
-        <Dropdown />
-        <Tooltip />
-        <Profile />
+        <ConnectButton />
+        <Address />
+        <NFTCard />
         <Connect />
       </div>
 
