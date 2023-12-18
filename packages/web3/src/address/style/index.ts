@@ -13,6 +13,7 @@ const genAddressStyle: GenerateStyle<AddressToken> = (token) => {
   return {
     [token.componentCls]: {
       wordBreak: 'break-all',
+      color: token.colorText,
     },
   };
 };

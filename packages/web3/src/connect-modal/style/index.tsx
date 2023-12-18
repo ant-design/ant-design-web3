@@ -124,6 +124,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                   paddingInline: 6,
                 },
                 [`${componentCls}-group-content`]: {
+                  marginBlockStart: 8,
                   [`${componentCls}-wallet-item`]: {
                     cursor: 'pointer',
                     paddingInline: 6,
