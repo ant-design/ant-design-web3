@@ -3,6 +3,8 @@ import { ConnectModal, type Wallet } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import classNames from 'classnames';
 import './connect.less';
+import { ConfigProvider, theme } from 'antd';
+import { usePrefersColor } from 'dumi';
 
 const walletList: Wallet[] = [
   metadata_MetaMask,
@@ -46,17 +48,24 @@ const walletList: Wallet[] = [
 ];
 
 export default () => {
+  const [color] = usePrefersColor();
   return (
-    <div className={styles.cardBg}>
-      <span className={styles.title}>Connect Wallet</span>
-      <div className={classNames(styles.connectContainer, 'connect-container')}>
-        <ConnectModal.ModalPanel
-          title="Connect Wallet"
-          footer="Powered by AntChain"
-          walletList={walletList}
-          guide
-        />
+    <ConfigProvider
+      theme={{
+        algorithm: color === 'dark' ? theme.darkAlgorithm : undefined,
+      }}
+    >
+      <div className={styles.cardBg}>
+        <span className={styles.title}>Connect Wallet</span>
+        <div className={classNames(styles.connectContainer, 'connect-container')}>
+          <ConnectModal.ModalPanel
+            title="Connect Wallet"
+            footer="Powered by AntChain"
+            walletList={walletList}
+            guide
+          />
+        </div>
       </div>
-    </div>
+    </ConfigProvider>
   );
 };
