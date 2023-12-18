@@ -26,6 +26,7 @@ export default defineConfig({
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
     socialLinks: {
       github: 'https://github.com/ant-design/ant-design-web3',
+      twitter: 'https://twitter.com/AntDesignWeb3',
     },
     editLink: false,
   },

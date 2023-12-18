@@ -12,6 +12,10 @@ order: 2
 
 <code src="./demos/basic.tsx"></code>
 
+## 面板方式嵌入
+
+<code src="./demos/panel.tsx"></code>
+
 ## 简洁模式
 
 <code src="./demos/simple.tsx"></code>
@@ -44,11 +48,13 @@ order: 2
 
 ### DefaultGuide
 
-| 属性     | 描述                   | 类型                               | 默认值 | 版本 |
-| -------- | ---------------------- | ---------------------------------- | ------ | ---- |
-| title    | 新手指引面板的标题     | `string`                           | -      | -    |
-| infos    | 新手指引面板的信息列表 | [GuideInfoItem](#guideinfoitem)\[] | -      | -    |
-| moreLink | 新手指引面板的更多链接 | `string`                           | -      | -    |
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| title | 新手指引面板的标题 | `string` | - | - |
+| infos | 新手指引面板的信息列表 | [GuideInfoItem](#guideinfoitem)\[] | - | - |
+| moreLink | 新手指引面板的更多链接 | `string` | - | - |
+| getWalletBtnText | 新手指引面板的获取钱包按钮文案 | `string` | - | - |
+| moreLinkText | 新手指引面板的更多链接文案 | `string` | - | - |
 
 ### GuideInfoItem
 
@@ -57,3 +63,7 @@ order: 2
 | title       | 新手指引面板的信息项标题 | `string \| React.ReactNode` | -      | -    |
 | icon        | 新手指引面板的信息项图标 | `string \| React.ReactNode` | -      | -    |
 | description | 新手指引面板的信息项描述 | `string \| React.ReactNode` | -      | -    |
+
+### ConnectModal.ModalPanel
+
+除了和控制弹窗相关属性外，其它和 `ConnectModal` 相同。

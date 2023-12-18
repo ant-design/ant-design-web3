@@ -1,3 +1,4 @@
+import { useIntl } from 'dumi';
 import styles from './index.module.less';
 
 type FeatureType = {
@@ -6,28 +7,27 @@ type FeatureType = {
   description: string;
 };
 
-const features: FeatureType[] = [
-  {
-    icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*HR6IRIi3eDIAAAAAAAAAAAAADlrGAQ/original',
-    title: 'Ant Design Friendly',
-    description:
-      'Ant Design Web3 is Specifically designed to seamlessly integrate with Ant Design, making it easy for developers.',
-  },
-  {
-    icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*VbthS5vDlCQAAAAAAAAAAAAADlrGAQ/original',
-    title: 'Out-of-the-Box Experience',
-    description:
-      'You can quickly set up their projects and leverage the pre-built components to create user interfaces that interact with blockchain networks and DApps.',
-  },
-  {
-    icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*agjbQpbtY2kAAAAAAAAAAAAADlrGAQ/original',
-    title: 'Compatibility with Different SDKs',
-    description:
-      'Ant Design Web3 is designed to be compatible with various Software Development Kits (SDKs) used in the Web3 ecosystem.',
-  },
-];
-
 export default () => {
+  const intl = useIntl();
+
+  const features: FeatureType[] = [
+    {
+      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*HR6IRIi3eDIAAAAAAAAAAAAADlrGAQ/original',
+      title: intl.formatMessage({ id: 'app.docs.site.features.0.title' }),
+      description: intl.formatMessage({ id: 'app.docs.site.features.0.description' }),
+    },
+    {
+      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*VbthS5vDlCQAAAAAAAAAAAAADlrGAQ/original',
+      title: intl.formatMessage({ id: 'app.docs.site.features.1.title' }),
+      description: intl.formatMessage({ id: 'app.docs.site.features.1.description' }),
+    },
+    {
+      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*agjbQpbtY2kAAAAAAAAAAAAADlrGAQ/original',
+      title: intl.formatMessage({ id: 'app.docs.site.features.2.title' }),
+      description: intl.formatMessage({ id: 'app.docs.site.features.2.description' }),
+    },
+  ];
+
   return (
     <div className={styles.container}>
       {features.map((feature, index) => (

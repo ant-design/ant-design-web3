@@ -1,6 +1,7 @@
 import type React from 'react';
 import type { ModalProps } from 'antd';
 import type { Wallet } from '@ant-design/web3-common';
+import { get } from 'lodash';
 
 export type { Wallet, WalletExtensionItem } from '@ant-design/web3-common';
 
@@ -46,6 +47,16 @@ export type DefaultGuide = {
    * @descEn More links to the newbie guide panel
    */
   moreLink: string;
+  /**
+   * @desc 创建钱包按钮文案
+   * @descEn Create wallet button text
+   */
+  getWalletBtnText?: string;
+  /**
+   * @desc 更多链接文案
+   * @descEn More link text
+   */
+  moreLinkText?: string;
 };
 
 export type ConnectModalProps = ModalProps & {
