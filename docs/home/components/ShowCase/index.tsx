@@ -3,6 +3,7 @@ import Buttons from './Buttons';
 import Dropdown from './Dropdown';
 import Tooltip from './Tooltip';
 import Profile from './Profile';
+import Connect from './Connect';
 
 export default () => {
   return (
@@ -11,6 +12,7 @@ export default () => {
       <Dropdown />
       <Tooltip />
       <Profile />
+      <Connect />
     </div>
   );
 };

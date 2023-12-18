@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   background-color: #fff;
   .cardBg {
     position: relative;
@@ -8,6 +8,7 @@
     background-image: radial-gradient(circle at 94% 97%, #e5efff 0%, rgba(233, 240, 255, 0) 53%);
     border-radius: 16px;
     padding: 133px 40px 85px;
+    margin: 0 10px;
     .title {
       position: absolute;
       left: 40px;
@@ -34,18 +35,10 @@
   }
 
   .connectContainer {
-    // position: absolute;
-    // max-width: 737px;
-    // max-height: 557px;
-    // margin: 100px auto;
-    // background-color: #fff;
-    border-radius: 8px;
-  }
-  .connectCardBg {
-    padding: 0;
-    // height: 400px;
-    // transform: scale(0.5);
-    // width: 485px;
+    border-radius: 13px;
+    height: 300px;
+    width: 400px;
+    background-color: #fff;
   }
 
   .profileContainer {
@@ -53,5 +46,29 @@
     box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.1);
     border-radius: 14px;
     padding: 16px;
+    .footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 16px;
+    }
+  }
+}
+
+// 移动端预览时采用垂直布局展示每个 item
+@media screen and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 40px;
+    .cardBg {
+      margin-bottom: 40px;
+      text-align: center;
+      width: 80%;
+      height: 306px;
+    }
+    .connectContainer {
+      width: 100%;
+    }
   }
 }
