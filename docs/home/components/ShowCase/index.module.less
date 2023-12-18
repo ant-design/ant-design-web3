@@ -1,74 +1,109 @@
 .container {
-  display: flex;
-  justify-content: center;
   background-color: #fff;
-  .cardBg {
-    position: relative;
-    background: #f5f8ff;
-    background-image: radial-gradient(circle at 94% 97%, #e5efff 0%, rgba(233, 240, 255, 0) 53%);
-    border-radius: 16px;
-    padding: 133px 40px 85px;
-    margin: 0 10px;
-    .title {
-      position: absolute;
-      left: 40px;
-      top: 36px;
-      font-size: 16px;
-      color: rgba(0, 0, 0, 0.85);
-    }
+  padding: 67px 0;
+  .title {
+    text-align: center;
+    font-size: 38px;
+    margin: 0 0 24px 0;
   }
 
-  .buttonsCard {
+  .desc {
+    text-align: center;
+  }
+
+  .componentList {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .dropdownContainer {
-    border: 1px solid rgba(0, 0, 0, 0.85);
-    border-radius: 10px;
-  }
-
-  .divider {
-    border-color: rgba(0, 0, 0, 0.85);
-  }
-
-  .connectContainer {
-    border-radius: 13px;
-    height: 300px;
-    width: 400px;
-    background-color: #fff;
-  }
-
-  .profileContainer {
-    background: #ffffff;
-    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.1);
-    border-radius: 14px;
-    padding: 16px;
-    .footer {
-      display: flex;
-      justify-content: center;
-      margin-top: 16px;
+    justify-content: center;
+    margin-top: 67px;
+    .cardBg {
+      position: relative;
+      background: #f5f8ff;
+      background-image: radial-gradient(circle at 94% 97%, #e5efff 0%, rgba(233, 240, 255, 0) 53%);
+      border-radius: 16px;
+      padding: 102px 36px 32px;
+      margin: 0 10px;
+      .title {
+        position: absolute;
+        left: 40px;
+        top: 36px;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.85);
+      }
     }
+
+    .buttonsCard {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dropdownContainer {
+      border: 1px solid rgba(0, 0, 0, 0.85);
+      border-radius: 10px;
+    }
+
+    .divider {
+      border-color: rgba(0, 0, 0, 0.85);
+    }
+
+    .connectContainer {
+      border-radius: 13px;
+      height: 300px;
+      width: 400px;
+      background-color: #fff;
+    }
+
+    .profileContainer {
+      max-width: 255px;
+      background: #ffffff;
+      box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.1);
+      border-radius: 14px;
+      margin: 0 auto;
+      padding: 16px;
+      .footer {
+        display: flex;
+        justify-content: center;
+        margin-top: 16px;
+      }
+    }
+  }
+
+  .footer {
+    margin-top: 67px;
+    text-align: center;
+    line-height: 22px;
+  }
+
+  .footerText {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.45);
+  }
+
+  .footerDesc {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
   }
 }
 
 // 移动端预览时采用垂直布局展示每个 item
 @media screen and (max-width: 767px) {
   .container {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-top: 40px;
-    .cardBg {
-      margin-bottom: 40px;
-      text-align: center;
-      width: 80%;
-      height: 306px;
-    }
-    .connectContainer {
+    .componentList {
+      flex-direction: column;
+      align-items: center;
       width: 100%;
+      padding-top: 40px;
+      .cardBg {
+        margin-bottom: 40px;
+        text-align: center;
+        width: 80%;
+        height: 306px;
+      }
+      .connectContainer {
+        width: 100%;
+      }
     }
   }
 }
