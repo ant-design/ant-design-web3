@@ -49,7 +49,6 @@ const walletList: Wallet[] = [
 
 export default () => {
   const [color] = usePrefersColor();
-  console.log(color);
   return (
     <ConfigProvider
       theme={{
