@@ -4,12 +4,14 @@
 
 A collection of components for Web3.
 
-[![test status][github-action-image]][github-action-url] [![NPM version][npm-image]][npm-url]
+[![test status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url]
 
-[![antd][antd-image]][antd-url] [![dumi][dumi-image]][dumi-url]
+[![NPM version][npm-image]][npm-url] [![antd][antd-image]][antd-url] [![dumi][dumi-image]][dumi-url]
 
 [github-action-image]: https://github.com/ant-design/ant-design-web3/workflows/Test/badge.svg
 [github-action-url]: https://github.com/ant-design/ant-design-web3/actions/workflows/test.yml
+[codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design-web3/master.svg?style=flat-square
+[codecov-url]: https://codecov.io/gh/ant-design/ant-design-web3/branch/master
 [npm-image]: https://img.shields.io/npm/v/@ant-design/web3.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/@ant-design/web3
 [dumi-image]: https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square
