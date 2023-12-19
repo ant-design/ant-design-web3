@@ -31,7 +31,7 @@ export interface ConnectModalToken extends Web3AliasToken {
 
 const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
   const { web3ComponentsCls: componentCls } = token;
-
+  const isDark = isDarkTheme(token);
   return [
     {
       [`${componentCls}`]: {
@@ -40,7 +40,7 @@ const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
         },
         [`.ant-modal-close`]: {
           top: 24,
-          color: token.listItemDescriptionColor,
+          color: isDark ? '#767676' : '#C9C9C9',
           '&:hover': {
             color: token.colorText,
             background: 'transparent',
