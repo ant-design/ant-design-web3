@@ -100,7 +100,7 @@ describe('BrowserLink', () => {
         <BrowserLink address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,
       </Web3ConfigProvider>,
     );
-    expect(baseElement.querySelector('.ant-web3-icon-etherscan-colorful')).not.toBeNull();
+    expect(baseElement.querySelector('.ant-web3-icon-etherscan-circle-colorful')).not.toBeNull();
 
     rerender(
       <Web3ConfigProvider availableChains={[Mainnet]} chain={Mainnet}>
@@ -111,8 +111,8 @@ describe('BrowserLink', () => {
         ,
       </Web3ConfigProvider>,
     );
-    expect(baseElement.querySelector('.ant-web3-icon-ethereum-colorful')).toBeNull();
-    expect(baseElement.querySelector('.ant-web3-icon-bitcoin-colorful')).not.toBeNull();
+    expect(baseElement.querySelector('.ant-web3-icon-ethereum-circle-colorful')).toBeNull();
+    expect(baseElement.querySelector('.ant-web3-icon-bitcoin-circle-colorful')).not.toBeNull();
   });
   it('support iconStyle', async () => {
     const { baseElement } = render(
@@ -125,7 +125,9 @@ describe('BrowserLink', () => {
         ,
       </Web3ConfigProvider>,
     );
-    const icon = baseElement.querySelector('.ant-web3-icon-bitcoin-colorful') as HTMLSpanElement;
+    const icon = baseElement.querySelector(
+      '.ant-web3-icon-bitcoin-circle-colorful',
+    ) as HTMLSpanElement;
     expect(icon).not.toBeNull();
     expect(icon?.style.fontSize).toBe('40px');
   });
@@ -152,7 +154,9 @@ describe('BrowserLink', () => {
         ,
       </Web3ConfigProvider>,
     );
-    const icon = baseElement.querySelector('.ant-web3-icon-bitcoin-colorful') as HTMLSpanElement;
+    const icon = baseElement.querySelector(
+      '.ant-web3-icon-bitcoin-circle-colorful',
+    ) as HTMLSpanElement;
     expect(icon).not.toBeNull();
     expect(icon?.style.fontSize).toBe('40px');
     expect(baseElement.querySelector('a')?.getAttribute('href')).toBe(

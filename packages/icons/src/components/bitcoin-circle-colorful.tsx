@@ -8,7 +8,7 @@ import { ConfigProvider } from 'antd';
 export const BitcoinCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>(
   (props, ref) => {
     const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
-    const prefixCls = getPrefixCls('web3-icon-bitcoin-colorful');
+    const prefixCls = getPrefixCls('web3-icon-bitcoin-circle-colorful');
     return (
       <AntdIcon
         {...props}

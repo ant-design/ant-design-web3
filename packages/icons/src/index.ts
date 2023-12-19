@@ -18,6 +18,7 @@ export * from './components/bitcoin-circle-filled';
 
 export * from './components/ethereum-filled';
 export * from './components/ethereum-colorful';
+export * from './components/ethereum-circle-colorful';
 export * from './components/ethereum-circle-filled';
 
 export * from './components/sui-filled';
@@ -27,5 +28,11 @@ export * from './components/sui-circle-filled';
 export * from './components/tron-filled';
 export * from './components/tron-colorful';
 export * from './components/tron-circle-filled';
+
+export * from './components/arbitrum-circle-colorful';
+export * from './components/base-circle-colorful';
+export * from './components/avalanche-circle-colorful';
+export * from './components/polygon-circle-colorful';
+export * from './components/fantom-circle-colorful';
 
 export * from './components/chrome-circle-colorful';

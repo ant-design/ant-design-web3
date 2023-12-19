@@ -8,7 +8,7 @@ import { ConfigProvider } from 'antd';
 export const EtherscanCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>(
   (props, ref) => {
     const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
-    const prefixCls = getPrefixCls('web3-icon-etherscan-colorful');
+    const prefixCls = getPrefixCls('web3-icon-etherscan-circle-colorful');
     return (
       <AntdIcon
         {...props}

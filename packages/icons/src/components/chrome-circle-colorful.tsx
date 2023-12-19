@@ -8,7 +8,7 @@ import { ConfigProvider } from 'antd';
 export const ChromeCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>(
   (props, ref) => {
     const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
-    const prefixCls = getPrefixCls('web3-icon-chrome-colorful');
+    const prefixCls = getPrefixCls('web3-icon-chrome-circle-colorful');
     return (
       <AntdIcon
         {...props}
@@ -19,5 +19,4 @@ export const ChromeCircleColorful = React.forwardRef<HTMLSpanElement, IconBasePr
     );
   },
 );
-
 ChromeCircleColorful.displayName = 'ChromeCircleColorful';
