@@ -49,8 +49,8 @@ order: 0
 | 属性              | 描述               | 类型                              | 默认值 | 版本 |
 | ----------------- | ------------------ | --------------------------------- | ------ | ---- |
 | account           | 当前连接的账户地址 | `string`                          | -      | -    |
-| onConnectClick    | 连接事件           | `React.MouseEventHandler`         | -      | -    |
-| onDisconnectClick | 断开连接事件       | `React.MouseEventHandler`         | -      | -    |
+| onConnectClick    | 连接事件           | `() => void;`                     | -      | -    |
+| onDisconnectClick | 断开连接事件       | `() => void;`                     | -      | -    |
 | onSwitchChain     | 切换网络事件       | `(chain: Chain) => Promise<viod>` | -      | -    |
 | connected         | 是否已连接         | `boolean`                         | -      | -    |
 | chains            | 当前连接的网络列表 | `ChainSelectItem[]`               | -      | -    |

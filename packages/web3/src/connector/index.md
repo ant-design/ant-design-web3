@@ -49,8 +49,8 @@ The properties of the `children` component of `Connector` are inherited and util
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | account | The currently connected account | `string` | - | - |
-| onConnectClick | Connection event | `React.MouseEventHandler` | - | - |
-| onDisconnectClick | Disconnection event | `React.MouseEventHandler` | - | - |
+| onConnectClick | Connection event | `() => void;` | - | - |
+| onDisconnectClick | Disconnection event | `() => void;` | - | - |
 | onSwitchChain | Network switch event | `(chain: Chain) => Promise<viod>` | - | - |
 | connected | Is Connected | `boolean` | - | - |
 | chains | List of networks currently connected | `ChainSelectItem[]` | - | - |
