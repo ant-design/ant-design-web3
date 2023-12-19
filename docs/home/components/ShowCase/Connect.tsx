@@ -2,7 +2,7 @@ import styles from './index.module.less';
 import { ConnectModal, type Wallet } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import classNames from 'classnames';
-import './connect.less';
+import s from './connect.module.less';
 import { ConfigProvider, theme } from 'antd';
 import { usePrefersColor } from 'dumi';
 
@@ -55,9 +55,9 @@ export default () => {
         algorithm: color === 'dark' ? theme.darkAlgorithm : undefined,
       }}
     >
-      <div className={styles.cardBg}>
+      <div className={classNames(styles.cardBg, s.cardBg)}>
         <span className={styles.title}>Connect Wallet</span>
-        <div className={classNames(styles.connectContainer, 'connect-container')}>
+        <div className={classNames(styles.connectContainer, s.connectModalContainer)}>
           <ConnectModal.ModalPanel
             title="Connect Wallet"
             footer="Powered by AntChain"

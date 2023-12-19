@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Dropdown, Space, ConfigProvider, Divider, Button } from 'antd';
 import type { Chain } from '@ant-design/web3-common';
 import classNames from 'classnames';
@@ -23,11 +23,11 @@ export const ChainSelect: React.FC<ChainSelectProps> = ({
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-button-chain-select');
-
   return (
-    <Button>
+    <Button className={`${prefixCls}-button`}>
       <Dropdown
         className={classNames(className, hashId, prefixCls)}
+        overlayClassName={`${prefixCls}-dropdown`}
         menu={{
           items: chains.map((chain) => ({
             key: chain.id,
@@ -40,7 +40,7 @@ export const ChainSelect: React.FC<ChainSelectProps> = ({
         }}
         trigger={['click']}
       >
-        <div style={style}>
+        <div className={`${prefixCls}-placeholder`} style={style}>
           <Space>
             {currentChain?.icon}
             {currentChain?.name}

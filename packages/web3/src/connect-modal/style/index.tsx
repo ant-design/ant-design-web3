@@ -16,6 +16,7 @@ export interface ComponentToken {
 
 export interface ConnectModalToken extends Web3AliasToken {
   // Custom token here
+  contentBorderRadius: number;
   selectedBg: string;
   selectedColor: string;
   hoverBg: string;
@@ -38,7 +39,7 @@ const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
           padding: 0,
         },
         [`.ant-modal-close`]: {
-          top: 13,
+          top: 24,
           color: token.listItemDescriptionColor,
           '&:hover': {
             color: token.colorText,
@@ -62,7 +63,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
   return [
     {
       [`${componentCls}`]: {
-        borderRadius: token.borderRadiusLG,
+        borderRadius: token.contentBorderRadius,
         overflow: 'hidden',
         paddingBlockEnd: 0,
         '.ant-modal-content': {
@@ -97,16 +98,16 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
         [`${componentCls}-list-panel, ${componentCls}-main-panel`]: {
           height: '100%',
           boxSizing: 'border-box',
-          padding: 12,
         },
         [`${componentCls}-list-panel`]: {
+          paddingInline: 18,
+          paddingBlock: 24,
           width: 268,
           flexShrink: 0,
           borderRight: `1px solid ${token.splitColor}`,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          padding: '10px 18px 24px',
           boxSizing: 'border-box',
           [`${componentCls}-header`]: {
             height: 30,
@@ -182,6 +183,8 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
         [`${componentCls}-main-panel`]: {
           flexGrow: 1,
           boxSizing: 'border-box',
+          paddingBlock: 24,
+          paddingInline: 40,
           [`${componentCls}-main-panel-header`]: {
             display: 'flex',
             [`${componentCls}-main-panel-header-back`]: {
@@ -240,7 +243,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                   color: token.listItemDescriptionColor,
                   marginBlockStart: 4,
                   wordBreak: 'break-word',
-                  textAlign: 'justify',
                 },
               },
             },
@@ -252,6 +254,8 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               : token.colorPrimary,
             color: token.colorTextLightSolid,
             opacity: 0.8,
+            height: 40,
+            fontSize: token.fontSizeLG,
             ['&:hover']: {
               opacity: 1,
             },
@@ -278,8 +282,12 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 '&:last-child': {
                   marginBlockEnd: 0,
                 },
-                '.ant-avatar': {
-                  background: new TinyColor(token.colorText).setAlpha(0.25).toRgbString(),
+                '.anticon': {
+                  fontSize: 48,
+                  '>svg': {
+                    width: '100%',
+                    height: '100%',
+                  },
                 },
                 '.ant-list-item-meta-title': {
                   color: token.colorText,
@@ -449,6 +457,7 @@ export function useStyle(prefixCls: string) {
       cardBg: new TinyColor(token.colorText).setAlpha(0.1).toRgbString(),
       iconSize: token.sizeXL,
       web3ComponentsCls: `.${prefixCls}`,
+      contentBorderRadius: 24,
     });
     return [genModalStyle(connectModalToken)];
   });
