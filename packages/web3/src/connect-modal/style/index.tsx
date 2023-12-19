@@ -380,12 +380,21 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 marginInline: 'auto',
               },
             },
+            [`${componentCls}-qr-code-link`]: {
+              marginTop: token.marginSM,
+              textAlign: 'center',
+              display: 'block',
+            },
+            [`${componentCls}-qr-code-link-loading`]: {
+              cursor: 'not-allowed',
+              color: token.colorTextDisabled,
+            },
             [`${componentCls}-qr-code-tips`]: {
               color: token.listItemDescriptionColor,
               fontSize: token.fontSizeLG,
               position: 'relative',
               width: '100%',
-              marginBlockStart: 58,
+              marginBlockStart: token.marginMD,
               [`${componentCls}-get-wallet-btn`]: {
                 position: 'absolute',
                 right: 0,

@@ -379,6 +379,11 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                           />
                         </svg>
                       </div>
+                      <a
+                        class="ant-web3-connect-modal-qr-code-link ant-web3-connect-modal-qr-code-link-loading"
+                      >
+                        Click to connect directly
+                      </a>
                     </div>
                     <div
                       class="ant-web3-connect-modal-qr-code-tips"
@@ -791,6 +796,11 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                           />
                         </svg>
                       </div>
+                      <a
+                        class="ant-web3-connect-modal-qr-code-link ant-web3-connect-modal-qr-code-link-loading"
+                      >
+                        Click to connect directly
+                      </a>
                     </div>
                     <div
                       class="ant-web3-connect-modal-qr-code-tips"
