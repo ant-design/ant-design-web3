@@ -3,6 +3,7 @@ import type { Wallet } from '../interface';
 import MainPanelHeader from './MainPanelHeader';
 import { connectModalContext } from '../context';
 import { Button, QRCode } from 'antd';
+import classNames from 'classnames';
 
 export type QrCodeProps = {
   wallet: Wallet;
@@ -41,6 +42,14 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
           iconSize={60}
           type="svg"
         />
+        <a
+          className={classNames(`${prefixCls}-qr-code-link`, {
+            [`${prefixCls}-qr-code-link-loading`]: loading,
+          })}
+          href={!loading ? qrCodeValue : undefined}
+        >
+          Click to connect directly
+        </a>
       </div>
       <div className={`${prefixCls}-qr-code-tips`}>
         Don&apos;t have {wallet.name}?
