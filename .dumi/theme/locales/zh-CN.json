@@ -7,7 +7,8 @@
   "app.docs.components.icon.category.chain": "链图标",
   "app.docs.components.icon.category.tool": "工具图标",
   "app.docs.components.icon.category.other": "其他图标",
-  "app.docs.components.index.banner.button-text": "开始使用",
+
+  "app.docs.site.index.banner.button-text": "开始使用",
 
   "app.docs.site.features.0.title": "Ant Design 友好",
   "app.docs.site.features.0.description": "Ant Design Web3 的设计体系与 Ant Design 无缝衔接，开发者使用更容易。",
@@ -17,5 +18,8 @@
   "app.docs.site.features.2.description": "Ant Design Web3 设计具有良好的扩展性，允许你通过适配器适应不同的链。",
 
   "app.docs.site.theme.title": "随心所欲地定制主题",
-  "app.docs.site.theme.description": "开放更多的样式算法，使定制你的主题更加容易"
+  "app.docs.site.theme.description": "开放更多的样式算法，使定制你的主题更加容易",
+
+  "app.docs.site.case.title": "丰富组件，轻松选择",
+  "app.docs.site.case.description": "满足您需求的大量实用组件，灵活的定制与扩展功能"
 }
