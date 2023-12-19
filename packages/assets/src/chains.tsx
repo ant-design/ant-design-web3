@@ -1,11 +1,11 @@
 import { type Chain, ChainIds } from '@ant-design/web3-common';
 
 import {
-  EthereumColorful,
+  EthereumCircleColorful,
   OptimismCircleColorful,
   BSCCircleColorful,
-  ArbitrumColorful,
-  PolygonColorful,
+  ArbitrumCircleColorful,
+  PolygonCircleColorful,
   EtherscanCircleColorful,
   EthereumFilled,
 } from '@ant-design/web3-icons';
@@ -13,7 +13,7 @@ import {
 export const Mainnet: Chain = {
   id: ChainIds.Mainnet,
   name: 'Ethereum',
-  icon: <EthereumColorful />,
+  icon: <EthereumCircleColorful />,
   browser: {
     icon: <EtherscanCircleColorful />,
     getBrowserLink: (address: string, type: string) => {
@@ -31,14 +31,14 @@ export const Mainnet: Chain = {
 export const Goerli: Chain = {
   id: ChainIds.Goerli,
   name: 'Goerli',
-  icon: <EthereumColorful />,
+  icon: <EthereumCircleColorful />,
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
 };
 
 export const Polygon: Chain = {
   id: ChainIds.Polygon,
   name: 'Polygon',
-  icon: <PolygonColorful />,
+  icon: <PolygonCircleColorful />,
   nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },
 };
 
@@ -52,7 +52,7 @@ export const BSC: Chain = {
 export const Arbitrum: Chain = {
   id: ChainIds.Arbitrum,
   name: 'Arbitrum One',
-  icon: <ArbitrumColorful />,
+  icon: <ArbitrumCircleColorful />,
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
 };
 

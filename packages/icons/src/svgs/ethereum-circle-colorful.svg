@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1789, -5945)" id="ethereum-circle-colorful">
+            <g transform="translate(1789, 5945)">
+                <g fill="#587EF2" fill-rule="nonzero">
+                    <rect x="0" y="0" width="1024" height="1024" rx="512"></rect>
+                </g>
+                <g id="Protocol=Ethereum,-Effect=None-Clipped">
+                    <mask fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="path-1"></g>
+                    <g mask="url(#mask-2)">
+                        <circle cx="512" cy="512" r="512"></circle>
+                        <polygon fill="#BDCCFB" fill-rule="nonzero" points="511.962209 182.857143 507.434666 197.858743 507.434666 633.131886 511.962209 637.538743 719.110095 518.107429"></polygon>
+                        <polygon fill="#FFFFFF" fill-rule="nonzero" points="511.914666 182.857143 304.761905 518.107429 511.914666 637.538743 511.914666 426.269257"></polygon>
+                        <polygon fill="#BDCCFB" fill-rule="nonzero" points="511.962209 675.791237 509.410743 678.826666 509.410743 833.877334 511.962209 841.144077 719.236877 556.422095"></polygon>
+                        <polygon fill="#FFFFFF" fill-rule="nonzero" points="511.914666 841.144077 511.914666 675.791237 304.761905 556.422095"></polygon>
+                        <polygon fill="#7A98F5" fill-rule="nonzero" points="511.886629 637.531429 719.034514 518.101334 511.886629 426.261943"></polygon>
+                        <polygon fill="#BDCCFB" fill-rule="nonzero" points="304.761905 518.101334 511.914666 637.531429 511.914666 426.261943"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

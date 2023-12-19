@@ -10,11 +10,12 @@ const chain = [
   'BSC',
   'Ethereum',
   'Optimism',
-
   'Polygon',
   'Sui',
   'Tron',
   'USDT',
+  'Base',
+  'Avalanche',
 ];
 
 const tool = ['CoinbaseWallet', 'Etherscan', 'MetaMask', 'WalletConnect'];
