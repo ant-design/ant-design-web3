@@ -35,6 +35,17 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
         marginRight: token.marginXS,
       },
     },
+    [`${token.componentCls}-chain-select-dropdown`]: {
+      border: `1px solid ${token.colorBorder}`,
+      borderRadius: token.borderRadiusLG,
+      marginBlockStart: 12,
+    },
+    [`${token.componentCls}-chain-select-button`]: {
+      padding: 0,
+    },
+    [`${token.componentCls}-chain-select-placeholder`]: {
+      padding: `4px 15px`,
+    },
 
     [`${token.componentCls}-profile-modal`]: {
       [`${token.antCls}-modal-content`]: {
