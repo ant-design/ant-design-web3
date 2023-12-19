@@ -1,8 +1,8 @@
 import type { WalletMetadata } from '@ant-design/web3-common';
-import { CoinbaseWalletColorful, ChromeColorful } from '@ant-design/web3-icons';
+import { CoinbaseWalletCircleColorful, ChromeCircleColorful } from '@ant-design/web3-icons';
 
 export const metadata_CoinbaseWallet: WalletMetadata = {
-  icon: <CoinbaseWalletColorful />,
+  icon: <CoinbaseWalletCircleColorful />,
   name: 'Coinbase Wallet',
   remark: 'Coinbase Wallet',
   app: {
@@ -11,7 +11,7 @@ export const metadata_CoinbaseWallet: WalletMetadata = {
   extensions: [
     {
       key: 'Chrome',
-      browserIcon: <ChromeColorful />,
+      browserIcon: <ChromeCircleColorful />,
       browserName: 'Chrome',
       link: 'https://chromewebstore.google.com/detail/coinbase-wallet-extension/hnfanknocfeofbddgcijnmhnfnkdnaad',
       description: 'Access your wallet right from your favorite web browser.',

@@ -2,11 +2,11 @@ import { type Chain, ChainIds } from '@ant-design/web3-common';
 
 import {
   EthereumColorful,
-  OptimismColorful,
-  BSCColorful,
+  OptimismCircleColorful,
+  BSCCircleColorful,
   ArbitrumColorful,
   PolygonColorful,
-  EtherscanColorful,
+  EtherscanCircleColorful,
   EthereumFilled,
 } from '@ant-design/web3-icons';
 
@@ -15,7 +15,7 @@ export const Mainnet: Chain = {
   name: 'Ethereum',
   icon: <EthereumColorful />,
   browser: {
-    icon: <EtherscanColorful />,
+    icon: <EtherscanCircleColorful />,
     getBrowserLink: (address: string, type: string) => {
       if (type === 'address') {
         return `https://etherscan.io/address/${address}`;
@@ -45,7 +45,7 @@ export const Polygon: Chain = {
 export const BSC: Chain = {
   id: ChainIds.BSC,
   name: 'BNB Smart Chain',
-  icon: <BSCColorful />,
+  icon: <BSCCircleColorful />,
   nativeCurrency: { decimals: 18, name: 'BNB', symbol: 'BNB' },
 };
 
@@ -59,6 +59,6 @@ export const Arbitrum: Chain = {
 export const Optimism: Chain = {
   id: ChainIds.Optimism,
   name: 'OP Mainnet',
-  icon: <OptimismColorful />,
+  icon: <OptimismCircleColorful />,
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
 };
