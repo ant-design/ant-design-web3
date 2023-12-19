@@ -52,12 +52,13 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         onConnectClick: () => {
           setOpen(true);
         },
-        onDisconnectClick: async () => {
+        onDisconnectClick: () => {
           setLoading(true);
           onDisconnect?.();
-          await disconnect?.();
-          onDisconnected?.();
-          setLoading(false);
+          disconnect?.().then(() => {
+            onDisconnected?.();
+            setLoading(false);
+          });
         },
         balance,
         availableChains,

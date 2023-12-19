@@ -10,7 +10,7 @@ const App: React.FC = () => {
       onConnectClick={() => {
         setAccount(mockAccount);
       }}
-      onDisconnectClick={async () => {
+      onDisconnectClick={() => {
         setAccount(undefined);
       }}
     />

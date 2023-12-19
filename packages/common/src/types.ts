@@ -157,7 +157,7 @@ export interface ConnectorTriggerProps {
   account?: Account;
   loading?: boolean;
   onConnectClick?: () => void;
-  onDisconnectClick?: () => Promise<void>;
+  onDisconnectClick?: () => void;
   onSwitchChain?: (chain: Chain) => Promise<void>;
   availableChains?: Chain[];
   chain?: Chain;
