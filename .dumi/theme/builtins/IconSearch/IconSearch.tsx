@@ -1,5 +1,5 @@
 import React, { CSSProperties, useCallback, useMemo, useState } from 'react';
-import { Affix, Empty, Input, Segmented, type SegmentedProps } from 'antd';
+import { Affix, Empty, Input, Segmented, Grid, type SegmentedProps } from 'antd';
 import AntdIcon from '@ant-design/icons';
 import * as AntdWeb3Icons from '@ant-design/web3-icons';
 import { createStyles, useTheme } from 'antd-style';
@@ -29,26 +29,27 @@ const useStyle = createStyles(({ css }) => ({
 
 const options = (
   formatMessage: (values: Record<string, string>) => React.ReactNode,
+  onlyIcon?: boolean,
 ): SegmentedProps['options'] => [
   {
     value: ThemeType.CircleColorful,
     icon: <AntdIcon component={CircleColorfulIcon} />,
-    label: formatMessage({ id: 'app.docs.components.icon.circle-colorful' }),
+    label: !onlyIcon && formatMessage({ id: 'app.docs.components.icon.circle-colorful' }),
   },
   {
     value: ThemeType.Colorful,
     icon: <AntdIcon component={ColorfulIcon} />,
-    label: formatMessage({ id: 'app.docs.components.icon.colorful' }),
+    label: !onlyIcon && formatMessage({ id: 'app.docs.components.icon.colorful' }),
   },
   {
     value: ThemeType.CircleFilled,
     icon: <AntdIcon component={CircleFilledIcon} />,
-    label: formatMessage({ id: 'app.docs.components.icon.circle-filled' }),
+    label: !onlyIcon && formatMessage({ id: 'app.docs.components.icon.circle-filled' }),
   },
   {
     value: ThemeType.Filled,
     icon: <AntdIcon component={FilledIcon} />,
-    label: formatMessage({ id: 'app.docs.components.icon.filled' }),
+    label: !onlyIcon && formatMessage({ id: 'app.docs.components.icon.filled' }),
   },
 ];
 
@@ -60,6 +61,7 @@ interface IconSearchState {
 const IconSearch: React.FC = () => {
   const intl = useIntl();
   const token = useTheme();
+  const { md } = Grid.useBreakpoint();
   const { styles } = useStyle();
   const [displayState, setDisplayState] = useState<IconSearchState>({
     searchKey: '',
@@ -130,7 +132,7 @@ const IconSearch: React.FC = () => {
           <Segmented
             size="large"
             value={displayState.theme}
-            options={options(intl.formatMessage)}
+            options={options(intl.formatMessage, !md)}
             onChange={handleChangeTheme}
           />
           <Input.Search
