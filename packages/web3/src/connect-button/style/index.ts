@@ -57,6 +57,9 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
           flex: 1,
         },
       },
+      [`${token.componentCls}-chain-icon`]: {
+        fontSize: 32,
+      },
     },
 
     [`${token.componentCls}-tooltip`]: {

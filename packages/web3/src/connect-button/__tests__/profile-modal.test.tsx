@@ -1,5 +1,6 @@
 import { render, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { Polygon } from '@ant-design/web3-assets';
 import { mockClipboard } from '../../utils/test-utils';
 import { ProfileModal } from '../profile-modal';
 import { ConnectButton } from '..';
@@ -77,6 +78,29 @@ describe('ProfileModal', () => {
     });
   });
 
+  it('show chain icon as the default avatar', async () => {
+    const App = () => (
+      <ConnectButton
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
+        chain={Polygon}
+      />
+    );
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.ant-web3-connect-button')).not.toBeNull();
+
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button')!);
+
+    await vi.waitFor(() => {
+      expect(
+        baseElement.querySelector(
+          '.ant-web3-connect-button-chain-icon .ant-web3-icon-polygon-circle-colorful',
+        ),
+      ).not.toBeNull();
+    });
+  });
+
   it('Disconnect & Copy Address Button', () => {
     const disconnectTestFn = vi.fn();
     const App = () => (
@@ -95,6 +119,7 @@ describe('ProfileModal', () => {
     fireEvent.click(btns[0]);
     expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
   });
+
   it('should not display modal when pass false into profileModal', async () => {
     const App = () => (
       <ConnectButton
@@ -110,6 +135,7 @@ describe('ProfileModal', () => {
       expect(baseElement.querySelector('.ant-web3-connect-button-profile-modal')).toBeNull();
     });
   });
+
   it('profile modal should customize by profileModal', async () => {
     const App = () => (
       <ConnectButton
