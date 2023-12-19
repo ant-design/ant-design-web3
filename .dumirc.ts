@@ -28,7 +28,6 @@ export default defineConfig({
       github: 'https://github.com/ant-design/ant-design-web3',
       twitter: 'https://twitter.com/AntDesignWeb3',
     },
-    editLink: false,
   },
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
   metas: [
