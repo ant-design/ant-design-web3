@@ -5,11 +5,11 @@
   justify-content: space-between;
   .item {
     width: 350px;
-    white-space: break-word;
+    word-break: break-word;
+    font-family: Hevlvetica Neue, Helvetica, Arial, sans-serif;
     .icon {
       width: 72px;
       height: 72px;
-      background-color: #f5f5f5;
     }
     .title {
       color: rgba(0, 0, 0, 0.85);
@@ -17,7 +17,6 @@
       font-style: italic;
       font-weight: 400;
       line-height: 28px;
-      margin-block-start: 12px;
       margin-block-end: 8px;
     }
     .desc {
@@ -32,9 +31,6 @@
 
 [data-prefers-color='dark'] {
   .item {
-    .icon {
-      background-color: #262626;
-    }
     .title {
       color: rgba(255, 255, 255, 0.85);
     }

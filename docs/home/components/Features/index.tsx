@@ -32,7 +32,7 @@ export default () => {
     <div className={styles.container}>
       {features.map((feature, index) => (
         <div className={styles.item} key={index}>
-          <img src={feature.icon} alt={feature.title} />
+          <img className={styles.icon} src={feature.icon} alt={feature.title} />
           <div className={styles.title}>{feature.title}</div>
           <div className={styles.desc}>{feature.description}</div>
         </div>
