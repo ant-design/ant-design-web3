@@ -1,19 +1,19 @@
 export * from './components/arbitrum-colorful';
-export * from './components/bsc-colorful';
-export * from './components/optimism-colorful';
+export * from './components/bsc-circle-colorful';
+export * from './components/optimism-circle-colorful';
 export * from './components/polygon-colorful';
 export * from './components/wallet-colorful';
 export * from './components/wallet-white-colorful';
-export * from './components/etherscan-colorful';
+export * from './components/etherscan-circle-colorful';
 export * from './components/metamask-colorful';
 export * from './components/wallet-connect-colorful';
-export * from './components/coinbase-wallet-colorful';
+export * from './components/coinbase-wallet-circle-colorful';
 
 export * from './components/usdt-filled';
 export * from './components/usdt-circle-filled';
 
 export * from './components/bitcoin-filled';
-export * from './components/bitcoin-colorful';
+export * from './components/bitcoin-circle-colorful';
 export * from './components/bitcoin-circle-filled';
 
 export * from './components/ethereum-filled';
@@ -28,4 +28,4 @@ export * from './components/tron-filled';
 export * from './components/tron-colorful';
 export * from './components/tron-circle-filled';
 
-export * from './components/chrome-colorful';
+export * from './components/chrome-circle-colorful';

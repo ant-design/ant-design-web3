@@ -8,12 +8,13 @@ import debounce from 'lodash/debounce';
 
 import Category from './Category';
 import { categories, CategoriesKeys } from './fields';
-import { CircleFilledIcon, ColorfulIcon, FilledIcon } from './themeIcons';
+import { CircleFilledIcon, ColorfulIcon, CircleColorfulIcon, FilledIcon } from './themeIcons';
 
 export enum ThemeType {
   Filled = 'Filled',
   CircleFilled = 'CircleFilled',
   Colorful = 'Colorful',
+  CircleColorful = 'CircleColorful',
 }
 
 const allIcons: Record<string, any> = AntdWeb3Icons;
@@ -30,19 +31,24 @@ const options = (
   formatMessage: (values: Record<string, string>) => React.ReactNode,
 ): SegmentedProps['options'] => [
   {
+    value: ThemeType.CircleColorful,
+    icon: <AntdIcon component={CircleColorfulIcon} />,
+    label: formatMessage({ id: 'app.docs.components.icon.circle-colorful' }),
+  },
+  {
     value: ThemeType.Colorful,
     icon: <AntdIcon component={ColorfulIcon} />,
     label: formatMessage({ id: 'app.docs.components.icon.colorful' }),
   },
   {
-    value: ThemeType.Filled,
-    icon: <AntdIcon component={FilledIcon} />,
-    label: formatMessage({ id: 'app.docs.components.icon.filled' }),
-  },
-  {
     value: ThemeType.CircleFilled,
     icon: <AntdIcon component={CircleFilledIcon} />,
     label: formatMessage({ id: 'app.docs.components.icon.circle-filled' }),
+  },
+  {
+    value: ThemeType.Filled,
+    icon: <AntdIcon component={FilledIcon} />,
+    label: formatMessage({ id: 'app.docs.components.icon.filled' }),
   },
 ];
 
@@ -57,7 +63,7 @@ const IconSearch: React.FC = () => {
   const { styles } = useStyle();
   const [displayState, setDisplayState] = useState<IconSearchState>({
     searchKey: '',
-    theme: ThemeType.Colorful,
+    theme: ThemeType.CircleColorful,
   });
 
   const newIconNames: string[] = [];

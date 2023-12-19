@@ -1,7 +1,7 @@
 import * as AntdWeb3Icons from '@ant-design/web3-icons';
 
 const all = Object.keys(AntdWeb3Icons)
-  .map((n) => n.replace(/(Colorful|CircleFilled|Filled)$/, ''))
+  .map((n) => n.replace(/(CircleColorful|Colorful|Filled|CircleFilled)$/, ''))
   .filter((n, i, arr) => arr.indexOf(n) === i);
 
 const chain = [

@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { LinkOutlined } from '@ant-design/icons';
 import { ChainIds, Web3ConfigProvider } from '@ant-design/web3-common';
-import { BitcoinColorful } from '@ant-design/web3-icons';
+import { BitcoinCircleColorful } from '@ant-design/web3-icons';
 import { Mainnet } from '@ant-design/web3-assets';
 
 describe('BrowserLink', () => {
@@ -105,7 +105,7 @@ describe('BrowserLink', () => {
     rerender(
       <Web3ConfigProvider availableChains={[Mainnet]} chain={Mainnet}>
         <BrowserLink
-          icon={<BitcoinColorful />}
+          icon={<BitcoinCircleColorful />}
           address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
         />
         ,
@@ -118,7 +118,7 @@ describe('BrowserLink', () => {
     const { baseElement } = render(
       <Web3ConfigProvider chain={Mainnet}>
         <BrowserLink
-          icon={<BitcoinColorful />}
+          icon={<BitcoinCircleColorful />}
           address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
           iconStyle={{ fontSize: 40 }}
         />
@@ -134,14 +134,14 @@ describe('BrowserLink', () => {
     const { baseElement } = render(
       <Web3ConfigProvider chain={Mainnet}>
         <BrowserLink
-          icon={<BitcoinColorful />}
+          icon={<BitcoinCircleColorful />}
           address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
           iconStyle={{ fontSize: 40 }}
           type="transaction"
           chain={{
             id: ChainIds.BSC,
             name: 'custom',
-            icon: <BitcoinColorful />,
+            icon: <BitcoinCircleColorful />,
             browser: {
               getBrowserLink: (address: string, type: string) => {
                 return `https://custom.com/${address}/${type}`;

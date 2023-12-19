@@ -1,5 +1,5 @@
 import type { WalletMetadata } from '@ant-design/web3-common';
-import { MetaMaskColorful, ChromeColorful } from '@ant-design/web3-icons';
+import { MetaMaskColorful, ChromeCircleColorful } from '@ant-design/web3-icons';
 
 export const metadata_MetaMask: WalletMetadata = {
   icon: <MetaMaskColorful />,
@@ -11,7 +11,7 @@ export const metadata_MetaMask: WalletMetadata = {
   extensions: [
     {
       key: 'Chrome',
-      browserIcon: <ChromeColorful />,
+      browserIcon: <ChromeCircleColorful />,
       browserName: 'Chrome',
       link: 'https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn',
       description: 'Access your wallet right from your favorite web browser.',
