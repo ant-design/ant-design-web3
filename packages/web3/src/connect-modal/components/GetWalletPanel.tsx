@@ -44,7 +44,7 @@ const GetWalletPanel: React.FC<GetWalletPanelProps> = (props) => {
             >
               <List.Item.Meta
                 avatar={
-                  <Avatar shape="square" src={item.icon}>
+                  <Avatar size={48} shape="square" src={item.icon}>
                     {item.name[0]}
                   </Avatar>
                 }
