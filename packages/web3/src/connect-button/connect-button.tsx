@@ -125,7 +125,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       name={account?.name}
       avatar={
         avatar ?? {
-          src: chain?.icon,
+          src: <div className={`${prefixCls}-chain-icon`}>{chain?.icon}</div>,
         }
       }
       balance={balance}
