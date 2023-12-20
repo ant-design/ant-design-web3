@@ -72,13 +72,9 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
       },
 
       [`${componentCls}-body`]: {
-        minHeight: 557,
         display: 'flex',
         justifyContent: 'space-between',
         position: 'relative',
-        [`&${componentCls}-body-mini`]: {
-          minHeight: 490,
-        },
 
         [`${componentCls}-title`]: {
           fontSize: 20,
@@ -181,8 +177,8 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
         [`${componentCls}-main-panel`]: {
           flexGrow: 1,
           boxSizing: 'border-box',
-          paddingBlock: 24,
-          paddingInline: 40,
+          paddingBlock: token.paddingLG,
+          paddingInline: token.paddingXL,
           [`${componentCls}-main-panel-header`]: {
             display: 'flex',
             [`${componentCls}-main-panel-header-back`]: {
@@ -415,17 +411,13 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             width: '100%',
           },
           [`${componentCls}-main-panel`]: {
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            width: '100%',
-            height: '100%',
+            paddingInline: token.paddingLG,
             background: token.colorBgContainer,
             [`${componentCls}-qr-code-box`]: {
               marginBlockStart: 24,
             },
             [`${componentCls}-qr-code-tips`]: {
-              marginBlockStart: 46,
+              marginBlockStart: token.marginXL,
             },
           },
         },
