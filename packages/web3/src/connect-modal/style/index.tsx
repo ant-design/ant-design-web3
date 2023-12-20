@@ -268,7 +268,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             height: '100%',
             [`${componentCls}-list`]: {
               marginBlockStart: 32,
-              maxHeight: 350,
+              minHeight: 286,
               overflow: 'auto',
               [`${componentCls}-item`]: {
                 marginBlockEnd: 24,
@@ -301,11 +301,9 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               },
             },
             [`${componentCls}-info`]: {
-              position: 'absolute',
-              bottom: 0,
               width: 312,
-              left: '50%',
-              transform: 'translateX(-50%)',
+              marginInline: 'auto',
+              marginTop: token.marginXXL,
               textAlign: 'center',
               h3: {
                 fontSize: token.fontSizeLG,
