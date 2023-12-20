@@ -1,9 +1,9 @@
 import { Avatar, Button } from 'antd';
 import React, { useContext } from 'react';
 import { connectModalContext } from '../context';
-import type { MainPanelProps } from '../interface';
+import type { ConnectModalProps } from '../interface';
 
-const defaultGuide: MainPanelProps['guide'] = {
+const defaultGuide: ConnectModalProps['guide'] = {
   title: 'What is a Wallet?',
   infos: [
     {
@@ -28,7 +28,9 @@ const defaultGuide: MainPanelProps['guide'] = {
   moreLinkText: 'Learn More',
 };
 
-const DefaultGuidePanel: React.FC<MainPanelProps> = (props) => {
+const DefaultGuidePanel: React.FC<{
+  guide?: ConnectModalProps['guide'];
+}> = (props) => {
   const { guide = defaultGuide } = props;
 
   const { prefixCls, updatePanelRoute } = useContext(connectModalContext);
