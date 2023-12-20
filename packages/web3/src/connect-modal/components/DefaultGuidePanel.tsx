@@ -91,6 +91,7 @@ const DefaultGuidePanel: React.FC<MainPanelProps> = (props) => {
       {renderContent()}
       <Button
         block
+        size="large"
         type="primary"
         className={`${prefixCls}-get-btn`}
         onClick={() => updatePanelRoute('getWallet')}

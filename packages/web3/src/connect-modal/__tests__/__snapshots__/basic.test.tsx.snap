@@ -1216,7 +1216,7 @@ exports[`ConnectModal with guide > should display default guide when guide is tr
                       </div>
                     </div>
                     <button
-                      class="ant-btn css-dev-only-do-not-override-p7e5j5 ant-btn-primary ant-btn-block ant-web3-connect-modal-get-btn"
+                      class="ant-btn css-dev-only-do-not-override-p7e5j5 ant-btn-primary ant-btn-lg ant-btn-block ant-web3-connect-modal-get-btn"
                       type="button"
                     >
                       <span>
@@ -1657,7 +1657,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                       </div>
                     </div>
                     <button
-                      class="ant-btn css-dev-only-do-not-override-1v7djfy ant-btn-primary ant-btn-block ant-web3-connect-modal-get-btn"
+                      class="ant-btn css-dev-only-do-not-override-1v7djfy ant-btn-primary ant-btn-lg ant-btn-block ant-web3-connect-modal-get-btn"
                       type="button"
                     >
                       <span>
@@ -2098,7 +2098,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                       </div>
                     </div>
                     <button
-                      class="ant-btn css-dev-only-do-not-override-p7e5j5 ant-btn-primary ant-btn-block ant-web3-connect-modal-get-btn"
+                      class="ant-btn css-dev-only-do-not-override-p7e5j5 ant-btn-primary ant-btn-lg ant-btn-block ant-web3-connect-modal-get-btn"
                       type="button"
                     >
                       <span>
