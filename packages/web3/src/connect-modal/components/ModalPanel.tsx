@@ -30,19 +30,22 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
         `${prefixCls}-body`,
         {
           [`${prefixCls}-body-simple`]: isSimple,
-          [`${prefixCls}-body-mini`]: panelRoute === 'qrCode' && !guide,
         },
         hashId,
       )}
     >
-      <div className={classNames(`${prefixCls}-list-panel`)}>
-        <div className={`${prefixCls}-header`}>{mergedTitle}</div>
-        <div className={`${prefixCls}-list-container`}>
-          <WalletList walletList={walletList} groupOrder={groupOrder} />
+      {(panelRoute === 'init' || !isSimple) && (
+        <div className={classNames(`${prefixCls}-list-panel`)}>
+          <div className={`${prefixCls}-header`}>{mergedTitle}</div>
+          <div className={`${prefixCls}-list-container`}>
+            <WalletList walletList={walletList} groupOrder={groupOrder} />
+          </div>
+          {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
         </div>
-        {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
-      </div>
-      {!(panelRoute === 'init' && isSimple) && <MainPanel guide={guide} walletList={walletList} />}
+      )}
+      {!(panelRoute === 'init' && isSimple) && (
+        <MainPanel simple={isSimple} guide={guide} walletList={walletList} />
+      )}
     </div>,
   );
 };

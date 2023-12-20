@@ -8,11 +8,11 @@ import classNames from 'classnames';
 
 export type QrCodeProps = {
   wallet: Wallet;
-  isSimple?: boolean;
+  simple?: boolean;
 };
 
 const QrCode: React.FC<QrCodeProps> = (props) => {
-  const { wallet, isSimple } = props;
+  const { wallet, simple } = props;
   const { prefixCls, updatePanelRoute, updateSelectedWallet } = useContext(connectModalContext);
   const [qrCodeValue, setQrCodeValue] = useState('https://ant-design.github.io/ant-design-web3');
   const [loading, setLoading] = useState(false);
@@ -39,7 +39,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
           className={`${prefixCls}-qr-code`}
           value={qrCodeValue}
           status={!loading ? 'active' : 'loading'}
-          size={isSimple ? 334 : 400}
+          size={simple ? 332 : 400}
           iconSize={60}
           type="svg"
         />
