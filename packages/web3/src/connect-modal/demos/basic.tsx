@@ -64,7 +64,6 @@ const App: React.FC = () => {
         groupOrder={groupOrder}
         walletList={walletList}
         onCancel={() => setOpen(false)}
-        guide
       />
     </>
   );

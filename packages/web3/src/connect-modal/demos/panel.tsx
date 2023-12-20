@@ -62,7 +62,6 @@ const App: React.FC = () => {
     >
       <ConnectModal.ModalPanel
         title="ConnectModal"
-        guide
         footer="Powered by AntChain"
         groupOrder={groupOrder}
         walletList={walletList}

@@ -29,30 +29,22 @@ const defaultGuide: MainPanelProps['guide'] = {
 };
 
 const DefaultGuidePanel: React.FC<MainPanelProps> = (props) => {
-  const { guide } = props;
+  const { guide = defaultGuide } = props;
 
-  const mergedGuide = React.useMemo(() => {
-    if (guide === false || guide === null) {
-      return null;
-    }
-    if (guide === true) {
-      return defaultGuide;
-    }
-    return guide;
-  }, [guide]);
+  console.log('get guide', guide);
 
   const { prefixCls, updatePanelRoute } = useContext(connectModalContext);
 
-  if (!mergedGuide) {
+  if (!guide) {
     return null;
   }
 
   const renderContent = () => {
-    if (React.isValidElement(mergedGuide)) {
-      return mergedGuide;
+    if (React.isValidElement(guide)) {
+      return guide;
     }
 
-    const { title, infos } = mergedGuide;
+    const { title, infos } = guide;
     return (
       <>
         <h2 className={`${prefixCls}-guide-title`}>{title}</h2>
@@ -84,7 +76,7 @@ const DefaultGuidePanel: React.FC<MainPanelProps> = (props) => {
   const {
     getWalletBtnText = defaultGuide.getWalletBtnText,
     moreLinkText = defaultGuide.moreLinkText,
-  } = mergedGuide;
+  } = guide;
 
   return (
     <div className={`${prefixCls}-guide-panel`}>
@@ -102,7 +94,7 @@ const DefaultGuidePanel: React.FC<MainPanelProps> = (props) => {
         block
         type="link"
         className={`${prefixCls}-more`}
-        href={mergedGuide?.moreLink}
+        href={guide?.moreLink}
         target="_blank"
       >
         {moreLinkText}
