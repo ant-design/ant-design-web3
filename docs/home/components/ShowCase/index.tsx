@@ -1,3 +1,5 @@
+import { useIntl } from 'dumi';
+
 import styles from './index.module.less';
 import ConnectButton from './ConnectButton';
 import Address from './Address';
@@ -5,12 +7,13 @@ import Connect from './Connect';
 import NFTCard from './NFTCard';
 
 export default () => {
+  const intl = useIntl();
+
   return (
     <div className={styles.container}>
-      <h3 className={styles.title}>Rich components, easy to choose</h3>
+      <h3 className={styles.title}>{intl.formatMessage({ id: 'app.docs.site.case.title' })}</h3>
       <div className={styles.desc}>
-        A large number of practical components to meet your needs, flexible customization and
-        expansion
+        {intl.formatMessage({ id: 'app.docs.site.case.description' })}
       </div>
       <div className={styles.componentList}>
         <ConnectButton />
