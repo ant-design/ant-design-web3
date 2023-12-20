@@ -75,7 +75,7 @@ const App: React.FC = () => {
             padding: 0,
           }}
         >
-          <ConnectModal.ModalPanel walletList={walletList} guide />
+          <ConnectModal.ModalPanel walletList={walletList} />
         </Card>
       </ConfigProvider>
       <div className={`${styles.themeBtns}${color === 'dark' ? ` ${styles.dark}` : ''}`}>

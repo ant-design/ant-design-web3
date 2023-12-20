@@ -1,11 +1,16 @@
 import { ConnectModal } from '@ant-design/web3';
 import { groupOrder, guide, walletList } from './mock';
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+import { Grid } from 'antd';
 
 describe('ConnectModal with ConnectModal', () => {
   it('ModalPanel', async () => {
     expect(ConnectModal.ModalPanel).not.toBeUndefined();
+
+    vi.spyOn(Grid, 'useBreakpoint').mockReturnValue({
+      md: true, // ≥ 768px, mock PC
+    });
 
     const App = () => (
       <ConnectModal.ModalPanel
@@ -20,7 +25,7 @@ describe('ConnectModal with ConnectModal', () => {
 
     // should have simple class when without guide
     expect(baseElement.querySelector('.ant-web3-connect-modal-body')?.className).not.toContain(
-      'simple',
+      'ant-web3-connect-modal-body-simple',
     );
 
     // should have title and footer

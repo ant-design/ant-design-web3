@@ -6,5 +6,6 @@ export default function useMode(mode: ConnectModalProps['mode'] = 'auto') {
   const isSimple = mode === 'simple' || (mode === 'auto' && !md);
   return {
     isSimple,
+    md,
   };
 }

@@ -900,7 +900,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
 </body>
 `;
 
-exports[`ConnectModal with guide > should display default guide when guide is true 1`] = `
+exports[`ConnectModal with guide > should display default guide 1`] = `
 <body>
   <div />
   <div>

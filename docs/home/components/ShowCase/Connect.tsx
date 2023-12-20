@@ -62,7 +62,6 @@ export default () => {
             title="Connect Wallet"
             footer="Powered by AntChain"
             walletList={walletList}
-            guide
           />
         </div>
       </div>

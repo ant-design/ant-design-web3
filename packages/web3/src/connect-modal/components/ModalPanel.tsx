@@ -29,8 +29,8 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
       className={classNames(
         `${prefixCls}-body`,
         {
-          simple: isSimple,
-          mini: panelRoute === 'qrCode' && !guide,
+          [`${prefixCls}-body-simple`]: isSimple,
+          [`${prefixCls}-body-mini`]: panelRoute === 'qrCode' && !guide,
         },
         hashId,
       )}
