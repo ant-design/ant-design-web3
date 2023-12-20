@@ -11,7 +11,7 @@ export default () => {
 
   return (
     <div className={styles.container}>
-      <h3 className={styles.title}>{intl.formatMessage({ id: 'app.docs.site.case.title' })}</h3>
+      <h3 className={styles.headTitle}>{intl.formatMessage({ id: 'app.docs.site.case.title' })}</h3>
       <div className={styles.desc}>
         {intl.formatMessage({ id: 'app.docs.site.case.description' })}
       </div>

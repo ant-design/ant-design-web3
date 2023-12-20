@@ -16,10 +16,7 @@ export default () => {
           copyable
           address={'3ea2cfd153b8d8505097b81c87c11f5d05097c18'}
         />
-        <div>
-          default format:{' '}
-          <Address address={'3ea2cfd153b8d8505097b81c87c11f5d05097c18'} format={true} />
-        </div>
+        <Address address={'3ea2cfd153b8d8505097b81c87c11f5d05097c18'} format={true} />
       </Space>
     </div>
   );

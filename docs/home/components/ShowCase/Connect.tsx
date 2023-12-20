@@ -59,6 +59,7 @@ export default () => {
         <span className={styles.title}>Connect Wallet</span>
         <div className={classNames(styles.connectContainer, s.connectModalContainer)}>
           <ConnectModal.ModalPanel
+            mode="normal"
             title="Connect Wallet"
             footer="Powered by AntChain"
             walletList={walletList}
