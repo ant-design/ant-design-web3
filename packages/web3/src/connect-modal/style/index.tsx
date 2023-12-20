@@ -72,13 +72,12 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
       },
 
       [`${componentCls}-body`]: {
-        height: 557,
+        minHeight: 557,
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center',
         position: 'relative',
         '&.mini': {
-          height: 490,
+          minHeight: 490,
         },
 
         [`${componentCls}-title`]: {
@@ -254,7 +253,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               : token.colorPrimary,
             color: token.colorTextLightSolid,
             opacity: 0.8,
-            height: 40,
             fontSize: token.fontSizeLG,
             ['&:hover']: {
               opacity: 1,
