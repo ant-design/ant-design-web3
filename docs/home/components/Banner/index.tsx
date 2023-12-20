@@ -5,6 +5,7 @@ import styles from './index.module.less';
 
 const Banner: React.FC = () => {
   const intl = useIntl();
+
   return (
     <div className={styles.bannerContainer}>
       <img
@@ -21,8 +22,8 @@ const Banner: React.FC = () => {
           alt="title"
         />
         <div className={styles.btn}>
-          <Link to="/zh-CN/guide">
-            {intl.formatMessage({ id: 'app.docs.components.index.banner.button-text' })}
+          <Link to={`${intl.locale === 'zh-CN' ? '/zh-CN' : ''}/guide`}>
+            {intl.formatMessage({ id: 'app.docs.site.index.banner.button-text' })}
           </Link>
           <a href="https://github.com/ant-design/ant-design-web3" target="_blank" rel="noreferrer">
             GitHub
