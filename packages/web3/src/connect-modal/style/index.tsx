@@ -382,6 +382,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             },
             [`${componentCls}-qr-code-link`]: {
               marginTop: token.marginSM,
+              fontSize: token.fontSizeLG,
               textAlign: 'center',
               display: 'block',
             },
@@ -394,7 +395,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               fontSize: token.fontSizeLG,
               position: 'relative',
               width: '100%',
-              marginBlockStart: token.marginMD,
+              marginBlockStart: token.marginSM,
               [`${componentCls}-get-wallet-btn`]: {
                 position: 'absolute',
                 right: 0,

@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import type { Wallet } from '../interface';
 import MainPanelHeader from './MainPanelHeader';
 import { connectModalContext } from '../context';
-import { Button, QRCode } from 'antd';
+import { Button, QRCode, Space } from 'antd';
+import { ArrowRightOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 
 export type QrCodeProps = {
@@ -48,7 +49,10 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
           })}
           href={!loading ? qrCodeValue : undefined}
         >
-          Click to connect directly
+          <Space>
+            <span>Click to connect directly</span>
+            <ArrowRightOutlined />
+          </Space>
         </a>
       </div>
       <div className={`${prefixCls}-qr-code-tips`}>
