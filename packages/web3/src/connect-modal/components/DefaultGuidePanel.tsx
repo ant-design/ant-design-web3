@@ -31,8 +31,6 @@ const defaultGuide: MainPanelProps['guide'] = {
 const DefaultGuidePanel: React.FC<MainPanelProps> = (props) => {
   const { guide = defaultGuide } = props;
 
-  console.log('get guide', guide);
-
   const { prefixCls, updatePanelRoute } = useContext(connectModalContext);
 
   if (!guide) {
