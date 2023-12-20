@@ -76,7 +76,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
         display: 'flex',
         justifyContent: 'space-between',
         position: 'relative',
-        '&.mini': {
+        [`&${componentCls}-body-mini`]: {
           minHeight: 490,
         },
 
@@ -409,7 +409,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             },
           },
         },
-        '&.simple': {
+        [`&${componentCls}-body-simple`]: {
           [`${componentCls}-list-panel`]: {
             borderRight: 'none',
             width: '100%',

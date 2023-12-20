@@ -33,7 +33,7 @@ const App: React.FC = () => {
         console.log('onDisconnected');
       }}
       modalProps={{
-        guide: true,
+        title: 'Ant Design Web3',
       }}
     >
       <ConnectButton />

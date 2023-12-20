@@ -7,11 +7,12 @@ import MainPanel from './MainPanel';
 import { useContext } from 'react';
 import { connectModalContext } from '../context';
 import { useStyle } from '../style';
+import useMode from '../hooks/useMode';
 
 export type ModalPanelProps = ConnectModalProps;
 
 const ModalPanel: React.FC<ModalPanelProps> = (props) => {
-  const { title, footer, walletList, groupOrder, guide } = props;
+  const { title, footer, walletList, groupOrder, guide, mode } = props;
   const { panelRoute, prefixCls } = useContext(connectModalContext);
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
@@ -21,13 +22,15 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     (node) => <h2 className={`${prefixCls}-title`}>{node}</h2>,
   );
 
+  const { isSimple } = useMode(mode);
+
   return wrapSSR(
     <div
       className={classNames(
         `${prefixCls}-body`,
         {
-          simple: !guide,
-          mini: panelRoute === 'qrCode' && !guide,
+          [`${prefixCls}-body-simple`]: isSimple,
+          [`${prefixCls}-body-mini`]: panelRoute === 'qrCode' && !guide,
         },
         hashId,
       )}
@@ -39,9 +42,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
         </div>
         {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
       </div>
-      {((panelRoute !== 'guide' && !guide) || guide) && (
-        <MainPanel guide={guide} walletList={walletList} />
-      )}
+      {!(panelRoute === 'init' && isSimple) && <MainPanel guide={guide} walletList={walletList} />}
     </div>,
   );
 };

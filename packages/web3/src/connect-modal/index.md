@@ -42,7 +42,8 @@ The connection wallet popup, used with [ConnectButton](../connect-button) to com
 | footer | Custom footer | `React.ReactNode` | - | - |
 | walletList | Wallet list | `Wallet[]` | - | - |
 | groupOrder | Wallet group sorting function | `(a: string, b: string) => number` | - | - |
-| guide | Newbie guide panel | `boolean \| null` | [DefaultGuide](#defaultguide) | - |
+| mode | Popup mode | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
+| guide | Newbie guide content | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |
 
 Other modal properties see: [ModalProps](https://ant.design/components/modal#API)
 

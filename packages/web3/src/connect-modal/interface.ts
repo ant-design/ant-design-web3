@@ -90,9 +90,14 @@ export type ConnectModalProps = ModalProps & {
    * @desc 新手指引面板
    * @descEn Newbie guide panel
    */
-  guide?: boolean | null | DefaultGuide;
+  guide?: DefaultGuide;
+  /**
+   * @desc 弹窗模式
+   * @descEn modal mode
+   */
+  mode?: 'simple' | 'normal' | 'auto';
 };
 
-export type PanelRoute = 'guide' | 'getWallet' | 'wallet' | 'qrCode';
+export type PanelRoute = 'init' | 'guide' | 'getWallet' | 'wallet' | 'qrCode';
 
 export type MainPanelProps = Pick<ConnectModalProps, 'guide' | 'walletList'>;

@@ -72,7 +72,7 @@ const App: React.FC = () => {
             maxWidth: 737,
           }}
         >
-          <ConnectModal.ModalPanel walletList={walletList} guide />
+          <ConnectModal.ModalPanel walletList={walletList} />
         </Card>
       </ConfigProvider>
     </Space>

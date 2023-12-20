@@ -15,7 +15,7 @@ export const connectModalContext = React.createContext<ConnectModalContext>({
   prefixCls: 'ant-web3-connect-modal',
   selectedWallet: undefined,
   updateSelectedWallet: () => {},
-  panelRoute: 'guide',
+  panelRoute: 'init',
   updatePanelRoute: () => {},
   panelRouteBack: () => {},
   canBack: false,

@@ -3,9 +3,8 @@ import { groupOrder, guide, walletList } from './mock';
 import { fireEvent, render } from '@testing-library/react';
 import { useEffect, useState } from 'react';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { ConfigProvider, theme as antTheme } from 'antd';
+import { ConfigProvider, theme as antTheme, Grid } from 'antd';
 import { mockBrowser } from '../../utils/test-utils';
-import ModalPanel from '../components/ModalPanel';
 
 describe('ConnectModal with guide', () => {
   beforeEach(() => {
@@ -16,6 +15,10 @@ describe('ConnectModal with guide', () => {
   });
   mockBrowser('Chrome');
   it.each(['light', 'dark'] as const)(`should render in %s mode`, (theme) => {
+    vi.spyOn(Grid, 'useBreakpoint').mockReturnValue({
+      md: true, // ≥ 768px, mock PC
+    });
+
     const App = () => (
       <ConfigProvider
         theme={{
@@ -40,7 +43,7 @@ describe('ConnectModal with guide', () => {
 
     // should have simple class when without guide
     expect(baseElement.querySelector('.ant-web3-connect-modal-body')?.className).not.toContain(
-      'simple',
+      'ant-web3-connect-modal-body-simple',
     );
 
     // should have title and footer
@@ -142,7 +145,7 @@ describe('ConnectModal with guide', () => {
     });
   });
 
-  it('should display default guide when guide is true', async () => {
+  it('should display default guide', async () => {
     const App = () => (
       <ConnectModal
         open
@@ -150,7 +153,6 @@ describe('ConnectModal with guide', () => {
         footer="Powered by AntChain"
         groupOrder={groupOrder}
         walletList={walletList}
-        guide
       />
     );
     const { baseElement } = render(<App />);

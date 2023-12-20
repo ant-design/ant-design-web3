@@ -35,11 +35,7 @@ const config = createConfig({
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider assets={[WalletConnect, CoinbaseWallet]} config={config}>
-      <Connector
-        modalProps={{
-          guide: true,
-        }}
-      >
+      <Connector>
         <ConnectButton />
       </Connector>
     </WagmiWeb3ConfigProvider>

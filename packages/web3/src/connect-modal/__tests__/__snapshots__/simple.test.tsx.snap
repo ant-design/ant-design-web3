@@ -62,7 +62,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
               class="ant-modal-body"
             >
               <div
-                class="ant-web3-connect-modal-body simple css-dev-only-do-not-override-1v7djfy"
+                class="ant-web3-connect-modal-body ant-web3-connect-modal-body-simple css-dev-only-do-not-override-1v7djfy"
               >
                 <div
                   class="ant-web3-connect-modal-list-panel"
@@ -368,7 +368,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
               class="ant-modal-body"
             >
               <div
-                class="ant-web3-connect-modal-body simple css-dev-only-do-not-override-p7e5j5"
+                class="ant-web3-connect-modal-body ant-web3-connect-modal-body-simple css-dev-only-do-not-override-p7e5j5"
               >
                 <div
                   class="ant-web3-connect-modal-list-panel"
