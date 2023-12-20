@@ -1,10 +1,10 @@
 .container {
   background-color: #fff;
   padding: 67px 0;
-  .title {
-    text-align: center;
+  .headTitle {
     font-size: 38px;
     margin: 0 0 24px 0;
+    text-align: center;
   }
 
   .desc {
@@ -20,13 +20,12 @@
       background: #f5f8ff;
       background-image: radial-gradient(circle at 94% 97%, #e5efff 0%, rgba(233, 240, 255, 0) 53%);
       border-radius: 16px;
-      padding: 102px 36px 32px;
+      padding: 32px 36px;
       margin: 0 10px;
       .title {
-        position: absolute;
-        left: 40px;
-        top: 36px;
+        display: block;
         font-size: 16px;
+        margin: 0 0 42px 0;
         color: rgba(0, 0, 0, 0.85);
       }
     }
@@ -68,9 +67,9 @@
       width: 100%;
       padding-top: 40px;
       .cardBg {
-        text-align: center;
         max-width: 400px;
-        width: 80%;
+        width: calc(100% - 40px);
+        box-sizing: border-box;
         margin-bottom: 32px;
       }
     }
