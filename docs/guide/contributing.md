@@ -39,7 +39,7 @@ The release is responsible by the core members, and one version is released ever
 
 The release is published by executing `pnpm run release`, which will first execute `changeset version` to merge the changelog under `.changeset` into `CHANGELOG.md` and update the version of the package. Then execute `changeset publish` to publish to npm and add the corresponding tag.
 
-After the release, the related modifications are submitted to the main branch, and the corresponding tag also needs to be pushed to GitHub.
+After the release, the related modifications are submitted to the main branch, and the corresponding tag also needs to be pushed to GitHub. A [Release](https://github.com/ant-design/ant-design-web3/releases/new) is created based on the tag of the new version of `@ant-design/web3`.
 
 If it is an alpha or beta version, please execute `pnpm run release:alpha` or `pnpm run release:beta` to release.
 

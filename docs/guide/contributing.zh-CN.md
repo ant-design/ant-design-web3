@@ -39,7 +39,7 @@ group:
 
 发布通过执行 `pnpm run release` 发布，该命令会先执行 `changeset version` 将 `.changeset` 下的变更说明合并到 `CHANGELOG.md` 中，并更新包的版本。然后执行 `changeset publish` 发布到 npm 并新增对应 tag。
 
-发布后将相关修改提交 PR 更新到 main 分支，对应 tag 也需要 push 到 GitHub。
+发布后将相关修改提交 PR 更新到 main 分支，对应 tag 也需要 push 到 GitHub，并基于新版本的 `@ant-design/web3` 的 tag 新建一个 [Release](https://github.com/ant-design/ant-design-web3/releases/new)。
 
 如果是 alpha 或者 beta 版本，请执行 `pnpm run release:alpha` 或者 `pnpm run release:beta` 发布。
 

@@ -4,11 +4,6 @@ nav: Guide
 
 # Ant Design Web3
 
-<!-- prettier-ignore -->
-:::warning
-Ant Design Web3 is still in *ALPHA*, we are constantly improving it, if you have any suggestions, please feel free to give us feedback via [Github issues](https://github.com/ant-design/ant-design-web3/issues).
-:::
-
 Ant Design Web3 is a Web3 React component library based on [Ant Design](https://ant.design/), it provides a series of components that can help you quickly build decentralized applications (DApp).
 
 You can use Ant Design Web3 in any of the following ways:

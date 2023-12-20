@@ -4,11 +4,6 @@ nav: Guide
 
 # Ant Design Web3
 
-<!-- prettier-ignore -->
-:::warning
-Ant Design Web3 还在 *ALPHA* 中，我们正在不断完善，如有建议欢迎通过 [Github issues](https://github.com/ant-design/ant-design-web3/issues) 给我们提建议。 
-:::
-
 Ant Design Web3 是一个基于 [Ant Design](https://ant.design/index-cn) 的 Web3 React 组件库，它提供了一系列的组件，可以帮助你快速构建去中心化应用（DApp）。
 
 你可以通过以下任意方式使用 Ant Design Web3：
