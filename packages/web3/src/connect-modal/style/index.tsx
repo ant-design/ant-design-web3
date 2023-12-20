@@ -95,7 +95,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           color: 'red',
         },
         [`${componentCls}-list-panel, ${componentCls}-main-panel`]: {
-          height: '100%',
           boxSizing: 'border-box',
         },
         [`${componentCls}-list-panel`]: {
