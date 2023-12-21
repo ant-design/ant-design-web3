@@ -19,13 +19,13 @@
     "build": "father build"
   },
   "devDependencies": {
-    "@types/react": "^18.2.20",
-    "@types/react-dom": "^18.2.7",
-    "antd": "^5.8.3",
-    "father": "^4.1.9",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "antd": "^5.12.4",
+    "father": "^4.3.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.3.3"
   },
   "peerDependencies": {
     "antd": ">=4.23.0 || >=5.0.0",

@@ -16,23 +16,23 @@
     "build": "father build"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "^1.18.0",
+    "@ant-design/cssinjs": "^1.18.1",
     "@ant-design/icons": "^5.2.6",
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
     "@ctrl/tinycolor": "^4.0.2",
-    "antd": "^5.10.0",
+    "antd": "^5.12.4",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
     "@ant-design/web3-wagmi": "workspace:*",
-    "@types/react": "^18.2.20",
-    "@types/react-dom": "^18.2.7",
-    "father": "^4.1.9",
-    "typescript": "^5.0.4"
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "father": "^4.3.8",
+    "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "antd": ">=4.23.0 || >=5.0.0",
+    "antd": ">=5.0.0",
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
   },

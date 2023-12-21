@@ -16,18 +16,18 @@
     "build": "father build"
   },
   "dependencies": {
-    "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-assets": "workspace:*",
+    "@ant-design/web3-common": "workspace:*",
     "debug": "^4.3.4"
   },
   "devDependencies": {
-    "@types/debug": "^4.1.9",
-    "father": "^4.1.9",
-    "typescript": "^5.0.4",
-    "@wagmi/core": "^1.4.5"
+    "@types/debug": "^4.1.12",
+    "@wagmi/core": "^1.4.12",
+    "father": "^4.3.8",
+    "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "wagmi": "^1.4.5"
+    "wagmi": "^1.4.12"
   },
   "publishConfig": {
     "access": "public"
