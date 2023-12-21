@@ -336,51 +336,27 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                         class="ant-qrcode ant-web3-connect-modal-qr-code css-dev-only-do-not-override-p7e5j5"
                         style="width: 400px; height: 400px; background-color: transparent;"
                       >
-                        <div
-                          class="ant-qrcode-mask"
-                        >
-                          <div
-                            aria-busy="true"
-                            aria-live="polite"
-                            class="ant-spin ant-spin-spinning css-dev-only-do-not-override-p7e5j5"
-                          >
-                            <span
-                              class="ant-spin-dot ant-spin-dot-spin"
-                            >
-                              <i
-                                class="ant-spin-dot-item"
-                              />
-                              <i
-                                class="ant-spin-dot-item"
-                              />
-                              <i
-                                class="ant-spin-dot-item"
-                              />
-                              <i
-                                class="ant-spin-dot-item"
-                              />
-                            </span>
-                          </div>
-                        </div>
                         <svg
                           height="400"
-                          viewBox="0 0 33 33"
+                          viewBox="0 0 25 25"
                           width="400"
                         >
                           <path
-                            d="M0,0 h33v33H0z"
+                            d="M0,0 h25v25H0z"
                             fill="transparent"
                             shape-rendering="crispEdges"
                           />
                           <path
-                            d="M0 0h7v1H0zM9 0h1v1H9zM12 0h3v1H12zM17 0h1v1H17zM21 0h1v1H21zM23 0h1v1H23zM26,0 h7v1H26zM0 1h1v1H0zM6 1h1v1H6zM13 1h1v1H13zM16 1h2v1H16zM19 1h1v1H19zM24 1h1v1H24zM26 1h1v1H26zM32,1 h1v1H32zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM8 2h1v1H8zM13 2h1v1H13zM15 2h1v1H15zM21 2h1v1H21zM23 2h2v1H23zM26 2h1v1H26zM28 2h3v1H28zM32,2 h1v1H32zM0 3h1v1H0zM2 3h3v1H2zM6 3h1v1H6zM9 3h3v1H9zM14 3h6v1H14zM23 3h1v1H23zM26 3h1v1H26zM28 3h3v1H28zM32,3 h1v1H32zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM8 4h3v1H8zM18 4h3v1H18zM23 4h1v1H23zM26 4h1v1H26zM28 4h3v1H28zM32,4 h1v1H32zM0 5h1v1H0zM6 5h1v1H6zM8 5h1v1H8zM11 5h2v1H11zM15 5h2v1H15zM19 5h1v1H19zM22 5h1v1H22zM26 5h1v1H26zM32,5 h1v1H32zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18 6h1v1H18zM20 6h1v1H20zM22 6h1v1H22zM24 6h1v1H24zM26,6 h7v1H26zM9 7h1v1H9zM12 7h2v1H12zM15 7h3v1H15zM19 7h1v1H19zM21 7h1v1H21zM1 8h1v1H1zM4 8h1v1H4zM6 8h1v1H6zM8 8h2v1H8zM12 8h1v1H12zM15 8h3v1H15zM19 8h4v1H19zM24 8h2v1H24zM27 8h2v1H27zM30 8h1v1H30zM1 9h1v1H1zM3 9h1v1H3zM7 9h2v1H7zM18 9h1v1H18zM22 9h2v1H22zM25 9h1v1H25zM29 9h3v1H29zM0 10h1v1H0zM2 10h3v1H2zM6 10h4v1H6zM11 10h5v1H11zM17 10h1v1H17zM20 10h1v1H20zM23 10h4v1H23zM29 10h1v1H29zM0 11h1v1H0zM2 11h1v1H2zM5 11h1v1H5zM11 11h1v1H11zM14 11h1v1H14zM16 11h6v1H16zM23 11h2v1H23zM26 11h1v1H26zM32,11 h1v1H32zM0 12h1v1H0zM2 12h2v1H2zM6 12h1v1H6zM8 12h1v1H8zM10 12h1v1H10zM12 12h1v1H12zM15 12h2v1H15zM18 12h2v1H18zM21 12h3v1H21zM26 12h1v1H26zM28 12h2v1H28zM31,12 h2v1H31zM3 13h1v1H3zM5 13h1v1H5zM7 13h1v1H7zM9 13h1v1H9zM11 13h1v1H11zM13 13h2v1H13zM16 13h1v1H16zM20 13h1v1H20zM23 13h1v1H23zM27 13h1v1H27zM29 13h1v1H29zM0 14h3v1H0zM6 14h3v1H6zM11 14h1v1H11zM13 14h2v1H13zM16 14h1v1H16zM18 14h1v1H18zM22 14h5v1H22zM28 14h4v1H28zM0 15h6v1H0zM7 15h4v1H7zM13 15h2v1H13zM16 15h2v1H16zM19 15h1v1H19zM21 15h1v1H21zM23 15h6v1H23zM0 16h2v1H0zM3 16h1v1H3zM6 16h1v1H6zM8 16h2v1H8zM12 16h1v1H12zM15 16h1v1H15zM17 16h6v1H17zM24 16h1v1H24zM26 16h1v1H26zM28 16h1v1H28zM31 16h1v1H31zM0 17h1v1H0zM3 17h1v1H3zM5 17h1v1H5zM8 17h1v1H8zM10 17h5v1H10zM17 17h1v1H17zM21 17h1v1H21zM23 17h3v1H23zM29 17h3v1H29zM0 18h1v1H0zM2 18h2v1H2zM6 18h1v1H6zM8 18h1v1H8zM10 18h1v1H10zM12 18h2v1H12zM16 18h2v1H16zM23 18h1v1H23zM25 18h1v1H25zM27 18h1v1H27zM29 18h1v1H29zM31 18h1v1H31zM1 19h1v1H1zM3 19h3v1H3zM7 19h1v1H7zM10 19h1v1H10zM12 19h1v1H12zM14 19h11v1H14zM27 19h1v1H27zM31 19h1v1H31zM1 20h1v1H1zM6 20h1v1H6zM8 20h4v1H8zM13 20h1v1H13zM15 20h1v1H15zM20 20h2v1H20zM24 20h3v1H24zM28 20h2v1H28zM32,20 h1v1H32zM0 21h2v1H0zM8 21h2v1H8zM12 21h1v1H12zM14 21h1v1H14zM16 21h1v1H16zM18 21h1v1H18zM21 21h1v1H21zM23 21h1v1H23zM25 21h1v1H25zM27 21h1v1H27zM31 21h1v1H31zM4 22h1v1H4zM6 22h2v1H6zM9 22h1v1H9zM12 22h1v1H12zM14 22h5v1H14zM20 22h4v1H20zM31 22h1v1H31zM3 23h2v1H3zM10 23h1v1H10zM13 23h1v1H13zM15 23h1v1H15zM18 23h1v1H18zM20 23h2v1H20zM23 23h3v1H23zM0 24h3v1H0zM4 24h6v1H4zM11 24h1v1H11zM13 24h2v1H13zM17 24h6v1H17zM24 24h5v1H24zM8 25h1v1H8zM10 25h2v1H10zM16 25h2v1H16zM20 25h2v1H20zM23 25h2v1H23zM28 25h1v1H28zM30 25h1v1H30zM0 26h7v1H0zM9 26h1v1H9zM11 26h2v1H11zM21 26h1v1H21zM24 26h1v1H24zM26 26h1v1H26zM28 26h2v1H28zM31 26h1v1H31zM0 27h1v1H0zM6 27h1v1H6zM9 27h6v1H9zM16 27h1v1H16zM18 27h4v1H18zM24 27h1v1H24zM28 27h1v1H28zM0 28h1v1H0zM2 28h3v1H2zM6 28h1v1H6zM8 28h3v1H8zM12 28h1v1H12zM16 28h2v1H16zM20 28h3v1H20zM24 28h6v1H24zM31 28h1v1H31zM0 29h1v1H0zM2 29h3v1H2zM6 29h1v1H6zM9 29h2v1H9zM15 29h1v1H15zM17 29h2v1H17zM22 29h1v1H22zM26 29h4v1H26zM31 29h1v1H31zM0 30h1v1H0zM2 30h3v1H2zM6 30h1v1H6zM10 30h3v1H10zM15 30h1v1H15zM20 30h1v1H20zM24 30h1v1H24zM26 30h3v1H26zM30 30h1v1H30zM0 31h1v1H0zM6 31h1v1H6zM8 31h1v1H8zM11 31h2v1H11zM14 31h1v1H14zM18 31h4v1H18zM23 31h4v1H23zM29 31h1v1H29zM0 32h7v1H0zM9 32h2v1H9zM12 32h1v1H12zM14 32h1v1H14zM16 32h2v1H16zM19 32h6v1H19zM26 32h1v1H26zM32,32 h1v1H32z"
+                            d="M0 0h7v1H0zM8 0h6v1H8zM15 0h1v1H15zM18,0 h7v1H18zM0 1h1v1H0zM6 1h1v1H6zM15 1h1v1H15zM18 1h1v1H18zM24,1 h1v1H24zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM8 2h2v1H8zM11 2h1v1H11zM15 2h1v1H15zM18 2h1v1H18zM20 2h3v1H20zM24,2 h1v1H24zM0 3h1v1H0zM2 3h3v1H2zM6 3h1v1H6zM8 3h3v1H8zM12 3h1v1H12zM14 3h1v1H14zM18 3h1v1H18zM20 3h3v1H20zM24,3 h1v1H24zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM11 4h1v1H11zM15 4h1v1H15zM18 4h1v1H18zM20 4h3v1H20zM24,4 h1v1H24zM0 5h1v1H0zM6 5h1v1H6zM8 5h2v1H8zM12 5h5v1H12zM18 5h1v1H18zM24,5 h1v1H24zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18,6 h7v1H18zM8 7h2v1H8zM12 7h1v1H12zM15 7h1v1H15zM1 8h1v1H1zM3 8h1v1H3zM5 8h5v1H5zM13 8h7v1H13zM21 8h2v1H21zM24,8 h1v1H24zM1 9h3v1H1zM5 9h1v1H5zM9 9h1v1H9zM14 9h1v1H14zM16 9h3v1H16zM24,9 h1v1H24zM0 10h1v1H0zM4 10h1v1H4zM6 10h5v1H6zM13 10h2v1H13zM16 10h5v1H16zM23,10 h2v1H23zM8 11h2v1H8zM11 11h4v1H11zM16 11h2v1H16zM20 11h1v1H20zM0 12h4v1H0zM6 12h3v1H6zM11 12h1v1H11zM14 12h6v1H14zM21 12h1v1H21zM23,12 h2v1H23zM1 13h3v1H1zM5 13h1v1H5zM10 13h1v1H10zM13 13h1v1H13zM18 13h2v1H18zM21 13h2v1H21zM24,13 h1v1H24zM0 14h1v1H0zM2 14h2v1H2zM5 14h2v1H5zM9 14h2v1H9zM13 14h2v1H13zM17 14h4v1H17zM22 14h1v1H22zM24,14 h1v1H24zM1 15h2v1H1zM7 15h3v1H7zM18 15h1v1H18zM20 15h1v1H20zM23 15h1v1H23zM0 16h2v1H0zM3 16h2v1H3zM6 16h1v1H6zM8 16h3v1H8zM12 16h1v1H12zM14 16h1v1H14zM16 16h7v1H16zM8 17h1v1H8zM12 17h2v1H12zM15 17h2v1H15zM20 17h2v1H20zM24,17 h1v1H24zM0 18h7v1H0zM8 18h3v1H8zM15 18h2v1H15zM18 18h1v1H18zM20 18h2v1H20zM23,18 h2v1H23zM0 19h1v1H0zM6 19h1v1H6zM8 19h5v1H8zM14 19h1v1H14zM16 19h1v1H16zM20 19h4v1H20zM0 20h1v1H0zM2 20h3v1H2zM6 20h1v1H6zM9 20h1v1H9zM11 20h1v1H11zM14 20h1v1H14zM16 20h6v1H16zM24,20 h1v1H24zM0 21h1v1H0zM2 21h3v1H2zM6 21h1v1H6zM8 21h1v1H8zM12 21h2v1H12zM15 21h2v1H15zM19 21h4v1H19zM0 22h1v1H0zM2 22h3v1H2zM6 22h1v1H6zM10 22h4v1H10zM15 22h3v1H15zM19 22h2v1H19zM22 22h1v1H22zM24,22 h1v1H24zM0 23h1v1H0zM6 23h1v1H6zM8 23h1v1H8zM10 23h1v1H10zM12 23h6v1H12zM21 23h1v1H21zM0 24h7v1H0zM9 24h1v1H9zM11 24h4v1H11zM16 24h1v1H16zM18 24h2v1H18zM23,24 h2v1H23z"
                             fill="rgba(0, 0, 0, 0.88)"
                             shape-rendering="crispEdges"
                           />
                         </svg>
                       </div>
                       <a
-                        class="ant-web3-connect-modal-qr-code-link ant-web3-connect-modal-qr-code-link-loading"
+                        class="ant-web3-connect-modal-qr-code-link"
+                        href="https://test.com/xxx"
+                        target="_blank"
                       >
                         <div
                           class="ant-space css-dev-only-do-not-override-p7e5j5 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -389,7 +365,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                             class="ant-space-item"
                           >
                             <span>
-                              Click to connect directly
+                              Click to go to the download page
                             </span>
                           </div>
                           <div
@@ -421,17 +397,11 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                     <div
                       class="ant-web3-connect-modal-qr-code-tips"
                     >
-                      Don't have 
-                      Test Wallet
-                      ?
-                      <button
-                        class="ant-btn css-dev-only-do-not-override-p7e5j5 ant-btn-default ant-web3-connect-modal-get-wallet-btn"
-                        type="button"
+                      <div
+                        class="ant-web3-connect-modal-qr-code-tips-download"
                       >
-                        <span>
-                          GET
-                        </span>
-                      </button>
+                        Scan the QR code to download the wallet.
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -786,51 +756,27 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                         class="ant-qrcode ant-web3-connect-modal-qr-code css-dev-only-do-not-override-p7e5j5"
                         style="width: 400px; height: 400px; background-color: transparent;"
                       >
-                        <div
-                          class="ant-qrcode-mask"
-                        >
-                          <div
-                            aria-busy="true"
-                            aria-live="polite"
-                            class="ant-spin ant-spin-spinning css-dev-only-do-not-override-p7e5j5"
-                          >
-                            <span
-                              class="ant-spin-dot ant-spin-dot-spin"
-                            >
-                              <i
-                                class="ant-spin-dot-item"
-                              />
-                              <i
-                                class="ant-spin-dot-item"
-                              />
-                              <i
-                                class="ant-spin-dot-item"
-                              />
-                              <i
-                                class="ant-spin-dot-item"
-                              />
-                            </span>
-                          </div>
-                        </div>
                         <svg
                           height="400"
-                          viewBox="0 0 33 33"
+                          viewBox="0 0 25 25"
                           width="400"
                         >
                           <path
-                            d="M0,0 h33v33H0z"
+                            d="M0,0 h25v25H0z"
                             fill="transparent"
                             shape-rendering="crispEdges"
                           />
                           <path
-                            d="M0 0h7v1H0zM9 0h1v1H9zM12 0h3v1H12zM17 0h1v1H17zM21 0h1v1H21zM23 0h1v1H23zM26,0 h7v1H26zM0 1h1v1H0zM6 1h1v1H6zM13 1h1v1H13zM16 1h2v1H16zM19 1h1v1H19zM24 1h1v1H24zM26 1h1v1H26zM32,1 h1v1H32zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM8 2h1v1H8zM13 2h1v1H13zM15 2h1v1H15zM21 2h1v1H21zM23 2h2v1H23zM26 2h1v1H26zM28 2h3v1H28zM32,2 h1v1H32zM0 3h1v1H0zM2 3h3v1H2zM6 3h1v1H6zM9 3h3v1H9zM14 3h6v1H14zM23 3h1v1H23zM26 3h1v1H26zM28 3h3v1H28zM32,3 h1v1H32zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM8 4h3v1H8zM18 4h3v1H18zM23 4h1v1H23zM26 4h1v1H26zM28 4h3v1H28zM32,4 h1v1H32zM0 5h1v1H0zM6 5h1v1H6zM8 5h1v1H8zM11 5h2v1H11zM15 5h2v1H15zM19 5h1v1H19zM22 5h1v1H22zM26 5h1v1H26zM32,5 h1v1H32zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18 6h1v1H18zM20 6h1v1H20zM22 6h1v1H22zM24 6h1v1H24zM26,6 h7v1H26zM9 7h1v1H9zM12 7h2v1H12zM15 7h3v1H15zM19 7h1v1H19zM21 7h1v1H21zM1 8h1v1H1zM4 8h1v1H4zM6 8h1v1H6zM8 8h2v1H8zM12 8h1v1H12zM15 8h3v1H15zM19 8h4v1H19zM24 8h2v1H24zM27 8h2v1H27zM30 8h1v1H30zM1 9h1v1H1zM3 9h1v1H3zM7 9h2v1H7zM18 9h1v1H18zM22 9h2v1H22zM25 9h1v1H25zM29 9h3v1H29zM0 10h1v1H0zM2 10h3v1H2zM6 10h4v1H6zM11 10h5v1H11zM17 10h1v1H17zM20 10h1v1H20zM23 10h4v1H23zM29 10h1v1H29zM0 11h1v1H0zM2 11h1v1H2zM5 11h1v1H5zM11 11h1v1H11zM14 11h1v1H14zM16 11h6v1H16zM23 11h2v1H23zM26 11h1v1H26zM32,11 h1v1H32zM0 12h1v1H0zM2 12h2v1H2zM6 12h1v1H6zM8 12h1v1H8zM10 12h1v1H10zM12 12h1v1H12zM15 12h2v1H15zM18 12h2v1H18zM21 12h3v1H21zM26 12h1v1H26zM28 12h2v1H28zM31,12 h2v1H31zM3 13h1v1H3zM5 13h1v1H5zM7 13h1v1H7zM9 13h1v1H9zM11 13h1v1H11zM13 13h2v1H13zM16 13h1v1H16zM20 13h1v1H20zM23 13h1v1H23zM27 13h1v1H27zM29 13h1v1H29zM0 14h3v1H0zM6 14h3v1H6zM11 14h1v1H11zM13 14h2v1H13zM16 14h1v1H16zM18 14h1v1H18zM22 14h5v1H22zM28 14h4v1H28zM0 15h6v1H0zM7 15h4v1H7zM13 15h2v1H13zM16 15h2v1H16zM19 15h1v1H19zM21 15h1v1H21zM23 15h6v1H23zM0 16h2v1H0zM3 16h1v1H3zM6 16h1v1H6zM8 16h2v1H8zM12 16h1v1H12zM15 16h1v1H15zM17 16h6v1H17zM24 16h1v1H24zM26 16h1v1H26zM28 16h1v1H28zM31 16h1v1H31zM0 17h1v1H0zM3 17h1v1H3zM5 17h1v1H5zM8 17h1v1H8zM10 17h5v1H10zM17 17h1v1H17zM21 17h1v1H21zM23 17h3v1H23zM29 17h3v1H29zM0 18h1v1H0zM2 18h2v1H2zM6 18h1v1H6zM8 18h1v1H8zM10 18h1v1H10zM12 18h2v1H12zM16 18h2v1H16zM23 18h1v1H23zM25 18h1v1H25zM27 18h1v1H27zM29 18h1v1H29zM31 18h1v1H31zM1 19h1v1H1zM3 19h3v1H3zM7 19h1v1H7zM10 19h1v1H10zM12 19h1v1H12zM14 19h11v1H14zM27 19h1v1H27zM31 19h1v1H31zM1 20h1v1H1zM6 20h1v1H6zM8 20h4v1H8zM13 20h1v1H13zM15 20h1v1H15zM20 20h2v1H20zM24 20h3v1H24zM28 20h2v1H28zM32,20 h1v1H32zM0 21h2v1H0zM8 21h2v1H8zM12 21h1v1H12zM14 21h1v1H14zM16 21h1v1H16zM18 21h1v1H18zM21 21h1v1H21zM23 21h1v1H23zM25 21h1v1H25zM27 21h1v1H27zM31 21h1v1H31zM4 22h1v1H4zM6 22h2v1H6zM9 22h1v1H9zM12 22h1v1H12zM14 22h5v1H14zM20 22h4v1H20zM31 22h1v1H31zM3 23h2v1H3zM10 23h1v1H10zM13 23h1v1H13zM15 23h1v1H15zM18 23h1v1H18zM20 23h2v1H20zM23 23h3v1H23zM0 24h3v1H0zM4 24h6v1H4zM11 24h1v1H11zM13 24h2v1H13zM17 24h6v1H17zM24 24h5v1H24zM8 25h1v1H8zM10 25h2v1H10zM16 25h2v1H16zM20 25h2v1H20zM23 25h2v1H23zM28 25h1v1H28zM30 25h1v1H30zM0 26h7v1H0zM9 26h1v1H9zM11 26h2v1H11zM21 26h1v1H21zM24 26h1v1H24zM26 26h1v1H26zM28 26h2v1H28zM31 26h1v1H31zM0 27h1v1H0zM6 27h1v1H6zM9 27h6v1H9zM16 27h1v1H16zM18 27h4v1H18zM24 27h1v1H24zM28 27h1v1H28zM0 28h1v1H0zM2 28h3v1H2zM6 28h1v1H6zM8 28h3v1H8zM12 28h1v1H12zM16 28h2v1H16zM20 28h3v1H20zM24 28h6v1H24zM31 28h1v1H31zM0 29h1v1H0zM2 29h3v1H2zM6 29h1v1H6zM9 29h2v1H9zM15 29h1v1H15zM17 29h2v1H17zM22 29h1v1H22zM26 29h4v1H26zM31 29h1v1H31zM0 30h1v1H0zM2 30h3v1H2zM6 30h1v1H6zM10 30h3v1H10zM15 30h1v1H15zM20 30h1v1H20zM24 30h1v1H24zM26 30h3v1H26zM30 30h1v1H30zM0 31h1v1H0zM6 31h1v1H6zM8 31h1v1H8zM11 31h2v1H11zM14 31h1v1H14zM18 31h4v1H18zM23 31h4v1H23zM29 31h1v1H29zM0 32h7v1H0zM9 32h2v1H9zM12 32h1v1H12zM14 32h1v1H14zM16 32h2v1H16zM19 32h6v1H19zM26 32h1v1H26zM32,32 h1v1H32z"
+                            d="M0 0h7v1H0zM8 0h6v1H8zM15 0h1v1H15zM18,0 h7v1H18zM0 1h1v1H0zM6 1h1v1H6zM15 1h1v1H15zM18 1h1v1H18zM24,1 h1v1H24zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM8 2h2v1H8zM11 2h1v1H11zM15 2h1v1H15zM18 2h1v1H18zM20 2h3v1H20zM24,2 h1v1H24zM0 3h1v1H0zM2 3h3v1H2zM6 3h1v1H6zM8 3h3v1H8zM12 3h1v1H12zM14 3h1v1H14zM18 3h1v1H18zM20 3h3v1H20zM24,3 h1v1H24zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM11 4h1v1H11zM15 4h1v1H15zM18 4h1v1H18zM20 4h3v1H20zM24,4 h1v1H24zM0 5h1v1H0zM6 5h1v1H6zM8 5h2v1H8zM12 5h5v1H12zM18 5h1v1H18zM24,5 h1v1H24zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18,6 h7v1H18zM8 7h2v1H8zM12 7h1v1H12zM15 7h1v1H15zM1 8h1v1H1zM3 8h1v1H3zM5 8h5v1H5zM13 8h7v1H13zM21 8h2v1H21zM24,8 h1v1H24zM1 9h3v1H1zM5 9h1v1H5zM9 9h1v1H9zM14 9h1v1H14zM16 9h3v1H16zM24,9 h1v1H24zM0 10h1v1H0zM4 10h1v1H4zM6 10h5v1H6zM13 10h2v1H13zM16 10h5v1H16zM23,10 h2v1H23zM8 11h2v1H8zM11 11h4v1H11zM16 11h2v1H16zM20 11h1v1H20zM0 12h4v1H0zM6 12h3v1H6zM11 12h1v1H11zM14 12h6v1H14zM21 12h1v1H21zM23,12 h2v1H23zM1 13h3v1H1zM5 13h1v1H5zM10 13h1v1H10zM13 13h1v1H13zM18 13h2v1H18zM21 13h2v1H21zM24,13 h1v1H24zM0 14h1v1H0zM2 14h2v1H2zM5 14h2v1H5zM9 14h2v1H9zM13 14h2v1H13zM17 14h4v1H17zM22 14h1v1H22zM24,14 h1v1H24zM1 15h2v1H1zM7 15h3v1H7zM18 15h1v1H18zM20 15h1v1H20zM23 15h1v1H23zM0 16h2v1H0zM3 16h2v1H3zM6 16h1v1H6zM8 16h3v1H8zM12 16h1v1H12zM14 16h1v1H14zM16 16h7v1H16zM8 17h1v1H8zM12 17h2v1H12zM15 17h2v1H15zM20 17h2v1H20zM24,17 h1v1H24zM0 18h7v1H0zM8 18h3v1H8zM15 18h2v1H15zM18 18h1v1H18zM20 18h2v1H20zM23,18 h2v1H23zM0 19h1v1H0zM6 19h1v1H6zM8 19h5v1H8zM14 19h1v1H14zM16 19h1v1H16zM20 19h4v1H20zM0 20h1v1H0zM2 20h3v1H2zM6 20h1v1H6zM9 20h1v1H9zM11 20h1v1H11zM14 20h1v1H14zM16 20h6v1H16zM24,20 h1v1H24zM0 21h1v1H0zM2 21h3v1H2zM6 21h1v1H6zM8 21h1v1H8zM12 21h2v1H12zM15 21h2v1H15zM19 21h4v1H19zM0 22h1v1H0zM2 22h3v1H2zM6 22h1v1H6zM10 22h4v1H10zM15 22h3v1H15zM19 22h2v1H19zM22 22h1v1H22zM24,22 h1v1H24zM0 23h1v1H0zM6 23h1v1H6zM8 23h1v1H8zM10 23h1v1H10zM12 23h6v1H12zM21 23h1v1H21zM0 24h7v1H0zM9 24h1v1H9zM11 24h4v1H11zM16 24h1v1H16zM18 24h2v1H18zM23,24 h2v1H23z"
                             fill="rgba(0, 0, 0, 0.88)"
                             shape-rendering="crispEdges"
                           />
                         </svg>
                       </div>
                       <a
-                        class="ant-web3-connect-modal-qr-code-link ant-web3-connect-modal-qr-code-link-loading"
+                        class="ant-web3-connect-modal-qr-code-link"
+                        href="https://test.com/xxx"
+                        target="_blank"
                       >
                         <div
                           class="ant-space css-dev-only-do-not-override-p7e5j5 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -839,7 +785,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                             class="ant-space-item"
                           >
                             <span>
-                              Click to connect directly
+                              Click to go to the download page
                             </span>
                           </div>
                           <div
@@ -871,17 +817,11 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                     <div
                       class="ant-web3-connect-modal-qr-code-tips"
                     >
-                      Don't have 
-                      Test Wallet
-                      ?
-                      <button
-                        class="ant-btn css-dev-only-do-not-override-p7e5j5 ant-btn-default ant-web3-connect-modal-get-wallet-btn"
-                        type="button"
+                      <div
+                        class="ant-web3-connect-modal-qr-code-tips-download"
                       >
-                        <span>
-                          GET
-                        </span>
-                      </button>
+                        Scan the QR code to download the wallet.
+                      </div>
                     </div>
                   </div>
                 </div>
