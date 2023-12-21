@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-        <linearGradient x1="74.9554145%" y1="95.83573%" x2="19.7903626%" y2="-4.1682894%" id="ant-web3-icon-chrome-circle-colorful-1" class="test1">
+        <linearGradient x1="74.9554145%" y1="95.83573%" x2="19.7903626%" y2="-4.1682894%" id="ant-web3-icon-chrome-circle-colorful-1">
             <stop stop-color="#1E8E3E" offset="0%"></stop>
             <stop stop-color="#34A853" offset="100%"></stop>
         </linearGradient>

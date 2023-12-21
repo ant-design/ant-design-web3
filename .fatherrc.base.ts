@@ -22,7 +22,7 @@ export default defineConfig({
                 overrides: {
                   cleanupIDs: {
                     // Don't minify ids in `svg` to avoid conflict.
-                    minify: false,
+                    preservePrefixes: ['ant-web3-icon-'],
                   },
                 },
               },
