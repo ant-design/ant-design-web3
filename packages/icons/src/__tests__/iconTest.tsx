@@ -11,7 +11,6 @@ export async function getComponents(dir: string): Promise<ComponentType[]> {
       const displayNames = Object.keys(comp);
       displayNames.forEach((displayName) => {
         const Icon = comp[displayName];
-        console.log('get Icon', Icon);
         res.push(Icon);
       });
     }
