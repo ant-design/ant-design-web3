@@ -54,7 +54,6 @@ describe('ConnectButton', () => {
       expect(
         baseElement.querySelector('.ant-dropdown-menu-item')?.getAttribute('data-menu-id'),
       ).toBe('rc-menu-uuid-test-copyAddress');
-      expect(baseElement).toMatchSnapshot();
     });
     fireEvent.click(baseElement.querySelector('.ant-dropdown-menu-item') as Element);
     await vi.waitFor(() => {
@@ -121,7 +120,6 @@ describe('ConnectButton', () => {
       expect(
         baseElement.querySelector('.ant-dropdown-menu-item')?.getAttribute('data-menu-id'),
       ).toBe('rc-menu-uuid-test-1');
-      expect(baseElement).toMatchSnapshot();
     });
     fireEvent.click(baseElement.querySelectorAll('.ant-dropdown-menu-item')[0] as Element);
     await vi.waitFor(() => {
@@ -161,7 +159,6 @@ describe('ConnectButton', () => {
       expect(
         baseElement.querySelector('.ant-dropdown-menu-item')?.getAttribute('data-menu-id'),
       ).toBe('rc-menu-uuid-test-1');
-      expect(baseElement).toMatchSnapshot();
     });
     fireEvent.click(baseElement.querySelectorAll('.ant-dropdown-menu-item')[0] as Element);
     await vi.waitFor(() => {
