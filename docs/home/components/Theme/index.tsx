@@ -118,15 +118,15 @@ const App: React.FC = () => {
           </Space>
         </div>
         <div className={styles.colorSelector}>
-          {colors.map((color) => (
+          {colors.map((c) => (
             <div
               className={styles.colorItem}
               style={{
-                backgroundColor: color,
-                outline: color === themeColor ? `2px solid ${color}` : undefined,
+                backgroundColor: c,
+                outline: c === themeColor ? `2px solid ${c}` : undefined,
                 outlineOffset: 1,
               }}
-              onClick={() => setThemeColor(color)}
+              onClick={() => setThemeColor(c)}
             ></div>
           ))}
         </div>
