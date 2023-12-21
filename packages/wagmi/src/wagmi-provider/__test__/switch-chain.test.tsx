@@ -100,7 +100,7 @@ describe('switch chain', () => {
           };
         },
         useNetwork: () => {
-          const [currentChain, setCurrentChain] = React.useState<WagmiChain | undefined>(undefined);
+          const [currentChain, setCurrentChain] = React.useState<WagmiChain | undefined>(mainnet);
           useEffect(() => {
             event.on('switchChain', (c) => {
               setCurrentChain(c);
@@ -112,8 +112,8 @@ describe('switch chain', () => {
         },
         useSwitchNetwork: () => {
           return {
-            switchNetwork: (c: Chain) => {
-              if (c.id === Polygon.id) {
+            switchNetwork: (c: number) => {
+              if (c === Polygon.id) {
                 event.emit('switchChain', polygon);
               }
             },
