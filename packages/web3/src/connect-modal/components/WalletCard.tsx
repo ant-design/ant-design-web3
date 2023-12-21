@@ -44,7 +44,7 @@ const WalletCard: React.FC = () => {
   );
   return (
     <>
-      <MainPanelHeader title="Get a Wallet" />
+      <MainPanelHeader title={`Get ${selectedWallet?.name}`} />
       <div className={`${prefixCls}-card-list`}>
         {selectedExtension && (
           <CardItem

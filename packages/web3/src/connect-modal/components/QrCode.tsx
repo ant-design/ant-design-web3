@@ -42,7 +42,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
   };
   return (
     <div className={`${prefixCls}-qr-code-container`}>
-      <MainPanelHeader title={`Scan with ${wallet.name}`} />
+      <MainPanelHeader title={download ? `Download ${wallet.name}` : `Scan with ${wallet.name}`} />
       <div className={`${prefixCls}-qr-code-box`}>
         <QRCode
           className={`${prefixCls}-qr-code`}

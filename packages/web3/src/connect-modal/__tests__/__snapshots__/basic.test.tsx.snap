@@ -326,7 +326,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                       <div
                         class="ant-web3-connect-modal-main-panel-header-title"
                       >
-                        Scan with Test Wallet
+                        Download Test Wallet
                       </div>
                     </div>
                     <div
@@ -746,7 +746,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                       <div
                         class="ant-web3-connect-modal-main-panel-header-title"
                       >
-                        Scan with Test Wallet
+                        Download Test Wallet
                       </div>
                     </div>
                     <div
