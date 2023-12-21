@@ -140,7 +140,12 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         await disconnectAsync();
       }}
       switchChain={async (c: Chain) => {
-        switchNetwork?.(c.id);
+        if (!chain) {
+          // hava not connected any chain
+          setCurrentChain(c);
+        } else {
+          switchNetwork?.(c.id);
+        }
       }}
       getNFTMetadata={async ({ address: contractAddress, tokenId }) =>
         getNFTMetadata(contractAddress, tokenId, chain?.id)

@@ -9,7 +9,6 @@ import type { WalletFactory } from '../interface';
 import { Mainnet, Goerli } from '@ant-design/web3-assets';
 // MetaMask built-in
 import { MetaMask } from '../wallets';
-import { connect } from 'http2';
 
 export type WagmiWeb3ConfigProviderProps<
   TPublicClient extends PublicClient = PublicClient,
