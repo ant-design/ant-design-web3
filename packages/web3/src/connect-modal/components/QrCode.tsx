@@ -24,7 +24,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
         if (wallet?.app) {
           setQrCodeValue(wallet.app.link);
         } else {
-          console.log('wallet.app is undefined');
+          console.error(`wallet ${wallet.name} app is undefined, please check your config.`);
         }
         return;
       }
