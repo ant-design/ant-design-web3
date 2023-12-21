@@ -4,8 +4,8 @@ import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { ConfigProvider } from 'antd';
 
-describe('ConnectModal with guide', () => {
-  it('should display default guide', async () => {
+describe('ConnectModal theme', () => {
+  it('should use antd design token', async () => {
     const App = () => (
       <ConfigProvider
         theme={{
