@@ -57,7 +57,7 @@ const GetWalletPanel: React.FC<GetWalletPanelProps> = (props) => {
       </div>
       <div className={`${prefixCls}-info`}>
         <h3>Not what you&apos;re looking for?</h3>
-        <p>Select a wallet on the left to get started with a different wallet provider.</p>
+        <div>Select a wallet on the left to get started with a different wallet provider.</div>
       </div>
     </>
   );
