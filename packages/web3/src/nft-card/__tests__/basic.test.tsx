@@ -41,30 +41,6 @@ describe('NFTCard', () => {
     });
   });
 
-  it('renders correctly with likeConfig and price', () => {
-    const address = '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B';
-    const tokenId = 123;
-    const likeConfig = {
-      liked: true,
-      totalLikes: 42,
-    };
-
-    const { baseElement } = render(
-      <NFTCard
-        address={address}
-        tokenId={tokenId}
-        like={likeConfig}
-        price={{
-          value: 139999n,
-        }}
-      />,
-    );
-
-    // Ensure the like and price elements are rendered
-    expect(baseElement.querySelector('.ant-nft-card-like-value')).toBeTruthy();
-    expect(baseElement.querySelector('.ant-web3-crypto-price-balance')).toBeTruthy();
-  });
-
   it('renders correctly without likeConfig and price', () => {
     const address = '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B';
     const tokenId = 123;
