@@ -29,7 +29,7 @@ export const CryptoPrice: React.FC<CryptoPriceProps> = (props) => {
     symbol = chain.nativeCurrency?.symbol || 'ETH',
     decimals = chain.nativeCurrency?.decimals || 18,
     fixed,
-    icon = chain.nativeCurrency?.icon,
+    icon = false,
   } = props;
 
   return wrapSSR(
@@ -40,7 +40,7 @@ export const CryptoPrice: React.FC<CryptoPriceProps> = (props) => {
       decimals={decimals}
       className={className}
       hashId={hashId}
-      icon={icon}
+      icon={icon === true ? chain.nativeCurrency?.icon : icon}
     />,
   );
 };

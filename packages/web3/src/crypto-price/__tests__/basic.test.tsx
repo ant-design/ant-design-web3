@@ -6,11 +6,19 @@ import { Web3ConfigProvider } from '@ant-design/web3-common';
 
 describe('CryptoPrice', () => {
   it('renders CryptoPrice correctly', () => {
-    const { baseElement } = render(<CryptoPrice value={1230000000000000000n} />);
+    const { baseElement } = render(<CryptoPrice icon value={1230000000000000000n} />);
 
     const text = baseElement.querySelector('span')?.textContent;
     expect(text).toBe(' 1.23 ETH');
     expect(baseElement.querySelector('.ant-web3-icon-ethereum-filled')).not.toBeNull();
+  });
+
+  it('default disable icon', () => {
+    const { baseElement } = render(<CryptoPrice value={1230000000000000000n} />);
+
+    const text = baseElement.querySelector('span')?.textContent;
+    expect(text).toBe('1.23 ETH');
+    expect(baseElement.querySelector('.ant-web3-icon-ethereum-filled')).toBeNull();
   });
 
   it('disable icon', () => {
@@ -34,6 +42,7 @@ describe('CryptoPrice', () => {
   it('custom chain', () => {
     const { baseElement } = render(
       <CryptoPrice
+        icon
         chain={{
           id: 1,
           name: 'Ethereum',
@@ -112,7 +121,7 @@ describe('CryptoPrice', () => {
           },
         }}
       >
-        <CryptoPrice symbol="PROP" value={1230000000000000000n} />,
+        <CryptoPrice icon symbol="PROP" value={1230000000000000000n} />,
       </Web3ConfigProvider>,
     );
 

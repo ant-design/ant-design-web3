@@ -4,6 +4,7 @@ import { EthereumCircleFilled } from '@ant-design/web3-icons';
 const App: React.FC = () => {
   return (
     <CryptoPrice
+      icon
       chain={{
         id: 1,
         name: 'Ethereum',
