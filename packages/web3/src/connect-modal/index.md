@@ -12,6 +12,10 @@ The connection wallet popup, used with [ConnectButton](../connect-button) to com
 
 <code src="./demos/basic.tsx"></code>
 
+## Custom Theme
+
+<code src="./demos/theme.tsx"></code>
+
 ## Panel Mode
 
 <code src="./demos/panel.tsx"></code>
@@ -23,10 +27,6 @@ The connection wallet popup, used with [ConnectButton](../connect-button) to com
 ## Dark Mode
 
 <code src="./demos/dark.tsx"></code>
-
-## Custom Theme Color
-
-<code src="./demos/theme.tsx"></code>
 
 ## Custom Guide Panel
 
