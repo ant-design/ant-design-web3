@@ -88,7 +88,7 @@ const App: React.FC = () => {
       </ConfigProvider>
       <div className={styles.controls}>
         <div className={`${styles.themeBtns}${color === 'dark' ? ` ${styles.dark}` : ''}`}>
-          <Space size="large">
+          <Space>
             <Tooltip title="Light Mode">
               <span onClick={() => setIsDark(false)}>
                 <svg
@@ -123,8 +123,9 @@ const App: React.FC = () => {
               className={styles.colorItem}
               style={{
                 backgroundColor: c,
-                outline: c === themeColor ? `2px solid ${c}` : undefined,
+                outline: !isDark && c === themeColor ? `2px solid ${c}` : undefined,
                 outlineOffset: 1,
+                cursor: isDark ? 'not-allowed' : 'pointer',
               }}
               onClick={() => setThemeColor(c)}
             ></div>
