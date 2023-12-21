@@ -58,6 +58,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
           })}
           target="_blank"
           href={!loading ? qrCodeValue : undefined}
+          rel="noreferrer"
         >
           <Space>
             <span>
