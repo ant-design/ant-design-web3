@@ -82,6 +82,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           return {
             id: c.id,
             name: c.name,
+            icon: c.icon,
           };
         } else {
           console.error(
