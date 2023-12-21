@@ -9,16 +9,25 @@ import classNames from 'classnames';
 export type QrCodeProps = {
   wallet: Wallet;
   simple?: boolean;
+  download?: boolean;
 };
 
 const QrCode: React.FC<QrCodeProps> = (props) => {
-  const { wallet, simple } = props;
+  const { wallet, simple, download } = props;
   const { prefixCls, updatePanelRoute, updateSelectedWallet } = useContext(connectModalContext);
-  const [qrCodeValue, setQrCodeValue] = useState('https://ant-design.github.io/ant-design-web3');
+  const [qrCodeValue, setQrCodeValue] = useState('QR code not ready');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (wallet) {
+      if (download) {
+        if (wallet?.app) {
+          setQrCodeValue(wallet.app.link);
+        } else {
+          console.error(`wallet ${wallet.name} app is undefined, please check your config.`);
+        }
+        return;
+      }
       setLoading(true);
       wallet.getQrCode?.().then(({ uri }) => {
         setQrCodeValue(uri);
@@ -33,7 +42,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
   };
   return (
     <div className={`${prefixCls}-qr-code-container`}>
-      <MainPanelHeader title={`Scan with ${wallet.name}`} />
+      <MainPanelHeader title={download ? `Download ${wallet.name}` : `Scan with ${wallet.name}`} />
       <div className={`${prefixCls}-qr-code-box`}>
         <QRCode
           className={`${prefixCls}-qr-code`}
@@ -47,19 +56,35 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
           className={classNames(`${prefixCls}-qr-code-link`, {
             [`${prefixCls}-qr-code-link-loading`]: loading,
           })}
+          target="_blank"
           href={!loading ? qrCodeValue : undefined}
+          rel="noreferrer"
         >
           <Space>
-            <span>Click to connect directly</span>
+            <span>
+              {download ? 'Click to go to the download page' : 'Click to connect directly'}
+            </span>
             <ArrowRightOutlined />
           </Space>
         </a>
       </div>
       <div className={`${prefixCls}-qr-code-tips`}>
-        Don&apos;t have {wallet.name}?
-        <Button type="default" className={`${prefixCls}-get-wallet-btn`} onClick={handleGetWallet}>
-          GET
-        </Button>
+        {download ? (
+          <div className={`${prefixCls}-qr-code-tips-download`}>
+            Scan the QR code to download the wallet.
+          </div>
+        ) : (
+          <>
+            Don&apos;t have {wallet.name}?
+            <Button
+              type="default"
+              className={`${prefixCls}-get-wallet-btn`}
+              onClick={handleGetWallet}
+            >
+              GET
+            </Button>
+          </>
+        )}
       </div>
     </div>
   );

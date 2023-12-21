@@ -28,9 +28,9 @@ export const ConnectModal: React.FC<ConnectModalProps> & {
   }, []);
   const { isSimple } = useMode(mode);
   const updateSelectedWallet = React.useCallback(
-    (wallet: Wallet | undefined) => {
+    (wallet: Wallet | undefined, triggerConnect?: boolean) => {
       setSelectedWallet(wallet);
-      if (wallet) {
+      if (wallet && triggerConnect) {
         onSelectWallet?.(wallet);
       }
     },

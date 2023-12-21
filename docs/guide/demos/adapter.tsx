@@ -10,10 +10,10 @@ export interface YourAdapterProps {
 
 export const YourAdapterPropsProvider: React.FC<YourAdapterProps> = (props) => {
   const { children, availableChains, wallets } = props;
-  const [account, setAccount] = React.useState<Account>({
+  const [account] = React.useState<Account>({
     address: '0xtestaccount',
   });
-  const [currentChain, setCurrentChain] = React.useState<Chain>();
+  const [currentChain] = React.useState<Chain>();
 
   return (
     <Web3ConfigProvider

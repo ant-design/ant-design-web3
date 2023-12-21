@@ -98,4 +98,4 @@ export type ConnectModalProps = ModalProps & {
   mode?: 'simple' | 'normal' | 'auto';
 };
 
-export type PanelRoute = 'init' | 'guide' | 'getWallet' | 'wallet' | 'qrCode';
+export type PanelRoute = 'init' | 'guide' | 'getWallet' | 'wallet' | 'qrCode' | 'downloadQrCode';

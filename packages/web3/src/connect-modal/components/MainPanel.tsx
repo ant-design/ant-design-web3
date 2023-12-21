@@ -22,6 +22,9 @@ const MainPanel: React.FC<MainPanelProps> = (props) => {
       {panelRoute === 'qrCode' && selectedWallet ? (
         <QrCode wallet={selectedWallet} simple={simple} />
       ) : null}
+      {panelRoute === 'downloadQrCode' && selectedWallet ? (
+        <QrCode wallet={selectedWallet} simple={simple} download />
+      ) : null}
     </div>
   );
 };

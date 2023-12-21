@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from 'react';
 import { List, message } from 'antd';
 import type { ConnectModalProps, Wallet } from '../interface';
-import { defaultGroupOrder, getWalletRoute } from '../utils';
+import { defaultGroupOrder } from '../utils';
 import { connectModalContext } from '../context';
 import classNames from 'classnames';
 
@@ -53,16 +53,21 @@ const WalletList: React.FC<WalletListProps> = (props) => {
                     const hasBrowserExtensionInstalled =
                       await item.hasBrowserExtensionInstalled?.();
                     if (hasBrowserExtensionInstalled) {
-                      updateSelectedWallet(item);
+                      // browser extension installed, use browser extension
+                      updateSelectedWallet(item, true);
                       return;
                     }
-                    const route = getWalletRoute(item);
-                    if (route !== 'unknown') {
-                      updateSelectedWallet(item);
-                      updatePanelRoute(route, true);
-                    } else {
-                      messageApi.error('Wallet is not supported');
+                    if (item.getQrCode) {
+                      // can use qr code to connect
+                      updateSelectedWallet(item, true);
+                      updatePanelRoute('qrCode', true);
+                      return;
                     }
+
+                    // can not use browser extension or qr code to connect
+                    // go to wallet page
+                    updateSelectedWallet(item);
+                    updatePanelRoute('wallet', true);
                   }}
                 >
                   <div className={`${prefixCls}-content`}>
