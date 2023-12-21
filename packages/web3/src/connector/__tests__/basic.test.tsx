@@ -64,7 +64,7 @@ describe('Connector', () => {
           availableWallets={[
             {
               ...metadata_MetaMask,
-              hasBrowserExtensionInstalled: async () => {
+              hasWalletReady: async () => {
                 return true;
               },
             },
@@ -116,7 +116,7 @@ describe('Connector', () => {
           availableWallets={[
             {
               ...metadata_MetaMask,
-              hasBrowserExtensionInstalled: async () => {
+              hasWalletReady: async () => {
                 return true;
               },
             },
@@ -151,7 +151,7 @@ describe('Connector', () => {
           availableWallets={[
             {
               ...metadata_MetaMask,
-              hasBrowserExtensionInstalled: async () => {
+              hasWalletReady: async () => {
                 return true;
               },
             },

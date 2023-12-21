@@ -19,6 +19,9 @@ describe('Get wallet', () => {
               link: 'https://test.com/xxx',
             },
             group: 'Popular',
+            hasWalletReady: async () => {
+              return true;
+            },
             getQrCode: () =>
               Promise.resolve({
                 uri: 'wc:f7a2ae968db3720de3efa7f088a3a05a746c011bb972a4dae0a61abe66632e3d@2?relay-protocol=irn&symKey=85bf278d8a4240154c449939eb047863585619c9c7acaa78657606d66c5630b3',

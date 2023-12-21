@@ -38,7 +38,7 @@ order: 3
 | extensions | 该钱包支持的浏览器扩展程序列表 | `false` \| [ExtensionItem](#extensionitem)\[] | - | - |
 | app | 该钱包是否支持 APP 调用 | `false \| { link: string }` | - | - |
 | group | 钱包所属分组名称 | `string` | - | - |
-| hasBrowserExtensionInstalled | 是否已安装浏览器扩展程序 | `() => boolean` | - | - |
+| hasWalletReady | 是否已安装浏览器扩展程序 | `() => boolean` | - | - |
 | getQrCode | 获取钱包的二维码 | `() => { uri: string }` | - | - |
 
 ### ExtensionItem

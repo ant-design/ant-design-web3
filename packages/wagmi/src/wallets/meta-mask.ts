@@ -7,7 +7,7 @@ export const MetaMask: WalletFactory = {
   create: (): Wallet => {
     return {
       ...metadata_MetaMask,
-      hasBrowserExtensionInstalled: async () => {
+      hasWalletReady: async () => {
         return !!window.ethereum?.isMetaMask;
       },
     };

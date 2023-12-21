@@ -50,21 +50,18 @@ const WalletList: React.FC<WalletListProps> = (props) => {
                         : selectedWallet?.name === item.name,
                   })}
                   onClick={async () => {
-                    const hasBrowserExtensionInstalled =
-                      await item.hasBrowserExtensionInstalled?.();
-                    if (hasBrowserExtensionInstalled) {
-                      // browser extension installed, use browser extension
+                    const hasWalletReady = await item.hasWalletReady?.();
+                    if (hasWalletReady) {
+                      // wallet is ready, call ConnectModal's onWalletSelected
                       updateSelectedWallet(item, true);
-                      return;
-                    }
-                    if (item.getQrCode) {
-                      // can use qr code to connect
-                      updateSelectedWallet(item, true);
-                      updatePanelRoute('qrCode', true);
+                      if (item.getQrCode) {
+                        // can use qr code to connect
+                        updatePanelRoute('qrCode', true);
+                      }
                       return;
                     }
 
-                    // can not use browser extension or qr code to connect
+                    // wallet not ready
                     // go to wallet page
                     updateSelectedWallet(item);
                     updatePanelRoute('wallet', true);

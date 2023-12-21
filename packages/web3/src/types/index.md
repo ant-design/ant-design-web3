@@ -38,7 +38,7 @@ This is an enum type that contains the IDs of some commonly used chains. Its val
 | extensions | List of browser extensions supported by the wallet | `false` \| [ExtensionItem](#extensionitem)\[] | - | - |
 | app | Whether the wallet supports APP calls | `false \| { link: string }` | - | - |
 | group | Wallet group name | `string` | - | - |
-| hasBrowserExtensionInstalled | Whether the browser extension is installed | `() => boolean` | - | - |
+| hasWalletReady | Whether the browser extension is installed | `() => boolean` | - | - |
 | getQrCode | Get the QR code of the wallet | `() => { uri: string }` | - | - |
 
 ## ExtensionItem

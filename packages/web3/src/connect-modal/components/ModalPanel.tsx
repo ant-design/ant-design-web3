@@ -13,7 +13,7 @@ import type { PanelRoute, Wallet } from '../interface';
 export type ModalPanelProps = ConnectModalProps;
 
 const ModalPanel: React.FC<ModalPanelProps> = (props) => {
-  const { title, footer, walletList, groupOrder, guide, mode, onSelectWallet } = props;
+  const { title, footer, walletList, groupOrder, guide, mode, onWalletSelected } = props;
 
   const [panelRoute, setPanelRoute] = React.useState<PanelRoute>('init');
   const routeStack = React.useRef<PanelRoute[]>(['init']);
@@ -40,10 +40,10 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     (wallet: Wallet | undefined, triggerConnect?: boolean) => {
       setSelectedWallet(wallet);
       if (wallet && triggerConnect) {
-        onSelectWallet?.(wallet);
+        onWalletSelected?.(wallet);
       }
     },
-    [onSelectWallet],
+    [onWalletSelected],
   );
   const panelRouteBack = React.useCallback(() => {
     routeStack.current.pop();
