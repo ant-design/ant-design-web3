@@ -55,7 +55,7 @@
     "@types/react": "^18.2.45",
     "@types/react-copy-to-clipboard": "^5.0.7",
     "@umijs/fabric": "^4.0.1",
-    "@vitest/coverage-v8": "^1.1.0",
+    "@vitest/coverage-v8": "^0.34.6",
     "antd": "^5.12.4",
     "antd-style": "^3.6.1",
     "classnames": "^2.3.2",
@@ -74,7 +74,7 @@
     "rimraf": "^5.0.5",
     "typescript": "^5.3.3",
     "vite-plugin-svgr": "^4.2.0",
-    "vitest": "~1.1.0",
+    "vitest": "^0.34.6",
     "wagmi": "^1.4.12"
   },
   "ci": {
