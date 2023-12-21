@@ -1,10 +1,8 @@
 import { ConnectModal } from '@ant-design/web3';
-import { groupOrder, guide, walletList } from './mock';
-import { fireEvent, render } from '@testing-library/react';
-import { useEffect, useState } from 'react';
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { groupOrder, walletList } from './mock';
+import { render } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
 import { ConfigProvider } from 'antd';
-import { mockBrowser } from '../../utils/test-utils';
 
 describe('ConnectModal with guide', () => {
   it('should display default guide', async () => {

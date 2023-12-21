@@ -18,7 +18,8 @@ export const customToken: ThemeConfig = {
   },
   components: {
     Button: {
-      borderRadius: 10,
+      borderRadius: 16,
+      borderRadiusLG: 24,
       borderRadiusSM: 8,
       controlHeight: 44,
       marginXS: 8,
@@ -27,7 +28,6 @@ export const customToken: ThemeConfig = {
       controlHeightLG: 52,
       controlHeightSM: 36,
       paddingXS: 16,
-      borderRadiusLG: 10,
     },
     List: {
       paddingLG: 24,
@@ -55,7 +55,7 @@ export const customToken: ThemeConfig = {
       paddingLG: 24,
       paddingMD: 20,
       paddingXS: 12,
-      borderRadiusLG: 16,
+      borderRadiusLG: 24,
       borderRadiusSM: 10,
     },
   },
