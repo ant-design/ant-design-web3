@@ -1,4 +1,4 @@
-import { ConfigProvider, Space } from 'antd';
+import { ConfigProvider, Space, Modal, Button } from 'antd';
 import React from 'react';
 import BasiceDemo from './basic';
 
@@ -10,6 +10,15 @@ const App: React.FC = () => {
           token: {
             colorPrimary: '#8442ff',
           },
+          components: {
+            Button: {
+              borderRadius: 16,
+              borderRadiusLG: 24,
+            },
+            Modal: {
+              borderRadiusLG: 24,
+            },
+          },
         }}
       >
         <BasiceDemo />
@@ -18,6 +27,15 @@ const App: React.FC = () => {
         theme={{
           token: {
             colorPrimary: '#000',
+          },
+          components: {
+            Button: {
+              borderRadius: 16,
+              borderRadiusLG: 24,
+            },
+            Modal: {
+              borderRadiusLG: 24,
+            },
           },
         }}
       >

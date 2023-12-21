@@ -16,7 +16,6 @@ export interface ComponentToken {
 
 export interface ConnectModalToken extends Web3AliasToken {
   // Custom token here
-  contentBorderRadius: number;
   selectedBg: string;
   selectedColor: string;
   hoverBg: string;
@@ -38,14 +37,6 @@ const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
         '.ant-modal-content': {
           padding: 0,
         },
-        [`.ant-modal-close`]: {
-          top: 24,
-          color: isDark ? '#767676' : '#C9C9C9',
-          '&:hover': {
-            color: token.colorText,
-            background: 'transparent',
-          },
-        },
         ['.ant-list-split .ant-list-item']: {
           borderBlockEnd: 'none',
         },
@@ -63,7 +54,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
   return [
     {
       [`${componentCls}`]: {
-        borderRadius: token.contentBorderRadius,
         overflow: 'hidden',
         paddingBlockEnd: 0,
         '.ant-modal-content': {
@@ -242,7 +232,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             },
           },
           [`${componentCls}-get-btn`]: {
-            borderRadius: 8,
             background: isDark
               ? new TinyColor(token.colorWhite).setAlpha(0.15).toRgbString()
               : token.colorPrimary,
@@ -457,7 +446,6 @@ export function useStyle(prefixCls: string) {
       cardBg: new TinyColor(token.colorText).setAlpha(0.1).toRgbString(),
       iconSize: token.sizeXL,
       web3ComponentsCls: `.${prefixCls}`,
-      contentBorderRadius: 24,
     });
     return [genModalStyle(connectModalToken)];
   });

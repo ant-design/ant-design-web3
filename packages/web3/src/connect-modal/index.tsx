@@ -24,7 +24,6 @@ export const ConnectModal: React.FC<ConnectModalProps> & {
 
   return wrapSSR(
     <Modal
-      closeIcon={<CloseCircleFilled />}
       footer={null}
       width={isSimple ? 380 : 737}
       {...restProps}

@@ -12,6 +12,10 @@ order: 2
 
 <code src="./demos/basic.tsx"></code>
 
+## 自定义主题
+
+<code src="./demos/theme.tsx"></code>
+
 ## 面板方式嵌入
 
 <code src="./demos/panel.tsx"></code>
@@ -23,10 +27,6 @@ order: 2
 ## 暗黑模式
 
 <code src="./demos/dark.tsx"></code>
-
-## 自定义主题色
-
-<code src="./demos/theme.tsx"></code>
 
 ## 自定义新手指引面板
 
