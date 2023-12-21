@@ -1,6 +1,6 @@
 import { NFTCard } from '@ant-design/web3';
 import { render } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, act } from 'vitest';
 
 describe('NFTCard', () => {
   it('renders correctly with valid address and tokenId', () => {
@@ -74,5 +74,16 @@ describe('NFTCard', () => {
     // Ensure the like and price elements are not rendered
     expect(baseElement.querySelector('.ant-nft-card-like-value')).toBeNull();
     expect(baseElement.querySelector('.ant-web3-crypto-price-balance')).toBeNull();
+  });
+
+  it('renders footer content when footer prop is provided', () => {
+    const address = '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B';
+    const tokenId = 123;
+
+    const { baseElement } = render(
+      <NFTCard address={address} tokenId={tokenId} footer={<div>Additional information</div>} />,
+    );
+
+    expect(baseElement.querySelector('.ant-nft-card-footer')).toBeTruthy();
   });
 });
