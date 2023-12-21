@@ -49,6 +49,7 @@ describe('ProfileModal', () => {
         baseElement.querySelector('.ant-web3-connect-button-profile-modal .ant-web3-address')
           ?.textContent,
       ).toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
+      expect(baseElement.querySelector('.anticon-user')).not.toBeNull();
     });
   });
 

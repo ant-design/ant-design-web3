@@ -24,18 +24,9 @@ const App: React.FC = () => {
       <ConnectButton
         account={{
           address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
-          name: 'No menu by default',
-        }}
-        avatar={{
-          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
-        }}
-        onMenuItemClick={(item) => console.log('onMenuItemClick', item)}
-      />
-      <ConnectButton
-        account={{
-          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
           name: 'Display default menu',
         }}
+        profileModal={false}
         avatar={{
           src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
         }}
@@ -46,6 +37,7 @@ const App: React.FC = () => {
           address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
           name: 'Insert menu items before default items',
         }}
+        profileModal={false}
         avatar={{
           src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
         }}
@@ -59,6 +51,7 @@ const App: React.FC = () => {
           address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
           name: 'Override menu items',
         }}
+        profileModal={false}
         avatar={{
           src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
         }}
