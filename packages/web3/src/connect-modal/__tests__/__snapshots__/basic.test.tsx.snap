@@ -356,6 +356,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                       <a
                         class="ant-web3-connect-modal-qr-code-link"
                         href="https://test.com/xxx"
+                        rel="noreferrer"
                         target="_blank"
                       >
                         <div
@@ -776,6 +777,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                       <a
                         class="ant-web3-connect-modal-qr-code-link"
                         href="https://test.com/xxx"
+                        rel="noreferrer"
                         target="_blank"
                       >
                         <div
