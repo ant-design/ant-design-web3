@@ -1,5 +1,5 @@
 import React from 'react';
-import { WagmiConfig } from 'wagmi';
+import { WagmiConfig, type WagmiConfigProps } from 'wagmi';
 
 import type { PublicClient, WebSocketPublicClient, Config, Chain as WagmiChain } from 'wagmi';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
@@ -14,7 +14,7 @@ export type WagmiWeb3ConfigProviderProps<
   TPublicClient extends PublicClient = PublicClient,
   TWebSocketPublicClient extends WebSocketPublicClient = WebSocketPublicClient,
 > = {
-  config: any;
+  config: Config<TPublicClient, TWebSocketPublicClient>;
   assets?: (Chain | WalletFactory)[];
   ens?: boolean;
   balance?: boolean;
@@ -38,13 +38,13 @@ export function WagmiWeb3ConfigProvider<
     const chains: WagmiChain[] = [];
 
     for (const connector of config.connectors) {
-      connector.chains.forEach((chain: any) => {
+      connector.chains.forEach((chain) => {
         if (chains.find((c) => c.id === chain.id)) return;
         chains.push(chain);
       });
     }
 
-    config.publicClient.chains?.forEach((chain: any) => {
+    config.publicClient.chains?.forEach((chain) => {
       if (chains.find((c) => c.id === chain.id)) return;
       chains.push(chain);
     });
