@@ -45,7 +45,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         account?.name
       ) : (
         <Address tooltip={false} ellipsis address={account.address}>
-          {balance ? <CryptoPrice {...balance} /> : undefined}
+          {balance ? <CryptoPrice icon {...balance} /> : undefined}
         </Address>
       );
   }
