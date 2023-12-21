@@ -1,6 +1,6 @@
 import { NFTCard } from '@ant-design/web3';
 import { render } from '@testing-library/react';
-import { describe, it, expect, vi, act } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('NFTCard', () => {
   it('renders correctly with valid address and tokenId', () => {
