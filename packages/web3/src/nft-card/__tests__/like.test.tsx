@@ -2,8 +2,8 @@ import { NFTCard } from '@ant-design/web3';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 
-describe('NFTCard', () => {
-  it('renders correctly with likeConfig and price', () => {
+describe('NFTCard like', () => {
+  it('renders correctly with likeConfig and onLikeChange work', () => {
     const likeFn = vi.fn();
     const address = '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B';
     const tokenId = 123;

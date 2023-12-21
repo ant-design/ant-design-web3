@@ -36,9 +36,9 @@ group: 展示
 | footer | 卡片的底部内容 | `React.ReactNode` | - | - |
 | name | 卡片的名称 | `string` | - | - |
 | style | 卡片的样式 | `React.CSSProperties` | - | - |
-| showAction | 是否显示卡片的主要按钮 | `boolean` | `true` | - |
+| showAction | 是否显示卡片的操作按钮 | `boolean` | `true` | - |
 | type | 卡片的类型 | `'default' \| 'pithy'` | `'default'` | - |
-| onActionChange | 点击卡片的主要按钮时的回调 | `() => void` | - | - |
+| onActionClick | 点击卡片的操作按钮时的回调 | `() => void` | - | - |
 
 `NFTMetadata` 的定义参考以太坊 ERC721 的标准，具体见 [NFTMetadata 文档](../types/index.zh-CN.md#nftmetadata)。
 

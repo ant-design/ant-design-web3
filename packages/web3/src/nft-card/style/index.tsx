@@ -134,19 +134,20 @@ const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
           },
           [`${componentCls}-action`]: {
             marginTop: marginLG,
-            '.ant-btn': {
+            [`${antCls}-btn`]: {
               backgroundColor: colorFillSecondary,
               height: controlHeightLG,
               borderRadius: borderRadiusLG,
               border: 'none',
               color: colorText,
               fontWeight: 500,
+              width: '100%',
             },
           },
           [`${componentCls}-footer`]: {
             color: colorTextSecondary,
             fontSize,
-            '.ant-divider': {
+            [`${antCls}-divider`]: {
               borderColor: colorTextQuaternary,
               marginTop: margin,
               marginBottom: marginXS,

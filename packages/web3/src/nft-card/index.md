@@ -36,9 +36,9 @@ Components used to display NFTCard.
 | footer | The footer of the card | `React.ReactNode` | - | - |
 | name | The name of the card | `string` | - | - |
 | style | The style of the card | `React.CSSProperties` | - | - |
-| showAction | Whether to show the main button of the card | `boolean` | `true` | - |
+| showAction | Whether to show the action button of the card | `boolean` | `true` | - |
 | type | The type of the card | `'default' \| 'pithy'` | `'default'` | - |
-| onActionChange | The callback when the main button of the card is clicked | `() => void` | - | - |
+| onActionClick | The callback when the action button of the card is clicked | `() => void` | - | - |
 
 The definition of `NFTMetadata` refers to the Ethereum ERC721 standard, see [NFTMetadata document](../types/index.md#nftmetadata) for details.
 
