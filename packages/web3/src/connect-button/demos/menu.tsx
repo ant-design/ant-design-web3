@@ -26,7 +26,6 @@ const App: React.FC = () => {
           address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
           name: 'Display default menu',
         }}
-        profileModal={false}
         avatar={{
           src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
         }}

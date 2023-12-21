@@ -14,7 +14,7 @@ export type WagmiWeb3ConfigProviderProps<
   TPublicClient extends PublicClient = PublicClient,
   TWebSocketPublicClient extends WebSocketPublicClient = WebSocketPublicClient,
 > = {
-  config: Config<TPublicClient, TWebSocketPublicClient>;
+  config: any;
   assets?: (Chain | WalletFactory)[];
   ens?: boolean;
   balance?: boolean;
@@ -38,13 +38,13 @@ export function WagmiWeb3ConfigProvider<
     const chains: WagmiChain[] = [];
 
     for (const connector of config.connectors) {
-      connector.chains.forEach((chain) => {
+      connector.chains.forEach((chain: any) => {
         if (chains.find((c) => c.id === chain.id)) return;
         chains.push(chain);
       });
     }
 
-    config.publicClient.chains?.forEach((chain) => {
+    config.publicClient.chains?.forEach((chain: any) => {
       if (chains.find((c) => c.id === chain.id)) return;
       chains.push(chain);
     });

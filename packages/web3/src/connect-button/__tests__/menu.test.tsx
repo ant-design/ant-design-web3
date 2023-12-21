@@ -78,11 +78,11 @@ describe('ConnectButton', () => {
 
     fireEvent.mouseEnter(baseElement.querySelector('.ant-dropdown-trigger') as Element);
     await vi.waitFor(async () => {
-      expect(baseElement.querySelector('.ant-dropdown')).not.toBeNull();
+      expect(baseElement.querySelector('.ant-dropdown-open')).not.toBeNull();
     });
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-button') as Element);
     await vi.waitFor(async () => {
-      expect(baseElement.querySelector('.ant-dropdown')).toBeNull();
+      expect(baseElement.querySelector('.ant-dropdown-open')).toBeNull();
     });
   });
   it('Should not show menu by default', async () => {
