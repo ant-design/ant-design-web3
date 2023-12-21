@@ -6,7 +6,6 @@ import {
   metadata_CoinbaseWallet,
 } from '@ant-design/web3-assets';
 import classNames from 'classnames';
-import s from './connect.module.less';
 import { ConfigProvider, theme } from 'antd';
 import { usePrefersColor } from 'dumi';
 
@@ -39,9 +38,9 @@ export default () => {
         algorithm: color === 'dark' ? theme.darkAlgorithm : undefined,
       }}
     >
-      <div className={classNames(styles.cardBg, s.cardBg)}>
+      <div className={classNames(styles.cardBg, styles.connectModalCardBg)}>
         <span className={styles.title}>Connect Wallet</span>
-        <div className={classNames(styles.connectContainer, s.connectModalContainer)}>
+        <div className={classNames(styles.connectContainer, styles.connectModalContainer)}>
           <ConnectModal.ModalPanel
             mode="normal"
             title="Connect Wallet"

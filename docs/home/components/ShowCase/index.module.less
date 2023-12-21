@@ -1,6 +1,7 @@
 .container {
+  overflow: hidden;
   background-color: #fff;
-  padding: 67px 0;
+  padding: 67px 0 0;
   .headTitle {
     font-size: 38px;
     margin: 0 0 24px 0;
@@ -20,7 +21,7 @@
       background: #f5f8ff;
       background-image: radial-gradient(circle at 94% 97%, #e5efff 0%, rgba(233, 240, 255, 0) 53%);
       border-radius: 16px;
-      padding: 32px 36px;
+      padding: 40px 36px;
       margin: 0 10px;
       .title {
         display: block;
@@ -39,10 +40,20 @@
       border-radius: 24px;
       background-color: #fff;
     }
+    .connectModalCardBg {
+      flex-shrink: 0;
+      width: 400px;
+    }
+    .connectModalContainer {
+      position: absolute;
+      width: 737px;
+      transform-origin: left top;
+      transform: scale(0.56);
+    }
   }
 
   .footer {
-    margin-top: 67px;
+    margin-top: 48px;
     text-align: center;
     line-height: 22px;
   }
@@ -71,6 +82,12 @@
         width: calc(100% - 40px);
         box-sizing: border-box;
         margin-bottom: 32px;
+      }
+      .connectModalCardBg {
+        min-height: 356px;
+      }
+      .connectModalContainer {
+        transform: scale(0.41);
       }
     }
     .footer {
