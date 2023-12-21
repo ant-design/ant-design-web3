@@ -11,7 +11,7 @@ import { useStyle } from './style';
 import { fillWith0x, writeCopyText } from '../utils';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import { CryptoPrice } from '../crypto-price';
-import { CopyOutlined, LoginOutlined } from '@ant-design/icons';
+import { CopyOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const {
@@ -125,7 +125,12 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       name={account?.name}
       avatar={
         avatar ?? {
-          src: <div className={`${prefixCls}-chain-icon`}>{chain?.icon}</div>,
+          icon: chain?.icon ? (
+            <div className={`${prefixCls}-chain-icon`}>{chain?.icon}</div>
+          ) : (
+            <UserOutlined />
+          ),
+          size: 'large',
         }
       }
       balance={balance}

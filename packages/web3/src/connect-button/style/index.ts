@@ -58,7 +58,10 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
         },
       },
       [`${token.componentCls}-chain-icon`]: {
-        fontSize: 32,
+        fontSize: 38,
+      },
+      [`${token.antCls}-web3-address`]: {
+        color: token.colorTextSecondary,
       },
     },
 
