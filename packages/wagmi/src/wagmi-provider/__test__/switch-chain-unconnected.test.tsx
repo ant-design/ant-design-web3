@@ -1,14 +1,10 @@
 import { describe, it, expect, vi } from 'vitest';
-import React, { useEffect } from 'react';
 import { fireEvent, render } from '@testing-library/react';
-import { Chain as WagmiChain, mainnet, polygon } from 'wagmi/chains';
+import { mainnet, polygon } from 'wagmi/chains';
 import { Connector, ConnectButton } from '@ant-design/web3';
 import { AntDesignWeb3ConfigProvider } from '../config-provider';
 import { Mainnet, Polygon } from '@ant-design/web3-assets';
-import EventEmitter from 'events';
 import { MetaMask } from '../../wallets';
-
-const event = new EventEmitter();
 
 const mockConnector = {
   name: 'MetaMask',
@@ -19,7 +15,7 @@ vi.mock('wagmi', () => {
     // https://wagmi.sh/react/hooks/useAccount
     useAccount: () => {
       return {
-        address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        address: undefined,
         connector: mockConnector,
       };
     },
@@ -34,23 +30,13 @@ vi.mock('wagmi', () => {
       };
     },
     useNetwork: () => {
-      const [currentChain, setCurrentChain] = React.useState<WagmiChain | undefined>(mainnet);
-      useEffect(() => {
-        event.on('switchChain', (c) => {
-          setCurrentChain(c);
-        });
-      }, [event]);
       return {
-        chain: currentChain,
+        chain: undefined,
       };
     },
     useSwitchNetwork: () => {
       return {
-        switchNetwork: (c: number) => {
-          if (c === Polygon.id) {
-            event.emit('switchChain', polygon);
-          }
-        },
+        switchNetwork: () => {},
       };
     },
     useBalance: () => {
@@ -65,8 +51,8 @@ vi.mock('wagmi', () => {
   };
 });
 
-describe('switch chain when connect', () => {
-  it('switch chain when connect', async () => {
+describe('switch chain when not conncted', () => {
+  it('switch chain when not conncted', () => {
     const App = () => (
       <AntDesignWeb3ConfigProvider
         availableConnectors={[]}
@@ -80,17 +66,15 @@ describe('switch chain when connect', () => {
     );
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.ant-web3-connect-button-text')?.textContent).toBe(
-      '0x21CD...Fd3B',
+      'Connect Wallet',
     );
     expect(baseElement.querySelector('.ant-web3-connect-button-chain-select')?.textContent).toBe(
       'Ethereum',
     );
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-button-chain-select')!);
     fireEvent.click(baseElement.querySelectorAll('.ant-dropdown-menu-item')[1]);
-    await vi.waitFor(() => {
-      expect(baseElement.querySelector('.ant-web3-connect-button-chain-select')?.textContent).toBe(
-        'Polygon',
-      );
-    });
+    expect(baseElement.querySelector('.ant-web3-connect-button-chain-select')?.textContent).toBe(
+      'Polygon',
+    );
   });
 });
