@@ -96,6 +96,7 @@ describe('ConnectButton', () => {
 
     expect(baseElement.querySelector('.ant-dropdown-trigger')).toBeNull();
   });
+
   it('Should insert menu items before default menu items when pass extraItems into actionsMenu', async () => {
     const menuClickFn = vi.fn();
     const App = () => (
@@ -135,6 +136,31 @@ describe('ConnectButton', () => {
       expect(menuClickFn).toBeCalledWith('copyAddress');
     });
   });
+
+  it('show extraItems when not connected', async () => {
+    const menuClickFn = vi.fn();
+    const App = () => (
+      <ConnectButton
+        actionsMenu={{
+          extraItems: menuItems,
+        }}
+        onMenuItemClick={(info) => menuClickFn(info?.key)}
+      />
+    );
+    const { baseElement } = render(<App />);
+
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-dropdown-trigger') as Element);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-dropdown')).not.toBeNull();
+      expect(baseElement.querySelector('.ant-dropdown-menu')).not.toBeNull();
+      expect(baseElement.querySelectorAll('.ant-dropdown-menu-item')?.length).toBe(2);
+      expect(baseElement.querySelector('.ant-dropdown-menu-item')?.textContent).toBe('Menu Item 1');
+      expect(
+        baseElement.querySelector('.ant-dropdown-menu-item')?.getAttribute('data-menu-id'),
+      ).toBe('rc-menu-uuid-test-1');
+    });
+  });
+
   it('Should override menu items when pass items into actionsMenu', async () => {
     const menuClickFn = vi.fn();
     const App = () => (
