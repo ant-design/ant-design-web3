@@ -64,6 +64,33 @@ describe('ConnectButton', () => {
       );
     });
   });
+
+  it('disconnect', async () => {
+    const disconnectFn = vi.fn();
+    const App = () => (
+      <ConnectButton
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
+        actionsMenu
+        onDisconnectClick={disconnectFn}
+      />
+    );
+    const { baseElement } = render(<App />);
+
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-dropdown-trigger') as Element);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-dropdown')).not.toBeNull();
+      expect(baseElement.querySelector('.ant-dropdown-menu')).not.toBeNull();
+      expect(baseElement.querySelectorAll('.ant-dropdown-menu-item')?.length).toBe(2);
+      expect(baseElement.querySelectorAll('.ant-dropdown-menu-item')[1]?.textContent).toBe(
+        'Disconnect',
+      );
+    });
+    fireEvent.click(baseElement.querySelectorAll('.ant-dropdown-menu-item')[1] as Element);
+    expect(disconnectFn).toBeCalled();
+  });
+
   it('Should show menu when hover button', async () => {
     const App = () => (
       <ConnectButton
@@ -192,13 +219,32 @@ describe('ConnectButton', () => {
     });
   });
 
-  it('Should show default menu items when account is provided', async () => {
+  it('Should show default menu items when account is provider', async () => {
     const App = () => (
       <ConnectButton
         account={{
           address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
         }}
         actionsMenu
+      />
+    );
+    const { baseElement } = render(<App />);
+
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-dropdown-trigger') as Element);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-dropdown')).not.toBeNull();
+      // Ensure defaultMenuItems are present
+      expect(baseElement.querySelectorAll('.ant-dropdown-menu-item')?.length).toBeGreaterThan(0);
+    });
+  });
+
+  it('Should show default menu items when account is provider', async () => {
+    const App = () => (
+      <ConnectButton
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
+        actionsMenu={{}}
       />
     );
     const { baseElement } = render(<App />);
