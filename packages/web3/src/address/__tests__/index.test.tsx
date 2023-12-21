@@ -95,4 +95,29 @@ describe('Address', () => {
       expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
     });
   });
+  it('does not display ellipsis if ellipsis is set to false', () => {
+    const { baseElement } = render(
+      <Address ellipsis={false} address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,
+    );
+    expect(baseElement.querySelector('.ant-web3-address')?.textContent).toBe(
+      '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+    );
+  });
+  it('does not display tooltip if tooltip is set to false', async () => {
+    const { baseElement } = render(
+      <Address tooltip={false} address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,
+    );
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-web3-address-text')!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-tooltip-inner')).toBeNull();
+    });
+  });
+  it('does not apply any formatting if format is set to false', () => {
+    const { baseElement } = render(
+      <Address format={false} address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,
+    );
+    expect(baseElement.querySelector('.ant-web3-address')?.textContent).toBe(
+      '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+    );
+  });
 });
