@@ -12,6 +12,10 @@
     margin: 56px auto;
     border-radius: 24px;
   }
+  .controls {
+    display: flex;
+    justify-content: center;
+  }
   .themeBtns {
     text-align: center;
     span {
@@ -37,6 +41,16 @@
       }
     }
   }
+  .colorSelector {
+    margin-left: 80px;
+    display: flex;
+    .colorItem {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -50,6 +64,13 @@
       svg {
         width: 18px !important;
         height: 18px !important;
+      }
+    }
+    .colorSelector {
+      margin-left: 40px;
+      .colorItem {
+        width: 18px;
+        height: 18px;
       }
     }
   }
