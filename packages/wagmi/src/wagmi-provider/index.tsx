@@ -1,5 +1,5 @@
 import React from 'react';
-import { WagmiConfig, type WagmiConfigProps } from 'wagmi';
+import { WagmiConfig } from 'wagmi';
 
 import type { PublicClient, WebSocketPublicClient, Config, Chain as WagmiChain } from 'wagmi';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
