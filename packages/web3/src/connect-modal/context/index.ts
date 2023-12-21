@@ -4,7 +4,7 @@ import type { PanelRoute, Wallet } from '../interface';
 export type ConnectModalContext = {
   prefixCls: string;
   selectedWallet: Wallet | undefined;
-  updateSelectedWallet: (wallet: Wallet | undefined) => void;
+  updateSelectedWallet: (wallet: Wallet | undefined, triggerConnect?: boolean) => void;
   panelRoute: PanelRoute;
   updatePanelRoute: (route: PanelRoute, clear?: boolean) => void;
   panelRouteBack: () => void;

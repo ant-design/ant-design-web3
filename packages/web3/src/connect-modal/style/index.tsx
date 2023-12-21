@@ -387,6 +387,9 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               position: 'relative',
               width: '100%',
               marginBlockStart: token.marginSM,
+              [`${componentCls}-qr-code-tips-download`]: {
+                textAlign: 'center',
+              },
               [`${componentCls}-get-wallet-btn`]: {
                 position: 'absolute',
                 right: 0,

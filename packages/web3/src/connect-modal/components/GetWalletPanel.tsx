@@ -3,7 +3,6 @@ import type { ConnectModalProps } from '../interface';
 import { connectModalContext } from '../context';
 import MainPanelHeader from './MainPanelHeader';
 import { Avatar, Button, List, message } from 'antd';
-import { getWalletRoute } from '../utils';
 
 export type GetWalletPanelProps = Pick<ConnectModalProps, 'walletList'>;
 
@@ -29,13 +28,8 @@ const GetWalletPanel: React.FC<GetWalletPanelProps> = (props) => {
                   shape="round"
                   className={`${prefixCls}-get-wallet-btn`}
                   onClick={() => {
-                    const route = getWalletRoute(item);
-                    if (route === 'unknown') {
-                      messageApi.error('Wallet is not supported');
-                      return;
-                    }
                     updateSelectedWallet(item);
-                    updatePanelRoute(route);
+                    updatePanelRoute('wallet');
                   }}
                 >
                   Get

@@ -72,7 +72,7 @@ const WalletCard: React.FC = () => {
             title={`${selectedWallet.name} for Mobile`}
             desc="Use the mobile wallet to explore the world of Ethereum."
             onClick={() => {
-              updatePanelRoute('qrCode');
+              updatePanelRoute('downloadQrCode');
             }}
           />
         )}
