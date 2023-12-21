@@ -7,9 +7,8 @@ export const CoinbaseWallet: WalletFactory = {
   create: (): Wallet => {
     return {
       ...metadata_CoinbaseWallet,
-      hasBrowserExtensionInstalled: async () => {
-        // @ts-ignore
-        return !!window.coinbaseWalletExtension;
+      hasWalletReady: async () => {
+        return true;
       },
     };
   },

@@ -38,7 +38,7 @@ order: 2
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- | --- |
-| onSelectWallet | 选中钱包回调 | `(wallet: Wallet) => void` | - | - |
+| onWalletSelected | 选中钱包回调 | `(wallet: Wallet) => void` | - | - |
 | footer | 自定义 footer | `React.ReactNode` | - | - |
 | walletList | 钱包列表 | [Wallet](./types#wallet)\[\] | - | - |
 | groupOrder | 钱包分组排序函数 | `(a: string, b: string) => number` | - | - |

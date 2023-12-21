@@ -66,7 +66,7 @@ export interface UniversalWeb3ProviderInterface {
 }
 
 export interface Wallet extends WalletMetadata {
-  hasBrowserExtensionInstalled?: () => Promise<boolean>;
+  hasWalletReady?: () => Promise<boolean>;
   getQrCode?: () => Promise<{
     uri: string;
   }>;

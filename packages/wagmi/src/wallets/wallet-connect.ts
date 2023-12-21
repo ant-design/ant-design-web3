@@ -18,8 +18,8 @@ export const WalletConnect: WalletFactory = {
     };
     return {
       ...metadata_WalletConnect,
-      hasBrowserExtensionInstalled: async () => {
-        return false;
+      hasWalletReady: async () => {
+        return true;
       },
       getQrCode: connector?.options.showQrModal === false ? getQrCode : undefined,
     };

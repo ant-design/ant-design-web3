@@ -14,16 +14,9 @@ describe('CoinbaseWallet', async () => {
     expect(wallet.name).toBe(wagmiWallet.name);
   });
 
-  it('not installed', async () => {
+  it('always return true for hasWalletReady', async () => {
     const wallet = CoinbaseWallet.create();
-    const install = await wallet.hasBrowserExtensionInstalled?.();
-    expect(install).toBe(false);
-  });
-
-  it('installed', async () => {
-    const wallet = CoinbaseWallet.create();
-    vi.stubGlobal('coinbaseWalletExtension', {});
-    const install = await wallet.hasBrowserExtensionInstalled?.();
+    const install = await wallet.hasWalletReady?.();
     expect(install).toBe(true);
   });
 });

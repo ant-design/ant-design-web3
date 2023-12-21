@@ -74,7 +74,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       <ConnectModal
         open={open}
         walletList={availableWallets}
-        onSelectWallet={async (wallet) => {
+        onWalletSelected={async (wallet) => {
           if (!wallet.getQrCode) {
             // not need show qr code, hide immediately
             setOpen(false);

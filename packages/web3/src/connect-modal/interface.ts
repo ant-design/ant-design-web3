@@ -67,7 +67,7 @@ export type ConnectModalProps = ModalProps & {
    * @paramEn Selected wallet
    * @returns
    */
-  onSelectWallet?: (wallet: Wallet) => void;
+  onWalletSelected?: (wallet: Wallet) => void;
   /**
    * @desc 自定义 footer
    * @descEn Custom footer
