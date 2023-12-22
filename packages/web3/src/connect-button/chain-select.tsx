@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { Dropdown, Space, ConfigProvider, Divider, Button } from 'antd';
+import React, { useContext } from 'react';
+import { Dropdown, Space, ConfigProvider, Button } from 'antd';
 import type { Chain } from '@ant-design/web3-common';
 import classNames from 'classnames';
 import { DownOutlined } from '@ant-design/icons';

@@ -1,4 +1,4 @@
-import { ConfigProvider, Space, Modal, Button } from 'antd';
+import { ConfigProvider, Space } from 'antd';
 import React from 'react';
 import BasiceDemo from './basic';
 
