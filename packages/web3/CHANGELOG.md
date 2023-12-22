@@ -1,5 +1,26 @@
 # @ant-design/web3
 
+## 0.3.0
+
+### Minor Changes
+
+- 80b1957: feat: ConnectModal support mode
+- a2119bf: refactor: rename hasBrowserExtensionInstalled to hasWalletReady and rename onSelectWallet to onWalletSelected
+
+### Patch Changes
+
+- a86e7c6: fix: qrcode style bug in simple ConnectModal
+- caa86c4: fix: Get wallet dowload bug
+- bf23a50: fix: ConnectModal info style bug
+- d319842: fix: use antd Modal design token
+- 42b7ebe: fix: ConnectModal button height, use antd large button
+- e9f8fd4: fix: Get wallet button not work in ConnectModal panel mode
+- 7bae140: fix: ConnectButton text color bug
+- ab50e5a: fix: ConnectModal QrCode link style
+- 5dbecd5: fix: NFTCard action button click not work
+- Updated dependencies [a2119bf]
+  - @ant-design/web3-common@0.2.0
+
 ## 0.2.0
 
 ### Minor Changes

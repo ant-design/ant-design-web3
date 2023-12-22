@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 0.2.0
+
+### Minor Changes
+
+- a2119bf: refactor: rename hasBrowserExtensionInstalled to hasWalletReady and rename onSelectWallet to onWalletSelected
+
 ## 0.1.1
 
 ### Patch Changes

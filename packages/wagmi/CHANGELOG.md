@@ -1,5 +1,18 @@
 # @ant-design/web3-wagmi
 
+## 0.2.0
+
+### Minor Changes
+
+- a2119bf: refactor: rename hasBrowserExtensionInstalled to hasWalletReady and rename onSelectWallet to onWalletSelected
+
+### Patch Changes
+
+- f74fb2c: fix: switch chain bug when use with wagmi
+- Updated dependencies [a2119bf]
+  - @ant-design/web3-common@0.2.0
+  - @ant-design/web3-assets@0.1.2
+
 ## 0.1.1
 
 ### Patch Changes
