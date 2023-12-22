@@ -29,17 +29,16 @@ jobs:
           export BASE=/
           npm i pnpm -g
           pnpm install
-          pnpm run build
           pnpm run build:docs
           rm -rf dist/\~demos/:id
-      
+
       - name: upload site artifact
         uses: actions/upload-artifact@v3
         with:
           name: site
           path: dist/
           retention-days: 5
-  
+
         # Upload PR id for next workflow use
       - name: Save PR number
         if: ${{ always() }}
@@ -51,4 +50,3 @@ jobs:
         with:
           name: pr
           path: ./pr-id.txt
-
