@@ -97,4 +97,26 @@ export default defineConfig({
     },
     { id: 'zh-CN', name: '中文' },
   ],
+  extraBabelPlugins: [
+    [
+      'inline-react-svg',
+      {
+        svgo: {
+          plugins: [
+            {
+              name: 'preset-default',
+              params: {
+                overrides: {
+                  cleanupIDs: {
+                    // Don't minify ids in `svg` to avoid conflict.
+                    preservePrefixes: ['ant-web3-icon-'],
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    ],
+  ],
 });
