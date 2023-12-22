@@ -24,17 +24,17 @@ const alias = pkgList.reduce(
 export default defineConfig({
   title: 'Ant Design Web3 - A React components collection for Web3!',
   headScripts: [
+    {
+      src: 'https://www.googletagmanager.com/gtag/js?id=G-C31HWEY1D4',
+      async: true,
+    },
     `
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C31HWEY1D4"></script>
-  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
   
     gtag('config', 'G-C31HWEY1D4');
-  </script>
-  `,
+    `,
   ],
   mfsu: false,
   alias,
