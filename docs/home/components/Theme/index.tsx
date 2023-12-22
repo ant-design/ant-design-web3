@@ -104,6 +104,7 @@ const App: React.FC = () => {
           {colors.map((c) => (
             <div
               className={styles.colorItem}
+              key={c}
               style={{
                 backgroundColor: c,
                 outline: !isDark && c === themeColor ? `2px solid ${c}` : undefined,
@@ -111,7 +112,7 @@ const App: React.FC = () => {
                 cursor: isDark ? 'not-allowed' : 'pointer',
               }}
               onClick={() => setThemeColor(c)}
-            ></div>
+            />
           ))}
         </div>
       </div>
