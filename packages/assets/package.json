@@ -1,16 +1,34 @@
 {
   "name": "@ant-design/web3-assets",
   "version": "1.0.0",
-  "exports": {
-    "import": "./dist/esm/index.js",
-    "require": "./dist/lib/index.js",
-    "types": "./dist/esm/index.d.ts"
-  },
+  "main": "dist/lib/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/esm/index.d.ts",
   "files": [
     "dist",
     "CHANGELOG.md",
     "README.md"
   ],
+  "keywords": [
+    "ant",
+    "component",
+    "components",
+    "design",
+    "framework",
+    "frontend",
+    "react",
+    "react-component",
+    "ui",
+    "web3"
+  ],
+  "homepage": "https://we3.ant.design",
+  "bugs": {
+    "url": "https://github.com/ant-design/ant-design-web3/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/ant-design-web3"
+  },
   "scripts": {
     "dev": "father dev",
     "build": "father build"
@@ -32,6 +50,7 @@
     "react-dom": ">=17.0.0"
   },
   "publishConfig": {
+    "registry": "https://registry.npmjs.org",
     "access": "public"
   },
   "browserslist": [
