@@ -182,6 +182,7 @@ describe('ProfileModal', () => {
           width: 500,
           styles: {
             body: {
+              textAlign: 'right',
               fontSize: 32,
             },
           },
@@ -193,11 +194,12 @@ describe('ProfileModal', () => {
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-button')!);
 
     await vi.waitFor(() => {
-      expect(
-        baseElement
-          .querySelector('.ant-web3-connect-button-profile-modal .ant-modal-body')
-          ?.getAttribute('style'),
-      ).toContain('font-size: 32px;');
+      const styleAttr = baseElement
+        .querySelector('.ant-web3-connect-button-profile-modal .ant-modal-body')
+        ?.getAttribute('style');
+
+      expect(styleAttr).toContain('text-align: right;');
+      expect(styleAttr).toContain('font-size: 32px;');
     });
   });
 });
