@@ -169,4 +169,35 @@ describe('ProfileModal', () => {
       ).toContain('width: 500px;');
     });
   });
+
+  it('profile modal should can set body styles', async () => {
+    const App = () => (
+      <ConnectButton
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
+        profileModal={{
+          title: 'Custom Title',
+          footer: 'Custom Description',
+          width: 500,
+          styles: {
+            body: {
+              fontSize: 32,
+            },
+          },
+        }}
+      />
+    );
+
+    const { baseElement } = render(<App />);
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button')!);
+
+    await vi.waitFor(() => {
+      expect(
+        baseElement
+          .querySelector('.ant-web3-connect-button-profile-modal .ant-modal-body')
+          ?.getAttribute('style'),
+      ).toContain('font-size: 32px;');
+    });
+  });
 });
