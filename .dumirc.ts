@@ -1,7 +1,67 @@
 import { defineConfig } from 'dumi';
+import { readdirSync } from 'fs';
+import { join } from 'path';
+
+// utils must build before core
+// runtime must build before renderer-react
+const pkgList = readdirSync(join(__dirname, 'packages')).map((pkg) => {
+  return {
+    name: require(join(__dirname, 'packages', pkg, 'package.json')).name,
+    path: join(__dirname, 'packages', pkg, 'src'),
+  };
+});
+
+const alias = pkgList.reduce(
+  (pre, pkg) => {
+    pre[pkg.name] = pkg.path;
+    return {
+      ...pre,
+    };
+  },
+  {} as Record<string, string>,
+);
 
 export default defineConfig({
   mfsu: false,
+  alias,
+  metas: [
+    {
+      name: 'keywords',
+      content:
+        'web3, Ant Design Web3, Ant Design, dapp, frontend, components,web3, admin , Ant Design, ant design, react, alibaba',
+    },
+    { name: 'description', content: 'A Components for Web3, Based on Ant Design,' },
+    {
+      property: 'og:site_name',
+      content: 'ProComponents',
+    },
+    {
+      'data-rh': 'keywords',
+      property: 'og:image',
+      content: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+    },
+    {
+      property: 'og:description',
+      content:
+        'Ant Design Web3 是一个基于 Ant Design 的 Web3 React 组件库，它提供了一系列的组件，可以帮助你快速构建去中心化应用（DApp）。',
+    },
+    {
+      name: 'apple-mobile-web-app-capable',
+      content: 'yes',
+    },
+    {
+      name: 'apple-mobile-web-app-status-bar-style',
+      content: 'black-translucent',
+    },
+    {
+      name: 'theme-color',
+      content: '#1890ff',
+    },
+    {
+      name: 'google-site-verification',
+      content: '9LDp--DeEC-xOggsHl_t1MlR_1_2O972JpSUu8NZKMU',
+    },
+  ],
   resolve: {
     atomDirs: [
       {
@@ -30,10 +90,6 @@ export default defineConfig({
     },
   },
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
-  metas: [
-    { name: 'keywords', content: 'web3, Ant Design Web3, Ant Design, dapp, frontend, components' },
-    { name: 'description', content: 'A Components for Web3, Based on Ant Design' },
-  ],
   locales: [
     {
       id: 'en-US',
