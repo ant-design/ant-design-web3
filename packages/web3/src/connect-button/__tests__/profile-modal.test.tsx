@@ -169,4 +169,53 @@ describe('ProfileModal', () => {
       ).toContain('width: 500px;');
     });
   });
+
+  it('profile modal should can customize reset styles by `profileModal.styles`', async () => {
+    const App = () => (
+      <ConnectButton
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
+        profileModal={{
+          title: 'Custom Title',
+          footer: 'Custom Description',
+          width: 500,
+          styles: {
+            header: {
+              fontSize: 32,
+            },
+            body: {
+              textAlign: 'right',
+              fontSize: 32,
+            },
+            footer: {
+              fontSize: 32,
+            },
+          },
+        }}
+      />
+    );
+
+    const { baseElement } = render(<App />);
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button')!);
+
+    await vi.waitFor(() => {
+      const headerStyleAttr = baseElement
+        .querySelector('.ant-web3-connect-button-profile-modal .ant-modal-header')
+        ?.getAttribute('style');
+      const bodyStyleAttr = baseElement
+        .querySelector('.ant-web3-connect-button-profile-modal .ant-modal-body')
+        ?.getAttribute('style');
+      const footerStyleAttr = baseElement
+        .querySelector('.ant-web3-connect-button-profile-modal .ant-modal-footer')
+        ?.getAttribute('style');
+
+      expect(headerStyleAttr).toContain('font-size: 32px;');
+
+      expect(bodyStyleAttr).toContain('text-align: right;');
+      expect(bodyStyleAttr).toContain('font-size: 32px;');
+
+      expect(footerStyleAttr).toContain('font-size: 32px;');
+    });
+  });
 });
