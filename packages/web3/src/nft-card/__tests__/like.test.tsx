@@ -151,16 +151,22 @@ describe('NFTCard like', () => {
   it('render skeleton when loading', () => {
     const { baseElement } = render(
       <NFTCard
+        address="test"
+        tokenId={123}
         getNFTMetadata={() => {
           return new Promise<any>((resolve) => {
             setTimeout(() => {
               resolve({});
-            }, 2000);
+            }, 3000);
           });
         }}
       />,
     );
 
-    expect(baseElement.querySelector('.ant-nft-card-wrap')).toBeFalsy();
+    expect(baseElement.querySelector('.ant-nft-card-skeleton-wrap')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-nft-card-skeleton-content')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-nft-card-skeleton-body')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-nft-card-skeleton-button')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-nft-card-skeleton-footer')).toBeTruthy();
   });
 });
