@@ -10,6 +10,7 @@ export enum ChainIds {
   Arbitrum = 42_161,
   Optimism = 10,
   Goerli = 5,
+  Avalanche = 43_114,
 }
 
 export type BrowserLinkType = 'address' | 'transaction';
