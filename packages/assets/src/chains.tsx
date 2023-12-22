@@ -84,7 +84,7 @@ export const Avalanche: Chain = {
   icon: <AvalancheCircleColorful />,
   browser: {
     icon: <AvalancheCircleColorful />,
-    getBrowserLink: createGetBrowserLink('https://snowtrace.io/address'),
+    getBrowserLink: createGetBrowserLink('https://snowtrace.io'),
   },
   nativeCurrency: { name: 'Avalanche', symbol: 'AVAX', decimals: 18 },
 };
