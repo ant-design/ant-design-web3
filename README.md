@@ -6,14 +6,9 @@
 
 A collection of components for Web3.
 
-[![CI status][github-action-image]][github-action-url]
-[![codecov][codecov-image]][codecov-url]
-[![NPM version][npm-image]][npm-url]
-[![NPM downloads][download-image]][download-url]
+[![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[![Follow Twitter][twitter-image]][twitter-url]
-[![antd][antd-image]][antd-url]
-[![dumi][dumi-image]][dumi-url]
+[![Follow Twitter][twitter-image]][twitter-url] [![antd][antd-image]][antd-url] [![dumi][dumi-image]][dumi-url]
 
 [github-action-image]: https://github.com/ant-design/ant-design-web3/workflows/Test/badge.svg
 [github-action-url]: https://github.com/ant-design/ant-design-web3/actions/workflows/test.yml
@@ -69,10 +64,10 @@ pnpm dev
 
 <!-- Copy-paste in your Readme.md file -->
 
-<a href="https://next.ossinsight.io/widgets/official/compose-contributors?repo_id=680030799&limit=20" target="_blank" style="display: block" align="center">
+<a href="https://next.ossinsight.io/widgets/official/compose-contributors?repo_id=680030799&limit=40" target="_blank" style="display: block" align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/compose-contributors/thumbnail.png?repo_id=680030799&limit=20&image_size=auto&color_scheme=dark" width="655" height="auto">
-    <img alt="Contributors of ant-design/ant-design-web3" src="https://next.ossinsight.io/widgets/official/compose-contributors/thumbnail.png?repo_id=680030799&limit=20&image_size=auto&color_scheme=light" width="655" height="auto">
+    <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/compose-contributors/thumbnail.png?repo_id=680030799&limit=40&image_size=auto&color_scheme=dark" width="655" height="auto">
+    <img alt="Contributors of ant-design/ant-design-web3" src="https://next.ossinsight.io/widgets/official/compose-contributors/thumbnail.png?repo_id=680030799&limit=40&image_size=auto&color_scheme=light" width="655" height="auto">
   </picture>
 </a>
 
