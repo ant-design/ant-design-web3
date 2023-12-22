@@ -8,8 +8,8 @@
   "packageManager": "pnpm@8.9.0",
   "files": [],
   "scripts": {
-    "dev": "pnpm run --parallel --if-present --recursive --filter \"@ant-design/*\" dev",
-    "dev:docs": "dumi dev",
+    "dev": "dumi dev",
+    "dev:lib": "pnpm run --parallel --if-present --recursive --filter \"@ant-design/*\" dev",
     "build": "pnpm run --if-present --recursive build",
     "build:docs": "dumi build",
     "postinstall": "pnpm run husky:prepare",

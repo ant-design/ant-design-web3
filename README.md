@@ -30,12 +30,25 @@ A collection of components for Web3.
 - 📦 Out-of-the-Box Experience
 - 🔌 Compatibility with Different Chains
 
+## Usage
+
+```shell
+pnpm i @ant-design/web3 --save
+```
+
+```ts
+import { Address } from '@ant-design/web3';
+
+export default () => {
+  return <Address address="0x1234567890123456789012345678901234567890" />;
+};
+```
+
 ## Development
 
 ```shell
 pnpm i
 pnpm dev
-pnpm dev:docs
 ```
 
 ## Contributing
