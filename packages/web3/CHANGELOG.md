@@ -1,5 +1,19 @@
 # @ant-design/web3
 
+## 1.0.0
+
+### Major Changes
+
+- f330908: docs: Update new logo and prepare release 1.0.0
+
+### Patch Changes
+
+- 5a86696: fix: add @ant-design/web3-assets dep in @ant-design/web3
+- Updated dependencies [f330908]
+  - @ant-design/web3-assets@1.0.0
+  - @ant-design/web3-common@1.0.0
+  - @ant-design/web3-icons@1.0.0
+
 ## 0.3.0
 
 ### Minor Changes
