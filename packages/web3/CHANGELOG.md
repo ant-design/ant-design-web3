@@ -1,5 +1,11 @@
 # @ant-design/web3
 
+## 1.0.1
+
+### Patch Changes
+
+- fd51e5d: chore: release @ant-design/web3 1.0.1
+
 ## 1.0.0
 
 ### Major Changes
