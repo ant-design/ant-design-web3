@@ -4,10 +4,10 @@ import ModalPanel from './components/ModalPanel';
 import { ConfigContext } from 'antd/lib/config-provider';
 import { useStyle } from './style';
 import classNames from 'classnames';
-import type { ConnectModalProps, PanelRoute, Wallet } from './interface';
+import type { ConnectModalProps } from './interface';
 import useMode from './hooks/useMode';
 
-export type * from './interface';
+export * from './interface';
 
 export const ConnectModal: React.FC<ConnectModalProps> & {
   ModalPanel: typeof ModalPanel;
