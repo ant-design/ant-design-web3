@@ -83,13 +83,15 @@ export default defineConfig({
   base: process.env.BASE || '/',
   themeConfig: {
     name: 'Ant Design Web3',
-    logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+    logo: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*MgfMRpa9Df8AAAAAAAAAAAAADlrGAQ/original',
     socialLinks: {
       github: 'https://github.com/ant-design/ant-design-web3',
       twitter: 'https://twitter.com/AntDesignWeb3',
     },
   },
-  favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
+  favicons: [
+    'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*XACEQ5Lqbt8AAAAAAAAAAAAADlrGAQ/original',
+  ],
   locales: [
     {
       id: 'en-US',
