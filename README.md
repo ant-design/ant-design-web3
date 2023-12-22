@@ -21,8 +21,8 @@ A collection of components for Web3.
 
 </div>
 
-- Home Page: http://web3.ant.design
-- Documentation: http://web3.ant.design/guide
+- Home Page: https://web3.ant.design
+- Documentation: https://web3.ant.design/guide
 
 ## Features
 
