@@ -7,6 +7,8 @@ import classNames from 'classnames';
 import type { ConnectModalProps } from './interface';
 import useMode from './hooks/useMode';
 
+export type * from './interface';
+
 export const ConnectModal: React.FC<ConnectModalProps> & {
   ModalPanel: typeof ModalPanel;
 } = (props) => {
