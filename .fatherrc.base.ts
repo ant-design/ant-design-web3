@@ -10,5 +10,26 @@ export default defineConfig({
     output: 'dist/esm',
     transformer: 'babel',
   },
-  extraBabelPlugins: ['inline-react-svg'],
+  extraBabelPlugins: [
+    [
+      'inline-react-svg',
+      {
+        svgo: {
+          plugins: [
+            {
+              name: 'preset-default',
+              params: {
+                overrides: {
+                  cleanupIDs: {
+                    // Don't minify ids in `svg` to avoid conflict.
+                    preservePrefixes: ['ant-web3-icon-'],
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    ],
+  ],
 });
