@@ -22,6 +22,7 @@ const alias = pkgList.reduce(
 );
 
 export default defineConfig({
+  title: 'Ant Design Web3 - A React components collection for Web3!',
   headScripts: [
     `
   <!-- Google tag (gtag.js) -->
