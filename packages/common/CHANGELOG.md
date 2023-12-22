@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.0.0
+
+### Major Changes
+
+- f330908: docs: Update new logo and prepare release 1.0.0
+
 ## 0.2.0
 
 ### Minor Changes
