@@ -89,7 +89,9 @@ export default defineConfig({
       twitter: 'https://twitter.com/AntDesignWeb3',
     },
   },
-  favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
+  favicons: [
+    'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*XACEQ5Lqbt8AAAAAAAAAAAAADlrGAQ/original',
+  ],
   locales: [
     {
       id: 'en-US',
