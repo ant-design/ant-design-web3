@@ -39,7 +39,7 @@ interface NFTCardProps {
   style?: React.CSSProperties;
   showAction?: boolean;
   type?: 'default' | 'pithy';
-  onActionChange?: () => void;
+  onActionClick?: () => void;
 }
 
 const CardSkeleton: React.FC<PropsWithChildren<{ loading: boolean; prefixCls: string }>> = ({
@@ -73,6 +73,7 @@ const NFTCard: React.FC<NFTCardProps> = ({
   showAction,
   actionText = 'Buy Now',
   footer,
+  onActionClick,
   getNFTMetadata,
   ...metadataProps
 }) => {
@@ -188,13 +189,7 @@ const NFTCard: React.FC<NFTCardProps> = ({
         </div>
         {showAction ? (
           <div className={`${prefixCls}-action`}>
-            <Button
-              style={{
-                width: '100%',
-              }}
-            >
-              {actionText}
-            </Button>
+            <Button onClick={onActionClick}>{actionText}</Button>
           </div>
         ) : null}
         {footer ? (
