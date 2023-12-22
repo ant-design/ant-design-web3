@@ -19,7 +19,7 @@ const Banner: React.FC = () => {
           <img
             draggable={false}
             className={styles.titleImg}
-            src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*zaaqSqbOOrkAAAAAAAAAAAAADlrGAQ/original"
+            src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8Aj9RZXO3d0AAAAAAAAAAAAADlrGAQ/original"
             alt="title"
           />
           <div className={styles.btn}>
