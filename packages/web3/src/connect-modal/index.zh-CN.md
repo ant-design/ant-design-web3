@@ -37,13 +37,13 @@ order: 2
 ### ConnectModalProps
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | onWalletSelected | 选中钱包回调 | `(wallet: Wallet) => void` | - | - |
 | footer | 自定义 footer | `React.ReactNode` | - | - |
 | walletList | 钱包列表 | [Wallet](./types#wallet)\[\] | - | - |
 | groupOrder | 钱包分组排序函数 | `(a: string, b: string) => number` | - | - |
 | mode | 弹窗模式 | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
-| guide | 新手指引内容 | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |  |
+| guide | 新手指引内容 | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |
 
 其他弹框属性详见： [ModalProps](https://ant.design/components/modal-cn#api)
 
