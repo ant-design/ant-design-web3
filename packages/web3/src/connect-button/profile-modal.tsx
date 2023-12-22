@@ -62,6 +62,8 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
         onCancel={onClose}
         className={classNames(className, __hashId__, prefixCls)}
         styles={{
+          ...modalProps?.styles,
+
           body: {
             textAlign: 'center',
             ...modalProps?.styles?.body,
