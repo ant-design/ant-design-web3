@@ -86,6 +86,12 @@ describe('switch chain when connect', () => {
       'Ethereum',
     );
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-button-chain-select')!);
+    expect(
+      baseElement.querySelector('.ant-dropdown-menu-item .ant-web3-icon-polygon-circle-colorful'),
+    ).not.toBeNull();
+    expect(
+      baseElement.querySelector('.ant-dropdown-menu-item .ant-web3-icon-ethereum-circle-colorful'),
+    ).not.toBeNull();
     fireEvent.click(baseElement.querySelectorAll('.ant-dropdown-menu-item')[1]);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-web3-connect-button-chain-select')?.textContent).toBe(
