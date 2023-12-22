@@ -33,7 +33,7 @@ export default defineConfig({
     { name: 'description', content: 'A Components for Web3, Based on Ant Design,' },
     {
       property: 'og:site_name',
-      content: 'ProComponents',
+      content: 'Ant Design Web3',
     },
     {
       'data-rh': 'keywords',
