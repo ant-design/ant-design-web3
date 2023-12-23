@@ -12,7 +12,7 @@ export * from './interface';
 export const ConnectModal: React.FC<ConnectModalProps> & {
   ModalPanel: typeof ModalPanel;
 } = (props) => {
-  const { title, open, footer, onWalletSelected, className, mode, ...restProps } = props;
+  const { open, className, mode, ...restProps } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const { isSimple } = useMode(mode);
