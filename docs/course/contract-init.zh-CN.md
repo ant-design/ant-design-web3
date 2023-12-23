@@ -38,6 +38,7 @@ order: 1
 `File explorer` 用于管理工作区和文件。  
 `Search` 是一个全局搜索功能。  
 `Solidity Compiler` 是合约编译器界面，界面中默认展示编译器的基础配置项和`Advanced Configurations` 按钮打开高级配置面板。  
+`Deploy&Run` 是为了将交易发送到当前的`环境`中。  
 `Debugger` 是一个调试器，调试交易的时候，调试器会显示合约的状态。  
 `Plugin mananer`是插件管理器，里边有非常多的插件可以选择安装。  
 `Setting` 里会有一些基础的设置项，如`语言`，`主题`，`Github 访问令牌`，`常规设置`等。
