@@ -1,6 +1,6 @@
 import { CryptoPrice } from '..';
 import { render } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { EthereumCircleFilled } from '@ant-design/web3-icons';
 import { Web3ConfigProvider } from '@ant-design/web3-common';
 
@@ -85,6 +85,52 @@ describe('CryptoPrice', () => {
     expect(baseElement.querySelector('.ant-web3-icon-ethereum-circle-filled')).not.toBeNull();
   });
 
+  it('custom chain in props 2', () => {
+    const { baseElement } = render(
+      <CryptoPrice
+        icon={<EthereumCircleFilled />}
+        symbol="WETH2-1"
+        chain={{
+          id: 1,
+          name: 'Ethereum',
+          nativeCurrency: {
+            name: 'Ether',
+            symbol: 'WETH',
+            decimals: 0,
+          },
+        }}
+        value={1230000000000000000n}
+      />,
+    );
+
+    const text = baseElement.querySelector('span')?.textContent;
+    expect(text).toBe(' 1230000000000000000 WETH2-1');
+    expect(baseElement.querySelector('.ant-web3-icon-ethereum-circle-filled')).not.toBeNull();
+  });
+
+  it('custom chain in props 3', () => {
+    const { baseElement } = render(
+      <CryptoPrice
+        icon={<EthereumCircleFilled />}
+        symbol="WETH2-2"
+        chain={{
+          id: 1,
+          name: 'Ethereum',
+          nativeCurrency: {
+            name: 'Ether',
+            symbol: '',
+            decimals: 0,
+          },
+        }}
+        value={1230000000000000000n}
+      />,
+    );
+
+    const text = baseElement.querySelector('span')?.textContent;
+    expect(text).toBe(' 1230000000000000000 WETH2-2');
+    expect(baseElement.querySelector('.ant-web3-icon-ethereum-circle-filled')).not.toBeNull();
+  });
+
   it('custom chain in provider', () => {
     const { baseElement } = render(
       <Web3ConfigProvider
@@ -104,6 +150,28 @@ describe('CryptoPrice', () => {
 
     const text = baseElement.querySelector('span')?.textContent;
     expect(text).toBe(' 12.3 WETH');
+    expect(baseElement.querySelector('.ant-web3-icon-ethereum-circle-filled')).not.toBeNull();
+  });
+
+  it('custom chain in provider 2', () => {
+    const { baseElement } = render(
+      <Web3ConfigProvider
+        chain={{
+          id: 1,
+          name: 'Ethereum',
+          nativeCurrency: {
+            name: 'Ether',
+            symbol: 'WETH',
+            decimals: 0,
+          },
+        }}
+      >
+        <CryptoPrice icon={<EthereumCircleFilled />} value={1230000000000000000n} />,
+      </Web3ConfigProvider>,
+    );
+
+    const text = baseElement.querySelector('span')?.textContent;
+    expect(text).toBe(' 1230000000000000000 WETH');
     expect(baseElement.querySelector('.ant-web3-icon-ethereum-circle-filled')).not.toBeNull();
   });
 
