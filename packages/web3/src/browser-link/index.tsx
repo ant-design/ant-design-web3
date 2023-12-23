@@ -6,7 +6,7 @@ import { Address } from '../address';
 import useProvider from '../hooks/useProvider';
 
 export interface BrowserLinkProps {
-  icon?: boolean | React.ReactNode;
+  icon?: React.ReactNode;
   iconStyle?: React.CSSProperties;
   iconOnly?: boolean;
   ellipsis?: boolean;
