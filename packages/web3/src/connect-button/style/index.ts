@@ -9,7 +9,6 @@ import { TinyColor } from '@ctrl/tinycolor';
 export interface ConnectButtonToken extends Web3AliasToken {
   componentCls: string;
 }
-
 const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
   return {
     [token.componentCls]: {
@@ -50,18 +49,35 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
     [`${token.componentCls}-profile-modal`]: {
       [`${token.antCls}-modal-content`]: {
         padding: token.padding,
+        borderRadius: 16,
+      },
+      [`&-avatar`]: {
+        marginTop: token.marginXS,
+        width: 56,
+        height: 56,
+      },
+      [`${token.antCls}-avatar-image`]: {
+        width: 56,
+        height: 56,
       },
       [`&-footer`]: {
         display: 'flex',
+        marginTop: token.margin,
         [`${token.antCls}-btn`]: {
-          flex: 1,
+          width: '120px',
+          height: '40px',
+          padding: 0,
+          fontSize: token.fontSizeLG,
         },
+      },
+      [`&-name`]: {
+        color: token.colorTextHeading,
       },
       [`${token.componentCls}-chain-icon`]: {
         fontSize: 38,
       },
       [`${token.antCls}-web3-address`]: {
-        color: token.colorTextSecondary,
+        color: token.colorTextTertiary,
       },
     },
 

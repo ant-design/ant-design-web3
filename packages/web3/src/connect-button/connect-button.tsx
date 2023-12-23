@@ -130,7 +130,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
           ) : (
             <UserOutlined />
           ),
-          size: 'large',
+          size: 56,
         }
       }
       balance={balance}
