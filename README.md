@@ -79,6 +79,7 @@ Any type of contribution is welcome, here are some examples of how you may contr
 
 - Use Ant Design Web3 in your daily work.
 - Submit [issues](http://github.com/ant-design/ant-design-web3/issues) to report bugs or ask questions.
+- Join our [discussion](https://github.com/ant-design/ant-design-web3/discussions) and provide us with suggestions.
 - Propose [pull requests](http://github.com/ant-design/ant-design-web3/pulls) to improve our code.
 
 To better participate and contribute, please read our [contribution guidelines](https://web3.ant.design/guide/contributing).
