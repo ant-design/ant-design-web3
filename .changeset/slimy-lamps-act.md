@@ -1,5 +1,5 @@
 ---
-'@ant-design/web3': major
+'@ant-design/web3': patch
 ---
 
-use?? Instead of || && remove unused code
+perf: use?? Instead of || && remove unused code
