@@ -12,7 +12,7 @@ export interface CryptoPriceProps {
   symbol?: string;
   decimals?: number;
   chain?: Chain;
-  icon?: boolean | React.ReactNode;
+  icon?: React.ReactNode;
   fixed?: number;
 }
 
@@ -26,8 +26,8 @@ export const CryptoPrice: React.FC<CryptoPriceProps> = (props) => {
   });
   const {
     value = 0n,
-    symbol = chain.nativeCurrency?.symbol || 'ETH',
-    decimals = chain.nativeCurrency?.decimals || 18,
+    symbol = chain.nativeCurrency?.symbol ?? 'ETH',
+    decimals = chain.nativeCurrency?.decimals ?? 18,
     fixed,
     icon = false,
   } = props;
