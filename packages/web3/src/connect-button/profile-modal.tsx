@@ -72,11 +72,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
         open={open}
       >
         <Space align="center" direction="vertical">
-          {avatar ? (
-            <div className={classNames(`${prefixCls}-avatar`, __hashId__)}>
-              <Avatar {...avatar} />
-            </div>
-          ) : null}
+          {avatar ? <Avatar {...avatar} /> : null}
           {name ? <div className={classNames(`${prefixCls}-name`, __hashId__)}>{name}</div> : null}
           {address ? (
             <Address ellipsis={false} address={address} tooltip={false}>
