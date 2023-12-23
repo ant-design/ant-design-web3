@@ -12,7 +12,7 @@ export interface CryptoPriceProps {
   symbol?: string;
   decimals?: number;
   chain?: Chain;
-  icon?: React.ReactNode;
+  icon?: boolean | React.ReactNode;
   fixed?: number;
 }
 
