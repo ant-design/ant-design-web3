@@ -175,6 +175,26 @@ describe('CryptoPrice', () => {
     expect(baseElement.querySelector('.ant-web3-icon-ethereum-circle-filled')).not.toBeNull();
   });
 
+  it('custom chain in provider 3', () => {
+    const { baseElement } = render(
+      <Web3ConfigProvider
+        chain={{
+          id: 1,
+          name: 'Ethereum',
+          nativeCurrency: {
+            name: 'Ether',
+          },
+        }}
+      >
+        <CryptoPrice icon={<EthereumCircleFilled />} value={1230000000000000000n} />,
+      </Web3ConfigProvider>,
+    );
+
+    const text = baseElement.querySelector('span')?.textContent;
+    expect(text).toBe(' 1.23 ETH');
+    expect(baseElement.querySelector('.ant-web3-icon-ethereum-circle-filled')).not.toBeNull();
+  });
+
   it('user props greater then provider', () => {
     const { baseElement } = render(
       <Web3ConfigProvider
