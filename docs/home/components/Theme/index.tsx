@@ -10,9 +10,9 @@ import { Space, Tooltip, ConfigProvider, theme, Card } from 'antd';
 import { useIntl, usePrefersColor } from 'dumi';
 import classnames from 'classnames';
 
-const defaultColor = '#1677FF';
+const defaultColor = 'auto';
 
-const colors = ['auto', defaultColor, '#9E339F', '#F2BD27', '#00B96B'];
+const colors = [defaultColor, '#1677FF', '#9E339F', '#F2BD27', '#00B96B'];
 
 const App: React.FC = () => {
   const intl = useIntl();
