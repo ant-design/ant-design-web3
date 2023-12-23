@@ -10,16 +10,11 @@ order: 1
 
 使用图标组件，你需要安装 [@ant-design/web3-icons](https://www.npmjs.com/package/@ant-design/web3-icons) 图标组件包：
 
-```shell
-# npm
-npm install @ant-design/web3-icons --save
+<br />
 
-# yarn
-yarn add @ant-design/web3-icons
+<NormalInstallDependencies packageNames="@ant-design/web3-icons" save="true"></NormalInstallDependencies>
 
-# pnpm
-pnpm install @ant-design/web3-icons --save
-```
+<br />
 
 ## 图标列表
 

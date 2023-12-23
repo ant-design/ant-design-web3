@@ -41,9 +41,11 @@ A collection of components for Web3.
 
 ## Usage
 
-```shell
-pnpm i @ant-design/web3 --save
-```
+<br />
+
+<NormalInstallDependencies packageNames="@ant-design/web3" save="true"></NormalInstallDependencies>
+
+<br />
 
 ```ts
 import { Address } from '@ant-design/web3';
