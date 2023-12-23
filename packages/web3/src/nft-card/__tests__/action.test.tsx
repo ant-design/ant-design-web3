@@ -3,7 +3,7 @@ import { fireEvent, render } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 
 describe('NFTCard actions', () => {
-  it('render action and onActionChange work', () => {
+  it('render action and onActionClick work', () => {
     const actionFn = vi.fn();
     const address = '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B';
     const tokenId = 123;
