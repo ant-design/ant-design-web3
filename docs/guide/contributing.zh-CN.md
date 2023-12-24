@@ -33,6 +33,24 @@ group:
 
 对于不明确的 Feature 和需要讨论的提案请在[讨论区](https://github.com/ant-design/ant-design-web3/discussions) 新建讨论。
 
+### 分支管理
+
+> **注意：** 不要合并 In Progress WIP 和 draft 的 PR
+
+- `main` 分支是稳定分支，只能从开发分支通过 PR 形式合并，不允许直接提交代码。
+
+  - 当选择 `main` 分支作为 PR 合并的目标分支时，需要确认该 PR 是否为 bug 修复、文档修改、CI/CD 相关的修改、依赖升级、非破坏性的代码重构，如果是则可以直接合并，否则需要将目标 PR 合并到 `feature`。
+  - 每周根据 `main` 分支发布一个 `patch` 版本，如果有紧急 bug 修复，可以随时发布。
+
+- `feature` 分支是新特性、破坏性改造分支，不可以直接提交代码，需要通过 PR 的形式将开发分支合并至此分支。
+
+  - 当选择 `feature` 分支作为 PR 合并的目标分支时，需要确认该 PR 是否为新特性、破坏性改造，如果是则可以直接合并，否则需要将目标 PR 合并到 `main`。
+  - 每月根据 `feature` 分支发布一个 `minor` 版本。
+
+- `main-merge-feature` 分支用于将 `feature` 分支合并 `main` 分支的临时分支（方便合并时出现冲突解决冲突），先将 `main` 分支合并至该分支以确保该分支 `main` 分支最新的代码，再将 `feature` 分支合并到 `main-merge-feature` 分支，如出现冲突则跟相关开发人员确认后解决冲突，最后再将 `main-merge-feature` 分支合并到 `main` 分支完成分支合并操作。
+
+- `feature-merge-main` 分支用于将 `main` 分支合并 `feature` 分支的临时分支（方便合并时出现冲突解决冲突），先将 `feature` 分支合并至该分支以确保该分支 `feature` 分支最新的代码，再将 `main` 分支合并到 `feature-merge-main` 分支，如出现冲突则跟相关开发人员确认后解决冲突，最后再将 `feature-merge-main` 分支合并到 `feature` 分支完成分支合并操作。
+
 ## 如何发布
 
 发布由核心成员负责，每周发布一个版本，如果遇到紧急 bug 修复，可以随时发布。发布遵守 [Semver](https://semver.org/lang/zh-CN/) 规范。

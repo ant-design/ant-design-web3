@@ -33,6 +33,24 @@ Create a new issue to track the clear feature, and add the `feature` label. Befo
 
 For unclear features and proposals that need to be discussed, please create a discussion in the [discussion](https://github.com/ant-design/ant-design-web3/discussions).
 
+### Branch Management
+
+> **Note:** Do not merge In Progress WIP and draft PRs
+
+- The `main` branch is the stable branch, and code cannot be submitted directly, but must be merged from the development branch through a PR.
+
+  - When selecting the `main` branch as the target branch for PR merging, you need to confirm whether the PR is a bug fix, document modification, CI/CD related modification, dependency upgrade, or non-destructive code refactoring. If so, you can merge it directly, otherwise you need to merge the target PR to `feature`.
+  - A `patch` version is released every week based on the `main` branch. If there is an urgent bug fix, it can be released at any time.
+
+- The `feature` branch is the new feature and destructive refactoring branch, and code cannot be submitted directly, but must be merged from the development branch through a PR.
+
+  - When selecting the `feature` branch as the target branch for PR merging, you need to confirm whether the PR is a new feature or destructive refactoring. If so, you can merge it directly, otherwise you need to merge the target PR to `main`.
+  - A `minor` version is released every month based on the `feature` branch.
+
+- The `main-merge-feature` branch is a temporary branch for merging `feature` branch to `main` branch (to facilitate conflict resolution when merging), first merge the `main` branch to this branch to ensure that the `main` branch is the latest code, and then merge the `feature` branch to the `main-merge-feature` branch. If there is a conflict, confirm with the relevant developer and resolve the conflict, and finally merge the `main-merge-feature` branch to the `main` branch to complete the branch merge operation.
+
+- The `feature-merge-main` branch is a temporary branch for merging `main` branch to `feature` branch (to facilitate conflict resolution when merging), first merge the `feature` branch to this branch to ensure that the `feature` branch is the latest code, and then merge the `main` branch to the `feature-merge-main` branch. If there is a conflict, confirm with the relevant developer and resolve the conflict, and finally merge the `feature-merge-main` branch to the `feature` branch to complete the branch merge operation.
+
 ## How to Release
 
 The release is responsible by the core members, and one version is released every week. If there is an urgent bug fix, it can be released at any time. The release complies with the [Semver](https://semver.org/) specification.
