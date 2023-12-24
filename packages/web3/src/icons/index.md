@@ -10,16 +10,11 @@ order: 1
 
 Before use icons, you need to install [@ant-design/web3-icons](https://www.npmjs.com/package/@ant-design/web3-icons) package:
 
-```shell
-# npm
-npm install @ant-design/web3-icons --save
+<br />
 
-# yarn
-yarn add @ant-design/web3-icons
+<NormalInstallDependencies packageNames="@ant-design/web3-icons" save="true"></NormalInstallDependencies>
 
-# pnpm
-pnpm install @ant-design/web3-icons --save
-```
+<br />
 
 ## List of icons
 
