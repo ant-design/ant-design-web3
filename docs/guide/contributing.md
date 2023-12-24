@@ -45,7 +45,7 @@ For unclear features and proposals that need to be discussed, please create a di
 - The `feature` branch is the new feature and destructive refactoring branch, and code cannot be submitted directly, but must be merged from the development branch through a PR.
 
   - When selecting the `feature` branch as the target branch for PR merging, you need to confirm whether the PR is a new feature or destructive refactoring. If so, you can merge it directly, otherwise you need to merge the target PR to `main`.
-  - A `minor` version is released every month based on the `feature` branch.
+  - The `feature` branch is merged to the `main` branch every week and a `minor` version is released.
 
 - The `main-merge-feature` branch is a temporary branch for merging `feature` branch to `main` branch (to facilitate conflict resolution when merging), first merge the `main` branch to this branch to ensure that the `main` branch is the latest code, and then merge the `feature` branch to the `main-merge-feature` branch. If there is a conflict, confirm with the relevant developer and resolve the conflict, and finally merge the `main-merge-feature` branch to the `main` branch to complete the branch merge operation.
 
