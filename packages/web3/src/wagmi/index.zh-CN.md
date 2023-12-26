@@ -63,7 +63,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 | assets | 钱包或者链的图标等信息 | [Chain](./types#chain)\[\] \| [WalletFactory](#walletfactory)\[\] | - | - |
 | ens | 是否显示 ENS | `boolean` | - | - |
 | balance | 是否显示余额 | `boolean` | - | - |
-| locale | 多语言文案设置 | `Locale` | - | - |
+| locale | 多语言文案设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
 
 ### WalletFactory
 

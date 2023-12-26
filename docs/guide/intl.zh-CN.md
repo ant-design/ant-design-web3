@@ -18,6 +18,6 @@ order: 3
 
 <code src="./demos/intl-with-builtin.tsx">内置语言</code>
 
-对于还不支持的语言和组件，欢迎给我们提交 [Pull request](https://github.com/ant-design/ant-design-web3/pulls) 支持。
+具体支持的语言配置内容参考 [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) 类型定义，对于还不支持的语言和组件，欢迎给我们提交 [Pull request](https://github.com/ant-design/ant-design-web3/pulls) 支持。
 
 另外，在 `@ant-design/web3-wagmi` 中，`WagmiWeb3ConfigProviderProps` 将会透传 `locale` 给 `Web3ConfigProvider` 以简化你的使用。
