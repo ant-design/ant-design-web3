@@ -1,16 +1,9 @@
 import { createConfig, configureChains, mainnet } from 'wagmi';
-import { infuraProvider } from 'wagmi/providers/infura';
+import { publicProvider } from 'wagmi/providers/public';
 import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { NFTImage } from '@ant-design/web3';
 
-const { publicClient } = configureChains(
-  [mainnet],
-  [
-    infuraProvider({
-      apiKey: YOUR_INFURA_API_KEY,
-    }),
-  ],
-);
+const { publicClient } = configureChains([mainnet], [publicProvider()]);
 
 const config = createConfig({
   publicClient,

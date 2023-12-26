@@ -15,7 +15,7 @@ A collection of components for Web3.
 [codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design-web3/master.svg?style=flat-square
 [codecov-url]: https://codecov.io/gh/ant-design/ant-design-web3/branch/master
 [npm-image]: https://img.shields.io/npm/v/@ant-design/web3.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/@ant-design/web3
+[npm-url]: https://npmjs.org/package/@ant-design/web3
 [download-image]: https://img.shields.io/npm/dm/@ant-design/web3.svg?style=flat-square
 [download-url]: https://npmjs.org/package/@ant-design/web3
 [dumi-image]: https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square
@@ -41,9 +41,11 @@ A collection of components for Web3.
 
 ## Usage
 
-```shell
-pnpm i @ant-design/web3 --save
-```
+<br />
+
+<NormalInstallDependencies packageNames="@ant-design/web3" save="true"></NormalInstallDependencies>
+
+<br />
 
 ```ts
 import { Address } from '@ant-design/web3';
@@ -76,7 +78,8 @@ pnpm dev
 Any type of contribution is welcome, here are some examples of how you may contribute to this project:
 
 - Use Ant Design Web3 in your daily work.
-- Submit [issues](http://github.com/ant-design/ant-design-web3/issues) to report bugs or ask questions.
-- Propose [pull requests](http://github.com/ant-design/ant-design-web3/pulls) to improve our code.
+- Submit [issues](https://github.com/ant-design/ant-design-web3/issues) to report bugs or ask questions.
+- Join our [discussion](https://github.com/ant-design/ant-design-web3/discussions) and provide us with suggestions.
+- Propose [pull requests](https://github.com/ant-design/ant-design-web3/pulls) to improve our code.
 
 To better participate and contribute, please read our [contribution guidelines](https://web3.ant.design/guide/contributing).

@@ -8,16 +8,22 @@ import {
 } from '@ant-design/web3-assets';
 import { Space, Tooltip, ConfigProvider, theme, Card } from 'antd';
 import { useIntl, usePrefersColor } from 'dumi';
+import classnames from 'classnames';
 
-const defaultColor = '#1677FF';
+const defaultColor = 'auto';
 
-const colors = [defaultColor, '#9E339F', '#F2BD27', '#00B96B'];
+const colors = [defaultColor, '#1677FF', '#9E339F', '#F2BD27', '#00B96B'];
 
 const App: React.FC = () => {
   const intl = useIntl();
   const [isDark, setIsDark] = React.useState(false);
   const [color] = usePrefersColor();
   const [themeColor, setThemeColor] = React.useState(defaultColor);
+
+  const updateTheme = (c: string) => {
+    setThemeColor(c);
+    setIsDark(c === 'auto' && color === 'dark');
+  };
 
   useEffect(() => {
     setIsDark(color === 'dark');
@@ -103,15 +109,17 @@ const App: React.FC = () => {
         <div className={styles.colorSelector}>
           {colors.map((c) => (
             <div
-              className={styles.colorItem}
+              className={classnames(styles.colorItem, {
+                [styles.selected]: c === themeColor,
+                [styles.auto]: c === colors[0],
+              })}
               key={c}
-              style={{
-                backgroundColor: c,
-                outline: !isDark && c === themeColor ? `2px solid ${c}` : undefined,
-                outlineOffset: 1,
-                cursor: isDark ? 'not-allowed' : 'pointer',
-              }}
-              onClick={() => setThemeColor(c)}
+              style={
+                {
+                  '--color': c,
+                } as React.CSSProperties
+              }
+              onClick={() => updateTheme(c)}
             />
           ))}
         </div>

@@ -195,18 +195,16 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
   if (mergedMenuItems.length > 0) {
     content = (
-      <>
-        <Dropdown
-          open={showMenu}
-          onOpenChange={setShowMenu}
-          menu={{
-            items: mergedMenuItems,
-            onClick: onMenuItemClick,
-          }}
-        >
-          {buttonContent}
-        </Dropdown>
-      </>
+      <Dropdown
+        open={showMenu}
+        onOpenChange={setShowMenu}
+        menu={{
+          items: mergedMenuItems,
+          onClick: onMenuItemClick,
+        }}
+      >
+        {buttonContent}
+      </Dropdown>
     );
   }
 
