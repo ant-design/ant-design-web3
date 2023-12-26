@@ -1,6 +1,6 @@
 import React from 'react';
-import type { UniversalWeb3ProviderInterface } from '../types';
-import { Locale, IntlType } from '../intl';
+import type { RequiredLocale, Locale, UniversalWeb3ProviderInterface } from '../types';
+import defaultLocale from '../locale/en_US';
 
 export interface Web3ConfigProviderProps extends UniversalWeb3ProviderInterface {
   children?: React.ReactNode;
@@ -8,11 +8,10 @@ export interface Web3ConfigProviderProps extends UniversalWeb3ProviderInterface 
 }
 
 export interface ConfigConsumerProps extends UniversalWeb3ProviderInterface {
-  intl: IntlType;
+  locale?: Locale;
+  defaultLocale: RequiredLocale;
 }
 
 export const ConfigContext = React.createContext<ConfigConsumerProps>({
-  intl: {
-    getMessage: (id: string, defaultMessage: string) => defaultMessage,
-  },
+  defaultLocale,
 });

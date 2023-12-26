@@ -1,6 +1,5 @@
 import React from 'react';
 import { ConfigContext, type Web3ConfigProviderProps, type ConfigConsumerProps } from './context';
-import { createIntl } from '../intl';
 import defaultLocale from '../locale/en_US';
 
 const ProviderChildren: React.FC<ConfigConsumerProps & { children?: React.ReactNode }> = (
@@ -12,7 +11,7 @@ const ProviderChildren: React.FC<ConfigConsumerProps & { children?: React.ReactN
 
 const Web3ConfigProvider: React.FC<Web3ConfigProviderProps> = (props) => {
   const { locale, ...restProps } = props;
-  return <ProviderChildren {...restProps} intl={createIntl(locale ?? defaultLocale)} />;
+  return <ProviderChildren {...restProps} defaultLocale={defaultLocale} locale={locale} />;
 };
 
 export { Web3ConfigProvider };

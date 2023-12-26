@@ -164,3 +164,17 @@ export interface ConnectorTriggerProps {
   chain?: Chain;
   balance?: Balance;
 }
+
+export interface RequiredLocale {
+  ConnectButton: {
+    connect: string;
+    disconnect: string;
+    copyAddress: string;
+    addressCopied: string;
+    walletAddress: string;
+  };
+}
+
+export interface Locale {
+  ConnectButton?: Partial<RequiredLocale['ConnectButton']>;
+}

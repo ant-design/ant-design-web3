@@ -41,10 +41,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [messageApi, contextHolder] = message.useMessage();
   const [showMenu, setShowMenu] = useState(false);
-  let buttonText: React.ReactNode = intl.getMessage(
-    'ConnectButton.connect',
-    'DisconConnect Walletnect',
-  );
+  let buttonText: React.ReactNode = intl.getMessage(intl.messages.connect);
   if (account) {
     buttonText =
       account?.name && !balance ? (
@@ -118,6 +115,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
   const profileModalContent = (
     <ProfileModal
+      intl={intl}
       open={profileOpen}
       __hashId__={hashId}
       onDisconnect={() => {
@@ -162,7 +160,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         icon: <CopyOutlined />,
       },
       {
-        label: intl.getMessage('ConnectButton.disconnect', 'Disconnect'),
+        label: intl.getMessage(intl.messages.disconnect),
         key: 'disconnect',
         onClick: () => {
           setProfileOpen(false);
@@ -226,6 +224,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       {contextHolder}
       {tooltipTitle ? (
         <ConnectButtonTooltip
+          intl={intl}
           copyable={mergedTooltipCopyable}
           title={tooltipTitle}
           prefixCls={prefixCls}

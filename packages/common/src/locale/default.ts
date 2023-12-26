@@ -1,9 +1,12 @@
-import { Locale } from '../intl/types';
+import { RequiredLocale } from '../types';
 
-const localeValues: Locale = {
+const localeValues: RequiredLocale = {
   ConnectButton: {
     connect: 'Connect Wallet',
     disconnect: 'Disconnect',
+    copyAddress: 'Copy Address',
+    addressCopied: 'Address Copied!',
+    walletAddress: 'Wallet address',
   },
 };
 
