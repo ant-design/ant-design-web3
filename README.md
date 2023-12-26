@@ -10,7 +10,7 @@ A collection of components for Web3.
 
 [![Follow Twitter][twitter-image]][twitter-url] [![antd][antd-image]][antd-url] [![dumi][dumi-image]][dumi-url]
 
-[中文](./README-zh_CN.md)
+English · [中文](./README-zh_CN.md)
 
 [github-action-image]: https://github.com/ant-design/ant-design-web3/workflows/Test/badge.svg
 [github-action-url]: https://github.com/ant-design/ant-design-web3/actions/workflows/test.yml
