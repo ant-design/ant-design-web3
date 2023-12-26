@@ -4,16 +4,15 @@ import type { ConnectButtonTooltipProps } from './interface';
 import { useMemo, type PropsWithChildren } from 'react';
 import { formatAddress, writeCopyText } from '../utils';
 import classNames from 'classnames';
+import { IntlType } from '../hooks/useIntl';
 
-export const ConnectButtonTooltip: React.FC<PropsWithChildren<ConnectButtonTooltipProps>> = ({
-  title,
-  copyable,
-  children,
-  format,
-  prefixCls,
-  __hashId__,
-  ...restProps
-}) => {
+export const ConnectButtonTooltip: React.FC<
+  PropsWithChildren<
+    ConnectButtonTooltipProps & {
+      intl: IntlType;
+    }
+  >
+> = ({ title, intl, copyable, children, format, prefixCls, __hashId__, ...restProps }) => {
   const [messageApi, contextHolder] = message.useMessage();
   const mergedFormat = useMemo(() => {
     if (typeof format === 'function') {
@@ -32,12 +31,12 @@ export const ConnectButtonTooltip: React.FC<PropsWithChildren<ConnectButtonToolt
     format ? (
       <>
         <div className={`${prefixCls}-tooltip-title`}>
-          Wallet address{' '}
+          {intl.getMessage(intl.messages.walletAddress)}{' '}
           <CopyOutlined
-            title="Copy Address"
+            title={intl.getMessage(intl.messages.copyAddress)}
             onClick={() => {
               writeCopyText(String(title)).then(() => {
-                messageApi.success('Address Copied!');
+                messageApi.success(intl.getMessage(intl.messages.addressCopied));
               });
             }}
           />
@@ -48,10 +47,10 @@ export const ConnectButtonTooltip: React.FC<PropsWithChildren<ConnectButtonToolt
       <>
         {mergedTitle}{' '}
         <CopyOutlined
-          title="Copy Address"
+          title={intl.getMessage(intl.messages.copyAddress)}
           onClick={() => {
             writeCopyText(String(title)).then(() => {
-              messageApi.success('Address Copied!');
+              messageApi.success(intl.getMessage(intl.messages.addressCopied));
             });
           }}
         />

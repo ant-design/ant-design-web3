@@ -4,13 +4,13 @@
 
 <h1 align="center">Ant Design Web3</h1>
 
-A collection of components for Web3.
+一套 Web3 的组件库.
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
 [![Follow Twitter][twitter-image]][twitter-url] [![antd][antd-image]][antd-url] [![dumi][dumi-image]][dumi-url]
 
-English · [中文](./README-zh_CN.md)
+[English](./README.md) · 中文
 
 [github-action-image]: https://github.com/ant-design/ant-design-web3/workflows/Test/badge.svg
 [github-action-url]: https://github.com/ant-design/ant-design-web3/actions/workflows/test.yml
@@ -31,17 +31,17 @@ English · [中文](./README-zh_CN.md)
 
 </div>
 
-- Home Page: https://web3.ant.design
-- Documentation: https://web3.ant.design/guide
+- 官网: https://web3.ant.design
+- 指南: https://web3.ant.design/guide
 - 国内加速官网: https://web3.antdigital.dev
 
-## Features
+## 特性
 
-- 🎨 Ant Design Friendly
-- 📦 Out-of-the-Box Experience
-- 🔌 Compatibility with Different Chains
+- 🎨 友好的 Ant Design 设计风格
+- 📦 开箱即用的体验
+- 🔌 兼容不同的链
 
-## Usage
+## 示例
 
 ```shell
 npm i @ant-design/web3 --save
@@ -55,14 +55,14 @@ export default () => {
 };
 ```
 
-## Development
+## 开发
 
 ```shell
 pnpm i
 pnpm dev
 ```
 
-## Contributing
+## 参与共建
 
 <!-- Copy-paste in your Readme.md file -->
 
@@ -75,11 +75,11 @@ pnpm dev
 
 <!-- Made with [OSS Insight](https://ossinsight.io/) -->
 
-Any type of contribution is welcome, here are some examples of how you may contribute to this project:
+我们欢迎任何类型的贡献，以下是一些您可以为本项目做出贡献的例子：
 
-- Use Ant Design Web3 in your daily work.
-- Submit [issues](https://github.com/ant-design/ant-design-web3/issues) to report bugs or ask questions.
-- Join our [discussion](https://github.com/ant-design/ant-design-web3/discussions) and provide us with suggestions.
-- Propose [pull requests](https://github.com/ant-design/ant-design-web3/pulls) to improve our code.
+- 在日常工作中使用 Ant Design Web3.
+- 通过 [issues](https://github.com/ant-design/ant-design-web3/issues) 提交错误或提问.
+- 加入我们的 [discussion](https://github.com/ant-design/ant-design-web3/discussions) 并向我们提供建议.
+- 提交 [pull requests](https://github.com/ant-design/ant-design-web3/pulls) 改进我们的代码.
 
-To better participate and contribute, please read our [contribution guidelines](https://web3.ant.design/guide/contributing).
+为了更好地参与和贡献，请阅读我们的 [贡献指南](https://web3.ant.design/zh-CN/guide/contributing).

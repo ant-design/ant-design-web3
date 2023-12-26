@@ -3,7 +3,7 @@ import { WagmiConfig } from 'wagmi';
 
 import type { PublicClient, WebSocketPublicClient, Config, Chain as WagmiChain } from 'wagmi';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
-import type { Chain } from '@ant-design/web3-common';
+import type { Chain, Locale } from '@ant-design/web3-common';
 import type { WalletFactory } from '../interface';
 // Built in popular chains
 import { Mainnet, Goerli } from '@ant-design/web3-assets';
@@ -15,6 +15,7 @@ export type WagmiWeb3ConfigProviderProps<
   TWebSocketPublicClient extends WebSocketPublicClient = WebSocketPublicClient,
 > = {
   config: Config<TPublicClient, TWebSocketPublicClient>;
+  locale?: Locale;
   assets?: (Chain | WalletFactory)[];
   ens?: boolean;
   balance?: boolean;
@@ -27,6 +28,7 @@ export function WagmiWeb3ConfigProvider<
   children,
   assets = [],
   ens,
+  locale,
   balance,
   config,
   ...restProps
@@ -54,6 +56,7 @@ export function WagmiWeb3ConfigProvider<
   return (
     <WagmiConfig config={config} {...restProps}>
       <AntDesignWeb3ConfigProvider
+        locale={locale}
         assets={[...assets, MetaMask, Mainnet, Goerli]}
         availableChains={availableChains}
         availableConnectors={config.connectors || []}

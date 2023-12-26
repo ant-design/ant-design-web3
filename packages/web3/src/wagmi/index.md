@@ -65,6 +65,7 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 | assets | Wallet or chain icon and other information | [Chain](./types#chain)\[\] \| [WalletFactory](#walletfactory)\[\] | - | - |
 | ens | Whether to display ENS | `boolean` | - | - |
 | balance | Whether to display balance | `boolean` | - | - |
+| locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/en_US.ts) | - | - |
 
 ### WalletFactory
 
