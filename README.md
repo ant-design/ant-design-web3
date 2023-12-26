@@ -33,7 +33,7 @@ A collection of components for Web3.
 
 - Home Page: https://web3.ant.design
 - Documentation: https://web3.ant.design/guide
-- Domestic Acceleration Page: https://web3.antdigital.dev
+- 国内加速官网: https://web3.antdigital.dev
 
 ## Features
 
