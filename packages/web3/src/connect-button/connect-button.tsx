@@ -12,6 +12,7 @@ import { fillWith0x, writeCopyText } from '../utils';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import { CryptoPrice } from '../crypto-price';
 import { CopyOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
+import useIntl from '../hooks/useIntl';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const {
@@ -30,15 +31,17 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     onClick,
     balance,
     className,
+    locale,
     ...restProps
   } = props;
+  const intl = useIntl('ConnectButton', locale);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-button');
   const [profileOpen, setProfileOpen] = useState(false);
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [messageApi, contextHolder] = message.useMessage();
   const [showMenu, setShowMenu] = useState(false);
-  let buttonText: React.ReactNode = 'Connect Wallet';
+  let buttonText: React.ReactNode = intl.getMessage(intl.messages.connect);
   if (account) {
     buttonText =
       account?.name && !balance ? (
@@ -112,6 +115,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
   const profileModalContent = (
     <ProfileModal
+      intl={intl}
       open={profileOpen}
       __hashId__={hashId}
       onDisconnect={() => {
@@ -156,7 +160,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         icon: <CopyOutlined />,
       },
       {
-        label: 'Disconnect',
+        label: intl.getMessage(intl.messages.disconnect),
         key: 'disconnect',
         onClick: () => {
           setProfileOpen(false);
@@ -220,6 +224,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       {contextHolder}
       {tooltipTitle ? (
         <ConnectButtonTooltip
+          intl={intl}
           copyable={mergedTooltipCopyable}
           title={tooltipTitle}
           prefixCls={prefixCls}

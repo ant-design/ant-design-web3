@@ -1,14 +1,16 @@
 import React, { useContext } from 'react';
 import { Modal, ConfigProvider, Space, Button, Avatar, message, type AvatarProps } from 'antd';
 import classNames from 'classnames';
-import type { Balance } from '@ant-design/web3-common';
+import type { Balance, Locale } from '@ant-design/web3-common';
 import { Address } from '@ant-design/web3';
 import { writeCopyText } from '../utils';
 import { CryptoPrice } from '../crypto-price';
 import type { ModalProps } from 'antd';
+import { IntlType } from '../hooks/useIntl';
 
 export interface ProfileModalProps {
   className?: string;
+  intl: IntlType;
   /** @internal */
   __hashId__: string;
   avatar?: AvatarProps;
@@ -23,6 +25,7 @@ export interface ProfileModalProps {
 
 export const ProfileModal: React.FC<ProfileModalProps> = ({
   className,
+  intl,
   __hashId__,
   open,
   onClose,
@@ -47,14 +50,14 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               <Button
                 onClick={() => {
                   writeCopyText(address).then(() => {
-                    messageApi.success('Address Copied!');
+                    messageApi.success(intl.getMessage(intl.messages.addressCopied));
                   });
                 }}
               >
-                Copy Address
+                {intl.getMessage(intl.messages.copyAddress)}
               </Button>
             ) : null}
-            <Button onClick={onDisconnect}>Disconnect</Button>
+            <Button onClick={onDisconnect}>{intl.getMessage(intl.messages.disconnect)}</Button>
           </div>
         }
         width={280}
