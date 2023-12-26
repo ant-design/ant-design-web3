@@ -41,11 +41,13 @@
 - 📦 开箱即用的体验
 - 🔌 兼容不同的链
 
-## 示例
+## 安装
 
 ```shell
 npm i @ant-design/web3 --save
 ```
+
+## 使用
 
 ```ts
 import { Address } from '@ant-design/web3';

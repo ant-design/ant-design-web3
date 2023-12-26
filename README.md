@@ -41,11 +41,13 @@ English · [中文](./README-zh_CN.md)
 - 📦 Out-of-the-Box Experience
 - 🔌 Compatibility with Different Chains
 
-## Usage
+## Installation
 
 ```shell
 npm i @ant-design/web3 --save
 ```
+
+## Usage
 
 ```ts
 import { Address } from '@ant-design/web3';
