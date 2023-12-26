@@ -5,6 +5,7 @@ import {
   type Chain,
   Web3ConfigProvider,
   fillAddressWith0x,
+  Locale,
 } from '@ant-design/web3-common';
 import {
   useAccount,
@@ -20,6 +21,7 @@ import { addNameToAccount, getNFTMetadata } from './methods';
 import type { WalletFactory } from '../interface';
 
 export interface AntDesignWeb3ConfigProviderProps {
+  locale?: Locale;
   assets?: (WalletFactory | Chain)[];
   children?: React.ReactNode;
   ens?: boolean;
@@ -29,7 +31,7 @@ export interface AntDesignWeb3ConfigProviderProps {
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
-  const { children, assets, availableChains, availableConnectors, ens, balance } = props;
+  const { children, assets, availableChains, availableConnectors, ens, balance, locale } = props;
   const { address, isDisconnected } = useAccount();
   const [account, setAccount] = React.useState<Account | undefined>();
   const { connectAsync } = useConnect();
@@ -116,6 +118,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
 
   return (
     <Web3ConfigProvider
+      locale={locale}
       availableChains={chainList}
       chain={currentChain}
       account={account}
