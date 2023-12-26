@@ -10,7 +10,7 @@
 
 [![Follow Twitter][twitter-image]][twitter-url] [![antd][antd-image]][antd-url] [![dumi][dumi-image]][dumi-url]
 
-[English](./README.md)
+[English](./README.md) · 中文
 
 [github-action-image]: https://github.com/ant-design/ant-design-web3/workflows/Test/badge.svg
 [github-action-url]: https://github.com/ant-design/ant-design-web3/actions/workflows/test.yml
