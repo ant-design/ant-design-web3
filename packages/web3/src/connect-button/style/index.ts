@@ -9,8 +9,8 @@ import { TinyColor } from '@ctrl/tinycolor';
 export interface ConnectButtonToken extends Web3AliasToken {
   componentCls: string;
 }
+
 const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
-  console.log(token);
   return {
     [token.componentCls]: {
       [`${token.componentCls}-content`]: {
@@ -72,6 +72,7 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
       },
       [`&-name`]: {
         color: token.colorTextHeading,
+        fontSize: token.fontSizeLG,
       },
       [`${token.componentCls}-chain-icon`]: {
         fontSize: 38,

@@ -1,6 +1,5 @@
 import React, { useContext, useMemo, useState } from 'react';
 import type { ButtonProps } from 'antd';
-import { theme as AntTheme } from 'antd';
 import { Avatar, Button, ConfigProvider, Dropdown, Space, message, Divider } from 'antd';
 import classNames from 'classnames';
 import { Address } from '../address';
@@ -13,7 +12,6 @@ import { fillWith0x, writeCopyText } from '../utils';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import { CryptoPrice } from '../crypto-price';
 import { CopyOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
-const { useToken } = AntTheme;
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const {
