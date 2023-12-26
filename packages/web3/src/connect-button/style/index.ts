@@ -10,6 +10,7 @@ export interface ConnectButtonToken extends Web3AliasToken {
   componentCls: string;
 }
 const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
+  console.log(token);
   return {
     [token.componentCls]: {
       [`${token.componentCls}-content`]: {
@@ -51,22 +52,22 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
         padding: `${token.paddingLG}px ${token.padding}px ${token.padding}px`,
         borderRadius: 16,
       },
-      [`&-avatar`]: {
-        width: 56,
-        height: 56,
+      [`${token.antCls}-avatar`]: {
+        width: token.sizeXXL,
+        height: token.sizeXXL,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       },
       [`${token.antCls}-avatar-image`]: {
-        width: 56,
-        height: 56,
+        width: token.sizeXXL,
+        height: token.sizeXXL,
       },
       [`&-footer`]: {
         display: 'flex',
         marginTop: token.margin,
         [`${token.antCls}-btn`]: {
-          width: '120px',
-          height: '40px',
-          padding: 0,
-          fontSize: token.fontSizeLG,
+          flex: 1,
         },
       },
       [`&-name`]: {
@@ -74,6 +75,9 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
       },
       [`${token.componentCls}-chain-icon`]: {
         fontSize: 38,
+      },
+      [`${token.componentCls}-default-icon`]: {
+        fontSize: 24,
       },
       [`${token.antCls}-web3-address`]: {
         color: token.colorTextTertiary,
