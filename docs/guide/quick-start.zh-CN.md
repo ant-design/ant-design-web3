@@ -13,7 +13,7 @@ group: 基础
 
 <br />
 
-<NormalInstallDependencies packageNames="@ant-design/web3 @ant-design/web3-wagmi wagmi" save="true"></NormalInstallDependencies>
+<NormalInstallDependencies packageNames="antd @ant-design/web3 @ant-design/web3-wagmi wagmi" save="true"></NormalInstallDependencies>
 
 <br />
 
