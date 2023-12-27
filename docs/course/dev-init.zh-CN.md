@@ -12,7 +12,7 @@ order: 1
 
 这部分课程中，我们将指导你搭建一个 DApp 的前端部分。该 DApp 将会实现一个铸造 NFT 的功能，用户连接钱包后可以点击铸造一个 NFT 并查看铸造后的 NFT。
 
-这部分暂时不会设计到智能合约的开发，智能合约开发将会放到下一部分课程教学，我们会提供一个用于测试的智能合约来供该 DApp 调用。
+这部分暂时不会涉及到智能合约的开发，智能合约开发将会放到下一部分课程教学，我们会提供一个用于测试的智能合约来供该 DApp 调用。
 
 本教程的完整代码你可以在 [https://github.com/ant-design/ant-design-web3-demo](https://github.com/ant-design/ant-design-web3-demo) 找到。
 
