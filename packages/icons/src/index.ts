@@ -21,6 +21,7 @@ export * from './components/ethereum-colorful';
 export * from './components/ethereum-circle-colorful';
 export * from './components/ethereum-circle-filled';
 
+export * from './components/safeheron-colorful';
 export * from './components/sui-filled';
 export * from './components/sui-colorful';
 export * from './components/sui-circle-filled';

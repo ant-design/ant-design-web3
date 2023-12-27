@@ -18,7 +18,7 @@ const chain = [
   'Avalanche',
 ];
 
-const tool = ['CoinbaseWallet', 'Etherscan', 'MetaMask', 'WalletConnect', 'TokenPocket'];
+const tool = ['CoinbaseWallet', 'Etherscan', 'MetaMask', 'WalletConnect', 'TokenPocket', 'Safeheron'];
 
 const datum = [...chain, ...tool];
 
