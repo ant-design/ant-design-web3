@@ -51,17 +51,36 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
       [`${token.antCls}-modal-content`]: {
         padding: token.padding,
       },
+      [`${token.antCls}-avatar`]: {
+        width: token.sizeXXL,
+        height: token.sizeXXL,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      [`${token.antCls}-avatar-image`]: {
+        width: token.sizeXXL,
+        height: token.sizeXXL,
+      },
       [`&-footer`]: {
         display: 'flex',
+        marginTop: token.margin,
         [`${token.antCls}-btn`]: {
           flex: 1,
         },
       },
+      [`&-name`]: {
+        color: token.colorTextHeading,
+        fontSize: token.fontSizeLG,
+      },
       [`${token.componentCls}-chain-icon`]: {
-        fontSize: 38,
+        fontSize: token.sizeXXL,
+      },
+      [`${token.componentCls}-default-icon`]: {
+        fontSize: token.sizeLG,
       },
       [`${token.antCls}-web3-address`]: {
-        color: token.colorTextSecondary,
+        color: token.colorTextTertiary,
       },
     },
 

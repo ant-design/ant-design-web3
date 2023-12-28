@@ -7,7 +7,7 @@ order: 3
 
 # 编译和部署合约
 
-### 编译器
+## 编译器
 
 点击图标面板中的 `Solidity Compiler` 图标即可进入编译器界面。界面中默认展示编译器的基础配置项。点击`Advanced Configurations`按钮即可打开高级配置面板。在 `Advanced Configurations` 菜单中，您可以更改 EVM 版本、启用优化功能，并设置预计在合约生命周期内运行字节码的次数（默认设置为 200 次）。有关合约优化的更多信息，请参考 [Optimizer 上的 Solidity 文档](https://docs.soliditylang.org/en/latest/using-the-compiler.html#optimizer-options)。
 
@@ -37,13 +37,13 @@ order: 3
 
 ![](./img/copyABI.png)
 
-### 部署 & 运行
+## 部署 & 运行
 
 `Deploy&Run`是为了将交易发送到当前的`ENVIRONMENT`中。
 
 ![](./img/environment1.png)
 
-#### 环境
+### 环境
 
 点击`ENVIRONMENT` 的下拉选择框，可以看到有许多的选项可供选择，`Remix VM (forkname)` 是不同的`Remix`的沙盒区块链。每次刷新旧的沙盒数据都会被清除。`forkname`是以太坊的分叉名；`Injected Provider - MetaMask` 是将`Remix`连接到一个注入的 web3 服务我本地的注入服务是 `Metamask`；`WalletConnect` 将 Remix 连接到移动设备上的钱包以及再往下的将`Remix`连接到远程`Provider`或者本地测试链。就像下边图里一样：
 
@@ -53,7 +53,7 @@ order: 3
 
 > 在更真实的区块链环境中，您需要批准交易，然后等待交易被打包和确认。使用 Remix VM ，将立即执行。终端将提供有关交易的信息。新创建的实例显示在已部署合约部分。
 
-#### Deploy
+### Deploy
 
 在 `ENVIRONMENT` 下拉菜单处选择 `Injected Provider - MetaMask`。  
 随后，`MetaMask` 将跳出弹窗并提示将其连接至 `Remix`。将`MetaMask` 连接至 `Remix` 后，侧面板将更新显示所连接的网络和账户。
@@ -75,7 +75,7 @@ order: 3
 
 ![](./img/sendTrans.png)
 
-#### 部署成功
+### 部署成功
 
 交易部署后，您将在 `Remix` 终端或者[区块链浏览器](https://sepolia.etherscan.io/tx/0xabb43c7560af6ba70684406488a9c2e586ca2d83aab2e7787f8f8afebc35d77e)看到部署交易的详情。此外，合约将出现在侧面板的 `Deployed Contracts` 部分下方。它默认处于折叠状态，可以点击小箭头展开它。
 

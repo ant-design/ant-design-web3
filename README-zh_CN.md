@@ -44,7 +44,7 @@
 ## 安装
 
 ```shell
-npm i @ant-design/web3 --save
+npm i antd @ant-design/web3 --save
 ```
 
 ## 使用

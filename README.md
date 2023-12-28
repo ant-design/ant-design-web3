@@ -44,7 +44,7 @@ English · [中文](./README-zh_CN.md)
 ## Installation
 
 ```shell
-npm i @ant-design/web3 --save
+npm i antd @ant-design/web3 --save
 ```
 
 ## Usage

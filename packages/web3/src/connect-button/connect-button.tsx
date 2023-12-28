@@ -132,9 +132,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
           icon: chain?.icon ? (
             <div className={`${prefixCls}-chain-icon`}>{chain?.icon}</div>
           ) : (
-            <UserOutlined />
+            <UserOutlined className={`${prefixCls}-default-icon`} />
           ),
-          size: 'large',
         }
       }
       balance={balance}

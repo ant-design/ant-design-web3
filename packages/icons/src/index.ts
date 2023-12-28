@@ -36,3 +36,5 @@ export * from './components/polygon-circle-colorful';
 export * from './components/fantom-circle-colorful';
 
 export * from './components/chrome-circle-colorful';
+
+export * from './components/tokenpocket-colorful';
