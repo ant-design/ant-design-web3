@@ -1142,7 +1142,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                     <h2
                       class="ant-web3-connect-modal-guide-title"
                     >
-                      What is a wallet?
+                      What is a Wallet?
                     </h2>
                     <div
                       class="ant-web3-connect-modal-guide-list"

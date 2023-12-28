@@ -10,7 +10,7 @@ const localeValues: RequiredLocale = {
   },
   ConnectModal: {
     title: 'Connect Wallet',
-    guideTitle: 'What is a wallet?',
+    guideTitle: 'What is a Wallet?',
     guideInfos1Title: 'Manage your private key and assets',
     guideInfos1Desc: 'Manage your private key and the assets of the corresponding chain address',
     guideInfos2Title: 'Help you connect to DApp',
