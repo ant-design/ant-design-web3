@@ -3,8 +3,8 @@ import { TokenPocketColorful, ChromeCircleColorful } from '@ant-design/web3-icon
 
 export const metadata_TokenPocket: WalletMetadata = {
   icon: <TokenPocketColorful />,
-  name: 'TokenPocket Wallet',
-  remark: 'TokenPocket Wallet',
+  name: 'TokenPocket',
+  remark: 'TokenPocket',
   app: {
     link: 'https://www.tokenpocket.pro/en/download/app',
   },

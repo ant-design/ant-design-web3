@@ -4,7 +4,7 @@ import { TokenPocket } from '@ant-design/web3-wagmi';
 describe('TokenPocket', () => {
   const wallet = TokenPocket.create();
   it('name', async () => {
-    expect(wallet.name).toBe('TokenPocket Wallet');
+    expect(wallet.name).toBe('TokenPocket');
   });
 
   it('always return true for hasWalletReady', async () => {
