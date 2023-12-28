@@ -198,7 +198,6 @@ export interface RequiredLocale {
     walletCardAppTitle: string;
     walletCardAppDesc: string;
     walletCardExtensionTitle: string;
-    footer: string;
   };
 }
 

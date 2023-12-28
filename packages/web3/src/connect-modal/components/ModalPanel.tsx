@@ -30,12 +30,6 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     (node) => <h2 className={`${prefixCls}-title`}>{node}</h2>,
   );
 
-  const mergedFooter = mergeReactNodeProps(
-    footer,
-    <div className={`${prefixCls}-footer`}>{intl.messages.footer}</div>,
-    (node) => <div className={`${prefixCls}-footer`}>{node}</div>,
-  );
-
   const updatePanelRoute = React.useCallback((route: PanelRoute, clear: boolean = false) => {
     if (clear) {
       routeStack.current = ['init'];
@@ -99,7 +93,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
             <div className={`${prefixCls}-list-container`}>
               <WalletList walletList={walletList} groupOrder={groupOrder} />
             </div>
-            {mergedFooter}
+            {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
           </div>
         )}
         {!(panelRoute === 'init' && isSimple) && (

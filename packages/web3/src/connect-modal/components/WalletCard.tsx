@@ -47,7 +47,7 @@ const WalletCard: React.FC = () => {
     <>
       <MainPanelHeader
         title={getMessage(localeMessage.walletCardPanelTitle, {
-          'selectedWallet.name': selectedWallet!.name,
+          selectedWalletName: selectedWallet!.name,
         })}
       />
       <div className={`${prefixCls}-card-list`}>
@@ -62,8 +62,8 @@ const WalletCard: React.FC = () => {
               )
             }
             title={getMessage(localeMessage.walletCardExtensionTitle, {
-              'selectedWallet.name': selectedWallet!.name,
-              'selectedExtension.browserName': selectedExtension.browserName,
+              selectedWalletName: selectedWallet!.name,
+              selectedExtensionBrowserName: selectedExtension.browserName,
             })}
             desc={selectedExtension.description}
           />
@@ -78,7 +78,7 @@ const WalletCard: React.FC = () => {
               )
             }
             title={getMessage(localeMessage.walletCardAppTitle, {
-              'selectedWallet.name': selectedWallet.name,
+              selectedWalletName: selectedWallet.name,
             })}
             desc={localeMessage.walletCardAppDesc}
             onClick={() => {

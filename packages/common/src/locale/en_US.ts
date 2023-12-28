@@ -25,17 +25,16 @@ const localeValues: RequiredLocale = {
     getWalletPanelInfoTitle: "Not what you're looking for?",
     getWalletPanelInfoDesc:
       'Select a wallet on the left to get started with a different wallet provider.',
-    qrCodePanelTitleForDownload: 'Download {wallet.name}',
-    qrCodePanelTitleForScan: 'Scan with {wallet.name}',
+    qrCodePanelTitleForDownload: 'Download {walletName}',
+    qrCodePanelTitleForScan: 'Scan with {walletName}',
     qrCodePanelLinkForDownload: 'Click to go to the download page',
     qrCodePanelLinkForConnect: 'Click to connect directly',
     qrCodePanelDownloadTipForReady: 'Scan the QR code to download the wallet.',
     qrCodePanelDownloadTipForNotReady: "Don't have",
-    walletCardPanelTitle: 'Get {selectedWallet.name}',
-    walletCardAppTitle: '{selectedWallet.name} for Mobile',
+    walletCardPanelTitle: 'Get {selectedWalletName}',
+    walletCardAppTitle: '{selectedWalletName} for Mobile',
     walletCardAppDesc: 'Use the mobile wallet to explore the world of Ethereum.',
-    walletCardExtensionTitle: '{selectedWallet.name} for {selectedExtension.browserName}',
-    footer: 'Powered by AntChain',
+    walletCardExtensionTitle: '{selectedWalletName} for {selectedExtensionBrowserName}',
   },
 };
 

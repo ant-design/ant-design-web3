@@ -34,7 +34,6 @@ const localeValues: RequiredLocale = {
     walletCardAppDesc: '使用移动钱包探索以太坊世界。',
     walletCardExtensionTitle:
       '在 {selectedExtension.browserName} 浏览器中使用 {selectedWallet.name}',
-    footer: '蚂蚁链提供技术支持',
   },
 };
 

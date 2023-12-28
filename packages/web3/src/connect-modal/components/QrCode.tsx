@@ -49,7 +49,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
             ? localeMessage.qrCodePanelTitleForDownload
             : localeMessage.qrCodePanelTitleForScan,
           {
-            'wallet.name': wallet.name,
+            walletName: wallet.name,
           },
         )}
       />
