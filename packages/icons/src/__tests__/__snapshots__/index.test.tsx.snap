@@ -768,19 +768,7 @@ exports[`Test Icons > should render all icons 17`] = `
             <g
               id="fantom-logo-white-Clipped"
             >
-              <mask
-                fill="white"
-              >
-                <use
-                  xlink:href="#path-1"
-                />
-              </mask>
-              <g
-                id="path-1"
-              />
-              <g
-                mask="url(#mask-2)"
-              >
+              <g>
                 <g
                   id="\\u5F62\\u72B6"
                   transform="translate(256, 201.1429)"
@@ -993,19 +981,7 @@ exports[`Test Icons > should render all icons 22`] = `
           <g
             id="Protocol=Ethereum,-Effect=None-Clipped"
           >
-            <mask
-              fill="white"
-            >
-              <use
-                xlink:href="#path-1"
-              />
-            </mask>
-            <g
-              id="path-1"
-            />
-            <g
-              mask="url(#mask-2)"
-            >
+            <g>
               <circle
                 cx="512"
                 cy="512"
