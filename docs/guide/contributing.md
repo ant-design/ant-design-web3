@@ -53,6 +53,7 @@ The current core members are:
 - [@kiner-tang](https://github.com/kiner-tang)
 - [@jeasonstudio](https://github.com/jeasonstudio)
 - [@gin-lsl](https://github.com/gin-lsl)
+- [@liangchaofei](https://github.com/liangchaofei)
 
 ## Labels
 

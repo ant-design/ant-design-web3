@@ -52,6 +52,8 @@ group:
 - [@yutingzhao1991](https://github.com/yutingzhao1991)
 - [@kiner-tang](https://github.com/kiner-tang)
 - [@jeasonstudio](https://github.com/jeasonstudio)
+- [@gin-lsl](https://github.com/gin-lsl)
+- [@liangchaofei](https://github.com/liangchaofei)
 
 ## 标签
 
