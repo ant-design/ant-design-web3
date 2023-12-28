@@ -49,7 +49,7 @@ export const walletList = [
   {
     icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
     name: 'Test Wallet3',
-    remark: '备注3',
+    remark: 'remark 3',
     group: 'Popular',
     app: {
       link: 'https://test.com/xxx',

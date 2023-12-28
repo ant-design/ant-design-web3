@@ -24,7 +24,7 @@ export default function useIntl<T extends ComponentName>(
     messages: locale,
     getMessage: (message, values) => {
       if (values) {
-        return message.replace(/\{(\w+)\}/g, (_, key) => values[key]);
+        return message.replace(/\{([\w\.]+)\}/g, (_, key) => values[key]);
       }
       return message;
     },

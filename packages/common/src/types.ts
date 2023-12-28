@@ -188,6 +188,17 @@ export interface RequiredLocale {
     getWalletPanelTitle: string;
     getWalletPanelInfoTitle: string;
     getWalletPanelInfoDesc: string;
+    qrCodePanelTitleForDownload: string;
+    qrCodePanelTitleForScan: string;
+    qrCodePanelLinkForDownload: string;
+    qrCodePanelLinkForConnect: string;
+    qrCodePanelDownloadTipForReady: string;
+    qrCodePanelDownloadTipForNotReady: string;
+    walletCardPanelTitle: string;
+    walletCardAppTitle: string;
+    walletCardAppDesc: string;
+    walletCardExtensionTitle: string;
+    footer: string;
   };
 }
 

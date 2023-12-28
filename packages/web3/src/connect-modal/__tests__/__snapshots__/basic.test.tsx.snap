@@ -1142,7 +1142,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                     <h2
                       class="ant-web3-connect-modal-guide-title"
                     >
-                      What is a Wallet?
+                      What is a wallet?
                     </h2>
                     <div
                       class="ant-web3-connect-modal-guide-list"
@@ -1238,7 +1238,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                       target="_blank"
                     >
                       <span>
-                        Learn More
+                        Learn more
                       </span>
                     </a>
                   </div>
@@ -1679,7 +1679,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                       target="_blank"
                     >
                       <span>
-                        Learn More
+                        Learn more
                       </span>
                     </a>
                   </div>
@@ -2120,7 +2120,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                       target="_blank"
                     >
                       <span>
-                        Learn More
+                        Learn more
                       </span>
                     </a>
                   </div>

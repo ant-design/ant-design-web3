@@ -34,7 +34,8 @@ const CardItem: React.FC<{
 };
 
 const WalletCard: React.FC = () => {
-  const { prefixCls, selectedWallet, updatePanelRoute } = useContext(connectModalContext);
+  const { prefixCls, selectedWallet, updatePanelRoute, localeMessage, getMessage } =
+    useContext(connectModalContext);
   const selectedExtension = useMemo(
     () =>
       selectedWallet?.extensions
@@ -44,7 +45,11 @@ const WalletCard: React.FC = () => {
   );
   return (
     <>
-      <MainPanelHeader title={`Get ${selectedWallet?.name}`} />
+      <MainPanelHeader
+        title={getMessage(localeMessage.walletCardPanelTitle, {
+          'selectedWallet.name': selectedWallet!.name,
+        })}
+      />
       <div className={`${prefixCls}-card-list`}>
         {selectedExtension && (
           <CardItem
@@ -56,7 +61,10 @@ const WalletCard: React.FC = () => {
                 selectedExtension.browserIcon
               )
             }
-            title={`${selectedWallet!.name} for ${selectedExtension.browserName}`}
+            title={getMessage(localeMessage.walletCardExtensionTitle, {
+              'selectedWallet.name': selectedWallet!.name,
+              'selectedExtension.browserName': selectedExtension.browserName,
+            })}
             desc={selectedExtension.description}
           />
         )}
@@ -69,8 +77,10 @@ const WalletCard: React.FC = () => {
                 selectedWallet.icon
               )
             }
-            title={`${selectedWallet.name} for Mobile`}
-            desc="Use the mobile wallet to explore the world of Ethereum."
+            title={getMessage(localeMessage.walletCardAppTitle, {
+              'selectedWallet.name': selectedWallet.name,
+            })}
+            desc={localeMessage.walletCardAppDesc}
             onClick={() => {
               updatePanelRoute('downloadQrCode');
             }}

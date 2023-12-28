@@ -12,6 +12,7 @@ export type ConnectModalContext = {
   panelRouteBack: () => void;
   canBack: boolean;
   localeMessage: IntlType<'ConnectModal'>['messages'];
+  getMessage: IntlType<'ConnectModal'>['getMessage'];
 };
 
 export const connectModalContext = React.createContext<ConnectModalContext>({
@@ -23,6 +24,7 @@ export const connectModalContext = React.createContext<ConnectModalContext>({
   panelRouteBack: () => {},
   canBack: false,
   localeMessage: defaultLocale.ConnectModal,
+  getMessage: () => '',
 });
 
 export const ConnectModalContextProvider = connectModalContext.Provider;

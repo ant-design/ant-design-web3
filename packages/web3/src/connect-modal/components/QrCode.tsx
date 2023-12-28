@@ -14,7 +14,8 @@ export type QrCodeProps = {
 
 const QrCode: React.FC<QrCodeProps> = (props) => {
   const { wallet, simple, download } = props;
-  const { prefixCls, updatePanelRoute, updateSelectedWallet } = useContext(connectModalContext);
+  const { prefixCls, updatePanelRoute, updateSelectedWallet, localeMessage, getMessage } =
+    useContext(connectModalContext);
   const [qrCodeValue, setQrCodeValue] = useState('QR code not ready');
   const [loading, setLoading] = useState(false);
 
@@ -42,7 +43,16 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
   };
   return (
     <div className={`${prefixCls}-qr-code-container`}>
-      <MainPanelHeader title={download ? `Download ${wallet.name}` : `Scan with ${wallet.name}`} />
+      <MainPanelHeader
+        title={getMessage(
+          download
+            ? localeMessage.qrCodePanelTitleForDownload
+            : localeMessage.qrCodePanelTitleForScan,
+          {
+            'wallet.name': wallet.name,
+          },
+        )}
+      />
       <div className={`${prefixCls}-qr-code-box`}>
         <QRCode
           className={`${prefixCls}-qr-code`}
@@ -62,7 +72,9 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
         >
           <Space>
             <span>
-              {download ? 'Click to go to the download page' : 'Click to connect directly'}
+              {download
+                ? localeMessage.qrCodePanelLinkForDownload
+                : localeMessage.qrCodePanelLinkForConnect}
             </span>
             <ArrowRightOutlined />
           </Space>
@@ -71,17 +83,17 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
       <div className={`${prefixCls}-qr-code-tips`}>
         {download ? (
           <div className={`${prefixCls}-qr-code-tips-download`}>
-            Scan the QR code to download the wallet.
+            {localeMessage.qrCodePanelDownloadTipForReady}
           </div>
         ) : (
           <>
-            Don&apos;t have {wallet.name}?
+            {localeMessage.qrCodePanelDownloadTipForNotReady} {wallet.name}?
             <Button
               type="default"
               className={`${prefixCls}-get-wallet-btn`}
               onClick={handleGetWallet}
             >
-              GET
+              {localeMessage.getWalletBtnText}
             </Button>
           </>
         )}
