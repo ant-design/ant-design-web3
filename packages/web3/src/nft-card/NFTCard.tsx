@@ -14,8 +14,10 @@ import {
   parseNumberToBigint,
   getWeb3AssetUrl,
   type Web3ConfigProviderProps,
+  Locale,
 } from '@ant-design/web3-common';
 import { CryptoPrice, type CryptoPriceProps } from '../crypto-price';
+import useIntl from '../hooks/useIntl';
 
 const customizePrefixCls = 'ant-nft-card';
 
@@ -40,6 +42,7 @@ interface NFTCardProps {
   showAction?: boolean;
   type?: 'default' | 'pithy';
   onActionClick?: () => void;
+  locale?: Locale['NFTCard'];
 }
 
 const CardSkeleton: React.FC<PropsWithChildren<{ loading: boolean; prefixCls: string }>> = ({
@@ -71,10 +74,11 @@ const NFTCard: React.FC<NFTCardProps> = ({
   price,
   like: likeConfig,
   showAction,
-  actionText = 'Buy Now',
+  actionText,
   footer,
   onActionClick,
   getNFTMetadata,
+  locale,
   ...metadataProps
 }) => {
   const { liked, totalLikes = 0, onLikeChange } = likeConfig || {};
@@ -85,6 +89,7 @@ const NFTCard: React.FC<NFTCardProps> = ({
     image = metadata.image,
     description = metadata.description,
   } = metadataProps;
+  const { messages } = useIntl('NFTCard', locale);
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('nft-card', customizePrefixCls);
   //================== Style ==================
@@ -189,7 +194,7 @@ const NFTCard: React.FC<NFTCardProps> = ({
         </div>
         {showAction ? (
           <div className={`${prefixCls}-action`}>
-            <Button onClick={onActionClick}>{actionText}</Button>
+            <Button onClick={onActionClick}>{actionText ?? messages.actionText}</Button>
           </div>
         ) : null}
         {footer ? (

@@ -199,9 +199,13 @@ export interface RequiredLocale {
     walletCardAppDesc: string;
     walletCardExtensionTitle: string;
   };
+  NFTCard: {
+    actionText: string;
+  };
 }
 
 export interface Locale {
   ConnectButton?: Partial<RequiredLocale['ConnectButton']>;
   ConnectModal?: Partial<RequiredLocale['ConnectModal']>;
+  NFTCard?: Partial<RequiredLocale['NFTCard']>;
 }
