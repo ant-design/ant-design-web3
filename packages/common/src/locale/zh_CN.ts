@@ -23,17 +23,16 @@ const localeValues: RequiredLocale = {
     getWalletPanelTitle: '获取钱包',
     getWalletPanelInfoTitle: '没有找到你想要的？',
     getWalletPanelInfoDesc: '在左侧选择钱包，以开始使用不同的钱包提供商。',
-    qrCodePanelTitleForDownload: '下载 {wallet.name}',
-    qrCodePanelTitleForScan: '使用 {wallet.name} 扫描',
+    qrCodePanelTitleForDownload: '下载 {walletName}',
+    qrCodePanelTitleForScan: '使用 {walletName} 扫描',
     qrCodePanelLinkForDownload: '点击前往下载页面',
     qrCodePanelLinkForConnect: '点击直接连接',
     qrCodePanelDownloadTipForReady: '扫描二维码下载钱包',
     qrCodePanelDownloadTipForNotReady: '暂无',
-    walletCardPanelTitle: '获取 {selectedWallet.name}',
-    walletCardAppTitle: '在手机使用 {selectedWallet.name}',
+    walletCardPanelTitle: '获取 {selectedWalletName}',
+    walletCardAppTitle: '在手机使用 {selectedWalletName}',
     walletCardAppDesc: '使用移动钱包探索以太坊世界。',
-    walletCardExtensionTitle:
-      '在 {selectedExtension.browserName} 浏览器中使用 {selectedWallet.name}',
+    walletCardExtensionTitle: '在 {selectedExtensionBrowserName} 浏览器中使用 {selectedWalletName}',
   },
 };
 
