@@ -19,7 +19,7 @@ const localeValues: RequiredLocale = {
     guideInfos3Desc:
       'Through authorization of private key signature, initiate interaction with smart contract on the chain',
     guideInfosGetWalletBtnText: 'Get a Wallet',
-    guideInfosMoreLinkText: 'Learn more',
+    guideInfosMoreLinkText: 'Learn More',
     getWalletBtnText: 'Get',
     getWalletPanelTitle: 'Get a Wallet',
     getWalletPanelInfoTitle: "Not what you're looking for?",

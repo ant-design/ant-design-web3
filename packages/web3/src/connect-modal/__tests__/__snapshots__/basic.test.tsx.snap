@@ -1238,7 +1238,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                       target="_blank"
                     >
                       <span>
-                        Learn more
+                        Learn More
                       </span>
                     </a>
                   </div>
@@ -1679,7 +1679,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                       target="_blank"
                     >
                       <span>
-                        Learn more
+                        Learn More
                       </span>
                     </a>
                   </div>
@@ -2120,7 +2120,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                       target="_blank"
                     >
                       <span>
-                        Learn more
+                        Learn More
                       </span>
                     </a>
                   </div>
