@@ -1,5 +1,7 @@
 import React from 'react';
 import type { PanelRoute, Wallet } from '../interface';
+import type { IntlType } from '../../hooks/useIntl';
+import { defaultLocale } from '@ant-design/web3-common';
 
 export type ConnectModalContext = {
   prefixCls: string;
@@ -9,6 +11,8 @@ export type ConnectModalContext = {
   updatePanelRoute: (route: PanelRoute, clear?: boolean) => void;
   panelRouteBack: () => void;
   canBack: boolean;
+  localeMessage: IntlType<'ConnectModal'>['messages'];
+  getMessage: IntlType<'ConnectModal'>['getMessage'];
 };
 
 export const connectModalContext = React.createContext<ConnectModalContext>({
@@ -19,6 +23,8 @@ export const connectModalContext = React.createContext<ConnectModalContext>({
   updatePanelRoute: () => {},
   panelRouteBack: () => {},
   canBack: false,
+  localeMessage: defaultLocale.ConnectModal,
+  getMessage: () => '',
 });
 
 export const ConnectModalContextProvider = connectModalContext.Provider;

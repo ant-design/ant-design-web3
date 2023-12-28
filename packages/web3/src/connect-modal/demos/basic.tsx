@@ -3,6 +3,7 @@ import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-asse
 import { Button } from 'antd';
 import React from 'react';
 import type { Wallet } from '../interface';
+import { useIntl } from 'dumi';
 
 const walletList: Wallet[] = [
   metadata_MetaMask,
@@ -25,7 +26,7 @@ const walletList: Wallet[] = [
   {
     icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
     name: 'Test Wallet3',
-    remark: '备注3',
+    remark: 'remark 3',
     app: {
       link: 'https://test.com/xxx',
     },
@@ -52,6 +53,7 @@ const groupOrder = (a: string, b: string) => {
 
 const App: React.FC = () => {
   const [open, setOpen] = React.useState(false);
+  const { locale } = useIntl();
   return (
     <>
       <Button type="primary" onClick={() => setOpen(true)}>
@@ -59,8 +61,7 @@ const App: React.FC = () => {
       </Button>
       <ConnectModal
         open={open}
-        title="Connect Wallet"
-        footer="Powered by AntChain"
+        footer={locale === 'zh-CN' ? '蚂蚁链提供技术支持' : 'Powered by AntChain'}
         groupOrder={groupOrder}
         walletList={walletList}
         onCancel={() => setOpen(false)}

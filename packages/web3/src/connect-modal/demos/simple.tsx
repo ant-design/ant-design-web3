@@ -25,7 +25,7 @@ const walletList: Wallet[] = [
   {
     icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
     name: 'Test Wallet3',
-    remark: '备注3',
+    remark: 'remark 3',
     app: {
       link: 'https://test.com/xxx',
     },
@@ -60,8 +60,6 @@ const App: React.FC = () => {
       </Button>
       <ConnectModal
         open={open}
-        title="ConnectModal"
-        footer="Powered by AntChain"
         groupOrder={groupOrder}
         walletList={walletList}
         onCancel={() => setOpen(false)}

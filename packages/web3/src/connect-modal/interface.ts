@@ -1,6 +1,6 @@
 import type React from 'react';
 import type { ModalProps } from 'antd';
-import type { Wallet } from '@ant-design/web3-common';
+import type { Locale, Wallet } from '@ant-design/web3-common';
 import { get } from 'lodash';
 
 export type { Wallet, WalletExtensionItem } from '@ant-design/web3-common';
@@ -96,6 +96,11 @@ export type ConnectModalProps = ModalProps & {
    * @descEn modal mode
    */
   mode?: 'simple' | 'normal' | 'auto';
+  /**
+   * @desc 自定义本地化配置
+   * @descEn Custom localization configuration
+   */
+  locale?: Locale['ConnectModal'];
 };
 
 export type PanelRoute = 'init' | 'guide' | 'getWallet' | 'wallet' | 'qrCode' | 'downloadQrCode';

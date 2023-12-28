@@ -316,7 +316,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               justifyContent: 'center',
               marginBlockEnd: 16,
               boxSizing: 'border-box',
-              paddingInline: 58,
+              paddingInline: 30,
               background: token.cardBg,
               borderRadius: 16,
               cursor: 'pointer',

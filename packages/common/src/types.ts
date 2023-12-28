@@ -173,8 +173,35 @@ export interface RequiredLocale {
     addressCopied: string;
     walletAddress: string;
   };
+  ConnectModal: {
+    title: string;
+    guideTitle: string;
+    guideInfos1Title: string;
+    guideInfos1Desc: string;
+    guideInfos2Title: string;
+    guideInfos2Desc: string;
+    guideInfos3Title: string;
+    guideInfos3Desc: string;
+    guideInfosGetWalletBtnText: string;
+    guideInfosMoreLinkText: string;
+    getWalletBtnText: string;
+    getWalletPanelTitle: string;
+    getWalletPanelInfoTitle: string;
+    getWalletPanelInfoDesc: string;
+    qrCodePanelTitleForDownload: string;
+    qrCodePanelTitleForScan: string;
+    qrCodePanelLinkForDownload: string;
+    qrCodePanelLinkForConnect: string;
+    qrCodePanelDownloadTipForReady: string;
+    qrCodePanelDownloadTipForNotReady: string;
+    walletCardPanelTitle: string;
+    walletCardAppTitle: string;
+    walletCardAppDesc: string;
+    walletCardExtensionTitle: string;
+  };
 }
 
 export interface Locale {
   ConnectButton?: Partial<RequiredLocale['ConnectButton']>;
+  ConnectModal?: Partial<RequiredLocale['ConnectModal']>;
 }

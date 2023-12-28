@@ -36,7 +36,7 @@ describe('Get wallet', () => {
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')!);
     await waitFor(() => {
       expect(baseElement.querySelector('.ant-web3-connect-modal-get-wallet-btn')?.textContent).toBe(
-        'GET',
+        'Get',
       );
     });
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { RequiredLocale, Locale, UniversalWeb3ProviderInterface } from '../types';
-import defaultLocale from '../locale/en_US';
+import defaultLocale from '../locale/default';
 
 export interface Web3ConfigProviderProps extends UniversalWeb3ProviderInterface {
   children?: React.ReactNode;

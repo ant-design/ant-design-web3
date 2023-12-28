@@ -4,22 +4,17 @@ import type { Locale, ConfigConsumerProps, RequiredLocale } from '@ant-design/we
 
 type ComponentName = keyof Locale;
 
-interface IntlType {
-  messages: RequiredLocale[ComponentName];
-  getMessage: (
-    message: RequiredLocale[ComponentName][keyof RequiredLocale[ComponentName]],
-    values?: {
-      [key: string]: string;
-    },
-  ) => string;
+interface IntlType<T extends ComponentName = any> {
+  messages: RequiredLocale[T];
+  getMessage: (message: string, values?: Record<string, string>) => string;
 }
 
-export default function useIntl(
-  componentName: ComponentName,
-  componentLocale?: Locale[ComponentName],
-): IntlType {
+export default function useIntl<T extends ComponentName = any>(
+  componentName: T,
+  componentLocale?: Locale[T],
+): IntlType<T> {
   const context = React.useContext<ConfigConsumerProps>(ConfigContext);
-  const locale: RequiredLocale[ComponentName] = {
+  const locale: RequiredLocale[T] = {
     ...context.defaultLocale[componentName],
     ...context?.locale?.[componentName],
     ...componentLocale,
@@ -27,14 +22,9 @@ export default function useIntl(
 
   return {
     messages: locale,
-    getMessage: (
-      message: (typeof locale)[keyof typeof locale],
-      values?: {
-        [key: string]: string;
-      },
-    ) => {
+    getMessage: (message, values) => {
       if (values) {
-        return message.replace(/\{(\w+)\}/g, (_, key) => values[key]);
+        return message.replace(/\{([\w\.]+)\}/g, (_, key) => values[key]);
       }
       return message;
     },
