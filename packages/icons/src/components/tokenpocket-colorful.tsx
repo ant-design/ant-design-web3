@@ -5,7 +5,7 @@ import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
 import classnames from 'classnames';
 import { ConfigProvider } from 'antd';
 
-export const TokenpocketColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>(
+export const TokenPocketColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>(
   (props, ref) => {
     const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
     const prefixCls = getPrefixCls('web3-icon-tokenpocket-colorful');
@@ -19,4 +19,4 @@ export const TokenpocketColorful = React.forwardRef<HTMLSpanElement, IconBasePro
     );
   },
 );
-TokenpocketColorful.displayName = 'TokenpocketColorful';
+TokenPocketColorful.displayName = 'TokenPocketColorful';
