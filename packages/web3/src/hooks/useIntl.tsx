@@ -4,7 +4,7 @@ import type { Locale, ConfigConsumerProps, RequiredLocale } from '@ant-design/we
 
 type ComponentName = keyof Locale;
 
-interface IntlType<T extends ComponentName> {
+interface IntlType<T extends ComponentName = any> {
   messages: RequiredLocale[T];
   getMessage: (message: string, values?: Record<string, string>) => string;
 }
