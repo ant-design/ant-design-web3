@@ -9,7 +9,7 @@ interface IntlType<T extends ComponentName> {
   getMessage: (message: string, values?: Record<string, string>) => string;
 }
 
-export default function useIntl<T extends ComponentName>(
+export default function useIntl<T extends ComponentName = any>(
   componentName: T,
   componentLocale?: Locale[T],
 ): IntlType<T> {
