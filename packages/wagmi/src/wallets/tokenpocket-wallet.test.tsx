@@ -1,9 +1,8 @@
-// TokenpocketWallet.test.ts
 import { describe, it, expect } from 'vitest';
-import { TokenpocketWallet } from '@ant-design/web3-wagmi';
+import { TokenPocket } from '@ant-design/web3-wagmi';
 
-describe('TokenPocket Wallet', () => {
-  const wallet = TokenpocketWallet.create();
+describe('TokenPocket', () => {
+  const wallet = TokenPocket.create();
   it('name', async () => {
     expect(wallet.name).toBe('TokenPocket Wallet');
   });

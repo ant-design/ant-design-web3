@@ -1,4 +1,3 @@
-// TokenpocketWallet.test.ts
 import { describe, it, expect } from 'vitest';
 import { TokenPocket } from '@ant-design/web3-wagmi';
 
