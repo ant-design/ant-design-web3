@@ -1,7 +1,7 @@
 import type { WalletMetadata } from '@ant-design/web3-common';
 import { TokenPocketColorful, ChromeCircleColorful } from '@ant-design/web3-icons';
 
-export const metadata_TokenpocketWallet: WalletMetadata = {
+export const metadata_TokenPocket: WalletMetadata = {
   icon: <TokenPocketColorful />,
   name: 'TokenPocket Wallet',
   remark: 'TokenPocket Wallet',
