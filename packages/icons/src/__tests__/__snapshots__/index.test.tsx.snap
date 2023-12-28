@@ -1490,19 +1490,8 @@ exports[`Test Icons > should render all icons 32`] = `
           id="Protocol=Arbitrum-One,-Effect=None-Clipped"
           transform="translate(1307, 5728)"
         >
-          <mask
-            fill="white"
-          >
-            <use
-              xlink:href="#path-1"
-            />
-          </mask>
-          <g
-            id="path-1"
-          />
           <g
             fill-rule="nonzero"
-            mask="url(#mask-2)"
           >
             <circle
               cx="512"
