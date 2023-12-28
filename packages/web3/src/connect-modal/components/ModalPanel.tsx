@@ -9,11 +9,13 @@ import { ConnectModalContextProvider } from '../context';
 import { useStyle } from '../style';
 import useMode from '../hooks/useMode';
 import type { PanelRoute, Wallet } from '../interface';
+import useIntl from '../../hooks/useIntl';
 
 export type ModalPanelProps = ConnectModalProps;
 
 const ModalPanel: React.FC<ModalPanelProps> = (props) => {
-  const { title, footer, walletList, groupOrder, guide, mode, onWalletSelected } = props;
+  const { title, footer, walletList, groupOrder, guide, mode, onWalletSelected, locale } = props;
+  const intl = useIntl('ConnectModal', locale);
 
   const [panelRoute, setPanelRoute] = React.useState<PanelRoute>('init');
   const routeStack = React.useRef<PanelRoute[]>(['init']);
@@ -24,7 +26,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
 
   const mergedTitle = mergeReactNodeProps(
     title,
-    <h2 className={`${prefixCls}-title`}>Connect Modal</h2>,
+    <h2 className={`${prefixCls}-title`}>{intl.messages.title}</h2>,
     (node) => <h2 className={`${prefixCls}-title`}>{node}</h2>,
   );
 
@@ -72,6 +74,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
         updatePanelRoute,
         panelRouteBack,
         canBack: routeStack.current.length > 1,
+        localeMessage: intl.messages,
       }}
     >
       <div

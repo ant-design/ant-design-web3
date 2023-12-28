@@ -8,8 +8,9 @@ export type GetWalletPanelProps = Pick<ConnectModalProps, 'walletList'>;
 
 const GetWalletPanel: React.FC<GetWalletPanelProps> = (props) => {
   const { walletList = [] } = props;
-  const [messageApi, contextHolder] = message.useMessage();
-  const { prefixCls, updateSelectedWallet, updatePanelRoute } = useContext(connectModalContext);
+  const [, contextHolder] = message.useMessage();
+  const { prefixCls, updateSelectedWallet, updatePanelRoute, localeMessage } =
+    useContext(connectModalContext);
 
   const list = (
     <>
@@ -32,7 +33,7 @@ const GetWalletPanel: React.FC<GetWalletPanelProps> = (props) => {
                     updatePanelRoute('wallet');
                   }}
                 >
-                  Get
+                  {localeMessage.getWalletBtnText}
                 </Button>,
               ]}
             >
@@ -50,15 +51,15 @@ const GetWalletPanel: React.FC<GetWalletPanelProps> = (props) => {
         />
       </div>
       <div className={`${prefixCls}-info`}>
-        <h3>Not what you&apos;re looking for?</h3>
-        <div>Select a wallet on the left to get started with a different wallet provider.</div>
+        <h3>{localeMessage.getWalletPanelInfoTitle}</h3>
+        <div>{localeMessage.getWalletPanelInfoDesc}</div>
       </div>
     </>
   );
 
   return (
     <div className={`${prefixCls}-get-wallet-panel`}>
-      <MainPanelHeader title="Get a Wallet" />
+      <MainPanelHeader title={localeMessage.getWalletPanelTitle} />
       {list}
     </div>
   );

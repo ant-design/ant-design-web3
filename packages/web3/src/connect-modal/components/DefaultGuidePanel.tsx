@@ -3,34 +3,33 @@ import React, { useContext } from 'react';
 import { connectModalContext } from '../context';
 import type { ConnectModalProps } from '../interface';
 
-const defaultGuide: ConnectModalProps['guide'] = {
-  title: 'What is a Wallet?',
-  infos: [
-    {
-      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ApSUSaoUa_sAAAAAAAAAAAAADlrGAQ/original',
-      title: 'Manage your private key and assets',
-      description: 'Manage your private key and the assets of the corresponding chain address',
-    },
-    {
-      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*3lD7QpnbCPcAAAAAAAAAAAAADlrGAQ/original',
-      title: 'Help you connect to DApp',
-      description: 'Authorize DApp to get your address, similar to login',
-    },
-    {
-      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*gTROQqEY_TcAAAAAAAAAAAAADlrGAQ/original',
-      title: 'Call smart contract',
-      description:
-        'Through authorization of private key signature, initiate interaction with smart contract on the chain',
-    },
-  ],
-  moreLink: 'https://ethereum.org/en/wallets/',
-  getWalletBtnText: 'Get a Wallet',
-  moreLinkText: 'Learn More',
-};
-
 const DefaultGuidePanel: React.FC<{
   guide?: ConnectModalProps['guide'];
 }> = (props) => {
+  const { localeMessage } = useContext(connectModalContext);
+  const defaultGuide: ConnectModalProps['guide'] = {
+    title: localeMessage.guideTitle,
+    infos: [
+      {
+        icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ApSUSaoUa_sAAAAAAAAAAAAADlrGAQ/original',
+        title: localeMessage.guideInfos1Title,
+        description: localeMessage.guideInfos1Desc,
+      },
+      {
+        icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*3lD7QpnbCPcAAAAAAAAAAAAADlrGAQ/original',
+        title: localeMessage.guideInfos2Title,
+        description: localeMessage.guideInfos2Desc,
+      },
+      {
+        icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*gTROQqEY_TcAAAAAAAAAAAAADlrGAQ/original',
+        title: localeMessage.guideInfos3Title,
+        description: localeMessage.guideInfos3Desc,
+      },
+    ],
+    moreLink: 'https://ethereum.org/en/wallets/',
+    getWalletBtnText: localeMessage.guideInfosGetWalletBtnText,
+    moreLinkText: localeMessage.guideInfosMoreLinkText,
+  };
   const { guide = defaultGuide } = props;
 
   const { prefixCls, updatePanelRoute } = useContext(connectModalContext);
