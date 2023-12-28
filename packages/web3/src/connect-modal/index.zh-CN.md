@@ -44,6 +44,7 @@ order: 2
 | groupOrder | 钱包分组排序函数 | `(a: string, b: string) => number` | - | - |
 | mode | 弹窗模式 | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
 | guide | 新手指引内容 | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |
+| locale | 多语言设置 | `Locale["ConnectModal"]` | - | - |
 
 其他弹框属性详见： [ModalProps](https://ant.design/components/modal-cn#api)
 

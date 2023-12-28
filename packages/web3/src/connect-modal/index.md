@@ -44,6 +44,7 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 | groupOrder | Wallet group sorting function | `(a: string, b: string) => number` | - | - |
 | mode | Popup mode | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
 | guide | Newbie guide content | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |
+| locale | Multilingual settings | `Locale["ConnectModal"]` | - | - |
 
 Other modal properties see: [ModalProps](https://ant.design/components/modal#API)
 
