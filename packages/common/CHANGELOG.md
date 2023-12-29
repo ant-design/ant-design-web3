@@ -1,5 +1,17 @@
 # @ant-design/web3-common
 
+## 1.1.0
+
+### Minor Changes
+
+- 3547f6b: feat: ConnectButton support internationalization
+
+### Patch Changes
+
+- 73e8e32: feat: ConnectModal support Intl
+- 69a3597: fix: Improve the package.json information and add a main field to accommodate more projects.
+- 9de319c: feat: NFTCard support intl
+
 ## 1.0.0
 
 ### Major Changes
