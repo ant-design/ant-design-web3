@@ -34,7 +34,7 @@ jobs:
             comment="$(grep "major" $files)"
             echo "comment=$comment" >> $GITHUB_OUTPUT
           else
-            echo "comment=" >> $GITHUB_OUTPUT
+            echo "comment=''" >> $GITHUB_OUTPUT
           fi
 
       - name: update status comment
