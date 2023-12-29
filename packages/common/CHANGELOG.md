@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.1.2
+
+### Patch Changes
+
+- d6a5339: chore: release 1.1.2 for republish
+
 ## 1.1.1
 
 ### Patch Changes

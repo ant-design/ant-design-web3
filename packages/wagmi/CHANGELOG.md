@@ -1,5 +1,14 @@
 # @ant-design/web3-wagmi
 
+## 1.1.2
+
+### Patch Changes
+
+- d6a5339: chore: release 1.1.2 for republish
+- Updated dependencies [d6a5339]
+  - @ant-design/web3-assets@1.1.2
+  - @ant-design/web3-common@1.1.2
+
 ## 1.1.1
 
 ### Patch Changes
