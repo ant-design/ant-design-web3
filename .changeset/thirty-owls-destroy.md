@@ -1,5 +1,5 @@
 ---
-'@ant-design/web3': major
+'@ant-design/web3': patch
 ---
 
 fix: debug connect-button ui
