@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.1.1
+
+### Patch Changes
+
+- 32f276a: chore: 1.1.1
+
 ## 1.1.0
 
 ### Minor Changes

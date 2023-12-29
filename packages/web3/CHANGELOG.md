@@ -1,5 +1,15 @@
 # @ant-design/web3
 
+## 1.1.1
+
+### Patch Changes
+
+- 32f276a: chore: 1.1.1
+- Updated dependencies [32f276a]
+  - @ant-design/web3-assets@1.1.1
+  - @ant-design/web3-common@1.1.1
+  - @ant-design/web3-icons@1.1.1
+
 ## 1.1.0
 
 ### Minor Changes
