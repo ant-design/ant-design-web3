@@ -29,9 +29,10 @@ jobs:
           files=$ALL_CHANGED_FILES
           echo "File list: $files"
           major_changes=$(grep "major" $files)
-          if [ -z "$major_changes" ]; then
+          if [ $? -eq 0 ]; then
             echo "Not found major changes."
-            echo "comment=$major_changes" >> $GITHUB_OUTPUT
+            comment=""
+            echo "comment=$comment" >> $GITHUB_OUTPUT
           else
             echo "Found major changes."
             echo "comment=$major_changes" >> $GITHUB_OUTPUT
