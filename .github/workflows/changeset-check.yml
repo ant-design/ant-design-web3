@@ -28,8 +28,8 @@ jobs:
         run: |
           files=$ALL_CHANGED_FILES
           echo "File list: $files"
-          major_changes=$(grep "major" $files)
-          if [ $? -eq 0 ]; then
+          if grep -q "major" "$files"; then
+            major_changes=$(grep "major" $files)
             echo "Found major changes."
             echo "comment=$major_changes" >> $GITHUB_OUTPUT
           else
