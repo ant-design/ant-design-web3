@@ -1,5 +1,42 @@
 # @ant-design/web3-assets
 
+## 1.1.2
+
+### Patch Changes
+
+- d6a5339: chore: release 1.1.2 for republish
+- Updated dependencies [d6a5339]
+  - @ant-design/web3-common@1.1.2
+  - @ant-design/web3-icons@1.1.2
+
+## 1.1.1
+
+### Patch Changes
+
+- 32f276a: chore: 1.1.1
+- Updated dependencies [32f276a]
+  - @ant-design/web3-common@1.1.1
+  - @ant-design/web3-icons@1.1.1
+
+## 1.1.0
+
+### Minor Changes
+
+- b00a377: feat: add TokenPocket wallet icon and metadata
+- b3e95c2: feat: support safeheron browser wallet
+
+### Patch Changes
+
+- 69a3597: fix: Improve the package.json information and add a main field to accommodate more projects.
+- Updated dependencies [73e8e32]
+- Updated dependencies [69a3597]
+- Updated dependencies [b00a377]
+- Updated dependencies [b3e95c2]
+- Updated dependencies [3547f6b]
+- Updated dependencies [9de319c]
+  - @ant-design/web3-common@1.1.0
+  - @ant-design/web3-icons@1.1.0
+
 ## 1.0.0
 
 ### Major Changes
