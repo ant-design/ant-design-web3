@@ -39,6 +39,7 @@ group: 展示
 | showAction | 是否显示卡片的操作按钮 | `boolean` | `true` | - |
 | type | 卡片的类型 | `'default' \| 'pithy'` | `'default'` | - |
 | onActionClick | 点击卡片的操作按钮时的回调 | `() => void` | - | - |
+| locale | 多语言设置 | `Locale["NFTCard"]` | - | - |
 
 `NFTMetadata` 的定义参考以太坊 ERC721 的标准，具体见 [NFTMetadata 文档](../types/index.zh-CN.md#nftmetadata)。
 
