@@ -28,15 +28,13 @@ jobs:
         run: |
           files=$ALL_CHANGED_FILES
           echo "File list: $files"
-          major_changes=$(grep -c "major" $files)
-          echo "$major_changes major changes found."
-          if [ "$major_changes" -gt 0 ]; then
-            comment="$(grep "major" $files)"
-            echo "comment=$comment" >> $GITHUB_OUTPUT
-          else
-            comment=""
+          major_changes=$(grep "major" $files)
+          if [ -z "$major_changes" ]; then
             echo "Not found major changes."
-            echo "comment=$comment" >> $GITHUB_OUTPUT
+            echo "comment=$major_changes" >> $GITHUB_OUTPUT
+          else
+            echo "Found major changes."
+            echo "comment=$major_changes" >> $GITHUB_OUTPUT
           fi
 
       - name: update status comment
