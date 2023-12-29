@@ -16,6 +16,9 @@ jobs:
 
       - name: Check for major changes
         run: |
+          git fetch origin ${{ github.base_ref }}
+          test_changed_files=$(git diff --name-only ${{ github.base_ref }}...${{ github.sha }})
+          echo "$test_changed_files"
           changed_files=$(git diff --name-only -- "HEAD..HEAD~1")
           files=$(echo "$changed_files" | grep "\.changeset")
           major_changes=$(grep -c "major" $files)
