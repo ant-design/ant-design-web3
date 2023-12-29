@@ -31,7 +31,7 @@ jobs:
           major_changes=$(grep -c "major" $files)
           echo "$major_changes major changes found."
           if [ "$major_changes" -gt 0 ]; then
-            comment="major"
+            comment="$(grep "major" $files)"
             echo "comment=$comment" >> $GITHUB_OUTPUT
           else
             echo "comment=" >> $GITHUB_OUTPUT
@@ -44,9 +44,11 @@ jobs:
             token: ${{ secrets.GITHUB_TOKEN }}
             body: |
               @${{ github.actor }}, 本次 PR 的更改包含 major 变更，请确认是否符合预期。
-              \`\`\`md
-              $(grep "major" $files)
-              \`\`\`
+              ```md
+
+              ${{ steps.check_changeset.outputs.comment }}
+
+              ```
               <!-- AUTO_CHANGESET_CHECK_HOOK -->
             body-include: '<!-- AUTO_CHANGESET_CHECK_HOOK -->'
             number: ${{ github.event.pull_request.number }}
