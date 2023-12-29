@@ -66,16 +66,28 @@ pnpm dev
 
 ## 参与共建
 
-<!-- Copy-paste in your Readme.md file -->
-
-<a href="https://next.ossinsight.io/widgets/official/compose-contributors?repo_id=680030799&limit=40" target="_blank" style="display: block" align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/compose-contributors/thumbnail.png?repo_id=680030799&limit=40&image_size=auto&color_scheme=dark" width="655" height="auto">
-    <img alt="Contributors of ant-design/ant-design-web3" src="https://next.ossinsight.io/widgets/official/compose-contributors/thumbnail.png?repo_id=680030799&limit=40&image_size=auto&color_scheme=light" width="655" height="auto">
-  </picture>
+<a href="https://github.com/ant-design/ant-design-web3/graphs/contributors" target="_blank">
+  <table>
+    <tr>
+      <th colspan="2">
+        <br><img src="https://contrib.rocks/image?repo=ant-design/ant-design-web3"><br><br>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://next.ossinsight.io/widgets/official/compose-org-active-contributors/thumbnail.png?activity=active&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=2x3&color_scheme=dark">
+      </td>
+      <td rowspan="2">
+        <img src="https://next.ossinsight.io/widgets/official/compose-org-participants-growth/thumbnail.png?activity=active&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=4x7&color_scheme=dark">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://next.ossinsight.io/widgets/official/compose-org-active-contributors/thumbnail.png?activity=new&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=2x3&color_scheme=dark">
+      </td>
+    </tr>
+  </table>
 </a>
-
-<!-- Made with [OSS Insight](https://ossinsight.io/) -->
 
 我们欢迎任何类型的贡献，以下是一些您可以为本项目做出贡献的例子：
 
