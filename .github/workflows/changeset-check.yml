@@ -47,6 +47,7 @@ jobs:
             number: ${{ github.event.pull_request.number }}
 
       - name: Delete comment
+        if: ${{ steps.check_changeset.outputs.comment == '' }}
         uses: actions-cool/maintain-one-comment@v3
         with:
             token: ${{ secrets.GITHUB_TOKEN }}
