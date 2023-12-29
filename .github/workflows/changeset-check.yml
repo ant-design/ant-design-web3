@@ -22,9 +22,7 @@ jobs:
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          echo "$ALL_CHANGED_FILES"
-          changed_files=$(git diff --name-only -- "HEAD..HEAD~1")
-          files=$(echo "$changed_files" | grep "\.changeset")
+          files=$(echo "$ALL_CHANGED_FILES" | grep "\.changeset")
           major_changes=$(grep -c "major" $files)
           echo "$major_changes major changes found."
           if [ "$major_changes" -gt 0 ]; then
