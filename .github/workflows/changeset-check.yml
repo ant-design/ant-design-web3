@@ -14,28 +14,20 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      
-      - name: Upload PR number
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v3
-        with:
-          name: pr
-          path: ./pr-id.txt
-
       - name: Changed Files
         id: changed-files
         uses: tj-actions/changed-files@v41.0.1
 
       - name: Check for major changes
+        id: check_changeset
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          files=$(echo "$ALL_CHANGED_FILES" | grep "\.changeset")
+          files=$(echo "$ALL_CHANGED_FILES" | grep ".changeset")
           major_changes=$(grep -c "major" $files)
           echo "$major_changes major changes found."
           if [ "$major_changes" -gt 0 ]; then
             comment="@${{ github.actor }}, 本次 PR 的更改包含 major 变更，请确认是否符合预期。<!-- AUTO_CHANGESET_CHECK_HOOK -->"
-            echo "$comment" > comment_body.txt
             echo "comment=$comment" >> $GITHUB_OUTPUT
           else
             echo "comment=" >> $GITHUB_OUTPUT
@@ -44,7 +36,7 @@ jobs:
       # Save PR id to output
       - name: save PR id
         id: pr
-        run: echo "id=$(<pr-id.txt)" >> $GITHUB_OUTPUT
+        run: echo "id=${{github.event.pull_request.number}}" >> $GITHUB_OUTPUT
 
   add_comment:
     needs: check_changeset
