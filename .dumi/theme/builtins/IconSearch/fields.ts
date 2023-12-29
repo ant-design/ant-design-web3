@@ -16,6 +16,7 @@ const chain = [
   'USDT',
   'Base',
   'Avalanche',
+  'Solana',
 ];
 
 const tool = [

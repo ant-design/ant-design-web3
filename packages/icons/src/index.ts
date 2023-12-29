@@ -51,3 +51,6 @@ export * from './components/moonbeam-colorful';
 export * from './components/celo-colorful';
 export * from './components/aave-circle-colorful';
 export * from './components/sushiswap-colorful';
+
+export * from './components/solana-filled';
+export * from './components/solana-colorful';
