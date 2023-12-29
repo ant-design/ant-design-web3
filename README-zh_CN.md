@@ -70,20 +70,48 @@ pnpm dev
   <table>
     <tr>
       <th colspan="2">
-        <br><img src="https://contrib.rocks/image?repo=ant-design/ant-design-web3"><br><br>
+        <br/>
+        <img src="https://contrib.rocks/image?repo=ant-design/ant-design-web3"><br/><br/>
       </th>
     </tr>
     <tr>
       <td>
-        <img src="https://next.ossinsight.io/widgets/official/compose-org-active-contributors/thumbnail.png?activity=active&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=2x3&color_scheme=dark">
+        <picture>
+          <source 
+            media="(prefers-color-scheme: dark)" 
+            srcset="https://next.ossinsight.io/widgets/official/compose-org-active-contributors/thumbnail.png?activity=active&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=2x3&color_scheme=dark"
+          />
+          <img 
+            alt="Contributors of ant-design/ant-design-web3" 
+            src="https://next.ossinsight.io/widgets/official/compose-org-active-contributors/thumbnail.png?activity=active&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=2x3&color_scheme=light"
+          />
+        </picture>
       </td>
       <td rowspan="2">
-        <img src="https://next.ossinsight.io/widgets/official/compose-org-participants-growth/thumbnail.png?activity=active&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=4x7&color_scheme=dark">
+        <picture>
+          <source 
+            media="(prefers-color-scheme: dark)" 
+            srcset="https://next.ossinsight.io/widgets/official/compose-org-participants-growth/thumbnail.png?activity=active&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=4x7&color_scheme=dark"
+          />
+          <img 
+            alt="Contributors of ant-design/ant-design-web3" 
+            src="https://next.ossinsight.io/widgets/official/compose-org-participants-growth/thumbnail.png?activity=active&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=4x7&color_scheme=light"
+          />
+        </picture>
       </td>
     </tr>
     <tr>
       <td>
-        <img src="https://next.ossinsight.io/widgets/official/compose-org-active-contributors/thumbnail.png?activity=new&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=2x3&color_scheme=dark">
+        <picture>
+          <source 
+            media="(prefers-color-scheme: dark)" 
+            srcset="https://next.ossinsight.io/widgets/official/compose-org-active-contributors/thumbnail.png?activity=new&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=2x3&color_scheme=dark"
+          />
+          <img 
+            alt="Contributors of ant-design/ant-design-web3" 
+            src="https://next.ossinsight.io/widgets/official/compose-org-active-contributors/thumbnail.png?activity=new&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=2x3&color_scheme=light"
+          />
+        </picture>
       </td>
     </tr>
   </table>
