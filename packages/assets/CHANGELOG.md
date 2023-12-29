@@ -1,5 +1,26 @@
 # @ant-design/web3-assets
 
+## 1.1.0
+
+### Minor Changes
+
+- b00a377: feat: add TokenPocket wallet icon and metadata
+- b3e95c2: feat: support safeheron browser wallet
+
+### Patch Changes
+
+- 69a3597: fix: Improve the package.json information and add a main field to accommodate more projects.
+- 24e6322: chore: new version 1.1.2 for republish
+- Updated dependencies [73e8e32]
+- Updated dependencies [69a3597]
+- Updated dependencies [b00a377]
+- Updated dependencies [b3e95c2]
+- Updated dependencies [3547f6b]
+- Updated dependencies [9de319c]
+- Updated dependencies [24e6322]
+  - @ant-design/web3-common@1.1.0
+  - @ant-design/web3-icons@1.1.0
+
 ## 1.0.0
 
 ### Major Changes
