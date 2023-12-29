@@ -1,0 +1,61 @@
+name: PR Changeset Check
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  check_changeset:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Check for major changes
+        run: |
+          changed_files=$(git diff --name-only HEAD..HEAD~1)
+          major_changes=$(echo "$changed_files" | grep ".changeset" | grep -c "major")
+
+          if [ "$major_changes" -gt 0 ]; then
+            comment="@${{ github.actor }}, 本次 PR 的更改包含 major 变更，请确认是否符合预期。<!-- AUTO_CHANGESET_CHECK_HOOK -->"
+            echo "$comment" > comment_body.txt
+            echo "comment=$comment" >> $GITHUB_OUTPUT
+          else
+            echo "comment=" >> $GITHUB_OUTPUT
+          fi
+    
+      # Save PR id to output
+      - name: save PR id
+        id: pr
+        run: echo "id=$(<pr-id.txt)" >> $GITHUB_OUTPUT
+
+  add_comment:
+    needs: check_changeset
+    runs-on: ubuntu-latest
+    if: ${{ needs.check_changeset.outputs.comment != '' }}
+
+    steps:
+      - name: update status comment
+        uses: actions-cool/maintain-one-comment@v3
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            body: ${{ needs.check_changeset.outputs.comment }}
+            body-include: '<!-- AUTO_CHANGESET_CHECK_HOOK -->'
+            number: ${{ steps.pr.outputs.id }}
+
+  delete_comment:
+    needs: check_changeset
+    runs-on: ubuntu-latest
+    if: ${{ needs.check_changeset.outputs.comment == '' }}
+
+    steps:
+      - name: Delete comment
+        uses: actions-cool/maintain-one-comment@v3
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            body-include: '<!-- AUTO_CHANGESET_CHECK_HOOK -->'
+            number: ${{ steps.pr.outputs.id }}
+            delete: true
