@@ -81,3 +81,11 @@ jobs:
       #     token: ${{ secrets.GITHUB_TOKEN }}
       #     issue-number: ${{ github.event.pull_request.number }}
       #     labels: 'major'
+      - name: Remove labels
+        if: ${{ steps.check_changeset.outputs.comment == '' }}
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'remove-labels'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          labels: 'major'
