@@ -41,6 +41,19 @@ jobs:
             echo "comment=$comment" >> $GITHUB_OUTPUT
           fi
 
+      - name: Add label
+        if: ${{ steps.check_changeset.outputs.comment != '' }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+            github.issues.addLabels({
+              owner: context.payload.repository.owner.login,
+              repo: context.payload.repository.name,
+              issue_number: context.payload.pull_request.number,
+              labels: ['major']
+            })
+
+
       # - name: Add label
       #   if: ${{ steps.check_changeset.outputs.comment != '' }}
       #   uses: actions-cool/issues-helper@v3
