@@ -39,13 +39,13 @@ jobs:
             echo "comment=$comment" >> $GITHUB_OUTPUT
           fi
 
-      - name: Add label
-        if: ${{ steps.check_changeset.outputs.comment != '' }}
-        uses: actions-cool/issues-helper@v3
-        with:
-          actions: 'add-labels'
-          issue-number: ${{ github.event.pull_request.number }}
-          labels: 'major'
+      # - name: Add label
+      #   if: ${{ steps.check_changeset.outputs.comment != '' }}
+      #   uses: actions-cool/issues-helper@v3
+      #   with:
+      #     actions: 'add-labels'
+      #     issue-number: ${{ github.event.pull_request.number }}
+      #     labels: 'major'
 
       - name: update status comment
         if: ${{ steps.check_changeset.outputs.comment != '' }}
@@ -73,11 +73,11 @@ jobs:
             number: ${{ github.event.pull_request.number }}
             delete: true
 
-      - name: Remove labels
-        if: ${{ steps.check_changeset.outputs.comment == '' }}
-        uses: actions-cool/issues-helper@v3
-        with:
-          actions: 'remove-labels'
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.pull_request.number }}
-          labels: 'major'
+      # - name: Remove labels
+      #   if: ${{ steps.check_changeset.outputs.comment == '' }}
+      #   uses: actions-cool/issues-helper@v3
+      #   with:
+      #     actions: 'remove-labels'
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     issue-number: ${{ github.event.pull_request.number }}
+      #     labels: 'major'
