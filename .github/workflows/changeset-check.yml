@@ -2,15 +2,17 @@ name: PR Changeset Check
 
 on:
   pull_request_target:
-    types:
-      - opened
-      - synchronize
+    types: [opened, synchronize]
+
+permissions:
+  contents: read
+
 
 jobs:
   check_changeset:
-    runs-on: ubuntu-latest
     permissions:
       pull-requests: write
+    runs-on: ubuntu-latest
     steps:
       - name: Check out code
         uses: actions/checkout@v2
