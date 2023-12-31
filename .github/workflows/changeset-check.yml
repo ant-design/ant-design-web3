@@ -61,10 +61,10 @@ jobs:
         with:
             token: ${{ secrets.GITHUB_TOKEN }}
             body: |
-              @${{ github.actor }}, 本次 PR 的更改包含 major 变更，请确认是否符合预期。
+              ## @${{ github.actor }}, 本次 PR 的更改包含 major 变更，请确认是否符合预期。
               ___
-              @${{ github.actor }}, this PR contains major changes, please confirm if it is as expected.
-              ```md
+              ## @${{ github.actor }}, this PR contains major changes, please confirm if it is as expected.
+              ```diff
 
               ${{ steps.check_changeset.outputs.comment }}
 
