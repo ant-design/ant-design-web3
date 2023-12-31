@@ -36,7 +36,7 @@ jobs:
           files=$ALL_CHANGED_FILES
           echo "File list: $files"
           diff=$(gh pr diff ${{ github.event.pull_request.number }})
-          if echo $diff | grep $ALL_CHANGED_FILES -A 8; then
+          if echo $diff | grep $ALL_CHANGED_FILES -A 8 | grep "major"; then
             major_changes=$(gh pr diff ${{ github.event.pull_request.number }} | grep $ALL_CHANGED_FILES -A 8 | grep "major")
             echo "Found major changes."
             echo "comment=$major_changes" >> $GITHUB_OUTPUT
