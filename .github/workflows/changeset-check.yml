@@ -33,10 +33,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           # 拉取 pr 源分支代码
-          echo $(gh pr diff ${{ github.event.pull_request.number }} | grep $ALL_CHANGED_FILES -A 8)
           files=$ALL_CHANGED_FILES
           echo "File list: $files"
-          if $(echo "$(gh pr diff ${{ github.event.pull_request.number }})" | grep $ALL_CHANGED_FILES -A 8 | grep "major"); then
+          if gh pr diff ${{ github.event.pull_request.number }}; then
             major_changes=$(gh pr diff ${{ github.event.pull_request.number }} | grep $ALL_CHANGED_FILES -A 8 | grep "major")
             echo "Found major changes."
             echo "comment=$major_changes" >> $GITHUB_OUTPUT
