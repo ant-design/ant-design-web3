@@ -32,9 +32,7 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           # 拉取 pr 源分支代码
-          git fetch origin ${{ github.event.pull_request.head.ref }}:${{ github.event.pull_request.head.ref }}
-          git checkout ${{ github.event.pull_request.head.ref }}
-          git reset --hard ${{ github.event.pull_request.head.sha }}
+          gh pr checkout ${{ github.event.pull_request.number }}
           ls -al .changeset
           files=$ALL_CHANGED_FILES
           echo "File list: $files"
