@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { fillAddressWith0x, parseNumberToBigint } from './format';
+import { fillAddressWith0x, parseNumberToBigint } from '../format';
 
 describe('utils.format', () => {
   it('should fill address with 0x', () => {

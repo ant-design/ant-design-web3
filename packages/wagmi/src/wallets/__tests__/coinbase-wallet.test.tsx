@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
 import { CoinbaseWallet } from '@ant-design/web3-wagmi';
 
