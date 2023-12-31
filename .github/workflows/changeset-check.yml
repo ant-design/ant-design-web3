@@ -30,6 +30,7 @@ jobs:
         id: check_changeset
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           # 拉取 pr 源分支代码
           gh pr checkout ${{ github.event.pull_request.number }}
