@@ -33,7 +33,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           # 拉取 pr 源分支代码
-          gh pr checkout ${{ github.event.pull_request.number }}
+          gh pr checkout ${{ github.event.pull_request.number }} -f
           ls -al .changeset
           files=$ALL_CHANGED_FILES
           echo "File list: $files"
