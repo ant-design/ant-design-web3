@@ -35,7 +35,8 @@ jobs:
           # 拉取 pr 源分支代码
           files=$ALL_CHANGED_FILES
           echo "File list: $files"
-          if gh pr diff ${{ github.event.pull_request.number }}; then
+          diff=$(gh pr diff ${{ github.event.pull_request.number }})
+          if diff | grep $ALL_CHANGED_FILES -A 8; then
             major_changes=$(gh pr diff ${{ github.event.pull_request.number }} | grep $ALL_CHANGED_FILES -A 8 | grep "major")
             echo "Found major changes."
             echo "comment=$major_changes" >> $GITHUB_OUTPUT
