@@ -33,7 +33,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           # 拉取 pr 源分支代码
-          # 拉取 pr 源分支代码
+          echo $(gh pr diff ${{ github.event.pull_request.number }} | grep $ALL_CHANGED_FILES -A 8)
           files=$ALL_CHANGED_FILES
           echo "File list: $files"
           if grep -q "major" "$files"; then
