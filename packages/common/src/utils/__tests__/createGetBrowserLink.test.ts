@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { createGetBrowserLink } from './createGetBrowserLink';
+import { createGetBrowserLink } from '../createGetBrowserLink';
 
 describe('createGetBrowserLink', () => {
   it('should return a function that generates the correct link for the given address', () => {
