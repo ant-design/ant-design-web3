@@ -26,6 +26,7 @@ const tool = [
   'WalletConnect',
   'TokenPocket',
   'Safeheron',
+  'Phantom',
 ];
 
 const datum = [...chain, ...tool];

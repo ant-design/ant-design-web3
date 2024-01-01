@@ -54,3 +54,6 @@ export * from './components/sushiswap-colorful';
 
 export * from './components/solana-filled';
 export * from './components/solana-colorful';
+
+export * from './components/phantom-filled';
+export * from './components/phantom-colorful';
