@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Modal, ConfigProvider, Space, Button, Avatar, message, type AvatarProps } from 'antd';
 import classNames from 'classnames';
-import type { Balance, Locale } from '@ant-design/web3-common';
+import type { Balance } from '@ant-design/web3-common';
 import { Address } from '@ant-design/web3';
 import { writeCopyText } from '../utils';
 import { CryptoPrice } from '../crypto-price';
 import type { ModalProps } from 'antd';
-import { IntlType } from '../hooks/useIntl';
+import type { IntlType } from '../hooks/useIntl';
 
 export interface ProfileModalProps {
   className?: string;

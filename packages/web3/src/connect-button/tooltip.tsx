@@ -4,7 +4,7 @@ import type { ConnectButtonTooltipProps } from './interface';
 import { useMemo, type PropsWithChildren } from 'react';
 import { formatAddress, writeCopyText } from '../utils';
 import classNames from 'classnames';
-import { IntlType } from '../hooks/useIntl';
+import type { IntlType } from '../hooks/useIntl';
 
 export const ConnectButtonTooltip: React.FC<
   PropsWithChildren<
