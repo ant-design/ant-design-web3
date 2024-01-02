@@ -895,6 +895,212 @@ exports[`Test Icons > should render all icons 17`] = `
 
 exports[`Test Icons > should render all icons 18`] = `
 <span
+  class="anticon ant-web3-icon-solana-filled"
+  role="img"
+>
+  <svg
+    aria-hidden="true"
+    class=""
+    fill="currentColor"
+    focusable="false"
+    height="1em"
+    viewBox="0 0 1024 1024"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      fill="none"
+      fill-rule="evenodd"
+      stroke="none"
+      stroke-width="1"
+    >
+      <g
+        fill="currentColor"
+        fill-rule="nonzero"
+        transform="translate(128, 177)"
+      >
+        <path
+          d="M764.04536,527.575298 L637.263104,660.034667 C634.507431,662.912003 631.172336,665.206116 627.466929,666.774052 C623.761522,668.341987 619.764123,669.150287 615.724902,669.148011 L14.7184427,669.148011 C11.8506872,669.148011 9.04543628,668.331341 6.64739232,666.799905 C4.24931034,665.267708 2.36285284,663.086894 1.21979597,660.524361 C0.076741378,657.962589 -0.273119615,655.130876 0.213201187,652.377484 C0.699521229,649.624092 2.00083617,647.069164 3.95726526,645.026741 L130.834404,512.567373 C133.583233,509.69764 136.906922,507.40809 140.600162,505.840915 C144.294164,504.272979 148.278636,503.460877 152.307971,503.454033 L753.281202,503.454033 C756.148653,503.454033 758.953752,504.270698 761.35356,505.802134 C763.748806,507.334331 765.634586,509.515906 766.782783,512.077678 C767.923377,514.640211 768.273159,517.471163 767.786505,520.224555 C767.299852,522.977947 765.999576,525.532876 764.04536,527.575298 Z M637.263104,260.839976 C634.507431,257.96264 631.172336,255.668526 627.466929,254.100591 C623.761522,252.533416 619.764123,251.725116 615.724902,251.727392 L14.7184427,251.727392 C11.8506872,251.727392 9.04543628,252.543301 6.64739232,254.075498 C4.24931034,255.607695 2.36285284,257.788509 1.21979597,260.350281 C0.076741378,262.912814 -0.273119615,265.744527 0.213201187,268.497919 C0.699521229,271.25055 2.00083617,273.805479 3.95726526,275.848662 L130.834404,408.30803 C133.583233,411.177763 136.906922,413.466553 140.600162,415.034488 C144.294164,416.601664 148.278636,417.414526 152.307971,417.420609 L753.281202,417.420609 C756.148653,417.420609 758.953752,416.604705 761.35356,415.072508 C763.748806,413.540311 765.634586,411.359497 766.782783,408.797725 C767.923377,406.235192 768.273159,403.40348 767.786505,400.650088 C767.299852,397.897456 765.999576,395.342527 764.04536,393.299345 L637.263104,260.839976 Z M14.7184427,165.693975 L615.724902,165.693975 C619.764123,165.693975 623.761522,164.887954 627.466929,163.320018 C631.172336,161.752083 634.507431,159.45797 637.263104,156.580633 L764.04536,24.1211888 C765.999576,22.0786145 767.299852,19.5237618 767.786505,16.7705219 C768.273159,14.017282 767.923377,11.1856454 766.782783,8.62349285 C765.634586,6.06134034 763.748806,3.88026762 761.35356,2.34827608 C758.953752,0.816276924 756.148653,0 753.281202,0 L152.307971,0 C148.278636,0.00667929092 144.294164,0.818938308 140.600162,2.38648595 C136.906922,3.95404119 133.583233,6.24350828 130.834404,9.11318753 L3.98996986,141.572708 C2.03543416,143.612849 0.734692561,146.165497 0.247269185,148.915087 C-0.240154951,151.665437 0.106929838,154.494869 1.24595357,157.055881 C2.38498035,159.616893 4.26643445,161.797707 6.65957386,163.332185 C9.05273608,164.866663 11.8535007,165.68713 14.7184427,165.693975 Z"
+        />
+      </g>
+    </g>
+  </svg>
+</span>
+`;
+
+exports[`Test Icons > should render all icons 19`] = `
+<span
+  class="anticon ant-web3-icon-solana-colorful"
+  role="img"
+>
+  <svg
+    aria-hidden="true"
+    class=""
+    fill="currentColor"
+    focusable="false"
+    height="1em"
+    viewBox="0 0 1024 1024"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <lineargradient
+        id="ant-web3-icon-solana-colorful-linear"
+        x1="8.4411619%"
+        x2="88.1121112%"
+        y1="89.7662611%"
+        y2="9.44102356%"
+      >
+        <stop
+          offset="8%"
+          stop-color="#9945FF"
+        />
+        <stop
+          offset="30%"
+          stop-color="#8752F3"
+        />
+        <stop
+          offset="50%"
+          stop-color="#5497D5"
+        />
+        <stop
+          offset="60%"
+          stop-color="#43B4CA"
+        />
+        <stop
+          offset="72%"
+          stop-color="#28E0B9"
+        />
+        <stop
+          offset="97%"
+          stop-color="#19FB9B"
+        />
+      </lineargradient>
+    </defs>
+    <g
+      fill="none"
+      fill-rule="evenodd"
+      stroke="none"
+      stroke-width="1"
+    >
+      <g
+        fill="url(#ant-web3-icon-solana-colorful-linear)"
+        fill-rule="nonzero"
+        transform="translate(0, 66)"
+      >
+        <path
+          d="M1018.72715,703.433731 L849.684138,880.046222 C846.009907,883.882671 841.563115,886.941488 836.622572,889.032069 C831.682029,891.122649 826.352164,892.200383 820.966536,892.197348 L19.6245902,892.197348 C15.8009163,892.197348 12.0605817,891.108455 8.86318976,889.06654 C5.66574712,887.023611 3.15047046,884.115859 1.62639463,880.699148 C0.102321837,877.283452 -0.364159487,873.507835 0.28426825,869.836646 C0.932694973,866.165456 2.66778156,862.758885 5.27635367,860.035655 L174.445871,683.423164 C178.110977,679.596854 182.542562,676.544119 187.466883,674.454553 C192.392218,672.363972 197.704848,671.281169 203.077295,671.272044 L1004.37494,671.272044 C1008.1982,671.272044 1011.93834,672.360931 1015.13808,674.402846 C1018.33174,676.445775 1020.84612,679.354541 1022.37704,682.770237 C1023.89784,686.186948 1024.36421,689.961551 1023.71534,693.63274 C1023.06647,697.303929 1021.33277,700.710501 1018.72715,703.433731 Z M849.684138,347.786635 C846.009907,343.950186 841.563115,340.891369 836.622572,338.800788 C831.682029,336.711221 826.352164,335.633487 820.966536,335.636523 L19.6245902,335.636523 C15.8009163,335.636523 12.0605817,336.724401 8.86318976,338.767331 C5.66574712,340.81026 3.15047046,343.718012 1.62639463,347.133708 C0.102321837,350.550419 -0.364159487,354.326036 0.28426825,357.997225 C0.932694973,361.6674 2.66778156,365.073972 5.27635367,367.798215 L174.445871,544.410707 C178.110977,548.237017 182.542562,551.288737 187.466883,553.379318 C192.392218,555.468885 197.704848,556.552702 203.077295,556.560813 L1004.37494,556.560813 C1008.1982,556.560813 1011.93834,555.47294 1015.13808,553.430011 C1018.33174,551.387082 1020.84612,548.47933 1022.37704,545.063633 C1023.89784,541.646923 1024.36421,537.871306 1023.71534,534.200117 C1023.06647,530.529941 1021.33277,527.12337 1018.72715,524.399126 L849.684138,347.786635 Z M19.6245902,220.9253 L820.966536,220.9253 C826.352164,220.9253 831.682029,219.850605 836.622572,217.760025 C841.563115,215.669444 846.009907,212.610627 849.684138,208.774178 L1018.72715,32.1615851 C1021.33277,29.4381527 1023.06647,26.0316824 1023.71534,22.3606959 C1024.36421,18.6897094 1023.89784,14.9141938 1022.37704,11.4979905 C1020.84612,8.08178712 1018.33174,5.17369017 1015.13808,3.13103477 C1011.93834,1.08836923 1008.1982,0 1004.37494,0 L203.077295,0 C197.704848,0.00890572123 192.392218,1.09191774 187.466883,3.18198126 C182.542562,5.27205492 178.110977,8.32467771 174.445871,12.1509167 L5.31995982,188.763611 C2.71391222,191.483799 0.979590081,194.887329 0.329692247,198.553449 C-0.320206602,202.220583 0.142573118,205.993158 1.66127143,209.407841 C3.1799738,212.822523 5.68857926,215.730276 8.87943181,217.776246 C12.0703148,219.822217 15.8046676,220.916173 19.6245902,220.9253 Z"
+        />
+      </g>
+    </g>
+  </svg>
+</span>
+`;
+
+exports[`Test Icons > should render all icons 20`] = `
+<span
+  class="anticon ant-web3-icon-solana-circle-filled"
+  role="img"
+>
+  <svg
+    aria-hidden="true"
+    class=""
+    fill="currentColor"
+    focusable="false"
+    height="1em"
+    viewBox="0 0 1024 1024"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      fill-rule="evenodd"
+    >
+      <circle
+        cx="513"
+        cy="512"
+        fill="currentColor"
+        r="512"
+      />
+      <path
+        d="m892.045 704.575-126.782 132.46a29.447 29.447 0 0 1-9.796 6.74 30.102 30.102 0 0 1-11.742 2.373H142.718c-2.867 0-5.673-.817-8.07-2.348a14.44 14.44 0 0 1-5.428-6.276 13.999 13.999 0 0 1-1.007-8.147 14.2 14.2 0 0 1 3.744-7.35l126.877-132.46a29.443 29.443 0 0 1 9.766-6.726 30.106 30.106 0 0 1 11.708-2.387h600.973c2.868 0 5.673.817 8.073 2.348a14.5 14.5 0 0 1 5.429 6.276 14.016 14.016 0 0 1 1.004 8.147 14.214 14.214 0 0 1-3.742 7.35ZM765.263 437.84a29.447 29.447 0 0 0-9.796-6.74 30.115 30.115 0 0 0-11.742-2.373H142.718c-2.867 0-5.673.816-8.07 2.348a14.443 14.443 0 0 0-5.428 6.275 14.002 14.002 0 0 0-1.007 8.148 14.206 14.206 0 0 0 3.744 7.35l126.877 132.46a29.454 29.454 0 0 0 9.766 6.726 30.105 30.105 0 0 0 11.708 2.387h600.973c2.868 0 5.673-.816 8.073-2.348a14.498 14.498 0 0 0 5.429-6.275 14.018 14.018 0 0 0 1.004-8.148 14.22 14.22 0 0 0-3.742-7.35L765.263 437.84Zm-622.545-95.146h601.007c4.04 0 8.037-.806 11.742-2.374a29.447 29.447 0 0 0 9.796-6.74l126.782-132.459a14.215 14.215 0 0 0 3.742-7.35 14.016 14.016 0 0 0-1.004-8.148 14.496 14.496 0 0 0-5.43-6.275 15.01 15.01 0 0 0-8.072-2.348H280.308a30.11 30.11 0 0 0-11.708 2.386 29.45 29.45 0 0 0-9.766 6.727L131.99 318.573a14.2 14.2 0 0 0-3.743 7.342c-.487 2.75-.14 5.58.999 8.14a14.438 14.438 0 0 0 5.414 6.277 15.004 15.004 0 0 0 8.058 2.362Z"
+        fill="#fff"
+        fill-rule="nonzero"
+      />
+    </g>
+  </svg>
+</span>
+`;
+
+exports[`Test Icons > should render all icons 21`] = `
+<span
+  class="anticon ant-web3-icon-solana-circle-colorful"
+  role="img"
+>
+  <svg
+    aria-hidden="true"
+    class=""
+    fill="currentColor"
+    focusable="false"
+    height="1em"
+    viewBox="0 0 1024 1024"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <lineargradient
+        id="ant-web3-icon-solana-circle-colorful-linear"
+        x1="8.4411619%"
+        x2="88.1121112%"
+        y1="89.7662611%"
+        y2="9.44102356%"
+      >
+        <stop
+          offset="8%"
+          stop-color="#9945FF"
+        />
+        <stop
+          offset="30%"
+          stop-color="#8752F3"
+        />
+        <stop
+          offset="50%"
+          stop-color="#5497D5"
+        />
+        <stop
+          offset="60%"
+          stop-color="#43B4CA"
+        />
+        <stop
+          offset="72%"
+          stop-color="#28E0B9"
+        />
+        <stop
+          offset="97%"
+          stop-color="#19FB9B"
+        />
+      </lineargradient>
+    </defs>
+    <g
+      fill-rule="evenodd"
+    >
+      <circle
+        cx="513"
+        cy="512"
+        fill="url(#ant-web3-icon-solana-circle-colorful-linear)"
+        r="512"
+      />
+      <path
+        d="m892.045 704.575-126.782 132.46a29.447 29.447 0 0 1-9.796 6.74 30.102 30.102 0 0 1-11.742 2.373H142.718c-2.867 0-5.673-.817-8.07-2.348a14.44 14.44 0 0 1-5.428-6.276 13.999 13.999 0 0 1-1.007-8.147 14.2 14.2 0 0 1 3.744-7.35l126.877-132.46a29.443 29.443 0 0 1 9.766-6.726 30.106 30.106 0 0 1 11.708-2.387h600.973c2.868 0 5.673.817 8.073 2.348a14.5 14.5 0 0 1 5.429 6.276 14.016 14.016 0 0 1 1.004 8.147 14.214 14.214 0 0 1-3.742 7.35ZM765.263 437.84a29.447 29.447 0 0 0-9.796-6.74 30.115 30.115 0 0 0-11.742-2.373H142.718c-2.867 0-5.673.816-8.07 2.348a14.443 14.443 0 0 0-5.428 6.275 14.002 14.002 0 0 0-1.007 8.148 14.206 14.206 0 0 0 3.744 7.35l126.877 132.46a29.454 29.454 0 0 0 9.766 6.726 30.105 30.105 0 0 0 11.708 2.387h600.973c2.868 0 5.673-.816 8.073-2.348a14.498 14.498 0 0 0 5.429-6.275 14.018 14.018 0 0 0 1.004-8.148 14.22 14.22 0 0 0-3.742-7.35L765.263 437.84Zm-622.545-95.146h601.007c4.04 0 8.037-.806 11.742-2.374a29.447 29.447 0 0 0 9.796-6.74l126.782-132.459a14.215 14.215 0 0 0 3.742-7.35 14.016 14.016 0 0 0-1.004-8.148 14.496 14.496 0 0 0-5.43-6.275 15.01 15.01 0 0 0-8.072-2.348H280.308a30.11 30.11 0 0 0-11.708 2.386 29.45 29.45 0 0 0-9.766 6.727L131.99 318.573a14.2 14.2 0 0 0-3.743 7.342c-.487 2.75-.14 5.58.999 8.14a14.438 14.438 0 0 0 5.414 6.277 15.004 15.004 0 0 0 8.058 2.362Z"
+        fill="#fff"
+        fill-rule="nonzero"
+      />
+    </g>
+  </svg>
+</span>
+`;
+
+exports[`Test Icons > should render all icons 22`] = `
+<span
   class="anticon ant-web3-icon-safeheron-colorful"
   role="img"
 >
@@ -927,7 +1133,7 @@ exports[`Test Icons > should render all icons 18`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 19`] = `
+exports[`Test Icons > should render all icons 23`] = `
 <span
   class="anticon ant-web3-icon-polygon-colorful"
   role="img"
@@ -951,7 +1157,7 @@ exports[`Test Icons > should render all icons 19`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 20`] = `
+exports[`Test Icons > should render all icons 24`] = `
 <span
   class="anticon ant-web3-icon-polygon-circle-colorful"
   role="img"
@@ -1019,7 +1225,159 @@ exports[`Test Icons > should render all icons 20`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 21`] = `
+exports[`Test Icons > should render all icons 25`] = `
+<span
+  class="anticon ant-web3-icon-phantom-filled"
+  role="img"
+>
+  <svg
+    aria-hidden="true"
+    class=""
+    fill="currentColor"
+    focusable="false"
+    height="1em"
+    viewBox="0 0 1024 1024"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      fill="none"
+      fill-rule="evenodd"
+      stroke="none"
+      stroke-width="1"
+    >
+      <g
+        fill="currentColor"
+        fill-rule="nonzero"
+        transform="translate(128, 192)"
+      >
+        <path
+          d="M90.877038,639.535159 C188.882104,639.535159 262.533723,554.303154 306.48782,486.952188 C301.141929,501.853487 298.171268,516.753489 298.171268,531.058061 C298.171268,570.396608 320.743097,598.409027 365.290029,598.409027 C426.468767,598.409027 491.805131,544.767204 525.661578,486.952188 C523.28505,495.297279 522.098083,503.045643 522.098083,510.197281 C522.098083,537.61427 537.540327,554.89988 569.021543,554.89988 C668.214354,554.89988 768,379.071817 768,225.297988 C768,105.496448 707.415394,0 555.360397,0 C288.074915,0 0,326.622151 0,537.61427 C0,620.461963 44.5475804,639.535159 90.877038,639.535159 Z M463.294576,212.185572 C463.294576,182.384271 479.926382,161.52349 504.278013,161.52349 C528.036809,161.52349 544.668615,182.384271 544.668615,212.185572 C544.668615,241.986872 528.036809,263.443082 504.278013,263.443082 C479.926382,263.443082 463.294576,241.986872 463.294576,212.185572 Z M590.403811,212.185572 C590.403811,182.384271 607.035616,161.52349 631.387247,161.52349 C655.146043,161.52349 671.777849,182.384271 671.777849,212.185572 C671.777849,241.986872 655.146043,263.443082 631.387247,263.443082 C607.035616,263.443082 590.403811,241.986872 590.403811,212.185572 Z"
+        />
+      </g>
+    </g>
+  </svg>
+</span>
+`;
+
+exports[`Test Icons > should render all icons 26`] = `
+<span
+  class="anticon ant-web3-icon-phantom-colorful"
+  role="img"
+>
+  <svg
+    aria-hidden="true"
+    class=""
+    fill="currentColor"
+    focusable="false"
+    height="1em"
+    viewBox="0 0 1024 1024"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      fill="none"
+      fill-rule="evenodd"
+      stroke="none"
+      stroke-width="1"
+    >
+      <g
+        fill="#AB9FF2"
+        fill-rule="nonzero"
+        transform="translate(0, 86)"
+      >
+        <path
+          d="M121.169384,852.713545 C251.842805,852.713545 350.044964,739.070871 408.650426,649.269584 C401.522571,669.137983 397.561691,689.004652 397.561691,708.077415 C397.561691,760.528811 427.657463,797.878702 487.053372,797.878702 C568.625022,797.878702 655.740175,726.356272 700.882104,649.269584 C697.7134,660.396372 696.130777,670.727524 696.130777,680.263041 C696.130777,716.819026 716.720436,739.866507 758.69539,739.866507 C890.952472,739.866507 1024,505.42909 1024,300.397318 C1024,140.661931 943.220526,0 740.48053,0 C384.099887,0 0,435.496201 0,716.819026 C0,827.282617 59.3967738,852.713545 121.169384,852.713545 Z M617.726102,282.914096 C617.726102,243.179028 639.901843,215.364654 672.370684,215.364654 C704.049079,215.364654 726.22482,243.179028 726.22482,282.914096 C726.22482,322.649163 704.049079,351.257443 672.370684,351.257443 C639.901843,351.257443 617.726102,322.649163 617.726102,282.914096 Z M787.205081,282.914096 C787.205081,243.179028 809.380822,215.364654 841.849663,215.364654 C873.528058,215.364654 895.703799,243.179028 895.703799,282.914096 C895.703799,322.649163 873.528058,351.257443 841.849663,351.257443 C809.380822,351.257443 787.205081,322.649163 787.205081,282.914096 Z"
+        />
+      </g>
+    </g>
+  </svg>
+</span>
+`;
+
+exports[`Test Icons > should render all icons 27`] = `
+<span
+  class="anticon ant-web3-icon-phantom-circle-filled"
+  role="img"
+>
+  <svg
+    aria-hidden="true"
+    class=""
+    fill="currentColor"
+    focusable="false"
+    height="1em"
+    viewBox="0 0 1024 1024"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      fill="none"
+      fill-rule="evenodd"
+      stroke="none"
+      stroke-width="1"
+    >
+      <circle
+        cx="513"
+        cy="512"
+        fill="currentColor"
+        r="512"
+      />
+      <g
+        fill="#fff"
+        fill-rule="nonzero"
+        transform="translate(128, 192)"
+      >
+        <path
+          d="M90.877038,639.535159 C188.882104,639.535159 262.533723,554.303154 306.48782,486.952188 C301.141929,501.853487 298.171268,516.753489 298.171268,531.058061 C298.171268,570.396608 320.743097,598.409027 365.290029,598.409027 C426.468767,598.409027 491.805131,544.767204 525.661578,486.952188 C523.28505,495.297279 522.098083,503.045643 522.098083,510.197281 C522.098083,537.61427 537.540327,554.89988 569.021543,554.89988 C668.214354,554.89988 768,379.071817 768,225.297988 C768,105.496448 707.415394,0 555.360397,0 C288.074915,0 0,326.622151 0,537.61427 C0,620.461963 44.5475804,639.535159 90.877038,639.535159 Z M463.294576,212.185572 C463.294576,182.384271 479.926382,161.52349 504.278013,161.52349 C528.036809,161.52349 544.668615,182.384271 544.668615,212.185572 C544.668615,241.986872 528.036809,263.443082 504.278013,263.443082 C479.926382,263.443082 463.294576,241.986872 463.294576,212.185572 Z M590.403811,212.185572 C590.403811,182.384271 607.035616,161.52349 631.387247,161.52349 C655.146043,161.52349 671.777849,182.384271 671.777849,212.185572 C671.777849,241.986872 655.146043,263.443082 631.387247,263.443082 C607.035616,263.443082 590.403811,241.986872 590.403811,212.185572 Z"
+        />
+      </g>
+    </g>
+  </svg>
+</span>
+`;
+
+exports[`Test Icons > should render all icons 28`] = `
+<span
+  class="anticon ant-web3-icon-phantom-circle-colorful"
+  role="img"
+>
+  <svg
+    aria-hidden="true"
+    class=""
+    fill="currentColor"
+    focusable="false"
+    height="1em"
+    viewBox="0 0 1024 1024"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      fill="none"
+      fill-rule="evenodd"
+      stroke="none"
+      stroke-width="1"
+    >
+      <circle
+        cx="513"
+        cy="512"
+        fill="#AB9FF2"
+        r="512"
+      />
+      <g
+        fill="#fff"
+        fill-rule="nonzero"
+        transform="translate(128, 192)"
+      >
+        <path
+          d="M90.877038,639.535159 C188.882104,639.535159 262.533723,554.303154 306.48782,486.952188 C301.141929,501.853487 298.171268,516.753489 298.171268,531.058061 C298.171268,570.396608 320.743097,598.409027 365.290029,598.409027 C426.468767,598.409027 491.805131,544.767204 525.661578,486.952188 C523.28505,495.297279 522.098083,503.045643 522.098083,510.197281 C522.098083,537.61427 537.540327,554.89988 569.021543,554.89988 C668.214354,554.89988 768,379.071817 768,225.297988 C768,105.496448 707.415394,0 555.360397,0 C288.074915,0 0,326.622151 0,537.61427 C0,620.461963 44.5475804,639.535159 90.877038,639.535159 Z M463.294576,212.185572 C463.294576,182.384271 479.926382,161.52349 504.278013,161.52349 C528.036809,161.52349 544.668615,182.384271 544.668615,212.185572 C544.668615,241.986872 528.036809,263.443082 504.278013,263.443082 C479.926382,263.443082 463.294576,241.986872 463.294576,212.185572 Z M590.403811,212.185572 C590.403811,182.384271 607.035616,161.52349 631.387247,161.52349 C655.146043,161.52349 671.777849,182.384271 671.777849,212.185572 C671.777849,241.986872 655.146043,263.443082 631.387247,263.443082 C607.035616,263.443082 590.403811,241.986872 590.403811,212.185572 Z"
+        />
+      </g>
+    </g>
+  </svg>
+</span>
+`;
+
+exports[`Test Icons > should render all icons 29`] = `
 <span
   class="anticon ant-web3-icon-pancakeswap-colorful"
   role="img"
@@ -1068,7 +1426,7 @@ exports[`Test Icons > should render all icons 21`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 22`] = `
+exports[`Test Icons > should render all icons 30`] = `
 <span
   class="anticon ant-web3-icon-optimism-circle-colorful"
   role="img"
@@ -1095,7 +1453,7 @@ exports[`Test Icons > should render all icons 22`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 23`] = `
+exports[`Test Icons > should render all icons 31`] = `
 <span
   class="anticon ant-web3-icon-moonbeam-colorful"
   role="img"
@@ -1170,7 +1528,7 @@ exports[`Test Icons > should render all icons 23`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 24`] = `
+exports[`Test Icons > should render all icons 32`] = `
 <span
   class="anticon ant-web3-icon-metamask-colorful"
   role="img"
@@ -1249,7 +1607,7 @@ exports[`Test Icons > should render all icons 24`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 25`] = `
+exports[`Test Icons > should render all icons 33`] = `
 <span
   class="anticon ant-web3-icon-fantom-circle-colorful"
   role="img"
@@ -1317,7 +1675,7 @@ exports[`Test Icons > should render all icons 25`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 26`] = `
+exports[`Test Icons > should render all icons 34`] = `
 <span
   class="anticon ant-web3-icon-etherscan-circle-colorful"
   role="img"
@@ -1344,7 +1702,7 @@ exports[`Test Icons > should render all icons 26`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 27`] = `
+exports[`Test Icons > should render all icons 35`] = `
 <span
   class="anticon ant-web3-icon-ethereum-filled"
   role="img"
@@ -1369,7 +1727,7 @@ exports[`Test Icons > should render all icons 27`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 28`] = `
+exports[`Test Icons > should render all icons 36`] = `
 <span
   class="anticon ant-web3-icon-ethereum-colorful"
   role="img"
@@ -1412,7 +1770,7 @@ exports[`Test Icons > should render all icons 28`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 29`] = `
+exports[`Test Icons > should render all icons 37`] = `
 <span
   class="anticon ant-web3-icon-ethereum-circle-filled"
   role="img"
@@ -1465,7 +1823,7 @@ exports[`Test Icons > should render all icons 29`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 30`] = `
+exports[`Test Icons > should render all icons 38`] = `
 <span
   class="anticon ant-web3-icon-ethereum-circle-colorful"
   role="img"
@@ -1554,7 +1912,7 @@ exports[`Test Icons > should render all icons 30`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 31`] = `
+exports[`Test Icons > should render all icons 39`] = `
 <span
   class="anticon ant-web3-icon-dai-circle-colorful"
   role="img"
@@ -1590,7 +1948,7 @@ exports[`Test Icons > should render all icons 31`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 32`] = `
+exports[`Test Icons > should render all icons 40`] = `
 <span
   class="anticon ant-web3-icon-cronos-circle-colorful"
   role="img"
@@ -1670,7 +2028,7 @@ exports[`Test Icons > should render all icons 32`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 33`] = `
+exports[`Test Icons > should render all icons 41`] = `
 <span
   class="anticon ant-web3-icon-coinbase-wallet-circle-colorful"
   role="img"
@@ -1716,7 +2074,7 @@ exports[`Test Icons > should render all icons 33`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 34`] = `
+exports[`Test Icons > should render all icons 42`] = `
 <span
   class="anticon ant-web3-icon-chrome-circle-colorful"
   role="img"
@@ -1822,7 +2180,7 @@ exports[`Test Icons > should render all icons 34`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 35`] = `
+exports[`Test Icons > should render all icons 43`] = `
 <span
   class="anticon ant-web3-icon-celo-colorful"
   role="img"
@@ -1865,7 +2223,7 @@ exports[`Test Icons > should render all icons 35`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 36`] = `
+exports[`Test Icons > should render all icons 44`] = `
 <span
   class="anticon ant-web3-icon-bsc-circle-colorful"
   role="img"
@@ -1904,7 +2262,7 @@ exports[`Test Icons > should render all icons 36`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 37`] = `
+exports[`Test Icons > should render all icons 45`] = `
 <span
   class="anticon ant-web3-icon-bitcoin-filled"
   role="img"
@@ -1945,7 +2303,7 @@ exports[`Test Icons > should render all icons 37`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 38`] = `
+exports[`Test Icons > should render all icons 46`] = `
 <span
   class="anticon ant-web3-icon-bitcoin-circle-filled"
   role="img"
@@ -1992,7 +2350,7 @@ exports[`Test Icons > should render all icons 38`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 39`] = `
+exports[`Test Icons > should render all icons 47`] = `
 <span
   class="anticon ant-web3-icon-bitcoin-circle-colorful"
   role="img"
@@ -2019,7 +2377,7 @@ exports[`Test Icons > should render all icons 39`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 40`] = `
+exports[`Test Icons > should render all icons 48`] = `
 <span
   class="anticon ant-web3-icon-base-circle-colorful"
   role="img"
@@ -2055,7 +2413,7 @@ exports[`Test Icons > should render all icons 40`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 41`] = `
+exports[`Test Icons > should render all icons 49`] = `
 <span
   class="anticon ant-web3-icon-avalanche-circle-colorful"
   role="img"
@@ -2099,7 +2457,7 @@ exports[`Test Icons > should render all icons 41`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 42`] = `
+exports[`Test Icons > should render all icons 50`] = `
 <span
   class="anticon ant-web3-icon-arbitrum-colorful"
   role="img"
@@ -2138,7 +2496,7 @@ exports[`Test Icons > should render all icons 42`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 43`] = `
+exports[`Test Icons > should render all icons 51`] = `
 <span
   class="anticon ant-web3-icon-arbitrum-circle-colorful"
   role="img"
@@ -2222,7 +2580,7 @@ exports[`Test Icons > should render all icons 43`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 44`] = `
+exports[`Test Icons > should render all icons 52`] = `
 <span
   class="anticon ant-web3-icon-aave-circle-colorful"
   role="img"
