@@ -22,7 +22,7 @@
 [download-url]: https://npmjs.org/package/@ant-design/web3
 [dumi-image]: https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square
 [dumi-url]: https://github.com/umijs/dumi
-[antd-image]: https://camo.githubusercontent.com/200800486bf56a3f00be17fd8b81711349ee51cebf9c6e7ff2f67aac3ceb4e62/68747470733a2f2f62616467656e2e6e65742f62616467652f69636f6e2f416e7425323044657369676e3f69636f6e3d68747470733a2f2f67772e616c697061796f626a656374732e636f6d2f7a6f732f616e7466696e63646e2f507034575067564442332f4b4470677667754d704766716148506a6963524b2e737667266c6162656c
+[antd-image]: https://img.shields.io/badge/-Ant%20Design-blue?labelColor=black&logo=antdesign&style=flat-square
 [antd-url]: https://ant.design
 [twitter-image]: https://img.shields.io/twitter/follow/AntDesignWeb3.svg?label=Ant%20Design%20Web3
 [twitter-url]: https://twitter.com/AntDesignWeb3
