@@ -4,7 +4,7 @@
 # Never do any `checkout` or `npm install` action!
 # `pull_request_target` will enable PR to access the secrets!
 
-name: Preview Start
+name: Preview Start test
 
 on:
   pull_request_target:
