@@ -13,7 +13,6 @@ const chain = [
   'Polygon',
   'Sui',
   'Tron',
-  'USDT',
   'Base',
   'Avalanche',
   'Fantom',
@@ -22,7 +21,7 @@ const chain = [
   'Moonbeam',
 ];
 
-const token = ['DAI', 'WBTC', 'AAVE'];
+const token = ['DAI', 'WBTC', 'AAVE', 'USDT'];
 
 const tool = [
   'CoinbaseWallet',
