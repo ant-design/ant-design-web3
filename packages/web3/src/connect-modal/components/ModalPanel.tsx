@@ -1,6 +1,6 @@
 import React from 'react';
 import { mergeReactNodeProps } from '../utils';
-import type { ConnectModalProps } from '../interface';
+import type { ConnectModalProps, PanelRoute, Wallet } from '../interface';
 import classNames from 'classnames';
 import WalletList from './WalletList';
 import MainPanel from './MainPanel';
@@ -8,7 +8,6 @@ import { ConfigContext } from 'antd/lib/config-provider';
 import { ConnectModalContextProvider } from '../context';
 import { useStyle } from '../style';
 import useMode from '../hooks/useMode';
-import type { PanelRoute, Wallet } from '../interface';
 import useIntl from '../../hooks/useIntl';
 
 export type ModalPanelProps = ConnectModalProps;

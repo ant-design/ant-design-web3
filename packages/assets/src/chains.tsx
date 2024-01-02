@@ -1,5 +1,4 @@
-import { type Chain, ChainIds } from '@ant-design/web3-common';
-import { createGetBrowserLink } from '@ant-design/web3-common';
+import { type Chain, ChainIds, createGetBrowserLink } from '@ant-design/web3-common';
 
 import {
   EthereumCircleColorful,
