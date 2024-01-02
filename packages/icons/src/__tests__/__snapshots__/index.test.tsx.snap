@@ -1592,7 +1592,7 @@ exports[`Test Icons > should render all icons 31`] = `
 
 exports[`Test Icons > should render all icons 32`] = `
 <span
-  class="anticon ant-web3-icon-cronos-circle-colorful"
+  class="anticon ant-web3-icon-cronos-colorful"
   role="img"
 >
   <svg

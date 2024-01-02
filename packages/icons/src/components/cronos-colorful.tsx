@@ -1,13 +1,13 @@
 import * as React from 'react';
 import AntdIcon from '@ant-design/icons';
-import SVGComponent from '../svgs/aave-circle-colorful.svg';
+import SVGComponent from '../svgs/cronos-colorful.svg';
 import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
 import classnames from 'classnames';
 import { ConfigProvider } from 'antd';
 
-export const AAVECircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
+export const CronosColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('web3-icon-aave-circle-colorful');
+  const prefixCls = getPrefixCls('web3-icon-cronos-colorful');
   return (
     <AntdIcon
       {...props}
@@ -17,4 +17,4 @@ export const AAVECircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProp
     />
   );
 });
-AAVECircleColorful.displayName = 'AAVECircleColorful';
+CronosColorful.displayName = 'CronosColorful';

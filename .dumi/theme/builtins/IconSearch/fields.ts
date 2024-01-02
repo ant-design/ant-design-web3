@@ -16,7 +16,13 @@ const chain = [
   'USDT',
   'Base',
   'Avalanche',
+  'Fantom',
+  'Celo',
+  'Cronos',
+  'Moonbeam',
 ];
+
+const token = ['DAI', 'WBTC', 'AAVE'];
 
 const tool = [
   'CoinbaseWallet',
@@ -25,14 +31,18 @@ const tool = [
   'WalletConnect',
   'TokenPocket',
   'Safeheron',
+  'Uniswap',
+  'PancakeSwap',
+  'SushiSwap',
 ];
 
-const datum = [...chain, ...tool];
+const datum = [...chain, ...token, ...tool];
 
 const other = all.filter((n) => !datum.includes(n));
 
 export const categories = {
   chain,
+  token,
   tool,
   other,
 };
