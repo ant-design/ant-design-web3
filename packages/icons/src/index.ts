@@ -11,6 +11,7 @@ export * from './components/coinbase-wallet-circle-colorful';
 
 export * from './components/usdt-filled';
 export * from './components/usdt-circle-filled';
+export * from './components/usdt-colorful';
 
 export * from './components/bitcoin-filled';
 export * from './components/bitcoin-circle-colorful';
@@ -25,6 +26,7 @@ export * from './components/safeheron-colorful';
 export * from './components/sui-filled';
 export * from './components/sui-colorful';
 export * from './components/sui-circle-filled';
+export * from './components/sui-circle-colorful';
 
 export * from './components/tron-filled';
 export * from './components/tron-colorful';
@@ -39,3 +41,13 @@ export * from './components/fantom-circle-colorful';
 export * from './components/chrome-circle-colorful';
 
 export * from './components/tokenpocket-colorful';
+
+export * from './components/cronos-circle-colorful';
+export * from './components/wbtc-circle-colorful';
+export * from './components/dai-circle-colorful';
+export * from './components/uniswap-colorful';
+export * from './components/pancakeswap-colorful';
+export * from './components/moonbeam-colorful';
+export * from './components/celo-colorful';
+export * from './components/aave-circle-colorful';
+export * from './components/sushiswap-colorful';
