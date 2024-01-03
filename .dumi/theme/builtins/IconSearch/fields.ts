@@ -16,6 +16,7 @@ const chain = [
   'USDT',
   'Base',
   'Avalanche',
+  'Solana',
 ];
 
 const tool = [
@@ -25,6 +26,7 @@ const tool = [
   'WalletConnect',
   'TokenPocket',
   'Safeheron',
+  'Phantom',
 ];
 
 const datum = [...chain, ...tool];

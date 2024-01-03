@@ -51,3 +51,13 @@ export * from './components/moonbeam-colorful';
 export * from './components/celo-colorful';
 export * from './components/aave-circle-colorful';
 export * from './components/sushiswap-colorful';
+
+export * from './components/solana-filled';
+export * from './components/solana-colorful';
+export * from './components/solana-circle-filled';
+export * from './components/solana-circle-colorful';
+
+export * from './components/phantom-filled';
+export * from './components/phantom-colorful';
+export * from './components/phantom-circle-filled';
+export * from './components/phantom-circle-colorful';
