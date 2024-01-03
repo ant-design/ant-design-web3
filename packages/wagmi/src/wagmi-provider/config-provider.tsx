@@ -5,7 +5,7 @@ import {
   type Chain,
   Web3ConfigProvider,
   fillAddressWith0x,
-  Locale,
+  type Locale,
 } from '@ant-design/web3-common';
 import {
   useAccount,

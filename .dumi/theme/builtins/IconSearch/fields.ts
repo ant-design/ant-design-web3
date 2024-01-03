@@ -19,6 +19,7 @@ const chain = [
   'Celo',
   'Cronos',
   'Moonbeam',
+  'Solana',
 ];
 
 const token = ['DAI', 'WBTC', 'AAVE', 'USDT'];
@@ -33,6 +34,7 @@ const tool = [
   'Uniswap',
   'PancakeSwap',
   'SushiSwap',
+  'Phantom',
 ];
 
 const datum = [...chain, ...token, ...tool];

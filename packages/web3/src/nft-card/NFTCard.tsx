@@ -14,7 +14,7 @@ import {
   parseNumberToBigint,
   getWeb3AssetUrl,
   type Web3ConfigProviderProps,
-  Locale,
+  type Locale,
 } from '@ant-design/web3-common';
 import { CryptoPrice, type CryptoPriceProps } from '../crypto-price';
 import useIntl from '../hooks/useIntl';
