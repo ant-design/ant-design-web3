@@ -61,7 +61,7 @@ describe('ConnectButton', () => {
       expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
       expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe(
-        'Address Copied',
+        'Address Copied!',
       );
     });
   });
@@ -159,7 +159,7 @@ describe('ConnectButton', () => {
       expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
       expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe(
-        'Address Copied',
+        'Address Copied!',
       );
       expect(menuClickFn).toBeCalledWith('copyAddress');
     });
