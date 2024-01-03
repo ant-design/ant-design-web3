@@ -39,7 +39,7 @@ const localeValues: RequiredLocale = {
   },
   Address: {
     copyTips: '复制地址',
-    copiedTips: '地址已复制',
+    copiedTips: '地址复制成功！',
   },
 };
 
