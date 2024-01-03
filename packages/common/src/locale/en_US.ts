@@ -39,6 +39,10 @@ const localeValues: RequiredLocale = {
   NFTCard: {
     actionText: 'Buy Now',
   },
+  Address: {
+    copyTips: 'Copy Address',
+    copiedTips: 'Address Copied',
+  },
 };
 
 export default localeValues;

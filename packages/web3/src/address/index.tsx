@@ -1,10 +1,12 @@
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
+import type { Locale } from '@ant-design/web3-common';
 import type { TooltipProps } from 'antd';
 import { ConfigProvider, Space, Tooltip } from 'antd';
 import classNames from 'classnames';
 
+import useIntl from '../hooks/useIntl';
 import { fillWith0x, formatAddress, writeCopyText } from '../utils';
 import { useStyle } from './style';
 
@@ -19,15 +21,17 @@ export interface AddressProps {
   copyable?: boolean;
   tooltip?: boolean | TooltipProps['title'];
   format?: boolean | ((address: string) => ReactNode);
+  locale?: Locale['Address'];
 }
 
 export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) => {
-  const { ellipsis, address, copyable, tooltip, format = false, children } = props;
+  const { ellipsis, address, copyable, tooltip, format = false, children, locale } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-address');
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [copied, setCopied] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const { messages } = useIntl('Address', locale);
 
   const mergedFormat = useMemo(() => {
     if (typeof format === 'function') {
@@ -78,10 +82,10 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
       {copyable && (
         <>
           {copied ? (
-            <CheckOutlined title="Address Copied!" />
+            <CheckOutlined title={messages.copiedTips} />
           ) : (
             <CopyOutlined
-              title="Copy Address"
+              title={messages.copyTips}
               onClick={() => {
                 writeCopyText(filledAddress).then(() => {
                   setCopied(true);
