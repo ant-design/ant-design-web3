@@ -202,10 +202,15 @@ export interface RequiredLocale {
   NFTCard: {
     actionText: string;
   };
+  Address: {
+    copyTips: string;
+    copiedTips: string;
+  };
 }
 
 export interface Locale {
   ConnectButton?: Partial<RequiredLocale['ConnectButton']>;
   ConnectModal?: Partial<RequiredLocale['ConnectModal']>;
   NFTCard?: Partial<RequiredLocale['NFTCard']>;
+  Address?: Partial<RequiredLocale['Address']>;
 }

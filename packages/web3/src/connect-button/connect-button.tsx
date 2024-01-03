@@ -153,7 +153,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
           setProfileOpen(false);
           if (account?.address) {
             writeCopyText(account?.address).then(() => {
-              messageApi.success('Address Copied!');
+              messageApi.success(intl.messages.addressCopied);
             });
           }
         },
