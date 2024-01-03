@@ -25,7 +25,7 @@
     "test:ci": "vitest --coverage",
     "lint": "pnpm run \"/^lint:.+/\"",
     "lint:eslint": "eslint --ext .ts,.tsx .",
-    "lint:prettier": "prettier --loglevel warn --write '**/*.{ts,tsx,js,jsx,json,md}'",
+    "prettier": "prettier --loglevel warn --write '**/*.{ts,tsx,js,jsx,json,md}'",
     "lint:ts": "tsc --noEmit",
     "clean": "pnpm run \"/^clean:.+/\"",
     "clean:module": "rimraf --glob ./node_modules ./packages/*/node_modules ./examples/*/node_modules",
@@ -36,7 +36,10 @@
     "biome:format": "biome format --write ."
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx}": "biome format --write",
+    "*.{ts,tsx,js,jsx}": [
+      "biome format --write",
+      "npm run prettier"
+    ],
     "*.{json,less,md}": "prettier --ignore-unknown --write"
   },
   "devDependencies": {
@@ -49,6 +52,7 @@
     "@biomejs/biome": "^1.4.1",
     "@changesets/changelog-git": "^0.2.0",
     "@changesets/cli": "^2.27.1",
+    "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@testing-library/react": "^14.1.2",
     "@types/lodash": "^4.14.202",
     "@types/node": "^20.10.5",
