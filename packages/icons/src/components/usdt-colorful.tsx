@@ -5,7 +5,7 @@ import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
 import classnames from 'classnames';
 import { ConfigProvider } from 'antd';
 
-export const UsdtColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
+export const USDTColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-icon-usdt-colorful');
   return (
@@ -17,4 +17,4 @@ export const UsdtColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((pr
     />
   );
 });
-UsdtColorful.displayName = 'UsdtColorful';
+USDTColorful.displayName = 'USDTColorful';

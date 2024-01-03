@@ -42,7 +42,7 @@ export * from './components/chrome-circle-colorful';
 
 export * from './components/tokenpocket-colorful';
 
-export * from './components/cronos-circle-colorful';
+export * from './components/cronos-colorful';
 export * from './components/wbtc-circle-colorful';
 export * from './components/dai-circle-colorful';
 export * from './components/uniswap-colorful';

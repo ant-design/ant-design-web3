@@ -5,7 +5,7 @@ import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
 import classnames from 'classnames';
 import { ConfigProvider } from 'antd';
 
-export const DaiCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
+export const DAICircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-icon-dai-circle-colorful');
   return (
@@ -17,4 +17,4 @@ export const DaiCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps
     />
   );
 });
-DaiCircleColorful.displayName = 'DaiCircleColorful';
+DAICircleColorful.displayName = 'DAICircleColorful';

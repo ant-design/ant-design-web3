@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 800">
 <style type="text/css">
-	.st0{clip-path:url(#SVGID_2_);}
-	.st1{fill:url(#SVGID_3_);}
+	.st0{clip-path:url(#ant-web3-icon-aave-circle-colorful-2);}
+	.st1{fill:url(#ant-web3-icon-aave-circle-colorful-3);}
 	.st2{fill:#FFFFFF;}
 </style>
 <g>
 	<defs>
-		<rect id="SVGID_1_" width="800" height="800"/>
+		<rect id="ant-web3-icon-aave-circle-colorful-1" width="800" height="800"/>
 	</defs>
-	<clipPath id="SVGID_2_">
-		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	<clipPath id="ant-web3-icon-aave-circle-colorful-2">
+		<use xlink:href="#ant-web3-icon-aave-circle-colorful-1"  style="overflow:visible;"/>
 	</clipPath>
-	<g id="b" class="st0">
-
-			<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-597.3553" y1="900.6861" x2="-598.0993" y2="900.0601" gradientTransform="matrix(776 0 0 -776 464237 699089)">
+	<g class="st0">
+			<linearGradient id="ant-web3-icon-aave-circle-colorful-3" gradientUnits="userSpaceOnUse" x1="-597.3553" y1="900.6861" x2="-598.0993" y2="900.0601" gradientTransform="matrix(776 0 0 -776 464237 699089)">
 			<stop  offset="0" style="stop-color:#B6509E"/>
 			<stop  offset="1" style="stop-color:#2EBAC6"/>
 		</linearGradient>
