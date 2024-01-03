@@ -1,6 +1,7 @@
-import { ConnectButton } from '..';
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
+
+import { ConnectButton } from '..';
 
 describe('ConnectButton', () => {
   it('do not show balance when not connect', () => {

@@ -1,10 +1,11 @@
-import { CryptoPriceBalance } from './balance';
-import { ConfigProvider } from 'antd';
 import { useContext } from 'react';
-import { useStyle } from './style';
-import type { Chain } from '@ant-design/web3-common';
 import { Mainnet } from '@ant-design/web3-assets';
+import type { Chain } from '@ant-design/web3-common';
+import { ConfigProvider } from 'antd';
+
 import useProvider from '../hooks/useProvider';
+import { CryptoPriceBalance } from './balance';
+import { useStyle } from './style';
 
 export interface CryptoPriceProps {
   className?: string;

@@ -1,7 +1,7 @@
-import { createConfig, configureChains, mainnet } from 'wagmi';
-import { publicProvider } from 'wagmi/providers/public';
-import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { NFTImage } from '@ant-design/web3';
+import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { configureChains, createConfig, mainnet } from 'wagmi';
+import { publicProvider } from 'wagmi/providers/public';
 
 const { publicClient } = configureChains([mainnet], [publicProvider()]);
 

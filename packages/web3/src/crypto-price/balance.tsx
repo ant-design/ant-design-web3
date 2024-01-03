@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import { ConfigProvider } from 'antd';
 import type { Balance } from '@ant-design/web3-common';
+import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
+
 import { formatBalance } from '../utils';
 
 export interface CryptoPriceBalanceProps extends Balance {

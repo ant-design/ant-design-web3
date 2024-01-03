@@ -1,9 +1,10 @@
 import React, { useContext, useMemo } from 'react';
 import { List, message } from 'antd';
+import classNames from 'classnames';
+
+import { connectModalContext } from '../context';
 import type { ConnectModalProps, Wallet } from '../interface';
 import { defaultGroupOrder } from '../utils';
-import { connectModalContext } from '../context';
-import classNames from 'classnames';
 
 export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'groupOrder'>;
 

@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
 import { CoinbaseWallet } from '@ant-design/web3-wagmi';
+import { describe, expect, it } from 'vitest';
+import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
 
 describe('CoinbaseWallet', async () => {
   it('name', async () => {

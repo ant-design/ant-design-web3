@@ -1,5 +1,5 @@
 import React from 'react';
-import { useConnection, Web3ConfigProvider, useAccount, type Account } from '@ant-design/web3';
+import { useAccount, useConnection, Web3ConfigProvider, type Account } from '@ant-design/web3';
 import { Button } from 'antd';
 
 const Demo: React.FC = () => {

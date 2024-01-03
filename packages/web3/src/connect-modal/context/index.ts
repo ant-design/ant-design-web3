@@ -1,7 +1,8 @@
 import React from 'react';
-import type { PanelRoute, Wallet } from '../interface';
-import type { IntlType } from '../../hooks/useIntl';
 import { defaultLocale } from '@ant-design/web3-common';
+
+import type { IntlType } from '../../hooks/useIntl';
+import type { PanelRoute, Wallet } from '../interface';
 
 export type ConnectModalContext = {
   prefixCls: string;

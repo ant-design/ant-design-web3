@@ -1,9 +1,10 @@
 import React from 'react';
-import useIntl from '../useIntl';
-import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
 import { Web3ConfigProvider } from '@ant-design/web3';
+import { render } from '@testing-library/react';
 import { Button } from 'antd';
+import { describe, expect, it } from 'vitest';
+
+import useIntl from '../useIntl';
 
 describe('useIntl', () => {
   it('use with values', () => {

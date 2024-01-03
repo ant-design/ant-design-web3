@@ -1,4 +1,5 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
+
 import { getWeb3AssetUrl, requestWeb3Asset } from '../request';
 import { mockFetch } from '../test-utils';
 

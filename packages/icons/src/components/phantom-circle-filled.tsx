@@ -1,9 +1,10 @@
 import * as React from 'react';
 import AntdIcon from '@ant-design/icons';
-import SVGComponent from '../svgs/phantom-circle-filled.svg';
 import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
-import classnames from 'classnames';
 import { ConfigProvider } from 'antd';
+import classnames from 'classnames';
+
+import SVGComponent from '../svgs/phantom-circle-filled.svg';
 
 export const PhantomCircleFilled = React.forwardRef<HTMLSpanElement, IconBaseProps>(
   (props, ref) => {

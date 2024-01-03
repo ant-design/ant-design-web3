@@ -1,8 +1,8 @@
-import { ConnectButton, type Chain } from '@ant-design/web3';
 import React from 'react';
+import { ConnectButton, type Chain } from '@ant-design/web3';
 import { Mainnet, Polygon } from '@ant-design/web3-assets';
 import { fireEvent, render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 describe('ConnectButton chains', () => {
   it('no chains', async () => {

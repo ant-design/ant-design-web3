@@ -1,4 +1,5 @@
 import { Grid } from 'antd';
+
 import { type ConnectModalProps } from '../interface';
 
 export default function useMode(mode: ConnectModalProps['mode'] = 'auto') {

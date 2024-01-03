@@ -1,5 +1,6 @@
+import { describe, expect, it, vi } from 'vitest';
+
 import { addNameToAccount } from '../index';
-import { vi, describe, it, expect } from 'vitest';
 
 vi.mock('@wagmi/core', () => {
   return {

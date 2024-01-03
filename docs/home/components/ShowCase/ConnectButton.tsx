@@ -1,10 +1,12 @@
-import { WalletWhiteColorful } from '@ant-design/web3-icons';
-import styles from './index.module.less';
-import { ConfigProvider, Space, theme } from 'antd';
-import classNames from 'classnames';
+import React from 'react';
 import { ConnectButton, type Chain } from '@ant-design/web3';
 import { Mainnet, Polygon } from '@ant-design/web3-assets';
-import React from 'react';
+import { WalletWhiteColorful } from '@ant-design/web3-icons';
+import { ConfigProvider, Space, theme } from 'antd';
+import classNames from 'classnames';
+
+import styles from './index.module.less';
+
 const { darkAlgorithm } = theme;
 
 export default () => {

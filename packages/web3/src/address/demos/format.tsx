@@ -1,5 +1,6 @@
 import { Address } from '@ant-design/web3';
 import { Space } from 'antd';
+
 import { formatAddress } from '../../utils';
 
 const App: React.FC = () => {

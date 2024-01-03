@@ -1,12 +1,13 @@
 import React from 'react';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
 import { mergeToken } from 'antd/lib/theme/internal';
+
 import {
   useStyle as useAntdStyle,
   type GenerateStyle,
   type Web3AliasToken,
 } from '../../theme/useStyle';
-import type { CSSInterpolation } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import { isDarkTheme } from '../utils';
 
 /** Component only token. Which will handle additional calculation of alias token */

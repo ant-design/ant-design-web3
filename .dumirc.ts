@@ -1,6 +1,6 @@
-import { defineConfig } from 'dumi';
 import { readdirSync } from 'fs';
 import { join } from 'path';
+import { defineConfig } from 'dumi';
 
 // utils must build before core
 // runtime must build before renderer-react

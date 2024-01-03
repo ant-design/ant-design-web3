@@ -1,9 +1,10 @@
 /* eslint-disable react/no-unknown-property */
 import type { ReactNode } from 'react';
 import { useContext, useMemo } from 'react';
+
+import { getPlatform } from '../../utils';
 import { connectModalContext } from '../context';
 import MainPanelHeader from './MainPanelHeader';
-import { getPlatform } from '../../utils';
 
 const CardItem: React.FC<{
   icon: ReactNode;

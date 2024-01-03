@@ -1,9 +1,10 @@
+import React from 'react';
 import { ConnectModal } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import { Button } from 'antd';
-import React from 'react';
-import type { Wallet } from '../interface';
 import { useIntl } from 'dumi';
+
+import type { Wallet } from '../interface';
 
 const walletList: Wallet[] = [
   metadata_MetaMask,

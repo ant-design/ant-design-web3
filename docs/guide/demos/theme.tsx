@@ -1,7 +1,7 @@
 import React from 'react';
 import { ConnectModal, type Wallet } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
-import { Radio, ConfigProvider, theme, Card, Space } from 'antd';
+import { Card, ConfigProvider, Radio, Space, theme } from 'antd';
 
 const App: React.FC = () => {
   const [mode, setMode] = React.useState<'dark' | 'light'>('dark');

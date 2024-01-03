@@ -1,5 +1,5 @@
-import { describe, it, expect, vi } from 'vitest';
 import { SafeheronWallet } from '@ant-design/web3-wagmi';
+import { describe, expect, it, vi } from 'vitest';
 import { InjectedConnector } from 'wagmi/connectors/injected';
 
 describe('Safeheron', () => {

@@ -1,14 +1,14 @@
 import React from 'react';
-import { WagmiConfig } from 'wagmi';
-
-import type { PublicClient, WebSocketPublicClient, Config, Chain as WagmiChain } from 'wagmi';
-import { AntDesignWeb3ConfigProvider } from './config-provider';
-import type { Chain, Locale } from '@ant-design/web3-common';
-import type { WalletFactory } from '../interface';
 // Built in popular chains
-import { Mainnet, Goerli } from '@ant-design/web3-assets';
+import { Goerli, Mainnet } from '@ant-design/web3-assets';
+import type { Chain, Locale } from '@ant-design/web3-common';
+import { WagmiConfig } from 'wagmi';
+import type { Config, PublicClient, Chain as WagmiChain, WebSocketPublicClient } from 'wagmi';
+
+import type { WalletFactory } from '../interface';
 // MetaMask built-in
 import { MetaMask } from '../wallets';
+import { AntDesignWeb3ConfigProvider } from './config-provider';
 
 export type WagmiWeb3ConfigProviderProps<
   TPublicClient extends PublicClient = PublicClient,

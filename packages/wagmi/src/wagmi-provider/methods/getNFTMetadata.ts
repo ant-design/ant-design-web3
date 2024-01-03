@@ -1,4 +1,4 @@
-import { requestWeb3Asset, fillAddressWith0x, type NFTMetadata } from '@ant-design/web3-common';
+import { fillAddressWith0x, requestWeb3Asset, type NFTMetadata } from '@ant-design/web3-common';
 import { readContract } from '@wagmi/core';
 
 export async function getNFTMetadata(

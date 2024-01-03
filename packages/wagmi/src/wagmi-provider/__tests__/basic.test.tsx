@@ -1,13 +1,13 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, fireEvent } from '@testing-library/react';
-import { createConfig, configureChains } from 'wagmi';
-import { polygon, mainnet, base, goerli } from 'wagmi/chains';
-import { publicProvider } from 'wagmi/providers/public';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
 import { Connector, useProvider, type ConnectorTriggerProps } from '@ant-design/web3';
-import { WagmiWeb3ConfigProvider, Polygon, CoinbaseWallet } from '@ant-design/web3-wagmi';
 import { Mainnet } from '@ant-design/web3-assets';
+import { CoinbaseWallet, Polygon, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { fireEvent, render } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
+import { configureChains, createConfig } from 'wagmi';
+import { base, goerli, mainnet, polygon } from 'wagmi/chains';
+import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
+import { publicProvider } from 'wagmi/providers/public';
 
 describe('WagmiWeb3ConfigProvider', () => {
   it('mount correctly', () => {

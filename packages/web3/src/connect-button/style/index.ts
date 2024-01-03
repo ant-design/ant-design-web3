@@ -1,10 +1,11 @@
 import type React from 'react';
+import { TinyColor } from '@ctrl/tinycolor';
+
 import {
   useStyle as useAntdStyle,
   type GenerateStyle,
   type Web3AliasToken,
 } from '../../theme/useStyle';
-import { TinyColor } from '@ctrl/tinycolor';
 
 export interface ConnectButtonToken extends Web3AliasToken {
   componentCls: string;

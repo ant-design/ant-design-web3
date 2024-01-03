@@ -1,9 +1,10 @@
 import * as React from 'react';
 import AntdIcon from '@ant-design/icons';
-import SVGComponent from '../svgs/wbtc-circle-colorful.svg';
 import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
-import classnames from 'classnames';
 import { ConfigProvider } from 'antd';
+import classnames from 'classnames';
+
+import SVGComponent from '../svgs/wbtc-circle-colorful.svg';
 
 export const WBTCCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);

@@ -1,10 +1,11 @@
-import { Tooltip, message } from 'antd';
-import { CopyOutlined } from '@ant-design/icons';
-import type { ConnectButtonTooltipProps } from './interface';
 import { useMemo, type PropsWithChildren } from 'react';
-import { formatAddress, writeCopyText } from '../utils';
+import { CopyOutlined } from '@ant-design/icons';
+import { message, Tooltip } from 'antd';
 import classNames from 'classnames';
+
 import type { IntlType } from '../hooks/useIntl';
+import { formatAddress, writeCopyText } from '../utils';
+import type { ConnectButtonTooltipProps } from './interface';
 
 export const ConnectButtonTooltip: React.FC<
   PropsWithChildren<

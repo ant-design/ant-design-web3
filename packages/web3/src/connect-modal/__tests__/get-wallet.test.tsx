@@ -1,7 +1,8 @@
 import { ConnectModal } from '@ant-design/web3';
-import { guide } from './mock';
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
+
+import { guide } from './mock';
 
 describe('Get wallet', () => {
   it('Get wallet from wallet route', async () => {

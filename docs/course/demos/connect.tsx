@@ -1,8 +1,8 @@
-import { createConfig, configureChains, mainnet } from 'wagmi';
-import { publicProvider } from 'wagmi/providers/public';
+import { ConnectButton, Connector } from '@ant-design/web3';
 import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { configureChains, createConfig, mainnet } from 'wagmi';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { Connector, ConnectButton } from '@ant-design/web3';
+import { publicProvider } from 'wagmi/providers/public';
 
 const { publicClient, chains } = configureChains([mainnet], [publicProvider()]);
 

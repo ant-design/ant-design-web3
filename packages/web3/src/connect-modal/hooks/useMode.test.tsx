@@ -1,6 +1,7 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render } from '@testing-library/react';
 import { Grid } from 'antd';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
 import useMode from './useMode';
 
 describe('useMode', () => {

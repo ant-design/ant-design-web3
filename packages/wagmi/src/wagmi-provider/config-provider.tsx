@@ -1,24 +1,25 @@
 import React from 'react';
 import {
-  type Account,
-  type Wallet,
-  type Chain,
-  Web3ConfigProvider,
   fillAddressWith0x,
+  Web3ConfigProvider,
+  type Account,
+  type Chain,
   type Locale,
+  type Wallet,
 } from '@ant-design/web3-common';
 import {
   useAccount,
+  useBalance,
   useConnect,
   useDisconnect,
   useNetwork,
   useSwitchNetwork,
-  useBalance,
-  type Connector as WagmiConnector,
   type Chain as WagmiChain,
+  type Connector as WagmiConnector,
 } from 'wagmi';
-import { addNameToAccount, getNFTMetadata } from './methods';
+
 import type { WalletFactory } from '../interface';
+import { addNameToAccount, getNFTMetadata } from './methods';
 
 export interface AntDesignWeb3ConfigProviderProps {
   locale?: Locale;

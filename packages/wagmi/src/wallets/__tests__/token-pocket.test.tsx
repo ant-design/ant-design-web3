@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
 import { TokenPocket } from '@ant-design/web3-wagmi';
+import { describe, expect, it } from 'vitest';
 
 describe('TokenPocket', () => {
   const wallet = TokenPocket.create();

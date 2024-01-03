@@ -1,16 +1,16 @@
-import { createConfig, configureChains, mainnet } from 'wagmi';
-import { publicProvider } from 'wagmi/providers/public';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
+import { ConnectButton, Connector } from '@ant-design/web3';
+import {
+  CoinbaseWallet,
+  SafeheronWallet,
+  WagmiWeb3ConfigProvider,
+  WalletConnect,
+} from '@ant-design/web3-wagmi';
+import { configureChains, createConfig, mainnet } from 'wagmi';
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
 import { InjectedConnector } from 'wagmi/connectors/injected';
-import {
-  WagmiWeb3ConfigProvider,
-  CoinbaseWallet,
-  WalletConnect,
-  SafeheronWallet,
-} from '@ant-design/web3-wagmi';
-import { ConnectButton, Connector } from '@ant-design/web3';
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
+import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
+import { publicProvider } from 'wagmi/providers/public';
 
 const { publicClient, chains } = configureChains([mainnet], [publicProvider()]);
 

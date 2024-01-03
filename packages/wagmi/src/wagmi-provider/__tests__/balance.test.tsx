@@ -1,10 +1,11 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render } from '@testing-library/react';
-import { mainnet } from 'wagmi/chains';
-import { Connector, ConnectButton } from '@ant-design/web3';
-import { AntDesignWeb3ConfigProvider } from '../config-provider';
+import { ConnectButton, Connector } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
+import { render } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
+import { mainnet } from 'wagmi/chains';
+
 import { MetaMask } from '../../wallets';
+import { AntDesignWeb3ConfigProvider } from '../config-provider';
 
 const mockConnector = {
   name: 'MetaMask',

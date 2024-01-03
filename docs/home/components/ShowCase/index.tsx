@@ -1,9 +1,9 @@
 import { useIntl } from 'dumi';
 
-import styles from './index.module.less';
-import ConnectButton from './ConnectButton';
 import Address from './Address';
 import Connect from './Connect';
+import ConnectButton from './ConnectButton';
+import styles from './index.module.less';
 import NFTCard from './NFTCard';
 
 export default () => {

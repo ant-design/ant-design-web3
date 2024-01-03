@@ -1,10 +1,11 @@
+import { useEffect } from 'react';
+import { usePrefersColor } from 'dumi';
+
 import HomeBanner from './components/Banner';
 import Features from './components/Features';
-import Theme from './components/Theme';
 import ShowCase from './components/ShowCase';
+import Theme from './components/Theme';
 import styles from './index.module.less';
-import { usePrefersColor } from 'dumi';
-import { useEffect } from 'react';
 
 export default () => {
   const [, prefersColor] = usePrefersColor();

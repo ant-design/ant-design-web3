@@ -1,14 +1,15 @@
 import React from 'react';
-import { mergeReactNodeProps } from '../utils';
-import type { ConnectModalProps, PanelRoute, Wallet } from '../interface';
-import classNames from 'classnames';
-import WalletList from './WalletList';
-import MainPanel from './MainPanel';
 import { ConfigContext } from 'antd/lib/config-provider';
-import { ConnectModalContextProvider } from '../context';
-import { useStyle } from '../style';
-import useMode from '../hooks/useMode';
+import classNames from 'classnames';
+
 import useIntl from '../../hooks/useIntl';
+import { ConnectModalContextProvider } from '../context';
+import useMode from '../hooks/useMode';
+import type { ConnectModalProps, PanelRoute, Wallet } from '../interface';
+import { useStyle } from '../style';
+import { mergeReactNodeProps } from '../utils';
+import MainPanel from './MainPanel';
+import WalletList from './WalletList';
 
 export type ModalPanelProps = ConnectModalProps;
 

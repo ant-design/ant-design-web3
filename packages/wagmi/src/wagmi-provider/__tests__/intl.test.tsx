@@ -1,10 +1,10 @@
-import { describe, it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { createConfig, configureChains } from 'wagmi';
-import { mainnet } from 'wagmi/chains';
-import { publicProvider } from 'wagmi/providers/public';
 import { ConnectButton } from '@ant-design/web3';
 import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { render } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
+import { configureChains, createConfig } from 'wagmi';
+import { mainnet } from 'wagmi/chains';
+import { publicProvider } from 'wagmi/providers/public';
 
 describe('WagmiWeb3ConfigProvider', () => {
   it('mount correctly', () => {

@@ -1,5 +1,5 @@
-import { Space } from 'antd';
 import { BitcoinCircleColorful, EthereumFilled } from '@ant-design/web3-icons';
+import { Space } from 'antd';
 
 const App: React.FC = () => {
   return (

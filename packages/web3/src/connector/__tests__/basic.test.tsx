@@ -1,14 +1,14 @@
+import React from 'react';
 import {
-  Connector,
-  type ConnectorTriggerProps,
-  type Account,
   ConnectButton,
+  Connector,
+  type Account,
+  type ConnectorTriggerProps,
 } from '@ant-design/web3';
 import { metadata_MetaMask } from '@ant-design/web3-assets';
-import React from 'react';
+import { fireEvent, render } from '@testing-library/react';
 import { Button } from 'antd';
-import { render, fireEvent } from '@testing-library/react';
-import { it, describe, expect, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 describe('Connector', () => {
   it('render children', () => {
