@@ -1,10 +1,10 @@
+import React from 'react';
 import { Connector, type ConnectorTriggerProps } from '@ant-design/web3';
 import { Mainnet, Polygon } from '@ant-design/web3-assets';
-import React from 'react';
-import { Button } from 'antd';
-import { render, fireEvent } from '@testing-library/react';
-import { it, describe, expect, vi } from 'vitest';
 import type { Chain } from '@ant-design/web3-common';
+import { fireEvent, render } from '@testing-library/react';
+import { Button } from 'antd';
+import { describe, expect, it, vi } from 'vitest';
 
 describe('Connector with chains', () => {
   it('currentChain', () => {

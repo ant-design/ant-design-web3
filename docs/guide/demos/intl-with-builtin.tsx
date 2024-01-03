@@ -1,4 +1,4 @@
-import { Web3ConfigProvider, ConnectButton, zh_CN } from '@ant-design/web3';
+import { ConnectButton, Web3ConfigProvider, zh_CN } from '@ant-design/web3';
 
 const App: React.FC = () => {
   return (

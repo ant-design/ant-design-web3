@@ -1,8 +1,8 @@
-import { Connector, type ConnectorTriggerProps, type Account } from '@ant-design/web3';
 import React from 'react';
-import { Button } from 'antd';
+import { Connector, type Account, type ConnectorTriggerProps } from '@ant-design/web3';
 import { render } from '@testing-library/react';
-import { it, describe, expect } from 'vitest';
+import { Button } from 'antd';
+import { describe, expect, it } from 'vitest';
 
 describe('Connector', () => {
   it('name', async () => {

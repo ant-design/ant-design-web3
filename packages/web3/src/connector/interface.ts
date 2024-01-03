@@ -1,5 +1,5 @@
 import type { ConnectModalProps } from '@ant-design/web3';
-import type { Account, Wallet, Chain } from '@ant-design/web3-common';
+import type { Account, Chain, Wallet } from '@ant-design/web3-common';
 
 export interface ConnectorProps {
   children: React.ReactNode;

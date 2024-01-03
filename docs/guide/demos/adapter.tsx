@@ -1,6 +1,6 @@
 import React from 'react';
-import { type Account, type Wallet, type Chain, Web3ConfigProvider } from '@ant-design/web3-common';
-import { Connector, ConnectButton } from '@ant-design/web3';
+import { ConnectButton, Connector } from '@ant-design/web3';
+import { Web3ConfigProvider, type Account, type Chain, type Wallet } from '@ant-design/web3-common';
 
 export interface YourAdapterProps {
   wallets?: Wallet[];

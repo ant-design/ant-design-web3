@@ -1,6 +1,7 @@
-import { describe, it, expect } from 'vitest';
-import { browsers, mockBrowser, mockClipboard } from '../test-utils';
+import { describe, expect, it } from 'vitest';
+
 import { getPlatform, readCopyText, writeCopyText } from '../browser';
+import { browsers, mockBrowser, mockClipboard } from '../test-utils';
 
 describe('utils/browser', () => {
   let resetMockClipboard: () => void;

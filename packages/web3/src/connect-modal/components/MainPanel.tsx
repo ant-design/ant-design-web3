@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import type { ConnectModalProps } from '../interface';
+
 import { connectModalContext } from '../context';
+import type { ConnectModalProps } from '../interface';
 import DefaultGuidePanel from './DefaultGuidePanel';
 import GetWalletPanel from './GetWalletPanel';
 import QrCode from './QrCode';

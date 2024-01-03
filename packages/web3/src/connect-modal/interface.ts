@@ -1,6 +1,6 @@
 import type React from 'react';
-import type { ModalProps } from 'antd';
 import type { Locale, Wallet } from '@ant-design/web3-common';
+import type { ModalProps } from 'antd';
 import { get } from 'lodash';
 
 export type { Wallet, WalletExtensionItem } from '@ant-design/web3-common';

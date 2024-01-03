@@ -1,6 +1,7 @@
 import { useContext } from 'react';
-import { connectModalContext } from '../context';
 import { LeftOutlined } from '@ant-design/icons';
+
+import { connectModalContext } from '../context';
 
 export type MainPanelHeaderProps = {
   back?: boolean;

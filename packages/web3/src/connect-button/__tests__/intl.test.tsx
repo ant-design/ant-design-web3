@@ -1,8 +1,7 @@
-import { ConnectButton, type Chain } from '@ant-design/web3';
 import React from 'react';
+import { ConnectButton, Web3ConfigProvider, type Chain } from '@ant-design/web3';
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
-import { Web3ConfigProvider } from '@ant-design/web3';
+import { describe, expect, it } from 'vitest';
 
 describe('ConnectButton intl', () => {
   it('default', async () => {

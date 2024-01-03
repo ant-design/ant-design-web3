@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
+import { ArrowRightOutlined } from '@ant-design/icons';
+import { Button, QRCode, Space } from 'antd';
+import classNames from 'classnames';
+
+import { connectModalContext } from '../context';
 import type { Wallet } from '../interface';
 import MainPanelHeader from './MainPanelHeader';
-import { connectModalContext } from '../context';
-import { Button, QRCode, Space } from 'antd';
-import { ArrowRightOutlined } from '@ant-design/icons';
-import classNames from 'classnames';
 
 export type QrCodeProps = {
   wallet: Wallet;

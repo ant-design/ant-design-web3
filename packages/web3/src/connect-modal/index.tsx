@@ -1,11 +1,12 @@
 import React from 'react';
 import { Modal } from 'antd';
-import ModalPanel from './components/ModalPanel';
 import { ConfigContext } from 'antd/lib/config-provider';
-import { useStyle } from './style';
 import classNames from 'classnames';
-import type { ConnectModalProps } from './interface';
+
+import ModalPanel from './components/ModalPanel';
 import useMode from './hooks/useMode';
+import type { ConnectModalProps } from './interface';
+import { useStyle } from './style';
 
 export * from './interface';
 

@@ -1,8 +1,9 @@
-import SourceCode from 'dumi/theme-default/builtins/SourceCode';
 import React from 'react';
 import type { TabsProps } from 'antd';
 import { ConfigProvider, Tabs } from 'antd';
 import { createStyles, css } from 'antd-style';
+import SourceCode from 'dumi/theme-default/builtins/SourceCode';
+
 import NpmLogo from './npm';
 import PnpmLogo from './pnpm';
 import YarnLogo from './yarn';

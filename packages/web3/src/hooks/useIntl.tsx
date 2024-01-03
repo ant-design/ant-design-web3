@@ -1,6 +1,6 @@
 import React from 'react';
 import { ConfigContext } from '@ant-design/web3-common';
-import type { Locale, ConfigConsumerProps, RequiredLocale } from '@ant-design/web3-common';
+import type { ConfigConsumerProps, Locale, RequiredLocale } from '@ant-design/web3-common';
 
 type ComponentName = keyof Locale;
 

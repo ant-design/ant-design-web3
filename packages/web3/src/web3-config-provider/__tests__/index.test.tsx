@@ -1,15 +1,15 @@
+import React from 'react';
 import {
-  Web3ConfigProvider,
-  type Account,
   ConnectButton,
   useAccount,
   useNFT,
+  Web3ConfigProvider,
+  type Account,
 } from '@ant-design/web3';
-import React from 'react';
-import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
 import type { Web3ConfigProviderProps } from '@ant-design/web3-common';
+import { render } from '@testing-library/react';
 import { Spin } from 'antd';
+import { describe, expect, it } from 'vitest';
 
 const baseProps: Web3ConfigProviderProps = {
   availableWallets: [

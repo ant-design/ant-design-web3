@@ -1,11 +1,12 @@
-import { render, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { Polygon } from '@ant-design/web3-assets';
+import { fireEvent, render } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
+import { ConnectButton } from '..';
+import useIntl from '../../hooks/useIntl';
+import { readCopyText } from '../../utils';
 import { mockClipboard } from '../../utils/test-utils';
 import { ProfileModal } from '../profile-modal';
-import useIntl from '../../hooks/useIntl';
-import { ConnectButton } from '..';
-import { readCopyText } from '../../utils';
 
 describe('ProfileModal', () => {
   let resetMockClipboard: () => void;

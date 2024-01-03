@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme, createGlobalStyle } from 'antd-style';
+import { createGlobalStyle, useTheme } from 'antd-style';
 
 const Icon: React.FC = () => {
   const token = useTheme();

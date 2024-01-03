@@ -1,7 +1,8 @@
-import { type Wallet } from '@ant-design/web3-common';
 import { metadata_WalletConnect } from '@ant-design/web3-assets';
-import type { WalletFactory } from '../interface';
+import { type Wallet } from '@ant-design/web3-common';
 import type { Connector } from 'wagmi';
+
+import type { WalletFactory } from '../interface';
 
 export const WalletConnect: WalletFactory = {
   name: 'WalletConnect',

@@ -1,6 +1,7 @@
-import styles from './index.module.less';
 import { Address } from '@ant-design/web3';
 import { Space } from 'antd';
+
+import styles from './index.module.less';
 
 export default () => {
   return (

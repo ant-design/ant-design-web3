@@ -1,8 +1,9 @@
 import { ConnectModal } from '@ant-design/web3';
-import { guide } from './mock';
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+
 import QrCode from '../components/QrCode';
+import { guide } from './mock';
 
 describe('ConnectModal with qrcode', () => {
   it('show connect wallect link', async () => {

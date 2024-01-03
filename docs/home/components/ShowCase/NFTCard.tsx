@@ -1,5 +1,6 @@
-import styles from './index.module.less';
 import { NFTCard } from '@ant-design/web3';
+
+import styles from './index.module.less';
 
 export default () => {
   return (

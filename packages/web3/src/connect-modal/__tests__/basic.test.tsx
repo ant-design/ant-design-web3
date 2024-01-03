@@ -1,10 +1,11 @@
-import { ConnectModal } from '@ant-design/web3';
-import { groupOrder, guide, walletList } from './mock';
-import { fireEvent, render } from '@testing-library/react';
 import { useEffect, useState } from 'react';
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { ConfigProvider, theme as antTheme, Grid } from 'antd';
+import { ConnectModal } from '@ant-design/web3';
+import { fireEvent, render } from '@testing-library/react';
+import { theme as antTheme, ConfigProvider, Grid } from 'antd';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { mockBrowser } from '../../utils/test-utils';
+import { groupOrder, guide, walletList } from './mock';
 
 describe('ConnectModal with guide', () => {
   beforeEach(() => {

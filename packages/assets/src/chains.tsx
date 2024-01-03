@@ -1,14 +1,13 @@
-import { type Chain, ChainIds, createGetBrowserLink } from '@ant-design/web3-common';
-
+import { ChainIds, createGetBrowserLink, type Chain } from '@ant-design/web3-common';
 import {
-  EthereumCircleColorful,
-  OptimismCircleColorful,
-  BSCCircleColorful,
   ArbitrumCircleColorful,
-  PolygonCircleColorful,
-  EtherscanCircleColorful,
-  EthereumFilled,
   AvalancheCircleColorful,
+  BSCCircleColorful,
+  EthereumCircleColorful,
+  EthereumFilled,
+  EtherscanCircleColorful,
+  OptimismCircleColorful,
+  PolygonCircleColorful,
 } from '@ant-design/web3-icons';
 
 export const Mainnet: Chain = {

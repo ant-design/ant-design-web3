@@ -1,7 +1,8 @@
 import React from 'react';
 import { ConnectModal, type Wallet } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
-import { ConfigProvider, Card, Space } from 'antd';
+import { Card, ConfigProvider, Space } from 'antd';
+
 import { customToken } from './tokens';
 
 const App: React.FC = () => {

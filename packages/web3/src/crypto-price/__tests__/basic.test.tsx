@@ -1,8 +1,9 @@
-import { CryptoPrice } from '..';
-import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
-import { EthereumCircleFilled } from '@ant-design/web3-icons';
 import { Web3ConfigProvider } from '@ant-design/web3-common';
+import { EthereumCircleFilled } from '@ant-design/web3-icons';
+import { render } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
+
+import { CryptoPrice } from '..';
 
 describe('CryptoPrice', () => {
   it('renders CryptoPrice correctly', () => {

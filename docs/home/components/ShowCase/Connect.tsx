@@ -1,13 +1,14 @@
-import styles from './index.module.less';
 import { ConnectModal, type Wallet } from '@ant-design/web3';
 import {
+  metadata_CoinbaseWallet,
   metadata_MetaMask,
   metadata_WalletConnect,
-  metadata_CoinbaseWallet,
 } from '@ant-design/web3-assets';
-import classNames from 'classnames';
 import { ConfigProvider, theme } from 'antd';
+import classNames from 'classnames';
 import { usePrefersColor } from 'dumi';
+
+import styles from './index.module.less';
 
 const walletList: Wallet[] = [
   metadata_MetaMask,

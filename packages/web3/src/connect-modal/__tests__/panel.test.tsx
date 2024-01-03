@@ -1,8 +1,9 @@
 import { ConnectModal } from '@ant-design/web3';
-import { groupOrder, guide, walletList } from './mock';
-import { render, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { fireEvent, render } from '@testing-library/react';
 import { Grid } from 'antd';
+import { describe, expect, it, vi } from 'vitest';
+
+import { groupOrder, guide, walletList } from './mock';
 
 describe('ConnectModal with ConnectModal', () => {
   it('ModalPanel', async () => {

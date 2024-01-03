@@ -1,8 +1,9 @@
-import { ConnectButton } from '..';
 import { fireEvent, render } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { mockClipboard } from '../../utils/test-utils';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
+import { ConnectButton } from '..';
 import { readCopyText } from '../../utils';
+import { mockClipboard } from '../../utils/test-utils';
 
 describe('ConnectButton', () => {
   let resetMockClipboard: () => void;

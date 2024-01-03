@@ -1,10 +1,11 @@
-import { BrowserLink } from '..';
-import { render } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
 import { LinkOutlined } from '@ant-design/icons';
+import { Mainnet } from '@ant-design/web3-assets';
 import { ChainIds, Web3ConfigProvider } from '@ant-design/web3-common';
 import { BitcoinCircleColorful } from '@ant-design/web3-icons';
-import { Mainnet } from '@ant-design/web3-assets';
+import { render } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
+
+import { BrowserLink } from '..';
 
 describe('BrowserLink', () => {
   it('mount correctly', () => {

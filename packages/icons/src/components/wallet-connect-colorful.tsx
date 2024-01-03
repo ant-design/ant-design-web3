@@ -1,9 +1,10 @@
 import * as React from 'react';
 import AntdIcon from '@ant-design/icons';
-import SVGComponent from '../svgs/wallet-connect-colorful.svg';
 import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
-import classnames from 'classnames';
 import { ConfigProvider } from 'antd';
+import classnames from 'classnames';
+
+import SVGComponent from '../svgs/wallet-connect-colorful.svg';
 
 export const WalletConnectColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>(
   (props, ref) => {

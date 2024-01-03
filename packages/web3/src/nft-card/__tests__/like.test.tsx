@@ -1,6 +1,6 @@
 import { NFTCard } from '@ant-design/web3';
 import { fireEvent, render } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 describe('NFTCard like', () => {
   it('renders correctly with likeConfig and onLikeChange work', () => {

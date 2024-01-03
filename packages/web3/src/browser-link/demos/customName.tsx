@@ -1,5 +1,5 @@
-import { BrowserLink } from '@ant-design/web3';
 import { LinkOutlined } from '@ant-design/icons';
+import { BrowserLink } from '@ant-design/web3';
 
 const App: React.FC = () => {
   return (

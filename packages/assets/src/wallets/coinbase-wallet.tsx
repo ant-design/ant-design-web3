@@ -1,5 +1,5 @@
 import type { WalletMetadata } from '@ant-design/web3-common';
-import { CoinbaseWalletCircleColorful, ChromeCircleColorful } from '@ant-design/web3-icons';
+import { ChromeCircleColorful, CoinbaseWalletCircleColorful } from '@ant-design/web3-icons';
 
 export const metadata_CoinbaseWallet: WalletMetadata = {
   icon: <CoinbaseWalletCircleColorful />,

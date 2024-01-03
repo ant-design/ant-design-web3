@@ -1,9 +1,10 @@
 import React, { isValidElement } from 'react';
 import { ConnectModal } from '@ant-design/web3';
-import type { Wallet, ConnectorTriggerProps, Chain } from '@ant-design/web3-common';
+import type { Chain, ConnectorTriggerProps, Wallet } from '@ant-design/web3-common';
 import { message } from 'antd';
-import type { ConnectorProps } from './interface';
+
 import useProvider from '../hooks/useProvider';
+import type { ConnectorProps } from './interface';
 
 export const Connector: React.FC<ConnectorProps> = (props) => {
   const {

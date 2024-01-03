@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { useIntl } from 'dumi';
 import { message } from 'antd';
+import { useIntl } from 'dumi';
 
 import CopyableIcon from './CopyableIcon';
-import { type ThemeType } from './IconSearch';
 import { type CategoriesKeys } from './fields';
+import { type ThemeType } from './IconSearch';
 
 interface CategoryProps {
   title: CategoriesKeys;

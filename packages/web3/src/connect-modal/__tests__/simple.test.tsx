@@ -1,8 +1,9 @@
 import { ConnectModal } from '@ant-design/web3';
-import { groupOrder, walletList } from './mock';
 import { render } from '@testing-library/react';
-import { it, describe, expect } from 'vitest';
-import { ConfigProvider, theme as antTheme } from 'antd';
+import { theme as antTheme, ConfigProvider } from 'antd';
+import { describe, expect, it } from 'vitest';
+
+import { groupOrder, walletList } from './mock';
 
 describe('ConnectModal without guide', () => {
   it.each(['light', 'dark'] as const)(`should render in %s mode`, async (theme) => {

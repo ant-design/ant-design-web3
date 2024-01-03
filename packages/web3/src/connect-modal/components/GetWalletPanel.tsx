@@ -1,8 +1,9 @@
 import { useContext } from 'react';
-import type { ConnectModalProps } from '../interface';
-import { connectModalContext } from '../context';
-import MainPanelHeader from './MainPanelHeader';
 import { Avatar, Button, List, message } from 'antd';
+
+import { connectModalContext } from '../context';
+import type { ConnectModalProps } from '../interface';
+import MainPanelHeader from './MainPanelHeader';
 
 export type GetWalletPanelProps = Pick<ConnectModalProps, 'walletList'>;
 

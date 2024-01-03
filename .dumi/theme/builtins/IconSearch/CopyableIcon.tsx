@@ -1,8 +1,8 @@
 import * as React from 'react';
+import * as AntdWeb3Icons from '@ant-design/web3-icons';
 import { Badge, message } from 'antd';
 import classNames from 'classnames';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import * as AntdWeb3Icons from '@ant-design/web3-icons';
 
 import type { ThemeType } from './IconSearch';
 
