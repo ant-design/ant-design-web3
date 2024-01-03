@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
-import React, { useContext, useMemo } from 'react';
-import { CopyOutlined } from '@ant-design/icons';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
 import type { TooltipProps } from 'antd';
-import { ConfigProvider, message, Space, Tooltip } from 'antd';
+import { ConfigProvider, Space, Tooltip } from 'antd';
 import classNames from 'classnames';
 
 import { fillWith0x, formatAddress, writeCopyText } from '../utils';
@@ -23,10 +23,11 @@ export interface AddressProps {
 
 export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) => {
   const { ellipsis, address, copyable, tooltip, format = false, children } = props;
-  const [messageApi, contextHolder] = message.useMessage();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-address');
   const { wrapSSR, hashId } = useStyle(prefixCls);
+  const [copied, setCopied] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const mergedFormat = useMemo(() => {
     if (typeof format === 'function') {
@@ -47,6 +48,14 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
         }
       : ellipsis;
 
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, []);
+
   if (!address) {
     return null;
   }
@@ -57,28 +66,34 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
   const displayTooltip = tooltip === undefined || tooltip === true ? filledAddress : tooltip;
 
   return wrapSSR(
-    <>
-      {contextHolder}
-      <Space className={classNames(prefixCls, hashId)}>
-        <Tooltip title={displayTooltip}>
-          <span className={`${prefixCls}-text`}>
-            {children ??
-              (isEllipsis
-                ? `${filledAddress.slice(0, headClip)}...${filledAddress.slice(-tailClip)}`
-                : formattedAddress)}
-          </span>
-        </Tooltip>
-        {copyable && (
-          <CopyOutlined
-            title="Copy Address"
-            onClick={() => {
-              writeCopyText(filledAddress).then(() => {
-                messageApi.success('Address Copied!');
-              });
-            }}
-          />
-        )}
-      </Space>
-    </>,
+    <Space className={classNames(prefixCls, hashId)}>
+      <Tooltip title={displayTooltip}>
+        <span className={`${prefixCls}-text`}>
+          {children ??
+            (isEllipsis
+              ? `${filledAddress.slice(0, headClip)}...${filledAddress.slice(-tailClip)}`
+              : formattedAddress)}
+        </span>
+      </Tooltip>
+      {copyable && (
+        <>
+          {copied ? (
+            <CheckOutlined title="Address Copied!" />
+          ) : (
+            <CopyOutlined
+              title="Copy Address"
+              onClick={() => {
+                writeCopyText(filledAddress).then(() => {
+                  setCopied(true);
+                  timerRef.current = setTimeout(() => {
+                    setCopied(false);
+                  }, 2000);
+                });
+              }}
+            />
+          )}
+        </>
+      )}
+    </Space>,
   );
 };

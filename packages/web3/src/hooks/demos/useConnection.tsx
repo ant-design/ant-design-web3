@@ -6,18 +6,21 @@ const Demo: React.FC = () => {
   const { account } = useAccount();
   const { connect, disconnect } = useConnection();
   return (
-    <Button
-      onClick={() => {
-        if (account) {
-          disconnect?.();
-        } else {
-          console.log('connect');
-          connect?.();
-        }
-      }}
-    >
-      {account ? 'Disconnect' : 'Connect'}
-    </Button>
+    <>
+      <Button
+        onClick={() => {
+          if (account) {
+            disconnect?.();
+          } else {
+            console.log('connect');
+            connect?.();
+          }
+        }}
+      >
+        {account ? 'Disconnect' : 'Connect'}
+      </Button>
+      {account ? <p>Account: {account?.address}</p> : <p>Not Connected</p>}
+    </>
   );
 };
 
