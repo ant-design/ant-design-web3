@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
 import type { TooltipProps } from 'antd';
 import { ConfigProvider, Space, Tooltip } from 'antd';
@@ -27,6 +27,7 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
   const prefixCls = getPrefixCls('web3-address');
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [copied, setCopied] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const mergedFormat = useMemo(() => {
     if (typeof format === 'function') {
@@ -46,6 +47,14 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
           tailClip: 4,
         }
       : ellipsis;
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, []);
 
   if (!address) {
     return null;
@@ -76,7 +85,7 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
               onClick={() => {
                 writeCopyText(filledAddress).then(() => {
                   setCopied(true);
-                  setTimeout(() => {
+                  timerRef.current = setTimeout(() => {
                     setCopied(false);
                   }, 2000);
                 });
