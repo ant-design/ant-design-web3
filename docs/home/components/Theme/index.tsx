@@ -77,13 +77,19 @@ const App: React.FC = () => {
         </Card>
       </ConfigProvider>
       <div className={styles.controls}>
-        <div className={`${styles.themeBtns}${color === 'dark' ? ` ${styles.dark}` : ''}`}>
+        <div
+          className={classnames(styles.themeBtns, {
+            [styles.dark]: color === 'dark',
+          })}
+        >
           <Space>
             <Tooltip title="Light Mode">
               <span onClick={() => setIsDark(false)}>
                 <svg
                   viewBox="0 0 16 16"
-                  className={`${styles.lightIcon}${!isDark ? ` ${styles.selected}` : ''}`}
+                  className={classnames(styles.lightIcon, {
+                    [styles.selected]: !isDark,
+                  })}
                 >
                   <path
                     fill="currentColor"
@@ -96,7 +102,7 @@ const App: React.FC = () => {
               <span onClick={() => setIsDark(true)}>
                 <svg
                   viewBox="0 0 16 16"
-                  className={`${styles.darkIcon}${isDark ? ` ${styles.selected}` : ''}`}
+                  className={classnames(styles.darkIcon, { [styles.selected]: isDark })}
                 >
                   <path
                     fill="currentColor"
