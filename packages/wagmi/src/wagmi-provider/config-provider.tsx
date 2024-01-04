@@ -59,20 +59,36 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   }, [address, isDisconnected, chain, ens]);
 
   const wallets: Wallet[] = React.useMemo(() => {
-    return availableConnectors
-      .map((connector) => {
-        const walletFactory = assets?.find(
-          (item) => (item as WalletFactory).name === connector.name,
-        ) as WalletFactory;
-        if (!walletFactory?.create) {
-          console.error(
-            `Can not find wallet factory for ${connector.name}, you should config it in WagmiWeb3ConfigProvider 'assets'.`,
-          );
-          return null;
-        }
-        return walletFactory.create(connector);
-      })
-      .filter((item) => item !== null) as Wallet[];
+    const walletFactorys: WalletFactory[] = assets?.filter(
+      (item) => (item as WalletFactory).create,
+    ) as WalletFactory[];
+
+    availableConnectors.forEach((connector) => {
+      // check use assets config and console.error for alert
+      const walletFactory = walletFactorys?.find((item) => item.name === connector.name);
+      if (!walletFactory?.create) {
+        console.error(
+          `Can not find wallet factory for ${connector.name}, you should config it in WagmiWeb3ConfigProvider 'assets'.`,
+        );
+      }
+    });
+
+    // Generate Wallet for @ant-design/web3
+    const allWallet = walletFactorys?.map((factory) => {
+      let connector: WagmiConnector | WagmiConnector[] | undefined;
+      if (typeof factory.name === 'string') {
+        // this wallet factory only for one connector
+        connector = availableConnectors.find((item) => item.name === factory.name);
+      } else {
+        // for multiple connectors
+        connector = factory.name
+          .map((name) => availableConnectors.find((item) => item.name === name))
+          .filter((item) => item !== undefined) as WagmiConnector[];
+      }
+      return factory.create(connector);
+    });
+
+    return allWallet;
   }, [availableConnectors, assets]);
 
   const chainList: Chain[] = React.useMemo(() => {
