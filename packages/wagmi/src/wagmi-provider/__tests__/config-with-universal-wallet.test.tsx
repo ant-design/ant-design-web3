@@ -6,7 +6,7 @@ import {
   WagmiWeb3ConfigProvider,
 } from '@ant-design/web3-wagmi';
 import { render } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { configureChains, createConfig } from 'wagmi';
 import { mainnet, polygon } from 'wagmi/chains';
 import { InjectedConnector } from 'wagmi/connectors/injected';
