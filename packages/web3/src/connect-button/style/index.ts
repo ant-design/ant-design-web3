@@ -1,9 +1,9 @@
-import type React from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import {
   useStyle as useAntdStyle,
   type GenerateStyle,
+  type UseStyleResult,
   type Web3AliasToken,
 } from '../../theme/useStyle';
 
@@ -99,7 +99,7 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
   };
 };
 
-export function useStyle(prefixCls: string) {
+export function useStyle(prefixCls: string): UseStyleResult {
   return useAntdStyle('ConnectButton', (token) => {
     const proListToken: ConnectButtonToken = {
       ...token,

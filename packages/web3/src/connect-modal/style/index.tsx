@@ -1,4 +1,3 @@
-import React from 'react';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import { mergeToken } from 'antd/lib/theme/internal';
@@ -6,6 +5,7 @@ import { mergeToken } from 'antd/lib/theme/internal';
 import {
   useStyle as useAntdStyle,
   type GenerateStyle,
+  type UseStyleResult,
   type Web3AliasToken,
 } from '../../theme/useStyle';
 import { isDarkTheme } from '../utils';
@@ -426,7 +426,7 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
   ];
 };
 
-export function useStyle(prefixCls: string) {
+export function useStyle(prefixCls: string): UseStyleResult {
   return useAntdStyle('ConnectModal', (token) => {
     const isDark = isDarkTheme(token);
     const connectModalToken: ConnectModalToken = mergeToken<ConnectModalToken>(token, {

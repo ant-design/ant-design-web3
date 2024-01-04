@@ -1,8 +1,7 @@
-import React from 'react';
-
 import {
   useStyle as useAntdStyle,
   type GenerateStyle,
+  type UseStyleResult,
   type Web3AliasToken,
 } from '../../theme/useStyle';
 
@@ -16,7 +15,7 @@ const genCryptoPriceStyle: GenerateStyle<CryptoPriceToken> = (token) => {
   };
 };
 
-export function useStyle(prefixCls: string) {
+export function useStyle(prefixCls: string): UseStyleResult {
   return useAntdStyle('CryptoPrice', (token) => {
     const proListToken: CryptoPriceToken = {
       ...token,
