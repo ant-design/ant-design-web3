@@ -29,7 +29,7 @@ const WalletList: React.FC<WalletListProps> = (props) => {
     [dataSource, groupOrder],
   );
 
-  const [messageApi, contextHolder] = message.useMessage();
+  const [, contextHolder] = message.useMessage();
 
   return (
     <div className={`${prefixCls}-wallet-list`}>
