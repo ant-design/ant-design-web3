@@ -1,8 +1,7 @@
-import type React from 'react';
-
 import {
   useStyle as useAntdStyle,
   type GenerateStyle,
+  type UseStyleResult,
   type Web3AliasToken,
 } from '../../theme/useStyle';
 
@@ -18,7 +17,7 @@ const genAddressStyle: GenerateStyle<AddressToken> = (token) => {
   };
 };
 
-export function useStyle(prefixCls: string) {
+export function useStyle(prefixCls: string): UseStyleResult {
   return useAntdStyle('Address', (token) => {
     const proListToken: AddressToken = {
       ...token,

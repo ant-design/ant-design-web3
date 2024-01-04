@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConnectButton, Web3ConfigProvider, type Chain } from '@ant-design/web3';
+import { ConnectButton, Web3ConfigProvider } from '@ant-design/web3';
 import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
