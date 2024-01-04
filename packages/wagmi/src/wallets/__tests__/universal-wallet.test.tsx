@@ -23,6 +23,7 @@ describe('UniversalWallet', async () => {
       }),
     ]);
 
+    expect(factory.name).toEqual(['WalletConnect']);
     expect(wallet.name).toEqual('TestWallet');
     expect(wallet.remark).toEqual('TestWallet remark');
     expect(await wallet.hasWalletReady?.()).toBeTruthy();
@@ -54,6 +55,7 @@ describe('UniversalWallet', async () => {
       }),
     ]);
 
+    expect(factory.name).toEqual(['TestWallet']);
     expect(wallet.name).toEqual('TestWallet');
     expect(wallet.remark).toEqual('TestWallet remark');
     expect(await wallet.hasWalletReady?.()).toBeFalsy();
@@ -89,6 +91,7 @@ describe('UniversalWallet', async () => {
       }),
     ]);
 
+    expect(factory.name).toEqual(['TestWalletInjectedConnector']);
     expect(wallet.name).toEqual('TestWalletInjectedConnector');
     expect(wallet.remark).toEqual('TestWalletInjectedConnector remark');
     expect(await wallet.hasWalletReady?.()).toBeTruthy();
@@ -101,6 +104,9 @@ describe('UniversalWallet', async () => {
     const factory = new UniversalWallet({
       name: 'TestWalletInjectedConnector',
       remark: 'TestWalletInjectedConnector remark',
+      app: {
+        link: 'https://app.download',
+      },
       extensions: [
         {
           key: 'Chrome',
@@ -130,6 +136,7 @@ describe('UniversalWallet', async () => {
       }),
     ]);
 
+    expect(factory.name).toEqual(['TestWalletInjectedConnector', 'WalletConnect']);
     expect(wallet.name).toEqual('TestWalletInjectedConnector');
     expect(wallet.remark).toEqual('TestWalletInjectedConnector remark');
     expect(await wallet.hasWalletReady?.()).toBeTruthy();
@@ -142,6 +149,9 @@ describe('UniversalWallet', async () => {
     const factory = new UniversalWallet({
       name: 'TestWalletInjectedConnector',
       remark: 'TestWalletInjectedConnector remark',
+      app: {
+        link: 'https://app.download',
+      },
       extensions: [
         {
           key: 'Chrome',
@@ -169,6 +179,7 @@ describe('UniversalWallet', async () => {
       }),
     ]);
 
+    expect(factory.name).toEqual(['TestWalletInjectedConnector', 'WalletConnect']);
     expect(wallet.name).toEqual('TestWalletInjectedConnector');
     expect(wallet.remark).toEqual('TestWalletInjectedConnector remark');
     expect(await wallet.hasWalletReady?.()).toBeTruthy();
