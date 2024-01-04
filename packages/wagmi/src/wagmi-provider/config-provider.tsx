@@ -96,8 +96,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       })
       .filter((item) => item !== null) as Wallet[];
 
-    console.log('walletFactorys', walletFactorys, 'allWallet', allWallet);
-
     return allWallet;
   }, [availableConnectors, assets]);
 
