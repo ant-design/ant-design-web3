@@ -79,7 +79,7 @@ const App: React.FC = () => {
       <div className={styles.controls}>
         <div
           className={classnames(styles.themeBtns, {
-            [styles.dark]: color === 'dark',
+            [styles.dark]: isDark,
           })}
         >
           <Space>
