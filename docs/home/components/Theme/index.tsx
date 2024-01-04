@@ -3,6 +3,7 @@ import { ConnectModal, type Wallet } from '@ant-design/web3';
 import {
   metadata_CoinbaseWallet,
   metadata_MetaMask,
+  metadata_TokenPocket,
   metadata_WalletConnect,
 } from '@ant-design/web3-assets';
 import { Card, ConfigProvider, Space, theme, Tooltip } from 'antd';
@@ -50,6 +51,7 @@ const App: React.FC = () => {
         );
       },
     },
+    metadata_TokenPocket,
     metadata_CoinbaseWallet,
   ];
 
