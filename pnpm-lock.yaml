@@ -74,6 +74,9 @@ importers:
       eslint:
         specifier: ^8.56.0
         version: 8.56.0
+      eslint-plugin-unused-imports:
+        specifier: ^3.0.0
+        version: 3.0.0(eslint@8.56.0)
       ethers:
         specifier: ^6.9.1
         version: 6.9.1
@@ -8993,8 +8996,22 @@ packages:
       strip-indent: 3.0.0
     dev: true
 
+  /eslint-plugin-unused-imports@3.0.0(eslint@8.56.0):
+    resolution: {integrity: sha512-sduiswLJfZHeeBJ+MQaG+xYzSWdRXoSw61DpU13mzWumCkR0ufD0HmO4kdNokjrkluMHpj/7PJeN35pgbhW3kw==, tarball: https://registry.npmmirror.com/eslint-plugin-unused-imports/-/eslint-plugin-unused-imports-3.0.0.tgz}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      '@typescript-eslint/eslint-plugin': ^6.0.0
+      eslint: ^8.0.0
+    peerDependenciesMeta:
+      '@typescript-eslint/eslint-plugin':
+        optional: true
+    dependencies:
+      eslint: 8.56.0
+      eslint-rule-composer: 0.3.0
+    dev: true
+
   /eslint-rule-composer@0.3.0:
-    resolution: {integrity: sha512-bt+Sh8CtDmn2OajxvNO+BX7Wn4CIWMpTRm3MaiKPCQcnnlm0CS2mhui6QaoeQugs+3Kj2ESKEEGJUdVafwhiCg==}
+    resolution: {integrity: sha512-bt+Sh8CtDmn2OajxvNO+BX7Wn4CIWMpTRm3MaiKPCQcnnlm0CS2mhui6QaoeQugs+3Kj2ESKEEGJUdVafwhiCg==, tarball: https://registry.npmmirror.com/eslint-rule-composer/-/eslint-rule-composer-0.3.0.tgz}
     engines: {node: '>=4.0.0'}
     dev: true
 
@@ -16348,7 +16365,7 @@ packages:
     dev: true
 
   /strip-ansi@4.0.0:
-    resolution: {integrity: sha512-4XaJ2zQdCzROZDivEVIDPkcQn8LMFSa8kj8Gxb/Lnwzv9A8VctNZ+lfivC/sV3ivW8ElJTERXZoPBRrZKkNKow==}
+    resolution: {integrity: sha512-4XaJ2zQdCzROZDivEVIDPkcQn8LMFSa8kj8Gxb/Lnwzv9A8VctNZ+lfivC/sV3ivW8ElJTERXZoPBRrZKkNKow==, tarball: https://registry.npmmirror.com/strip-ansi/-/strip-ansi-4.0.0.tgz}
     engines: {node: '>=4'}
     dependencies:
       ansi-regex: 3.0.1
@@ -18125,7 +18142,7 @@ packages:
       strip-ansi: 6.0.1
 
   /wrap-ansi@7.0.0:
-    resolution: {integrity: sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==}
+    resolution: {integrity: sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==, tarball: https://registry.npmmirror.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz}
     engines: {node: '>=10'}
     dependencies:
       ansi-styles: 4.3.0
