@@ -14,6 +14,8 @@ The properties related to blockchain interaction are configured through Connecto
 
 In addition, `Connector` is usually used with [adapter](../../guide/adapter). The adapter can help you quickly interact with the blockchain. In the case of using the adapter, you basically don’t need to configure the properties of `Connector`.
 
+> Note: **The examples in this document are just pure UI examples**. In Ant Design Web3, the UI module and the connection module are separated. To connect to the wallet, please refer to the documentation of [Ethereum Adapter](../wagmi/index.md) or read the [Adapter documentation](../../../../docs/guide/adapter.md) for more information.
+
 ## Basic Usage
 
 <code src="./demos/basic.tsx"></code>
