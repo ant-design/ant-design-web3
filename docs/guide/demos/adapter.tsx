@@ -47,7 +47,7 @@ export const YourAdapterPropsProvider: React.FC<YourAdapterProps> = (props) => {
   );
 };
 
-export default () => {
+const App: React.FC = () => {
   return (
     <YourAdapterPropsProvider>
       <Connector>
@@ -56,3 +56,5 @@ export default () => {
     </YourAdapterPropsProvider>
   );
 };
+
+export default App;

@@ -6,9 +6,9 @@ import type { WalletFactory } from '../interface';
 
 export const WalletConnect: WalletFactory = {
   name: 'WalletConnect',
-  create: (connector?: Connector): Wallet => {
+  create: (connector?: Connector | Connector[]): Wallet => {
     const getQrCode = async () => {
-      const provider = await connector?.getProvider();
+      const provider = await (connector as Connector)?.getProvider();
       return new Promise<{ uri: string }>((resolve) => {
         provider.on('display_uri', (uri: string) => {
           resolve({
@@ -22,7 +22,7 @@ export const WalletConnect: WalletFactory = {
       hasWalletReady: async () => {
         return true;
       },
-      getQrCode: connector?.options.showQrModal === false ? getQrCode : undefined,
+      getQrCode: (connector as Connector)?.options.showQrModal === false ? getQrCode : undefined,
     };
   },
 };

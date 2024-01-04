@@ -1,5 +1,6 @@
 import { metadata_Safeheron } from '@ant-design/web3-assets';
 import { type Wallet } from '@ant-design/web3-common';
+import type { Connector } from 'wagmi';
 
 import type { WalletFactory } from '../interface';
 
@@ -9,7 +10,10 @@ export const SafeheronWallet: WalletFactory = {
     return {
       ...metadata_Safeheron,
       hasWalletReady: async () => {
-        return !!connector?.ready;
+        return !!(connector as Connector)?.ready;
+      },
+      hasExtensionInstalled: async () => {
+        return !!(connector as Connector)?.ready;
       },
     };
   },

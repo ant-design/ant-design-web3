@@ -1,13 +1,12 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
+import { EthereumCircleColorful } from '@ant-design/web3-icons';
 import {
-  CoinbaseWallet,
-  SafeheronWallet,
-  TokenPocket,
+  metadata_MetaMask,
+  metadata_TokenPocket,
+  UniversalWallet,
   WagmiWeb3ConfigProvider,
-  WalletConnect,
 } from '@ant-design/web3-wagmi';
 import { configureChains, createConfig, mainnet } from 'wagmi';
-import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
 import { InjectedConnector } from 'wagmi/connectors/injected';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
@@ -19,28 +18,12 @@ const config = createConfig({
   autoConnect: true,
   publicClient,
   connectors: [
-    new MetaMaskConnector({
-      chains,
-    }),
+    new MetaMaskConnector(),
     new WalletConnectConnector({
       chains,
       options: {
         showQrModal: false,
         projectId: YOUR_WALLET_CONNET_PROJECT_ID,
-      },
-    }),
-    new CoinbaseWalletConnector({
-      chains,
-      options: {
-        appName: 'ant.design.web3',
-        jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${YOUR_ZAN_API_KEY}`,
-      },
-    }),
-    new InjectedConnector({
-      chains,
-      options: {
-        name: 'Safeheron',
-        getProvider: () => (window as any).safeheron,
       },
     }),
     new InjectedConnector({
@@ -50,13 +33,45 @@ const config = createConfig({
         getProvider: () => (window as any).tokenpocket?.ethereum,
       },
     }),
+    new InjectedConnector({
+      chains,
+      options: {
+        name: 'TestWallet',
+        getProvider: () => (window as any).testWallet,
+      },
+    }),
   ],
 });
 
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
-      assets={[WalletConnect, TokenPocket, CoinbaseWallet, SafeheronWallet]}
+      assets={[
+        new UniversalWallet({
+          ...metadata_TokenPocket,
+          group: 'Popular',
+        }),
+        {
+          name: 'TestWallet',
+          create: () => {
+            return {
+              name: 'TestWallet',
+              remark: 'My TestWallet',
+              icon: <EthereumCircleColorful />,
+              hasWalletReady: async () => {
+                return !!(window as any).testWallet;
+              },
+              hasExtensionInstalled: async () => {
+                return !!(window as any).testWallet;
+              },
+            };
+          },
+        },
+        new UniversalWallet({
+          ...metadata_MetaMask,
+          group: 'More',
+        }),
+      ]}
       config={config}
     >
       <Connector>
