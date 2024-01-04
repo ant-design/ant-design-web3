@@ -23,6 +23,8 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 
 ## 使用 TokenPocket
 
+Ant Design Web3 内置了对 [TokenPocket](https://www.tokenpocket.pro/) 的支持，通过 wagmi 的 `InjectedConnector` 和 `WalletConnectConnector` 同时支持通过浏览器插件和手机 APP 扫码连接。
+
 <code src="./demos/token-pocket"></code>
 
 ## 自定义钱包信息
@@ -81,3 +83,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 | create | 创建钱包的方法 | `(connector: Connector) => Promise<Wallet>` | -      | -    |
 
 > 上面的 ` Connector` 是指 wagmi 中的 `Connector`，`Wallet` 则是 [Wallet](./types#wallet)。
+
+### UniversalWallet
+
+用于自己定钱包的类，它满足 WalletFactory 的接口要求。具体使用可以参考[自定义钱包信息](#自定义钱包信息)的示例。

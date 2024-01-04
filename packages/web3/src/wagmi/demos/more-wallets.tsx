@@ -43,6 +43,13 @@ const config = createConfig({
         getProvider: () => (window as any).safeheron,
       },
     }),
+    new InjectedConnector({
+      chains,
+      options: {
+        name: 'TokenPocket',
+        getProvider: () => (window as any).tokenpocket?.ethereum,
+      },
+    }),
   ],
 });
 

@@ -23,6 +23,16 @@ We have built-in wallets with `group` as `Popular`. For other wallets, you need 
 
 <code src="./demos/more-wallets.tsx"></code>
 
+## Use TokenPocket
+
+Ant Design Web3 has built-in support for [TokenPocket](https://www.tokenpocket.pro/), which supports connecting through browser plug-ins and mobile APP scanning at the same time through the `InjectedConnector` and `WalletConnectConnector` of wagmi.
+
+<code src="./demos/token-pocket"></code>
+
+## Customize wallet information
+
+<code src="./demos/custom-wallet"></code>
+
 ## Support switch chains
 
 We have built-in `Mainnet` and `Goerli`, and the remaining chains need to configure `assets` to import related resources to support. The import method is similar to the wallet.
@@ -75,3 +85,7 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 | create | Method for creating a wallet | `(connector: Connector) => Promise<Wallet>` | - | - |
 
 > The above `Connector` refers to the `Connector` in wagmi, and `Wallet` is [Wallet](./types#wallet).
+
+### UniversalWallet
+
+A Class for creating your own wallet, it meets the interface requirements of WalletFactory. For specific use, please refer to the example in [Customize Wallet Information](#customize-wallet-information).
