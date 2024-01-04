@@ -1,5 +1,7 @@
 import { TokenPocket } from '@ant-design/web3-wagmi';
 import { describe, expect, it } from 'vitest';
+import { s } from 'vitest/dist/reporters-O4LBziQ_';
+import { Connector } from 'wagmi';
 import { InjectedConnector } from 'wagmi/connectors/injected';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 
@@ -30,6 +32,65 @@ describe('UniversalWallet', async () => {
     expect(wallet.getQrCode).toBeTruthy();
     expect(await wallet.hasExtensionInstalled?.()).toBeFalsy();
     expect(wallet.getWagmiConnector?.()?.name).toEqual('WalletConnect');
+  });
+
+  it('without getQrCode', async () => {
+    const factory = new UniversalWallet({
+      name: 'TestWallet',
+      remark: 'TestWallet remark',
+      app: {
+        link: 'https://app.download',
+      },
+    });
+    const wallet = factory.create([
+      {
+        name: 'WalletConnect',
+        getProvider: async () => {
+          return {
+            on: (type: string, handler: any) => {
+              if (type === 'display_uri') {
+                setTimeout(() => {
+                  handler('https://qr.com');
+                }, 10);
+              }
+            },
+          };
+        },
+      } as Connector,
+    ]);
+    expect(wallet.getQrCode).toBeUndefined();
+  });
+
+  it('getQrCode', async () => {
+    const factory = new UniversalWallet({
+      name: 'TestWallet',
+      remark: 'TestWallet remark',
+      app: {
+        link: 'https://app.download',
+      },
+    });
+    const wallet = factory.create([
+      {
+        name: 'WalletConnect',
+        options: {
+          showQrModal: false,
+        },
+        getProvider: async () => {
+          return {
+            on: (type: string, handler: any) => {
+              if (type === 'display_uri') {
+                setTimeout(() => {
+                  handler('https://qr.com');
+                }, 10);
+              }
+            },
+          };
+        },
+      } as Connector,
+    ]);
+    expect(await wallet.getQrCode?.()).toEqual({
+      uri: 'https://qr.com',
+    });
   });
 
   it('only has extension, without install', async () => {

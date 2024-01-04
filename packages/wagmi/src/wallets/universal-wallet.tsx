@@ -33,7 +33,7 @@ export class UniversalWallet implements WalletFactory {
     };
 
     const hasExtensionInstalled = () => {
-      const provider = injectedConnector?.options.getProvider();
+      const provider = injectedConnector?.options?.getProvider();
       return !!provider;
     };
 
@@ -51,7 +51,7 @@ export class UniversalWallet implements WalletFactory {
       hasWalletReady: async () => {
         return !!(hasExtensionInstalled() || walletConnector);
       },
-      getQrCode: walletConnector?.options.showQrModal === false ? getQrCode : undefined,
+      getQrCode: walletConnector?.options?.showQrModal === false ? getQrCode : undefined,
     };
   };
 }
