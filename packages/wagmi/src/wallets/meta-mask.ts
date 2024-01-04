@@ -11,6 +11,9 @@ export const MetaMask: WalletFactory = {
       hasWalletReady: async () => {
         return !!window.ethereum?.isMetaMask;
       },
+      hasExtensionInstalled: async () => {
+        return !!window.ethereum?.isMetaMask;
+      },
     };
   },
 };

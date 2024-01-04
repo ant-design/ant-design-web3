@@ -18,7 +18,7 @@ import {
   type Connector as WagmiConnector,
 } from 'wagmi';
 
-import type { WalletFactory } from '../interface';
+import type { WalletFactory, WalletUseInWagmiAdapter } from '../interface';
 import { addNameToAccount, getNFTMetadata } from './methods';
 
 export interface AntDesignWeb3ConfigProviderProps {
@@ -65,7 +65,9 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
 
     availableConnectors.forEach((connector) => {
       // check use assets config and console.error for alert
-      const walletFactory = walletFactorys?.find((item) => item.name === connector.name);
+      const walletFactory = walletFactorys?.find(
+        (item) => item.name === connector.name || item.name?.includes(connector.name),
+      );
       if (!walletFactory?.create) {
         console.error(
           `Can not find wallet factory for ${connector.name}, you should config it in WagmiWeb3ConfigProvider 'assets'.`,
@@ -74,19 +76,27 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     });
 
     // Generate Wallet for @ant-design/web3
-    const allWallet = walletFactorys?.map((factory) => {
-      let connector: WagmiConnector | WagmiConnector[] | undefined;
-      if (typeof factory.name === 'string') {
-        // this wallet factory only for one connector
-        connector = availableConnectors.find((item) => item.name === factory.name);
-      } else {
-        // for multiple connectors
-        connector = factory.name
-          .map((name) => availableConnectors.find((item) => item.name === name))
-          .filter((item) => item !== undefined) as WagmiConnector[];
-      }
-      return factory.create(connector);
-    });
+    const allWallet = walletFactorys
+      ?.map((factory) => {
+        let connector: WagmiConnector | WagmiConnector[] | undefined;
+        if (typeof factory.name === 'string') {
+          // this wallet factory only for one connector
+          connector = availableConnectors.find((item) => item.name === factory.name);
+        } else {
+          // for multiple connectors
+          connector = factory.name
+            .map((name) => availableConnectors.find((item) => item.name === name))
+            .filter((item) => item !== undefined) as WagmiConnector[];
+        }
+        if (!connector || (Array.isArray(connector) && connector.length === 0)) {
+          // Not config connector for this wallet factory, ignore it.
+          return null;
+        }
+        return factory.create(connector);
+      })
+      .filter((item) => item !== null) as Wallet[];
+
+    console.log('walletFactorys', walletFactorys, 'allWallet', allWallet);
 
     return allWallet;
   }, [availableConnectors, assets]);
@@ -151,7 +161,10 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       }
       availableWallets={wallets}
       connect={async (wallet) => {
-        const connector = availableConnectors.find((item) => item.name === wallet?.name);
+        let connector = (wallet as WalletUseInWagmiAdapter)?.getWagmiConnector?.();
+        if (!connector) {
+          connector = availableConnectors.find((item) => item.name === wallet?.name);
+        }
         await connectAsync({
           connector,
           chainId: currentChain?.id,

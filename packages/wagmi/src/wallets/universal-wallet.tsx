@@ -1,7 +1,7 @@
-import type { Wallet, WalletMetadata } from '@ant-design/web3-common';
+import type { WalletMetadata } from '@ant-design/web3-common';
 import type { Connector } from 'wagmi';
 
-import type { WalletFactory } from '../interface';
+import type { WalletFactory, WalletUseInWagmiAdapter } from '../interface';
 
 export class UniversalWallet implements WalletFactory {
   name: string[] = [];
@@ -16,9 +16,11 @@ export class UniversalWallet implements WalletFactory {
       this.name.push('WalletConnect');
     }
   }
-  create = (connector?: Connector | Connector[]): Wallet => {
+  create = (connector?: Connector | Connector[]): WalletUseInWagmiAdapter => {
     const connectors = connector as Connector[];
     const walletConnector = connectors.find((item) => item.name === 'WalletConnect');
+    const injectedConnector = connectors.find((item) => item.name === this.wallet.name);
+
     const getQrCode = async () => {
       const provider = await walletConnector?.getProvider();
       return new Promise<{ uri: string }>((resolve) => {
@@ -29,12 +31,25 @@ export class UniversalWallet implements WalletFactory {
         });
       });
     };
+
+    const hasExtensionInstalled = () => {
+      const provider = injectedConnector?.options.getProvider();
+      return !!provider;
+    };
+
     return {
       ...this.wallet,
+      getWagmiConnector: () => {
+        if (hasExtensionInstalled()) {
+          return injectedConnector;
+        }
+        return walletConnector;
+      },
+      hasExtensionInstalled: async () => {
+        return hasExtensionInstalled();
+      },
       hasWalletReady: async () => {
-        const injectedConnector = connectors.find((item) => item.name === this.wallet.name);
-        const ready = await injectedConnector?.getProvider();
-        return !!ready;
+        return !!(hasExtensionInstalled() || walletConnector);
       },
       getQrCode: walletConnector?.options.showQrModal === false ? getQrCode : undefined,
     };

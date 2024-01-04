@@ -53,11 +53,23 @@ export function WagmiWeb3ConfigProvider<
     return chains;
   }, [config]);
 
+  const assetsWithDefault = [...assets, Mainnet, Goerli];
+  if (
+    !assets.find((item) => {
+      return (
+        item.name === 'MetaMask' || (Array.isArray(item.name) && item.name.includes('MetaMask'))
+      );
+    })
+  ) {
+    // If user not set MetaMask, we will add it to the first
+    assetsWithDefault.unshift(MetaMask);
+  }
+
   return (
     <WagmiConfig config={config} {...restProps}>
       <AntDesignWeb3ConfigProvider
         locale={locale}
-        assets={[...assets, MetaMask, Mainnet, Goerli]}
+        assets={assetsWithDefault}
         availableChains={availableChains}
         availableConnectors={config.connectors || []}
         ens={ens}

@@ -21,6 +21,14 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 
 <code src="./demos/more-wallets.tsx"></code>
 
+## 使用 TokenPocket
+
+<code src="./demos/token-pocket"></code>
+
+## 自定义钱包信息
+
+<code src="./demos/custom-wallet"></code>
+
 ## 支持切换链
 
 我们内置了 `Mainnet` 和 `Goerli`，其余的链需要配置 `assets`，引入相关资源才可支持。引入方式和钱包类似。

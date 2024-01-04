@@ -12,6 +12,9 @@ export const SafeheronWallet: WalletFactory = {
       hasWalletReady: async () => {
         return !!(connector as Connector)?.ready;
       },
+      hasExtensionInstalled: async () => {
+        return !!(connector as Connector)?.ready;
+      },
     };
   },
 };
