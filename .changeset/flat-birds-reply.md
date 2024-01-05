@@ -1,5 +1,5 @@
 ---
-'@ant-design/web3': path
+'@ant-design/web3': patch
 ---
 
 perf: Remove redundant code
