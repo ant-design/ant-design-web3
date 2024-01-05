@@ -1,5 +1,30 @@
 # @ant-design/web3
 
+## 1.2.0
+
+### Minor Changes
+
+- e5db9b7: feat: Add UniversalWallet for support TokenPocket and more wallets
+- 18def13: intl: Address support intl
+- 7778597: feat: Copy address to try a more internationalized interaction.
+
+### Patch Changes
+
+- 2e3af3f: perf: Remove redundant code
+- 2e3af3f: perf: Delete variables that are not used in the array structure
+- b575468: fix: remove no-unused-vars
+- 17ca201: perf: Modify import type
+- Updated dependencies [e5db9b7]
+- Updated dependencies [8bba386]
+- Updated dependencies [18def13]
+- Updated dependencies [dc083a3]
+- Updated dependencies [64a2de3]
+- Updated dependencies [c549a09]
+- Updated dependencies [17ca201]
+  - @ant-design/web3-common@1.2.0
+  - @ant-design/web3-icons@1.2.0
+  - @ant-design/web3-assets@1.1.3
+
 ## 1.1.2
 
 ### Patch Changes

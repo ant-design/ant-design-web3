@@ -1,5 +1,20 @@
 # @ant-design/web3-wagmi
 
+## 1.2.0
+
+### Minor Changes
+
+- e5db9b7: feat: Add UniversalWallet for support TokenPocket and more wallets
+
+### Patch Changes
+
+- 17ca201: perf: Modify import type
+- Updated dependencies [e5db9b7]
+- Updated dependencies [18def13]
+- Updated dependencies [17ca201]
+  - @ant-design/web3-common@1.2.0
+  - @ant-design/web3-assets@1.1.3
+
 ## 1.1.2
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @ant-design/web3-common
 
+## 1.2.0
+
+### Minor Changes
+
+- e5db9b7: feat: Add UniversalWallet for support TokenPocket and more wallets
+- 18def13: intl: Address support intl
+
 ## 1.1.2
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @ant-design/web3-assets
 
+## 1.1.3
+
+### Patch Changes
+
+- 17ca201: perf: Modify import type
+- Updated dependencies [e5db9b7]
+- Updated dependencies [8bba386]
+- Updated dependencies [18def13]
+- Updated dependencies [dc083a3]
+- Updated dependencies [64a2de3]
+- Updated dependencies [c549a09]
+  - @ant-design/web3-common@1.2.0
+  - @ant-design/web3-icons@1.2.0
+
 ## 1.1.2
 
 ### Patch Changes
