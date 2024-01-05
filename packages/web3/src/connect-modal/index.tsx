@@ -13,6 +13,7 @@ export * from './interface';
 export const ConnectModal: React.FC<ConnectModalProps> & {
   ModalPanel: typeof ModalPanel;
 } = (props) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, unused-imports/no-unused-vars
   const { title, open, footer, onWalletSelected, className, mode, ...restProps } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 

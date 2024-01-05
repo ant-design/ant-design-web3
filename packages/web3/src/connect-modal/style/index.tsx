@@ -31,7 +31,6 @@ export interface ConnectModalToken extends Web3AliasToken {
 
 const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
   const { web3ComponentsCls: componentCls } = token;
-  const isDark = isDarkTheme(token);
   return [
     {
       [`${componentCls}`]: {
