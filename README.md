@@ -59,9 +59,11 @@ export default () => {
 
 ## Development
 
-```shell
-pnpm i
-pnpm dev
+```bash
+$ git clone git@github.com:ant-design/ant-design-web3.git
+$ cd ant-design-web3
+$ pnpm i
+$ pnpm start
 ```
 
 ## Contributing

@@ -8,6 +8,7 @@
   "packageManager": "pnpm@8.9.0",
   "files": [],
   "scripts": {
+    "start": "dumi dev",
     "dev": "dumi dev",
     "dev:lib": "pnpm run --parallel --if-present --recursive --filter \"@ant-design/*\" dev",
     "build": "pnpm run --if-present --recursive build",
