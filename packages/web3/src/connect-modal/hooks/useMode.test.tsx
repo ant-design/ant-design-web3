@@ -75,7 +75,7 @@ describe('useMode', () => {
       md: true,
     });
     const App = () => {
-      const { isSimple, md } = useMode('auto');
+      const { isSimple } = useMode('auto');
       return <div>{'' + isSimple}</div>;
     };
     const { baseElement } = render(<App />);
@@ -101,7 +101,7 @@ describe('useMode', () => {
       md: true,
     });
     const App = () => {
-      const { isSimple, md } = useMode();
+      const { isSimple } = useMode();
       return <div>{'' + isSimple}</div>;
     };
     const { baseElement } = render(<App />);

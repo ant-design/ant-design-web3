@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from 'react';
-import { List, message } from 'antd';
+import { List } from 'antd';
 import classNames from 'classnames';
 
 import { connectModalContext } from '../context';
@@ -29,11 +29,8 @@ const WalletList: React.FC<WalletListProps> = (props) => {
     [dataSource, groupOrder],
   );
 
-  const [messageApi, contextHolder] = message.useMessage();
-
   return (
     <div className={`${prefixCls}-wallet-list`}>
-      {contextHolder}
       {groupKeys.map((group) => (
         <div className={`${prefixCls}-group`} key={group}>
           <div className={`${prefixCls}-group-title`}>{group}</div>
