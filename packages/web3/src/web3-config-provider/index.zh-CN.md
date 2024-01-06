@@ -17,7 +17,7 @@ group:
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| locale | i18n locale | [Locale](/components/types#locale) | - |  |
+| locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/b3b5e19be68fd67c24f20341365fad188ed499d5/packages/common/src/types.ts#L212) | - |  |
 | account | 当前连接的账户地址 | [Account](/components/types#account) | - |  |
 | chain | 当前连接的链 | [Chain](/components/types#chain) | - |  |
 | balance | 当前连接的账户余额 | [Balance](/components/connect-button#balance-1) | - |  |

@@ -17,7 +17,7 @@ Provide global configuration and states for components.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| locale | i18n locale | [Locale](https://github.com/ant-design/ant-design-web3/blob/b3b5e19be68fd67c24f20341365fad188ed499d5/packages/common/src/types.ts#L212) | - |  |
+| locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/b3b5e19be68fd67c24f20341365fad188ed499d5/packages/common/src/types.ts#L212) | - |  |
 | account | Account | [Account](/components/types#account) | - |  |
 | chain | Chain | [Chain](/components/types#chain) | - |  |
 | balance | Balance | [Balance](/components/connect-button#balance-1) | - |  |
