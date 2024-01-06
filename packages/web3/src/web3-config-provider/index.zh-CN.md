@@ -23,7 +23,7 @@ group:
 | balance | 当前连接的账户余额 | [Balance](/components/connect-button#balance-1) | - |  |
 | availableWallets | 可用钱包列表 | [Wallet](/components/types#wallet)\[] | - |  |
 | availableChains | 可用链列表 | [Chain](/components/types#chain)\[] | - |  |
-| connect | 连接链 | `(chainId: ChainIds) => Promise<void>` | - |  |
+| connect | 连接链 | `(wallet?: Wallet) => Promise<void>` | - |  |
 | disconnect | 断开连接 | `() => Promise<void>` | - |  |
 | switchChain | 切换链 | `(chain: Chain) => Promise<void>` | - |  |
 | getNFTMetadata | 获取 NFT 元数据 | `(params: { address: string; tokenId: bigint }) => Promise<NFTMetadata>;` | - |  |
