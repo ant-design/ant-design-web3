@@ -1,9 +1,7 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
-
-import { SolanaWeb3ConfigProvider, Solana } from '@ant-design/web3-solana';
-
-import { CoinbaseWalletAdapter, PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
+import { Solana, SolanaWeb3ConfigProvider } from '@ant-design/web3-solana';
 import { CoinbaseWallet } from '@ant-design/web3-wagmi';
+import { CoinbaseWalletAdapter, PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 
 const App: React.FC = () => {
   return (
