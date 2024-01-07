@@ -1,13 +1,13 @@
 import type { ReactNode } from 'react';
 import React, { isValidElement, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
-import type { Locale } from '@ant-design/web3-common';
+import { ConfigContext, type Locale } from '@ant-design/web3-common';
 import type { TooltipProps } from 'antd';
 import { ConfigProvider, Space, Tooltip } from 'antd';
 import classNames from 'classnames';
 
 import useIntl from '../hooks/useIntl';
-import { fillWith0x, formatAddress, writeCopyText } from '../utils';
+import { fillWithPrefix, formatAddress, writeCopyText } from '../utils';
 import { useStyle } from './style';
 
 export interface AddressProps {
@@ -26,7 +26,7 @@ export interface AddressProps {
 }
 
 export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) => {
-  const { ellipsis, address, copyable, tooltip = true, format = false, children, locale } = props;
+  const { ellipsis, addressPrefix: prefix = '0x', address, copyable, tooltip = true, format = false, children, locale } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const { addressPrefix } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('web3-address');

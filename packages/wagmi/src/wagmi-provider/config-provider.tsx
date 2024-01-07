@@ -1,12 +1,10 @@
 import React from 'react';
 import {
+  ChainIdToken,
   fillAddressWith0x,
   Web3ConfigProvider,
   type Account,
-  type Wallet,
   type Chain,
-  Web3ConfigProvider,
-  fillAddressWith0x,
   type Locale,
   type Wallet,
 } from '@ant-design/web3-common';
