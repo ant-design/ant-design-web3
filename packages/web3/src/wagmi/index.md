@@ -43,7 +43,7 @@ We have built-in `Mainnet` and `Goerli`, and the remaining chains need to config
 
 <code src="./demos/name.tsx"></code>
 
-## Display balance
+## Display Balance
 
 <code src="./demos/balance.tsx"></code>
 

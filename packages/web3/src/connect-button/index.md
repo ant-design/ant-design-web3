@@ -46,7 +46,7 @@ The button to connect to the blockchain wallet. Usually, you need to use it with
 
 <code src="./demos/icon.tsx"></code>
 
-## Balance
+## Display Balance
 
 <code src="./demos/balance.tsx"></code>
 
