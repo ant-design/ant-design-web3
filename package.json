@@ -52,6 +52,7 @@
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
+    "@ant-design/web3-solana": "workspace:*",
     "@biomejs/biome": "^1.4.1",
     "@changesets/changelog-git": "^0.2.0",
     "@changesets/cli": "^2.27.1",

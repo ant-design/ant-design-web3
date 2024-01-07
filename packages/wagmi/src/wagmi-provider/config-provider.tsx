@@ -3,7 +3,10 @@ import {
   fillAddressWith0x,
   Web3ConfigProvider,
   type Account,
+  type Wallet,
   type Chain,
+  Web3ConfigProvider,
+  fillAddressWith0x,
   type Locale,
   type Wallet,
 } from '@ant-design/web3-common';
@@ -146,7 +149,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         });
         if (c?.id) {
           return {
-            id: c.id,
+            id: c.id.value,
             name: c.name,
             icon: c.icon,
           };
@@ -172,7 +175,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     let c = chainAssets?.find((item) => (item as Chain).id === currentWagmiChain?.id) as Chain;
     if (!c?.id) {
       c = {
-        id: currentWagmiChain.id,
+        id: ChainIdToken.fromValue(currentWagmiChain.id),
         name: currentWagmiChain.name,
       };
     }
@@ -197,6 +200,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           : undefined
       }
       availableWallets={wallets}
+      addressPrefix="0x"
+      price={{ symbol: 'ETH', decimals: 18 }}
       connect={async (wallet) => {
         let connector = await (wallet as WalletUseInWagmiAdapter)?.getWagmiConnector?.();
         if (!connector && wallet) {
@@ -207,7 +212,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         }
         await connectAsync({
           connector,
-          chainId: currentChain?.id,
+          chainId: currentChain?.id.value,
         });
       }}
       disconnect={async () => {

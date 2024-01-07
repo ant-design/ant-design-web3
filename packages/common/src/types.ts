@@ -3,6 +3,26 @@ export interface Account {
   name?: string;
 }
 
+export class ChainIdToken<T = any> {
+  readonly value: T;
+
+  /** unique key */
+  readonly __key: string;
+
+  private constructor(key: string, value?: T) {
+    this.__key = key;
+    this.value = value ?? (this as any as T);
+  }
+
+  static fromValue<T = any>(value: T) {
+    return new ChainIdToken(String(value), value);
+  }
+
+  static fromKey(key: string) {
+    return new ChainIdToken(key);
+  }
+}
+
 export enum ChainIds {
   Mainnet = 1,
   Polygon = 137,
@@ -22,7 +42,7 @@ export type BalanceMetadata = {
 };
 
 export interface Chain {
-  id: ChainIds | number;
+  id: ChainIdToken;
   name: string;
   icon?: React.ReactNode;
   browser?: {
@@ -61,8 +81,18 @@ export interface UniversalWeb3ProviderInterface {
 
   extendsContextFromParent?: boolean;
 
+  /** Such as `0x` */
+  addressPrefix?: string;
+
+  price?: {
+    symbol: string;
+    decimals: number;
+    fixed?: number;
+  };
+
   connect?: (wallet?: Wallet) => Promise<void>;
   disconnect?: () => Promise<void>;
+  switchWallet?: (wallet?: Wallet) => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;
 
   getNFTMetadata?: (params: { address: string; tokenId: bigint }) => Promise<NFTMetadata>;

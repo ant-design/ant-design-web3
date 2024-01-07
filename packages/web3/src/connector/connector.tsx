@@ -25,6 +25,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     chain,
     switchChain,
     balance,
+    switchWallet,
   } = useProvider(props);
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
@@ -81,6 +82,8 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         open={open}
         walletList={availableWallets}
         onWalletSelected={async (wallet) => {
+          await switchWallet?.(wallet);
+
           if (!wallet.getQrCode) {
             // not need show qr code, hide immediately
             setOpen(false);

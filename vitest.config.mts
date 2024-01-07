@@ -29,6 +29,7 @@ export default defineConfig({
       '@ant-design/web3-icons': resolve('./packages/icons/src/index'),
       '@ant-design/web3-assets': resolve('./packages/assets/src/index'),
       '@ant-design/web3-wagmi': resolve('./packages/wagmi/src/index'),
+      '@ant-design/web3-solana': resolve('./packages/solana/src/index'),
       '@ant-design/web3-common': resolve('./packages/common/src/index'),
     },
   },

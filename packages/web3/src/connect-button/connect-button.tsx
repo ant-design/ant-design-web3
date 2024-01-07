@@ -36,6 +36,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     balance,
     className,
     locale,
+    addressPrefix: prefix = '0x',
     ...restProps
   } = props;
   const intl = useIntl('ConnectButton', locale);
@@ -45,13 +46,15 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [messageApi, contextHolder] = message.useMessage();
   const [showMenu, setShowMenu] = useState(false);
+  const { addressPrefix } = useContext(ConfigContext);
+
   let buttonText: React.ReactNode = intl.getMessage(intl.messages.connect);
   if (account) {
     buttonText =
       account?.name && !balance ? (
         account?.name
       ) : (
-        <Address tooltip={false} ellipsis address={account.address}>
+        <Address tooltip={false} ellipsis address={account.address} addressPrefix={prefix}>
           {balance ? <CryptoPrice icon {...balance} /> : undefined}
         </Address>
       );
@@ -204,7 +207,10 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const mergedTooltipCopyable: ConnectButtonTooltipProps['copyable'] =
     typeof tooltip === 'object' ? tooltip.copyable !== false : !!tooltip;
 
-  let tooltipTitle: string = tooltip && account?.address ? fillWith0x(account?.address) : '';
+  let tooltipTitle: string =
+    tooltip && account?.address
+      ? fillWithPrefix(account?.address, prefix === false ? '' : prefix ?? addressPrefix)
+      : '';
   if (typeof tooltip === 'object' && typeof tooltip.title === 'string') {
     tooltipTitle = tooltip.title;
   }
