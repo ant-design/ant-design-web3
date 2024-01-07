@@ -1,11 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react';
-
-import type { Chain, Locale, Wallet, Account } from '@ant-design/web3-common';
+import type { Account, Chain, Locale, Wallet } from '@ant-design/web3-common';
 import { Web3ConfigProvider } from '@ant-design/web3-common';
+import { Metaplex, PublicKey } from '@metaplex-foundation/js';
 import type { WalletName } from '@solana/wallet-adapter-base';
 import { type Adapter } from '@solana/wallet-adapter-base';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { Metaplex, PublicKey } from '@metaplex-foundation/js';
 
 export interface AntDesignWeb3ConfigProviderProps extends React.PropsWithChildren {
   locale?: Locale;

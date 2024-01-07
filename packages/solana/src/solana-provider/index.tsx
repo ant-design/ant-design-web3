@@ -1,9 +1,8 @@
 import React from 'react';
-
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
-import { type ConnectionConfig } from '@solana/web3.js';
 import type { Chain, Locale } from '@ant-design/web3-common';
 import type { Adapter } from '@solana/wallet-adapter-base';
+import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
+import { type ConnectionConfig } from '@solana/web3.js';
 
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 
