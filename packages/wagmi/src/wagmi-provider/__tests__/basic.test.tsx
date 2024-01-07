@@ -1,4 +1,4 @@
-import { Connector, useProvider, type ConnectorTriggerProps } from '@ant-design/web3';
+import { ChainIdToken, Connector, useProvider, type ConnectorTriggerProps } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
 import { CoinbaseWallet, MetaMask, Polygon, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { fireEvent, render } from '@testing-library/react';
@@ -93,7 +93,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     const assets = [
       {
         name: 'TEST Chain show text',
-        id: base.id,
+        id: ChainIdToken.fromValue(base.id),
         icon: <div>icon</div>,
         nativeCurrency: {
           name: 'Base',
@@ -184,7 +184,7 @@ describe('WagmiWeb3ConfigProvider', () => {
         chains={[
           Polygon,
           {
-            id: base.id,
+            id: ChainIdToken.fromValue(base.id),
             name: 'Base',
           },
         ]}
