@@ -45,7 +45,8 @@
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "wagmi": "^1.4.12"
+    "wagmi": "^1.4.12",
+    "viem": "^1.21.4"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
