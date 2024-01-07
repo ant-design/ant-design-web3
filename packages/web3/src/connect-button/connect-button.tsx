@@ -1,5 +1,6 @@
 import React, { useContext, useMemo, useState } from 'react';
 import { CopyOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
+import { ConfigContext } from '@ant-design/web3-common';
 import type { ButtonProps } from 'antd';
 import { Avatar, Button, ConfigProvider, Divider, Dropdown, message, Space } from 'antd';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
@@ -8,7 +9,7 @@ import classNames from 'classnames';
 import { Address } from '../address';
 import { CryptoPrice } from '../crypto-price';
 import useIntl from '../hooks/useIntl';
-import { fillWith0x, writeCopyText } from '../utils';
+import { fillWithPrefix, writeCopyText } from '../utils';
 import { ChainSelect } from './chain-select';
 import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
 import { ProfileModal } from './profile-modal';
