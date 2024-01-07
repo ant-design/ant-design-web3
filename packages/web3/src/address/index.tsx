@@ -18,6 +18,7 @@ export interface AddressProps {
         tailClip?: number;
       };
   address?: string;
+  addressPrefix?: string | false;
   copyable?: boolean;
   tooltip?: boolean | TooltipProps['title'];
   format?: boolean | ((address: string) => ReactNode);
@@ -27,6 +28,7 @@ export interface AddressProps {
 export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) => {
   const { ellipsis, address, copyable, tooltip, format = false, children, locale } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { addressPrefix } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('web3-address');
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [copied, setCopied] = useState(false);
@@ -64,7 +66,7 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
     return null;
   }
 
-  const filledAddress = fillWith0x(address);
+  const filledAddress = fillWithPrefix(address, prefix === false ? '' : prefix ?? addressPrefix);
 
   const formattedAddress = mergedFormat(filledAddress);
   const displayTooltip = tooltip === undefined || tooltip === true ? filledAddress : tooltip;

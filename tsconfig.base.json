@@ -21,7 +21,7 @@
       "@ant-design/web3-icons": ["./packages/icons/src/index.ts"],
       "@ant-design/web3-assets": ["./packages/assets/src/index.ts"],
       "@ant-design/web3-wagmi": ["./packages/wagmi/src/index.ts"],
-      "@ant-design/web3-ethereum": ["./packages/ethereum/src/index.ts"]
+      "@ant-design/web3-solana": ["./packages/solana/src/index.ts"]
     }
   }
 }

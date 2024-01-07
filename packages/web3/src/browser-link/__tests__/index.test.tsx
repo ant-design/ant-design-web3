@@ -67,7 +67,7 @@ describe('BrowserLink', () => {
       render(
         <Web3ConfigProvider
           chain={{
-            id: ChainIds.Arbitrum,
+            id: ChainIdToken.fromValue(ChainIds.Arbitrum),
             name: 'Arbitrum',
           }}
         >
@@ -83,7 +83,7 @@ describe('BrowserLink', () => {
       render(
         <Web3ConfigProvider
           chain={{
-            id: ChainIds.Arbitrum,
+            id: ChainIdToken.fromValue(ChainIds.Arbitrum),
             name: 'Arbitrum',
           }}
         >
@@ -142,7 +142,7 @@ describe('BrowserLink', () => {
           iconStyle={{ fontSize: 40 }}
           type="transaction"
           chain={{
-            id: ChainIds.BSC,
+            id: ChainIdToken.fromValue(ChainIds.BSC),
             name: 'custom',
             icon: <BitcoinCircleColorful />,
             browser: {

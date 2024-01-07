@@ -7,11 +7,16 @@ import {
   EthereumFilled,
   EtherscanCircleColorful,
   OptimismCircleColorful,
+  BSCCircleColorful,
+  ArbitrumCircleColorful,
   PolygonCircleColorful,
+  EtherscanCircleColorful,
+  EthereumFilled,
+  AvalancheCircleColorful,
 } from '@ant-design/web3-icons';
 
 export const Mainnet: Chain = {
-  id: ChainIds.Mainnet,
+  id: ChainIdToken.fromValue(ChainIds.Mainnet),
   name: 'Ethereum',
   icon: <EthereumCircleColorful />,
   browser: {
@@ -22,7 +27,7 @@ export const Mainnet: Chain = {
 };
 
 export const Goerli: Chain = {
-  id: ChainIds.Goerli,
+  id: ChainIdToken.fromValue(ChainIds.Goerli),
   name: 'Goerli',
   icon: <EthereumCircleColorful />,
   browser: {
@@ -33,7 +38,7 @@ export const Goerli: Chain = {
 };
 
 export const Polygon: Chain = {
-  id: ChainIds.Polygon,
+  id: ChainIdToken.fromValue(ChainIds.Polygon),
   name: 'Polygon',
   icon: <PolygonCircleColorful />,
   browser: {
@@ -44,7 +49,7 @@ export const Polygon: Chain = {
 };
 
 export const BSC: Chain = {
-  id: ChainIds.BSC,
+  id: ChainIdToken.fromValue(ChainIds.BSC),
   name: 'BNB Smart Chain',
   icon: <BSCCircleColorful />,
   browser: {
@@ -55,7 +60,7 @@ export const BSC: Chain = {
 };
 
 export const Arbitrum: Chain = {
-  id: ChainIds.Arbitrum,
+  id: ChainIdToken.fromValue(ChainIds.Arbitrum),
   name: 'Arbitrum One',
   icon: <ArbitrumCircleColorful />,
   browser: {
@@ -66,7 +71,7 @@ export const Arbitrum: Chain = {
 };
 
 export const Optimism: Chain = {
-  id: ChainIds.Optimism,
+  id: ChainIdToken.fromValue(ChainIds.Optimism),
   name: 'OP Mainnet',
   icon: <OptimismCircleColorful />,
   browser: {
@@ -77,7 +82,7 @@ export const Optimism: Chain = {
 };
 
 export const Avalanche: Chain = {
-  id: ChainIds.Avalanche,
+  id: ChainIdToken.fromValue(ChainIds.Avalanche),
   name: 'Avalanche',
   icon: <AvalancheCircleColorful />,
   browser: {
@@ -85,4 +90,15 @@ export const Avalanche: Chain = {
     getBrowserLink: createGetBrowserLink('https://snowtrace.io'),
   },
   nativeCurrency: { name: 'Avalanche', symbol: 'AVAX', decimals: 18 },
+};
+
+export const Solana: Chain = {
+  id: ChainIdToken.fromKey('solana'),
+  name: 'Solana',
+  icon: <SolanaColorful />,
+  browser: {
+    icon: <SolanaColorful />,
+    getBrowserLink: createGetBrowserLink('https://explorer.solana.com'),
+  },
+  nativeCurrency: { name: 'Solana', symbol: 'SOL', decimals: 9 },
 };
