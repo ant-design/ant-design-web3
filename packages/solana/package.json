@@ -43,13 +43,11 @@
     "@types/debug": "^4.1.12",
     "father": "^4.3.8",
     "typescript": "^5.3.3",
-    "@solana/wallet-adapter-base": "^0.9.23",
-    "@solana/wallet-adapter-wallets": "^0.19.24",
-    "@metaplex-foundation/mpl-token-metadata": "^3.1.2"
+    "@solana/wallet-adapter-base": "^0.9.23"
   },
   "peerDependencies": {
     "@solana/wallet-adapter-react": "^0.15.35",
-    "@solana/web3.js": "^1.87.6",
+    "@solana/wallet-adapter-wallets": "^0.19.24",
     "@metaplex-foundation/js": "^0.20.1"
   },
   "publishConfig": {
