@@ -1,4 +1,4 @@
-import React from 'react';
+import { type FC, type PropsWithChildren } from 'react';
 import type { Chain, Locale } from '@ant-design/web3-common';
 import type { Adapter } from '@solana/wallet-adapter-base';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
@@ -6,7 +6,7 @@ import { type ConnectionConfig } from '@solana/web3.js';
 
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 
-export interface SolanaWeb3ConfigProviderProps extends React.PropsWithChildren {
+export interface SolanaWeb3ConfigProviderProps {
   locale?: Locale;
   assets?: Chain[];
   balance?: boolean;
@@ -22,7 +22,9 @@ export interface SolanaWeb3ConfigProviderProps extends React.PropsWithChildren {
   //#endregion
 }
 
-export const SolanaWeb3ConfigProvider: React.FC<SolanaWeb3ConfigProviderProps> = (props) => {
+export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProviderProps>> = (
+  props,
+) => {
   return (
     <ConnectionProvider endpoint={props.connectionEndpoint} config={props.connectionConfig}>
       <WalletProvider wallets={props.wallets || []} autoConnect={props.autoConnect}>
