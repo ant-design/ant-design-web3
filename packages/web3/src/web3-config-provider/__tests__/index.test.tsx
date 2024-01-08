@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
+  ConfigContext,
   ConnectButton,
   useAccount,
   useNFT,
@@ -151,5 +152,67 @@ describe('web3-config-provider', () => {
 
     const { baseElement } = render(<App />);
     expect(baseElement).toMatchSnapshot();
+  });
+  it('extendable', () => {
+    const Child: React.FC = () => {
+      const { account, balance } = useContext(ConfigContext);
+      return (
+        <>
+          <div id="account-name">{account?.name}</div>
+          <div id="balance">{balance?.value?.toString()}</div>
+        </>
+      );
+    };
+
+    const App: React.FC = () => {
+      return (
+        <Web3ConfigProvider
+          account={{
+            name: 'testAccount',
+            address: '0x123456789',
+          }}
+          balance={{ value: 200n }}
+        >
+          <Web3ConfigProvider balance={{ value: 100n }}>
+            <Child />
+          </Web3ConfigProvider>
+        </Web3ConfigProvider>
+      );
+    };
+
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('#account-name')?.textContent).toBe('testAccount');
+    expect(baseElement.querySelector('#balance')?.textContent).toBe('100');
+  });
+  it('should not extend from parent', () => {
+    const Child: React.FC = () => {
+      const { account, balance } = useContext(ConfigContext);
+      return (
+        <>
+          <div id="account-name">{account?.name}</div>
+          <div id="balance">{balance?.value?.toString()}</div>
+        </>
+      );
+    };
+
+    const App: React.FC = () => {
+      return (
+        <Web3ConfigProvider
+          account={{
+            name: 'testAccount',
+            address: '0x123456789',
+          }}
+          balance={{ value: 200n }}
+        >
+          <Web3ConfigProvider extendsContextFromParent={false} balance={{ value: 100n }}>
+            <Child />
+          </Web3ConfigProvider>
+        </Web3ConfigProvider>
+      );
+    };
+
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('#account-name')?.textContent).toBeFalsy();
+    expect(baseElement.querySelector('#balance')?.textContent).toBe('100');
   });
 });
