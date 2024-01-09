@@ -23,6 +23,7 @@ group:
 | balance | 当前连接的账户余额 | [Balance](/components/connect-button#balance-1) | - |  |
 | availableWallets | 可用钱包列表 | [Wallet](/components/types#wallet)\[] | - |  |
 | availableChains | 可用链列表 | [Chain](/components/types#chain)\[] | - |  |
+| extendsContextFromParent | 继承父级 `Provider` 的值 | `boolean` | `true` |  |
 | connect | 连接链 | `(wallet?: Wallet) => Promise<void>` | - |  |
 | disconnect | 断开连接 | `() => Promise<void>` | - |  |
 | switchChain | 切换链 | `(chain: Chain) => Promise<void>` | - |  |

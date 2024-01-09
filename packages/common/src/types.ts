@@ -59,6 +59,8 @@ export interface UniversalWeb3ProviderInterface {
   availableWallets?: Wallet[];
   availableChains?: Chain[];
 
+  extendsContextFromParent?: boolean;
+
   connect?: (wallet?: Wallet) => Promise<void>;
   disconnect?: () => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;
