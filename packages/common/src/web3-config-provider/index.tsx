@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { merge } from 'lodash';
 
 import defaultLocale from '../locale/default';
 import { ConfigContext, type ConfigConsumerProps, type Web3ConfigProviderProps } from './context';
@@ -8,7 +9,7 @@ const ProviderChildren: React.FC<
 > = (props) => {
   const { children, parentContext, ...rest } = props;
 
-  const config = { ...(parentContext ?? {}) };
+  const config = { ...parentContext };
 
   Object.keys(rest).forEach((key) => {
     const typedKey = key as keyof typeof rest;
@@ -16,6 +17,15 @@ const ProviderChildren: React.FC<
       (config as any)[typedKey] = rest[typedKey];
     }
   });
+
+  const mergeLocale = useMemo(() => {
+    if (parentContext?.locale && rest.locale) {
+      return merge(parentContext.locale, rest.locale);
+    }
+    return undefined;
+  }, [parentContext?.locale, rest.locale]);
+
+  config.locale = mergeLocale ?? config.locale;
 
   return (
     <ConfigContext.Provider value={config as ConfigConsumerProps}>
