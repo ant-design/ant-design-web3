@@ -1,77 +1,15 @@
-import EventEmitter from 'events';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useProvider } from '@ant-design/web3';
-import { Mainnet } from '@ant-design/web3-assets';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import { mainnet } from 'wagmi/chains';
 
-import { ConnectButton } from '..';
-import { AntDesignWeb3ConfigProvider } from '../../../../wagmi/src/wagmi-provider/config-provider';
-import { MetaMask } from '../../../../wagmi/src/wallets';
-
-const mockConnector = {
-  name: 'MetaMask',
-};
-
-const event = new EventEmitter();
-
-const connectAsync = vi.fn();
-const disconnectAsync = vi.fn();
-
-vi.mock('wagmi', () => {
-  return {
-    // https://wagmi.sh/react/hooks/useAccount
-    useAccount: () => {
-      const [connected, setConnected] = React.useState(false);
-      useEffect(() => {
-        event.on('connectChanged', (c) => {
-          setConnected(c);
-        });
-      }, []);
-      return {
-        address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
-        isDisconnected: !connected,
-        connector: mockConnector,
-      };
-    },
-    useConnect: () => {
-      return {
-        connectors: [mockConnector],
-        connectAsync: () => {
-          connectAsync();
-          event.emit('connectChanged', true);
-        },
-      };
-    },
-    useDisconnect: () => {
-      return {
-        disconnectAsync: () => {
-          disconnectAsync();
-          event.emit('connectChanged', false);
-        },
-      };
-    },
-    useNetwork: () => {
-      return {
-        chain: mainnet,
-      };
-    },
-    useSwitchNetwork: () => {
-      return {
-        switchNetwork: () => {},
-      };
-    },
-    useBalance: () => {
-      return {};
-    },
-  };
-});
+import { ConnectButton, Web3ConfigProvider, type Account } from '../../../../web3/src';
 
 describe('ConnectButton connect', async () => {
   it('connect', async () => {
     const CustomConnector = () => {
       const { connect, account, disconnect } = useProvider();
+
       return (
         <ConnectButton
           className="custom-btn"
@@ -90,32 +28,66 @@ describe('ConnectButton connect', async () => {
       );
     };
 
-    const App = () => (
-      <AntDesignWeb3ConfigProvider
-        availableChains={[mainnet]}
-        availableConnectors={[]}
-        assets={[Mainnet, MetaMask]}
-      >
-        <CustomConnector />
-      </AntDesignWeb3ConfigProvider>
-    );
+    const App = () => {
+      const [account, setAccount] = React.useState<Account | undefined>();
+      return (
+        <Web3ConfigProvider
+          availableWallets={[
+            {
+              name: 'MetaMask',
+              remark: 'Easy-to-use browser extension.',
+              extensions: [
+                {
+                  key: 'Chrome',
+                  browserIcon:
+                    'https://github.com/ant-design/ant-design/assets/10286961/0d4e4ac7-8f89-4147-a06a-de72c02e85cb',
+                  browserName: 'Chrome',
+                  link: 'https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn',
+                  description: 'Access your wallet right from your favorite web browser.',
+                },
+              ],
+            },
+          ]}
+          connect={async () => {
+            const newAccount = {
+              address: '0x1234567890123456789012345678901234567890',
+            };
+            setAccount(newAccount);
+          }}
+          disconnect={async () => {
+            setAccount(undefined);
+          }}
+          account={account}
+        >
+          <CustomConnector />
+        </Web3ConfigProvider>
+      );
+    };
     const { baseElement } = render(<App />);
+
     fireEvent.click(baseElement.querySelector('.custom-btn')!);
     await vi.waitFor(() => {
-      expect(connectAsync).toBeCalled();
+      expect(baseElement.querySelector('.ant-web3-address-text')?.textContent).toBe(
+        '0x1234...7890',
+      );
     });
 
     fireEvent.click(baseElement.querySelector('.custom-btn')!);
+
     const btns = baseElement.querySelectorAll('.ant-btn');
     fireEvent.click(baseElement.querySelector('.ant-modal-close')!);
+
     await vi.waitFor(() => {
       expect(
         baseElement.querySelector('.ant-web3-connect-button-profile-modal')?.className,
       ).toContain('ant-zoom-leave');
     });
-    fireEvent.click(btns[2]); // Disconnect Button
+
+    fireEvent.click(btns[2]);
     await vi.waitFor(() => {
-      expect(disconnectAsync).toBeCalled();
+      expect(baseElement.querySelector('.ant-web3-connect-button-text')?.textContent).toBe(
+        'Connect Wallet',
+      );
     });
   });
 });
