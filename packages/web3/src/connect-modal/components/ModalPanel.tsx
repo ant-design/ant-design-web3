@@ -39,7 +39,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
   }, []);
 
   const updateSelectedWallet = React.useCallback(
-    (wallet: Wallet | undefined, triggerConnect?: boolean) => {
+    (wallet?: Wallet, triggerConnect?: boolean) => {
       setSelectedWallet(wallet);
       if (wallet && triggerConnect) {
         setPanelRoute('init');
