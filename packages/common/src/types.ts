@@ -4,6 +4,7 @@ export interface Account {
 }
 
 export enum ChainIds {
+  //#region based EVM
   Mainnet = 1,
   Polygon = 137,
   BSC = 56,
@@ -11,6 +12,9 @@ export enum ChainIds {
   Optimism = 10,
   Goerli = 5,
   Avalanche = 43_114,
+  //#endregion
+
+  Solana = 1e10 + 1,
 }
 
 export type BrowserLinkType = 'address' | 'transaction';
@@ -59,8 +63,18 @@ export interface UniversalWeb3ProviderInterface {
   availableWallets?: Wallet[];
   availableChains?: Chain[];
 
+  /** Such as `0x` */
+  addressPrefix?: string;
+
+  price?: {
+    symbol: string;
+    decimals: number;
+    fixed?: number;
+  };
+
   connect?: (wallet?: Wallet) => Promise<void>;
   disconnect?: () => Promise<void>;
+  switchWallet?: (wallet?: Wallet) => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;
 
   getNFTMetadata?: (params: { address: string; tokenId: bigint }) => Promise<NFTMetadata>;

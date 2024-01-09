@@ -1,5 +1,6 @@
 import React, { useContext, useMemo, useState } from 'react';
 import { CopyOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
+import { ConfigContext } from '@ant-design/web3-common';
 import type { ButtonProps } from 'antd';
 import { Avatar, Button, ConfigProvider, Divider, Dropdown, message, Space } from 'antd';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
@@ -8,7 +9,7 @@ import classNames from 'classnames';
 import { Address } from '../address';
 import { CryptoPrice } from '../crypto-price';
 import useIntl from '../hooks/useIntl';
-import { fillWith0x, writeCopyText } from '../utils';
+import { fillWithPrefix, writeCopyText } from '../utils';
 import { ChainSelect } from './chain-select';
 import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
 import { ProfileModal } from './profile-modal';
@@ -33,6 +34,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     balance,
     className,
     locale,
+    addressPrefix: prefix = '0x',
     ...restProps
   } = props;
   const intl = useIntl('ConnectButton', locale);
@@ -42,13 +44,15 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [messageApi, contextHolder] = message.useMessage();
   const [showMenu, setShowMenu] = useState(false);
+  const { addressPrefix } = useContext(ConfigContext);
+
   let buttonText: React.ReactNode = intl.getMessage(intl.messages.connect);
   if (account) {
     buttonText =
       account?.name && !balance ? (
         account?.name
       ) : (
-        <Address tooltip={false} ellipsis address={account.address}>
+        <Address tooltip={false} ellipsis address={account.address} addressPrefix={prefix}>
           {balance ? <CryptoPrice icon {...balance} /> : undefined}
         </Address>
       );
@@ -212,7 +216,10 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const mergedTooltipCopyable: ConnectButtonTooltipProps['copyable'] =
     typeof tooltip === 'object' ? tooltip.copyable !== false : !!tooltip;
 
-  let tooltipTitle: string = tooltip && account?.address ? fillWith0x(account?.address) : '';
+  let tooltipTitle: string =
+    tooltip && account?.address
+      ? fillWithPrefix(account?.address, prefix === false ? '' : prefix ?? addressPrefix)
+      : '';
   if (typeof tooltip === 'object' && typeof tooltip.title === 'string') {
     tooltipTitle = tooltip.title;
   }

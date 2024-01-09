@@ -51,10 +51,12 @@
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
+    "@ant-design/web3-solana": "workspace:*",
     "@biomejs/biome": "^1.4.1",
     "@changesets/changelog-git": "^0.2.0",
     "@changesets/cli": "^2.27.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
+    "@solana/wallet-adapter-wallets": "^0.19.24",
     "@testing-library/react": "^14.1.2",
     "@types/lodash": "^4.14.202",
     "@types/node": "^20.10.5",
@@ -82,7 +84,8 @@
     "typescript": "^5.3.3",
     "vite-plugin-svgr": "^4.2.0",
     "vitest": "~1.1.0",
-    "wagmi": "^1.4.12"
+    "wagmi": "^1.4.12",
+    "viem": "^1.21.4"
   },
   "ci": {
     "type": "aci",

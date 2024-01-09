@@ -158,6 +158,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           : undefined
       }
       availableWallets={wallets}
+      addressPrefix="0x"
+      price={{ symbol: 'ETH', decimals: 18 }}
       connect={async (wallet) => {
         let connector = (wallet as WalletUseInWagmiAdapter)?.getWagmiConnector?.();
         if (!connector) {
