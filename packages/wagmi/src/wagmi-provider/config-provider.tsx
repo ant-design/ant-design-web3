@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  ChainIdToken,
   fillAddressWith0x,
   Web3ConfigProvider,
   type Account,
@@ -104,11 +103,11 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     return availableChains
       .map((item) => {
         const c = assets?.find((asset) => {
-          return (asset as Chain).id?.value === item.id;
+          return (asset as Chain).id === item.id;
         }) as Chain;
         if (c?.id) {
           return {
-            id: c.id.value,
+            id: c.id,
             name: c.name,
             icon: c.icon,
           };
@@ -131,10 +130,10 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     if (!currentWagmiChain) {
       return;
     }
-    let c = assets?.find((item) => (item as Chain).id?.value === currentWagmiChain?.id) as Chain;
+    let c = assets?.find((item) => (item as Chain).id === currentWagmiChain?.id) as Chain;
     if (!c?.id) {
       c = {
-        id: ChainIdToken.fromValue(currentWagmiChain.id),
+        id: currentWagmiChain.id,
         name: currentWagmiChain.name,
       };
     }
@@ -168,7 +167,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         }
         await connectAsync({
           connector,
-          chainId: currentChain?.id.value,
+          chainId: currentChain?.id,
         });
       }}
       disconnect={async () => {
@@ -179,7 +178,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           // hava not connected any chain
           setCurrentChain(c);
         } else {
-          switchNetwork?.(c.id.value ?? c.id);
+          switchNetwork?.(c.id);
         }
       }}
       getNFTMetadata={async ({ address: contractAddress, tokenId }) =>

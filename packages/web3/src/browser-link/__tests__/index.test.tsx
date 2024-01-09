@@ -1,6 +1,6 @@
 import { LinkOutlined } from '@ant-design/icons';
 import { Mainnet } from '@ant-design/web3-assets';
-import { ChainIds, ChainIdToken, Web3ConfigProvider } from '@ant-design/web3-common';
+import { ChainIds, Web3ConfigProvider } from '@ant-design/web3-common';
 import { BitcoinCircleColorful } from '@ant-design/web3-icons';
 import { render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
@@ -67,7 +67,7 @@ describe('BrowserLink', () => {
       render(
         <Web3ConfigProvider
           chain={{
-            id: ChainIdToken.fromValue(ChainIds.Arbitrum),
+            id: ChainIds.Arbitrum,
             name: 'Arbitrum',
           }}
         >
@@ -83,7 +83,7 @@ describe('BrowserLink', () => {
       render(
         <Web3ConfigProvider
           chain={{
-            id: ChainIdToken.fromValue(ChainIds.Arbitrum),
+            id: ChainIds.Arbitrum,
             name: 'Arbitrum',
           }}
         >
@@ -142,7 +142,7 @@ describe('BrowserLink', () => {
           iconStyle={{ fontSize: 40 }}
           type="transaction"
           chain={{
-            id: ChainIdToken.fromValue(ChainIds.BSC),
+            id: ChainIds.BSC,
             name: 'custom',
             icon: <BitcoinCircleColorful />,
             browser: {

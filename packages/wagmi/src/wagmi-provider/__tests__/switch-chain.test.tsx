@@ -49,7 +49,7 @@ vi.mock('wagmi', () => {
     useSwitchNetwork: () => {
       return {
         switchNetwork: (c: number) => {
-          if (c === Polygon.id.value) {
+          if (c === Polygon.id) {
             event.emit('switchChain', polygon);
           }
         },

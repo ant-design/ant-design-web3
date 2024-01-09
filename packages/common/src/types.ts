@@ -3,27 +3,8 @@ export interface Account {
   name?: string;
 }
 
-export class ChainIdToken<T = any> {
-  readonly value: T;
-
-  /** unique key */
-  readonly __key: string;
-
-  private constructor(key: string, value?: T) {
-    this.__key = key;
-    this.value = value ?? (this as any as T);
-  }
-
-  static fromValue<T = any>(value: T) {
-    return new ChainIdToken(String(value), value);
-  }
-
-  static fromKey(key: string) {
-    return new ChainIdToken(key);
-  }
-}
-
 export enum ChainIds {
+  //#region based EVM
   Mainnet = 1,
   Polygon = 137,
   BSC = 56,
@@ -31,6 +12,9 @@ export enum ChainIds {
   Optimism = 10,
   Goerli = 5,
   Avalanche = 43_114,
+  //#endregion
+
+  Solana = 1e10 + 1,
 }
 
 export type BrowserLinkType = 'address' | 'transaction';
@@ -42,7 +26,7 @@ export type BalanceMetadata = {
 };
 
 export interface Chain {
-  id: ChainIdToken;
+  id: ChainIds | number;
   name: string;
   icon?: React.ReactNode;
   browser?: {
