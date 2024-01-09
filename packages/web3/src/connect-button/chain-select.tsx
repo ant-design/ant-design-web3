@@ -30,7 +30,7 @@ export const ChainSelect: React.FC<ChainSelectProps> = ({
         overlayClassName={`${prefixCls}-dropdown`}
         menu={{
           items: chains.map((chain) => ({
-            key: chain.id.__key,
+            key: chain.id,
             label: chain.name,
             icon: chain.icon,
             onClick: () => {

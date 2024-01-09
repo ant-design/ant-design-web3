@@ -24,7 +24,7 @@ export const getBrowserLink = (
   chain?: Chain,
 ) => {
   if (!chain || !chain.browser?.getBrowserLink) {
-    throw new Error(`getBrowserLink unsupported chain ${chain?.id.value}`);
+    throw new Error(`getBrowserLink unsupported chain ${chain?.id}`);
   }
   return chain.browser.getBrowserLink(address, type);
 };

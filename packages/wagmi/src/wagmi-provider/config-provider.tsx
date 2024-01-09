@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  ChainIdToken,
   fillAddressWith0x,
   Web3ConfigProvider,
   type Account,
@@ -147,7 +146,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         });
         if (c?.id) {
           return {
-            id: c.id.value,
+            id: c.id,
             name: c.name,
             icon: c.icon,
           };
@@ -173,7 +172,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     let c = chainAssets?.find((item) => (item as Chain).id === currentWagmiChain?.id) as Chain;
     if (!c?.id) {
       c = {
-        id: ChainIdToken.fromValue(currentWagmiChain.id),
+        id: currentWagmiChain.id,
         name: currentWagmiChain.name,
       };
     }
@@ -210,7 +209,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         }
         await connectAsync({
           connector,
-          chainId: currentChain?.id.value,
+          chainId: currentChain?.id,
         });
       }}
       disconnect={async () => {

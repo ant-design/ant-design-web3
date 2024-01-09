@@ -1,4 +1,4 @@
-import { ChainIds, ChainIdToken, createGetBrowserLink, type Chain } from '@ant-design/web3-common';
+import { ChainIds, createGetBrowserLink, type Chain } from '@ant-design/web3-common';
 import {
   ArbitrumCircleColorful,
   AvalancheCircleColorful,
@@ -12,7 +12,7 @@ import {
 } from '@ant-design/web3-icons';
 
 export const Mainnet: Chain = {
-  id: ChainIdToken.fromValue(ChainIds.Mainnet),
+  id: ChainIds.Mainnet,
   name: 'Ethereum',
   icon: <EthereumCircleColorful />,
   browser: {
@@ -23,7 +23,7 @@ export const Mainnet: Chain = {
 };
 
 export const Goerli: Chain = {
-  id: ChainIdToken.fromValue(ChainIds.Goerli),
+  id: ChainIds.Goerli,
   name: 'Goerli',
   icon: <EthereumCircleColorful />,
   browser: {
@@ -34,7 +34,7 @@ export const Goerli: Chain = {
 };
 
 export const Polygon: Chain = {
-  id: ChainIdToken.fromValue(ChainIds.Polygon),
+  id: ChainIds.Polygon,
   name: 'Polygon',
   icon: <PolygonCircleColorful />,
   browser: {
@@ -45,7 +45,7 @@ export const Polygon: Chain = {
 };
 
 export const BSC: Chain = {
-  id: ChainIdToken.fromValue(ChainIds.BSC),
+  id: ChainIds.BSC,
   name: 'BNB Smart Chain',
   icon: <BSCCircleColorful />,
   browser: {
@@ -56,7 +56,7 @@ export const BSC: Chain = {
 };
 
 export const Arbitrum: Chain = {
-  id: ChainIdToken.fromValue(ChainIds.Arbitrum),
+  id: ChainIds.Arbitrum,
   name: 'Arbitrum One',
   icon: <ArbitrumCircleColorful />,
   browser: {
@@ -67,7 +67,7 @@ export const Arbitrum: Chain = {
 };
 
 export const Optimism: Chain = {
-  id: ChainIdToken.fromValue(ChainIds.Optimism),
+  id: ChainIds.Optimism,
   name: 'OP Mainnet',
   icon: <OptimismCircleColorful />,
   browser: {
@@ -78,7 +78,7 @@ export const Optimism: Chain = {
 };
 
 export const Avalanche: Chain = {
-  id: ChainIdToken.fromValue(ChainIds.Avalanche),
+  id: ChainIds.Avalanche,
   name: 'Avalanche',
   icon: <AvalancheCircleColorful />,
   browser: {
@@ -89,7 +89,7 @@ export const Avalanche: Chain = {
 };
 
 export const Solana: Chain = {
-  id: ChainIdToken.fromKey('solana'),
+  id: ChainIds.Solana,
   name: 'Solana',
   icon: <SolanaColorful />,
   browser: {
