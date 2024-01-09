@@ -100,6 +100,14 @@ describe('Connector', () => {
       expect(onConnectCallTest).toBeCalled();
       expect(onConnected).toBeCalled();
     });
+
+    fireEvent.click(baseElement.querySelector('.ant-modal-close')!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-web3-connect-modal')?.className).toContain(
+        'ant-zoom-leave',
+      );
+    });
+
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('0x1234567890');
     fireEvent.click(baseElement.querySelector('.ant-btn')!);
     await vi.waitFor(() => {
@@ -182,6 +190,66 @@ describe('Connector', () => {
     });
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.anticon-loading')).toBeTruthy();
+    });
+  });
+  it('connect throw error', async () => {
+    const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
+      const { account, onConnectClick, onDisconnectClick, children } = props;
+      return (
+        <Button
+          onClick={() => {
+            if (account) {
+              onDisconnectClick?.();
+            } else {
+              onConnectClick?.();
+            }
+          }}
+        >
+          {account?.address ?? children}
+        </Button>
+      );
+    };
+
+    const App = () => {
+      const [account, setAccount] = React.useState<Account | undefined>();
+      return (
+        <Connector
+          account={account}
+          availableWallets={[
+            {
+              ...metadata_MetaMask,
+              hasWalletReady: async () => {
+                return true;
+              },
+            },
+          ]}
+          onConnect={() => {}}
+          connect={async () => {
+            return new Promise((resove, reject) => {
+              reject({ message: 'mock network error ' });
+            });
+          }}
+          disconnect={async () => {}}
+          onDisconnected={() => {}}
+          onConnected={() => {}}
+        >
+          <CustomButton>children</CustomButton>
+        </Connector>
+      );
+    };
+    const { baseElement } = render(<App />);
+
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
+
+    fireEvent.click(baseElement.querySelector('.ant-btn')!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')).toBeTruthy();
+    });
+
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-message-error')).not.toBeNull();
+      expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
     });
   });
 });
