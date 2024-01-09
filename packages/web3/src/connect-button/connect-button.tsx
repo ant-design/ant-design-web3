@@ -10,7 +10,14 @@ import { CryptoPrice } from '../crypto-price';
 import useIntl from '../hooks/useIntl';
 import { fillWith0x, writeCopyText } from '../utils';
 import { ChainSelect } from './chain-select';
-import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
+import type {
+  Chain,
+  ChainSelectProps,
+  ConnectButtonProps,
+  ConnectButtonTooltipProps,
+  IntlType,
+  ProfileModalProps,
+} from './interface';
 import { ProfileModal } from './profile-modal';
 import { useStyle } from './style';
 import { ConnectButtonTooltip } from './tooltip';
@@ -73,21 +80,39 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     ...restProps,
   };
 
-  const renderChainSelect = () => {
-    if (availableChains && availableChains.length > 1) {
-      return (
-        <ChainSelect
-          hashId={hashId}
-          onSwitchChain={onSwitchChain}
-          currentChain={chain}
-          chains={availableChains}
-        />
-      );
-    }
-    return null;
+  const chainProps: ChainSelectProps = {
+    hashId,
+    onSwitchChain,
+    currentChain: chain,
+    chains: availableChains as Chain[],
   };
 
-  const chainSelect = renderChainSelect();
+  const profileModalProps: ProfileModalProps = {
+    intl,
+    open: profileOpen,
+    __hashId__: hashId,
+    onDisconnect: () => {
+      setProfileOpen(false);
+      onDisconnectClick?.();
+    },
+    onClose: () => {
+      setProfileOpen(false);
+    },
+    address: account?.address,
+    name: account?.name,
+    avatar: avatar ?? {
+      icon: chain?.icon ? (
+        <div className={`${prefixCls}-chain-icon`}>{chain?.icon}</div>
+      ) : (
+        <UserOutlined className={`${prefixCls}-default-icon`} />
+      ),
+    },
+    balance,
+    modalProps: typeof profileModal === 'object' ? profileModal : undefined,
+  };
+
+  const chainSelect =
+    (availableChains && availableChains.length > 1 && <ChainSelect {...chainProps} />) || null;
 
   const buttonInnerText = (
     <div className={`${prefixCls}-content`}>
@@ -113,36 +138,6 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   ) : (
     <Button {...buttonProps}>{buttonInnerText}</Button>
   );
-
-  const profileModalContent = (
-    <ProfileModal
-      intl={intl}
-      open={profileOpen}
-      __hashId__={hashId}
-      onDisconnect={() => {
-        setProfileOpen(false);
-        onDisconnectClick?.();
-      }}
-      onClose={() => {
-        setProfileOpen(false);
-      }}
-      address={account?.address}
-      name={account?.name}
-      avatar={
-        avatar ?? {
-          icon: chain?.icon ? (
-            <div className={`${prefixCls}-chain-icon`}>{chain?.icon}</div>
-          ) : (
-            <UserOutlined className={`${prefixCls}-default-icon`} />
-          ),
-        }
-      }
-      balance={balance}
-      modalProps={typeof profileModal === 'object' ? profileModal : undefined}
-    />
-  );
-
-  let content = buttonContent;
 
   const defaultMenuItems: MenuItemType[] = useMemo(
     () => [
@@ -194,8 +189,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     return combinedItems;
   }, [actionsMenu, defaultMenuItems, account]);
 
-  if (mergedMenuItems.length > 0) {
-    content = (
+  const content =
+    mergedMenuItems.length > 0 ? (
       <Dropdown
         open={showMenu}
         onOpenChange={setShowMenu}
@@ -206,35 +201,36 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       >
         {buttonContent}
       </Dropdown>
+    ) : (
+      buttonContent
     );
-  }
-
-  const mergedTooltipCopyable: ConnectButtonTooltipProps['copyable'] =
-    typeof tooltip === 'object' ? tooltip.copyable !== false : !!tooltip;
 
   let tooltipTitle: string = tooltip && account?.address ? fillWith0x(account?.address) : '';
   if (typeof tooltip === 'object' && typeof tooltip.title === 'string') {
     tooltipTitle = tooltip.title;
   }
+  const ConnectButtonTooltipProps: () => ConnectButtonTooltipProps & { intl: IntlType } = () => {
+    const mergedTooltipCopyable: ConnectButtonTooltipProps['copyable'] =
+      typeof tooltip === 'object' ? tooltip.copyable !== false : !!tooltip;
+    return {
+      intl,
+      copyable: mergedTooltipCopyable,
+      title: tooltipTitle,
+      prefixCls,
+      __hashId__: hashId,
+      ...(typeof tooltip === 'object' ? tooltip : {}),
+    };
+  };
 
   const main = (
     <>
       {contextHolder}
       {tooltipTitle ? (
-        <ConnectButtonTooltip
-          intl={intl}
-          copyable={mergedTooltipCopyable}
-          title={tooltipTitle}
-          prefixCls={prefixCls}
-          __hashId__={hashId}
-          {...(typeof tooltip === 'object' ? tooltip : {})}
-        >
-          {content}
-        </ConnectButtonTooltip>
+        <ConnectButtonTooltip {...ConnectButtonTooltipProps()}>{content}</ConnectButtonTooltip>
       ) : (
         content
       )}
-      {profileModalContent}
+      <ProfileModal {...profileModalProps} />
     </>
   );
 

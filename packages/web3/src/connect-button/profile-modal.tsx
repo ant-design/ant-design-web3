@@ -1,28 +1,11 @@
 import React, { useContext } from 'react';
 import { Address } from '@ant-design/web3';
-import type { Balance } from '@ant-design/web3-common';
-import { Avatar, Button, ConfigProvider, message, Modal, Space, type AvatarProps } from 'antd';
-import type { ModalProps } from 'antd';
+import { Avatar, Button, ConfigProvider, message, Modal, Space } from 'antd';
 import classNames from 'classnames';
 
 import { CryptoPrice } from '../crypto-price';
-import type { IntlType } from '../hooks/useIntl';
 import { writeCopyText } from '../utils';
-
-export interface ProfileModalProps {
-  className?: string;
-  intl: IntlType;
-  /** @internal */
-  __hashId__: string;
-  avatar?: AvatarProps;
-  address?: string;
-  name?: string;
-  onDisconnect?: () => void;
-  open?: boolean;
-  onClose?: () => void;
-  modalProps?: Omit<ModalProps, 'open' | 'onClose' | 'className'>;
-  balance?: Balance;
-}
+import type { ProfileModalProps } from './interface';
 
 export const ProfileModal: React.FC<ProfileModalProps> = ({
   className,
@@ -41,26 +24,28 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   const prefixCls = getPrefixCls('web3-connect-button-profile-modal');
   const [messageApi, contextHolder] = message.useMessage();
 
+  const Footer = (
+    <div className={classNames(`${prefixCls}-footer`, __hashId__)}>
+      {address ? (
+        <Button
+          onClick={() => {
+            writeCopyText(address).then(() => {
+              messageApi.success(intl.getMessage(intl.messages.addressCopied));
+            });
+          }}
+        >
+          {intl.getMessage(intl.messages.copyAddress)}
+        </Button>
+      ) : null}
+      <Button onClick={onDisconnect}>{intl.getMessage(intl.messages.disconnect)}</Button>
+    </div>
+  );
+
   return (
     <>
       {contextHolder}
       <Modal
-        footer={
-          <div className={classNames(`${prefixCls}-footer`, __hashId__)}>
-            {address ? (
-              <Button
-                onClick={() => {
-                  writeCopyText(address).then(() => {
-                    messageApi.success(intl.getMessage(intl.messages.addressCopied));
-                  });
-                }}
-              >
-                {intl.getMessage(intl.messages.copyAddress)}
-              </Button>
-            ) : null}
-            <Button onClick={onDisconnect}>{intl.getMessage(intl.messages.disconnect)}</Button>
-          </div>
-        }
+        footer={Footer}
         width={280}
         {...modalProps}
         onCancel={onClose}
