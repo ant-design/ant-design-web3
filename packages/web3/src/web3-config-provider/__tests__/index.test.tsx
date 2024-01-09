@@ -8,9 +8,9 @@ import {
   type Account,
 } from '@ant-design/web3';
 import type { Web3ConfigProviderProps } from '@ant-design/web3-common';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { Spin } from 'antd';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 const baseProps: Web3ConfigProviderProps = {
   availableWallets: [
@@ -214,5 +214,43 @@ describe('web3-config-provider', () => {
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('#account-name')?.textContent).toBeFalsy();
     expect(baseElement.querySelector('#balance')?.textContent).toBe('100');
+  });
+  it('merge locale', async () => {
+    const { baseElement } = render(
+      <Web3ConfigProvider
+        locale={{
+          ConnectButton: {
+            disconnect: 'Parent Disconnect',
+            copyAddress: 'Parent Copy Address',
+          },
+        }}
+      >
+        <Web3ConfigProvider
+          locale={{
+            ConnectButton: {
+              copyAddress: 'Child Copy Address',
+            },
+          }}
+        >
+          <ConnectButton
+            account={{
+              address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+            }}
+          />
+        </Web3ConfigProvider>
+      </Web3ConfigProvider>,
+    );
+
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button') as Element);
+    await vi.waitFor(() => {
+      expect(
+        baseElement.querySelector('.ant-modal-footer')!.querySelectorAll('.ant-btn')[0]
+          .childNodes[0].textContent,
+      ).toBe('Child Copy Address');
+      expect(
+        baseElement.querySelector('.ant-modal-footer')!.querySelectorAll('.ant-btn')[1]
+          .childNodes[0].textContent,
+      ).toBe('Parent Disconnect');
+    });
   });
 });
