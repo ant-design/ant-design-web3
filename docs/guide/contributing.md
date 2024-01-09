@@ -54,6 +54,7 @@ The current core members are:
 - [@jeasonstudio](https://github.com/jeasonstudio)
 - [@gin-lsl](https://github.com/gin-lsl)
 - [@liangchaofei](https://github.com/liangchaofei)
+- [@thinkasany](https://github.com/thinkasany)
 
 ## Labels
 
