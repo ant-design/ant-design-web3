@@ -2,4 +2,4 @@
 '@ant-design/web3': patch
 ---
 
-test(connect-button):Increase test coverage to 100%
+test:Increase ConnectButton test coverage
