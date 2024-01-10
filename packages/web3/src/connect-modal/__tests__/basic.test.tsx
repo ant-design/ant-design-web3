@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import type { DefaultGuide } from '@ant-design/web3';
 import { ConnectModal } from '@ant-design/web3';
+import { BitcoinCircleColorful } from '@ant-design/web3-icons';
 import { fireEvent, render } from '@testing-library/react';
 import { theme as antTheme, ConfigProvider, Grid } from 'antd';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -189,7 +190,7 @@ describe('ConnectModal with guide', () => {
       title: 'title',
       infos: [
         {
-          icon: 123,
+          icon: <BitcoinCircleColorful />,
           title: 'title',
           description: 'desc',
         },
@@ -197,7 +198,8 @@ describe('ConnectModal with guide', () => {
     };
     const App = () => <DefaultGuidePanel guide={Guide as unknown as DefaultGuide} />;
     const { baseElement } = render(<App />);
-    // Show icon only if icon is string
+    // Show `ant-web3-connect-modal-guide-item-icon` classname only if icon is string
     expect(baseElement.querySelector('.ant-web3-connect-modal-guide-item-icon')).toBeNull();
+    expect(baseElement.querySelector('.ant-web3-icon-bitcoin-circle-colorful')).toBeTruthy();
   });
 });
