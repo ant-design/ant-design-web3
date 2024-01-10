@@ -23,6 +23,7 @@ Provide global configuration and states for components.
 | balance | Balance | [Balance](/components/connect-button#balance-1) | - |  |
 | availableWallets | List of available wallets | [Wallet](/components/types#wallet)\[] | - |  |
 | availableChains | List of available chains | [Chain](/components/types#chain)\[] | - |  |
+| extendsContextFromParent | extends context from parent `Provider` | `boolean` | `true` |  |
 | connect | Connect to the chain | `(wallet?: Wallet) => Promise<void>` | - |  |
 | disconnect | Disconnect from the chain | `() => Promise<void>` | - |  |
 | switchChain | Switch to another chain | `(chain: Chain) => Promise<void>` | - |  |
