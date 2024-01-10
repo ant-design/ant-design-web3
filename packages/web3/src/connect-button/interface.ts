@@ -1,9 +1,8 @@
-import type { Balance, Chain, ConnectorTriggerProps, Locale } from '@ant-design/web3-common';
-import type { AvatarProps, ButtonProps, MenuProps, ModalProps, TooltipProps } from 'antd';
+import type { ConnectorTriggerProps, Locale } from '@ant-design/web3-common';
+import type { AvatarProps, ButtonProps, MenuProps, TooltipProps } from 'antd';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 
 import type { AddressProps } from '../address';
-import type { IntlType } from '../hooks/useIntl';
 
 export type ConnectButtonTooltipProps = TooltipProps & {
   __hashId__?: string;
@@ -33,34 +32,5 @@ export type ConnectButtonProps = ButtonProps &
           extraItems?: MenuItemType[];
         };
   };
-export interface ChainSelectProps {
-  className?: string;
-  hashId: string;
-  chains: Chain[];
-  onSwitchChain?: (chain: Chain) => void;
-  currentChain?: Chain;
-  style?: React.CSSProperties;
-}
 
-export interface ProfileModalProps {
-  className?: string;
-  intl: IntlType;
-  /** @internal */
-  __hashId__: string;
-  avatar?: AvatarProps;
-  address?: string;
-  name?: string;
-  onDisconnect?: () => void;
-  open?: boolean;
-  onClose?: () => void;
-  modalProps?: Omit<ModalProps, 'open' | 'onClose' | 'className'>;
-  balance?: Balance;
-  isShow?: boolean;
-}
-
-export interface chainType {
-  id?: number;
-  name?: string;
-  icon?: string | React.ReactNode;
-}
-export { ConnectorTriggerProps, Chain, IntlType };
+export { ConnectorTriggerProps };

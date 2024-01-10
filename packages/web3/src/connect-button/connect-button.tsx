@@ -1,5 +1,6 @@
 import React, { useContext, useMemo, useState } from 'react';
 import { CopyOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
+import type { Chain } from '@ant-design/web3-common';
 import type { ButtonProps } from 'antd';
 import { Avatar, Button, ConfigProvider, Divider, Dropdown, message, Space } from 'antd';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
@@ -8,16 +9,12 @@ import classNames from 'classnames';
 import { Address } from '../address';
 import { CryptoPrice } from '../crypto-price';
 import useIntl from '../hooks/useIntl';
+import type { IntlType } from '../hooks/useIntl';
 import { fillWith0x, writeCopyText } from '../utils';
 import { ChainSelect } from './chain-select';
-import type {
-  Chain,
-  ChainSelectProps,
-  ConnectButtonProps,
-  ConnectButtonTooltipProps,
-  IntlType,
-  ProfileModalProps,
-} from './interface';
+import type { ChainSelectProps } from './chain-select';
+import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
+import type { ProfileModalProps } from './profile-modal';
 import { ProfileModal } from './profile-modal';
 import { useStyle } from './style';
 import { ConnectButtonTooltip } from './tooltip';

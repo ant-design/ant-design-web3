@@ -1,9 +1,17 @@
 import React, { useContext } from 'react';
 import { DownOutlined } from '@ant-design/icons';
+import type { Chain } from '@ant-design/web3-common';
 import { Button, ConfigProvider, Dropdown, Space } from 'antd';
 import classNames from 'classnames';
 
-import type { ChainSelectProps } from './interface';
+export interface ChainSelectProps {
+  className?: string;
+  hashId: string;
+  chains: Chain[];
+  onSwitchChain?: (chain: Chain) => void;
+  currentChain?: Chain;
+  style?: React.CSSProperties;
+}
 
 export const ChainSelect: React.FC<ChainSelectProps> = ({
   className,
