@@ -11,13 +11,14 @@ export interface AntDesignWeb3ConfigProviderProps extends React.PropsWithChildre
   assets?: Chain[];
   availableChains: Chain[];
   availableConnectors: Adapter[];
+  balance?: boolean;
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
   const { publicKey, connected, connect, select: selectWallet, disconnect, wallet } = useWallet();
   const { connection } = useConnection();
 
-  const [balance, setBalance] = useState<bigint>();
+  const [balanceData, setBalanceData] = useState<bigint>();
   const [account, setAccount] = useState<Account>();
   const [currentChain, setCurrentChain] = useState<Chain | undefined>(() => Solana);
   const [currentWalletName, setCurrentWalletName] = useState(() => wallet?.adapter.name ?? null);
@@ -36,17 +37,17 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
 
   // get balance
   useEffect(() => {
-    if (!(connection && publicKey)) {
+    if (!(props.balance && connection && publicKey)) {
       return;
     }
 
     const getBalance = async () => {
       const balanceVal = await connection.getBalance(publicKey);
-      setBalance(BigInt(balanceVal));
+      setBalanceData(BigInt(balanceVal));
     };
 
     getBalance();
-  }, [connection, publicKey]);
+  }, [connection, publicKey, props.balance]);
 
   // connect/disconnect wallet
   useEffect(() => {
@@ -82,11 +83,11 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       account={account}
       chain={currentChain}
       balance={
-        balance
+        props.balance
           ? {
               symbol: 'SOL',
               decimals: 10,
-              value: balance,
+              value: balanceData,
               icon: currentChain?.nativeCurrency?.icon,
             }
           : undefined

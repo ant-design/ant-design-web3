@@ -8,6 +8,7 @@ import { AntDesignWeb3ConfigProvider } from './config-provider';
 
 export interface SolanaWeb3ConfigProviderProps {
   locale?: Locale;
+  chains?: Chain[];
   assets?: Chain[];
   balance?: boolean;
 
@@ -31,7 +32,8 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
         <AntDesignWeb3ConfigProvider
           locale={props.locale}
           assets={props.assets}
-          availableChains={[]}
+          balance={props.balance}
+          availableChains={props.chains || []}
           availableConnectors={props.wallets || []}
         >
           {props.children}
