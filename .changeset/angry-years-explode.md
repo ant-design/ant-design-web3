@@ -2,4 +2,4 @@
 '@ant-design/web3': patch
 ---
 
-test:connect-modal components test coverage
+test:ConnectModal components test coverage
