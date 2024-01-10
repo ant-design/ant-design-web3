@@ -24,7 +24,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   const prefixCls = getPrefixCls('web3-connect-button-profile-modal');
   const [messageApi, contextHolder] = message.useMessage();
 
-  const Footer = (
+  const footer = (
     <div className={classNames(`${prefixCls}-footer`, __hashId__)}>
       {address ? (
         <Button
@@ -45,7 +45,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
     <>
       {contextHolder}
       <Modal
-        footer={Footer}
+        footer={footer}
         width={280}
         {...modalProps}
         onCancel={onClose}
