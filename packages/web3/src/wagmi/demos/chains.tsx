@@ -2,7 +2,7 @@ import { ConnectButton, Connector } from '@ant-design/web3';
 import { Polygon, WagmiWeb3ConfigProvider, WalletConnect } from '@ant-design/web3-wagmi';
 import { createConfig, http } from 'wagmi';
 import { mainnet, polygon } from 'wagmi/chains';
-import { injected } from 'wagmi/connectors';
+import { injected, walletConnect } from 'wagmi/connectors';
 
 const config = createConfig({
   chains: [mainnet, polygon],
@@ -14,7 +14,7 @@ const config = createConfig({
     injected({
       target: 'metaMask',
     }),
-    WalletConnect({
+    walletConnect({
       showQrModal: false,
       projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
     }),
