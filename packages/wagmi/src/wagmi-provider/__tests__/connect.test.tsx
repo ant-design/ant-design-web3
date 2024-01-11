@@ -115,4 +115,51 @@ describe('WagmiWeb3ConfigProvider connect', () => {
       expect(disconnectAsync).toBeCalled();
     });
   });
+
+  it('connect not available connector', async () => {
+    const CustomConnector = () => {
+      const { connect, account, disconnect } = useProvider();
+      const [error, setError] = React.useState<Error | undefined>();
+      return (
+        <div>
+          <div
+            className="custom-text"
+            onClick={async () => {
+              if (account) {
+                disconnect?.();
+                return;
+              }
+              try {
+                await connect?.({
+                  name: 'test',
+                } as any);
+              } catch (e) {
+                setError(e as Error);
+              }
+            }}
+          >
+            {error ? error.message : account?.name}
+          </div>
+        </div>
+      );
+    };
+
+    const App = () => (
+      <AntDesignWeb3ConfigProvider
+        availableChains={[mainnet]}
+        availableConnectors={[mockConnector]}
+        walletFactorys={[MetaMask]}
+        chainAssets={[Mainnet]}
+      >
+        <CustomConnector />
+      </AntDesignWeb3ConfigProvider>
+    );
+    const { baseElement } = render(<App />);
+    fireEvent.click(baseElement.querySelector('.custom-text')!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.custom-text')?.textContent).toBe(
+        'Can not find connector for test',
+      );
+    });
+  });
 });
