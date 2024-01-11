@@ -35,12 +35,12 @@ export function WagmiWeb3ConfigProvider({
 }: React.PropsWithChildren<WagmiWeb3ConfigProviderProps>): React.ReactElement {
   const availableChains: WagmiChain[] = React.useMemo(() => {
     // merge all available chains fro user select
-    const chains: WagmiChain[] = [];
+    const wagmiChains: WagmiChain[] = [];
     config.chains.forEach((chain) => {
       if (chains.find((c) => c.id === chain.id)) return;
       chains.push(chain);
     });
-    return chains;
+    return wagmiChains;
   }, [config]);
 
   const walletsWithDefault = [...wallets];
