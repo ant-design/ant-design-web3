@@ -48,7 +48,10 @@ describe('WagmiWeb3ConfigProvider with UniversalWallet', () => {
     };
 
     const App = () => (
-      <WagmiWeb3ConfigProvider assets={[new UniversalWallet(metadata_TokenPocket)]} config={config}>
+      <WagmiWeb3ConfigProvider
+        wallets={[new UniversalWallet(metadata_TokenPocket)]}
+        config={config}
+      >
         <CustomConnector />
       </WagmiWeb3ConfigProvider>
     );
@@ -102,7 +105,7 @@ describe('WagmiWeb3ConfigProvider with UniversalWallet', () => {
 
     const App = () => (
       <WagmiWeb3ConfigProvider
-        assets={[
+        wallets={[
           new UniversalWallet({
             ...metadata_TokenPocket,
             group: 'Popular',

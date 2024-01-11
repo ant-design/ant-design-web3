@@ -93,7 +93,8 @@ describe('WagmiWeb3ConfigProvider connect', () => {
       <AntDesignWeb3ConfigProvider
         availableChains={[mainnet]}
         availableConnectors={[mockConnector]}
-        assets={[Mainnet, MetaMask]}
+        walletFactorys={[MetaMask]}
+        chainAssets={[Mainnet]}
       >
         <CustomConnector />
       </AntDesignWeb3ConfigProvider>

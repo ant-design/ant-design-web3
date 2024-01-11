@@ -98,7 +98,8 @@ describe('WagmiWeb3ConfigProvider connect with UniversalWallet', () => {
       <AntDesignWeb3ConfigProvider
         availableChains={[mainnet]}
         availableConnectors={[injectConnector, walletConnetor]}
-        assets={[Mainnet, TokenPocket]}
+        walletFactorys={[TokenPocket]}
+        chainAssets={[Mainnet]}
       >
         <CustomConnector />
       </AntDesignWeb3ConfigProvider>
@@ -153,7 +154,8 @@ describe('WagmiWeb3ConfigProvider connect with UniversalWallet', () => {
       <AntDesignWeb3ConfigProvider
         availableChains={[mainnet]}
         availableConnectors={[injectConnector, walletConnetor]}
-        assets={[Mainnet, TokenPocket]}
+        walletFactorys={[TokenPocket]}
+        chainAssets={[Mainnet]}
       >
         <CustomConnector />
       </AntDesignWeb3ConfigProvider>

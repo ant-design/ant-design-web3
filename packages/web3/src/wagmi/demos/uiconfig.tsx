@@ -23,7 +23,7 @@ const config = createConfig({
 
 const App: React.FC = () => {
   return (
-    <WagmiWeb3ConfigProvider assets={[WalletConnect]} config={config}>
+    <WagmiWeb3ConfigProvider wallets={[WalletConnect]} config={config}>
       <Connector
         modalProps={{
           title: 'ZAN.top',

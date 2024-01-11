@@ -29,7 +29,7 @@ const config = createConfig({
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
-      assets={[
+      wallets={[
         {
           ...TokenPocket,
         },

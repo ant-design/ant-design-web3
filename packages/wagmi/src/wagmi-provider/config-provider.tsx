@@ -22,8 +22,9 @@ import type { WalletFactory, WalletUseInWagmiAdapter } from '../interface';
 import { addNameToAccount, getNFTMetadata } from './methods';
 
 export interface AntDesignWeb3ConfigProviderProps {
+  chainAssets: Chain[];
+  walletFactorys: WalletFactory[];
   locale?: Locale;
-  assets?: (WalletFactory | Chain)[];
   children?: React.ReactNode;
   ens?: boolean;
   balance?: boolean;
@@ -32,7 +33,16 @@ export interface AntDesignWeb3ConfigProviderProps {
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
-  const { children, assets, availableChains, availableConnectors, ens, balance, locale } = props;
+  const {
+    children,
+    chainAssets,
+    walletFactorys,
+    availableChains,
+    availableConnectors,
+    ens,
+    balance,
+    locale,
+  } = props;
   const { address, isDisconnected, chain } = useAccount();
   const config = useConfig();
   const [account, setAccount] = React.useState<Account | undefined>();
@@ -59,10 +69,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   }, [address, isDisconnected, chain, ens]);
 
   const wallets: Wallet[] = React.useMemo(() => {
-    const walletFactorys: WalletFactory[] = assets?.filter(
-      (item) => (item as WalletFactory).create,
-    ) as WalletFactory[];
-
     availableConnectors.forEach((connector) => {
       // check use assets config and console.error for alert
       const walletFactory = walletFactorys?.find(
@@ -70,7 +76,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       );
       if (!walletFactory?.create) {
         console.error(
-          `Can not find wallet factory for ${connector.name}, you should config it in WagmiWeb3ConfigProvider 'assets'.`,
+          `Can not find wallet factory for ${connector.name}, you should config it in WagmiWeb3ConfigProvider 'wallets'.`,
         );
       }
     });
@@ -97,14 +103,14 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       .filter((item) => item !== null) as Wallet[];
 
     return allWallet;
-  }, [availableConnectors, assets]);
+  }, [availableConnectors, walletFactorys]);
 
   const chainList: Chain[] = React.useMemo(() => {
     return availableChains
       .map((item) => {
-        const c = assets?.find((asset) => {
-          return (asset as Chain).id === item.id;
-        }) as Chain;
+        const c = chainAssets?.find((asset) => {
+          return asset.id === item.id;
+        });
         if (c?.id) {
           return {
             id: c.id,
@@ -119,7 +125,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         }
       })
       .filter((item) => item !== null) as Chain[];
-  }, [availableChains, assets]);
+  }, [availableChains, chainAssets]);
 
   React.useEffect(() => {
     if (!chain && currentChain) {
@@ -130,7 +136,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     if (!currentWagmiChain) {
       return;
     }
-    let c = assets?.find((item) => (item as Chain).id === currentWagmiChain?.id) as Chain;
+    let c = chainAssets?.find((item) => (item as Chain).id === currentWagmiChain?.id) as Chain;
     if (!c?.id) {
       c = {
         id: currentWagmiChain.id,
@@ -139,7 +145,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     }
     setCurrentChain(c);
     return;
-  }, [chain, assets, availableChains, currentChain]);
+  }, [chain, chainAssets, availableChains, currentChain]);
 
   return (
     <Web3ConfigProvider

@@ -35,7 +35,7 @@ const config = createConfig({
 
 const App: React.FC = () => {
   return (
-    <WagmiWeb3ConfigProvider config={config} assets={[WalletConnect, TokenPocket, CoinbaseWallet]}>
+    <WagmiWeb3ConfigProvider config={config} wallets={[WalletConnect, TokenPocket, CoinbaseWallet]}>
       <Connector>
         <ConnectButton />
       </Connector>

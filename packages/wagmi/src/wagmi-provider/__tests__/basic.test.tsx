@@ -104,7 +104,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     ];
 
     const App = () => (
-      <WagmiWeb3ConfigProvider assets={assets} config={config}>
+      <WagmiWeb3ConfigProvider chains={assets} config={config}>
         <Connector switchChain={switchChain}>
           <CustomButton />
         </Connector>
@@ -181,7 +181,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     const App = () => (
       <WagmiWeb3ConfigProvider
         config={config}
-        assets={[
+        chains={[
           Polygon,
           {
             id: base.id,
@@ -286,7 +286,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     };
 
     const App = () => (
-      <WagmiWeb3ConfigProvider assets={[CoinbaseWallet]} config={config}>
+      <WagmiWeb3ConfigProvider wallets={[CoinbaseWallet]} config={config}>
         <CustomConnector />
       </WagmiWeb3ConfigProvider>
     );

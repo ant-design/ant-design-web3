@@ -57,7 +57,8 @@ describe('switch chain when not conncted', () => {
       <AntDesignWeb3ConfigProvider
         availableConnectors={[]}
         availableChains={[mainnet, polygon]}
-        assets={[Mainnet, Polygon, MetaMask]}
+        walletFactorys={[MetaMask]}
+        chainAssets={[Mainnet, Polygon]}
       >
         <Connector>
           <ConnectButton />
