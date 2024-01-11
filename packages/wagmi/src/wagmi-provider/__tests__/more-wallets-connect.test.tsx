@@ -94,12 +94,7 @@ describe('more-wallets-connect', () => {
     });
     fireEvent.click(walletItems[1]!);
     await vi.waitFor(() => {
-      const qrCodeBox = baseElement.querySelector('.ant-web3-connect-modal-qr-code-box');
-      if (qrCodeBox !== null) {
-        expect(qrCodeBox).toBeTruthy();
-        return true;
-      }
-      return false;
+      expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code-box')).toBeTruthy();
     });
     fireEvent.click(walletItems[0]!);
     await vi.waitFor(() => {

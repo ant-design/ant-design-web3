@@ -109,7 +109,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   };
 
   const chainSelect =
-    (availableChains && availableChains.length > 1 && <ChainSelect {...chainProps} />) || null;
+    availableChains && availableChains.length > 1 ? <ChainSelect {...chainProps} /> : null;
 
   const buttonInnerText = (
     <div className={`${prefixCls}-content`}>
