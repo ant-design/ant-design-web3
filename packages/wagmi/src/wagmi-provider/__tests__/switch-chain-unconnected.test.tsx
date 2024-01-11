@@ -16,6 +16,7 @@ vi.mock('wagmi', () => {
     // https://wagmi.sh/react/hooks/useAccount
     useAccount: () => {
       return {
+        chain: undefined,
         address: undefined,
         connector: mockConnector,
       };
@@ -30,14 +31,9 @@ vi.mock('wagmi', () => {
         disconnectAsync: () => {},
       };
     },
-    useNetwork: () => {
+    useSwitchChain: () => {
       return {
-        chain: undefined,
-      };
-    },
-    useSwitchNetwork: () => {
-      return {
-        switchNetwork: () => {},
+        switchChain: () => {},
       };
     },
     useBalance: () => {

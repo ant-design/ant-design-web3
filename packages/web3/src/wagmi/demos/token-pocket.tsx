@@ -10,12 +10,18 @@ const config = createConfig({
     [mainnet.id]: http(),
   },
   connectors: [
+    injected({
+      target() {
+        return {
+          id: 'testWallet',
+          name: 'TokenPocket',
+          provider: undefined as any,
+        };
+      },
+    }),
     walletConnect({
       showQrModal: false,
-      projectId: YOUR_WALLET_CONNET_PROJECT_ID,
-    }),
-    injected({
-      target: 'metaMask',
+      projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
     }),
   ],
 });

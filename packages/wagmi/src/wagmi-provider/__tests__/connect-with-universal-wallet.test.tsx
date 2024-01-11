@@ -12,15 +12,11 @@ import { AntDesignWeb3ConfigProvider } from '../config-provider';
 
 const injectConnector = {
   name: 'TokenPocket',
-  options: {
-    getProvider: () => (window as any).tokenpocket?.ethereum,
-  },
+  getProvider: async () => (window as any).tokenpocket?.ethereum,
 } as Connector;
+
 const walletConnetor = {
   name: 'WalletConnect',
-  options: {
-    showQrModal: false,
-  },
 } as Connector;
 
 const event = new EventEmitter();
@@ -39,6 +35,7 @@ vi.mock('wagmi', () => {
         });
       }, []);
       return {
+        chain: mainnet,
         address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
         isDisconnected: !connected,
         connector: injectConnector,
@@ -61,14 +58,9 @@ vi.mock('wagmi', () => {
         },
       };
     },
-    useNetwork: () => {
+    useSwitchChain: () => {
       return {
-        chain: mainnet,
-      };
-    },
-    useSwitchNetwork: () => {
-      return {
-        switchNetwork: () => {},
+        switchChain: () => {},
       };
     },
     useBalance: () => {

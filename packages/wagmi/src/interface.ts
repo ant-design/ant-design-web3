@@ -2,7 +2,7 @@ import type { Wallet } from '@ant-design/web3-common';
 import type { Connector } from 'wagmi';
 
 export interface WalletUseInWagmiAdapter extends Wallet {
-  getWagmiConnector?: () => Connector | undefined;
+  getWagmiConnector?: () => Promise<Connector | undefined>;
 }
 
 export interface WalletFactory {

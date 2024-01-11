@@ -10,7 +10,7 @@ export const WalletConnect: WalletFactory = {
     const getQrCode = async () => {
       const provider = await (connector as Connector)?.getProvider();
       return new Promise<{ uri: string }>((resolve) => {
-        (provider as any).on('display_uri', (uri: string) => {
+        (provider as any)?.on('display_uri', (uri: string) => {
           resolve({
             uri,
           });
@@ -23,7 +23,6 @@ export const WalletConnect: WalletFactory = {
         return true;
       },
       getQrCode,
-      // TODO support showQrModal, getQrCode: (connector as Connector)?.options.showQrModal === false ? getQrCode : undefined,
     };
   },
 };

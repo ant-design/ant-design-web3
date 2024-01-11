@@ -16,7 +16,7 @@ export class UniversalWallet implements WalletFactory {
       this.name.push('WalletConnect');
     }
   }
-  create = (connector?: Connector | Connector[]): WalletUseInWagmiAdapter => {
+  create = (connector?: Connector | readonly Connector[]): WalletUseInWagmiAdapter => {
     const connectors = connector as Connector[];
     const walletConnector = connectors.find((item) => item.name === 'WalletConnect');
     const injectedConnector = connectors.find((item) => item.name === this.wallet.name);
@@ -24,7 +24,7 @@ export class UniversalWallet implements WalletFactory {
     const getQrCode = async () => {
       const provider = await walletConnector?.getProvider();
       return new Promise<{ uri: string }>((resolve) => {
-        (provider as any).on('display_uri', (uri: string) => {
+        (provider as any)?.on('display_uri', (uri: string) => {
           resolve({
             uri,
           });
@@ -32,15 +32,15 @@ export class UniversalWallet implements WalletFactory {
       });
     };
 
-    const hasExtensionInstalled = () => {
-      const provider = injectedConnector?.getProvider();
+    const hasExtensionInstalled = async () => {
+      const provider = await injectedConnector?.getProvider();
       return !!provider;
     };
 
     return {
       ...this.wallet,
-      getWagmiConnector: () => {
-        if (hasExtensionInstalled()) {
+      getWagmiConnector: async () => {
+        if (await hasExtensionInstalled()) {
           return injectedConnector;
         }
         return walletConnector;
@@ -49,10 +49,10 @@ export class UniversalWallet implements WalletFactory {
         return hasExtensionInstalled();
       },
       hasWalletReady: async () => {
-        return !!(hasExtensionInstalled() || walletConnector);
+        const installed = await hasExtensionInstalled();
+        return !!(installed || walletConnector);
       },
-      getQrCode,
-      // TODO support showQrModal, getQrCode: walletConnector?.options?.showQrModal === false ? getQrCode : undefined,
+      getQrCode: walletConnector ? getQrCode : undefined,
     };
   };
 }

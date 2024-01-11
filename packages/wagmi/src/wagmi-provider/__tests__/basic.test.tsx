@@ -4,7 +4,7 @@ import { CoinbaseWallet, Polygon, WagmiWeb3ConfigProvider } from '@ant-design/we
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { createConfig, http } from 'wagmi';
-import { base, mainnet, polygon } from 'wagmi/chains';
+import { base, goerli, mainnet, polygon } from 'wagmi/chains';
 import { coinbaseWallet, injected } from 'wagmi/connectors';
 
 describe('WagmiWeb3ConfigProvider', () => {
@@ -67,9 +67,9 @@ describe('WagmiWeb3ConfigProvider', () => {
 
   it('custom assets', () => {
     const config = createConfig({
-      chains: [polygon, mainnet],
+      chains: [base, polygon],
       transports: {
-        [mainnet.id]: http(),
+        [base.id]: http(),
         [polygon.id]: http(),
       },
       connectors: [],
@@ -118,8 +118,9 @@ describe('WagmiWeb3ConfigProvider', () => {
 
   it('avaliable chains', () => {
     const config = createConfig({
-      chains: [polygon, mainnet],
+      chains: [polygon, goerli, mainnet],
       transports: {
+        [goerli.id]: http(),
         [mainnet.id]: http(),
         [polygon.id]: http(),
       },
@@ -152,10 +153,12 @@ describe('WagmiWeb3ConfigProvider', () => {
 
   it('avaliable chains with assets', () => {
     const config = createConfig({
-      chains: [polygon, mainnet],
+      chains: [polygon, mainnet, base, goerli],
       transports: {
         [mainnet.id]: http(),
         [polygon.id]: http(),
+        [base.id]: http(),
+        [goerli.id]: http(),
       },
       connectors: [
         injected({
@@ -191,7 +194,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     );
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.chains-name')?.textContent).toBe(
-      'Base,Polygon,Goerli,Ethereum',
+      'Polygon,Ethereum,Base,Goerli',
     );
   });
 
