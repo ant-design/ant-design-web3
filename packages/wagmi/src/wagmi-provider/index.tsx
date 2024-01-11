@@ -37,8 +37,8 @@ export function WagmiWeb3ConfigProvider({
     // merge all available chains fro user select
     const wagmiChains: WagmiChain[] = [];
     config.chains.forEach((chain) => {
-      if (chains.find((c) => c.id === chain.id)) return;
-      chains.push(chain);
+      if (wagmiChains.find((c) => c.id === chain.id)) return;
+      wagmiChains.push(chain);
     });
     return wagmiChains;
   }, [config]);
