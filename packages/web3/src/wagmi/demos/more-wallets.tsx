@@ -21,7 +21,7 @@ const config = createConfig({
     }),
     walletConnect({
       showQrModal: false,
-      projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
+      projectId: YOUR_WALLET_CONNET_PROJECT_ID,
     }),
     coinbaseWallet({
       appName: 'ant.design.web3',
