@@ -36,16 +36,18 @@
   "dependencies": {
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
-    "debug": "^4.3.4"
+    "debug": "^4.3.4",
+    "@wagmi/core": "^2.0.0",
+    "viem": "2.0.0"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
-    "@wagmi/core": "^1.4.12",
     "father": "^4.3.8",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "wagmi": "^1.4.12"
+    "wagmi": "^2.0.0",
+    "@tanstack/react-query": "^5.17.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",

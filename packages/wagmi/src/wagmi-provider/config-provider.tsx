@@ -7,14 +7,13 @@ import {
   type Locale,
   type Wallet,
 } from '@ant-design/web3-common';
+import { Chain as WagmiChain } from 'viem';
 import {
   useAccount,
   useBalance,
   useConnect,
   useDisconnect,
-  useNetwork,
-  useSwitchNetwork,
-  type Chain as WagmiChain,
+  useSwitchChain,
   type Connector as WagmiConnector,
 } from 'wagmi';
 
@@ -27,17 +26,16 @@ export interface AntDesignWeb3ConfigProviderProps {
   children?: React.ReactNode;
   ens?: boolean;
   balance?: boolean;
-  availableChains: WagmiChain[];
-  availableConnectors: WagmiConnector[];
+  readonly availableChains: readonly WagmiChain[];
+  readonly availableConnectors: readonly WagmiConnector[];
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
   const { children, assets, availableChains, availableConnectors, ens, balance, locale } = props;
-  const { address, isDisconnected } = useAccount();
+  const { address, isDisconnected, chain } = useAccount();
   const [account, setAccount] = React.useState<Account | undefined>();
   const { connectAsync } = useConnect();
-  const { switchNetwork } = useSwitchNetwork();
-  const { chain } = useNetwork();
+  const { switchChain } = useSwitchChain();
   const { disconnectAsync } = useDisconnect();
   const [currentChain, setCurrentChain] = React.useState<Chain | undefined>(undefined);
   const { data: balanceData } = useBalance({
@@ -163,6 +161,9 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         if (!connector) {
           connector = availableConnectors.find((item) => item.name === wallet?.name);
         }
+        if (!connector) {
+          throw new Error(`Can not find connector for ${wallet?.name}`);
+        }
         await connectAsync({
           connector,
           chainId: currentChain?.id,
@@ -176,7 +177,9 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           // hava not connected any chain
           setCurrentChain(c);
         } else {
-          switchNetwork?.(c.id);
+          switchChain?.({
+            chainId: c.id,
+          });
         }
       }}
       getNFTMetadata={async ({ address: contractAddress, tokenId }) =>

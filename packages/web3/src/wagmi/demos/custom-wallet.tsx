@@ -6,38 +6,33 @@ import {
   UniversalWallet,
   WagmiWeb3ConfigProvider,
 } from '@ant-design/web3-wagmi';
-import { configureChains, createConfig, mainnet } from 'wagmi';
-import { InjectedConnector } from 'wagmi/connectors/injected';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
-import { publicProvider } from 'wagmi/providers/public';
-
-const { publicClient, chains } = configureChains([mainnet], [publicProvider()]);
+import { createConfig, http } from 'wagmi';
+import { mainnet } from 'wagmi/chains';
+import { injected, walletConnect } from 'wagmi/connectors';
 
 const config = createConfig({
-  autoConnect: true,
-  publicClient,
+  chains: [mainnet],
+  transports: {
+    [mainnet.id]: http(),
+  },
   connectors: [
-    new MetaMaskConnector(),
-    new WalletConnectConnector({
-      chains,
-      options: {
-        showQrModal: false,
-        projectId: YOUR_WALLET_CONNET_PROJECT_ID,
-      },
+    injected({
+      target: 'metaMask',
     }),
-    new InjectedConnector({
-      chains,
-      options: {
-        name: 'TokenPocket',
-        getProvider: () => (window as any).tokenpocket?.ethereum,
-      },
+    walletConnect({
+      showQrModal: false,
+      projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
     }),
-    new InjectedConnector({
-      chains,
-      options: {
-        name: 'TestWallet',
-        getProvider: () => (window as any).testWallet,
+    injected({
+      target: 'tokenPocket',
+    }),
+    injected({
+      target() {
+        return {
+          id: 'testWallet',
+          name: 'TestWallet',
+          provider: window.ethereum,
+        };
       },
     }),
   ],

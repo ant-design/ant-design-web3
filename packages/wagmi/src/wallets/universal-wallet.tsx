@@ -24,7 +24,7 @@ export class UniversalWallet implements WalletFactory {
     const getQrCode = async () => {
       const provider = await walletConnector?.getProvider();
       return new Promise<{ uri: string }>((resolve) => {
-        provider.on('display_uri', (uri: string) => {
+        (provider as any).on('display_uri', (uri: string) => {
           resolve({
             uri,
           });
@@ -33,7 +33,7 @@ export class UniversalWallet implements WalletFactory {
     };
 
     const hasExtensionInstalled = () => {
-      const provider = injectedConnector?.options?.getProvider();
+      const provider = injectedConnector?.getProvider();
       return !!provider;
     };
 
@@ -51,7 +51,8 @@ export class UniversalWallet implements WalletFactory {
       hasWalletReady: async () => {
         return !!(hasExtensionInstalled() || walletConnector);
       },
-      getQrCode: walletConnector?.options?.showQrModal === false ? getQrCode : undefined,
+      getQrCode,
+      // TODO support showQrModal, getQrCode: walletConnector?.options?.showQrModal === false ? getQrCode : undefined,
     };
   };
 }

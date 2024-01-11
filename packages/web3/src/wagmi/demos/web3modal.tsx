@@ -1,22 +1,21 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { WagmiWeb3ConfigProvider, WalletConnect } from '@ant-design/web3-wagmi';
-import { configureChains, createConfig, mainnet } from 'wagmi';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
-import { publicProvider } from 'wagmi/providers/public';
-
-const { publicClient, chains } = configureChains([mainnet], [publicProvider()]);
+import { createConfig, http } from 'wagmi';
+import { mainnet } from 'wagmi/chains';
+import { injected, walletConnect } from 'wagmi/connectors';
 
 const config = createConfig({
-  autoConnect: true,
-  publicClient,
+  chains: [mainnet],
+  transports: {
+    [mainnet.id]: http(),
+  },
   connectors: [
-    new MetaMaskConnector(),
-    new WalletConnectConnector({
-      chains,
-      options: {
-        projectId: YOUR_WALLET_CONNET_PROJECT_ID,
-      },
+    injected({
+      target: 'metaMask',
+    }),
+    walletConnect({
+      showQrModal: false,
+      projectId: YOUR_WALLET_CONNET_PROJECT_ID,
     }),
   ],
 });

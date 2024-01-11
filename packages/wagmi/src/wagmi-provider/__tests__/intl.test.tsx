@@ -2,16 +2,16 @@ import { ConnectButton } from '@ant-design/web3';
 import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { configureChains, createConfig } from 'wagmi';
+import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
-import { publicProvider } from 'wagmi/providers/public';
 
 describe('WagmiWeb3ConfigProvider', () => {
   it('mount correctly', () => {
-    const { publicClient } = configureChains([mainnet], [publicProvider()]);
     const config = createConfig({
-      autoConnect: true,
-      publicClient,
+      chains: [mainnet],
+      transports: {
+        [mainnet.id]: http(),
+      },
       connectors: [],
     });
 

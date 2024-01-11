@@ -10,10 +10,10 @@ export const SafeheronWallet: WalletFactory = {
     return {
       ...metadata_Safeheron,
       hasWalletReady: async () => {
-        return !!(connector as Connector)?.ready;
+        return !!(connector as Connector)?.getProvider();
       },
       hasExtensionInstalled: async () => {
-        return !!(connector as Connector)?.ready;
+        return !!(connector as Connector)?.getProvider();
       },
     };
   },
