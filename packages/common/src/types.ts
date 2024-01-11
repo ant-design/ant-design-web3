@@ -15,6 +15,8 @@ export enum ChainIds {
   //#endregion
 
   Solana = 1e10 + 1,
+  SolanaDevnet = 1e10 + 2,
+  SolanaTestnet = 1e10 + 3,
 }
 
 export type BrowserLinkType = 'address' | 'transaction';
@@ -69,8 +71,8 @@ export interface UniversalWeb3ProviderInterface {
   addressPrefix?: string;
 
   price?: {
-    symbol: string;
-    decimals: number;
+    symbol?: string;
+    decimals?: number;
     fixed?: number;
   };
 

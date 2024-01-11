@@ -98,3 +98,25 @@ export const Solana: Chain = {
   },
   nativeCurrency: { name: 'Solana', symbol: 'SOL', decimals: 9 },
 };
+
+export const SolanaDevnet: Chain = {
+  id: ChainIds.SolanaDevnet,
+  name: 'Solana Devnet',
+  icon: <SolanaColorful />,
+  browser: {
+    icon: <SolanaColorful />,
+    getBrowserLink: createGetBrowserLink('https://explorer.solana.com'),
+  },
+  nativeCurrency: { name: 'Solana', symbol: 'SOL', decimals: 9 },
+};
+
+export const SolanaTestnet: Chain = {
+  id: ChainIds.SolanaTestnet,
+  name: 'Solana Testnet',
+  icon: <SolanaColorful />,
+  browser: {
+    icon: <SolanaColorful />,
+    getBrowserLink: createGetBrowserLink('https://explorer.solana.com'),
+  },
+  nativeCurrency: { name: 'Solana', symbol: 'SOL', decimals: 9 },
+};
