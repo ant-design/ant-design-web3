@@ -31,7 +31,6 @@ export function WagmiWeb3ConfigProvider({
   queryClient,
   ...restProps
 }: React.PropsWithChildren<WagmiWeb3ConfigProviderProps>): React.ReactElement {
-  config.chains;
   const availableChains: WagmiChain[] = React.useMemo(() => {
     // merge all available chains fro user select
     const chains: WagmiChain[] = [];

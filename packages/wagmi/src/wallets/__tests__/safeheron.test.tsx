@@ -18,7 +18,10 @@ describe('Safeheron', () => {
             return {
               name: 'Safeheron',
               id: 'safeheron',
-              provider: {} as any,
+              provider: {
+                request: () => {},
+                on: () => {},
+              } as any,
             };
           },
         }),
@@ -41,7 +44,10 @@ describe('Safeheron', () => {
             return {
               name: 'Safeheron',
               id: 'safeheron',
-              provider: {} as any,
+              provider: {
+                request: () => {},
+                on: () => {},
+              } as any,
             };
           },
         }),

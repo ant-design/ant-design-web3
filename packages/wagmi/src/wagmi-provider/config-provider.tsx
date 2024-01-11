@@ -11,6 +11,7 @@ import { Chain as WagmiChain } from 'viem';
 import {
   useAccount,
   useBalance,
+  useConfig,
   useConnect,
   useDisconnect,
   useSwitchChain,
@@ -33,6 +34,7 @@ export interface AntDesignWeb3ConfigProviderProps {
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
   const { children, assets, availableChains, availableConnectors, ens, balance, locale } = props;
   const { address, isDisconnected, chain } = useAccount();
+  const config = useConfig();
   const [account, setAccount] = React.useState<Account | undefined>();
   const { connectAsync } = useConnect();
   const { switchChain } = useSwitchChain();
@@ -51,7 +53,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       const a = {
         address,
       };
-      setAccount(ens ? await addNameToAccount(a) : a);
+      setAccount(ens ? await addNameToAccount(config, a) : a);
     };
     updateAccounts();
   }, [address, isDisconnected, chain, ens]);
@@ -183,7 +185,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         }
       }}
       getNFTMetadata={async ({ address: contractAddress, tokenId }) =>
-        getNFTMetadata(contractAddress, tokenId, chain?.id)
+        getNFTMetadata(config, contractAddress, tokenId, chain?.id)
       }
     >
       {children}

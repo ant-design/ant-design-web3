@@ -18,6 +18,9 @@ const mockConnector = {
 
 vi.mock('wagmi', () => {
   return {
+    useConfig: () => {
+      return {};
+    },
     // https://wagmi.sh/react/hooks/useAccount
 
     useAccount: () => {

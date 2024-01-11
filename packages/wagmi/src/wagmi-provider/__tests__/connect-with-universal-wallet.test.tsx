@@ -26,6 +26,9 @@ const disconnectAsync = vi.fn();
 
 vi.mock('wagmi', () => {
   return {
+    useConfig: () => {
+      return {};
+    },
     // https://wagmi.sh/react/hooks/useAccount
     useAccount: () => {
       const [connected, setConnected] = React.useState(false);

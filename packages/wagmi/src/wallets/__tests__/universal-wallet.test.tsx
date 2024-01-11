@@ -49,9 +49,6 @@ describe('UniversalWallet', async () => {
     const wallet = factory.create([
       {
         name: 'WalletConnect',
-        options: {
-          showQrModal: false,
-        },
         getProvider: async () => {
           return {
             on: (type: string, handler: any) => {
@@ -139,6 +136,7 @@ describe('UniversalWallet', async () => {
               name: 'TestWalletInjectedConnector',
               provider: {
                 request: () => {},
+                on: () => {},
               } as any,
             };
           },
@@ -186,6 +184,7 @@ describe('UniversalWallet', async () => {
               name: 'TestWalletInjectedConnector',
               provider: {
                 request: () => {},
+                on: () => {},
               } as any,
             };
           },
