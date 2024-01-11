@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Avatar, Button, List, message } from 'antd';
+import { Avatar, Button, List } from 'antd';
 
 import { connectModalContext } from '../context';
 import type { ConnectModalProps } from '../interface';
@@ -9,13 +9,11 @@ export type GetWalletPanelProps = Pick<ConnectModalProps, 'walletList'>;
 
 const GetWalletPanel: React.FC<GetWalletPanelProps> = (props) => {
   const { walletList = [] } = props;
-  const [, contextHolder] = message.useMessage();
   const { prefixCls, updateSelectedWallet, updatePanelRoute, localeMessage } =
     useContext(connectModalContext);
 
   const list = (
     <>
-      {contextHolder}
       <div className={`${prefixCls}-list`}>
         <List
           itemLayout="horizontal"
