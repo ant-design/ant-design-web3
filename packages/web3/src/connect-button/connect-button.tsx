@@ -206,7 +206,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   if (typeof tooltip === 'object' && typeof tooltip.title === 'string') {
     tooltipTitle = tooltip.title;
   }
-  const ConnectButtonTooltipProps: () => ConnectButtonTooltipProps & { intl: IntlType } = () => {
+  const getConnectButtonTooltipProps: () => ConnectButtonTooltipProps & { intl: IntlType } = () => {
     const mergedTooltipCopyable: ConnectButtonTooltipProps['copyable'] =
       typeof tooltip === 'object' ? tooltip.copyable !== false : !!tooltip;
     return {
@@ -223,7 +223,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     <>
       {contextHolder}
       {tooltipTitle ? (
-        <ConnectButtonTooltip {...ConnectButtonTooltipProps()}>{content}</ConnectButtonTooltip>
+        <ConnectButtonTooltip {...getConnectButtonTooltipProps()}>{content}</ConnectButtonTooltip>
       ) : (
         content
       )}
