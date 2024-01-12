@@ -1,5 +1,11 @@
 # @ant-design/web3-wagmi
 
+## 2.0.1
+
+### Patch Changes
+
+- 47a879d: chore: release @ant-design/web3-wagmi 2.x for wagmi 2.x
+
 ## 2.0.0
 
 ### Major Changes
