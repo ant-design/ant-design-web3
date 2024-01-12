@@ -1,12 +1,13 @@
 import { fillAddressWith0x, requestWeb3Asset, type NFTMetadata } from '@ant-design/web3-common';
-import { readContract } from '@wagmi/core';
+import { readContract, type Config } from '@wagmi/core';
 
 export async function getNFTMetadata(
+  config: Config,
   address: string,
   tokenId: bigint,
   chainId?: number,
 ): Promise<NFTMetadata> {
-  const tokenURI = await readContract({
+  const tokenURI = await readContract(config, {
     address: fillAddressWith0x(address),
     args: [tokenId],
     chainId,

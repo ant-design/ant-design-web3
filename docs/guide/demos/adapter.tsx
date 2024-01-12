@@ -29,11 +29,11 @@ export const YourAdapterPropsProvider: React.FC<YourAdapterProps> = (props) => {
         // 这里可以实现断开连接的逻辑
         return;
       }}
-      switchChain={async (c: Chain) => {
+      switchChain={async () => {
         // 这里可以实现切换链的逻辑
         return;
       }}
-      getNFTMetadata={async ({ address: contractAddress, tokenId }) => {
+      getNFTMetadata={async () => {
         // 这里可以实现获取 NFT 元数据的逻辑
         return {
           name: 'NFT',

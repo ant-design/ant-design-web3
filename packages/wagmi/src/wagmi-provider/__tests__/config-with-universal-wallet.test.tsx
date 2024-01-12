@@ -2,41 +2,34 @@ import { useProvider } from '@ant-design/web3';
 import {
   metadata_MetaMask,
   metadata_TokenPocket,
+  MetaMask,
   UniversalWallet,
   WagmiWeb3ConfigProvider,
 } from '@ant-design/web3-wagmi';
 import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { configureChains, createConfig } from 'wagmi';
+import { createConfig, http } from 'wagmi';
 import { mainnet, polygon } from 'wagmi/chains';
-import { InjectedConnector } from 'wagmi/connectors/injected';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
-import { publicProvider } from 'wagmi/providers/public';
+import { injected, walletConnect } from 'wagmi/connectors';
 
 describe('WagmiWeb3ConfigProvider with UniversalWallet', () => {
   it('avaliable wallets with assets', () => {
-    const chains = [polygon, mainnet];
-    const { publicClient } = configureChains(chains, [publicProvider()]);
-
     const config = createConfig({
-      autoConnect: true,
-      publicClient,
+      chains: [polygon, mainnet],
+      transports: {
+        [mainnet.id]: http(),
+        [polygon.id]: http(),
+      },
       connectors: [
-        new MetaMaskConnector(),
-        new WalletConnectConnector({
-          chains,
-          options: {
-            showQrModal: false,
-            projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
-          },
+        injected({
+          target: 'metaMask',
         }),
-        new InjectedConnector({
-          chains,
-          options: {
-            name: 'TokenPocket',
-            getProvider: () => (window as any).tokenpocket?.ethereum,
-          },
+        walletConnect({
+          showQrModal: false,
+          projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
+        }),
+        injected({
+          target: 'tokenPocket',
         }),
       ],
     });
@@ -56,7 +49,10 @@ describe('WagmiWeb3ConfigProvider with UniversalWallet', () => {
     };
 
     const App = () => (
-      <WagmiWeb3ConfigProvider assets={[new UniversalWallet(metadata_TokenPocket)]} config={config}>
+      <WagmiWeb3ConfigProvider
+        wallets={[MetaMask(), new UniversalWallet(metadata_TokenPocket)]}
+        config={config}
+      >
         <CustomConnector />
       </WagmiWeb3ConfigProvider>
     );
@@ -65,33 +61,30 @@ describe('WagmiWeb3ConfigProvider with UniversalWallet', () => {
   });
 
   it('custom wallet', () => {
-    const chains = [polygon, mainnet];
-    const { publicClient } = configureChains(chains, [publicProvider()]);
-
     const config = createConfig({
-      autoConnect: true,
-      publicClient,
+      chains: [polygon, mainnet],
+      transports: {
+        [mainnet.id]: http(),
+        [polygon.id]: http(),
+      },
       connectors: [
-        new MetaMaskConnector(),
-        new WalletConnectConnector({
-          chains,
-          options: {
-            showQrModal: false,
-            projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
-          },
+        injected({
+          target: 'metaMask',
         }),
-        new InjectedConnector({
-          chains,
-          options: {
-            name: 'TokenPocket',
-            getProvider: () => (window as any).tokenpocket?.ethereum,
-          },
+        walletConnect({
+          showQrModal: false,
+          projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
         }),
-        new InjectedConnector({
-          chains,
-          options: {
-            name: 'TestWallet',
-            getProvider: () => (window as any).testWallet,
+        injected({
+          target: 'tokenPocket',
+        }),
+        injected({
+          target() {
+            return {
+              id: 'testWallet',
+              name: 'TestWallet',
+              provider: window.ethereum,
+            };
           },
         }),
       ],
@@ -113,13 +106,13 @@ describe('WagmiWeb3ConfigProvider with UniversalWallet', () => {
 
     const App = () => (
       <WagmiWeb3ConfigProvider
-        assets={[
+        wallets={[
           new UniversalWallet({
             ...metadata_TokenPocket,
             group: 'Popular',
           }),
           {
-            name: 'TestWallet',
+            connectors: ['TestWallet'],
             create: () => {
               return {
                 name: 'TestWallet',

@@ -1,33 +1,33 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { Polygon, WagmiWeb3ConfigProvider, WalletConnect } from '@ant-design/web3-wagmi';
-import { configureChains, createConfig } from 'wagmi';
+import { MetaMask, Polygon, WagmiWeb3ConfigProvider, WalletConnect } from '@ant-design/web3-wagmi';
+import { createConfig, http } from 'wagmi';
 import { mainnet, polygon } from 'wagmi/chains';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
-import { publicProvider } from 'wagmi/providers/public';
-
-const { publicClient, chains } = configureChains([mainnet, polygon], [publicProvider()]);
+import { injected, walletConnect } from 'wagmi/connectors';
 
 const config = createConfig({
-  autoConnect: true,
-  publicClient,
+  chains: [mainnet, polygon],
+  transports: {
+    [mainnet.id]: http(),
+    [polygon.id]: http(),
+  },
   connectors: [
-    new MetaMaskConnector({
-      chains,
+    injected({
+      target: 'metaMask',
     }),
-    new WalletConnectConnector({
-      chains,
-      options: {
-        showQrModal: false,
-        projectId: YOUR_WALLET_CONNET_PROJECT_ID,
-      },
+    walletConnect({
+      showQrModal: false,
+      projectId: YOUR_WALLET_CONNET_PROJECT_ID,
     }),
   ],
 });
 
 const App: React.FC = () => {
   return (
-    <WagmiWeb3ConfigProvider assets={[WalletConnect, Polygon]} config={config}>
+    <WagmiWeb3ConfigProvider
+      wallets={[MetaMask(), WalletConnect()]}
+      chains={[Polygon]}
+      config={config}
+    >
       <Connector>
         <ConnectButton />
       </Connector>

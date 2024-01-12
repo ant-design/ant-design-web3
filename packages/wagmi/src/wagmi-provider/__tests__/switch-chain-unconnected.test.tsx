@@ -13,9 +13,13 @@ const mockConnector = {
 
 vi.mock('wagmi', () => {
   return {
+    useConfig: () => {
+      return {};
+    },
     // https://wagmi.sh/react/hooks/useAccount
     useAccount: () => {
       return {
+        chain: undefined,
         address: undefined,
         connector: mockConnector,
       };
@@ -30,14 +34,9 @@ vi.mock('wagmi', () => {
         disconnectAsync: () => {},
       };
     },
-    useNetwork: () => {
+    useSwitchChain: () => {
       return {
-        chain: undefined,
-      };
-    },
-    useSwitchNetwork: () => {
-      return {
-        switchNetwork: () => {},
+        switchChain: () => {},
       };
     },
     useBalance: () => {
@@ -58,7 +57,8 @@ describe('switch chain when not conncted', () => {
       <AntDesignWeb3ConfigProvider
         availableConnectors={[]}
         availableChains={[mainnet, polygon]}
-        assets={[Mainnet, Polygon, MetaMask]}
+        walletFactorys={[MetaMask()]}
+        chainAssets={[Mainnet, Polygon]}
       >
         <Connector>
           <ConnectButton />

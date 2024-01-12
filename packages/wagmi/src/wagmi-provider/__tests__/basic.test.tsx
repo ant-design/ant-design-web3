@@ -1,20 +1,19 @@
 import { Connector, useProvider, type ConnectorTriggerProps } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
-import { CoinbaseWallet, Polygon, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { CoinbaseWallet, MetaMask, Polygon, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import { configureChains, createConfig } from 'wagmi';
+import { createConfig, http } from 'wagmi';
 import { base, goerli, mainnet, polygon } from 'wagmi/chains';
-import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { publicProvider } from 'wagmi/providers/public';
+import { coinbaseWallet, injected } from 'wagmi/connectors';
 
 describe('WagmiWeb3ConfigProvider', () => {
   it('mount correctly', () => {
-    const { publicClient } = configureChains([mainnet], [publicProvider()]);
     const config = createConfig({
-      autoConnect: true,
-      publicClient,
+      chains: [mainnet],
+      transports: {
+        [mainnet.id]: http(),
+      },
       connectors: [],
     });
 
@@ -28,11 +27,12 @@ describe('WagmiWeb3ConfigProvider', () => {
   });
 
   it('chains', () => {
-    const chains = [polygon, mainnet];
-    const { publicClient } = configureChains(chains, [publicProvider()]);
     const config = createConfig({
-      autoConnect: true,
-      publicClient,
+      chains: [polygon, mainnet],
+      transports: {
+        [mainnet.id]: http(),
+        [polygon.id]: http(),
+      },
       connectors: [],
     });
 
@@ -66,11 +66,12 @@ describe('WagmiWeb3ConfigProvider', () => {
   });
 
   it('custom assets', () => {
-    const chains = [base, polygon];
-    const { publicClient } = configureChains(chains, [publicProvider()]);
     const config = createConfig({
-      autoConnect: true,
-      publicClient,
+      chains: [base, polygon],
+      transports: {
+        [base.id]: http(),
+        [polygon.id]: http(),
+      },
       connectors: [],
     });
 
@@ -79,7 +80,7 @@ describe('WagmiWeb3ConfigProvider', () => {
       return (
         <div
           onClick={() => {
-            onSwitchChain?.(chains[0]);
+            onSwitchChain?.(polygon);
           }}
           className="content"
         >
@@ -103,7 +104,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     ];
 
     const App = () => (
-      <WagmiWeb3ConfigProvider assets={assets} config={config}>
+      <WagmiWeb3ConfigProvider chains={assets} config={config}>
         <Connector switchChain={switchChain}>
           <CustomButton />
         </Connector>
@@ -112,23 +113,24 @@ describe('WagmiWeb3ConfigProvider', () => {
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.content')?.textContent).toBe('TEST Chain show text');
     fireEvent.click(baseElement.querySelector('.content')!);
-    expect(switchChain).toBeCalledWith(chains[0]);
+    expect(switchChain).toBeCalledWith(polygon);
   });
 
   it('avaliable chains', () => {
-    const chains = [polygon, mainnet];
-    const { publicClient } = configureChains(chains, [publicProvider()]);
     const config = createConfig({
-      autoConnect: true,
-      publicClient,
+      chains: [polygon, goerli, mainnet],
+      transports: {
+        [goerli.id]: http(),
+        [mainnet.id]: http(),
+        [polygon.id]: http(),
+      },
       connectors: [
-        new MetaMaskConnector({ chains: [base] }),
-        new CoinbaseWalletConnector({
-          chains: [polygon, base, goerli],
-          options: {
-            appName: 'ant.design.web3',
-            jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/test`,
-          },
+        injected({
+          target: 'metaMask',
+        }),
+        coinbaseWallet({
+          appName: 'ant.design.web3',
+          jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/test`,
         }),
       ],
     });
@@ -146,23 +148,25 @@ describe('WagmiWeb3ConfigProvider', () => {
       </WagmiWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Goerli,Ethereum');
+    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Ethereum');
   });
 
   it('avaliable chains with assets', () => {
-    const chains = [polygon, mainnet];
-    const { publicClient } = configureChains(chains, [publicProvider()]);
     const config = createConfig({
-      autoConnect: true,
-      publicClient,
+      chains: [polygon, mainnet, base, goerli],
+      transports: {
+        [mainnet.id]: http(),
+        [polygon.id]: http(),
+        [base.id]: http(),
+        [goerli.id]: http(),
+      },
       connectors: [
-        new MetaMaskConnector({ chains: [base] }),
-        new CoinbaseWalletConnector({
-          chains: [polygon, base, goerli],
-          options: {
-            appName: 'ant.design.web3',
-            jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/test`,
-          },
+        injected({
+          target: 'metaMask',
+        }),
+        coinbaseWallet({
+          appName: 'ant.design.web3',
+          jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/test`,
         }),
       ],
     });
@@ -177,7 +181,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     const App = () => (
       <WagmiWeb3ConfigProvider
         config={config}
-        assets={[
+        chains={[
           Polygon,
           {
             id: base.id,
@@ -189,17 +193,17 @@ describe('WagmiWeb3ConfigProvider', () => {
       </WagmiWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.chains-name')?.textContent).toBe(
-      'Base,Polygon,Goerli,Ethereum',
-    );
+    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Polygon,Ethereum,Base');
   });
 
   it('empty connectors', () => {
     const chains = [polygon, mainnet];
-    const { publicClient } = configureChains(chains, [publicProvider()]);
     const config = createConfig({
-      autoConnect: true,
-      publicClient,
+      chains: [polygon, mainnet],
+      transports: {
+        [mainnet.id]: http(),
+        [polygon.id]: http(),
+      },
     });
 
     const CustomConnector: React.FC = () => {
@@ -220,18 +224,19 @@ describe('WagmiWeb3ConfigProvider', () => {
 
   it('avaliable wallets', () => {
     const chains = [polygon, mainnet];
-    const { publicClient } = configureChains(chains, [publicProvider()]);
     const config = createConfig({
-      autoConnect: true,
-      publicClient,
+      chains: [polygon, mainnet],
+      transports: {
+        [mainnet.id]: http(),
+        [polygon.id]: http(),
+      },
       connectors: [
-        new MetaMaskConnector({ chains: [base] }),
-        new CoinbaseWalletConnector({
-          chains: [polygon, base, goerli],
-          options: {
-            appName: 'ant.design.web3',
-            jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/test`,
-          },
+        injected({
+          target: 'metaMask',
+        }),
+        coinbaseWallet({
+          appName: 'ant.design.web3',
+          jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/test`,
         }),
       ],
     });
@@ -244,7 +249,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     };
 
     const App = () => (
-      <WagmiWeb3ConfigProvider config={config}>
+      <WagmiWeb3ConfigProvider config={config} wallets={[MetaMask()]}>
         <CustomConnector />
       </WagmiWeb3ConfigProvider>
     );
@@ -254,18 +259,19 @@ describe('WagmiWeb3ConfigProvider', () => {
 
   it('avaliable wallets with assets', () => {
     const chains = [polygon, mainnet];
-    const { publicClient } = configureChains(chains, [publicProvider()]);
     const config = createConfig({
-      autoConnect: true,
-      publicClient,
+      chains: [polygon, mainnet],
+      transports: {
+        [mainnet.id]: http(),
+        [polygon.id]: http(),
+      },
       connectors: [
-        new MetaMaskConnector({ chains: [base] }),
-        new CoinbaseWalletConnector({
-          chains: [polygon, base, goerli],
-          options: {
-            appName: 'ant.design.web3',
-            jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/test`,
-          },
+        injected({
+          target: 'metaMask',
+        }),
+        coinbaseWallet({
+          appName: 'ant.design.web3',
+          jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/test`,
         }),
       ],
     });
@@ -278,7 +284,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     };
 
     const App = () => (
-      <WagmiWeb3ConfigProvider assets={[CoinbaseWallet]} config={config}>
+      <WagmiWeb3ConfigProvider wallets={[MetaMask(), CoinbaseWallet()]} config={config}>
         <CustomConnector />
       </WagmiWeb3ConfigProvider>
     );

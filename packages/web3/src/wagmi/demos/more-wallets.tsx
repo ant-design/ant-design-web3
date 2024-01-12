@@ -1,54 +1,45 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   CoinbaseWallet,
+  MetaMask,
   SafeheronWallet,
   TokenPocket,
   WagmiWeb3ConfigProvider,
   WalletConnect,
 } from '@ant-design/web3-wagmi';
-import { configureChains, createConfig, mainnet } from 'wagmi';
-import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
-import { InjectedConnector } from 'wagmi/connectors/injected';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
-import { publicProvider } from 'wagmi/providers/public';
-
-const { publicClient, chains } = configureChains([mainnet], [publicProvider()]);
+import { createConfig, http } from 'wagmi';
+import { mainnet } from 'wagmi/chains';
+import { coinbaseWallet, injected, walletConnect } from 'wagmi/connectors';
 
 const config = createConfig({
-  autoConnect: true,
-  publicClient,
+  chains: [mainnet],
+  transports: {
+    [mainnet.id]: http(),
+  },
   connectors: [
-    new MetaMaskConnector({
-      chains,
+    injected({
+      target: 'metaMask',
     }),
-    new WalletConnectConnector({
-      chains,
-      options: {
-        showQrModal: false,
-        projectId: YOUR_WALLET_CONNET_PROJECT_ID,
+    walletConnect({
+      showQrModal: false,
+      projectId: YOUR_WALLET_CONNET_PROJECT_ID,
+    }),
+    coinbaseWallet({
+      appName: 'ant.design.web3',
+      jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${YOUR_ZAN_API_KEY}`,
+    }),
+    injected({
+      target() {
+        return {
+          id: 'safeheron',
+          name: 'Safeheron',
+          // @ts-ignore
+          provider: window.safeheron,
+        };
       },
     }),
-    new CoinbaseWalletConnector({
-      chains,
-      options: {
-        appName: 'ant.design.web3',
-        jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${YOUR_ZAN_API_KEY}`,
-      },
-    }),
-    new InjectedConnector({
-      chains,
-      options: {
-        name: 'Safeheron',
-        getProvider: () => (window as any).safeheron,
-      },
-    }),
-    new InjectedConnector({
-      chains,
-      options: {
-        name: 'TokenPocket',
-        getProvider: () => (window as any).tokenpocket?.ethereum,
-      },
+    injected({
+      target: 'tokenPocket',
     }),
   ],
 });
@@ -56,7 +47,15 @@ const config = createConfig({
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
-      assets={[WalletConnect, TokenPocket, CoinbaseWallet, SafeheronWallet]}
+      wallets={[
+        MetaMask(),
+        WalletConnect(),
+        TokenPocket({
+          group: 'Popular',
+        }),
+        CoinbaseWallet(),
+        SafeheronWallet(),
+      ]}
       config={config}
     >
       <Connector>

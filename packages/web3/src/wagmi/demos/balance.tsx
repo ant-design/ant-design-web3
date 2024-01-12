@@ -1,32 +1,28 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { CoinbaseWallet, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
-import { configureChains, createConfig, mainnet } from 'wagmi';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
-import { publicProvider } from 'wagmi/providers/public';
-
-const { publicClient, chains } = configureChains([mainnet], [publicProvider()]);
+import { CoinbaseWallet, MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { createConfig, http } from 'wagmi';
+import { mainnet } from 'wagmi/chains';
+import { injected, walletConnect } from 'wagmi/connectors';
 
 const config = createConfig({
-  autoConnect: true,
-  publicClient,
+  chains: [mainnet],
+  transports: {
+    [mainnet.id]: http(),
+  },
   connectors: [
-    new MetaMaskConnector({
-      chains,
+    injected({
+      target: 'metaMask',
     }),
-    new WalletConnectConnector({
-      chains,
-      options: {
-        showQrModal: false,
-        projectId: YOUR_WALLET_CONNET_PROJECT_ID,
-      },
+    walletConnect({
+      showQrModal: false,
+      projectId: YOUR_WALLET_CONNET_PROJECT_ID,
     }),
   ],
 });
 
 const App: React.FC = () => {
   return (
-    <WagmiWeb3ConfigProvider balance assets={[CoinbaseWallet]} config={config}>
+    <WagmiWeb3ConfigProvider balance wallets={[MetaMask(), CoinbaseWallet()]} config={config}>
       <Connector>
         <ConnectButton />
       </Connector>

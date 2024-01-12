@@ -1,29 +1,27 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { TokenPocket, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
-import { configureChains, createConfig, mainnet } from 'wagmi';
-import { InjectedConnector } from 'wagmi/connectors/injected';
-import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
-import { publicProvider } from 'wagmi/providers/public';
-
-const { publicClient, chains } = configureChains([mainnet], [publicProvider()]);
+import { createConfig, http } from 'wagmi';
+import { mainnet } from 'wagmi/chains';
+import { injected, walletConnect } from 'wagmi/connectors';
 
 const config = createConfig({
-  autoConnect: true,
-  publicClient,
+  chains: [mainnet],
+  transports: {
+    [mainnet.id]: http(),
+  },
   connectors: [
-    new WalletConnectConnector({
-      chains,
-      options: {
-        showQrModal: false,
-        projectId: YOUR_WALLET_CONNET_PROJECT_ID,
+    injected({
+      target() {
+        return {
+          id: 'testWallet',
+          name: 'TokenPocket',
+          provider: undefined as any,
+        };
       },
     }),
-    new InjectedConnector({
-      chains,
-      options: {
-        name: 'TokenPocket',
-        getProvider: () => (window as any).tokenpocket?.ethereum,
-      },
+    walletConnect({
+      showQrModal: false,
+      projectId: YOUR_WALLET_CONNET_PROJECT_ID,
     }),
   ],
 });
@@ -31,10 +29,10 @@ const config = createConfig({
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
-      assets={[
-        {
-          ...TokenPocket,
-        },
+      wallets={[
+        TokenPocket({
+          group: 'Popular',
+        }),
       ]}
       config={config}
     >

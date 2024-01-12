@@ -1,23 +1,33 @@
 import { TokenPocket } from '@ant-design/web3-wagmi';
+import { mainnet } from 'viem/chains';
 import { describe, expect, it } from 'vitest';
-import { InjectedConnector } from 'wagmi/connectors/injected';
-import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
+import { createConfig, http } from 'wagmi';
+import { injected, walletConnect } from 'wagmi/connectors';
 
 describe('TokenPocket', () => {
-  const wallet = TokenPocket.create([
-    new WalletConnectConnector({
-      options: {
+  const config = createConfig({
+    chains: [mainnet],
+    transports: {
+      [mainnet.id]: http(),
+    },
+    connectors: [
+      walletConnect({
         showQrModal: false,
         projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
-      },
-    }),
-    new InjectedConnector({
-      options: {
-        name: 'TokenPocket',
-        getProvider: () => (window as any).tokenpocket?.ethereum,
-      },
-    }),
-  ]);
+      }),
+      injected({
+        target() {
+          return {
+            id: 'testWallet',
+            name: 'TokenPocket',
+            provider: undefined as any,
+          };
+        },
+      }),
+    ],
+  });
+
+  const wallet = TokenPocket().create(config.connectors);
 
   it('name', async () => {
     expect(wallet.name).toBe('TokenPocket');
@@ -32,5 +42,12 @@ describe('TokenPocket', () => {
     for (const key in wallet) {
       expect(wallet).toHaveProperty(key);
     }
+  });
+
+  it('custom metadata', () => {
+    const customWallet = TokenPocket({
+      group: 'TestGroup',
+    }).create(config.connectors);
+    expect(customWallet.group).toBe('TestGroup');
   });
 });

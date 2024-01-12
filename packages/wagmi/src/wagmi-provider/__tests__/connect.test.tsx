@@ -4,6 +4,7 @@ import { useProvider } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+import { Connector } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 
 import { MetaMask } from '../../wallets';
@@ -11,7 +12,7 @@ import { AntDesignWeb3ConfigProvider } from '../config-provider';
 
 const mockConnector = {
   name: 'MetaMask',
-};
+} as Connector;
 
 const event = new EventEmitter();
 
@@ -20,6 +21,9 @@ const disconnectAsync = vi.fn();
 
 vi.mock('wagmi', () => {
   return {
+    useConfig: () => {
+      return {};
+    },
     // https://wagmi.sh/react/hooks/useAccount
     useAccount: () => {
       const [connected, setConnected] = React.useState(false);
@@ -29,6 +33,7 @@ vi.mock('wagmi', () => {
         });
       }, []);
       return {
+        chain: mainnet,
         address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
         isDisconnected: !connected,
         connector: mockConnector,
@@ -51,14 +56,9 @@ vi.mock('wagmi', () => {
         },
       };
     },
-    useNetwork: () => {
+    useSwitchChain: () => {
       return {
-        chain: mainnet,
-      };
-    },
-    useSwitchNetwork: () => {
-      return {
-        switchNetwork: () => {},
+        switchChain: () => {},
       };
     },
     useBalance: () => {
@@ -80,7 +80,7 @@ describe('WagmiWeb3ConfigProvider connect', () => {
                 disconnect?.();
                 return;
               }
-              connect?.();
+              connect?.(MetaMask().create([mockConnector]));
             }}
           >
             {account ? account?.address : 'Connect'}
@@ -92,8 +92,9 @@ describe('WagmiWeb3ConfigProvider connect', () => {
     const App = () => (
       <AntDesignWeb3ConfigProvider
         availableChains={[mainnet]}
-        availableConnectors={[]}
-        assets={[Mainnet, MetaMask]}
+        availableConnectors={[mockConnector]}
+        walletFactorys={[MetaMask()]}
+        chainAssets={[Mainnet]}
       >
         <CustomConnector />
       </AntDesignWeb3ConfigProvider>
@@ -112,6 +113,53 @@ describe('WagmiWeb3ConfigProvider connect', () => {
     fireEvent.click(baseElement.querySelector('.custom-text')!);
     await vi.waitFor(() => {
       expect(disconnectAsync).toBeCalled();
+    });
+  });
+
+  it('connect not available connector', async () => {
+    const CustomConnector = () => {
+      const { connect, account, disconnect } = useProvider();
+      const [error, setError] = React.useState<Error | undefined>();
+      return (
+        <div>
+          <div
+            className="custom-text"
+            onClick={async () => {
+              if (account) {
+                disconnect?.();
+                return;
+              }
+              try {
+                await connect?.({
+                  name: 'test',
+                } as any);
+              } catch (e) {
+                setError(e as Error);
+              }
+            }}
+          >
+            {error ? error.message : account?.name}
+          </div>
+        </div>
+      );
+    };
+
+    const App = () => (
+      <AntDesignWeb3ConfigProvider
+        availableChains={[mainnet]}
+        availableConnectors={[mockConnector]}
+        walletFactorys={[MetaMask()]}
+        chainAssets={[Mainnet]}
+      >
+        <CustomConnector />
+      </AntDesignWeb3ConfigProvider>
+    );
+    const { baseElement } = render(<App />);
+    fireEvent.click(baseElement.querySelector('.custom-text')!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.custom-text')?.textContent).toBe(
+        'Can not find connector for test',
+      );
     });
   });
 });

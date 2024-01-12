@@ -7,7 +7,9 @@ group:
 
 # Ethereum
 
-Ant Design Web3 officially provides `@ant-design/web3-wagmi` to adapt to Ethereum. It is an Ant Design Web3 Ethereum adapter based on [wagmi](https://wagmi.sh/). It provides the ability to connect to Ethereum and other EVM compatible chains for the components of `@ant-design/web3`.
+Ant Design Web3 officially provides `@ant-design/web3-wagmi` to adapt to Ethereum. It is an Ant Design Web3 Ethereum adapter based on [wagmi 2.x](https://wagmi.sh/). It provides the ability to connect to Ethereum and other EVM compatible chains for the components of `@ant-design/web3`.
+
+If you are using wagmi 1.x, you can check [@ant-design/web3-wagmi@1.2.0 documentation](https://github.com/ant-design/ant-design-web3/blob/f7c9d51086f82b13a9cf94353b999348e17001de/packages/web3/src/wagmi/index.md).
 
 Through it, you don't need to handle the connection status of the component, chain data request and other logic by yourself. It will provide relevant global status and interfaces for the components through [Web3ConfigProvider](../web3-config-provider/index.md).
 
@@ -19,7 +21,7 @@ Currently, we officially provide the adapter of Ethereum, and you can also devel
 
 ## Add more wallets
 
-We have built-in wallets with `group` as `Popular`. For other wallets, you need to configure `assets` to import related resources. You can export related resources from `@ant-design/web3-wagmi`. If you don't have the resources you need, you can submit [Github issue](https://github.com/ant-design/ant-design-web3/issues) to tell us. You can also configure it yourself or submit a PR to support it.
+In order to reduce the size of the package, you need to configure `wallets` to import wallets. You can export related resources from `@ant-design/web3-wagmi`. If you don't have the resources you need, you can submit [Github issue](https://github.com/ant-design/ant-design-web3/issues) to tell us. You can also configure it yourself or submit a PR to support it.
 
 <code src="./demos/more-wallets.tsx"></code>
 
@@ -35,7 +37,7 @@ Ant Design Web3 has built-in support for [TokenPocket](https://www.tokenpocket.p
 
 ## Support switch chains
 
-We have built-in `Mainnet` and `Goerli`, and the remaining chains need to configure `assets` to import related resources to support. The import method is similar to the wallet.
+We have built-in `Mainnet`, and the remaining chains need to configure `chains` to import related resources to support. The import method is similar to the wallet.
 
 <code src="./demos/chains.tsx"></code>
 
@@ -72,7 +74,9 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | config | wagmi config | [WagmiConfig](https://wagmi.sh/core/config) | - | - |
-| assets | Wallet or chain icon and other information | [Chain](./types#chain)\[\] \| [WalletFactory](#walletfactory)\[\] | - | - |
+| queryClient | [React Query](https://react-query.tanstack.com/) queryClient | `new QueryClient()` | - | - |
+| wallets | Wallets | [WalletFactory](#walletfactory)[] | - | - |
+| chains | Chains | [Chain](./types#chain)[] | - | - |
 | ens | Whether to display ENS | `boolean` | - | - |
 | balance | Whether to display balance | `boolean` | - | - |
 | locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/en_US.ts) | - | - |

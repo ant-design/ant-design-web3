@@ -1,19 +1,13 @@
 import { NFTImage } from '@ant-design/web3';
 import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
-import { configureChains, createConfig, mainnet } from 'wagmi';
-import { infuraProvider } from 'wagmi/providers/infura';
-
-const { publicClient } = configureChains(
-  [mainnet],
-  [
-    infuraProvider({
-      apiKey: YOUR_INFURA_API_KEY,
-    }),
-  ],
-);
+import { createConfig, http } from 'wagmi';
+import { mainnet } from 'wagmi/chains';
 
 const config = createConfig({
-  publicClient,
+  chains: [mainnet],
+  transports: {
+    [mainnet.id]: http(),
+  },
 });
 
 const App: React.FC = () => {
