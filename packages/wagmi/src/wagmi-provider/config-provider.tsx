@@ -86,7 +86,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       ?.map((factory) => {
         const connectors = factory.connectors
           .map((name) => availableConnectors.find((item) => item.name === name))
-          .filter((item) => item !== undefined) as WagmiConnector[];
+          .filter((item) => !!item) as WagmiConnector[];
 
         if (connectors.length === 0) {
           // Not config connector for this wallet factory, ignore it.
