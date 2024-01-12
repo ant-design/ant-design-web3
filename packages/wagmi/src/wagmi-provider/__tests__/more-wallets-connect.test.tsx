@@ -1,6 +1,7 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   CoinbaseWallet,
+  MetaMask,
   SafeheronWallet,
   TokenPocket,
   WagmiWeb3ConfigProvider,
@@ -64,7 +65,13 @@ describe('more-wallets-connect', () => {
     const App = () => {
       return (
         <WagmiWeb3ConfigProvider
-          wallets={[WalletConnect(), TokenPocket(), CoinbaseWallet(), SafeheronWallet()]}
+          wallets={[
+            MetaMask(),
+            WalletConnect(),
+            TokenPocket(),
+            CoinbaseWallet(),
+            SafeheronWallet(),
+          ]}
           config={config}
         >
           <Connector>

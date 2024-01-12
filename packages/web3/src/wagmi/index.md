@@ -21,7 +21,7 @@ Currently, we officially provide the adapter of Ethereum, and you can also devel
 
 ## Add more wallets
 
-We have built-in wallets with `group` as `Popular`. For other wallets, you need to configure `wallets` to import related resources. You can export related resources from `@ant-design/web3-wagmi`. If you don't have the resources you need, you can submit [Github issue](https://github.com/ant-design/ant-design-web3/issues) to tell us. You can also configure it yourself or submit a PR to support it.
+In order to reduce the size of the package, you need to configure `wallets` to import wallets. You can export related resources from `@ant-design/web3-wagmi`. If you don't have the resources you need, you can submit [Github issue](https://github.com/ant-design/ant-design-web3/issues) to tell us. You can also configure it yourself or submit a PR to support it.
 
 <code src="./demos/more-wallets.tsx"></code>
 
@@ -37,7 +37,7 @@ Ant Design Web3 has built-in support for [TokenPocket](https://www.tokenpocket.p
 
 ## Support switch chains
 
-We have built-in `Mainnet` and `Goerli`, and the remaining chains need to configure `chains` to import related resources to support. The import method is similar to the wallet.
+We have built-in `Mainnet`, and the remaining chains need to configure `chains` to import related resources to support. The import method is similar to the wallet.
 
 <code src="./demos/chains.tsx"></code>
 

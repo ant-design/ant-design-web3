@@ -48,15 +48,13 @@ const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
       wallets={[
+        MetaMask(),
         WalletConnect(),
         TokenPocket({
           group: 'Popular',
         }),
         CoinbaseWallet(),
         SafeheronWallet(),
-        MetaMask({
-          group: 'More',
-        }),
       ]}
       config={config}
     >

@@ -19,7 +19,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 
 ## 添加更多钱包
 
-我们内置了 `group` 为 `Popular` 的钱包，对于其它钱包，你需要配置 `wallets` 引入相关钱包。你可以从 `@ant-design/web3-wagmi` 中导出相关资源，如果没有你需要的资源，你可以通过提交 [Github issue](https://github.com/ant-design/ant-design-web3/issues) 告诉我们。也自己配置或者给我们提交 PR 支持。
+为了降低引入包的大小，你需要手动配置 `wallets` 引入相关钱包。你可以从 `@ant-design/web3-wagmi` 中导出相关资源，如果没有你需要的资源，你可以通过提交 [Github issue](https://github.com/ant-design/ant-design-web3/issues) 告诉我们。也自己配置或者给我们提交 PR 支持。
 
 <code src="./demos/more-wallets.tsx"></code>
 
@@ -35,7 +35,7 @@ Ant Design Web3 内置了对 [TokenPocket](https://www.tokenpocket.pro/) 的支�
 
 ## 支持切换链
 
-我们内置了 `Mainnet` 和 `Goerli`，其余的链需要配置 `chains`，引入相关资源才可支持。引入方式和钱包类似。
+我们内置了 `Mainnet`，其余的链需要配置 `chains`，引入相关资源才可支持。引入方式和钱包类似。
 
 <code src="./demos/chains.tsx"></code>
 

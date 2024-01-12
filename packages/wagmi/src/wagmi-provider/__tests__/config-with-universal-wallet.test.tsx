@@ -2,6 +2,7 @@ import { useProvider } from '@ant-design/web3';
 import {
   metadata_MetaMask,
   metadata_TokenPocket,
+  MetaMask,
   UniversalWallet,
   WagmiWeb3ConfigProvider,
 } from '@ant-design/web3-wagmi';
@@ -49,7 +50,7 @@ describe('WagmiWeb3ConfigProvider with UniversalWallet', () => {
 
     const App = () => (
       <WagmiWeb3ConfigProvider
-        wallets={[new UniversalWallet(metadata_TokenPocket)]}
+        wallets={[MetaMask(), new UniversalWallet(metadata_TokenPocket)]}
         config={config}
       >
         <CustomConnector />

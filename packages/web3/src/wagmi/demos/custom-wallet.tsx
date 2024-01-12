@@ -1,6 +1,11 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { EthereumCircleColorful } from '@ant-design/web3-icons';
-import { TokenPocket, UniversalWallet, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import {
+  MetaMask,
+  TokenPocket,
+  UniversalWallet,
+  WagmiWeb3ConfigProvider,
+} from '@ant-design/web3-wagmi';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { injected, walletConnect } from 'wagmi/connectors';
@@ -67,6 +72,9 @@ const App: React.FC = () => {
         },
         TokenPocket({
           group: 'Popular',
+        }),
+        MetaMask({
+          group: 'More',
         }),
       ]}
       config={config}

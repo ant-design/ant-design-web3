@@ -1,5 +1,5 @@
 import { NFTCard } from '@ant-design/web3';
-import { WagmiWeb3ConfigProvider, WalletConnect } from '@ant-design/web3-wagmi';
+import { MetaMask, WagmiWeb3ConfigProvider, WalletConnect } from '@ant-design/web3-wagmi';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { injected, walletConnect } from 'wagmi/connectors';
@@ -22,7 +22,7 @@ const config = createConfig({
 
 const App: React.FC = () => {
   return (
-    <WagmiWeb3ConfigProvider wallets={[WalletConnect()]} config={config}>
+    <WagmiWeb3ConfigProvider wallets={[MetaMask(), WalletConnect()]} config={config}>
       <NFTCard address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={8540} />
     </WagmiWeb3ConfigProvider>
   );

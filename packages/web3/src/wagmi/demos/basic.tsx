@@ -1,5 +1,5 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { injected } from 'wagmi/connectors';
@@ -18,7 +18,7 @@ const config = createConfig({
 
 const App: React.FC = () => {
   return (
-    <WagmiWeb3ConfigProvider config={config}>
+    <WagmiWeb3ConfigProvider config={config} wallets={[MetaMask()]}>
       <Connector>
         <ConnectButton />
       </Connector>

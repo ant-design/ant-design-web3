@@ -1,15 +1,12 @@
 import React from 'react';
 // Built in popular chains
-import { Goerli, Mainnet } from '@ant-design/web3-assets';
+import { Mainnet } from '@ant-design/web3-assets';
 import type { Chain, Locale } from '@ant-design/web3-common';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import type { Chain as WagmiChain } from 'viem';
 import { WagmiProvider } from 'wagmi';
 import type { Config } from 'wagmi';
 
 import type { WalletFactory } from '../interface';
-// MetaMask built-in
-import { MetaMask } from '../wallets';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 
 export type WagmiWeb3ConfigProviderProps = {
@@ -33,17 +30,7 @@ export function WagmiWeb3ConfigProvider({
   queryClient,
   ...restProps
 }: React.PropsWithChildren<WagmiWeb3ConfigProviderProps>): React.ReactElement {
-  const walletsWithDefault = [...wallets];
-  if (
-    !wallets.find((item) => {
-      return item.connectors.includes('MetaMask');
-    })
-  ) {
-    // If user not set MetaMask, we will add it to the first
-    walletsWithDefault.unshift(MetaMask());
-  }
-
-  const chainAssets = [...chains, Mainnet, Goerli];
+  const chainAssets = [...chains, Mainnet];
 
   const mergedQueryClient = React.useMemo(() => {
     return queryClient ?? new QueryClient();
@@ -55,7 +42,7 @@ export function WagmiWeb3ConfigProvider({
         <AntDesignWeb3ConfigProvider
           locale={locale}
           chainAssets={chainAssets}
-          walletFactorys={walletsWithDefault}
+          walletFactorys={wallets}
           availableChains={config.chains}
           availableConnectors={config.connectors}
           ens={ens}

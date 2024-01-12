@@ -1,6 +1,6 @@
 import { Connector, useProvider, type ConnectorTriggerProps } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
-import { CoinbaseWallet, Polygon, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { CoinbaseWallet, MetaMask, Polygon, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { createConfig, http } from 'wagmi';
@@ -148,7 +148,7 @@ describe('WagmiWeb3ConfigProvider', () => {
       </WagmiWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Goerli,Ethereum');
+    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Ethereum');
   });
 
   it('avaliable chains with assets', () => {
@@ -193,9 +193,7 @@ describe('WagmiWeb3ConfigProvider', () => {
       </WagmiWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.chains-name')?.textContent).toBe(
-      'Polygon,Ethereum,Base,Goerli',
-    );
+    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Polygon,Ethereum,Base');
   });
 
   it('empty connectors', () => {
@@ -251,7 +249,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     };
 
     const App = () => (
-      <WagmiWeb3ConfigProvider config={config}>
+      <WagmiWeb3ConfigProvider config={config} wallets={[MetaMask()]}>
         <CustomConnector />
       </WagmiWeb3ConfigProvider>
     );
@@ -286,7 +284,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     };
 
     const App = () => (
-      <WagmiWeb3ConfigProvider wallets={[CoinbaseWallet()]} config={config}>
+      <WagmiWeb3ConfigProvider wallets={[MetaMask(), CoinbaseWallet()]} config={config}>
         <CustomConnector />
       </WagmiWeb3ConfigProvider>
     );
