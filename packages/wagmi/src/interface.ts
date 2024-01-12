@@ -9,5 +9,5 @@ export type EthereumWallet = (metadata?: Partial<WalletMetadata>) => WalletFacto
 
 export interface WalletFactory {
   connectors: Connector['name'][];
-  create: (connectorw?: readonly Connector[]) => WalletUseInWagmiAdapter;
+  create: (connector?: readonly Connector[]) => WalletUseInWagmiAdapter;
 }
