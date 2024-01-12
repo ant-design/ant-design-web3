@@ -49,27 +49,6 @@ const App: React.FC = () => {
           extensions: [],
           group: 'Popular',
         }),
-        {
-          connectors: ['WalletConnect'],
-          create: () => {
-            return {
-              name: 'TestWallet',
-              remark: 'My TestWallet',
-              icon: <EthereumCircleColorful />,
-              app: {
-                link: 'https://web3.ant.design',
-              },
-              hasWalletReady: async () => {
-                return !!(window as any).testWallet;
-              },
-              getQrCode: async () => {
-                return {
-                  uri: 'https://web3.ant.design',
-                };
-              },
-            };
-          },
-        },
         TokenPocket({
           group: 'Popular',
         }),

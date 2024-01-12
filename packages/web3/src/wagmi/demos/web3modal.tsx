@@ -14,7 +14,7 @@ const config = createConfig({
       target: 'metaMask',
     }),
     walletConnect({
-      showQrModal: false,
+      showQrModal: true,
       projectId: YOUR_WALLET_CONNET_PROJECT_ID,
     }),
   ],
@@ -22,7 +22,15 @@ const config = createConfig({
 
 const App: React.FC = () => {
   return (
-    <WagmiWeb3ConfigProvider wallets={[MetaMask(), WalletConnect()]} config={config}>
+    <WagmiWeb3ConfigProvider
+      wallets={[
+        MetaMask(),
+        WalletConnect({
+          useWalletConnectOfficialModal: true,
+        }),
+      ]}
+      config={config}
+    >
       <Connector>
         <ConnectButton />
       </Connector>

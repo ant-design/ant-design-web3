@@ -1,10 +1,17 @@
 import { metadata_WalletConnect } from '@ant-design/web3-assets';
-import { type Wallet } from '@ant-design/web3-common';
+import { WalletMetadata, type Wallet } from '@ant-design/web3-common';
 import type { Connector } from 'wagmi';
 
-import type { EthereumWallet } from '../interface';
+import type { WalletFactory } from '../interface';
 
-export const WalletConnect: EthereumWallet = (metadata) => {
+type EthereumWalletConnect = (
+  metadata?: Partial<WalletMetadata> & {
+    useWalletConnectOfficialModal?: boolean;
+  },
+) => WalletFactory;
+
+export const WalletConnect: EthereumWalletConnect = (metadata) => {
+  const { useWalletConnectOfficialModal = false, ...rest } = metadata || {};
   return {
     connectors: ['WalletConnect'],
     create: (connectors?: readonly Connector[]): Wallet => {
@@ -23,8 +30,8 @@ export const WalletConnect: EthereumWallet = (metadata) => {
         hasWalletReady: async () => {
           return true;
         },
-        getQrCode,
-        ...metadata,
+        getQrCode: useWalletConnectOfficialModal ? undefined : getQrCode,
+        ...rest,
       };
     },
   };

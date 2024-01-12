@@ -22,6 +22,7 @@ describe('WalletConnect', async () => {
     const wallet = WalletConnect().create();
     expect(wallet.name).toBe('WalletConnect');
     expect(wallet.name).toBe(wagmiWallet.name);
+    expect(wallet.getQrCode).toBeTruthy();
   });
 
   it('always return true for hasWalletReady', async () => {
@@ -35,5 +36,25 @@ describe('WalletConnect', async () => {
       group: 'TestGroup',
     }).create();
     expect(wallet.group).toBe('TestGroup');
+  });
+
+  it('useWalletConnectOfficialModal', async () => {
+    const config = createConfig({
+      chains: [mainnet],
+      transports: {
+        [mainnet.id]: http(),
+      },
+      connectors: [
+        walletConnect({
+          showQrModal: true,
+          projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
+        }),
+      ],
+    });
+    const wagmiWallet = config.connectors[0];
+    const wallet = WalletConnect({
+      useWalletConnectOfficialModal: true,
+    }).create();
+    expect(wallet.getQrCode).toBe(undefined);
   });
 });
