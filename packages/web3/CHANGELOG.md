@@ -1,5 +1,24 @@
 # @ant-design/web3
 
+## 1.3.0
+
+### Minor Changes
+
+- 879548d: feat: Add extendsContextFromParent props for web3-config-provider
+
+### Patch Changes
+
+- 0d69a01: test:ConnectModal components test coverage
+- e6368f1: fix: unexpected QRCode after disconnect #457
+- f93aedf: test:Increase ConnectButton test coverage
+- 880d915: type: use ?: instead of undefined
+- 9f62728: fix: fix intl for connect-button
+- aa67d6e: fix: remove unused message
+- 10d5962: test:Increase connector test coverage
+- Updated dependencies [879548d]
+  - @ant-design/web3-common@1.3.0
+  - @ant-design/web3-assets@1.1.4
+
 ## 1.2.0
 
 ### Minor Changes

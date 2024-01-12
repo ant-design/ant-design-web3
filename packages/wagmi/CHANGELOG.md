@@ -1,5 +1,23 @@
 # @ant-design/web3-wagmi
 
+## 2.0.1
+
+### Patch Changes
+
+- 47a879d: chore: release @ant-design/web3-wagmi 2.x for wagmi 2.x
+
+## 2.0.0
+
+### Major Changes
+
+- 337971f: feat: upgrade wagmi to 2.0
+
+### Patch Changes
+
+- Updated dependencies [879548d]
+  - @ant-design/web3-common@1.3.0
+  - @ant-design/web3-assets@1.1.4
+
 ## 1.2.0
 
 ### Minor Changes

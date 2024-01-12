@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.3.0
+
+### Minor Changes
+
+- 879548d: feat: Add extendsContextFromParent props for web3-config-provider
+
 ## 1.2.0
 
 ### Minor Changes
