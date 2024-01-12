@@ -202,28 +202,28 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       buttonContent
     );
 
+  const mergedTooltipCopyable: ConnectButtonTooltipProps['copyable'] =
+    typeof tooltip === 'object' ? tooltip.copyable !== false : !!tooltip;
+
   let tooltipTitle: string = tooltip && account?.address ? fillWith0x(account?.address) : '';
   if (typeof tooltip === 'object' && typeof tooltip.title === 'string') {
     tooltipTitle = tooltip.title;
   }
-  const getConnectButtonTooltipProps: () => ConnectButtonTooltipProps & { intl: IntlType } = () => {
-    const mergedTooltipCopyable: ConnectButtonTooltipProps['copyable'] =
-      typeof tooltip === 'object' ? tooltip.copyable !== false : !!tooltip;
-    return {
-      intl,
-      copyable: mergedTooltipCopyable,
-      title: tooltipTitle,
-      prefixCls,
-      __hashId__: hashId,
-      ...(typeof tooltip === 'object' ? tooltip : {}),
-    };
-  };
 
   const main = (
     <>
       {contextHolder}
       {tooltipTitle ? (
-        <ConnectButtonTooltip {...getConnectButtonTooltipProps()}>{content}</ConnectButtonTooltip>
+        <ConnectButtonTooltip
+          intl={intl}
+          copyable={mergedTooltipCopyable}
+          title={tooltipTitle}
+          prefixCls={prefixCls}
+          __hashId__={hashId}
+          {...(typeof tooltip === 'object' ? tooltip : {})}
+        >
+          {content}
+        </ConnectButtonTooltip>
       ) : (
         content
       )}
