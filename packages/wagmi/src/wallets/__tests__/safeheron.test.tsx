@@ -78,4 +78,28 @@ describe('Safeheron', () => {
     const wallet = SafeheronWallet().create(config.connectors);
     await expect(wallet.hasWalletReady?.()).resolves.toBe(false);
   });
+
+  it('custom metadata', () => {
+    const config = createConfig({
+      chains: [mainnet],
+      transports: {
+        [mainnet.id]: http(),
+      },
+      connectors: [
+        injected({
+          target() {
+            return {
+              name: 'Safeheron',
+              id: 'safeheron',
+              provider: undefined as any,
+            };
+          },
+        }),
+      ],
+    });
+    const wallet = SafeheronWallet({
+      group: 'TestGroup',
+    }).create(config.connectors);
+    expect(wallet.group).toBe('TestGroup');
+  });
 });

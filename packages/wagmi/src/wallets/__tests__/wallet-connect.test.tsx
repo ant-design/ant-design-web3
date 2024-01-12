@@ -1,10 +1,10 @@
-import { CoinbaseWallet } from '@ant-design/web3-wagmi';
+import { WalletConnect } from '@ant-design/web3-wagmi';
 import { describe, expect, it } from 'vitest';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
-import { coinbaseWallet } from 'wagmi/connectors';
+import { walletConnect } from 'wagmi/connectors';
 
-describe('CoinbaseWallet', async () => {
+describe('WalletConnect', async () => {
   it('name', async () => {
     const config = createConfig({
       chains: [mainnet],
@@ -12,25 +12,26 @@ describe('CoinbaseWallet', async () => {
         [mainnet.id]: http(),
       },
       connectors: [
-        coinbaseWallet({
-          appName: 'testname',
+        walletConnect({
+          showQrModal: false,
+          projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
         }),
       ],
     });
     const wagmiWallet = config.connectors[0];
-    const wallet = CoinbaseWallet().create();
-    expect(wallet.name).toBe('Coinbase Wallet');
+    const wallet = WalletConnect().create();
+    expect(wallet.name).toBe('WalletConnect');
     expect(wallet.name).toBe(wagmiWallet.name);
   });
 
   it('always return true for hasWalletReady', async () => {
-    const wallet = CoinbaseWallet().create();
+    const wallet = WalletConnect().create();
     const install = await wallet.hasWalletReady?.();
     expect(install).toBe(true);
   });
 
   it('custom metadata', async () => {
-    const wallet = CoinbaseWallet({
+    const wallet = WalletConnect({
       group: 'TestGroup',
     }).create();
     expect(wallet.group).toBe('TestGroup');

@@ -1,6 +1,7 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   CoinbaseWallet,
+  MetaMask,
   SafeheronWallet,
   TokenPocket,
   WagmiWeb3ConfigProvider,
@@ -53,6 +54,9 @@ const App: React.FC = () => {
         }),
         CoinbaseWallet(),
         SafeheronWallet(),
+        MetaMask({
+          group: 'More',
+        }),
       ]}
       config={config}
     >

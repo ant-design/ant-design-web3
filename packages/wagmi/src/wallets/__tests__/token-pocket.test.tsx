@@ -43,4 +43,11 @@ describe('TokenPocket', () => {
       expect(wallet).toHaveProperty(key);
     }
   });
+
+  it('custom metadata', () => {
+    const customWallet = TokenPocket({
+      group: 'TestGroup',
+    }).create(config.connectors);
+    expect(customWallet.group).toBe('TestGroup');
+  });
 });
