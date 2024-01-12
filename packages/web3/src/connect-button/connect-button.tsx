@@ -139,7 +139,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const defaultMenuItems: MenuItemType[] = useMemo(
     () => [
       {
-        label: 'Copy Address',
+        label: intl.getMessage(intl.messages.copyAddress),
         key: 'copyAddress',
         onClick: () => {
           setProfileOpen(false);
