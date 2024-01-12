@@ -72,6 +72,7 @@ Ant Design Web3 内置了对 [TokenPocket](https://www.tokenpocket.pro/) 的支�
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | config | wagmi 配置 | [WagmiConfig](https://wagmi.sh/core/config) | - | - |
+| queryClient | [TanStack Query](https://wagmi.sh/react/guides/tanstack-query) 实例 | `new QueryClient()` | - | - |
 | wallets | 钱包配置 | [WalletFactory](#walletfactory)\[\] | - | - |
 | chains | 链的配置 | [Chain](./types#chain)\[\] | - | - |
 | ens | 是否显示 ENS | `boolean` | - | - |

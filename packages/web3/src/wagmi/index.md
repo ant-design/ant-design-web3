@@ -74,6 +74,7 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | config | wagmi config | [WagmiConfig](https://wagmi.sh/core/config) | - | - |
+| queryClient | [React Query](https://react-query.tanstack.com/) queryClient | `new QueryClient()` | - | - |
 | wallets | Wallets | [WalletFactory](#walletfactory)[] | - | - |
 | chains | Chains | [Chain](./types#chain)[] | - | - |
 | ens | Whether to display ENS | `boolean` | - | - |
