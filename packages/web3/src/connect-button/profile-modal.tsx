@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Address } from '@ant-design/web3';
 import type { Balance } from '@ant-design/web3-common';
-import { Avatar, Button, ConfigProvider, message, Modal, Space, type AvatarProps } from 'antd';
-import type { ModalProps } from 'antd';
+import { Avatar, Button, ConfigProvider, message, Modal, Space } from 'antd';
+import type { AvatarProps, ModalProps } from 'antd';
 import classNames from 'classnames';
 
 import { CryptoPrice } from '../crypto-price';
@@ -41,26 +41,28 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   const prefixCls = getPrefixCls('web3-connect-button-profile-modal');
   const [messageApi, contextHolder] = message.useMessage();
 
+  const footer = (
+    <div className={classNames(`${prefixCls}-footer`, __hashId__)}>
+      {address ? (
+        <Button
+          onClick={() => {
+            writeCopyText(address).then(() => {
+              messageApi.success(intl.getMessage(intl.messages.addressCopied));
+            });
+          }}
+        >
+          {intl.getMessage(intl.messages.copyAddress)}
+        </Button>
+      ) : null}
+      <Button onClick={onDisconnect}>{intl.getMessage(intl.messages.disconnect)}</Button>
+    </div>
+  );
+
   return (
     <>
       {contextHolder}
       <Modal
-        footer={
-          <div className={classNames(`${prefixCls}-footer`, __hashId__)}>
-            {address ? (
-              <Button
-                onClick={() => {
-                  writeCopyText(address).then(() => {
-                    messageApi.success(intl.getMessage(intl.messages.addressCopied));
-                  });
-                }}
-              >
-                {intl.getMessage(intl.messages.copyAddress)}
-              </Button>
-            ) : null}
-            <Button onClick={onDisconnect}>{intl.getMessage(intl.messages.disconnect)}</Button>
-          </div>
-        }
+        footer={footer}
         width={280}
         {...modalProps}
         onCancel={onClose}
