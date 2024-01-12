@@ -14,6 +14,10 @@ export const ConnectButtonTooltip: React.FC<
     }
   >
 > = ({ title, intl, copyable, children, format, prefixCls, __hashId__, ...restProps }) => {
+  const {
+    messages: { copyAddress, addressCopied, walletAddress },
+    getMessage,
+  } = intl;
   const [messageApi, contextHolder] = message.useMessage();
   const mergedFormat = useMemo(() => {
     if (typeof format === 'function') {
@@ -32,12 +36,12 @@ export const ConnectButtonTooltip: React.FC<
     format ? (
       <>
         <div className={`${prefixCls}-tooltip-title`}>
-          {intl.getMessage(intl.messages.walletAddress)}{' '}
+          {getMessage(walletAddress)}{' '}
           <CopyOutlined
-            title={intl.getMessage(intl.messages.copyAddress)}
+            title={getMessage(copyAddress)}
             onClick={() => {
               writeCopyText(String(title)).then(() => {
-                messageApi.success(intl.getMessage(intl.messages.addressCopied));
+                messageApi.success(getMessage(addressCopied));
               });
             }}
           />
@@ -48,10 +52,10 @@ export const ConnectButtonTooltip: React.FC<
       <>
         {mergedTitle}{' '}
         <CopyOutlined
-          title={intl.getMessage(intl.messages.copyAddress)}
+          title={getMessage(copyAddress)}
           onClick={() => {
             writeCopyText(String(title)).then(() => {
-              messageApi.success(intl.getMessage(intl.messages.addressCopied));
+              messageApi.success(getMessage(addressCopied));
             });
           }}
         />

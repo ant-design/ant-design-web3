@@ -37,6 +37,10 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   modalProps,
   balance,
 }) => {
+  const {
+    messages: { copyAddress, addressCopied, disconnect },
+    getMessage,
+  } = intl;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-button-profile-modal');
   const [messageApi, contextHolder] = message.useMessage();
@@ -47,14 +51,14 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
         <Button
           onClick={() => {
             writeCopyText(address).then(() => {
-              messageApi.success(intl.getMessage(intl.messages.addressCopied));
+              messageApi.success(getMessage(addressCopied));
             });
           }}
         >
-          {intl.getMessage(intl.messages.copyAddress)}
+          {getMessage(copyAddress)}
         </Button>
       ) : null}
-      <Button onClick={onDisconnect}>{intl.getMessage(intl.messages.disconnect)}</Button>
+      <Button onClick={onDisconnect}>{getMessage(disconnect)}</Button>
     </div>
   );
 

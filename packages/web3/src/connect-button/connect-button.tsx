@@ -9,7 +9,6 @@ import classNames from 'classnames';
 import { Address } from '../address';
 import { CryptoPrice } from '../crypto-price';
 import useIntl from '../hooks/useIntl';
-import type { IntlType } from '../hooks/useIntl';
 import { fillWith0x, writeCopyText } from '../utils';
 import { ChainSelect } from './chain-select';
 import type { ChainSelectProps } from './chain-select';
@@ -40,13 +39,17 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     ...restProps
   } = props;
   const intl = useIntl('ConnectButton', locale);
+  const {
+    messages: { connect, copyAddress, addressCopied, disconnect },
+    getMessage,
+  } = intl;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-button');
   const [profileOpen, setProfileOpen] = useState(false);
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [messageApi, contextHolder] = message.useMessage();
   const [showMenu, setShowMenu] = useState(false);
-  let buttonText: React.ReactNode = intl.getMessage(intl.messages.connect);
+  let buttonText: React.ReactNode = getMessage(connect);
   if (account) {
     buttonText =
       account?.name && !balance ? (
@@ -139,20 +142,20 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const defaultMenuItems: MenuItemType[] = useMemo(
     () => [
       {
-        label: intl.getMessage(intl.messages.copyAddress),
+        label: getMessage(copyAddress),
         key: 'copyAddress',
         onClick: () => {
           setProfileOpen(false);
           if (account?.address) {
             writeCopyText(account?.address).then(() => {
-              messageApi.success(intl.messages.addressCopied);
+              messageApi.success(addressCopied);
             });
           }
         },
         icon: <CopyOutlined />,
       },
       {
-        label: intl.getMessage(intl.messages.disconnect),
+        label: getMessage(disconnect),
         key: 'disconnect',
         onClick: () => {
           setProfileOpen(false);

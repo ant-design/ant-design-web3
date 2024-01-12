@@ -2,4 +2,4 @@
 '@ant-design/web3': patch
 ---
 
-refactor: Optimization ConnectButton code
+refactor: Optimization useIntl code
