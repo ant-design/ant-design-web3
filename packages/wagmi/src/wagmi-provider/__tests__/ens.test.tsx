@@ -69,7 +69,7 @@ describe('WagmiWeb3ConfigProvider ens', () => {
         ens
         availableChains={[mainnet]}
         availableConnectors={[]}
-        walletFactorys={[MetaMask]}
+        walletFactorys={[MetaMask()]}
         chainAssets={[Mainnet]}
       >
         <CustomConnector />

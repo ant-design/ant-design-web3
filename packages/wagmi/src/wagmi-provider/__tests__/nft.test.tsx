@@ -68,7 +68,7 @@ describe('WagmiWeb3ConfigProvider getMetadata', () => {
       <AntDesignWeb3ConfigProvider
         availableChains={[mainnet]}
         availableConnectors={[]}
-        walletFactorys={[MetaMask]}
+        walletFactorys={[MetaMask()]}
         chainAssets={[Mainnet]}
       >
         <NFTCard tokenId={213} address="0x1234" />

@@ -80,7 +80,7 @@ describe('WagmiWeb3ConfigProvider connect', () => {
                 disconnect?.();
                 return;
               }
-              connect?.(MetaMask.create(mockConnector));
+              connect?.(MetaMask().create([mockConnector]));
             }}
           >
             {account ? account?.address : 'Connect'}
@@ -93,7 +93,7 @@ describe('WagmiWeb3ConfigProvider connect', () => {
       <AntDesignWeb3ConfigProvider
         availableChains={[mainnet]}
         availableConnectors={[mockConnector]}
-        walletFactorys={[MetaMask]}
+        walletFactorys={[MetaMask()]}
         chainAssets={[Mainnet]}
       >
         <CustomConnector />
@@ -148,7 +148,7 @@ describe('WagmiWeb3ConfigProvider connect', () => {
       <AntDesignWeb3ConfigProvider
         availableChains={[mainnet]}
         availableConnectors={[mockConnector]}
-        walletFactorys={[MetaMask]}
+        walletFactorys={[MetaMask()]}
         chainAssets={[Mainnet]}
       >
         <CustomConnector />

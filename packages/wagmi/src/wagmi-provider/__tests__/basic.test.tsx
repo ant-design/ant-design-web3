@@ -286,7 +286,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     };
 
     const App = () => (
-      <WagmiWeb3ConfigProvider wallets={[CoinbaseWallet]} config={config}>
+      <WagmiWeb3ConfigProvider wallets={[CoinbaseWallet()]} config={config}>
         <CustomConnector />
       </WagmiWeb3ConfigProvider>
     );

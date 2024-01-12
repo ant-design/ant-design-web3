@@ -30,9 +30,9 @@ const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
       wallets={[
-        {
-          ...TokenPocket,
-        },
+        TokenPocket({
+          group: 'Popular',
+        }),
       ]}
       config={config}
     >

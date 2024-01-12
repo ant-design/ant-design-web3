@@ -28,7 +28,7 @@ describe('UniversalWallet', async () => {
     });
     const wallet = factory.create(config.connectors);
 
-    expect(factory.name).toEqual(['WalletConnect']);
+    expect(factory.connectors).toEqual(['WalletConnect']);
     expect(wallet.name).toEqual('TestWallet');
     expect(wallet.remark).toEqual('TestWallet remark');
     expect(await wallet.hasWalletReady?.()).toBeTruthy();
@@ -100,7 +100,7 @@ describe('UniversalWallet', async () => {
     });
     const wallet = factory.create(config.connectors);
 
-    expect(factory.name).toEqual(['TestWallet']);
+    expect(factory.connectors).toEqual(['TestWallet']);
     expect(wallet.name).toEqual('TestWallet');
     expect(wallet.remark).toEqual('TestWallet remark');
     expect(await wallet.hasWalletReady?.()).toBeFalsy();
@@ -145,7 +145,7 @@ describe('UniversalWallet', async () => {
     });
     const wallet = factory.create(config.connectors);
 
-    expect(factory.name).toEqual(['TestWalletInjectedConnector']);
+    expect(factory.connectors).toEqual(['TestWalletInjectedConnector']);
     expect(wallet.name).toEqual('TestWalletInjectedConnector');
     expect(wallet.remark).toEqual('TestWalletInjectedConnector remark');
     expect(await wallet.hasWalletReady?.()).toBeTruthy();
@@ -197,7 +197,7 @@ describe('UniversalWallet', async () => {
     });
     const wallet = factory.create(config.connectors);
 
-    expect(factory.name).toEqual(['TestWalletInjectedConnector', 'WalletConnect']);
+    expect(factory.connectors).toEqual(['TestWalletInjectedConnector', 'WalletConnect']);
     expect(wallet.name).toEqual('TestWalletInjectedConnector');
     expect(wallet.remark).toEqual('TestWalletInjectedConnector remark');
     expect(await wallet.hasWalletReady?.()).toBeTruthy();
@@ -246,7 +246,7 @@ describe('UniversalWallet', async () => {
     });
     const wallet = factory.create(config.connectors);
 
-    expect(factory.name).toEqual(['TestWalletInjectedConnector', 'WalletConnect']);
+    expect(factory.connectors).toEqual(['TestWalletInjectedConnector', 'WalletConnect']);
     expect(wallet.name).toEqual('TestWalletInjectedConnector');
     expect(wallet.remark).toEqual('TestWalletInjectedConnector remark');
     expect(await wallet.hasWalletReady?.()).toBeTruthy();

@@ -111,7 +111,7 @@ describe('WagmiWeb3ConfigProvider with UniversalWallet', () => {
             group: 'Popular',
           }),
           {
-            name: 'TestWallet',
+            connectors: ['TestWallet'],
             create: () => {
               return {
                 name: 'TestWallet',

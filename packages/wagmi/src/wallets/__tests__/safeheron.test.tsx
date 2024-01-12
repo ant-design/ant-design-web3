@@ -6,7 +6,7 @@ import { injected } from 'wagmi/connectors';
 
 describe('Safeheron', () => {
   it('The wallet name should be "Safeheron" as well as the connector name.', async () => {
-    const wallet = SafeheronWallet.create();
+    const wallet = SafeheronWallet().create();
     const config = createConfig({
       chains: [mainnet],
       transports: {
@@ -53,7 +53,7 @@ describe('Safeheron', () => {
         }),
       ],
     });
-    const wallet = SafeheronWallet.create(config.connectors[0]);
+    const wallet = SafeheronWallet().create(config.connectors);
     await expect(wallet.hasWalletReady?.()).resolves.toBe(true);
   });
 
@@ -75,7 +75,7 @@ describe('Safeheron', () => {
         }),
       ],
     });
-    const wallet = SafeheronWallet.create(config.connectors[0]);
+    const wallet = SafeheronWallet().create(config.connectors);
     await expect(wallet.hasWalletReady?.()).resolves.toBe(false);
   });
 });

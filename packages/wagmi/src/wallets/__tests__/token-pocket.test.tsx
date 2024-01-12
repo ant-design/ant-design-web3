@@ -27,7 +27,7 @@ describe('TokenPocket', () => {
     ],
   });
 
-  const wallet = TokenPocket.create(config.connectors);
+  const wallet = TokenPocket().create(config.connectors);
 
   it('name', async () => {
     expect(wallet.name).toBe('TokenPocket');

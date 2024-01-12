@@ -72,7 +72,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     availableConnectors.forEach((connector) => {
       // check use assets config and console.error for alert
       const walletFactory = walletFactorys?.find(
-        (item) => item.name === connector.name || item.name?.includes(connector.name),
+        (item) => item.connectors?.includes(connector.name),
       );
       if (!walletFactory?.create) {
         console.error(
@@ -84,21 +84,15 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     // Generate Wallet for @ant-design/web3
     const allWallet = walletFactorys
       ?.map((factory) => {
-        let connector: WagmiConnector | WagmiConnector[] | undefined;
-        if (typeof factory.name === 'string') {
-          // this wallet factory only for one connector
-          connector = availableConnectors.find((item) => item.name === factory.name);
-        } else {
-          // for multiple connectors
-          connector = factory.name
-            .map((name) => availableConnectors.find((item) => item.name === name))
-            .filter((item) => item !== undefined) as WagmiConnector[];
-        }
-        if (!connector || (Array.isArray(connector) && connector.length === 0)) {
+        const connectors = factory.connectors
+          .map((name) => availableConnectors.find((item) => item.name === name))
+          .filter((item) => item !== undefined) as WagmiConnector[];
+
+        if (connectors.length === 0) {
           // Not config connector for this wallet factory, ignore it.
           return null;
         }
-        return factory.create(connector);
+        return factory.create(connectors);
       })
       .filter((item) => item !== null) as Wallet[];
 

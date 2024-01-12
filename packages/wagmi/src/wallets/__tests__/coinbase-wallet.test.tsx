@@ -18,13 +18,13 @@ describe('CoinbaseWallet', async () => {
       ],
     });
     const wagmiWallet = config.connectors[0];
-    const wallet = CoinbaseWallet.create();
+    const wallet = CoinbaseWallet().create();
     expect(wallet.name).toBe('Coinbase Wallet');
     expect(wallet.name).toBe(wagmiWallet.name);
   });
 
   it('always return true for hasWalletReady', async () => {
-    const wallet = CoinbaseWallet.create();
+    const wallet = CoinbaseWallet().create();
     const install = await wallet.hasWalletReady?.();
     expect(install).toBe(true);
   });

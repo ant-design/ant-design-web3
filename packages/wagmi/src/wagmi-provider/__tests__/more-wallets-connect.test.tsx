@@ -64,7 +64,7 @@ describe('more-wallets-connect', () => {
     const App = () => {
       return (
         <WagmiWeb3ConfigProvider
-          wallets={[WalletConnect, TokenPocket, CoinbaseWallet, SafeheronWallet]}
+          wallets={[WalletConnect(), TokenPocket(), CoinbaseWallet(), SafeheronWallet()]}
           config={config}
         >
           <Connector>

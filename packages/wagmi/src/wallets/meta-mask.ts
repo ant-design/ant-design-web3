@@ -1,19 +1,22 @@
 import { metadata_MetaMask } from '@ant-design/web3-assets';
 import { type Wallet } from '@ant-design/web3-common';
 
-import type { WalletFactory } from '../interface';
+import type { EthereumWallet } from '../interface';
 
-export const MetaMask: WalletFactory = {
-  name: 'MetaMask',
-  create: (): Wallet => {
-    return {
-      ...metadata_MetaMask,
-      hasWalletReady: async () => {
-        return !!window.ethereum?.isMetaMask;
-      },
-      hasExtensionInstalled: async () => {
-        return !!window.ethereum?.isMetaMask;
-      },
-    };
-  },
+export const MetaMask: EthereumWallet = (metadata) => {
+  return {
+    connectors: ['MetaMask'],
+    create: (): Wallet => {
+      return {
+        ...metadata_MetaMask,
+        hasWalletReady: async () => {
+          return !!window.ethereum?.isMetaMask;
+        },
+        hasExtensionInstalled: async () => {
+          return !!window.ethereum?.isMetaMask;
+        },
+        ...metadata,
+      };
+    },
+  };
 };

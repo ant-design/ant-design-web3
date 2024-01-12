@@ -73,7 +73,7 @@ describe('switch chain when connect', () => {
       <AntDesignWeb3ConfigProvider
         availableConnectors={[]}
         availableChains={[mainnet, polygon]}
-        walletFactorys={[MetaMask]}
+        walletFactorys={[MetaMask()]}
         chainAssets={[Mainnet, Polygon]}
       >
         <Connector>

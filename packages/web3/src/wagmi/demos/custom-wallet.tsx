@@ -1,11 +1,6 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { EthereumCircleColorful } from '@ant-design/web3-icons';
-import {
-  metadata_MetaMask,
-  metadata_TokenPocket,
-  UniversalWallet,
-  WagmiWeb3ConfigProvider,
-} from '@ant-design/web3-wagmi';
+import { TokenPocket, UniversalWallet, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { injected, walletConnect } from 'wagmi/connectors';
@@ -43,28 +38,35 @@ const App: React.FC = () => {
     <WagmiWeb3ConfigProvider
       wallets={[
         new UniversalWallet({
-          ...metadata_TokenPocket,
+          name: 'TestWallet',
+          remark: 'My TestWallet',
+          icon: <EthereumCircleColorful />,
+          extensions: [],
           group: 'Popular',
         }),
         {
-          name: 'TestWallet',
+          connectors: ['WalletConnect'],
           create: () => {
             return {
               name: 'TestWallet',
               remark: 'My TestWallet',
               icon: <EthereumCircleColorful />,
+              app: {
+                link: 'https://web3.ant.design',
+              },
               hasWalletReady: async () => {
                 return !!(window as any).testWallet;
               },
-              hasExtensionInstalled: async () => {
-                return !!(window as any).testWallet;
+              getQrCode: async () => {
+                return {
+                  uri: 'https://web3.ant.design',
+                };
               },
             };
           },
         },
-        new UniversalWallet({
-          ...metadata_MetaMask,
-          group: 'More',
+        TokenPocket({
+          group: 'Popular',
         }),
       ]}
       config={config}

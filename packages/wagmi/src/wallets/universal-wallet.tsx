@@ -4,22 +4,21 @@ import type { Connector } from 'wagmi';
 import type { WalletFactory, WalletUseInWagmiAdapter } from '../interface';
 
 export class UniversalWallet implements WalletFactory {
-  name: string[] = [];
+  connectors: string[] = [];
   constructor(private wallet: WalletMetadata) {
     if (wallet.extensions) {
       // support injected connector
       // https://wagmi.sh/react/connectors/injected
-      this.name.push(wallet.name);
+      this.connectors.push(wallet.name);
     }
     if (wallet.app) {
       // support WalletConnect https://wagmi.sh/react/connectors/walletConnect
-      this.name.push('WalletConnect');
+      this.connectors.push('WalletConnect');
     }
   }
-  create = (connector?: Connector | readonly Connector[]): WalletUseInWagmiAdapter => {
-    const connectors = connector as Connector[];
-    const walletConnector = connectors.find((item) => item.name === 'WalletConnect');
-    const injectedConnector = connectors.find((item) => item.name === this.wallet.name);
+  create = (connectors?: readonly Connector[]): WalletUseInWagmiAdapter => {
+    const walletConnector = connectors?.find((item) => item.name === 'WalletConnect');
+    const injectedConnector = connectors?.find((item) => item.name === this.wallet.name);
 
     const getQrCode = async () => {
       const provider = await walletConnector?.getProvider();

@@ -36,13 +36,11 @@ export function WagmiWeb3ConfigProvider({
   const walletsWithDefault = [...wallets];
   if (
     !wallets.find((item) => {
-      return (
-        item.name === 'MetaMask' || (Array.isArray(item.name) && item.name.includes('MetaMask'))
-      );
+      return item.connectors.includes('MetaMask');
     })
   ) {
     // If user not set MetaMask, we will add it to the first
-    walletsWithDefault.unshift(MetaMask);
+    walletsWithDefault.unshift(MetaMask());
   }
 
   const chainAssets = [...chains, Mainnet, Goerli];

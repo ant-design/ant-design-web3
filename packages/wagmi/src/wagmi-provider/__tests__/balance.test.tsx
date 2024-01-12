@@ -58,7 +58,7 @@ describe('WagmiWeb3ConfigProvider balance', () => {
         availableConnectors={[]}
         balance
         availableChains={[mainnet]}
-        walletFactorys={[MetaMask]}
+        walletFactorys={[MetaMask()]}
         chainAssets={[Mainnet]}
       >
         <Connector>
@@ -78,7 +78,7 @@ describe('WagmiWeb3ConfigProvider balance', () => {
       <AntDesignWeb3ConfigProvider
         availableConnectors={[]}
         availableChains={[mainnet]}
-        walletFactorys={[MetaMask]}
+        walletFactorys={[MetaMask()]}
         chainAssets={[Mainnet]}
       >
         <Connector>
