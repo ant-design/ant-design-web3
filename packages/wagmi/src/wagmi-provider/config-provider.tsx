@@ -82,7 +82,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     });
 
     // Generate Wallet for @ant-design/web3
-    console.log('availableConnectors', availableConnectors);
     const allWallet = walletFactorys
       ?.map((factory) => {
         const connectors = factory.connectors
