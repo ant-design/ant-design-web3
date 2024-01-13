@@ -1,6 +1,7 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   CoinbaseWallet,
+  EIP6963Wallet,
   MetaMask,
   OkxWallet,
   SafeheronWallet,
