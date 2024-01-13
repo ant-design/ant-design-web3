@@ -1,6 +1,7 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   CoinbaseWallet,
+  EIP6963Wallet,
   MetaMask,
   SafeheronWallet,
   TokenPocket,
@@ -55,6 +56,9 @@ const App: React.FC = () => {
         }),
         CoinbaseWallet(),
         SafeheronWallet(),
+        EIP6963Wallet({
+          group: 'EIP6963',
+        }),
       ]}
       config={config}
     >
