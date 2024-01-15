@@ -41,6 +41,7 @@ export * from './components/fantom-circle-colorful';
 export * from './components/chrome-circle-colorful';
 
 export * from './components/tokenpocket-colorful';
+export * from './components/okx-colorful';
 
 export * from './components/cronos-colorful';
 export * from './components/wbtc-circle-colorful';
