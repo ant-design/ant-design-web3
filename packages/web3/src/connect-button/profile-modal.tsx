@@ -47,7 +47,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
         <Button
           onClick={() => {
             writeCopyText(address).then(() => {
-              messageApi.success(intl.getMessage(intl.messages.Copied));
+              messageApi.success(intl.getMessage(intl.messages.copied));
             });
           }}
         >
