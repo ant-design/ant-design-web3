@@ -40,7 +40,9 @@ order: 2
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| title | 自定义钱包主题 | `React.ReactNode` | - | - |
 | onWalletSelected | 选中钱包回调 | `(wallet: Wallet) => void` | - | - |
+| onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | `() => void` | - | - |
 | footer | 自定义 footer | `React.ReactNode` | - | - |
 | walletList | 钱包列表 | [Wallet](./types#wallet)\[\] | - | - |
 | groupOrder | 钱包分组排序函数 | `(a: string, b: string) => number` | - | - |
