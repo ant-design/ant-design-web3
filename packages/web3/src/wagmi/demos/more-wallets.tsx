@@ -43,14 +43,7 @@ const config = createConfig({
       target: 'tokenPocket',
     }),
     injected({
-      target() {
-        return {
-          id: 'okxwallet',
-          name: 'OkxWallet',
-          // @ts-ignore
-          provider: window.okxwallet,
-        };
-      },
+      target: 'okxWallet',
     }),
   ],
 });
