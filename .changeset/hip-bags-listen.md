@@ -2,4 +2,4 @@
 '@ant-design/web3': patch
 ---
 
-add connectModal API explain
+feat：add connectModal API explain
