@@ -96,9 +96,7 @@ describe('ConnectButton', () => {
     fireEvent.click(baseElement.querySelector('.anticon-copy')!);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
-      expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe(
-        'Address Copied!',
-      );
+      expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe('Copied!');
       expect(readCopyText()).resolves.toBe('0x3ea2cfd153b8d8505097b81c87c11f5d05097c18');
     });
   });
@@ -116,7 +114,7 @@ describe('ConnectButton', () => {
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
       expect(baseElement.querySelector('.ant-message-notice-content')?.textContent?.trim()).toBe(
-        'Address Copied!',
+        'Copied!',
       );
       expect(readCopyText()).resolves.toBe('aaaaaabbbbbbcccccc');
     });
@@ -139,7 +137,7 @@ describe('ConnectButton', () => {
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
       expect(baseElement.querySelector('.ant-message-notice-content')?.textContent?.trim()).toBe(
-        'Copy Successful!',
+        'Copied!',
       );
       expect(readCopyText()).resolves.toBe('0x3ea2cfd153b8d8505097b81c87c11f5d05097c18');
     });
