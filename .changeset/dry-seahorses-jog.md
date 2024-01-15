@@ -3,4 +3,4 @@
 '@ant-design/web3': patch
 ---
 
-feat: Fix message prompts
+fix: Modify the content of ConnectButton message
