@@ -60,7 +60,7 @@ export type DefaultGuide = {
 
 export type ConnectModalProps = ModalProps & {
   /**
-   * @desc 自定义钱包主题
+   * @desc 自定义钱包标题
    * @descEn Custom wallet title
    */
   title?: React.ReactNode;
@@ -74,7 +74,7 @@ export type ConnectModalProps = ModalProps & {
   onWalletSelected?: (wallet: Wallet) => void;
   /**
    * @desc 点击遮罩层或右上角叉或取消按钮的回调
-   * @descEn Callback for clicking overlay, close button, or cancel button
+   * @descEn Specify a function that will be called when a user clicks mask, close button on top right or Cancel button
    * @returns
    */
   onCancel?: (e: React.SyntheticEvent) => void;
