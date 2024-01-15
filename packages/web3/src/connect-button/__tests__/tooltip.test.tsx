@@ -139,7 +139,7 @@ describe('ConnectButton', () => {
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
       expect(baseElement.querySelector('.ant-message-notice-content')?.textContent?.trim()).toBe(
-        'Address Copied!',
+        'Copy Successful!',
       );
       expect(readCopyText()).resolves.toBe('0x3ea2cfd153b8d8505097b81c87c11f5d05097c18');
     });
