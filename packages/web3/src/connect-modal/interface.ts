@@ -77,7 +77,7 @@ export type ConnectModalProps = ModalProps & {
    * @descEn Callback for clicking overlay, close button, or cancel button
    * @returns
    */
-  onCancel?: () => void;
+  onCancel?: (e: React.SyntheticEvent) => void;
   /**
    * @desc 自定义 footer
    * @descEn Custom footer

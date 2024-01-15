@@ -42,7 +42,7 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 | --- | --- | --- | --- | --- |
 | title | Custom wallet title | `React.ReactNode` | - | - |
 | onWalletSelected | Callback when the wallet is selected | `(wallet: Wallet) => void` | - | - |
-| onCancel | Callback for clicking overlay, close button, or cancel button | `() => void` | - | - |
+| onCancel | Callback for clicking overlay, close button, or cancel button | `(e:React.SyntheticEvent) => void` | - | - |
 | footer | Custom footer | `React.ReactNode` | - | - |
 | walletList | Wallet list | `Wallet[]` | - | - |
 | groupOrder | Wallet group sorting function | `(a: string, b: string) => number` | - | - |
