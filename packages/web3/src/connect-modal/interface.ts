@@ -60,8 +60,8 @@ export type DefaultGuide = {
 
 export type ConnectModalProps = ModalProps & {
   /**
-   * @desc 自定义钱包标题
-   * @descEn Custom wallet title
+   * @desc 自定义连接弹窗标题
+   * @descEn Custom connect modal title
    */
   title?: React.ReactNode;
   /**
