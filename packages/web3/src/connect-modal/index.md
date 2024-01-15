@@ -40,7 +40,7 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| title | Custom wallet title | `React.ReactNode` | - | - |
+| title | Custom connect modal title | `React.ReactNode` | - | - |
 | onWalletSelected | Callback when the wallet is selected | `(wallet: Wallet) => void` | - | - |
 | onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | `(e:React.SyntheticEvent) => void` | - | - |
 | footer | Custom footer | `React.ReactNode` | - | - |

@@ -2,4 +2,4 @@
 '@ant-design/web3': patch
 ---
 
-feat：add connectModal API explain
+docs：Add connectModal API `title` and `onCancel` explain
