@@ -4,4 +4,4 @@
 '@ant-design/web3-wagmi': minor
 ---
 
-Add OKX wallet info
+feat: Add OKX wallet info
