@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.3.1
+
+### Patch Changes
+
+- f135178: fix: Modify the content of ConnectButton message
+
 ## 1.3.0
 
 ### Minor Changes

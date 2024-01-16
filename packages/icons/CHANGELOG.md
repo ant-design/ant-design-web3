@@ -1,5 +1,11 @@
 # @ant-design/web3-icons
 
+## 1.3.0
+
+### Minor Changes
+
+- 77615f9: feat: Add OKX wallet info
+
 ## 1.2.0
 
 ### Minor Changes

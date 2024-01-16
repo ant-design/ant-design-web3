@@ -155,6 +155,10 @@ importers:
         version: 5.3.3
 
   packages/common:
+    dependencies:
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
     devDependencies:
       '@types/react':
         specifier: ^18.2.45
@@ -168,9 +172,6 @@ importers:
       father:
         specifier: ^4.3.8
         version: 4.3.8(@types/node@20.10.5)(webpack@5.89.0)
-      lodash:
-        specifier: ^4.17.21
-        version: 4.17.21
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -12769,7 +12770,6 @@ packages:
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /log-symbols@2.2.0:
     resolution: {integrity: sha512-VeIAFslyIerEJLXHziedo2basKbMKtTw3vfn5IzG0XTjhAVEJyNHnL2p7vc+wBDSdQuUpNw3M2u6xb9QsAY5Eg==}

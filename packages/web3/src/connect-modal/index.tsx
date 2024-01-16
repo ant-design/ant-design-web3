@@ -14,7 +14,7 @@ export const ConnectModal: React.FC<ConnectModalProps> & {
   ModalPanel: typeof ModalPanel;
 } = (props) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, unused-imports/no-unused-vars
-  const { title, open, footer, onWalletSelected, className, mode, ...restProps } = props;
+  const { title, footer, open, className, mode, rootClassName, onCancel, ...restProps } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const { isSimple } = useMode(mode);
@@ -29,10 +29,10 @@ export const ConnectModal: React.FC<ConnectModalProps> & {
       width={isSimple ? 380 : 737}
       {...restProps}
       className={classNames(prefixCls, className, hashId)}
-      rootClassName={classNames(`${prefixCls}-root`, props?.rootClassName)}
+      rootClassName={classNames(`${prefixCls}-root`, rootClassName)}
       open={open}
       onCancel={(e) => {
-        props?.onCancel?.(e);
+        onCancel?.(e);
       }}
     >
       <ModalPanel {...props} />

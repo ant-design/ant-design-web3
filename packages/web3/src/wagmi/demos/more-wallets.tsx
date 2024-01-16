@@ -2,6 +2,7 @@ import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   CoinbaseWallet,
   MetaMask,
+  OkxWallet,
   SafeheronWallet,
   TokenPocket,
   WagmiWeb3ConfigProvider,
@@ -41,6 +42,9 @@ const config = createConfig({
     injected({
       target: 'tokenPocket',
     }),
+    injected({
+      target: 'okxWallet',
+    }),
   ],
 });
 
@@ -55,6 +59,7 @@ const App: React.FC = () => {
         }),
         CoinbaseWallet(),
         SafeheronWallet(),
+        OkxWallet(),
       ]}
       config={config}
     >
