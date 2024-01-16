@@ -173,7 +173,7 @@ export interface RequiredLocale {
     connect: string;
     disconnect: string;
     copyAddress: string;
-    addressCopied: string;
+    copied: string;
     walletAddress: string;
   };
   ConnectModal: {

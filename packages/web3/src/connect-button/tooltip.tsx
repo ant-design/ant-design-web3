@@ -37,7 +37,7 @@ export const ConnectButtonTooltip: React.FC<
             title={intl.getMessage(intl.messages.copyAddress)}
             onClick={() => {
               writeCopyText(String(title)).then(() => {
-                messageApi.success(intl.getMessage(intl.messages.addressCopied));
+                messageApi.success(intl.getMessage(intl.messages.copied));
               });
             }}
           />
@@ -51,7 +51,7 @@ export const ConnectButtonTooltip: React.FC<
           title={intl.getMessage(intl.messages.copyAddress)}
           onClick={() => {
             writeCopyText(String(title)).then(() => {
-              messageApi.success(intl.getMessage(intl.messages.addressCopied));
+              messageApi.success(intl.getMessage(intl.messages.copied));
             });
           }}
         />
