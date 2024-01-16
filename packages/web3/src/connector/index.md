@@ -54,6 +54,6 @@ The properties of the `children` component of `Connector` are inherited and util
 | onConnectClick | Connection event | `() => void;` | - | - |
 | onDisconnectClick | Disconnection event | `() => void;` | - | - |
 | onSwitchChain | Network switch event | `(chain: Chain) => Promise<viod>` | - | - |
-| connected | Is Connected | `boolean` | - | - |
-| chains | List of networks currently connected | `ChainSelectItem[]` | - | - |
 | balance | Balance of the currently connected account | `Balance[]` \| `Balance` | - | - |
+| availableChains | Available chains | `Chain[]` | - | - |
+| chain | Current chain | [Chain](/components/types#chain) | - |  |
