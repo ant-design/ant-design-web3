@@ -3,4 +3,4 @@
 '@ant-design/web3': patch
 ---
 
-docs: Delete Unreferenced APIs from connector
+docs: modify Unreferenced APIs from connector

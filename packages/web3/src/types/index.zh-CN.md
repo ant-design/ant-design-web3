@@ -77,7 +77,7 @@ order: 3
 | --- | --- | --- | --- | --- |
 | account | 当前账户 | [Account](#account) | - | - |
 | chain | 当前链 | [Chain](#chain) | - | - |
-| availableChains | 可用的链列表 | [Chain](#chain)[] | - | - |
+| availableChains | 可用链列表 | [Chain](#chain)[] | - | - |
 | availableWallets | 可用的钱包列表 | [Wallet](#wallet)[] | - | - |
 | connect | 连接钱包 | `(wallet: Wallet) => Promise<void>` | - | - |
 | disconnect | 断开钱包连接 | `() => Promise<void>` | - | - |
