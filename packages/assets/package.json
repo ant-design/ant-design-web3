@@ -4,6 +4,11 @@
   "main": "dist/lib/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/lib/index.js",
+    "types": "./dist/esm/index.d.ts"
+  },
   "files": [
     "dist",
     "CHANGELOG.md",
