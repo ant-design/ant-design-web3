@@ -1,5 +1,18 @@
 # @ant-design/web3-wagmi
 
+## 2.1.0
+
+### Minor Changes
+
+- 77615f9: feat: Add OKX wallet info
+
+### Patch Changes
+
+- Updated dependencies [f135178]
+- Updated dependencies [77615f9]
+  - @ant-design/web3-common@1.3.1
+  - @ant-design/web3-assets@1.2.0
+
 ## 2.0.1
 
 ### Patch Changes

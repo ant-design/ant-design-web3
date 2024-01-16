@@ -1,5 +1,17 @@
 # @ant-design/web3
 
+## 1.3.1
+
+### Patch Changes
+
+- f135178: fix: Modify the content of ConnectButton message
+- 79a91ff: refactor: Optimization ConnectButton code
+- Updated dependencies [f135178]
+- Updated dependencies [77615f9]
+  - @ant-design/web3-common@1.3.1
+  - @ant-design/web3-assets@1.2.0
+  - @ant-design/web3-icons@1.3.0
+
 ## 1.3.0
 
 ### Minor Changes
