@@ -1,5 +1,14 @@
 # @ant-design/web3-wagmi
 
+## 2.1.1
+
+### Patch Changes
+
+- cf6c520: fix: Add exports field for fix require bug in nextjs
+- Updated dependencies [cf6c520]
+  - @ant-design/web3-assets@1.2.1
+  - @ant-design/web3-common@1.3.2
+
 ## 2.1.0
 
 ### Minor Changes
