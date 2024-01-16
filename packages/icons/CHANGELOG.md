@@ -1,5 +1,11 @@
 # @ant-design/web3-icons
 
+## 1.3.1
+
+### Patch Changes
+
+- cf6c520: fix: Add exports field for fix require bug in nextjs
+
 ## 1.3.0
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # @ant-design/web3
 
+## 1.3.2
+
+### Patch Changes
+
+- cf6c520: fix: Add exports field for fix require bug in nextjs
+- 0eadb8b: docs：Add connectModal API `title` and `onCancel` explain
+- Updated dependencies [cf6c520]
+  - @ant-design/web3-assets@1.2.1
+  - @ant-design/web3-common@1.3.2
+  - @ant-design/web3-icons@1.3.1
+
 ## 1.3.1
 
 ### Patch Changes
