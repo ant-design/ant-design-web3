@@ -1,17 +1,18 @@
 import { useMemo, useState, type FC, type PropsWithChildren } from 'react';
-import { Solana, SolanaDevnet, SolanaTestnet } from '@ant-design/web3-assets';
+import { Solana } from '@ant-design/web3-assets';
 import type { Chain, Locale } from '@ant-design/web3-common';
-import type { Adapter } from '@solana/wallet-adapter-base';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { type ConnectionConfig } from '@solana/web3.js';
 
 import { solana, type SolanaChain } from '../chains';
+import type { WalletFactory } from '../wallets/types';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 
 export interface SolanaWeb3ConfigProviderProps {
   locale?: Locale;
   chains?: Chain[];
-  assets?: Chain[];
+  chainAssets?: Chain[];
+  wallets?: WalletFactory[];
   balance?: boolean;
 
   rpcProvider?: string | ((chain?: Chain) => string);
@@ -21,21 +22,22 @@ export interface SolanaWeb3ConfigProviderProps {
   //#endregion
 
   //#region Solana WalletProvider specific
-  wallets?: Adapter[];
   autoConnect?: boolean;
+  walletProviderProps?: React.ComponentProps<typeof WalletProvider>;
   //#endregion
 }
 
 export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProviderProps>> = ({
   locale,
   chains,
-  assets,
+  chainAssets,
+  wallets: walletFactorys = [],
   balance,
   rpcProvider,
   connectionConfig,
-  wallets,
   autoConnect,
   children,
+  walletProviderProps,
 }) => {
   const [currentChain, setCurrentChain] = useState<SolanaChain | undefined>(solana);
 
@@ -45,23 +47,26 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
     }
 
     if (!currentChain) {
-      return '';
+      return solana.rpcUrls.default.http[0];
     }
 
-    return currentChain.rpcUrls[rpcProvider ?? 'default'].http[0];
+    return currentChain.rpcUrls[rpcProvider ?? 'default']?.http[0];
   }, [rpcProvider, currentChain]);
+
+  const availableWallets = walletFactorys.map((factory) => factory.create());
+  const adapters = walletFactorys.map((w) => w.adapter);
 
   return (
     <ConnectionProvider endpoint={endpoint ?? ''} config={connectionConfig}>
-      <WalletProvider wallets={wallets || []} autoConnect={autoConnect}>
+      <WalletProvider wallets={adapters} autoConnect={autoConnect} {...walletProviderProps}>
         <AntDesignWeb3ConfigProvider
           locale={locale}
-          assets={assets ?? [Solana, SolanaDevnet, SolanaTestnet]}
+          chainAssets={chainAssets ?? [Solana]}
+          availableWallets={availableWallets}
           balance={balance}
           currentChain={currentChain}
           onCurrentChainChange={(chain) => setCurrentChain(chain as SolanaChain)}
-          availableChains={chains || []}
-          availableConnectors={wallets || []}
+          availableChains={chains || [solana]}
         >
           {children}
         </AntDesignWeb3ConfigProvider>

@@ -26,6 +26,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     switchChain,
     balance,
     switchWallet,
+    addressPrefix,
   } = useProvider(props);
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
@@ -70,6 +71,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         balance,
         availableChains,
         chain,
+        addressPrefix,
         onSwitchChain: async (c: Chain) => {
           await switchChain?.(c);
           onChainSwitched?.(c);

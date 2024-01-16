@@ -22,6 +22,7 @@ export interface ProfileModalProps {
   onClose?: () => void;
   modalProps?: Omit<ModalProps, 'open' | 'onClose' | 'className'>;
   balance?: Balance;
+  addressPrefix?: string | false;
 }
 
 export const ProfileModal: React.FC<ProfileModalProps> = ({
@@ -36,6 +37,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   address,
   modalProps,
   balance,
+  addressPrefix,
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-button-profile-modal');
@@ -81,7 +83,12 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
           {avatar ? <Avatar {...avatar} /> : null}
           {name ? <div className={classNames(`${prefixCls}-name`, __hashId__)}>{name}</div> : null}
           {address ? (
-            <Address ellipsis={false} address={address} tooltip={false}>
+            <Address
+              ellipsis={false}
+              address={address}
+              tooltip={false}
+              addressPrefix={addressPrefix}
+            >
               {balance && <CryptoPrice {...balance} />}
             </Address>
           ) : null}

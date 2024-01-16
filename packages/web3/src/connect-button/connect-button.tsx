@@ -1,6 +1,6 @@
 import React, { useContext, useMemo, useState } from 'react';
 import { CopyOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
-import type { Chain } from '@ant-design/web3-common';
+import { type Chain } from '@ant-design/web3-common';
 import type { ButtonProps } from 'antd';
 import { Avatar, Button, ConfigProvider, Divider, Dropdown, message, Space } from 'antd';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import { Address } from '../address';
 import { CryptoPrice } from '../crypto-price';
 import useIntl from '../hooks/useIntl';
-import { fillWith0x, writeCopyText } from '../utils';
+import { fillWithPrefix, writeCopyText } from '../utils';
 import { ChainSelect } from './chain-select';
 import type { ChainSelectProps } from './chain-select';
 import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
@@ -36,7 +36,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     balance,
     className,
     locale,
-    addressPrefix: prefix = '0x',
+    addressPrefix = '0x',
     ...restProps
   } = props;
   const intl = useIntl('ConnectButton', locale);
@@ -46,7 +46,6 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [messageApi, contextHolder] = message.useMessage();
   const [showMenu, setShowMenu] = useState(false);
-  const { addressPrefix } = useContext(ConfigContext);
 
   let buttonText: React.ReactNode = intl.getMessage(intl.messages.connect);
   if (account) {
@@ -54,7 +53,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       account?.name && !balance ? (
         account?.name
       ) : (
-        <Address tooltip={false} ellipsis address={account.address} addressPrefix={prefix}>
+        <Address tooltip={false} ellipsis address={account.address} addressPrefix={addressPrefix}>
           {balance ? <CryptoPrice icon {...balance} /> : undefined}
         </Address>
       );
@@ -108,6 +107,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     },
     balance,
     modalProps: typeof profileModal === 'object' ? profileModal : undefined,
+    addressPrefix,
   };
 
   const chainSelect =
@@ -209,7 +209,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
   let tooltipTitle: string =
     tooltip && account?.address
-      ? fillWithPrefix(account?.address, prefix === false ? '' : prefix ?? addressPrefix)
+      ? fillWithPrefix(account?.address, addressPrefix === false ? '' : addressPrefix)
       : '';
   if (typeof tooltip === 'object' && typeof tooltip.title === 'string') {
     tooltipTitle = tooltip.title;

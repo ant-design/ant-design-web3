@@ -68,7 +68,7 @@ export interface UniversalWeb3ProviderInterface {
   extendsContextFromParent?: boolean;
 
   /** Such as `0x` */
-  addressPrefix?: string;
+  addressPrefix?: string | false;
 
   price?: {
     symbol?: string;
