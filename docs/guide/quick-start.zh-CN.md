@@ -5,7 +5,7 @@ group: 基础
 
 # 快速开始
 
-> 在开始之前，推荐先学习 [React](https://react.dev)，并正确安装和配置了 [Node.js](https://nodejs.org/) v16 或以上。官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经基本掌握了 React 全家桶的正确开发方式。
+> 在开始之前，推荐先学习 [React](https://react.dev)，并正确安装和配置了 [Node.js](https://nodejs.org/) v16 或以上。官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经基本掌握了 React 全家桶的正确开发方式。该指南假设你已经通过 [Next.js](https://nextjs.org/) 或者 [umi](https://umijs.org/) 等 React 框架初始化好了一个项目。
 
 ## 安装依赖
 
@@ -42,3 +42,33 @@ export default () => {
 <code src="./demos/quick-start.tsx"></code>
 
 当然，相比 `NFTImage`，可能我们使用更多的是连接区块链按钮的组件，你可以阅读 [Connector](/zh-CN/components/connector) 组件的具体文档来学习如何使用它。
+
+## 在 Next.js 中使用
+
+在 [Next.js](https://nextjs.org/) 中，基于它的构建机制，你可能在引入 `@ant-design/web3` 等包时会遇到类型下面的错误：
+
+1. `Error: require() of ES Module ... from ... not supported.`
+2. `SyntaxError: Cannot use import statement outside a module`
+
+这是由于 Next.js 在加载 `node_modules` 下面的依赖包时没有走相关的编译逻辑。你可能需要手动在 Next.js 的配置文件 `next.config.js` 中添加 [transpilePackages](https://nextjs.org/docs/app/api-reference/next-config-js/transpilePackages) 配置：
+
+```diff
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
++  transpilePackages: [
++    "@ant-design",
++    "antd",
++    "rc-util",
++    "rc-pagination",
++    "rc-picker",
++  ],
+};
+
+module.exports = nextConfig;
+```
+
+你也可以关注下面相关问题获取最新进展：
+
+- https://github.com/ant-design/ant-design/issues/46053
+- https://github.com/vercel/next.js/issues/58817

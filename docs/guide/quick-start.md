@@ -5,7 +5,7 @@ group: Basic
 
 # Quick Start
 
-> Before you start, it is recommended to learn [React](https://react.dev) first, and install and configure [Node.js](https://nodejs.org/) v16 or above correctly. The official guide assumes that you have a medium knowledge of HTML, CSS and JavaScript, and have basically mastered the correct development method of React family bucket.
+> Before you start, it is recommended to learn [React](https://react.dev) first, and install and configure [Node.js](https://nodejs.org/) v16 or above correctly. The official guide assumes that you have a medium knowledge of HTML, CSS and JavaScript, and have basically mastered the correct development method of React family bucket. This guide assumes that you have initialized a project with React framework such as [Next.js](https://nextjs.org/) or [umi](https://umijs.org/).
 
 ## Install dependencies
 
@@ -42,3 +42,33 @@ Here is an example. When you use `WagmiWeb3ConfigProvider` at the outermost laye
 <code src="./demos/quick-start.tsx"></code>
 
 Of course, compared with `NFTImage`, we may use more components of the connection blockchain button. You can read the specific documentation of the [Connector](/components/connector) component to learn how to use it.
+
+## Use in Next.js
+
+In [Next.js](https://nextjs.org/), based on its build mechanism, you may encounter the following errors when introducing packages such as `@ant-design/web3`:
+
+1. `Error: require() of ES Module ... from ... not supported.`
+2. `SyntaxError: Cannot use import statement outside a module`
+
+Because Next.js does not go through the relevant compilation logic when loading dependent packages under `node_modules`. You may need to manually add the [transpilePackages](https://nextjs.org/docs/app/api-reference/next-config-js/transpilePackages) configuration in Next.js configuration file `next.config.js`:
+
+```diff
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
++  transpilePackages: [
++    "@ant-design",
++    "antd",
++    "rc-util",
++    "rc-pagination",
++    "rc-picker",
++  ],
+};
+
+module.exports = nextConfig;
+```
+
+You can also follow the following related issues to get the latest progress:
+
+- https://github.com/ant-design/ant-design/issues/46053
+- https://github.com/vercel/next.js/issues/58817
