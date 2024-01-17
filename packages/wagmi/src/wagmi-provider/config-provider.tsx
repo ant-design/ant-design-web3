@@ -7,7 +7,7 @@ import {
   type Locale,
   type Wallet,
 } from '@ant-design/web3-common';
-import { Chain as WagmiChain } from 'viem';
+import type { Chain as WagmiChain } from 'viem';
 import {
   useAccount,
   useBalance,

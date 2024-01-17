@@ -1,5 +1,5 @@
 import { SafeheronWallet } from '@ant-design/web3-wagmi';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { injected } from 'wagmi/connectors';

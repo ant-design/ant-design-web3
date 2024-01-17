@@ -9,7 +9,6 @@ import classNames from 'classnames';
 import { Address } from '../address';
 import { CryptoPrice } from '../crypto-price';
 import useIntl from '../hooks/useIntl';
-import type { IntlType } from '../hooks/useIntl';
 import { fillWith0x, writeCopyText } from '../utils';
 import { ChainSelect } from './chain-select';
 import type { ChainSelectProps } from './chain-select';

@@ -4,7 +4,7 @@ import { useProvider } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import { Connector } from 'wagmi';
+import type { Connector } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 
 import { MetaMask } from '../../wallets';
