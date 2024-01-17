@@ -54,6 +54,6 @@ order: 0
 | onConnectClick    | 连接事件           | `() => void;`                     | -      | -    |
 | onDisconnectClick | 断开连接事件       | `() => void;`                     | -      | -    |
 | onSwitchChain     | 切换网络事件       | `(chain: Chain) => Promise<viod>` | -      | -    |
-| connected         | 是否已连接         | `boolean`                         | -      | -    |
-| chains            | 当前连接的网络列表 | `ChainSelectItem[]`               | -      | -    |
 | balance           | 当前连接的账户余额 | `Balance[]` \| `Balance`          | -      | -    |
+| availableChains   | 可以连接的链列表   | `Chain[]`                         | -      | -    |
+| chain             | 当前连接的链       | [Chain](/components/types#chain)  | -      |      |
