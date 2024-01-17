@@ -69,7 +69,7 @@ npm i antd @ant-design/web3 --save
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-+ transpilePackages: [ "antd", "@ant-design", "rc-util", "rc-pagination", "rc-picker", "rc-notification", "rc-tooltip", "rc-tree", "rc-table" ],
++ transpilePackages: [  "@ant-design", "antd", "rc-util", "rc-pagination", "rc-picker" ],
 }
 
 module.exports = nextConfig
@@ -81,19 +81,23 @@ module.exports = nextConfig
 import { Address } from '@ant-design/web3';
 
 export default () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        padding: 64,
-      }}
-    >
-      <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
-    </div>
-  );
+  return <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />;
 };
 ```
 
 然后访问 [http://localhost:3000/web3](http://localhost:3000/web3) 可以看到你已经在项目中成功使用 Ant Design Web3 了 🎉
 
 ![](./img/dev-success.png)
+
+为了让页面更美观，避免上图中的横条样式，你可以在项目中的 `styles/global.css` 的第八十多行添加如下内容：
+
+```diff
+html,
+body {
+  max-width: 100vw;
++  min-height: 100vh;
+  overflow-x: hidden;
+}
+```
+
+当然，这并不是必须的。
