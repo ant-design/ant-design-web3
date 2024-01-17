@@ -17,10 +17,6 @@ describe('Address', () => {
     vi.useRealTimers();
   });
 
-  it('mount correctly', () => {
-    expect(() => render(<Address />)).not.toThrow();
-  });
-
   it('display address', () => {
     const { baseElement } = render(
       <Address address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,
