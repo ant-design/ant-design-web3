@@ -5,11 +5,11 @@ group: Basic
 
 # Quick Start
 
-> Before you start, it is recommended to learn [React](https://react.dev) first, and install and configure [Node.js](https://nodejs.org/) v16 or above correctly. The official guide assumes that you have a medium knowledge of HTML, CSS and JavaScript, and have basically mastered the correct development method of React family bucket. This guide assumes that you have initialized a project with React framework such as [Next.js](https://nextjs.org/) or [umi](https://umijs.org/).
+> Before you start, it is recommended to learn [React](https://react.dev) first, and install and configure [Node.js](https://nodejs.org/) v18 or above correctly. The official guide assumes that you have a medium knowledge of HTML, CSS and JavaScript, and have basically mastered the correct development method of React family bucket. In addition, this guide assumes that you have initialized a project through a React framework (such as [Next.js](https://nextjs.org/) or [umi](https://umijs.org/)).
 
 ## Install dependencies
 
-You can install the relevant dependencies through `npm` or `pnpm` and other package management tools, as shown below:
+You can install the relevant dependencies under the root directory of the project through `npm` or `pnpm` and other package management tools, as shown below:
 
 <br />
 
