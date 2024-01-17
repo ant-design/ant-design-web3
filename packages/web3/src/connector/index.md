@@ -39,7 +39,7 @@ In addition, `Connector` is usually used with [adapter](../../guide/adapter). Th
 | onChainSwitched | Callback when switching networks. | `(chain: Chain) => Promise<viod>` | - | - |
 | availableWallets | Available aallet list | `Wallet[]` | - | - |
 | account | Current connected account | `Account` | - | - |
-| availableChains | Available select chains list | `Chain[]` | - | - |
+| availableChains | List of available chains | `Chain[]` | - | - |
 | connect | Method to request the account list | `() => Promise<void>` | - | - |
 | disconnect | Method to disconnect | `() => Promise<viod>` | - | - |
 | switchChain | Method to switch networks | `(chain: Chain) => Promise<viod>` | - | - |
@@ -54,6 +54,6 @@ The properties of the `children` component of `Connector` are inherited and util
 | onConnectClick | Connection event | `() => void;` | - | - |
 | onDisconnectClick | Disconnection event | `() => void;` | - | - |
 | onSwitchChain | Network switch event | `(chain: Chain) => Promise<viod>` | - | - |
-| connected | Is Connected | `boolean` | - | - |
-| chains | List of networks currently connected | `ChainSelectItem[]` | - | - |
 | balance | Balance of the currently connected account | `Balance[]` \| `Balance` | - | - |
+| availableChains | List of available chains | `Chain[]` | - | - |
+| chain | Current chain | [Chain](/components/types#chain) | - |  |
