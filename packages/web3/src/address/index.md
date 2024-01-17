@@ -26,5 +26,6 @@ group:
 | ellipsis | Address clipping strategy | `boolean \| { headClip?: number, tailClip?: number }` | `{ headClip: 6, tailClip: 4 }` | - |
 | copyable | Address copyable | `boolean` | `false` | - |
 | address | Address | `string` | - | - |
-| tooltip | Show tooltip when hover address | `boolean \|`[Tooltip.title](https://ant.design/components/tooltip-cn#api) | Displays the current full address | - |
+| tooltip | Show tooltip when hover address | `boolean \|`[Tooltip.title](https://ant.design/components/tooltip-cn#api) | `true ` | - |
 | format | Address format | `boolean \| (input: string) => ReactNode` | `false` | - |
+| locale | Multilingual settings | `Locale["address"]` | - | - |

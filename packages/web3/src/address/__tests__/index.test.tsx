@@ -126,6 +126,20 @@ describe('Address', () => {
     );
   });
 
+  it('should display custom tooltip if tooltip is set custom', async () => {
+    const { baseElement } = render(
+      <Address
+        ellipsis
+        address={'3ea2cfd153b8d8505097b81c87c11f5d05097c18'}
+        tooltip={<span>hello</span>}
+      />,
+    );
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-web3-address-text')!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-tooltip-inner')?.textContent).toBe('hello');
+    });
+  });
+
   it('should show copy icon after 2s', async () => {
     const { baseElement } = render(
       <Address address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" copyable />,

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { isValidElement, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
 import type { Locale } from '@ant-design/web3-common';
 import type { TooltipProps } from 'antd';
@@ -17,7 +17,7 @@ export interface AddressProps {
         headClip?: number;
         tailClip?: number;
       };
-  address?: string;
+  address: string;
   copyable?: boolean;
   tooltip?: boolean | TooltipProps['title'];
   format?: boolean | ((address: string) => ReactNode);
@@ -25,7 +25,7 @@ export interface AddressProps {
 }
 
 export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) => {
-  const { ellipsis, address, copyable, tooltip, format = false, children, locale } = props;
+  const { ellipsis, address, copyable, tooltip = true, format = false, children, locale } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-address');
   const { wrapSSR, hashId } = useStyle(prefixCls);
@@ -61,17 +61,36 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
   }, []);
 
   if (!address) {
+    console.error('"address" property of the "Address" is required');
     return null;
   }
-
   const filledAddress = fillWith0x(address);
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const mergedTooltip = useMemo(() => {
+    if (isValidElement(tooltip) || typeof tooltip === 'string') {
+      return tooltip;
+    }
+    if (tooltip) {
+      return filledAddress;
+    }
+    return tooltip;
+  }, [filledAddress, tooltip]);
+
   const formattedAddress = mergedFormat(filledAddress);
-  const displayTooltip = tooltip === undefined || tooltip === true ? filledAddress : tooltip;
+
+  const handleOutlinedChange = () => {
+    writeCopyText(filledAddress).then(() => {
+      setCopied(true);
+      timerRef.current = setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    });
+  };
 
   return wrapSSR(
     <Space className={classNames(prefixCls, hashId)}>
-      <Tooltip title={displayTooltip}>
+      <Tooltip title={mergedTooltip}>
         <span className={`${prefixCls}-text`}>
           {children ??
             (isEllipsis
@@ -84,17 +103,7 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
           {copied ? (
             <CheckOutlined title={messages.copiedTips} />
           ) : (
-            <CopyOutlined
-              title={messages.copyTips}
-              onClick={() => {
-                writeCopyText(filledAddress).then(() => {
-                  setCopied(true);
-                  timerRef.current = setTimeout(() => {
-                    setCopied(false);
-                  }, 2000);
-                });
-              }}
-            />
+            <CopyOutlined title={messages.copyTips} onClick={handleOutlinedChange} />
           )}
         </>
       )}
