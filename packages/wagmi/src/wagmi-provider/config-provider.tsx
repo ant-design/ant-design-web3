@@ -130,7 +130,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       .filter((item) => item !== null) as Wallet[];
 
     return [...supportWallets, ...autoAddEIP6963Wallets];
-  }, [availableConnectors, walletFactorys]);
+  }, [availableConnectors, walletFactorys, eip6963]);
 
   const chainList: Chain[] = React.useMemo(() => {
     return availableChains
