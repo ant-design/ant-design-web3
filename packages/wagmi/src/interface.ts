@@ -11,3 +11,7 @@ export interface WalletFactory {
   connectors: Connector['name'][];
   create: (connector?: readonly Connector[]) => WalletUseInWagmiAdapter;
 }
+
+export type EIP6963Config = {
+  autoAddInjectedWallets?: boolean;
+};

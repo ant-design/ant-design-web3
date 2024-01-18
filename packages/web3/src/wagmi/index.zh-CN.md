@@ -17,9 +17,17 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 
 <code src="./demos/basic.tsx"></code>
 
+## EIP6363
+
+基于 EIP6963 自动添加钱包，在 [EIP6963](https://eips.ethereum.org/EIPS/eip-6963) 协议下，可以避免用户安装多个钱包导致的冲突，以及可以自动识别到用户已经安装的钱包。
+
+<code src="./demos/eip6963.tsx"></code>
+
 ## 添加更多钱包
 
 为了降低引入包的大小，你需要手动配置 `wallets` 引入相关钱包。你可以从 `@ant-design/web3-wagmi` 中导出相关资源，如果没有你需要的资源，你可以通过提交 [Github issue](https://github.com/ant-design/ant-design-web3/issues) 告诉我们。也自己配置或者给我们提交 PR 支持。
+
+另外，我们推荐设置 `eip6963` 为 `true`，避免用户安装多个钱包情况下出现冲突。
 
 <code src="./demos/more-wallets.tsx"></code>
 
@@ -78,6 +86,13 @@ Ant Design Web3 内置了对 [TokenPocket](https://www.tokenpocket.pro/) 的支�
 | ens | 是否显示 ENS | `boolean` | - | - |
 | balance | 是否显示余额 | `boolean` | - | - |
 | locale | 多语言文案设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
+| eip6963 | 是否采用 EIP6963 协议钱包以及相关配置 | `boolean` \| `EIP6963Config` | `false` | `2.2.0` |
+
+### EIP6963Config
+
+| 属性                   | 描述                     | 类型      | 默认值  | 版本    |
+| ---------------------- | ------------------------ | --------- | ------- | ------- |
+| autoAddInjectedWallets | 是否自动添加检测到的钱包 | `boolean` | `false` | `2.2.0` |
 
 ### WalletFactory
 

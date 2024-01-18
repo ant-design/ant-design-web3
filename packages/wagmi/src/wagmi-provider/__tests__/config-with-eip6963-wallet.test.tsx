@@ -1,5 +1,5 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { EIP6963Wallet, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { createConfig, http } from 'wagmi';
@@ -45,11 +45,9 @@ describe('WagmiWeb3ConfigProvider with EIP6963 Wallet', () => {
 
     const App = () => (
       <WagmiWeb3ConfigProvider
-        wallets={[
-          EIP6963Wallet({
-            group: groupName,
-          }),
-        ]}
+        eip6963={{
+          autoAddInjectedWallets: true,
+        }}
         config={config}
       >
         <Connector>
@@ -117,7 +115,12 @@ describe('WagmiWeb3ConfigProvider with EIP6963 Wallet', () => {
     });
 
     const App = () => (
-      <WagmiWeb3ConfigProvider wallets={[EIP6963Wallet()]} config={config}>
+      <WagmiWeb3ConfigProvider
+        eip6963={{
+          autoAddInjectedWallets: true,
+        }}
+        config={config}
+      >
         <Connector>
           <ConnectButton />
         </Connector>

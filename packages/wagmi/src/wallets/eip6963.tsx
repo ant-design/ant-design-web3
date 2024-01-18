@@ -5,6 +5,7 @@ import type { EthereumWallet } from '../interface';
 
 export const EIP6963_CONNECTOR = 'EIP6963';
 
+// EIP6963Wallet not export from @ant-design/web3-wagmi, only used in internal
 export const EIP6963Wallet: EthereumWallet = (metadata) => {
   return {
     connectors: [EIP6963_CONNECTOR],

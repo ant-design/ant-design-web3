@@ -1,7 +1,6 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   CoinbaseWallet,
-  EIP6963Wallet,
   MetaMask,
   OkxWallet,
   SafeheronWallet,
@@ -52,6 +51,7 @@ const config = createConfig({
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
+      eip6963
       wallets={[
         MetaMask(),
         WalletConnect(),

@@ -18,9 +18,9 @@ import {
   type Connector as WagmiConnector,
 } from 'wagmi';
 
-import type { WalletFactory, WalletUseInWagmiAdapter } from '../interface';
+import type { EIP6963Config, WalletFactory, WalletUseInWagmiAdapter } from '../interface';
 import { isEIP6963Connector } from '../utils';
-import { EIP6963_CONNECTOR } from '../wallets';
+import { EIP6963Wallet } from '../wallets/eip6963';
 import { addNameToAccount, getNFTMetadata } from './methods';
 
 export interface AntDesignWeb3ConfigProviderProps {
@@ -30,6 +30,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   children?: React.ReactNode;
   ens?: boolean;
   balance?: boolean;
+  eip6963?: EIP6963Config;
   readonly availableChains: readonly WagmiChain[];
   readonly availableConnectors: readonly WagmiConnector[];
 }
@@ -44,6 +45,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     ens,
     balance,
     locale,
+    eip6963,
   } = props;
   const { address, isDisconnected, chain } = useAccount();
   const config = useConfig();
@@ -71,26 +73,24 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   }, [address, isDisconnected, chain, ens]);
 
   const wallets: Wallet[] = React.useMemo(() => {
-    const wagmiConnectorsByEIP6963FallBack: WagmiConnector[] = [];
-    const eip6963WalletFactory = walletFactorys.find(
-      (factory) => factory.connectors[0] === EIP6963_CONNECTOR,
-    );
+    const autoAddEIP6963Wallets: Wallet[] = [];
 
     availableConnectors.forEach((connector) => {
-      // check use assets config and console.error for alert
+      if (isEIP6963Connector(connector)) {
+        // check is need auto add eip6963 wallet
+        if (eip6963?.autoAddInjectedWallets) {
+          autoAddEIP6963Wallets.push(EIP6963Wallet().create([connector]));
+        }
+        // Do not need check eip6963 wallet
+        return;
+      }
+
       const walletFactory = walletFactorys.find((factory) =>
         factory.connectors.includes(connector.name),
       );
 
-      if (!walletFactory) {
-        // If the Eip6963WalletFactory is configured and the WagmiConnector is an EIP6963Connector, there is no need to check asset
-        if (eip6963WalletFactory && isEIP6963Connector(connector)) {
-          wagmiConnectorsByEIP6963FallBack.push(connector);
-          return;
-        }
-      }
-
       if (!walletFactory?.create) {
+        // check user wallets config and console.error for alert
         console.error(
           `Can not find wallet factory for ${connector.name}, you should config it in WagmiWeb3ConfigProvider 'wallets'.`,
         );
@@ -101,7 +101,18 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     const supportWallets = walletFactorys
       .map((factory) => {
         const connectors = factory.connectors
-          .map((name) => availableConnectors.find((item) => item.name === name))
+          .map((name) => {
+            const commonConnector = availableConnectors.find(
+              (item) => item.name === name && !isEIP6963Connector(item),
+            );
+            if (!eip6963) {
+              return commonConnector;
+            }
+            const eip6963Connector = availableConnectors.find(
+              (item) => item.name === name && isEIP6963Connector(item),
+            );
+            return eip6963Connector || commonConnector;
+          })
           .filter((item) => !!item) as WagmiConnector[];
 
         if (connectors.length === 0) {
@@ -112,15 +123,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       })
       .filter((item) => item !== null) as Wallet[];
 
-    const eip6963Wallets = wagmiConnectorsByEIP6963FallBack.map((connector) => {
-      return {
-        ...eip6963WalletFactory!.create([connector]),
-        getWagmiConnector() {
-          return connector;
-        },
-      };
-    });
-    return [...supportWallets, ...eip6963Wallets];
+    return [...supportWallets, ...autoAddEIP6963Wallets];
   }, [availableConnectors, walletFactorys]);
 
   const chainList: Chain[] = React.useMemo(() => {

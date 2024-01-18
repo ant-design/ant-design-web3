@@ -19,9 +19,17 @@ Currently, we officially provide the adapter of Ethereum, and you can also devel
 
 <code src="./demos/basic.tsx"></code>
 
+## EIP6363
+
+Automatically add wallets based on EIP6963. Under the [EIP6963](https://eips.ethereum.org/EIPS/eip-6963) protocol, it can avoid conflicts caused by users installing multiple wallets, and can automatically identify the wallets that users have installed.
+
+<code src="./demos/eip6963.tsx"></code>
+
 ## Add more wallets
 
 In order to reduce the size of the package, you need to configure `wallets` to import wallets. You can export related resources from `@ant-design/web3-wagmi`. If you don't have the resources you need, you can submit [Github issue](https://github.com/ant-design/ant-design-web3/issues) to tell us. You can also configure it yourself or submit a PR to support it.
+
+In addition, we recommend setting `eip6963` to `true` to avoid conflicts when users install multiple wallets.
 
 <code src="./demos/more-wallets.tsx"></code>
 
