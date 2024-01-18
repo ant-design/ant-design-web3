@@ -32,21 +32,14 @@ order: 2
 首先，请继续编辑 `pages/web3.tsx` 文件，引入所需要的内容：
 
 ```diff
-+ import { createConfig, configureChains, mainnet } from 'wagmi';
-+ import { publicProvider } from 'wagmi/providers/public';
++ import { createConfig, http } from 'wagmi';
++ import { mainnet } from 'wagmi/chains';
 + import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { Address } from "@ant-design/web3";
 
 export default () => {
   return (
-    <div
-      style={{
-        height: "100vh",
-        padding: 64,
-      }}
-    >
-      <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
-    </div>
+    <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
   );
 };
 ```
@@ -54,23 +47,23 @@ export default () => {
 其中引入的内容说明如下：
 
 - [createConfig](https://wagmi.sh/react/config)：wagmi 用来创建配置的方法。
-- [configureChains](https://wagmi.sh/react/providers/configuring-chains)：wagmi 暴露的配置你要链接的区块链的方法，DApp 要获取链上数据，需要通过 JSON RPC 与链上节点进行通信。从前端的角度来说，就是配置一个 http 的请求地址。在区块链中，我们称之为节点服务。
+- [http]：wagmi 用来创建 [HTTP JSON RPC](https://wagmi.sh/core/api/transports/http) 连接的方法，通过它你可以通过 HTTP 请求访问区块链。
 - [mainnet](https://wagmi.sh/react/chains)：代表以太坊主网，除了 `mainnet` 以外还会有类似 `goerli` 的测速网和类似 `bsc` 和 `base` 的 EVM 兼容的其它公链，有的是和以太坊一样的 L1 公链，有的是 L2 公链，这里先暂不展开。
-- [publicProvider](https://wagmi.sh/react/providers/public)：一个公共的节点服务，用于学习或者测试。实际项目中你通常需要换成其它正式的节点服务，比如 [ZAN](https://zan.top/home/node-service)、[alchemy](https://www.alchemy.com/) 等。
 - [WagmiWeb3ConfigProvider](https://web3.ant.design/zh-CN/components/wagmi#wagmiweb3configproviderprops)：Ant Design Web3 用来接收 wagmi 配置的 Provider。
 
 接着创建配置：
 
 ```diff
-import { createConfig, configureChains, mainnet } from "wagmi";
-import { publicProvider } from "wagmi/providers/public";
+import { createConfig, http } from "wagmi";
+import { mainnet } from "wagmi/chains";
 import { WagmiWeb3ConfigProvider } from "@ant-design/web3-wagmi";
 import { Address } from "@ant-design/web3";
 
-+ const { publicClient } = configureChains([mainnet], [publicProvider()]);
-
 + const config = createConfig({
-+   publicClient,
++   chains: [mainnet],
++   transports: {
++     [mainnet.id]: http(),
++   },
 + });
 
 export default () => {
@@ -95,16 +88,17 @@ export default () => {
 我们试一试使用 [NFTCard](../../packages/web3/src/nft-card/index.zh-CN.md) 组件：
 
 ```diff
-import { createConfig, configureChains, mainnet } from "wagmi";
-import { publicProvider } from "wagmi/providers/public";
+import { createConfig, http } from "wagmi";
+import { mainnet } from "wagmi/chains";
 import { WagmiWeb3ConfigProvider } from "@ant-design/web3-wagmi";
 - import { Address } from "@ant-design/web3";
-+ import { NFTCard } from "@ant-design/web3";
-
-const { publicClient } = configureChains([mainnet], [publicProvider()]);
++ import { Address, NFTCard } from "@ant-design/web3";
 
 const config = createConfig({
-  publicClient,
+  chains: [mainnet],
+  transports: {
+    [mainnet.id]: http(),
+  },
 });
 
 export default () => {
@@ -116,7 +110,7 @@ export default () => {
           padding: 64,
         }}
       >
--        <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
+         <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
 +        <NFTCard address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={8540} />
       </div>
     </WagmiWeb3ConfigProvider>
@@ -139,41 +133,43 @@ export default () => {
 我们以 [MetaMask](https://metamask.io/) 为例，看一下如何配置钱包。
 
 ```diff
-import { createConfig, configureChains, mainnet } from "wagmi";
-import { publicProvider } from "wagmi/providers/public";
-import { WagmiWeb3ConfigProvider } from "@ant-design/web3-wagmi";
-+ import { MetaMaskConnector } from "wagmi/connectors/metaMask";
-import { Connector, ConnectButton } from "@ant-design/web3";
 
-- const { publicClient } = configureChains([mainnet], [publicProvider()]);
-+ const { publicClient, chains } = configureChains([mainnet], [publicProvider()]);
+import { createConfig, http } from "wagmi";
+import { mainnet } from "wagmi/chains";
+- import { WagmiWeb3ConfigProvider } from "@ant-design/web3-wagmi";
++ import { WagmiWeb3ConfigProvider, MetaMask } from "@ant-design/web3-wagmi";
+- import { Address, NFTCard } from "@ant-design/web3";
++ import { Address, NFTCard, Connector, ConnectButton } from "@ant-design/web3";
++ import { injected } from "wagmi/connectors";
 
 const config = createConfig({
-  publicClient,
-+  connectors: [
-+    new MetaMaskConnector({
-+      chains,
-+    }),
-  ],
+  chains: [mainnet],
+  transports: {
+    [mainnet.id]: http(),
+  },
++   connectors: [
++     injected({
++       target: "metaMask",
++     }),
++   ],
 });
 
 export default () => {
   return (
-    <WagmiWeb3ConfigProvider config={config}>
-      <div
-        style={{
-          height: "100vh",
-          padding: 64,
-        }}
-      >
+-   <WagmiWeb3ConfigProvider config={config}>
++    <WagmiWeb3ConfigProvider config={config} wallets={[MetaMask()]}>
+      <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
+      <NFTCard
+        address="0x79fcdef22feed20eddacbb2587640e45491b757f"
+        tokenId={8540}
+      />
 +       <Connector>
--         <NFTCard address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={8540} />
 +         <ConnectButton />
 +       </Connector>
-      </div>
     </WagmiWeb3ConfigProvider>
   );
 };
+
 
 ```
 
@@ -185,4 +181,4 @@ export default () => {
 
 ![](./img/connect.png)
 
-你可以尝试参考[这篇文档](http://localhost:8000/zh-CN/components/wagmi#%E6%B7%BB%E5%8A%A0%E6%9B%B4%E5%A4%9A%E9%92%B1%E5%8C%85)配置支持更多钱包。
+你可以尝试参考[这篇文档](../../packages/web3/src/wagmi/index.zh-CN.md#添加更多钱包)配置支持更多钱包。
