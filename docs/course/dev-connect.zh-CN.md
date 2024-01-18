@@ -181,4 +181,4 @@ export default () => {
 
 ![](./img/connect.png)
 
-你可以尝试参考[这篇文档](http://localhost:8000/zh-CN/components/wagmi#%E6%B7%BB%E5%8A%A0%E6%9B%B4%E5%A4%9A%E9%92%B1%E5%8C%85)配置支持更多钱包。
+你可以尝试参考[这篇文档](../../packages/web3/src/wagmi/index.zh-CN.md#添加更多钱包)配置支持更多钱包。
