@@ -29,7 +29,7 @@ describe('EIP6963', () => {
     const connector = config.connectors[0];
     expect(wallet.icon).toBe(connector.icon);
     expect(wallet.name).toBe(connector.name);
-    expect(wallet.remark).toBe(connector.name);
+    expect(wallet.remark).toBe('Wallet mockWallet detected');
     expect(wallet.key).toBe(connector.id);
   });
 

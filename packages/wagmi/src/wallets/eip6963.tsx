@@ -14,7 +14,7 @@ export const EIP6963Wallet: EthereumWallet = (metadata) => {
       const metadata_eip6963: WalletMetadata = {
         icon: connector?.icon,
         name: connector!.name,
-        remark: connector!.name,
+        remark: `Wallet ${connector?.name} detected`,
         key: connector?.id,
       };
       return {
