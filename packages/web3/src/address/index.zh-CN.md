@@ -19,7 +19,7 @@ group:
 
 <code src="./demos/format.tsx"></code>
 
-## 自定义tooltip
+## 自定义Tooltip
 
 <code src="./demos/customTooltip.tsx"></code>
 

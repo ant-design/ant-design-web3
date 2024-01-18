@@ -17,6 +17,20 @@ describe('Address', () => {
     vi.useRealTimers();
   });
 
+  it('mount correctly', () => {
+    const originalConsoleError = console.error;
+    const mockConsoleError = (message: any) => {
+      mockConsoleError.calls.push(message);
+    };
+    mockConsoleError.calls = [] as any[];
+    console.error = mockConsoleError;
+
+    expect(() => render(<Address address="" />)).not.toThrow();
+    expect(mockConsoleError.calls.length).toBe(1);
+    expect(mockConsoleError.calls[0]).toContain('"address" property of the "Address" is required');
+    console.error = originalConsoleError;
+  });
+
   it('display address', () => {
     const { baseElement } = render(
       <Address address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,

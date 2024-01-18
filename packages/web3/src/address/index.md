@@ -19,6 +19,10 @@ group:
 
 <code src="./demos/format.tsx"></code>
 
+## Custom Tooltip
+
+<code src="./demos/customTooltip.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |

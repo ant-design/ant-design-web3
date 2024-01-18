@@ -66,8 +66,7 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
   }
   const filledAddress = fillWith0x(address);
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const mergedTooltip = useMemo(() => {
+  const mergedTooltip = () => {
     if (isValidElement(tooltip) || typeof tooltip === 'string') {
       return tooltip;
     }
@@ -75,7 +74,7 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
       return filledAddress;
     }
     return tooltip;
-  }, [filledAddress, tooltip]);
+  };
 
   const formattedAddress = mergedFormat(filledAddress);
 
@@ -90,7 +89,7 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
 
   return wrapSSR(
     <Space className={classNames(prefixCls, hashId)}>
-      <Tooltip title={mergedTooltip}>
+      <Tooltip title={mergedTooltip()}>
         <span className={`${prefixCls}-text`}>
           {children ??
             (isEllipsis
