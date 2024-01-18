@@ -92,6 +92,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       if (isEIP6963Connector(connector)) {
         // check is need auto add eip6963 wallet
         if (
+          typeof eip6963 === 'object' &&
           eip6963?.autoAddInjectedWallets &&
           !walletFactorys.find((item) => item.connectors.includes(connector.name))
         ) {
