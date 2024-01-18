@@ -14,6 +14,21 @@ describe('BrowserLink', () => {
     ).not.toThrow();
   });
 
+  it('when there is no address output console.error', () => {
+    const originalConsoleError = console.error;
+    const mockConsoleError = (message: any) => {
+      mockConsoleError.calls.push(message);
+    };
+    mockConsoleError.calls = [] as any[];
+    console.error = mockConsoleError;
+    expect(() => render(<BrowserLink address="" />)).not.toThrow();
+    expect(mockConsoleError.calls.length).toBe(1);
+    expect(mockConsoleError.calls[0]).toContain(
+      '"address" property of the "BrowserLink" is required',
+    );
+    console.error = originalConsoleError;
+  });
+
   it('renders address link correctly', () => {
     const address = '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B';
     const { baseElement } = render(<BrowserLink address={address} type="address" />);
