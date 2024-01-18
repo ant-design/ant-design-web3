@@ -17,7 +17,7 @@ export type WagmiWeb3ConfigProviderProps = {
   ens?: boolean;
   queryClient?: QueryClient;
   balance?: boolean;
-  eip6963?: boolean | EIP6963Config;
+  eip6963?: EIP6963Config;
 };
 
 export function WagmiWeb3ConfigProvider({
