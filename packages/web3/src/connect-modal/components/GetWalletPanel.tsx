@@ -21,20 +21,24 @@ const GetWalletPanel: React.FC<GetWalletPanelProps> = (props) => {
           renderItem={(item) => (
             <List.Item
               className={`${prefixCls}-item`}
-              actions={[
-                <Button
-                  key="get"
-                  type="default"
-                  shape="round"
-                  className={`${prefixCls}-get-wallet-btn`}
-                  onClick={() => {
-                    updateSelectedWallet(item);
-                    updatePanelRoute('wallet');
-                  }}
-                >
-                  {localeMessage.getWalletBtnText}
-                </Button>,
-              ]}
+              actions={
+                item.app || item.extensions
+                  ? [
+                      <Button
+                        key="get"
+                        type="default"
+                        shape="round"
+                        className={`${prefixCls}-get-wallet-btn`}
+                        onClick={() => {
+                          updateSelectedWallet(item);
+                          updatePanelRoute('wallet');
+                        }}
+                      >
+                        {localeMessage.getWalletBtnText}
+                      </Button>,
+                    ]
+                  : []
+              }
             >
               <List.Item.Meta
                 avatar={

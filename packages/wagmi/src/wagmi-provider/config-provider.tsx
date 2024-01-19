@@ -18,7 +18,9 @@ import {
   type Connector as WagmiConnector,
 } from 'wagmi';
 
-import type { WalletFactory, WalletUseInWagmiAdapter } from '../interface';
+import type { EIP6963Config, WalletFactory, WalletUseInWagmiAdapter } from '../interface';
+import { isEIP6963Connector } from '../utils';
+import { EIP6963Wallet } from '../wallets/eip6963';
 import { addNameToAccount, getNFTMetadata } from './methods';
 
 export interface AntDesignWeb3ConfigProviderProps {
@@ -28,6 +30,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   children?: React.ReactNode;
   ens?: boolean;
   balance?: boolean;
+  eip6963?: EIP6963Config;
   readonly availableChains: readonly WagmiChain[];
   readonly availableConnectors: readonly WagmiConnector[];
 }
@@ -42,6 +45,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     ens,
     balance,
     locale,
+    eip6963,
   } = props;
   const { address, isDisconnected, chain } = useAccount();
   const config = useConfig();
@@ -68,13 +72,43 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     updateAccounts();
   }, [address, isDisconnected, chain, ens]);
 
+  const findConnectorByName = (name: string): WagmiConnector | undefined => {
+    const commonConnector = availableConnectors.find(
+      (item) => item.name === name && !isEIP6963Connector(item),
+    );
+    if (!eip6963) {
+      return commonConnector;
+    }
+    const eip6963Connector = availableConnectors.find(
+      (item) => item.name === name && isEIP6963Connector(item),
+    );
+    return eip6963Connector || commonConnector;
+  };
+
   const wallets: Wallet[] = React.useMemo(() => {
+    const autoAddEIP6963Wallets: Wallet[] = [];
+
     availableConnectors.forEach((connector) => {
-      // check use assets config and console.error for alert
-      const walletFactory = walletFactorys?.find(
-        (item) => item.connectors?.includes(connector.name),
+      if (isEIP6963Connector(connector)) {
+        // check is need auto add eip6963 wallet
+        if (
+          typeof eip6963 === 'object' &&
+          eip6963?.autoAddInjectedWallets &&
+          !walletFactorys.find((item) => item.connectors.includes(connector.name))
+        ) {
+          // not config wallet and find the wallet in connectors, auto add it
+          autoAddEIP6963Wallets.push(EIP6963Wallet().create([connector]));
+        }
+        // Do not need check eip6963 wallet
+        return;
+      }
+
+      const walletFactory = walletFactorys.find((factory) =>
+        factory.connectors.includes(connector.name),
       );
+
       if (!walletFactory?.create) {
+        // check user wallets config and console.error for alert
         console.error(
           `Can not find wallet factory for ${connector.name}, you should config it in WagmiWeb3ConfigProvider 'wallets'.`,
         );
@@ -82,10 +116,10 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     });
 
     // Generate Wallet for @ant-design/web3
-    const allWallet = walletFactorys
-      ?.map((factory) => {
+    const supportWallets = walletFactorys
+      .map((factory) => {
         const connectors = factory.connectors
-          .map((name) => availableConnectors.find((item) => item.name === name))
+          .map(findConnectorByName)
           .filter((item) => !!item) as WagmiConnector[];
 
         if (connectors.length === 0) {
@@ -96,8 +130,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       })
       .filter((item) => item !== null) as Wallet[];
 
-    return allWallet;
-  }, [availableConnectors, walletFactorys]);
+    return [...supportWallets, ...autoAddEIP6963Wallets];
+  }, [availableConnectors, walletFactorys, eip6963]);
 
   const chainList: Chain[] = React.useMemo(() => {
     return availableChains
@@ -160,8 +194,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       availableWallets={wallets}
       connect={async (wallet) => {
         let connector = await (wallet as WalletUseInWagmiAdapter)?.getWagmiConnector?.();
-        if (!connector) {
-          connector = availableConnectors.find((item) => item.name === wallet?.name);
+        if (!connector && wallet) {
+          connector = findConnectorByName(wallet.name);
         }
         if (!connector) {
           throw new Error(`Can not find connector for ${wallet?.name}`);

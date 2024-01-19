@@ -1,34 +1,23 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { TokenPocket, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
-import { injected, walletConnect } from 'wagmi/connectors';
 
 const config = createConfig({
   chains: [mainnet],
   transports: {
     [mainnet.id]: http(),
   },
-  connectors: [
-    injected({
-      target: 'tokenPocket',
-    }),
-    walletConnect({
-      showQrModal: false,
-      projectId: YOUR_WALLET_CONNET_PROJECT_ID,
-    }),
-  ],
 });
 
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
-      wallets={[
-        TokenPocket({
-          group: 'Popular',
-        }),
-      ]}
       config={config}
+      eip6963={{
+        autoAddInjectedWallets: true,
+      }}
+      wallets={[MetaMask()]}
     >
       <Connector>
         <ConnectButton />

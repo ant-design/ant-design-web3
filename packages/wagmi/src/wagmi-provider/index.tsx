@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { WagmiProvider } from 'wagmi';
 import type { Config } from 'wagmi';
 
-import type { WalletFactory } from '../interface';
+import type { EIP6963Config, WalletFactory } from '../interface';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 
 export type WagmiWeb3ConfigProviderProps = {
@@ -17,6 +17,7 @@ export type WagmiWeb3ConfigProviderProps = {
   ens?: boolean;
   queryClient?: QueryClient;
   balance?: boolean;
+  eip6963?: EIP6963Config;
 };
 
 export function WagmiWeb3ConfigProvider({
@@ -28,6 +29,7 @@ export function WagmiWeb3ConfigProvider({
   balance,
   config,
   queryClient,
+  eip6963,
   ...restProps
 }: React.PropsWithChildren<WagmiWeb3ConfigProviderProps>): React.ReactElement {
   const chainAssets = [...chains, Mainnet];
@@ -47,6 +49,7 @@ export function WagmiWeb3ConfigProvider({
           availableConnectors={config.connectors}
           ens={ens}
           balance={balance}
+          eip6963={eip6963}
         >
           {children}
         </AntDesignWeb3ConfigProvider>
