@@ -17,7 +17,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 
 <code src="./demos/basic.tsx"></code>
 
-## EIP6363
+## EIP6963
 
 基于 EIP6963 自动添加钱包，在 [EIP6963](https://eips.ethereum.org/EIPS/eip-6963) 协议下，可以避免用户安装多个钱包导致的冲突，以及可以自动识别到用户已经安装的钱包。
 
