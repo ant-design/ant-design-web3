@@ -18,17 +18,7 @@ describe('Address', () => {
   });
 
   it('mount correctly', () => {
-    const originalConsoleError = console.error;
-    const mockConsoleError = (message: any) => {
-      mockConsoleError.calls.push(message);
-    };
-    mockConsoleError.calls = [] as any[];
-    console.error = mockConsoleError;
-
-    expect(() => render(<Address address="" />)).not.toThrow();
-    expect(mockConsoleError.calls.length).toBe(1);
-    expect(mockConsoleError.calls[0]).toContain('"address" property of the "Address" is required');
-    console.error = originalConsoleError;
+    expect(() => render(<Address />)).not.toThrow();
   });
 
   it('display address', () => {

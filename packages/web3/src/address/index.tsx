@@ -17,7 +17,7 @@ export interface AddressProps {
         headClip?: number;
         tailClip?: number;
       };
-  address: string;
+  address?: string;
   copyable?: boolean;
   tooltip?: boolean | TooltipProps['title'];
   format?: boolean | ((address: string) => ReactNode);
@@ -61,7 +61,6 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
   }, []);
 
   if (!address) {
-    console.error('"address" property of the "Address" is required');
     return null;
   }
   const filledAddress = fillWith0x(address);
