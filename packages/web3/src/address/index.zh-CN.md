@@ -19,6 +19,10 @@ group:
 
 <code src="./demos/format.tsx"></code>
 
+## 自定义Tooltip
+
+<code src="./demos/customTooltip.tsx"></code>
+
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
@@ -26,5 +30,6 @@ group:
 | ellipsis | 地址裁剪策略 | `boolean \| { headClip?: number, tailClip?: number }` | `{ headClip: 6, tailClip: 4 }` | - |
 | copyable | 是否可复制 | `boolean` | `false` | - |
 | address | 地址 | `string` | - | - |
-| tooltip | 鼠标移入地址时展示提示 | `boolean \|` [Tooltip.title](https://ant.design/components/tooltip-cn#api) | 展示当前完整地址 | - |
+| tooltip | 鼠标移入地址时展示提示 | `boolean \|` [Tooltip.title](https://ant.design/components/tooltip-cn#api) | `true ` | - |
 | format | 地址格式化 | `boolean \| (input: string) => ReactNode` | `false` | - |
+| locale | 多语言文案设置 | `Locale["address"]` | - | - |
