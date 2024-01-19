@@ -1,5 +1,15 @@
 # @ant-design/web3-wagmi
 
+## 2.2.0
+
+### Minor Changes
+
+- fe1ec95: feat: support EIP6963 wallet
+
+### Patch Changes
+
+- 1e663c3: chore: Optimize import type
+
 ## 2.1.1
 
 ### Patch Changes
