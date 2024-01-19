@@ -19,7 +19,7 @@ Currently, we officially provide the adapter of Ethereum, and you can also devel
 
 <code src="./demos/basic.tsx"></code>
 
-## EIP6363
+## EIP6963
 
 Automatically add wallets based on EIP6963. Under the [EIP6963](https://eips.ethereum.org/EIPS/eip-6963) protocol, it can avoid conflicts caused by users installing multiple wallets, and can automatically identify the wallets that users have installed.
 
