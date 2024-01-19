@@ -83,6 +83,7 @@
     "vite-plugin-svgr": "^4.2.0",
     "vitest": "~1.1.0",
     "wagmi": "^2.0.0",
+    "viem": "^2.0.0",
     "@tanstack/react-query": "^5.17.0"
   },
   "ci": {
