@@ -1,5 +1,18 @@
 # @ant-design/web3
 
+## 1.4.0
+
+### Minor Changes
+
+- fe1ec95: feat: support EIP6963 wallet
+
+### Patch Changes
+
+- 1e663c3: chore: Optimize import type
+- 5e5303a: refactor: optimization crypto-price code && add APIS from docs
+- b233b31: refactor: modify browser-link code & docs
+- 75a85d6: refactor: modify address code & add APIS from docs & add test
+
 ## 1.3.2
 
 ### Patch Changes
