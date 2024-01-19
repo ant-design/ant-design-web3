@@ -1,15 +1,16 @@
 import { Address, ConnectButton, Connector, NFTCard, useAccount } from '@ant-design/web3';
-import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { Goerli, MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { Button, message } from 'antd';
 import { parseEther } from 'viem';
 import { createConfig, http, useReadContract, useWriteContract } from 'wagmi';
-import { mainnet } from 'wagmi/chains';
+import { goerli, mainnet } from 'wagmi/chains';
 import { injected } from 'wagmi/connectors';
 
 const config = createConfig({
-  chains: [mainnet],
+  chains: [mainnet, goerli],
   transports: {
     [mainnet.id]: http(),
+    [goerli.id]: http(),
   },
   connectors: [
     injected({
@@ -83,7 +84,7 @@ const CallTest = () => {
 
 export default () => {
   return (
-    <WagmiWeb3ConfigProvider config={config} wallets={[MetaMask()]}>
+    <WagmiWeb3ConfigProvider config={config} chains={[Goerli]} wallets={[MetaMask()]}>
       <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
       <NFTCard address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={8540} />
       <Connector>

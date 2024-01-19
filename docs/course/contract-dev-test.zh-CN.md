@@ -9,16 +9,22 @@ order: 2
 
 ## 开发合约
 
-[上篇文章](./contract-init.zh-CN.md) 中我们我们创建了一个带有`Mint` 功能的`ERC721` 的基础合约，接下来我们再继续了解下合约的功能编写和编译测试。
+[上篇文章](./contract-init.zh-CN.md) 中我们我们创建了一个带有 Mint 功能的 `ERC721` 的基础合约，接下来我们再继续了解下合约的功能编写和编译测试。
 
-下面的代码我们简单实现一个 `tokenId` 自增的功能来取代我们每次`Mint` 时都要传入的`tokenId`，并把 `initialOwner` 设置为合约发行人。
+下面的代码我们简单实现一个新的 `mint` 方法来取代默认生成的 `safeMint`，新的 `mint` 方法和我们在上一章用到的方法接口保持一致，这样当我们部署完成这个合约之后就可以把课程的合约替换为新的合约了。
 
-1. 定义了一个名为`_nextTokenId` 类型为`uint256`合约私有变量`private`；
-2. 在`safeMint` 方法中取消要求传入的类型为`uint256` 的`tokenId`，用我们定义的`_nextTokenId` 自增来代替它。
+具体要修改的内有：
+
+1. 把 `initialOwner` 设置为合约发行人，这样在部署合约的时候就会更简单，不用指定 `initialOwner`。
+1. 定义了一个名为 `_nextTokenId` 类型为`uint256`合约私有变量`private`，用来标记当前的进度，每新增一个 NFT 该值需要加一；
+1. 在 `mint` 方法中要求传入的类型为 `uint256` 的 `quantity`，代表这次要铸造多少个 NFT。在这里，我们先简化逻辑，限制每次只能铸造一个。
+1. 去掉 `onlyOwner` 修饰符，这样就可以让任何人都可以调用 `mint` 方法了。
+1. 添加 `payable` 修饰符，这样就可以让调用 `mint` 方法的人可以同时向合约转账了。
+1. `_safeMint` 也要改为 `_mint`，这个主要是为了避免在后面通过 Remix 合约调用合约来测试的时候报错，`to` 也对应改为 `msg.sender`，代表 NFT 铸造给发起交易的地址。
 
 代码如下：
 
-```solidity
+```diff
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
@@ -26,7 +32,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract MyToken is ERC721, Ownable {
-+    uint256 private _nextTokenId;
++    uint256 private _nextTokenId = 0;
 
 -    constructor(address initialOwner)
 +    constructor()
@@ -36,9 +42,12 @@ contract MyToken is ERC721, Ownable {
     {}
 
 -    function safeMint(address to, uint256 tokenId) public onlyOwner {
-+    function safeMint(address to) public onlyOwner {
++    function mint(uint256 quantity) public payable {
++        require(quantity == 1, "quantity must be 1");
++        require(msg.value == 0.01 ether, "must pay 0.01 ether");
 +        uint256 tokenId = _nextTokenId++;
-        _safeMint(to, tokenId);
+-        _safeMint(to, tokenId);
++        _mint(msg.sender, tokenId);
     }
 }
 ```
@@ -49,11 +58,11 @@ contract MyToken is ERC721, Ownable {
 
 1. 单元测试插件
 
-我们需要点击`Plugin mananer`图标在插件管理器搜索`unit`关键字，然后会出现搜索结果`SOLIDITY UNIT TESTING`，点击`Activate`，安装激活插件，如下图所示：
+我们需要点击左下角的 `Plugin mananer `图标在插件管理器搜索 `unit` 关键字，然后会出现搜索结果 `SOLIDITY UNIT TESTING`，点击 `Activate`，安装激活插件，如下图所示：
 
 ![](./img/unitTest.png)
 
-然后，`Solidity unit testing`的图标将出现在左侧图标栏中，单击该图标将在侧面板中加载插件。
+然后，`Solidity unit testing` 的图标将出现在左侧图标栏中，单击该图标将在侧面板中加载插件。
 
 成功加载后，插件看起来应该是这样子的：
 
@@ -80,8 +89,7 @@ Remix 注入了一个内置的 assert 库，可用于测试。您可以在此处
 3. `../contracts/MyToken.sol` 引入了我们编写过的合约文件；
 4. 在`beforeAll()` 里实例化我们的合约`MyToken`定义为`s`，并拿一个测试地址存起来`TestsAccounts.getAccount(0)`定义为`acc0`；
 5. `testTokenNameAndSymbol()` 里验证了，实例化后的合约`name()`要获取到的值为`MyToken`，`symbol()` 的值为`MTK`；
-6. 编写函数`safeMintOnce()`，调用我们的`safeMint()`方法，地址传入`acc0`，验证`acc0`地址，铸造过一次的 `balanceOf()`值应该为`1`;
-7. 编写函数`safeMintAgain()`，再次调用我们的`safeMint()`方法，地址仍然传入`acc0`，验证`acc0`地址，铸造过两次次的 `balanceOf()`值应该为`2`;
+6. 编写函数`testMint()`，调用我们的`mint(1)`方法，铸造过一次的 `balanceOf()`值应该为 `1`;
 
 `tests/MyToken_test.sol`文件代码如下：
 
@@ -95,26 +103,23 @@ import "../contracts/MyToken.sol";
 
 contract MyTokenTest {
     MyToken s;
-    address acc0;
     function beforeAll () public {
         s = new MyToken();
-        acc0 = TestsAccounts.getAccount(0);
     }
 
     function testTokenNameAndSymbol () public {
         Assert.equal(s.name(), "MyToken", "token name did not match");
         Assert.equal(s.symbol(), "MTK", "token symbol did not match");
     }
-    function safeMintOnce() public {
-        s.safeMint(acc0);
-        Assert.equal(s.balanceOf(acc0), 1, "balance did not match");
-    }
-    function safeMintAgain() public {
-        s.safeMint(acc0);
-        Assert.equal(s.balanceOf(acc0), 2, "balance did not match");
+    /// #value: 10000000000000000
+    function testMint() public payable {
+        s.mint{value: msg.value}(1);
+        Assert.equal(s.balanceOf(address(this)), 1, "balance did not match");
     }
 }
 ```
+
+Remix 的单测是在一个合约中调用我们要测试的合约来进行测试的，具体就先不展开了，大家可以参考 [Remix 单元测试插件的文档](https://remix-ide.readthedocs.io/en/latest/unittesting.html)。
 
 3. 运行单元测试
 
