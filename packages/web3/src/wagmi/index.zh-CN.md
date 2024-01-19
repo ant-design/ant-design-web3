@@ -27,7 +27,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 
 为了降低引入包的大小，你需要手动配置 `wallets` 引入相关钱包。你可以从 `@ant-design/web3-wagmi` 中导出相关资源，如果没有你需要的资源，你可以通过提交 [Github issue](https://github.com/ant-design/ant-design-web3/issues) 告诉我们。也自己配置或者给我们提交 PR 支持。
 
-另外，我们推荐设置 `eip6963` 为 `true`，避免用户安装多个钱包情况下出现冲突。
+另外，我们推荐设置 `eip6963` 为 `true`，避免用户安装多个钱包情况下出现冲突。配置了 `eip6963` 的情况下，你不再需要配置 wagmi 的 `injected` Connector, wagmi 的 [multiInjectedProviderDiscovery](https://wagmi.sh/core/api/createConfig#multiinjectedproviderdiscovery) 配置默认为 `true`，会自动添加检测到的钱包。
 
 <code src="./demos/more-wallets.tsx"></code>
 

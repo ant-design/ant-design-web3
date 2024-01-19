@@ -29,7 +29,7 @@ Automatically add wallets based on EIP6963. Under the [EIP6963](https://eips.eth
 
 In order to reduce the size of the package, you need to configure `wallets` to import wallets. You can export related resources from `@ant-design/web3-wagmi`. If you don't have the resources you need, you can submit [Github issue](https://github.com/ant-design/ant-design-web3/issues) to tell us. You can also configure it yourself or submit a PR to support it.
 
-In addition, we recommend setting `eip6963` to `true` to avoid conflicts when users install multiple wallets.
+In addition, we recommend setting `eip6963` to `true` to avoid conflicts when users install multiple wallets. When the `eip6963` is configured, you no longer need to configure the wagmi `injected` Connector. wagmi's [multiInjectedProviderDiscovery](https://wagmi.sh/core/api/createConfig#multiinjectedproviderdiscovery) configuration defaults to `true` and will automatically add detected wallets.
 
 <code src="./demos/more-wallets.tsx"></code>
 

@@ -10,17 +10,15 @@ import {
 } from '@ant-design/web3-wagmi';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
-import { coinbaseWallet, injected, walletConnect } from 'wagmi/connectors';
+import { coinbaseWallet, walletConnect } from 'wagmi/connectors';
 
 const config = createConfig({
   chains: [mainnet],
   transports: {
     [mainnet.id]: http(),
   },
+  multiInjectedProviderDiscovery: true,
   connectors: [
-    injected({
-      target: 'metaMask',
-    }),
     walletConnect({
       showQrModal: false,
       projectId: YOUR_WALLET_CONNET_PROJECT_ID,
@@ -28,22 +26,6 @@ const config = createConfig({
     coinbaseWallet({
       appName: 'ant.design.web3',
       jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${YOUR_ZAN_API_KEY}`,
-    }),
-    injected({
-      target() {
-        return {
-          id: 'safeheron',
-          name: 'Safeheron',
-          // @ts-ignore
-          provider: window.safeheron,
-        };
-      },
-    }),
-    injected({
-      target: 'tokenPocket',
-    }),
-    injected({
-      target: 'okxWallet',
     }),
   ],
 });

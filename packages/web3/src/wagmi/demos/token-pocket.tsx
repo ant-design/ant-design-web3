@@ -11,13 +11,7 @@ const config = createConfig({
   },
   connectors: [
     injected({
-      target() {
-        return {
-          id: 'testWallet',
-          name: 'TokenPocket',
-          provider: undefined as any,
-        };
-      },
+      target: 'tokenPocket',
     }),
     walletConnect({
       showQrModal: false,
