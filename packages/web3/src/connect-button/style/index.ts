@@ -69,6 +69,9 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
         [`${token.antCls}-btn`]: {
           flex: 1,
         },
+        [`> ${token.antCls}-btn + ${token.antCls}-btn`]: {
+          marginInlineStart: token.marginXS,
+        },
       },
       [`&-name`]: {
         color: token.colorTextHeading,
