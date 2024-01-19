@@ -1,5 +1,11 @@
 # @ant-design/web3-wagmi
 
+## 2.2.1
+
+### Patch Changes
+
+- 30f43b0: fix: Show wallet which not config connector when eip6963 is true
+
 ## 2.2.0
 
 ### Minor Changes
