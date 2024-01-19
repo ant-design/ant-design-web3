@@ -45,6 +45,11 @@ export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
       })
     : mergedIcon;
 
+  if (!address) {
+    console.error('"address" property of the "BrowserLink" is required');
+    return null;
+  }
+
   const filledAddress = fillAddressWith0x(address);
   const browserLink = href ?? getBrowserLink(filledAddress, type, currentChain);
 
