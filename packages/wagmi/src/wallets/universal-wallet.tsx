@@ -32,7 +32,7 @@ export class UniversalWallet implements WalletFactory {
     };
 
     const hasExtensionInstalled = async () => {
-      const provider = await injectedConnector?.getProvider();
+      const provider = await injectedConnector?.getProvider?.();
       return !!provider;
     };
 

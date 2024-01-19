@@ -87,13 +87,150 @@ describe('more-wallets-connect', () => {
     expect(walletItems.length).toBe(5);
     fireEvent.click(walletItems[0]!);
     await vi.waitFor(() => {
-      expect(baseElement.querySelector('.ant-web3-connect-modal-card-list')).toBeTruthy();
+      expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code-box')).toBeTruthy();
     });
     fireEvent.click(walletItems[1]!);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code-box')).toBeTruthy();
     });
     fireEvent.click(walletItems[0]!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code-box')).toBeTruthy();
+      expect(baseElement.querySelector('.ant-web3-connect-modal-card-list')).toBe(null);
+    });
+  });
+
+  it('config wallets without injected connector', async () => {
+    vi.spyOn(Grid, 'useBreakpoint').mockReturnValue({
+      md: true, // ≥ 768px, mock PC
+    });
+    const config = createConfig({
+      chains: [mainnet],
+      transports: {
+        [mainnet.id]: http(),
+      },
+      connectors: [
+        walletConnect({
+          showQrModal: false,
+          projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
+        }),
+      ],
+    });
+
+    const App = () => {
+      return (
+        <WagmiWeb3ConfigProvider wallets={[MetaMask(), SafeheronWallet()]} config={config}>
+          <Connector>
+            <ConnectButton />
+          </Connector>
+        </WagmiWeb3ConfigProvider>
+      );
+    };
+    const { baseElement } = render(<App />);
+    const btn = baseElement.querySelector('.ant-web3-connect-button');
+    fireEvent.click(btn!);
+    const walletItems = baseElement.querySelectorAll('.ant-web3-connect-modal-wallet-item');
+    expect(walletItems.length).toBe(1);
+  });
+
+  it('config wallets without injected connector and config eip6963', async () => {
+    vi.spyOn(Grid, 'useBreakpoint').mockReturnValue({
+      md: true, // ≥ 768px, mock PC
+    });
+    const config = createConfig({
+      chains: [mainnet],
+      transports: {
+        [mainnet.id]: http(),
+      },
+      connectors: [
+        walletConnect({
+          showQrModal: false,
+          projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
+        }),
+        coinbaseWallet({
+          appName: 'ant.design.web3',
+          jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${'YOUR_ZAN_API_KEY'}`,
+        }),
+      ],
+    });
+
+    const App = () => {
+      return (
+        <WagmiWeb3ConfigProvider
+          eip6963
+          wallets={[
+            MetaMask(),
+            WalletConnect(),
+            TokenPocket(),
+            CoinbaseWallet(),
+            SafeheronWallet(),
+          ]}
+          config={config}
+        >
+          <Connector>
+            <ConnectButton />
+          </Connector>
+        </WagmiWeb3ConfigProvider>
+      );
+    };
+    const { baseElement } = render(<App />);
+    const btn = baseElement.querySelector('.ant-web3-connect-button');
+    fireEvent.click(btn!);
+    const walletItems = baseElement.querySelectorAll('.ant-web3-connect-modal-wallet-item');
+    expect(walletItems.length).toBe(5);
+    fireEvent.click(walletItems[0]!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code-box')).toBeTruthy();
+      expect(baseElement.querySelector('.ant-web3-connect-modal-card-list')).toBe(null);
+    });
+  });
+
+  it('show get wallet panel when only injected wallet not installed', async () => {
+    vi.spyOn(Grid, 'useBreakpoint').mockReturnValue({
+      md: true, // ≥ 768px, mock PC
+    });
+    const config = createConfig({
+      chains: [mainnet],
+      transports: {
+        [mainnet.id]: http(),
+      },
+      connectors: [
+        walletConnect({
+          showQrModal: false,
+          projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
+        }),
+        coinbaseWallet({
+          appName: 'ant.design.web3',
+          jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${'YOUR_ZAN_API_KEY'}`,
+        }),
+      ],
+    });
+
+    const App = () => {
+      return (
+        <WagmiWeb3ConfigProvider
+          eip6963
+          wallets={[
+            MetaMask(),
+            WalletConnect(),
+            TokenPocket(),
+            CoinbaseWallet(),
+            SafeheronWallet(),
+          ]}
+          config={config}
+        >
+          <Connector>
+            <ConnectButton />
+          </Connector>
+        </WagmiWeb3ConfigProvider>
+      );
+    };
+    const { baseElement } = render(<App />);
+    const btn = baseElement.querySelector('.ant-web3-connect-button');
+    fireEvent.click(btn!);
+    const walletItems = baseElement.querySelectorAll('.ant-web3-connect-modal-wallet-item');
+    expect(walletItems.length).toBe(5);
+    fireEvent.click(walletItems[4]!);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code-box')).toBe(null);
       expect(baseElement.querySelector('.ant-web3-connect-modal-card-list')).toBeTruthy();

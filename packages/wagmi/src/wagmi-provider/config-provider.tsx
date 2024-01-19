@@ -122,8 +122,13 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           .map(findConnectorByName)
           .filter((item) => !!item) as WagmiConnector[];
 
-        if (connectors.length === 0) {
-          // Not config connector for this wallet factory, ignore it.
+        if (connectors.length === 0 && !eip6963) {
+          // Not config connector for this wallet factory and not use eip6963, ignore it.
+          console.error(
+            `Can not find connector for ${factory.connectors.join(
+              ',',
+            )}, ignore the wallet. Please config connectors or add eip6963 config in WagmiWeb3ConfigProvider.`,
+          );
           return null;
         }
         return factory.create(connectors);
