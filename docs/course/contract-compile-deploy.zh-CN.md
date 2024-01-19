@@ -45,7 +45,7 @@ order: 3
 
 点击`ENVIRONMENT` 的下拉选择框，可以看到有许多的选项可供选择，我们选择 `Injected Provider - MetaMask`。
 
-随后，`MetaMask` 将跳出弹窗并提示将其连接至 `Remix`。将`MetaMask` 连接至 `Remix` 后，侧面板将更新显示所连接的网络和账户。
+随后，`MetaMask` 将跳出弹窗并提示将其连接至 `Remix`。将`MetaMask` 连接至 `Remix` 后，侧面板将更新显示所连接的网络和账户。部署到测试网也需要测试网的代币，你可以在网络上查找对应的测试网代币水龙头充值使用。
 
 <img src='./img/changeNode.png' width="33%">
 <img src='./img/connect1.png' width="33%">
