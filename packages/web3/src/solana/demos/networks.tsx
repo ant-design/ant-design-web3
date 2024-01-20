@@ -11,7 +11,6 @@
 const App: React.FC = () => {
   return (
     // <SolanaWeb3ConfigProvider
-    //   rpcProvider={'default'}
     //   balance={false}
     //   autoConnect
     //   chains={[solana, solanaTestnet, solanaDevnet]}

@@ -77,7 +77,6 @@ describe('Switch network', () => {
     const App = () => {
       return (
         <SolanaWeb3ConfigProvider
-          rpcProvider={'default'}
           balance={false}
           autoConnect
           chains={[solana, solanaDevnet, solanaTestnet]}
