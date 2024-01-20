@@ -5,6 +5,7 @@ import { Metaplex, PublicKey } from '@metaplex-foundation/js';
 import type { WalletName } from '@solana/wallet-adapter-base';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 
+import type { SolanaChainConfig } from '../chains';
 import { isSolanaChain } from './utils';
 
 interface ConnectAsync {
@@ -15,25 +16,17 @@ interface ConnectAsync {
 export interface AntDesignWeb3ConfigProviderProps {
   locale?: Locale;
   chainAssets?: Chain[];
-  availableChains: Chain[];
+  availableChains: SolanaChainConfig[];
   balance?: boolean;
-  currentChain?: Chain;
+  currentChain?: SolanaChainConfig;
   availableWallets: Wallet[];
-  onCurrentChainChange?: (chain?: Chain) => void;
+  onCurrentChainChange?: (chain?: SolanaChainConfig) => void;
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<
   React.PropsWithChildren<AntDesignWeb3ConfigProviderProps>
 > = (props) => {
-  const {
-    publicKey,
-    connected,
-    connect,
-    select: selectWallet,
-    disconnect,
-    wallet,
-    connecting,
-  } = useWallet();
+  const { publicKey, connected, connect, select: selectWallet, disconnect, wallet } = useWallet();
 
   const { connection } = useConnection();
 
@@ -54,8 +47,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       address: publicKey.toBase58(),
     });
   }, [publicKey, connected, wallet?.adapter?.name]);
-
-  useEffect(() => {}, [connecting]);
 
   useEffect(() => {
     if (!connectAsyncRef.current) {
@@ -84,14 +75,14 @@ export const AntDesignWeb3ConfigProvider: React.FC<
 
   // connect/disconnect wallet
   useEffect(() => {
-    if (wallet?.adapter?.name && isSolanaChain(props.currentChain?.id)) {
+    if (wallet?.adapter?.name && isSolanaChain(props.currentChain)) {
       connect();
     } else {
       if (connected) {
         disconnect();
       }
     }
-  }, [wallet, wallet?.adapter?.name, props.currentChain?.id, connect, disconnect, connected]);
+  }, [wallet, wallet?.adapter?.name, props.currentChain, connect, disconnect, connected]);
 
   const chainList = useMemo(() => {
     return props.availableChains
@@ -103,28 +94,32 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         if (c?.id) {
           return {
             ...item,
+            ...c,
             id: c.id,
             name: c.name,
             icon: c.icon,
           };
         } else {
           console.error(
-            `Can not find chain ${item.id}, you should config it in SolanaWeb3ConfigProvider 'assets'.`,
+            `Can not find chain ${item.id}, you should config it in SolanaWeb3ConfigProvider 'chainAssets'.`,
           );
           return null;
         }
       })
-      .filter((item) => item !== null) as Chain[];
+      .filter((item) => item !== null) as (Chain & SolanaChainConfig)[];
   }, [props.availableChains, props.chainAssets]);
 
-  const shownCurrentChain = props.currentChain ?? chainList[0];
-  const currency = props.currentChain?.nativeCurrency;
+  const currentChain = useMemo(() => {
+    return chainList.find((c) => c.id === props.currentChain?.id);
+  }, [props.currentChain, chainList]);
+
+  const currency = currentChain?.nativeCurrency;
 
   return (
     <Web3ConfigProvider
       locale={props.locale}
       account={account}
-      chain={shownCurrentChain}
+      chain={currentChain}
       balance={
         props.balance
           ? {
@@ -138,7 +133,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       addressPrefix={false}
       availableChains={chainList}
       availableWallets={props.availableWallets}
-      price={{ symbol: currency?.symbol, decimals: currency?.decimals }}
       switchWallet={async (_wallet) => {
         const walletName = (_wallet?.name as WalletName) ?? null;
 
@@ -146,7 +140,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         selectWallet(walletName);
       }}
       switchChain={async (_chain) => {
-        if (!isSolanaChain(_chain.id)) {
+        console.log('_chain', _chain);
+        if (!isSolanaChain(_chain as SolanaChainConfig)) {
           throw new Error('SolanaWeb3ConfigProvider only support Solana chain.');
         }
 
@@ -155,7 +150,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         selectWallet(currentWalletName);
       }}
       connect={async (_wallet) => {
-        if (!isSolanaChain(props.currentChain?.id)) {
+        if (!isSolanaChain(props.currentChain)) {
           console.warn('SolanaWeb3ConfigProvider only support Solana chain.');
         }
 
@@ -180,6 +175,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         disconnect();
       }}
       getNFTMetadata={async ({ address }) => {
+        // TODO: cache metadatas
         const mx = new Metaplex(connection);
         const nftClient = mx.nfts();
         const mintAddress = new PublicKey(address);

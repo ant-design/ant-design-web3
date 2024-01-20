@@ -17,5 +17,4 @@ export const metadata_Phantom: WalletMetadata = {
       description: 'Access your wallet right from your favorite web browser.',
     },
   ],
-  group: 'Popular',
 };

@@ -157,13 +157,13 @@ describe('SolanaWeb3ConfigProvider', () => {
 
   it('ConnectionProvider', () => {
     const App = () => (
-      <SolanaWeb3ConfigProvider rpcProvider={'fake'}>
+      <SolanaWeb3ConfigProvider rpcProvider={() => `https://main-beta.fake-domain.com/`}>
         <div className="content">test</div>
       </SolanaWeb3ConfigProvider>
     );
 
     const { selector } = xrender(App);
-    expect(selector('.endpoint')?.textContent).toBe('');
+    expect(selector('.endpoint')?.textContent).toBe('https://main-beta.fake-domain.com/');
   });
 
   it('available show account address', async () => {

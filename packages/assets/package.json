@@ -6,9 +6,21 @@
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
   "exports": {
-    "import": "./dist/esm/index.js",
-    "require": "./dist/lib/index.js",
-    "types": "./dist/esm/index.d.ts"
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/esm/index.d.ts"
+    },
+    "./ethereum": {
+      "import": "./dist/esm/chains/ethereum.js",
+      "require": "./dist/lib/chains/ethereum.js",
+      "types": "./dist/esm/chains/ethereum.d.ts"
+    },
+    "./solana": {
+      "import": "./dist/esm/chains/solana.js",
+      "require": "./dist/lib/chains/solana.js",
+      "types": "./dist/esm/chains/solana.d.ts"
+    }
   },
   "files": [
     "dist",

@@ -4,6 +4,11 @@
   "main": "dist/lib/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/lib/index.js",
+    "types": "./dist/esm/index.d.ts"
+  },
   "files": [
     "dist",
     "CHANGELOG.md",
@@ -37,6 +42,9 @@
   "dependencies": {
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
+    "@metaplex-foundation/js": "^0.20.1",
+    "@solana/wallet-adapter-react": "^0.15.35",
+    "@solana/wallet-adapter-wallets": "^0.19.24",
     "debug": "^4.3.4"
   },
   "devDependencies": {
@@ -46,9 +54,7 @@
     "@solana/wallet-adapter-base": "^0.9.23"
   },
   "peerDependencies": {
-    "@solana/wallet-adapter-react": "^0.15.35",
-    "@solana/wallet-adapter-wallets": "^0.19.24",
-    "@metaplex-foundation/js": "^0.20.1"
+    "@solana/web3.js": "^1.89.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",

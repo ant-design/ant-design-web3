@@ -1,7 +1,5 @@
-import { ChainIds } from '@ant-design/web3-common';
+import type { SolanaChainConfig } from '../chains';
 
-export const isSolanaChain = (chainId?: ChainIds) => {
-  return (
-    chainId && [ChainIds.Solana, ChainIds.SolanaDevnet, ChainIds.SolanaTestnet].includes(chainId)
-  );
+export const isSolanaChain = (chain?: SolanaChainConfig) => {
+  return !!chain?.isSolana;
 };

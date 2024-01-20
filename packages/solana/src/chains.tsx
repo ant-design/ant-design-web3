@@ -1,67 +1,41 @@
-import { ChainIds, type Chain } from '@ant-design/web3-common';
-import { SolanaColorful } from '@ant-design/web3-icons';
+import { SolanaChainIds } from '@ant-design/web3-common';
 
-export interface SolanaChain extends Chain {
-  id: ChainIds;
+const isSolanaSymbol = Symbol.for('isSolana');
+
+export interface SolanaChainConfig {
+  id: SolanaChainIds;
+  name: string;
   network: string;
-  nativeCurrency: {
-    name: string;
-    symbol: string;
-    decimals: number;
-  };
-  rpcUrls: Record<string, { http: string[]; webSocket?: string[] }>;
+  isSolana?: symbol;
+  rpcUrls: Record<string, string>;
 }
 
-export const solana: SolanaChain = {
-  id: ChainIds.Solana,
+export const solana: SolanaChainConfig = {
+  id: SolanaChainIds.MainnetBeta,
   name: 'Solana',
   network: 'mainnet-beta',
-  icon: <SolanaColorful />,
-  nativeCurrency: { name: 'Sol', symbol: 'SOL', decimals: 10 },
+  isSolana: isSolanaSymbol,
   rpcUrls: {
-    default: {
-      http: ['https://api.mainnet-beta.solana.com'],
-    },
-    public: {
-      http: ['https://api.mainnet-beta.solana.com'],
-    },
-    helius: {
-      http: ['https://mainnet.helius-rpc.com'],
-    },
+    default: 'https://api.mainnet-beta.solana.com',
   },
 };
 
-export const solanaDevnet: SolanaChain = {
-  id: ChainIds.SolanaDevnet,
+export const solanaDevnet: SolanaChainConfig = {
+  id: SolanaChainIds.Devnet,
   name: 'Solana Devnet',
   network: 'devnet',
-  icon: <SolanaColorful />,
-  nativeCurrency: { name: 'Sol', symbol: 'SOL', decimals: 10 },
+  isSolana: isSolanaSymbol,
   rpcUrls: {
-    default: {
-      http: ['https://api.devnet.solana.com'],
-    },
-    public: {
-      http: ['https://api.devnet.solana.com'],
-    },
-    helius: {
-      http: ['https://devnet.helius-rpc.com'],
-    },
+    default: 'https://api.devnet.solana.com',
   },
 };
 
-export const solanaTestnet: SolanaChain = {
-  id: ChainIds.SolanaTestnet,
+export const solanaTestnet: SolanaChainConfig = {
+  id: SolanaChainIds.Testnet,
   name: 'Solana Testnet',
   network: 'testnet',
-  icon: <SolanaColorful />,
-  nativeCurrency: { name: 'Sol', symbol: 'SOL', decimals: 10 },
+  isSolana: isSolanaSymbol,
   rpcUrls: {
-    default: {
-      http: ['https://api.testnet.solana.com'],
-    },
-    public: {
-      http: ['https://api.testnet.solana.com'],
-    },
+    default: 'https://api.testnet.solana.com',
   },
 };

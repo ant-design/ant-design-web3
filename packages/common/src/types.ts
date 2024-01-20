@@ -4,7 +4,6 @@ export interface Account {
 }
 
 export enum ChainIds {
-  //#region based EVM
   Mainnet = 1,
   Polygon = 137,
   BSC = 56,
@@ -12,11 +11,15 @@ export enum ChainIds {
   Optimism = 10,
   Goerli = 5,
   Avalanche = 43_114,
-  //#endregion
+}
 
-  Solana = 1e10 + 1,
-  SolanaDevnet = 1e10 + 2,
-  SolanaTestnet = 1e10 + 3,
+export enum SolanaChainIds {
+  // Placeholder for main net
+  __Mainnet__ = 1,
+
+  MainnetBeta = 2,
+  Devnet = 3,
+  Testnet = 4,
 }
 
 export type BrowserLinkType = 'address' | 'transaction';
@@ -69,12 +72,6 @@ export interface UniversalWeb3ProviderInterface {
 
   /** Such as `0x` */
   addressPrefix?: string | false;
-
-  price?: {
-    symbol?: string;
-    decimals?: number;
-    fixed?: number;
-  };
 
   connect?: (wallet?: Wallet) => Promise<void>;
   disconnect?: () => Promise<void>;

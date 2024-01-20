@@ -1,33 +1,28 @@
-import { ConnectButton, Connector } from '@ant-design/web3';
-import {
-  metadata_CoinbaseWallet,
-  Solana,
-  SolanaDevnet,
-  SolanaTestnet,
-} from '@ant-design/web3-assets';
-import {
-  solana,
-  solanaDevnet,
-  solanaTestnet,
-  SolanaWeb3ConfigProvider,
-  WalletFactory,
-} from '@ant-design/web3-solana';
-import { CoinbaseWalletAdapter } from '@solana/wallet-adapter-wallets';
+// import { ConnectButton, Connector } from '@ant-design/web3';
+// import { Solana, SolanaDevnet, SolanaTestnet } from '@ant-design/web3-assets';
+// import {
+//   CoinbaseWallet,
+//   solana,
+//   solanaDevnet,
+//   solanaTestnet,
+//   SolanaWeb3ConfigProvider,
+// } from '@ant-design/web3-solana';
 
 const App: React.FC = () => {
   return (
-    <SolanaWeb3ConfigProvider
-      rpcProvider={'default'}
-      balance={false}
-      autoConnect
-      chains={[solana, solanaTestnet, solanaDevnet]}
-      chainAssets={[Solana, SolanaTestnet, SolanaDevnet]}
-      wallets={[WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet)]}
-    >
-      <Connector>
-        <ConnectButton />
-      </Connector>
-    </SolanaWeb3ConfigProvider>
+    // <SolanaWeb3ConfigProvider
+    //   rpcProvider={'default'}
+    //   balance={false}
+    //   autoConnect
+    //   chains={[solana, solanaTestnet, solanaDevnet]}
+    //   chainAssets={[Solana, SolanaTestnet, SolanaDevnet]}
+    //   wallets={[CoinbaseWallet()]}
+    // >
+    //   <Connector>
+    //     <ConnectButton />
+    //   </Connector>
+    // </SolanaWeb3ConfigProvider>
+    <div>TODO</div>
   );
 };
 

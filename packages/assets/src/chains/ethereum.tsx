@@ -8,7 +8,6 @@ import {
   EtherscanCircleColorful,
   OptimismCircleColorful,
   PolygonCircleColorful,
-  SolanaColorful,
 } from '@ant-design/web3-icons';
 
 export const Mainnet: Chain = {
@@ -86,37 +85,4 @@ export const Avalanche: Chain = {
     getBrowserLink: createGetBrowserLink('https://snowtrace.io'),
   },
   nativeCurrency: { name: 'Avalanche', symbol: 'AVAX', decimals: 18 },
-};
-
-export const Solana: Chain = {
-  id: ChainIds.Solana,
-  name: 'Solana',
-  icon: <SolanaColorful />,
-  browser: {
-    icon: <SolanaColorful />,
-    getBrowserLink: createGetBrowserLink('https://explorer.solana.com'),
-  },
-  nativeCurrency: { name: 'Solana', symbol: 'SOL', decimals: 9 },
-};
-
-export const SolanaDevnet: Chain = {
-  id: ChainIds.SolanaDevnet,
-  name: 'Solana Devnet',
-  icon: <SolanaColorful />,
-  browser: {
-    icon: <SolanaColorful />,
-    getBrowserLink: createGetBrowserLink('https://explorer.solana.com'),
-  },
-  nativeCurrency: { name: 'Solana', symbol: 'SOL', decimals: 9 },
-};
-
-export const SolanaTestnet: Chain = {
-  id: ChainIds.SolanaTestnet,
-  name: 'Solana Testnet',
-  icon: <SolanaColorful />,
-  browser: {
-    icon: <SolanaColorful />,
-    getBrowserLink: createGetBrowserLink('https://explorer.solana.com'),
-  },
-  nativeCurrency: { name: 'Solana', symbol: 'SOL', decimals: 9 },
 };

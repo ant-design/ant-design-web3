@@ -125,6 +125,6 @@ describe('SolanaWeb3ConfigProvider rpcProvider', () => {
 
     expect(mockFn).toBeCalled();
 
-    expect(selector('.endpoint')?.textContent).toBe(solana.rpcUrls.default.http[0]);
+    expect(selector('.endpoint')?.textContent).toBe(solana.rpcUrls.default);
   });
 });
