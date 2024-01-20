@@ -55,6 +55,7 @@
     "@changesets/changelog-git": "^0.2.0",
     "@changesets/cli": "^2.27.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
+    "@tanstack/react-query": "^5.17.0",
     "@testing-library/react": "^14.1.2",
     "@types/lodash": "^4.14.202",
     "@types/node": "^20.10.5",
@@ -62,7 +63,7 @@
     "@types/react-copy-to-clipboard": "^5.0.7",
     "@umijs/fabric": "^4.0.1",
     "@vitest/coverage-v8": "^1.1.0",
-    "antd": "^5.12.4",
+    "antd": "^5.13.2",
     "antd-style": "^3.6.1",
     "classnames": "^2.3.2",
     "dumi": "^2.2.16",
@@ -80,11 +81,10 @@
     "react-dom": "^18.2.0",
     "rimraf": "^5.0.5",
     "typescript": "^5.3.3",
+    "viem": "^2.0.0",
     "vite-plugin-svgr": "^4.2.0",
     "vitest": "~1.1.0",
-    "wagmi": "^2.0.0",
-    "viem": "^2.0.0",
-    "@tanstack/react-query": "^5.17.0"
+    "wagmi": "^2.0.0"
   },
   "ci": {
     "type": "aci",
