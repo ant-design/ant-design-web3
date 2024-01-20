@@ -36,7 +36,7 @@ describe('Solana Provider sample test', () => {
         <WalletProvider wallets={[new CoinbaseWalletAdapter()]}>
           <AntDesignWeb3ConfigProvider
             availableChains={[solana]}
-            currentChain={mainnet}
+            currentChain={mainnet as any}
             availableWallets={[
               WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet).create(),
             ]}
