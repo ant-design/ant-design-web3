@@ -140,7 +140,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         selectWallet(walletName);
       }}
       switchChain={async (_chain) => {
-        console.log('_chain', _chain);
         if (!isSolanaChain(_chain as SolanaChainConfig)) {
           throw new Error('SolanaWeb3ConfigProvider only support Solana chain.');
         }
@@ -160,10 +159,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         });
 
         connectAsyncRef.current?.resolve();
-        connectAsyncRef.current = {
-          promise,
-          resolve,
-        };
+        connectAsyncRef.current = { promise, resolve };
 
         const walletName = (_wallet?.name as WalletName) ?? null;
         selectWallet(walletName);
