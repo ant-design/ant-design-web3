@@ -51,7 +51,8 @@ const config = createConfig({
 + import { createConfig, http, useReadContract } from "wagmi";
 import { mainnet } from "wagmi/chains";
 import { WagmiWeb3ConfigProvider, MetaMask } from "@ant-design/web3-wagmi";
-import { Address, NFTCard, Connector, ConnectButton } from "@ant-design/web3";
+- import { Address, NFTCard, Connector, ConnectButton } from "@ant-design/web3";
++ import { Address, NFTCard, Connector, ConnectButton, useAccount } from "@ant-design/web3";
 import { injected } from "wagmi/connectors";
 
 const config = createConfig({
@@ -67,16 +68,20 @@ const config = createConfig({
 });
 
 + const CallTest = () => {
-+   const result = useReadContract({
-+     abi: [{
-+       type: 'function',
-+       name: 'totalApply',
-+       stateMutability: 'view',
-+       inputs: [],
-+       outputs: [{ name: 'supply', type: 'uint256' }],
-+     }],
-+     address: '0xEcd0D12E21805803f70de03B72B1C162dB0898d9',
-+     functionName: 'totalSupply',
++  const { account } = useAccount();
++  const result = useReadContract({
++    abi: [
++      {
++        type: 'function',
++        name: 'balanceOf',
++        stateMutability: 'view',
++        inputs: [{ name: 'account', type: 'address' }],
++        outputs: [{ type: 'uint256' }],
++      },
++    ],
++    address: '0xEcd0D12E21805803f70de03B72B1C162dB0898d9',
++    functionName: 'balanceOf',
++    args: [account?.address as `0x${string}`],
 +   });
 +   return (
 +     <div>{result.data?.toString()}</div>
@@ -101,7 +106,9 @@ export default () => {
 
 ```
 
-参考以上的代码添加调用合约的 `totalSupply` 方法，我们新建了一个 `CallTest` 组件，然后在 `WagmiWeb3ConfigProvider` 内添加了这个组件。因为 `useReadContract` 必须在 `WagmiWeb3ConfigProvider` 内部才能正常工作，所以我们不能在 `export default () => {` 这一行代码下面直接使用 `useReadContract`。在实际的项目中 `WagmiWeb3ConfigProvider` 通常应该在你项目组件的最外层，这样确保你的项目所有组件中都可以正常使用相关的 Hooks。
+参考以上的代码添加调用合约的 `balanceOf` 方法，我们新建了一个 `CallTest` 组件，然后在 `WagmiWeb3ConfigProvider` 内添加了这个组件。因为 `useReadContract` 必须在 `WagmiWeb3ConfigProvider` 内部才能正常工作，所以我们不能在 `export default () => {` 这一行代码下面直接使用 `useReadContract`。在实际的项目中 `WagmiWeb3ConfigProvider` 通常应该在你项目组件的最外层，这样确保你的项目所有组件中都可以正常使用相关的 Hooks。
+
+`balanceOf` 是用来获取某一个地址下有多少个这个合约 NFT 的方法。所以我们还需要用到 `@ant-design/web3` 提供的 `useAccount` Hook 来获取当前连接的账户地址。然后将账户地址作为 `balanceOf` 方法的参数传入，这样就可以获取到当前账户地址下有多少个 NFT 了。如果不出意外，你会得到 `0` 的结果。
 
 代码中的 abi 字段定义了方法的类型，这样 wagmi 才能知道如何处理方法的入参和返回，把 JavaScript 中的对象转换的区块链的交易信息。通常 abi 都是通过合约代码自动生成的，我们会在下一章讲到这一部分。
 
