@@ -72,3 +72,28 @@ You can also follow the following related issues to get the latest progress:
 
 - https://github.com/ant-design/ant-design/issues/46053
 - https://github.com/vercel/next.js/issues/58817
+
+## Use in Remix
+
+You may encounter the following error when using `@ant-design/web3` in [Remix](https://remix.run/) (Not the Remix IDE of Ethereum):
+
+1. `Error: require() of ES Module ... from ... not supported.`
+2. `SyntaxError: Cannot use import statement outside a module`
+
+This is because Remix does not go through the relevant compilation logic when loading dependent packages under `node_modules`. You may need to manually add the [remix.config.js](https://remix.run/docs/en/v1.0/guides/nextjs) configuration in Remix configuration file `remix.config.js`:
+
+```diff
+/** @type {import('@remix-run/dev').AppConfig} */
+export default {
+  ignoredRouteFiles: ["**/.*"],
+  // appDirectory: "app",
+  // assetsBuildDirectory: "public/build",
+  // publicPath: "/build/",
+  // serverBuildPath: "build/index.js",
++  serverDependenciesToBundle: [/^@ant-design/, /^rc-/, "^antd"],
+};
+```
+
+You can also follow the following related issues to get the latest progress:
+
+- https://github.com/ant-design/ant-design-icons/issues/605

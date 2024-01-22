@@ -72,3 +72,28 @@ module.exports = nextConfig;
 
 - https://github.com/ant-design/ant-design/issues/46053
 - https://github.com/vercel/next.js/issues/58817
+
+## Use in Remix
+
+在前端框架 [Remix](https://remix.run/)（不是以太坊的 Remix IDE），基于它的构建机制，你可能在引入 `@ant-design/web3` 等包时会遇到类型下面的错误：
+
+1. `SyntaxError: Named export ... not found.`
+1. `Error: Cannot find module '...' imported from ...`
+
+这是由于 Remix 在加载 `node_modules` 下面的依赖包时的编译逻辑差异。你可能需要手动在 Remix 的配置文件 `remix.config.js` 中添加 [serverDependenciesToBundle](https://remix.run/docs/en/main/file-conventions/remix-config#serverdependenciestobundle) 配置：
+
+```diff
+/** @type {import('@remix-run/dev').AppConfig} */
+export default {
+  ignoredRouteFiles: ["**/.*"],
+  // appDirectory: "app",
+  // assetsBuildDirectory: "public/build",
+  // publicPath: "/build/",
+  // serverBuildPath: "build/index.js",
++  serverDependenciesToBundle: [/^@ant-design/, /^rc-/, "^antd"],
+};
+```
+
+你也可以关注下面相关问题获取最新进展：
+
+- https://github.com/ant-design/ant-design-icons/issues/605
