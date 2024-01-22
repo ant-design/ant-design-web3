@@ -1,6 +1,6 @@
 import type React from 'react';
 import { useContext } from 'react';
-import type { CSSInterpolation, Theme } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import { ConfigProvider as AntdConfigProvider, theme as AntTheme } from 'antd';
@@ -76,7 +76,7 @@ export function useStyle(
   return {
     wrapSSR: useStyleRegister(
       {
-        theme: theme as unknown as Theme<any, any>,
+        theme,
         token: web3Token,
         hashId,
         path: [componentName],
