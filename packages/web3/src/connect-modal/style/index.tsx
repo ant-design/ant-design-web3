@@ -1,6 +1,5 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { mergeToken } from 'antd/lib/theme/internal';
 
 import {
   useStyle as useAntdStyle,
@@ -428,7 +427,8 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
 export function useStyle(prefixCls: string): UseStyleResult {
   return useAntdStyle('ConnectModal', (token) => {
     const isDark = isDarkTheme(token);
-    const connectModalToken: ConnectModalToken = mergeToken<ConnectModalToken>(token, {
+    const connectModalToken: ConnectModalToken = {
+      ...token,
       selectedBg: isDark ? token.colorWhite : token.colorPrimary,
       selectedColor: token.colorBgContainer,
       hoverBg: new TinyColor(isDark ? token.colorWhite : token.colorPrimary)
@@ -446,7 +446,7 @@ export function useStyle(prefixCls: string): UseStyleResult {
       cardBg: new TinyColor(token.colorText).setAlpha(0.1).toRgbString(),
       iconSize: token.sizeXL,
       web3ComponentsCls: `.${prefixCls}`,
-    });
+    };
     return [genModalStyle(connectModalToken)];
   });
 }
