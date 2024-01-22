@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConfigContext } from 'antd/lib/config-provider';
+import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 
 import useIntl from '../../hooks/useIntl';
@@ -20,7 +20,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
   const [panelRoute, setPanelRoute] = React.useState<PanelRoute>('init');
   const routeStack = React.useRef<PanelRoute[]>(['init']);
   const [selectedWallet, setSelectedWallet] = React.useState<Wallet>();
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-modal');
   const { wrapSSR, hashId } = useStyle(prefixCls);
 

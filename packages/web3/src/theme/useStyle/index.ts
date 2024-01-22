@@ -4,7 +4,7 @@ import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import { ConfigProvider as AntdConfigProvider, theme as AntTheme } from 'antd';
-import type { GlobalToken } from 'antd/lib/theme/interface';
+import type { GlobalToken } from 'antd';
 
 const { useToken } = AntTheme;
 
