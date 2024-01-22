@@ -1,5 +1,14 @@
 # @ant-design/web3-assets
 
+## 1.2.2
+
+### Patch Changes
+
+- f1b0b17: fix: use esm import as the default import way for fix use in Remix and NextJS
+- Updated dependencies [f1b0b17]
+  - @ant-design/web3-common@1.3.3
+  - @ant-design/web3-icons@1.3.2
+
 ## 1.2.1
 
 ### Patch Changes
