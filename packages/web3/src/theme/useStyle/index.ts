@@ -76,7 +76,7 @@ export function useStyle(
   return {
     wrapSSR: useStyleRegister(
       {
-        theme: theme,
+        theme,
         token: web3Token,
         hashId,
         path: [componentName],
