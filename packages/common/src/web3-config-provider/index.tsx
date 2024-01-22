@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { merge } from 'lodash';
+import merge from 'lodash.merge';
 
 import defaultLocale from '../locale/default';
 import { ConfigContext, type ConfigConsumerProps, type Web3ConfigProviderProps } from './context';
