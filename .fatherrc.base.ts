@@ -31,5 +31,7 @@ export default defineConfig({
         },
       },
     ],
+    // Auto add .js extension for import in node environment when use with NextJS and Remix.
+    'babel-plugin-add-import-extension',
   ],
 });

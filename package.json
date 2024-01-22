@@ -65,6 +65,8 @@
     "@vitest/coverage-v8": "^1.1.0",
     "antd": "^5.13.2",
     "antd-style": "^3.6.1",
+    "babel-plugin-add-import-extension": "^1.6.0",
+    "babel-plugin-inline-react-svg": "^2.0.2",
     "classnames": "^2.3.2",
     "dumi": "^2.2.16",
     "eslint": "^8.56.0",
