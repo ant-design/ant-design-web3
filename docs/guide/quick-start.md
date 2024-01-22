@@ -80,7 +80,7 @@ You may encounter the following error when using `@ant-design/web3` in [Remix](h
 1. `Error: require() of ES Module ... from ... not supported.`
 2. `SyntaxError: Cannot use import statement outside a module`
 
-This is because Remix does not go through the relevant compilation logic when loading dependent packages under `node_modules`. You may need to manually add the [remix.config.js](https://remix.run/docs/en/v1.0/guides/nextjs) configuration in Remix configuration file `remix.config.js`:
+This is because Remix does not go through the relevant compilation logic when loading dependent packages under `node_modules`. You may need to manually add the [serverDependenciesToBundle](https://remix.run/docs/en/main/file-conventions/remix-config#serverdependenciestobundle) configuration in Remix configuration file `remix.config.js`:
 
 ```diff
 /** @type {import('@remix-run/dev').AppConfig} */
