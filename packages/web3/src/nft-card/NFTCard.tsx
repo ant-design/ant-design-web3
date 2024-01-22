@@ -8,8 +8,7 @@ import {
   type Web3ConfigProviderProps,
 } from '@ant-design/web3-common';
 import type { ImageProps } from 'antd';
-import { Button, ConfigProvider, Divider, Image, Skeleton, Space } from 'antd';
-import useToken from 'antd/es/theme/useToken';
+import { Button, ConfigProvider, Divider, Image, Skeleton, Space, theme } from 'antd';
 import classNames from 'classnames';
 
 import { CryptoPrice, type CryptoPriceProps } from '../crypto-price';
@@ -21,6 +20,8 @@ import HeartSvg from './icons/heart.svg';
 import { useStyle } from './style';
 
 const customizePrefixCls = 'ant-nft-card';
+
+const { useToken } = theme;
 
 interface NFTCardProps {
   address?: string;
@@ -83,7 +84,7 @@ const NFTCard: React.FC<NFTCardProps> = ({
   ...metadataProps
 }) => {
   const { liked, totalLikes = 0, onLikeChange } = likeConfig || {};
-  const [, token] = useToken();
+  const { token } = useToken();
   const { metadata, loading } = useNFT(address, parseNumberToBigint(tokenId), getNFTMetadata);
   const {
     name = metadata.name,
