@@ -1,5 +1,12 @@
 # @ant-design/web3
 
+## 1.4.2
+
+### Patch Changes
+
+- 3317f1d: fix: Profile Modal lack space
+- 6f3e811: fix: Remove antd/lib import from @ant-design/web3 for better esm support
+
 ## 1.4.1
 
 ### Patch Changes
