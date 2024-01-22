@@ -40,12 +40,11 @@
     "build": "father build"
   },
   "dependencies": {
-    "lodash.merge": "^4.6.2"
+    "lodash-es": "^4.17.21"
   },
   "devDependencies": {
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
-    "@types/lodash.merge": "^4.6.9",
     "antd": "^5.12.4",
     "father": "^4.3.8",
     "react": "^18.2.0",
