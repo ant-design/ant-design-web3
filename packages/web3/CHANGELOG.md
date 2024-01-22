@@ -1,5 +1,11 @@
 # @ant-design/web3
 
+## 1.4.3
+
+### Patch Changes
+
+- 6cbe8b8: fix: Use useToken from antd
+
 ## 1.4.2
 
 ### Patch Changes
