@@ -68,6 +68,12 @@ importers:
       antd-style:
         specifier: ^3.6.1
         version: 3.6.1(@types/react@18.2.45)(antd@5.12.4)(react-dom@18.2.0)(react@18.2.0)
+      babel-plugin-add-import-extension:
+        specifier: ^1.6.0
+        version: 1.6.0(@babel/core@7.23.6)
+      babel-plugin-inline-react-svg:
+        specifier: ^2.0.2
+        version: 2.0.2(@babel/core@7.23.6)
       classnames:
         specifier: ^2.3.2
         version: 2.3.2
@@ -203,9 +209,6 @@ importers:
       antd:
         specifier: ^5.12.4
         version: 5.12.4(react-dom@18.2.0)(react@18.2.0)
-      babel-plugin-inline-react-svg:
-        specifier: ^2.0.2
-        version: 2.0.2(@babel/core@7.23.6)
       father:
         specifier: ^4.3.8
         version: 4.3.8(@types/node@20.10.5)(webpack@5.89.0)
@@ -7216,6 +7219,15 @@ packages:
       - supports-color
     dev: true
 
+  /babel-plugin-add-import-extension@1.6.0(@babel/core@7.23.6):
+    resolution: {integrity: sha512-JVSQPMzNzN/S4wPRoKQ7+u8PlkV//BPUMnfWVbr63zcE+6yHdU2Mblz10Vf7qe+6Rmu4svF5jG7JxdcPi9VvKg==}
+    peerDependencies:
+      '@babel/core': '>=7.0.0'
+    dependencies:
+      '@babel/core': 7.23.6
+      '@babel/helper-plugin-utils': 7.22.5
+    dev: true
+
   /babel-plugin-dynamic-import-node@2.3.3:
     resolution: {integrity: sha512-jZVI+s9Zg3IqA/kdi0i6UDCybUI3aSBLnglhYbSSjKlV7yF1F/5LWv8MakQmvYpnbJDS6fcBL2KzHSxNCMtWSQ==}
     dependencies:
@@ -8624,7 +8636,7 @@ packages:
     dev: true
 
   /debug@3.2.7:
-    resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==, tarball: https://registry.npmmirror.com/debug/-/debug-3.2.7.tgz}
+    resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
     peerDependencies:
       supports-color: '*'
     peerDependenciesMeta:
