@@ -1,6 +1,5 @@
 import React from 'react';
-import { Modal } from 'antd';
-import { ConfigContext } from 'antd/lib/config-provider';
+import { ConfigProvider, Modal } from 'antd';
 import classNames from 'classnames';
 
 import ModalPanel from './components/ModalPanel';
@@ -15,7 +14,7 @@ export const ConnectModal: React.FC<ConnectModalProps> & {
 } = (props) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, unused-imports/no-unused-vars
   const { title, footer, open, className, mode, rootClassName, onCancel, ...restProps } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
 
   const { isSimple } = useMode(mode);
 

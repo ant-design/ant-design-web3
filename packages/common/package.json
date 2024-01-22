@@ -1,7 +1,8 @@
 {
   "name": "@ant-design/web3-common",
-  "version": "1.3.2",
-  "main": "dist/lib/index.js",
+  "version": "1.3.3",
+  "type": "module",
+  "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
   "exports": {
@@ -39,11 +40,12 @@
     "build": "father build"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash-es": "^4.17.21"
   },
   "devDependencies": {
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
+    "@types/lodash-es": "^4.17.12",
     "antd": "^5.12.4",
     "father": "^4.3.8",
     "react": "^18.2.0",

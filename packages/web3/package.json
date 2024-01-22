@@ -1,7 +1,8 @@
 {
   "name": "@ant-design/web3",
-  "version": "1.4.0",
-  "main": "dist/lib/index.js",
+  "version": "1.4.1",
+  "type": "module",
+  "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
   "exports": {

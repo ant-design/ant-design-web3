@@ -1,5 +1,15 @@
 # @ant-design/web3-wagmi
 
+## 2.2.2
+
+### Patch Changes
+
+- f1b0b17: fix: use esm import as the default import way for fix use in Remix and NextJS
+- eca5578: feat: upgrade antd to 5.13.2 & @ant-design/cssinjs to 1.18.2
+- Updated dependencies [f1b0b17]
+  - @ant-design/web3-assets@1.2.2
+  - @ant-design/web3-common@1.3.3
+
 ## 2.2.1
 
 ### Patch Changes
