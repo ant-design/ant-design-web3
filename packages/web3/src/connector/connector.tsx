@@ -45,6 +45,11 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     }
   };
 
+  if (!children) {
+    console.error('"children" property of the "Connector" is required');
+    return null;
+  }
+
   return (
     <>
       {contextHolder}
