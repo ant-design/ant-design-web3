@@ -21,7 +21,7 @@ describe('Connector', () => {
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
   });
 
-  it('render children is not', () => {
+  it('render when children are empty', () => {
     const originalConsoleError = console.error;
     const mockConsoleError = (message: any) => {
       mockConsoleError.calls.push(message);
