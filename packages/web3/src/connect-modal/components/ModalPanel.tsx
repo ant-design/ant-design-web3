@@ -101,7 +101,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
                 <Button
                   type="link"
                   className={`${prefixCls}-simple-footer-right`}
-                  href={guide?.moreLink}
+                  href={'https://ethereum.org/en/wallets/'}
                   target="_blank"
                 >
                   {intl.getMessage(intl.messages.defaultInfoMoreLinkFooter)}
