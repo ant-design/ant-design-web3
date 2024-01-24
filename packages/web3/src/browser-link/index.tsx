@@ -40,7 +40,7 @@ export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
     ? React.cloneElement<any>(mergedIcon, {
         style: {
           ...props.iconStyle,
-          ...(React.isValidElement(mergedIcon) ? mergedIcon.props.style : {}),
+          ...mergedIcon.props.style,
         },
       })
     : mergedIcon;
