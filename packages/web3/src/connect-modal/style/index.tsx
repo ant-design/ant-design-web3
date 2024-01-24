@@ -162,6 +162,21 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           [`${componentCls}-footer`]: {
             color: token.listItemDescriptionColor,
           },
+          [`${componentCls}-simple-footer`]: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            color: token.listItemDescriptionColor,
+            fontSize: 16,
+            paddingInline: 6,
+            paddingBlockStart: 12,
+            borderTop: `1px solid ${token.splitColor}`,
+            [`${componentCls}-simple-footer-right`]: {
+              fontWeight: 400,
+              fontSize: 16,
+              padding: `0 15px`,
+            },
+          },
         },
         [`${componentCls}-main-panel`]: {
           flexGrow: 1,

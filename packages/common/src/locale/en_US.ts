@@ -35,6 +35,8 @@ const localeValues: RequiredLocale = {
     walletCardAppTitle: '{selectedWalletName} for Mobile',
     walletCardAppDesc: 'Use the mobile wallet to explore the world of Ethereum.',
     walletCardExtensionTitle: '{selectedWalletName} for {selectedExtensionBrowserName}',
+    defaultSimpleFooter: 'New to Ethereum wallets?',
+    defaultInfoMoreLinkFooter: 'Learn More',
   },
   NFTCard: {
     actionText: 'Buy Now',

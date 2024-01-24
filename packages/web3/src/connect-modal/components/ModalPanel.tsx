@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConfigProvider } from 'antd';
+import { Button, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 
 import useIntl from '../../hooks/useIntl';
@@ -95,6 +95,19 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
               <WalletList walletList={walletList} groupOrder={groupOrder} />
             </div>
             {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+            {!footer && isSimple && (
+              <div className={`${prefixCls}-simple-footer`}>
+                {intl.getMessage(intl.messages.defaultSimpleFooter)}
+                <Button
+                  type="link"
+                  className={`${prefixCls}-simple-footer-right`}
+                  href={guide?.moreLink}
+                  target="_blank"
+                >
+                  {intl.getMessage(intl.messages.defaultInfoMoreLinkFooter)}
+                </Button>
+              </div>
+            )}
           </div>
         )}
         {!(panelRoute === 'init' && isSimple) && (
