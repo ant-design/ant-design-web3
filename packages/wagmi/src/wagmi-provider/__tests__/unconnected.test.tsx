@@ -45,7 +45,7 @@ vi.mock('wagmi', () => {
   };
 });
 
-describe('WagmiWeb3ConfigProvider connected', () => {
+describe('WagmiWeb3ConfigProvider unconnected', () => {
   it('when currentWagmiChain is undefined', async () => {
     const App = () => (
       <AntDesignWeb3ConfigProvider
