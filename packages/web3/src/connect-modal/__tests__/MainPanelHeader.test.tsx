@@ -14,7 +14,14 @@ describe('MainPanelHeader test', async () => {
     });
 
     const App = () => {
-      const { prefixCls } = useContext(connectModalContext);
+      const {
+        prefixCls,
+        localeMessage,
+        getMessage,
+        updateSelectedWallet,
+        updatePanelRoute,
+        panelRoute,
+      } = useContext(connectModalContext);
       return (
         <div>
           <ConnectModalContextProvider
@@ -22,6 +29,11 @@ describe('MainPanelHeader test', async () => {
               panelRouteBack: onPanelRouteBackCallTest,
               prefixCls,
               canBack: true,
+              localeMessage,
+              getMessage,
+              updateSelectedWallet,
+              panelRoute,
+              updatePanelRoute,
             }}
           >
             <MainPanelHeader title="title" onBack={() => Promise.resolve(true)} />
