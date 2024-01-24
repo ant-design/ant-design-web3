@@ -21,6 +21,21 @@ describe('Connector', () => {
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
   });
 
+  it('render when children is null', () => {
+    const originalConsoleError = console.error;
+    const mockConsoleError = (message: any) => {
+      mockConsoleError.calls.push(message);
+    };
+    mockConsoleError.calls = [] as any[];
+    console.error = mockConsoleError;
+    expect(() => render(<Connector>{null}</Connector>)).not.toThrow();
+    expect(mockConsoleError.calls.length).toBe(1);
+    expect(mockConsoleError.calls[0]).toContain(
+      '"children" property of the "Connector" is required',
+    );
+    console.error = originalConsoleError;
+  });
+
   it('modalProps', () => {
     const App = () => {
       return (
