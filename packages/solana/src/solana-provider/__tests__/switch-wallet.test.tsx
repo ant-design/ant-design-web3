@@ -1,12 +1,8 @@
 import EventEmitter from 'node:events';
 import React, { useEffect, useState } from 'react';
 import { useProvider } from '@ant-design/web3';
-import {
-  metadata_CoinbaseWallet,
-  metadata_Phantom,
-  Solana,
-  SolanaDevnet,
-} from '@ant-design/web3-assets';
+import { metadata_CoinbaseWallet, metadata_Phantom } from '@ant-design/web3-assets';
+import { Solana, SolanaDevnet } from '@ant-design/web3-assets/solana';
 import { WalletReadyState, type Adapter } from '@solana/wallet-adapter-base';
 import type { Wallet } from '@solana/wallet-adapter-react';
 import { CoinbaseWalletAdapter, PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';

@@ -1,12 +1,8 @@
 /* eslint-disable @typescript-eslint/consistent-type-imports */
 
 import { ConnectButton, Connector, useProvider } from '@ant-design/web3';
-import {
-  metadata_CoinbaseWallet,
-  Solana,
-  SolanaDevnet,
-  SolanaTestnet,
-} from '@ant-design/web3-assets';
+import { metadata_CoinbaseWallet } from '@ant-design/web3-assets';
+import { Solana, SolanaDevnet, SolanaTestnet } from '@ant-design/web3-assets/solana';
 import type { ConnectionContextState } from '@solana/wallet-adapter-react';
 import { CoinbaseWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { fireEvent } from '@testing-library/react';

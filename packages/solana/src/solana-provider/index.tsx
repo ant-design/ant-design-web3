@@ -1,5 +1,5 @@
 import { useMemo, useState, type FC, type PropsWithChildren } from 'react';
-import { Solana } from '@ant-design/web3-assets';
+import { Solana } from '@ant-design/web3-assets/solana';
 import type { Chain, Locale } from '@ant-design/web3-common';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { type ConnectionConfig } from '@solana/web3.js';

@@ -27,6 +27,7 @@ export default defineConfig({
     } : {
       '@ant-design/web3': resolve('./packages/web3/src/index'),
       '@ant-design/web3-icons': resolve('./packages/icons/src/index'),
+      '@ant-design/web3-assets/solana': resolve('./packages/assets/src/chains/solana.tsx'),
       '@ant-design/web3-assets': resolve('./packages/assets/src/index'),
       '@ant-design/web3-wagmi': resolve('./packages/wagmi/src/index'),
       '@ant-design/web3-solana': resolve('./packages/solana/src/index'),
