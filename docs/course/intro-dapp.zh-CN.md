@@ -38,7 +38,10 @@ order: 1
 
 总结来看，DApp 相较普通应用的优势是数据高度安全且无法篡改，提供了足够的隐私性和数据所有权，缺点是维护性弱、运行速度慢、用户体验差，其体验的流畅度和普通应用相比有差距。
 
-:::info 为了帮助大家更好的构建 DApp 的前端用户界面、更好的与区块链网络交互，Ant Design 团队推出了一套 Web3 前端组件库 [Ant Design Web3](https://web3.ant.design/)，如果你对区块链基础知识已经有了一定的了解，可以直达 👉 [开发 DApp 实战](./dev-init.zh-CN.md)。:::
+<!-- prettier-ignore -->
+:::info
+为了帮助大家更好的构建 DApp 的前端用户界面、更好的与区块链网络交互，Ant Design 团队推出了一套 Web3 前端组件库 [Ant Design Web3](https://web3.ant.design/)，如果你对区块链基础知识已经有了一定的了解，可以直达 👉 [开发 DApp 实战](./dev-init.zh-CN.md)。
+:::
 
 ## 📚 延伸阅读
 
