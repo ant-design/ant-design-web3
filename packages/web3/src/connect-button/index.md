@@ -55,7 +55,7 @@ The button to connect to the blockchain wallet. Usually, you need to use it with
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | account | Current connected account | `Account` | - | - |
-| tooltip | Show tooltip when mouse enter address | `boolean \|` [ConnectButtonTooltipProps](#connectbuttontooltipprops) | `true`, will display address by default | - |
+| tooltip | Show tooltip when mouse enter address | `boolean \|` [ConnectButtonTooltipProps](#connectbuttontooltipprops) | `false` | - |
 | actionsMenu | Config menu items | `boolean \|` [ActionsMenu](#actionsmenu) | - | - |
 | profileModal | Config profile modal | `boolean \|` [ProfileModal](#profilemodal) | - | - |
 | avatar | Config avatar, used to display user avatar in profile modal | [AvatarProps](https://ant.design/components/avatar-cn#api) | - | - |
