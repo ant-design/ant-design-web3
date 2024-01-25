@@ -14,9 +14,6 @@ export enum ChainIds {
 }
 
 export enum SolanaChainIds {
-  // Placeholder for main net
-  __Mainnet__ = 1,
-
   MainnetBeta = 2,
   Devnet = 3,
   Testnet = 4,
