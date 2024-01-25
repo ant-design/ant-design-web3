@@ -80,9 +80,9 @@ module.exports = nextConfig
 ```tsx | pure
 import { Address } from '@ant-design/web3';
 
-export default () => {
+export default function Web3() {
   return <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />;
-};
+}
 ```
 
 然后访问 [http://localhost:3000/web3](http://localhost:3000/web3) 可以看到你已经在项目中成功使用 Ant Design Web3 了 🎉

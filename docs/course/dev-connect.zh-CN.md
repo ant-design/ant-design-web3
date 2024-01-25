@@ -37,7 +37,7 @@ order: 2
 + import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { Address } from "@ant-design/web3";
 
-export default () => {
+export default function Web3() {
   return (
     <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
   );
@@ -66,7 +66,7 @@ import { Address } from "@ant-design/web3";
 +   },
 + });
 
-export default () => {
+export default function Web3() {
   return (
 +     <WagmiWeb3ConfigProvider config={config}>
       <div
@@ -101,7 +101,7 @@ const config = createConfig({
   },
 });
 
-export default () => {
+export default function Web3() {
   return (
     <WagmiWeb3ConfigProvider config={config}>
       <div
@@ -111,14 +111,14 @@ export default () => {
         }}
       >
          <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
-+        <NFTCard address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={8540} />
++        <NFTCard address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" tokenId={641} />
       </div>
     </WagmiWeb3ConfigProvider>
   );
 };
 ```
 
-`NFTCard` 组件会从 [0x79fcdef22feed20eddacbb2587640e45491b757f](https://etherscan.io/address/0x79fcdef22feed20eddacbb2587640e45491b757f) NFT 合约中获取 tokenId 为 8540 的 NFT 信息，然后展示在页面上。
+`NFTCard` 组件会从 [0xEcd0D12E21805803f70de03B72B1C162dB0898d9](https://etherscan.io/address/0xEcd0D12E21805803f70de03B72B1C162dB0898d9) NFT 合约中获取 tokenId 为 641 的 NFT 信息，然后展示在页面上。
 
 效果如下：
 
@@ -154,14 +154,14 @@ const config = createConfig({
 +   ],
 });
 
-export default () => {
+export default function Web3() {
   return (
 -   <WagmiWeb3ConfigProvider config={config}>
 +    <WagmiWeb3ConfigProvider config={config} wallets={[MetaMask()]}>
       <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
       <NFTCard
-        address="0x79fcdef22feed20eddacbb2587640e45491b757f"
-        tokenId={8540}
+        address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9"
+        tokenId={641}
       />
 +       <Connector>
 +         <ConnectButton />
