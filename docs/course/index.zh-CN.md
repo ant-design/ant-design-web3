@@ -5,11 +5,6 @@ order: 1
 
 # 课程介绍
 
-<!-- prettier-ignore -->
-:::warning
-课程编写中，欢迎给我们提建议或者直接提 PR。
-:::
-
 该课程主要面向有一定前端开发基础的同学，帮助你从 Web2 迈向 Web3，获得 DApp（去中心化应用）的研发能力。
 
 课程分为三部分：
@@ -19,5 +14,9 @@ order: 1
 - **开发智能合约** 对区块链感兴趣的同学，可以继续学习这部分，把第二部分的合约替换为自己开发的智能合约。
 
 课程会基于 [Ant Design Web3](https://web3.ant.design/) 来进行讲解，让你可以更轻易的上手。当然，这并不会影响你对基础概念的理解，我们会在课程中对相关概念进行讲解，确保课程完成后你可以掌握 DApp 研发的基础知识。
+
+课程会引导你最后创建一个最小可用的 DApp，实现一个 NFT 的展示和铸造功能。下面是最终成果的示例：
+
+[https://ant-design-web3-demo.vercel.app/web3](https://ant-design-web3-demo.vercel.app/web3)
 
 该课程有一定的前置要求，要求你对 [React](https://react.dev/) 前端开发有基础的了解，如果你对 React 不熟悉，可以先学习 [React 官方文档](https://react.dev/learn)。
