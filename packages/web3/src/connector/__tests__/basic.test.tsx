@@ -47,7 +47,7 @@ describe('Connector', () => {
     expect(() => render(<Connector>{null}</Connector>)).not.toThrow();
     expect(mockConsoleError.calls.length).toBe(1);
     expect(mockConsoleError.calls[0]).toContain(
-      '"children" property of the "Connector" is required',
+      '"children" property of the "Connector" is must be a React element',
     );
     console.error = originalConsoleError;
   });
