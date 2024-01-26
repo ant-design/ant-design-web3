@@ -5,6 +5,17 @@ import { describe, expect, it } from 'vitest';
 import { ConnectButton } from '..';
 
 describe('ConnectButton', () => {
+  it(`when actionsMenu's extraItems is undefined, mount correctly`, async () => {
+    expect(() =>
+      render(
+        <ConnectButton
+          actionsMenu={{
+            extraItems: undefined,
+          }}
+        />,
+      ),
+    ).not.toThrow();
+  });
   it('mount correctly', () => {
     expect(() => render(<ConnectButton />)).not.toThrow();
   });
