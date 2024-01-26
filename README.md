@@ -33,6 +33,7 @@ English · [中文](./README-zh_CN.md)
 
 - Home Page: https://web3.ant.design
 - Documentation: https://web3.ant.design/guide
+- Course: https://web3.ant.design/course
 - 国内加速官网: https://web3.antdigital.dev
 
 ## Features

@@ -15,11 +15,9 @@ order: 2
 
 首先，同[快速开始](../guide/quick-start.zh-CN.md)中文档指引的类似，我们需要安装一些依赖。在上一篇课程中，我们已经安装了 `antd` 和 `@ant-design/web3`，所以我们接下来只需要安装 `@ant-design/web3-wagmi` 和 `wagmi`。
 
-<br />
-
-<NormalInstallDependencies packageNames="@ant-design/web3-wagmi wagmi" save="true"></NormalInstallDependencies>
-
-<br />
+```shell
+npm i @ant-design/web3-wagmi wagmi --save
+```
 
 `@ant-design/web3` 是一个 UI 组件库，它通过不同的[适配器](../guide/adapter.zh-CN.md)和不同的区块链连接。本课程中，我们主要基于的是[以太坊](https://ethereum.org/zh/)。对应的，我们也将使用[以太坊的适配器](../../packages/web3/src/wagmi/index.zh-CN.md)来实现课程的需求。
 

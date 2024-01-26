@@ -89,4 +89,4 @@ order: 1
 5. 第 8-10 行是在`constructor` 中我们传入了继承来的合约定义好的参数，为`ERC721`传入 `token` 的 `name` 和 `symbol`，`Ownable` 传合约拥有者的地址。
 6. 第 13-15 行是定义了`public` 对外开放的`safeMint` 方法，需要传入类型为`address`的`to`参数和类型为`uint256`的`tokenId`，方法里执行`ERC721.sol` 里引用的合约私有方法`_safeMint()`，并带入了参数`to` 和`tokenId`。
 
-接下来我们就尝试，向`合约模板` 里写入一些我们自定义的功能。
+接下来我们就尝试，向合约模板里写入一些我们自定义的功能。
