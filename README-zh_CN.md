@@ -33,6 +33,7 @@
 
 - 官网: https://web3.ant.design
 - 指南: https://web3.ant.design/guide
+- 课程: http://localhost:8000/zh-CN/course
 - 国内加速官网: https://web3.antdigital.dev
 
 ## 特性
