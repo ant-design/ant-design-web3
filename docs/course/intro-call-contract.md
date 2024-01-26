@@ -45,7 +45,7 @@ async function getAccount() {
   return account;
 }
 
-await getAccount(); // 你的账户地址
+await getAccount(); // your account address
 ```
 
 More wallet RPC and API can refer to [MetaMask official documentation](https://docs.metamask.io/guide/rpc-api.html#other-rpc-methods).
