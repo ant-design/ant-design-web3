@@ -11,6 +11,22 @@ import { Button } from 'antd';
 import { describe, expect, it, vi } from 'vitest';
 
 describe('Connector', () => {
+  it('expect onCancelCallTest toBeCalled', async () => {
+    const onCancelCallTest = vi.fn();
+    const App = () => {
+      return (
+        <Connector modalProps={{ title: 'modal title', open: true, onCancel: onCancelCallTest }}>
+          <Button>children</Button>
+        </Connector>
+      );
+    };
+    const { baseElement } = render(<App />);
+    const btn = baseElement.querySelector('.ant-btn')!;
+    fireEvent.click(btn);
+    const closeBtn = baseElement.querySelector('.ant-modal-close')!;
+    fireEvent.click(closeBtn);
+    expect(onCancelCallTest).toBeCalled();
+  });
   it('render children', () => {
     const App = () => (
       <Connector>
@@ -53,6 +69,7 @@ describe('Connector', () => {
   it('connect', async () => {
     const onConnectCallTest = vi.fn();
     const onDisconnected = vi.fn();
+    const onDisconnect = vi.fn();
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { account, onConnectClick, onDisconnectClick, children } = props;
       return (
@@ -94,6 +111,7 @@ describe('Connector', () => {
             setAccount(undefined);
           }}
           onDisconnected={onDisconnected}
+          onDisconnect={onDisconnect}
           onConnected={() => {
             onConnected();
           }}
@@ -127,6 +145,7 @@ describe('Connector', () => {
     fireEvent.click(baseElement.querySelector('.ant-btn')!);
     await vi.waitFor(() => {
       expect(onDisconnected).toBeCalled();
+      expect(onDisconnect).toBeCalled();
     });
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
   });

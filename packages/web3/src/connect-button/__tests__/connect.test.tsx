@@ -7,6 +7,7 @@ import { ConnectButton, Web3ConfigProvider, type Account } from '../../../../web
 
 describe('ConnectButton connect', async () => {
   it('connect', async () => {
+    const onClickCallFn = vi.fn();
     const CustomConnector = () => {
       const { connect, account, disconnect } = useProvider();
 
@@ -21,6 +22,7 @@ describe('ConnectButton connect', async () => {
             }
             connect?.();
           }}
+          onClick={onClickCallFn}
           onDisconnectClick={() => {
             disconnect?.();
           }}
@@ -67,6 +69,7 @@ describe('ConnectButton connect', async () => {
 
     fireEvent.click(baseElement.querySelector('.custom-btn')!);
     await vi.waitFor(() => {
+      expect(onClickCallFn).toBeCalled();
       expect(baseElement.querySelector('.ant-web3-address-text')?.textContent).toBe(
         '0x1234...7890',
       );
