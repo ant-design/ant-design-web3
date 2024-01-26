@@ -11,29 +11,29 @@ Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它
 
 ## 基本使用
 
-<!-- <code src="./demos/basic.tsx"></code> -->
+<code src="./demos/basic.tsx"></code>
 
 ## 添加更多钱包
 
 为了降低引入包的大小，你需要手动配置 `wallets` 引入相关钱包。你可以从 `@ant-design/web3-assets` 和 `@solana/wallet-adapter-wallets` 中导出相关资源，如果没有你需要的资源，你可以通过提交 [Github issue](https://github.com/ant-design/ant-design-web3/issues) 告诉我们。也自己配置或者给我们提交 PR 支持。
 
-<!-- <code src="./demos/more-wallets.tsx"></code> -->
+<code src="./demos/more-wallets.tsx"></code>
 
 ## 支持切换网络
 
 我们内置了 Solana 主网 `mainnet-beta`，其余的网络需要配置 `chains`，并引入相关资源才可支持。引入方式和钱包类似。
 
-<!-- <code src="./demos/networks.tsx"></code> -->
+<code src="./demos/networks.tsx"></code>
 
 ## 显示余额
 
-<!-- <code src="./demos/balance.tsx"></code> -->
+<code src="./demos/balance.tsx"></code>
 
 ## 更多组件
 
 你可以配合更多组件使用，组件中涉及到链部分的内容都会从适配器中获取。当然，在组件上直接配置的属性优先级更高。
 
-<!-- <code src="./demos/more-components.tsx"></code> -->
+<code src="./demos/more-components.tsx"></code>
 
 ## API
 
