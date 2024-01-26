@@ -45,8 +45,8 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     }
   };
 
-  if (!children) {
-    console.error('"children" property of the "Connector" is required');
+  if (!React.isValidElement(children)) {
+    console.error('"children" property of the "Connector" is must be a React element');
     return null;
   }
 
@@ -74,7 +74,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
           onChainSwitched?.(c);
         },
         loading,
-        ...(isValidElement(children) ? children.props : {}),
+        ...children.props,
       })}
 
       <ConnectModal
