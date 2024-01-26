@@ -147,7 +147,6 @@ The following is the complete example of the course:
 
 <code src="./demos/dapp.tsx"></code>
 
-你也可以参考 Github 项目源代码[https://github.com/ant-design/ant-design-web3-demo](https://github.com/ant-design/ant-design-web3-demo)。
 
 You can also refer to the Github project source code [https://github.com/ant-design/ant-design-web3-demo](https://github.com/ant-design/ant-design-web3-demo).
 
