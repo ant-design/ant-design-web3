@@ -22,6 +22,16 @@
       "types": "./dist/esm/chains/solana.d.ts"
     }
   },
+  "typesVersions": {
+    "*": {
+      "solana": [
+        "./dist/esm/chains/solana.d.ts"
+      ],
+      "*": [
+        "./dist/esm/index.d.ts"
+      ]
+    }
+  },
   "files": [
     "dist",
     "CHANGELOG.md",

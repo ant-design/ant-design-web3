@@ -18,7 +18,16 @@ const alias = pkgList.reduce(
       ...pre,
     };
   },
-  {} as Record<string, string>,
+  {
+    '@ant-design/web3-assets/solana': join(
+      __dirname,
+      'packages',
+      'assets',
+      'src',
+      'chains',
+      'solana.tsx',
+    ),
+  } as Record<string, string>,
 );
 
 export default defineConfig({
@@ -32,7 +41,7 @@ export default defineConfig({
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-  
+
     gtag('config', 'G-C31HWEY1D4');
     `,
   ],
