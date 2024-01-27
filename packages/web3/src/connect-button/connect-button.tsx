@@ -8,6 +8,7 @@ import classNames from 'classnames';
 
 import { Address } from '../address';
 import { CryptoPrice } from '../crypto-price';
+import { useProvider } from '../hooks';
 import useIntl from '../hooks/useIntl';
 import { fillWithPrefix, writeCopyText } from '../utils';
 import { ChainSelect } from './chain-select';
@@ -36,11 +37,12 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     balance,
     className,
     locale,
-    addressPrefix = '0x',
+    addressPrefix: addressPrefixProp,
     ...restProps
   } = props;
   const intl = useIntl('ConnectButton', locale);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { addressPrefix: addressPrefixContext } = useProvider();
   const prefixCls = getPrefixCls('web3-connect-button');
   const [profileOpen, setProfileOpen] = useState(false);
   const { wrapSSR, hashId } = useStyle(prefixCls);
@@ -53,7 +55,12 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       account?.name && !balance ? (
         account?.name
       ) : (
-        <Address tooltip={false} ellipsis address={account.address} addressPrefix={addressPrefix}>
+        <Address
+          tooltip={false}
+          ellipsis
+          address={account.address}
+          addressPrefix={addressPrefixProp}
+        >
           {balance ? <CryptoPrice icon {...balance} /> : undefined}
         </Address>
       );
@@ -107,7 +114,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     },
     balance,
     modalProps: typeof profileModal === 'object' ? profileModal : undefined,
-    addressPrefix,
+    addressPrefix: addressPrefixProp,
   };
 
   const chainSelect =
@@ -209,7 +216,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
   let tooltipTitle: string =
     tooltip && account?.address
-      ? fillWithPrefix(account?.address, addressPrefix === false ? '' : addressPrefix)
+      ? fillWithPrefix(account?.address, addressPrefixProp, addressPrefixContext)
       : '';
   if (typeof tooltip === 'object' && typeof tooltip.title === 'string') {
     tooltipTitle = tooltip.title;

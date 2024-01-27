@@ -1,11 +1,12 @@
 import type { ReactNode } from 'react';
 import React, { isValidElement, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
-import { ConfigContext, type Locale } from '@ant-design/web3-common';
+import { type Locale } from '@ant-design/web3-common';
 import type { TooltipProps } from 'antd';
 import { ConfigProvider, Space, Tooltip } from 'antd';
 import classNames from 'classnames';
 
+import { useProvider } from '../hooks';
 import useIntl from '../hooks/useIntl';
 import { fillWithPrefix, formatAddress, writeCopyText } from '../utils';
 import { useStyle } from './style';
@@ -28,7 +29,7 @@ export interface AddressProps {
 export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) => {
   const {
     ellipsis,
-    addressPrefix: prefix = '0x',
+    addressPrefix: addressPrefixProp,
     address,
     copyable,
     tooltip = true,
@@ -37,7 +38,7 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
     locale,
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const { addressPrefix } = useContext(ConfigContext);
+  const { addressPrefix: addressPrefixContext } = useProvider();
   const prefixCls = getPrefixCls('web3-address');
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [copied, setCopied] = useState(false);
@@ -74,7 +75,8 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
   if (!address) {
     return null;
   }
-  const filledAddress = fillWithPrefix(address, prefix === false ? '' : prefix ?? addressPrefix);
+
+  const filledAddress = fillWithPrefix(address, addressPrefixProp, addressPrefixContext);
 
   const mergedTooltip = () => {
     if (isValidElement(tooltip) || typeof tooltip === 'string') {

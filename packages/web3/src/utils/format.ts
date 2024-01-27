@@ -1,8 +1,36 @@
-export const fillWithPrefix = (address: string = '', prefix?: string): string => {
+/**
+ * @param address address
+ * @param prefixProp addressPrefix from props
+ * @param prefixContext addressPrefix from context
+ */
+export const fillWithPrefix = (
+  address: string = '',
+  prefixProp?: string | false,
+  prefixContext?: string | false,
+): string => {
+  let prefix = undefined;
+
+  // `0x` is the default prefix
+  if (prefixProp === undefined && prefixContext === undefined) {
+    prefix = '0x';
+  }
+
+  // has prefix be set
+  else {
+    // use props first
+    if (prefixProp !== undefined) {
+      prefix = prefixProp === false ? '' : prefixProp;
+    }
+
+    // use context
+    else if (prefixContext !== undefined) {
+      prefix = prefixContext === false ? '' : prefixContext;
+    }
+  }
+
   if (!prefix) return address;
 
-  const filledAddress = address.startsWith(prefix) ? address : `${prefix}${address}`;
-  return filledAddress;
+  return address.startsWith(prefix) ? address : `${prefix}${address}`;
 };
 
 export const formatAddress = (address: string = '', groupSize = 4): string => {
