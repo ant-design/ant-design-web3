@@ -27,6 +27,7 @@ describe('Connector', () => {
     fireEvent.click(closeBtn);
     expect(onCancelCallTest).toBeCalled();
   });
+
   it('render children', () => {
     const App = () => (
       <Connector>
@@ -70,6 +71,7 @@ describe('Connector', () => {
     const onConnectCallTest = vi.fn();
     const onDisconnected = vi.fn();
     const onDisconnect = vi.fn();
+    const switchWalletFn = vi.fn();
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { account, onConnectClick, onDisconnectClick, children } = props;
       return (
@@ -101,6 +103,10 @@ describe('Connector', () => {
               },
             },
           ]}
+          switchWallet={async (wallet) => {
+            console.log('wallet:', wallet?.name);
+            switchWalletFn(wallet?.name);
+          }}
           onConnect={onConnectCallTest}
           connect={async () => {
             setAccount({
@@ -148,7 +154,9 @@ describe('Connector', () => {
       expect(onDisconnect).toBeCalled();
     });
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
+    expect(switchWalletFn).toBeCalledWith('MetaMask');
   });
+
   it('should support controlled  loading', async () => {
     const App = () => {
       const [account, setAccount] = React.useState<Account | undefined>();
@@ -184,6 +192,7 @@ describe('Connector', () => {
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.anticon-loading')).toBeTruthy();
   });
+
   it('should support both of uncontrolled loading', async () => {
     const App = () => {
       const [account, setAccount] = React.useState<Account | undefined>();
@@ -226,6 +235,7 @@ describe('Connector', () => {
       expect(baseElement.querySelector('.anticon-loading')).toBeTruthy();
     });
   });
+
   it('connect throw error', async () => {
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { account, onConnectClick, onDisconnectClick, children } = props;

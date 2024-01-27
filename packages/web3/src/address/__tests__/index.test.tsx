@@ -85,6 +85,7 @@ describe('Address', () => {
     );
     expect(baseElement.querySelector('.ant-web3-address')?.textContent).toBe('0x21CDf097');
   });
+
   it('display address with copyable', async () => {
     const { baseElement } = render(
       <Address address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" ellipsis copyable />,
@@ -100,6 +101,7 @@ describe('Address', () => {
       expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
     });
   });
+
   it('does not display ellipsis if ellipsis is set to false', () => {
     const { baseElement } = render(
       <Address ellipsis={false} address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,
@@ -108,6 +110,7 @@ describe('Address', () => {
       '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
     );
   });
+
   it('does not display tooltip if tooltip is set to false', async () => {
     const { baseElement } = render(
       <Address tooltip={false} address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,
@@ -117,6 +120,7 @@ describe('Address', () => {
       expect(baseElement.querySelector('.ant-tooltip-inner')).toBeNull();
     });
   });
+
   it('does not apply any formatting if format is set to false', () => {
     const { baseElement } = render(
       <Address format={false} address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,
