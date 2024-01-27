@@ -26,7 +26,16 @@ export interface AddressProps {
 }
 
 export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) => {
-  const { ellipsis, addressPrefix: prefix = '0x', address, copyable, tooltip = true, format = false, children, locale } = props;
+  const {
+    ellipsis,
+    addressPrefix: prefix = '0x',
+    address,
+    copyable,
+    tooltip = true,
+    format = false,
+    children,
+    locale,
+  } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const { addressPrefix } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('web3-address');
