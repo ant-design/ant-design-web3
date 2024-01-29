@@ -5,3 +5,4 @@ export * from './token-pocket';
 export * from './safeheron';
 export * from './universal-wallet';
 export * from './okx-wallet';
+export * from './im-token-wallet';
