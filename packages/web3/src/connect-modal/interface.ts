@@ -94,6 +94,11 @@ export type ConnectModalProps = ModalProps & {
    * @desc 弹窗模式
    * @descEn modal mode
    */
+  group?: boolean;
+  /**
+   * @desc 支持分组
+   * @descEn support grouping
+   */
   mode?: 'simple' | 'normal' | 'auto';
   /**
    * @desc 自定义本地化配置

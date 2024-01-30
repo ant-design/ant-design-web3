@@ -202,4 +202,19 @@ describe('ConnectModal with guide', () => {
     expect(baseElement.querySelector('.ant-web3-connect-modal-guide-item-icon')).toBeNull();
     expect(baseElement.querySelector('.ant-web3-icon-bitcoin-circle-colorful')).toBeTruthy();
   });
+
+  it('Wallets are not grouped', async () => {
+    const App = () => (
+      <ConnectModal
+        open
+        title="ConnectModal"
+        footer="Powered by AntChain"
+        walletList={walletList}
+        guide={guide}
+        group={false}
+      />
+    );
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.ant-web3-connect-modal-group-title')).toBeNull();
+  });
 });
