@@ -12,6 +12,14 @@ const WalletList: React.FC<WalletListProps> = (props) => {
   const { walletList = [], group: internalGroup, groupOrder } = props;
   const { prefixCls, updateSelectedWallet, selectedWallet, updatePanelRoute } =
     useContext(connectModalContext);
+  if (process.env.NODE_ENV !== 'production') {
+    if (groupOrder) {
+      console.warn(
+        `'groupOrder' is deprecated. Please use 'group={{groupOrder: ()=> {}}}' instead`,
+      );
+      console.warn('[ant-design-web3] There exists deprecated usage in your code:', groupOrder);
+    }
+  }
   const dataSource: Record<string, Wallet[]> = useMemo(() => {
     const result: Record<string, Wallet[]> = {};
     walletList.forEach((wallet) => {
@@ -25,13 +33,13 @@ const WalletList: React.FC<WalletListProps> = (props) => {
   }, [walletList]);
 
   const groupKeys = useMemo(() => {
-    let source = defaultGroupOrder;
+    let orderFn = defaultGroupOrder;
     if (typeof internalGroup === 'object' && internalGroup.hasOwnProperty('groupOrder')) {
-      source = internalGroup.groupOrder!;
+      orderFn = internalGroup.groupOrder!;
     } else if (groupOrder) {
-      source = groupOrder;
+      orderFn = groupOrder;
     }
-    return Object.keys(dataSource).sort(source);
+    return Object.keys(dataSource).sort(orderFn);
   }, [dataSource, internalGroup, groupOrder]);
 
   const RenderContent = ({ group }: { group?: string }) => {
