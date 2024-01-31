@@ -33,7 +33,7 @@ describe('ConnectModal with guide', () => {
           open
           title="ConnectModal"
           footer="Powered by AntChain"
-          group={groupOrder}
+          groupOrder={groupOrder}
           walletList={walletList}
           guide={guide}
         />

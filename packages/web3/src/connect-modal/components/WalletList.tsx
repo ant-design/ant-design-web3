@@ -6,10 +6,10 @@ import { connectModalContext } from '../context';
 import type { ConnectModalProps, Wallet } from '../interface';
 import { defaultGroupOrder } from '../utils';
 
-export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'group'>;
+export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'group' | 'groupOrder'>;
 
 const WalletList: React.FC<WalletListProps> = (props) => {
-  const { walletList = [], group: internalGroup } = props;
+  const { walletList = [], group: internalGroup, groupOrder } = props;
   const { prefixCls, updateSelectedWallet, selectedWallet, updatePanelRoute } =
     useContext(connectModalContext);
   const dataSource: Record<string, Wallet[]> = useMemo(() => {
@@ -24,13 +24,15 @@ const WalletList: React.FC<WalletListProps> = (props) => {
     return result;
   }, [walletList]);
 
-  const groupKeys = useMemo(
-    () =>
-      Object.keys(dataSource).sort(
-        internalGroup && typeof internalGroup !== 'boolean' ? internalGroup : defaultGroupOrder,
-      ),
-    [dataSource, internalGroup],
-  );
+  const groupKeys = useMemo(() => {
+    let source = defaultGroupOrder;
+    if (internalGroup && typeof internalGroup !== 'boolean') {
+      source = internalGroup;
+    } else if (groupOrder) {
+      source = groupOrder;
+    }
+    return Object.keys(dataSource).sort(source);
+  }, [dataSource, internalGroup, groupOrder]);
 
   const RenderContent = ({ group }: { group?: string }) => {
     return (

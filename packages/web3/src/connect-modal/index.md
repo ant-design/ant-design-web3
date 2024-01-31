@@ -50,6 +50,7 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 | footer | Custom footer | `React.ReactNode` | - | - |
 | walletList | Wallet list | `Wallet[]` | - | - |
 | group | Does the wallet need to be grouped | `boolean` \| `(a: string, b: string) => number` | `true` | - |
+| groupOrder | Wallet group sorting function | `(a: string, b: string) => number` | - | - |
 | mode | Popup mode | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
 | guide | Newbie guide content | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |
 | locale | Multilingual settings | `Locale["ConnectModal"]` | - | - |
