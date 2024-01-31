@@ -26,8 +26,8 @@ const WalletList: React.FC<WalletListProps> = (props) => {
 
   const groupKeys = useMemo(() => {
     let source = defaultGroupOrder;
-    if (internalGroup && typeof internalGroup !== 'boolean') {
-      source = internalGroup;
+    if (typeof internalGroup === 'object' && internalGroup.hasOwnProperty('groupOrder')) {
+      source = internalGroup.groupOrder!;
     } else if (groupOrder) {
       source = groupOrder;
     }

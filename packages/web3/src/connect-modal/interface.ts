@@ -84,7 +84,11 @@ export type ConnectModalProps = ModalProps & {
    * @param b groupName2
    * @returns
    */
-  group?: boolean | ((a: string, b: string) => number);
+  group?:
+    | boolean
+    | {
+        groupOrder?: (a: string, b: string) => number;
+      };
   /**
    * @desc 钱包分组排序函数
    * @descEn Wallet group sorting function

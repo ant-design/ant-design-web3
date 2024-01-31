@@ -61,7 +61,12 @@ const App: React.FC = () => {
         padding: 0,
       }}
     >
-      <ConnectModal.ModalPanel group={groupOrder} walletList={walletList} />
+      <ConnectModal.ModalPanel
+        group={{
+          groupOrder,
+        }}
+        walletList={walletList}
+      />
     </Card>
   );
 };

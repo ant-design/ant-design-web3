@@ -90,7 +90,9 @@ const App: React.FC = () => {
       </Button>
       <ConnectModal
         open={open}
-        group={groupOrder}
+        group={{
+          groupOrder,
+        }}
         walletList={walletList}
         onCancel={() => setOpen(false)}
         guide={guide}
