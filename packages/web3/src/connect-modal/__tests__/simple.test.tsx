@@ -17,7 +17,7 @@ describe('ConnectModal without guide', () => {
           open
           title="ConnectModal"
           footer="Powered by AntChain"
-          groupOrder={groupOrder}
+          group={groupOrder}
           walletList={walletList}
         />
       </ConfigProvider>

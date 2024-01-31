@@ -49,8 +49,7 @@ order: 2
 | onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | `(e:React.SyntheticEvent) => void` | - | - |
 | footer | 自定义 footer | `React.ReactNode` | - | - |
 | walletList | 钱包列表 | [Wallet](./types#wallet)\[\] | - | - |
-| group | 钱包是否需要分组 | `boolean` | `true` | - |
-| groupOrder | 钱包分组排序函数 | `(a: string, b: string) => number` | - | - |
+| group | 钱包是否需要分组 | `boolean` \| `(a: string, b: string) => number` | `true` | - |
 | mode | 弹窗模式 | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
 | guide | 新手指引内容 | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |
 | locale | 多语言设置 | `Locale["ConnectModal"]` | - | - |

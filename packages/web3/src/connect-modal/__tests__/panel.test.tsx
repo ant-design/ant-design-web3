@@ -17,7 +17,7 @@ describe('ConnectModal with ConnectModal', () => {
       <ConnectModal.ModalPanel
         title="ConnectModal"
         footer="Powered by AntChain"
-        groupOrder={groupOrder}
+        group={groupOrder}
         walletList={walletList}
         guide={guide}
       />

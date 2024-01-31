@@ -6,10 +6,10 @@ import { connectModalContext } from '../context';
 import type { ConnectModalProps, Wallet } from '../interface';
 import { defaultGroupOrder } from '../utils';
 
-export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'groupOrder' | 'group'>;
+export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'group'>;
 
 const WalletList: React.FC<WalletListProps> = (props) => {
-  const { walletList = [], groupOrder, group: isSupportGroup } = props;
+  const { walletList = [], group: internalGroup } = props;
   const { prefixCls, updateSelectedWallet, selectedWallet, updatePanelRoute } =
     useContext(connectModalContext);
   const dataSource: Record<string, Wallet[]> = useMemo(() => {
@@ -25,15 +25,18 @@ const WalletList: React.FC<WalletListProps> = (props) => {
   }, [walletList]);
 
   const groupKeys = useMemo(
-    () => Object.keys(dataSource).sort(groupOrder ?? defaultGroupOrder),
-    [dataSource, groupOrder],
+    () =>
+      Object.keys(dataSource).sort(
+        internalGroup && typeof internalGroup !== 'boolean' ? internalGroup : defaultGroupOrder,
+      ),
+    [dataSource, internalGroup],
   );
 
   const RenderContent = ({ group }: { group?: string }) => {
     return (
       <List<Wallet>
         itemLayout="horizontal"
-        dataSource={isSupportGroup ? dataSource[group!] : walletList}
+        dataSource={internalGroup ? dataSource[group!] : walletList}
         rowKey="key"
         renderItem={(item) => (
           <List.Item
@@ -80,7 +83,7 @@ const WalletList: React.FC<WalletListProps> = (props) => {
 
   return (
     <div className={`${prefixCls}-wallet-list`}>
-      {isSupportGroup ? (
+      {internalGroup ? (
         groupKeys.map((group) => (
           <div className={`${prefixCls}-group`} key={group}>
             <div className={`${prefixCls}-group-title`}>{group}</div>

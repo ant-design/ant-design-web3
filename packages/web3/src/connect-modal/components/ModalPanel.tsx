@@ -14,17 +14,7 @@ import WalletList from './WalletList';
 export type ModalPanelProps = ConnectModalProps;
 
 const ModalPanel: React.FC<ModalPanelProps> = (props) => {
-  const {
-    title,
-    footer,
-    walletList,
-    groupOrder,
-    guide,
-    group = true,
-    mode,
-    onWalletSelected,
-    locale,
-  } = props;
+  const { title, footer, walletList, guide, group = true, mode, onWalletSelected, locale } = props;
   const intl = useIntl('ConnectModal', locale);
 
   const [panelRoute, setPanelRoute] = React.useState<PanelRoute>('init');
@@ -102,7 +92,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
           <div className={classNames(`${prefixCls}-list-panel`)}>
             <div className={`${prefixCls}-header`}>{mergedTitle}</div>
             <div className={`${prefixCls}-list-container`}>
-              <WalletList walletList={walletList} group={group} groupOrder={groupOrder} />
+              <WalletList walletList={walletList} group={group} />
             </div>
             {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
           </div>

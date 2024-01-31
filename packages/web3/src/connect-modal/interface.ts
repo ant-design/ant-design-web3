@@ -78,13 +78,13 @@ export type ConnectModalProps = ModalProps & {
    */
   walletList?: Wallet[];
   /**
-   * @desc 钱包分组排序函数
-   * @descEn Wallet group sorting function
+   * @desc 支持分组 | 钱包分组排序函数
+   * @descEn support grouping | Wallet group sorting function
    * @param a groupName1
    * @param b groupName2
    * @returns
    */
-  groupOrder?: (a: string, b: string) => number;
+  group?: boolean | ((a: string, b: string) => number);
   /**
    * @desc 新手指引面板
    * @descEn Newbie guide panel
@@ -93,11 +93,6 @@ export type ConnectModalProps = ModalProps & {
   /**
    * @desc 弹窗模式
    * @descEn modal mode
-   */
-  group?: boolean;
-  /**
-   * @desc 支持分组
-   * @descEn support grouping
    */
   mode?: 'simple' | 'normal' | 'auto';
   /**

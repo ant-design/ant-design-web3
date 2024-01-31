@@ -33,7 +33,7 @@ describe('ConnectModal with guide', () => {
           open
           title="ConnectModal"
           footer="Powered by AntChain"
-          groupOrder={groupOrder}
+          group={groupOrder}
           walletList={walletList}
           guide={guide}
         />
@@ -125,7 +125,7 @@ describe('ConnectModal with guide', () => {
           open={open}
           title="ConnectModal"
           footer="Powered by AntChain"
-          groupOrder={groupOrder}
+          group={groupOrder}
           walletList={walletList}
           guide={guide}
           destroyOnClose={true}
@@ -155,7 +155,7 @@ describe('ConnectModal with guide', () => {
         open
         title="ConnectModal"
         footer="Powered by AntChain"
-        groupOrder={groupOrder}
+        group={groupOrder}
         walletList={walletList}
       />
     );
