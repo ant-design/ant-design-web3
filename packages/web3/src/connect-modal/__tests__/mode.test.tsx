@@ -16,7 +16,9 @@ describe('ConnectModal with guide', () => {
         open
         title="ConnectModal"
         footer="Powered by AntChain"
-        groupOrder={groupOrder}
+        group={{
+          groupOrder,
+        }}
         walletList={walletList}
         guide={guide}
         mode="simple"
@@ -39,7 +41,9 @@ describe('ConnectModal with guide', () => {
         open
         title="ConnectModal"
         footer="Powered by AntChain"
-        groupOrder={groupOrder}
+        group={{
+          groupOrder,
+        }}
         walletList={walletList}
         guide={guide}
         mode="auto"
@@ -62,7 +66,9 @@ describe('ConnectModal with guide', () => {
         open
         title="ConnectModal"
         footer="Powered by AntChain"
-        groupOrder={groupOrder}
+        group={{
+          groupOrder,
+        }}
         walletList={walletList}
         guide={guide}
       />
@@ -84,7 +90,9 @@ describe('ConnectModal with guide', () => {
         open
         title="ConnectModal"
         footer="Powered by AntChain"
-        groupOrder={groupOrder}
+        group={{
+          groupOrder,
+        }}
         walletList={walletList}
         guide={guide}
         mode="normal"

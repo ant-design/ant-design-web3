@@ -2,6 +2,7 @@ import React from 'react';
 import { ConfigProvider, Modal } from 'antd';
 import classNames from 'classnames';
 
+import { devUseWarning } from '../../../common/src/utils/warning';
 import ModalPanel from './components/ModalPanel';
 import useMode from './hooks/useMode';
 import type { ConnectModalProps } from './interface';
@@ -21,6 +22,10 @@ export const ConnectModal: React.FC<ConnectModalProps> & {
   // Style
   const prefixCls = getPrefixCls('web3-connect-modal');
   const { wrapSSR, hashId } = useStyle(prefixCls);
+
+  // Warning for deprecated usage
+  const warning = devUseWarning('ConnectModal');
+  warning.deprecated(!('groupOrder' in restProps), 'groupOrder', 'group={{groupOrder: ()=> {}}}');
 
   return wrapSSR(
     <Modal

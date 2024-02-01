@@ -22,7 +22,10 @@ describe('ConnectModal with guide', () => {
     vi.spyOn(Grid, 'useBreakpoint').mockReturnValue({
       md: true, // ≥ 768px, mock PC
     });
-
+    const errorFn = vi.fn();
+    vi.spyOn(console, 'error').mockImplementation((msg) => {
+      errorFn(msg);
+    });
     const App = () => (
       <ConfigProvider
         theme={{
@@ -40,6 +43,9 @@ describe('ConnectModal with guide', () => {
       </ConfigProvider>
     );
     const { baseElement } = render(<App />);
+    expect(errorFn).toBeCalledWith(
+      'Warning: [ant-design-web3: ConnectModal] `groupOrder` is deprecated. Please use `group={{groupOrder: ()=> {}}}` instead.',
+    );
 
     expect(baseElement).toMatchSnapshot();
     // should have ant-web3-connect-modal class
@@ -125,7 +131,9 @@ describe('ConnectModal with guide', () => {
           open={open}
           title="ConnectModal"
           footer="Powered by AntChain"
-          groupOrder={groupOrder}
+          group={{
+            groupOrder,
+          }}
           walletList={walletList}
           guide={guide}
           destroyOnClose={true}
@@ -155,7 +163,9 @@ describe('ConnectModal with guide', () => {
         open
         title="ConnectModal"
         footer="Powered by AntChain"
-        groupOrder={groupOrder}
+        group={{
+          groupOrder,
+        }}
         walletList={walletList}
       />
     );
@@ -201,5 +211,20 @@ describe('ConnectModal with guide', () => {
     // Show `ant-web3-connect-modal-guide-item-icon` classname only if icon is string
     expect(baseElement.querySelector('.ant-web3-connect-modal-guide-item-icon')).toBeNull();
     expect(baseElement.querySelector('.ant-web3-icon-bitcoin-circle-colorful')).toBeTruthy();
+  });
+
+  it('Wallets are not grouped', async () => {
+    const App = () => (
+      <ConnectModal
+        open
+        title="ConnectModal"
+        footer="Powered by AntChain"
+        walletList={walletList}
+        guide={guide}
+        group={false}
+      />
+    );
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.ant-web3-connect-modal-group-title')).toBeNull();
   });
 });

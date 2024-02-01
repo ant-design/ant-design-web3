@@ -1,7 +1,8 @@
 import React from 'react';
 import { ConnectModal } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
-import { Card } from 'antd';
+import { Button } from 'antd';
+import { useIntl } from 'dumi';
 
 import type { Wallet } from '../interface';
 
@@ -45,29 +46,23 @@ const walletList: Wallet[] = [
     },
   },
 ];
-const groupOrder = (a: string, b: string) => {
-  if (a === 'Popular') return -1;
-  if (b === 'Popular') return 1;
-  return a.localeCompare(b);
-};
 
 const App: React.FC = () => {
+  const [open, setOpen] = React.useState(false);
+  const { locale } = useIntl();
   return (
-    <Card
-      style={{
-        maxWidth: 737,
-      }}
-      bodyStyle={{
-        padding: 0,
-      }}
-    >
-      <ConnectModal.ModalPanel
-        group={{
-          groupOrder,
-        }}
+    <>
+      <Button type="primary" onClick={() => setOpen(true)}>
+        Open with basic
+      </Button>
+      <ConnectModal
+        open={open}
+        footer={locale === 'zh-CN' ? '蚂蚁链提供技术支持' : 'Powered by AntChain'}
         walletList={walletList}
+        onCancel={() => setOpen(false)}
+        group={false}
       />
-    </Card>
+    </>
   );
 };
 

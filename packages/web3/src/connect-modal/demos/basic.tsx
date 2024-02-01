@@ -63,7 +63,9 @@ const App: React.FC = () => {
       <ConnectModal
         open={open}
         footer={locale === 'zh-CN' ? '蚂蚁链提供技术支持' : 'Powered by AntChain'}
-        groupOrder={groupOrder}
+        group={{
+          groupOrder,
+        }}
         walletList={walletList}
         onCancel={() => setOpen(false)}
       />

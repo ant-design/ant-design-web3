@@ -14,6 +14,10 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 
 <code src="./demos/basic.tsx"></code>
 
+## Wallets are not grouped
+
+<code src="./demos/ungroupedBasic.tsx"></code>
+
 ## Custom Theme
 
 <code src="./demos/theme.tsx"></code>
@@ -45,7 +49,7 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 | onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | `(e:React.SyntheticEvent) => void` | - | - |
 | footer | Custom footer | `React.ReactNode` | - | - |
 | walletList | Wallet list | `Wallet[]` | - | - |
-| groupOrder | Wallet group sorting function | `(a: string, b: string) => number` | - | - |
+| group | Does the wallet need to be grouped | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | `true` | - |
 | mode | Popup mode | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
 | guide | Newbie guide content | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |
 | locale | Multilingual settings | `Locale["ConnectModal"]` | - | - |
