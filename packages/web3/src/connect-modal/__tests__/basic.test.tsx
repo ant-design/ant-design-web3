@@ -22,7 +22,10 @@ describe('ConnectModal with guide', () => {
     vi.spyOn(Grid, 'useBreakpoint').mockReturnValue({
       md: true, // ≥ 768px, mock PC
     });
-
+    const errorFn = vi.fn();
+    vi.spyOn(console, 'error').mockImplementation((msg) => {
+      errorFn(msg);
+    });
     const App = () => (
       <ConfigProvider
         theme={{
@@ -40,6 +43,9 @@ describe('ConnectModal with guide', () => {
       </ConfigProvider>
     );
     const { baseElement } = render(<App />);
+    expect(errorFn).toBeCalledWith(
+      'Warning: [ant-design-web3: ConnectModal] `groupOrder` is deprecated. Please use `group={{groupOrder: ()=> {}}}` instead.',
+    );
 
     expect(baseElement).toMatchSnapshot();
     // should have ant-web3-connect-modal class
