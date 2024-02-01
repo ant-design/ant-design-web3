@@ -25,9 +25,7 @@ export const ConnectModal: React.FC<ConnectModalProps> & {
 
   // Warning for deprecated usage
   const warning = devUseWarning('ConnectModal');
-  if (process.env.NODE_ENV !== 'production') {
-    warning.deprecated(!('groupOrder' in restProps), 'groupOrder', 'group={{groupOrder: ()=> {}}}');
-  }
+  warning.deprecated(!('groupOrder' in restProps), 'groupOrder', 'group={{groupOrder: ()=> {}}}');
 
   return wrapSSR(
     <Modal
