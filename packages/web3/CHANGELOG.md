@@ -1,5 +1,17 @@
 # @ant-design/web3
 
+## 1.5.0
+
+### Minor Changes
+
+- 90db5e8: feat: ConnectModal support group configuration
+
+### Patch Changes
+
+- 6e7c44b: refactor: modify connector code
+- d91ec4a: refactor: displayIcon of the BrowserLink
+- c5e640a: refactor: return null when connector children is null
+
 ## 1.4.3
 
 ### Patch Changes
