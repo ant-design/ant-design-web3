@@ -88,9 +88,9 @@ const NFTCard: React.FC<NFTCardProps> = (props) => {
   const { token } = useToken();
   const { metadata, loading } = useNFT(address, parseNumberToBigint(tokenId), getNFTMetadata);
   const {
-    name = metadata.name,
-    image = metadata.image,
-    description = metadata.description,
+    name = metadata?.name,
+    image = metadata?.image,
+    description = metadata?.description,
   } = metadataProps;
   const { messages } = useIntl('NFTCard', locale);
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
