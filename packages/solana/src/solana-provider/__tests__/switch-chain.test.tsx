@@ -37,8 +37,6 @@ vi.mock('@solana/wallet-adapter-react', async () => {
   const publicKey = new PublicKey(mockedData.address.value);
 
   return {
-    // ConnectionProvider: ({ children }: any) => <>{children}</>,
-    // WalletFactory: ({ children }: any) => <>{children}</>,
     ...adapterReact,
     useWallet: () => {
       return {
