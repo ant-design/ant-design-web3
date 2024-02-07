@@ -23,6 +23,8 @@ jobs:
       - name: dist-test
         run: |
           pnpm run test:dist
+        env:
+          LIB_DIR: dist
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
