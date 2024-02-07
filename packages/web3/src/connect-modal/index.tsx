@@ -1,8 +1,8 @@
 import React from 'react';
+import { devUseWarning } from '@ant-design/web3-common';
 import { ConfigProvider, Modal } from 'antd';
 import classNames from 'classnames';
 
-import { devUseWarning } from '../../../common/src/utils/warning';
 import ModalPanel from './components/ModalPanel';
 import useMode from './hooks/useMode';
 import type { ConnectModalProps } from './interface';
