@@ -1559,6 +1559,129 @@ exports[`Test Icons > should render all icons 33`] = `
 
 exports[`Test Icons > should render all icons 34`] = `
 <span
+  class="anticon ant-web3-icon-imtoken-colorful"
+  role="img"
+>
+  <svg
+    aria-hidden="true"
+    class=""
+    fill="currentColor"
+    focusable="false"
+    height="1em"
+    viewBox="0 0 513 512"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      clip-path="url(#ant-web3-icon-imtoken-colorful-clip)"
+    >
+      <rect
+        fill="url(#ant-web3-icon-imtoken-colorful-paint)"
+        height="512"
+        rx="115"
+        width="512"
+        x="0.74585"
+      />
+      <path
+        d="M417.435 158.291C428.083 302.507 335.381 370.67 252.276 377.939C175.013 384.696 102.286 337.221 95.906 264.279C90.6429 204.017 127.888 178.361 157.151 175.804C187.248 173.165 212.541 193.921 214.735 219.052C216.848 243.213 201.772 254.211 191.287 255.126C182.995 255.853 172.563 250.819 171.621 240.01C170.813 230.722 174.34 229.457 173.478 219.59C171.944 202.024 156.626 199.978 148.24 200.705C138.091 201.594 119.677 213.439 122.261 242.944C124.859 272.705 153.395 296.221 190.802 292.95C231.17 289.423 259.275 257.993 261.389 213.91C261.369 211.575 261.861 209.264 262.829 207.139L262.842 207.086C263.277 206.162 263.786 205.275 264.363 204.434C265.225 203.142 266.329 201.715 267.755 200.153C267.769 200.113 267.769 200.113 267.796 200.113C268.832 198.942 270.084 197.677 271.497 196.317C289.131 179.68 352.637 140.443 412.697 152.867C413.967 153.139 415.114 153.814 415.968 154.792C416.822 155.77 417.336 156.997 417.435 158.291"
+        fill="white"
+      />
+    </g>
+    <defs>
+      <lineargradient
+        gradientUnits="userSpaceOnUse"
+        id="ant-web3-icon-imtoken-colorful-paint"
+        x1="471.319"
+        x2="19.3188"
+        y1="34"
+        y2="498"
+      >
+        <stop
+          stop-color="#11C4D1"
+        />
+        <stop
+          offset="1"
+          stop-color="#0062AD"
+        />
+      </lineargradient>
+      <clippath
+        id="ant-web3-icon-imtoken-colorful-clip"
+      >
+        <rect
+          fill="white"
+          height="512"
+          transform="translate(0.318848)"
+          width="512"
+        />
+      </clippath>
+    </defs>
+  </svg>
+</span>
+`;
+
+exports[`Test Icons > should render all icons 35`] = `
+<span
+  class="anticon ant-web3-icon-imtoken-colorful"
+  role="img"
+>
+  <svg
+    aria-hidden="true"
+    class=""
+    fill="currentColor"
+    focusable="false"
+    height="1em"
+    viewBox="0 0 513 512"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      clip-path="url(#ant-web3-icon-imtoken-circle-colorful-clip)"
+    >
+      <circle
+        cx="256.319"
+        cy="256"
+        fill="url(#ant-web3-icon-imtoken-circle-colorful-paint)"
+        r="256"
+      />
+      <path
+        d="M417.435 158.291C428.083 302.507 335.381 370.67 252.276 377.939C175.013 384.696 102.286 337.221 95.906 264.279C90.6429 204.017 127.888 178.361 157.151 175.804C187.248 173.165 212.541 193.921 214.735 219.052C216.848 243.213 201.772 254.211 191.287 255.126C182.995 255.853 172.563 250.819 171.621 240.01C170.813 230.722 174.34 229.457 173.478 219.59C171.944 202.024 156.626 199.978 148.24 200.705C138.091 201.594 119.677 213.439 122.261 242.944C124.859 272.705 153.395 296.221 190.802 292.95C231.17 289.423 259.275 257.993 261.389 213.91C261.369 211.575 261.861 209.264 262.829 207.139L262.842 207.086C263.277 206.162 263.786 205.275 264.363 204.434C265.225 203.142 266.329 201.715 267.755 200.153C267.769 200.113 267.769 200.113 267.796 200.113C268.832 198.942 270.084 197.677 271.497 196.317C289.131 179.68 352.637 140.443 412.697 152.867C413.967 153.139 415.114 153.814 415.968 154.792C416.822 155.77 417.336 156.997 417.435 158.291"
+        fill="white"
+      />
+    </g>
+    <defs>
+      <lineargradient
+        gradientUnits="userSpaceOnUse"
+        id="ant-web3-icon-imtoken-circle-colorful-paint"
+        x1="498.003"
+        x2="0.318848"
+        y1="14.3155"
+        y2="512"
+      >
+        <stop
+          stop-color="#11C4D1"
+        />
+        <stop
+          offset="1"
+          stop-color="#0062AD"
+        />
+      </lineargradient>
+      <clippath
+        id="ant-web3-icon-imtoken-circle-colorful-clip"
+      >
+        <rect
+          fill="white"
+          height="512"
+          transform="translate(0.318848)"
+          width="512"
+        />
+      </clippath>
+    </defs>
+  </svg>
+</span>
+`;
+
+exports[`Test Icons > should render all icons 36`] = `
+<span
   class="anticon ant-web3-icon-fantom-circle-colorful"
   role="img"
 >
@@ -1624,7 +1747,7 @@ exports[`Test Icons > should render all icons 34`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 35`] = `
+exports[`Test Icons > should render all icons 37`] = `
 <span
   class="anticon ant-web3-icon-etherscan-circle-colorful"
   role="img"
@@ -1651,7 +1774,7 @@ exports[`Test Icons > should render all icons 35`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 36`] = `
+exports[`Test Icons > should render all icons 38`] = `
 <span
   class="anticon ant-web3-icon-ethereum-filled"
   role="img"
@@ -1676,7 +1799,7 @@ exports[`Test Icons > should render all icons 36`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 37`] = `
+exports[`Test Icons > should render all icons 39`] = `
 <span
   class="anticon ant-web3-icon-ethereum-colorful"
   role="img"
@@ -1719,7 +1842,7 @@ exports[`Test Icons > should render all icons 37`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 38`] = `
+exports[`Test Icons > should render all icons 40`] = `
 <span
   class="anticon ant-web3-icon-ethereum-circle-filled"
   role="img"
@@ -1772,7 +1895,7 @@ exports[`Test Icons > should render all icons 38`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 39`] = `
+exports[`Test Icons > should render all icons 41`] = `
 <span
   class="anticon ant-web3-icon-ethereum-circle-colorful"
   role="img"
@@ -1861,7 +1984,7 @@ exports[`Test Icons > should render all icons 39`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 40`] = `
+exports[`Test Icons > should render all icons 42`] = `
 <span
   class="anticon ant-web3-icon-dai-circle-colorful"
   role="img"
@@ -1897,7 +2020,7 @@ exports[`Test Icons > should render all icons 40`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 41`] = `
+exports[`Test Icons > should render all icons 43`] = `
 <span
   class="anticon ant-web3-icon-cronos-colorful"
   role="img"
@@ -1977,7 +2100,7 @@ exports[`Test Icons > should render all icons 41`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 42`] = `
+exports[`Test Icons > should render all icons 44`] = `
 <span
   class="anticon ant-web3-icon-coinbase-wallet-circle-colorful"
   role="img"
@@ -2023,7 +2146,7 @@ exports[`Test Icons > should render all icons 42`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 43`] = `
+exports[`Test Icons > should render all icons 45`] = `
 <span
   class="anticon ant-web3-icon-chrome-circle-colorful"
   role="img"
@@ -2129,7 +2252,7 @@ exports[`Test Icons > should render all icons 43`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 44`] = `
+exports[`Test Icons > should render all icons 46`] = `
 <span
   class="anticon ant-web3-icon-celo-colorful"
   role="img"
@@ -2172,7 +2295,7 @@ exports[`Test Icons > should render all icons 44`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 45`] = `
+exports[`Test Icons > should render all icons 47`] = `
 <span
   class="anticon ant-web3-icon-bsc-circle-colorful"
   role="img"
@@ -2211,7 +2334,7 @@ exports[`Test Icons > should render all icons 45`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 46`] = `
+exports[`Test Icons > should render all icons 48`] = `
 <span
   class="anticon ant-web3-icon-bitcoin-filled"
   role="img"
@@ -2233,7 +2356,7 @@ exports[`Test Icons > should render all icons 46`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 47`] = `
+exports[`Test Icons > should render all icons 49`] = `
 <span
   class="anticon ant-web3-icon-bitcoin-circle-filled"
   role="img"
@@ -2280,7 +2403,7 @@ exports[`Test Icons > should render all icons 47`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 48`] = `
+exports[`Test Icons > should render all icons 50`] = `
 <span
   class="anticon ant-web3-icon-bitcoin-circle-colorful"
   role="img"
@@ -2307,7 +2430,7 @@ exports[`Test Icons > should render all icons 48`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 49`] = `
+exports[`Test Icons > should render all icons 51`] = `
 <span
   class="anticon ant-web3-icon-base-circle-colorful"
   role="img"
@@ -2342,7 +2465,7 @@ exports[`Test Icons > should render all icons 49`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 50`] = `
+exports[`Test Icons > should render all icons 52`] = `
 <span
   class="anticon ant-web3-icon-avalanche-circle-colorful"
   role="img"
@@ -2385,7 +2508,7 @@ exports[`Test Icons > should render all icons 50`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 51`] = `
+exports[`Test Icons > should render all icons 53`] = `
 <span
   class="anticon ant-web3-icon-arbitrum-colorful"
   role="img"
@@ -2424,7 +2547,7 @@ exports[`Test Icons > should render all icons 51`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 52`] = `
+exports[`Test Icons > should render all icons 54`] = `
 <span
   class="anticon ant-web3-icon-arbitrum-circle-colorful"
   role="img"
@@ -2508,7 +2631,7 @@ exports[`Test Icons > should render all icons 52`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 53`] = `
+exports[`Test Icons > should render all icons 55`] = `
 <span
   class="anticon ant-web3-icon-aave-circle-colorful"
   role="img"
