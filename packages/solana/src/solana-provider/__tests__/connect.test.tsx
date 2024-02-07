@@ -128,7 +128,7 @@ describe('Solana Connect', () => {
     const connectRunned = vi.fn();
 
     const CustomConnectBtn: React.FC = () => {
-      const { connect, switchWallet, availableWallets } = useProvider();
+      const { connect, availableWallets } = useProvider();
       const { connect: connectWallet } = useWallet();
 
       const [connectRunDone, setConnectRunDone] = useState(false);
@@ -137,8 +137,7 @@ describe('Solana Connect', () => {
         <div className="custom-connectbtn">
           <button
             className="btn-switchwallet"
-            onClick={async () => {
-              await switchWallet?.(availableWallets?.[0]);
+            onClick={() => {
               switchWalletRunned();
             }}
           >
@@ -195,7 +194,7 @@ describe('Solana Connect', () => {
 
     fireEvent.click(connectBtn);
     await vi.waitFor(() => {
-      expect(mockSelectWalletFn).toBeCalledTimes(3);
+      expect(mockSelectWalletFn).toBeCalledTimes(2);
     });
 
     await vi.waitFor(

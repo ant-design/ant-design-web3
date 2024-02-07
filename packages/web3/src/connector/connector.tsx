@@ -1,4 +1,4 @@
-import React, { isValidElement } from 'react';
+import React from 'react';
 import { ConnectModal } from '@ant-design/web3';
 import type { Chain, ConnectorTriggerProps, Wallet } from '@ant-design/web3-common';
 import { message } from 'antd';
@@ -25,7 +25,6 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     chain,
     switchChain,
     balance,
-    switchWallet,
     addressPrefix,
   } = useProvider(props);
   const [open, setOpen] = React.useState(false);
@@ -84,8 +83,6 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         open={open}
         walletList={availableWallets}
         onWalletSelected={async (wallet) => {
-          await switchWallet?.(wallet);
-
           if (!wallet.getQrCode) {
             // not need show qr code, hide immediately
             setOpen(false);

@@ -4,13 +4,13 @@ import { CoinbaseWallet, SolanaWeb3ConfigProvider } from '@ant-design/web3-solan
 const App: React.FC = () => {
   return (
     <SolanaWeb3ConfigProvider wallets={[CoinbaseWallet()]}>
-      <p>
+      <div>
         <BrowserLink address="GNyDA4Z7vgTzi35qRFHBa4BDjZiugycWhNGWgcJcxiMo" ellipsis />
-      </p>
+      </div>
 
-      <p>
+      <div>
         <Address address="GNyDA4Z7vgTzi35qRFHBa4BDjZiugycWhNGWgcJcxiMo" ellipsis />
-      </p>
+      </div>
 
       <NFTCard address="GNyDA4Z7vgTzi35qRFHBa4BDjZiugycWhNGWgcJcxiMo" tokenId={3332} />
     </SolanaWeb3ConfigProvider>

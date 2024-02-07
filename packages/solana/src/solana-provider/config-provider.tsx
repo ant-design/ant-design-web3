@@ -6,7 +6,6 @@ import type { WalletName } from '@solana/wallet-adapter-base';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 
 import type { SolanaChainConfig } from '../chains';
-import { isSolanaChain } from './utils';
 
 interface ConnectAsync {
   promise: Promise<void>;
@@ -75,7 +74,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
 
   // connect/disconnect wallet
   useEffect(() => {
-    if (wallet?.adapter?.name && isSolanaChain(props.currentChain)) {
+    if (wallet?.adapter?.name) {
       connect();
     } else {
       if (connected) {
@@ -133,26 +132,12 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       addressPrefix={false}
       availableChains={chainList}
       availableWallets={props.availableWallets}
-      switchWallet={async (_wallet) => {
-        const walletName = (_wallet?.name as WalletName) ?? null;
-
-        setCurrentWalletName(walletName);
-        selectWallet(walletName);
-      }}
       switchChain={async (_chain) => {
-        if (!isSolanaChain(_chain as SolanaChainConfig)) {
-          throw new Error('SolanaWeb3ConfigProvider only support Solana chain.');
-        }
-
         const foundChain = chainList.find((c) => c.id === _chain.id);
         props.onCurrentChainChange?.(foundChain ?? chainList[0]);
         selectWallet(currentWalletName);
       }}
       connect={async (_wallet) => {
-        if (!isSolanaChain(props.currentChain)) {
-          console.warn('SolanaWeb3ConfigProvider only support Solana chain.');
-        }
-
         let resolve: any;
         const promise = new Promise<void>((res) => {
           resolve = res;

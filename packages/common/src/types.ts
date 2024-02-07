@@ -72,7 +72,6 @@ export interface UniversalWeb3ProviderInterface {
 
   connect?: (wallet?: Wallet) => Promise<void>;
   disconnect?: () => Promise<void>;
-  switchWallet?: (wallet?: Wallet) => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;
 
   getNFTMetadata?: (params: { address: string; tokenId: bigint }) => Promise<NFTMetadata>;

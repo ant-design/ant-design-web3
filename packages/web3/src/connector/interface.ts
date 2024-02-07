@@ -19,5 +19,4 @@ export interface ConnectorProps {
   connect?: (wallet?: Wallet) => Promise<void>;
   disconnect?: () => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;
-  switchWallet?: (wallet?: Wallet) => Promise<void>;
 }

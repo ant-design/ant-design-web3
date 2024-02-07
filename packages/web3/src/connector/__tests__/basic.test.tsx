@@ -71,7 +71,6 @@ describe('Connector', () => {
     const onConnectCallTest = vi.fn();
     const onDisconnected = vi.fn();
     const onDisconnect = vi.fn();
-    const switchWalletFn = vi.fn();
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { account, onConnectClick, onDisconnectClick, children } = props;
       return (
@@ -103,10 +102,6 @@ describe('Connector', () => {
               },
             },
           ]}
-          switchWallet={async (wallet) => {
-            console.log('wallet:', wallet?.name);
-            switchWalletFn(wallet?.name);
-          }}
           onConnect={onConnectCallTest}
           connect={async () => {
             setAccount({
@@ -154,7 +149,6 @@ describe('Connector', () => {
       expect(onDisconnect).toBeCalled();
     });
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
-    expect(switchWalletFn).toBeCalledWith('MetaMask');
   });
 
   it('should support controlled  loading', async () => {
