@@ -97,114 +97,12 @@ describe('AntDesignWeb3ConfigProvider wallet', () => {
     vi.unmock('@ant-design/web3-common');
   });
 
-  // it('switchWallet', async () => {
-  //   const { WalletProvider, useWallet } = await import('@solana/wallet-adapter-react');
-
-  //   const CustomConnector: React.FC = () => {
-  //     const { switchWallet, availableWallets } = useProvider();
-  //     const { wallet } = useWallet();
-
-  //     return (
-  //       <div className="customconnector">
-  //         <button
-  //           className="btn-switchwallet"
-  //           onClick={() => {
-  //             switchWallet?.(availableWallets?.[1]);
-  //           }}
-  //         >
-  //           Switch Wallet
-  //         </button>
-  //         <div className="current-wallet">{wallet?.adapter?.name}</div>
-  //       </div>
-  //     );
-  //   };
-
-  //   const App = () => {
-  //     return (
-  //       <WalletProvider wallets={[]}>
-  //         <AntDesignWeb3ConfigProvider
-  //           availableChains={[solana]}
-  //           chainAssets={[Solana]}
-  //           availableWallets={[
-  //             WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet).create(),
-  //             WalletFactory(new PhantomWalletAdapter(), metadata_Phantom).create(),
-  //           ]}
-  //         >
-  //           <CustomConnector />
-  //         </AntDesignWeb3ConfigProvider>
-  //       </WalletProvider>
-  //     );
-  //   };
-
-  //   const { selector } = xrender(App);
-
-  //   const btn = selector('.btn-switchwallet')!;
-  //   expect(btn?.textContent).toBe('Switch Wallet');
-
-  //   const shownCurrentWallet = selector('.current-wallet');
-
-  //   fireEvent.click(btn);
-
-  //   await vi.waitFor(() => {
-  //     expect(shownCurrentWallet?.textContent).toBe(metadata_Phantom.name);
-  //   });
-  // });
-
-  // it('switchWallet without wallet', async () => {
-  //   const { WalletProvider } = await import('@solana/wallet-adapter-react');
-
-  //   const CustomConnector: React.FC = () => {
-  //     const { switchWallet } = useProvider();
-
-  //     return (
-  //       <div className="customconnector">
-  //         <button
-  //           className="btn-switchwallet"
-  //           onClick={() => {
-  //             switchWallet?.();
-  //           }}
-  //         >
-  //           Switch Wallet
-  //         </button>
-  //       </div>
-  //     );
-  //   };
-
-  //   const App = () => {
-  //     return (
-  //       <WalletProvider wallets={[]}>
-  //         <AntDesignWeb3ConfigProvider
-  //           availableChains={[solana]}
-  //           chainAssets={[Solana]}
-  //           availableWallets={[
-  //             WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet).create(),
-  //             WalletFactory(new PhantomWalletAdapter(), metadata_Phantom).create(),
-  //           ]}
-  //         >
-  //           <CustomConnector />
-  //         </AntDesignWeb3ConfigProvider>
-  //       </WalletProvider>
-  //     );
-  //   };
-
-  //   const { selector } = xrender(App);
-
-  //   const btn = selector('.btn-switchwallet')!;
-  //   expect(btn?.textContent).toBe('Switch Wallet');
-
-  //   fireEvent.click(btn);
-
-  //   await vi.waitFor(() => {
-  //     expect(mockSelectWalletFn).toBeCalledWith(null);
-  //   });
-  // });
-
   it('switchChain', async () => {
     const { WalletProvider, useWallet } = await import('@solana/wallet-adapter-react');
 
     const CustomConnector: React.FC = () => {
       const { switchChain } = useProvider();
-      const { wallet, connected } = useWallet();
+      const { connected } = useWallet();
 
       return (
         <div className="customconnector">
