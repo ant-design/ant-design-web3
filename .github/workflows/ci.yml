@@ -20,6 +20,10 @@ jobs:
           pnpm install
           pnpm run ci
 
+      - name: dist-test
+        run: |
+          pnpm run test:dist
+
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
