@@ -1,5 +1,11 @@
 # @ant-design/web3
 
+## 1.6.0
+
+### Minor Changes
+
+- dc8f442: fix: devUseWarning reference path
+
 ## 1.5.1
 
 ### Patch Changes
