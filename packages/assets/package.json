@@ -17,15 +17,15 @@
       "types": "./dist/esm/chains/ethereum.d.ts"
     },
     "./solana": {
-      "import": "./dist/esm/chains/solana.js",
-      "require": "./dist/lib/chains/solana.js",
-      "types": "./dist/esm/chains/solana.d.ts"
+      "import": "./dist/esm/solana/index.js",
+      "require": "./dist/lib/solana/index.js",
+      "types": "./dist/esm/solana/index.d.ts"
     }
   },
   "typesVersions": {
     "*": {
       "solana": [
-        "./dist/esm/chains/solana.d.ts"
+        "./dist/esm/solana/index.d.ts"
       ],
       "*": [
         "./dist/esm/index.d.ts"

@@ -5,8 +5,11 @@ import { defineConfig } from 'dumi';
 // utils must build before core
 // runtime must build before renderer-react
 const pkgList = readdirSync(join(__dirname, 'packages')).map((pkg) => {
+  const packageJson = require(join(__dirname, 'packages', pkg, 'package.json'));
+
   return {
-    name: require(join(__dirname, 'packages', pkg, 'package.json')).name,
+    name: packageJson.name,
+    exports: packageJson.exports,
     path: join(__dirname, 'packages', pkg, 'src'),
   };
 });
@@ -14,20 +17,19 @@ const pkgList = readdirSync(join(__dirname, 'packages')).map((pkg) => {
 const alias = pkgList.reduce(
   (pre, pkg) => {
     pre[pkg.name] = pkg.path;
+
+    // has multiple entries
+    if (pkg.exports && pkg.exports['.']) {
+      Object.keys(pkg.exports).forEach((key) => {
+        pre[`${pkg.name}/${key}`] = join(pkg.path, key);
+      });
+    }
+
     return {
       ...pre,
     };
   },
-  {
-    '@ant-design/web3-assets/solana': join(
-      __dirname,
-      'packages',
-      'assets',
-      'src',
-      'chains',
-      'solana.tsx',
-    ),
-  } as Record<string, string>,
+  {} as Record<string, string>,
 );
 
 export default defineConfig({
