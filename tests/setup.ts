@@ -1,32 +1,8 @@
 /* eslint-disable no-console */
-import { resolve } from 'path';
 import util from 'util';
 import React from 'react';
 import { cleanup } from '@testing-library/react';
 import { afterEach, vi } from 'vitest';
-
-if (process.env.LIB_DIR === 'dist') {
-  vi.mock('@ant-design/web3', async () => {
-    const web3 = await vi.importActual(resolve(__dirname, '../packages/web3/dist/esm/index'));
-    return { ...web3, __origin__: 'dist/esm' };
-  });
-  vi.mock('@ant-design/web3-assets', async () => {
-    const assets = await vi.importActual(resolve(__dirname, '../packages/assets/dist/esm/index'));
-    return { ...assets, __origin__: 'dist/esm' };
-  });
-  vi.mock('@ant-design/web3-common', async () => {
-    const common = await vi.importActual(resolve(__dirname, '../packages/common/dist/esm/index'));
-    return { ...common, __origin__: 'dist/esm' };
-  });
-  vi.mock('@ant-design/web3-icons', async () => {
-    const icons = await vi.importActual(resolve(__dirname, '../packages/icons/dist/esm/index'));
-    return { ...icons, __origin__: 'dist/esm' };
-  });
-  vi.mock('@ant-design/web3-wagmi', async () => {
-    const wagmi = await vi.importActual(resolve(__dirname, '../packages/wagmi/dist/esm/index'));
-    return { ...wagmi, __origin__: 'dist/esm' };
-  });
-}
 
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
