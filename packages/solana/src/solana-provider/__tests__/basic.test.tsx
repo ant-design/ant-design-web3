@@ -1,5 +1,6 @@
 import { useState, type FC, type PropsWithChildren } from 'react';
 import { Connector, useProvider, type ConnectorTriggerProps } from '@ant-design/web3';
+import { SolanaTestnet } from '@ant-design/web3-assets/solana';
 import type { ConnectionContextState } from '@solana/wallet-adapter-react';
 import { fireEvent, render } from '@testing-library/react';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -107,6 +108,27 @@ describe('SolanaWeb3ConfigProvider', () => {
 
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.content')?.textContent).toBe('test');
+  });
+
+  it('print error if not found chainAsset', async () => {
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const App = () => (
+      <SolanaWeb3ConfigProvider chains={[solana]} chainAssets={[SolanaTestnet]}>
+        <div>test</div>
+      </SolanaWeb3ConfigProvider>
+    );
+
+    render(<App />);
+
+    await vi.waitFor(() => {
+      expect(consoleErrorSpy).toHaveBeenCalled();
+    });
+    expect(consoleErrorSpy).toHaveBeenCalledWith(
+      `Can not find chain ${solana.id}, you should config it in SolanaWeb3ConfigProvider 'chainAssets'.`,
+    );
+
+    consoleErrorSpy.mockRestore();
   });
 
   it('available custom trigger', () => {
