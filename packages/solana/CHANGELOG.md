@@ -5,7 +5,6 @@
 ### Minor Changes
 
 - d601345: Add support for Solana
-- d601345: Add support for Solana
 
 ### Patch Changes
 
