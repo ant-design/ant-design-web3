@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.5.0
+
+### Minor Changes
+
+- 21a3e3b: feat: @ant-design/web3-common release a new version for add SolanaChainIds
+
 ## 1.4.0
 
 ### Minor Changes

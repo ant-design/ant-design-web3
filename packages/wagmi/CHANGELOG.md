@@ -1,5 +1,13 @@
 # @ant-design/web3-wagmi
 
+## 2.2.5
+
+### Patch Changes
+
+- Updated dependencies [21a3e3b]
+  - @ant-design/web3-common@1.5.0
+  - @ant-design/web3-assets@1.3.1
+
 ## 2.2.4
 
 ### Patch Changes
