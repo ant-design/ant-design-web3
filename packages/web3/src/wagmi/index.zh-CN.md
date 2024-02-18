@@ -85,7 +85,7 @@ Ant Design Web3 内置了对 [TokenPocket](https://www.tokenpocket.pro/) 的支�
 | chains | 链的配置 | [Chain](./types#chain)\[\] | - | - |
 | ens | 是否显示 ENS | `boolean` | - | - |
 | balance | 是否显示余额 | `boolean` | - | - |
-| locale | 多语言文案设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
+| locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
 | eip6963 | 是否采用 EIP6963 协议钱包以及相关配置 | `boolean` \| `EIP6963Config` | `false` | `2.2.0` |
 
 ### EIP6963Config

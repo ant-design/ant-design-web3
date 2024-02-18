@@ -62,7 +62,7 @@ order: 1
 | onMenuItemClick | 菜单项点击事件 | `(e: NonNullable<MenuProps['items']>[number]) => void` | - | - |
 | balance | 余额 | [Balance](#balance) | - | - |
 | availableChains | 可以连接的链列表 | [Chain](../types/index.zh-CN.md#chain)\[] | - | - |
-| locale | 多语言文案设置 | `Locale["ConnectButton"]` | - | - |
+| locale | 多语言设置 | `Locale["ConnectButton"]` | - | - |
 
 ### Balance
 
