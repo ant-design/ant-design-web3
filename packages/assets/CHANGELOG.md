@@ -1,5 +1,12 @@
 # @ant-design/web3-assets
 
+## 1.3.0
+
+### Minor Changes
+
+- d601345: Add support for Solana
+- d601345: Address-like components support addressPrefix prop, add solana chain configs
+
 ## 1.2.3
 
 ### Patch Changes
