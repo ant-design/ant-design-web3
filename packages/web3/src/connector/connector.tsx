@@ -1,4 +1,4 @@
-import React, { isValidElement } from 'react';
+import React from 'react';
 import { ConnectModal } from '@ant-design/web3';
 import type { Chain, ConnectorTriggerProps, Wallet } from '@ant-design/web3-common';
 import { message } from 'antd';
@@ -25,6 +25,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     chain,
     switchChain,
     balance,
+    addressPrefix,
   } = useProvider(props);
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
@@ -69,6 +70,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         balance,
         availableChains,
         chain,
+        addressPrefix,
         onSwitchChain: async (c: Chain) => {
           await switchChain?.(c);
           onChainSwitched?.(c);

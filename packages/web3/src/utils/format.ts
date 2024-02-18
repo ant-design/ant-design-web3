@@ -1,6 +1,36 @@
-export const fillWith0x = (address: string = ''): string => {
-  const filledAddress = address.startsWith('0x') ? address : `0x${address}`;
-  return filledAddress;
+/**
+ * @param address address
+ * @param prefixProp addressPrefix from props
+ * @param prefixContext addressPrefix from context
+ */
+export const fillWithPrefix = (
+  address: string = '',
+  prefixProp?: string | false,
+  prefixContext?: string | false,
+): string => {
+  let prefix = undefined;
+
+  // `0x` is the default prefix
+  if (prefixProp === undefined && prefixContext === undefined) {
+    prefix = '0x';
+  }
+
+  // has prefix be set
+  else {
+    // use props first
+    if (prefixProp !== undefined) {
+      prefix = prefixProp === false ? '' : prefixProp;
+    }
+
+    // use context
+    else if (prefixContext !== undefined) {
+      prefix = prefixContext === false ? '' : prefixContext;
+    }
+  }
+
+  if (!prefix) return address;
+
+  return address.startsWith(prefix) ? address : `${prefix}${address}`;
 };
 
 export const formatAddress = (address: string = '', groupSize = 4): string => {
@@ -22,17 +52,17 @@ export const formatAddress = (address: string = '', groupSize = 4): string => {
 export const formatBalance = (value: bigint | number, decimals: number, fixed?: number): string => {
   const bigValue = typeof value === 'bigint' ? value : BigInt(value);
   const divisor = BigInt(10 ** decimals);
-  const eth = bigValue / divisor;
-  const ethFraction = bigValue % divisor;
+  const displayValue = bigValue / divisor;
+  const fraction = bigValue % divisor;
 
-  if (ethFraction === 0n && fixed === undefined) {
-    return `${eth}`;
+  if (fraction === 0n && fixed === undefined) {
+    return `${displayValue}`;
   }
 
-  let fractionStr = ethFraction.toString().padStart(decimals, '0');
+  let fractionStr = fraction.toString().padStart(decimals, '0');
   if (fixed === undefined) {
-    return `${eth}.${fractionStr.replace(/0+$/, '')}`;
+    return `${displayValue}.${fractionStr.replace(/0+$/, '')}`;
   }
   fractionStr = fractionStr.substring(0, fixed).padEnd(fixed, '0');
-  return `${eth}.${fractionStr}`;
+  return `${displayValue}.${fractionStr}`;
 };

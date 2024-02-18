@@ -180,6 +180,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     return;
   }, [chain, chainAssets, availableChains, currentChain]);
 
+  const currency = currentChain?.nativeCurrency;
+
   return (
     <Web3ConfigProvider
       locale={locale}
@@ -192,11 +194,12 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
               symbol: balanceData?.symbol,
               value: balanceData?.value,
               decimals: balanceData?.decimals,
-              icon: currentChain?.nativeCurrency?.icon,
+              icon: currency?.icon,
             }
           : undefined
       }
       availableWallets={wallets}
+      addressPrefix="0x"
       connect={async (wallet) => {
         let connector = await (wallet as WalletUseInWagmiAdapter)?.getWagmiConnector?.();
         if (!connector && wallet) {

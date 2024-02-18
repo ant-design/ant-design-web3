@@ -1,10 +1,11 @@
 import React from 'react';
 import { Mainnet } from '@ant-design/web3-assets';
-import { fillAddressWith0x, type BrowserLinkType, type Chain } from '@ant-design/web3-common';
+import { type BrowserLinkType, type Chain } from '@ant-design/web3-common';
 import { Space, Tooltip } from 'antd';
 
 import { Address } from '../address';
 import useProvider from '../hooks/useProvider';
+import { fillWithPrefix } from '../utils';
 
 export interface BrowserLinkProps {
   icon?: boolean | React.ReactNode;
@@ -12,6 +13,7 @@ export interface BrowserLinkProps {
   iconOnly?: boolean;
   ellipsis?: boolean;
   address: string;
+  addressPrefix?: string | false;
   href?: string;
   chain?: Chain;
   type?: BrowserLinkType;
@@ -30,8 +32,18 @@ export const getBrowserLink = (
 };
 
 export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
-  const { icon, ellipsis, address, href, type, chain, name, iconOnly = false } = props;
-  const { chain: currentChain = Mainnet } = useProvider({
+  const {
+    icon,
+    ellipsis,
+    address,
+    addressPrefix: addressPrefixProp,
+    href,
+    type,
+    chain,
+    name,
+    iconOnly = false,
+  } = props;
+  const { chain: currentChain = Mainnet, addressPrefix: addressPrefixContext } = useProvider({
     chain,
   });
 
@@ -50,7 +62,7 @@ export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
     return null;
   }
 
-  const filledAddress = fillAddressWith0x(address);
+  const filledAddress = fillWithPrefix(address, addressPrefixProp, addressPrefixContext);
   const browserLink = href ?? getBrowserLink(filledAddress, type, currentChain);
 
   const renderContent = (content: React.ReactNode) => (

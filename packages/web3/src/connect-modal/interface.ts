@@ -112,6 +112,8 @@ export type ConnectModalProps = ModalProps & {
    * @descEn Custom localization configuration
    */
   locale?: Locale['ConnectModal'];
+
+  addressPrefix?: string | false;
 };
 
 export type PanelRoute = 'init' | 'guide' | 'getWallet' | 'wallet' | 'qrCode' | 'downloadQrCode';

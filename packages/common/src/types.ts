@@ -13,6 +13,12 @@ export enum ChainIds {
   Avalanche = 43_114,
 }
 
+export enum SolanaChainIds {
+  MainnetBeta = 2,
+  Devnet = 3,
+  Testnet = 4,
+}
+
 export type BrowserLinkType = 'address' | 'transaction';
 
 export type BalanceMetadata = {
@@ -60,6 +66,9 @@ export interface UniversalWeb3ProviderInterface {
   availableChains?: Chain[];
 
   extendsContextFromParent?: boolean;
+
+  /** Such as `0x` */
+  addressPrefix?: string | false;
 
   connect?: (wallet?: Wallet) => Promise<void>;
   disconnect?: () => Promise<void>;

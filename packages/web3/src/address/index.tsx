@@ -1,13 +1,14 @@
 import type { ReactNode } from 'react';
 import React, { isValidElement, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
-import type { Locale } from '@ant-design/web3-common';
+import { type Locale } from '@ant-design/web3-common';
 import type { TooltipProps } from 'antd';
 import { ConfigProvider, Space, Tooltip } from 'antd';
 import classNames from 'classnames';
 
+import { useProvider } from '../hooks';
 import useIntl from '../hooks/useIntl';
-import { fillWith0x, formatAddress, writeCopyText } from '../utils';
+import { fillWithPrefix, formatAddress, writeCopyText } from '../utils';
 import { useStyle } from './style';
 
 export interface AddressProps {
@@ -18,6 +19,7 @@ export interface AddressProps {
         tailClip?: number;
       };
   address?: string;
+  addressPrefix?: string | false;
   copyable?: boolean;
   tooltip?: boolean | TooltipProps['title'];
   format?: boolean | ((address: string) => ReactNode);
@@ -25,8 +27,18 @@ export interface AddressProps {
 }
 
 export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) => {
-  const { ellipsis, address, copyable, tooltip = true, format = false, children, locale } = props;
+  const {
+    ellipsis,
+    addressPrefix: addressPrefixProp,
+    address,
+    copyable,
+    tooltip = true,
+    format = false,
+    children,
+    locale,
+  } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { addressPrefix: addressPrefixContext } = useProvider();
   const prefixCls = getPrefixCls('web3-address');
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [copied, setCopied] = useState(false);
@@ -63,7 +75,8 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
   if (!address) {
     return null;
   }
-  const filledAddress = fillWith0x(address);
+
+  const filledAddress = fillWithPrefix(address, addressPrefixProp, addressPrefixContext);
 
   const mergedTooltip = () => {
     if (isValidElement(tooltip) || typeof tooltip === 'string') {

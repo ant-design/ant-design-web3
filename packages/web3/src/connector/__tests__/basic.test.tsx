@@ -27,6 +27,7 @@ describe('Connector', () => {
     fireEvent.click(closeBtn);
     expect(onCancelCallTest).toBeCalled();
   });
+
   it('render children', () => {
     const App = () => (
       <Connector>
@@ -149,6 +150,7 @@ describe('Connector', () => {
     });
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
   });
+
   it('should support controlled  loading', async () => {
     const App = () => {
       const [account, setAccount] = React.useState<Account | undefined>();
@@ -184,6 +186,7 @@ describe('Connector', () => {
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.anticon-loading')).toBeTruthy();
   });
+
   it('should support both of uncontrolled loading', async () => {
     const App = () => {
       const [account, setAccount] = React.useState<Account | undefined>();
@@ -226,6 +229,7 @@ describe('Connector', () => {
       expect(baseElement.querySelector('.anticon-loading')).toBeTruthy();
     });
   });
+
   it('connect throw error', async () => {
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { account, onConnectClick, onDisconnectClick, children } = props;

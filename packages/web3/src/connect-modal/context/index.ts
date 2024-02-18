@@ -6,6 +6,7 @@ import type { PanelRoute, Wallet } from '../interface';
 
 export type ConnectModalContext = {
   prefixCls: string;
+  addressPrefix?: string | false;
   selectedWallet?: Wallet;
   updateSelectedWallet: (wallet?: Wallet, triggerConnect?: boolean) => void;
   panelRoute: PanelRoute;
@@ -18,6 +19,7 @@ export type ConnectModalContext = {
 
 export const connectModalContext = React.createContext<ConnectModalContext>({
   prefixCls: 'ant-web3-connect-modal',
+  addressPrefix: undefined,
   selectedWallet: undefined,
   updateSelectedWallet: () => {},
   panelRoute: 'init',

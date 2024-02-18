@@ -1,8 +1,7 @@
 {
-  "name": "@ant-design/web3",
-  "version": "1.6.0",
-  "type": "module",
-  "main": "dist/esm/index.js",
+  "name": "@ant-design/web3-solana",
+  "version": "0.0.1",
+  "main": "dist/lib/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
   "exports": {
@@ -25,7 +24,8 @@
     "react",
     "react-component",
     "ui",
-    "web3"
+    "web3",
+    "solana"
   ],
   "homepage": "https://we3.ant.design",
   "bugs": {
@@ -40,30 +40,30 @@
     "build": "father build"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "^1.18.2",
-    "@ant-design/icons": "^5.2.6",
-    "@ant-design/web3-common": "workspace:*",
-    "@ant-design/web3-icons": "workspace:*",
     "@ant-design/web3-assets": "workspace:*",
-    "@ctrl/tinycolor": "^4.0.2",
-    "antd": "^5.12.4",
-    "classnames": "^2.3.2"
+    "@ant-design/web3-common": "workspace:*",
+    "@metaplex-foundation/js": "^0.20.1",
+    "@solana/wallet-adapter-react": "^0.15.35",
+    "@solana/wallet-adapter-wallets": "^0.19.24",
+    "debug": "^4.3.4"
   },
   "devDependencies": {
-    "@ant-design/web3-wagmi": "workspace:*",
-    "@ant-design/web3-solana": "workspace:*",
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
+    "@types/debug": "^4.1.12",
     "father": "^4.3.8",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "@solana/wallet-adapter-base": "^0.9.23"
   },
   "peerDependencies": {
-    "antd": ">=5.0.0",
-    "react": ">=17.0.0",
-    "react-dom": ">=17.0.0"
+    "@solana/web3.js": "^1.89.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
 }

@@ -1,2 +1,2 @@
 export * from './wallets';
-export * from './chains';
+export * from './chains/ethereum';
