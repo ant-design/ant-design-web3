@@ -21,7 +21,7 @@ describe('ImToken', () => {
   const wallet = ImToken().create(config.connectors);
 
   it('name', async () => {
-    expect(wallet.name).toBe('ImToken');
+    expect(wallet.name).toBe('imToken');
   });
 
   it('always return true for hasWalletReady', async () => {
