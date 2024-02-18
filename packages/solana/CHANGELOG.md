@@ -9,5 +9,4 @@
 ### Patch Changes
 
 - Updated dependencies [d601345]
-- Updated dependencies [d601345]
   - @ant-design/web3-assets@1.3.0
