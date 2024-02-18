@@ -1,5 +1,5 @@
 ---
-'@ant-design/web3-solana': major
+'@ant-design/web3-solana': minor
 '@ant-design/web3-assets': minor
 '@ant-design/web3': minor
 ---
