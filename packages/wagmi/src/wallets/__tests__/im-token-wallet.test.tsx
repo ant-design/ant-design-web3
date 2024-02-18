@@ -1,10 +1,10 @@
-import { imTokenWallet } from '@ant-design/web3-wagmi';
+import { ImToken } from '@ant-design/web3-wagmi';
 import { mainnet } from 'viem/chains';
 import { describe, expect, it } from 'vitest';
 import { createConfig, http } from 'wagmi';
 import { injected, walletConnect } from 'wagmi/connectors';
 
-describe('imTokenWallet', () => {
+describe('ImToken', () => {
   const config = createConfig({
     chains: [mainnet],
     transports: {
@@ -18,10 +18,10 @@ describe('imTokenWallet', () => {
     ],
   });
 
-  const wallet = imTokenWallet().create(config.connectors);
+  const wallet = ImToken().create(config.connectors);
 
   it('name', async () => {
-    expect(wallet.name).toBe('imToken');
+    expect(wallet.name).toBe('ImToken');
   });
 
   it('always return true for hasWalletReady', async () => {
@@ -36,7 +36,7 @@ describe('imTokenWallet', () => {
   });
 
   it('custom metadata', () => {
-    const customWallet = imTokenWallet({
+    const customWallet = ImToken({
       group: 'TestGroup',
     }).create(config.connectors);
     expect(customWallet.group).toBe('TestGroup');

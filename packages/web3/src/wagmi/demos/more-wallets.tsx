@@ -1,7 +1,7 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   CoinbaseWallet,
-  imTokenWallet,
+  ImToken,
   MetaMask,
   OkxWallet,
   SafeheronWallet,
@@ -44,7 +44,7 @@ const App: React.FC = () => {
         CoinbaseWallet(),
         SafeheronWallet(),
         OkxWallet(),
-        imTokenWallet(),
+        ImToken(),
       ]}
       config={config}
     >

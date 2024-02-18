@@ -6,7 +6,7 @@ import classnames from 'classnames';
 
 import SVGComponent from '../svgs/imtoken-circle-colorful.svg';
 
-export const ImTokenWalletCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>(
+export const ImTokenCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>(
   (props, ref) => {
     const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
     const prefixCls = getPrefixCls('web3-icon-imtoken-colorful');
@@ -20,4 +20,4 @@ export const ImTokenWalletCircleColorful = React.forwardRef<HTMLSpanElement, Ico
     );
   },
 );
-ImTokenWalletCircleColorful.displayName = 'ImTokenWalletCircleColorful';
+ImTokenCircleColorful.displayName = 'ImTokenCircleColorful';

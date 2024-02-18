@@ -6,18 +6,16 @@ import classnames from 'classnames';
 
 import SVGComponent from '../svgs/imtoken-colorful.svg';
 
-export const ImTokenWalletColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>(
-  (props, ref) => {
-    const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
-    const prefixCls = getPrefixCls('web3-icon-imtoken-colorful');
-    return (
-      <AntdIcon
-        {...props}
-        className={classnames(prefixCls, props.className)}
-        ref={ref}
-        component={SVGComponent}
-      />
-    );
-  },
-);
-ImTokenWalletColorful.displayName = 'ImTokenWalletColorful';
+export const ImTokenColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('web3-icon-imtoken-colorful');
+  return (
+    <AntdIcon
+      {...props}
+      className={classnames(prefixCls, props.className)}
+      ref={ref}
+      component={SVGComponent}
+    />
+  );
+});
+ImTokenColorful.displayName = 'ImTokenColorful';

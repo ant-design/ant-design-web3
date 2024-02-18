@@ -1,8 +1,8 @@
 import type { WalletMetadata } from '@ant-design/web3-common';
-import { ImTokenWalletColorful } from '@ant-design/web3-icons';
+import { ImTokenColorful } from '@ant-design/web3-icons';
 
 export const metadata_imToken: WalletMetadata = {
-  icon: <ImTokenWalletColorful />,
+  icon: <ImTokenColorful />,
   name: 'imToken',
   remark: 'Connect with mobile APP',
   app: {
