@@ -5,9 +5,7 @@ import { Space } from 'antd';
 const App: React.FC = () => {
   return (
     <SolanaWeb3ConfigProvider
-      rpcProvider={() =>
-        'https://mainnet.helius-rpc.com/?api-key=cec63e24-d5fd-4e7e-a2ee-5518e08b8485'
-      }
+      rpcProvider={() => `https://mainnet.helius-rpc.com/?api-key=${YOUR_HELIUS_API_KEY}`}
       wallets={[CoinbaseWallet()]}
     >
       <Space direction="vertical">
