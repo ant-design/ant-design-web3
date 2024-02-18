@@ -5,7 +5,6 @@
 ### Minor Changes
 
 - d601345: Add support for Solana
-
 ### Patch Changes
 
 - Updated dependencies [d601345]
