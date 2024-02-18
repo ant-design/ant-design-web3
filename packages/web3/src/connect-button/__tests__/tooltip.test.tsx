@@ -8,9 +8,11 @@ import { mockClipboard } from '../../utils/test-utils';
 describe('ConnectButton', () => {
   let resetMockClipboard: () => void;
   beforeEach(() => {
+    vi.useFakeTimers();
     resetMockClipboard = mockClipboard();
   });
   afterEach(() => {
+    vi.useRealTimers();
     resetMockClipboard();
   });
 
@@ -29,7 +31,7 @@ describe('ConnectButton', () => {
     rerender(<App />);
     // When the tooltip's title is string, baseElement.outerHTML does not contain '.ant-tooltip'.
     // mouseEnterDelay defaults is 0.1s and waitFakeTimer is required.
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    await vi.runAllTimersAsync();
     expect(baseElement.querySelector('.ant-tooltip')).not.toBeNull();
   });
   it('when mergedTitle does not exist, ant-tooltip toBeNull', () => {

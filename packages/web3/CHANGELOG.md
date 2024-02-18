@@ -1,5 +1,20 @@
 # @ant-design/web3
 
+## 1.6.0
+
+### Minor Changes
+
+- dc8f442: fix: devUseWarning reference path
+
+## 1.5.1
+
+### Patch Changes
+
+- b379585: fix: connect-button cannot find warning utils
+- Updated dependencies [dead69b]
+  - @ant-design/web3-common@1.4.0
+  - @ant-design/web3-assets@1.2.3
+
 ## 1.5.0
 
 ### Minor Changes

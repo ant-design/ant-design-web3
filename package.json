@@ -19,11 +19,12 @@
     "release": "pnpm run release:prepare && changeset version && changeset publish",
     "release:alpha": "pnpm run release:prepare && changeset version --snapshot alpha && changeset publish --tag alpha",
     "release:beta": "pnpm run release:prepare && changeset version --snapshot beta && changeset publish --tag beta",
-    "ci": "npm run build && npm run lint && npm run test:ci",
+    "ci": "npm run build && npm run lint && npm run test:dist && npm run test:ci",
     "test": "vitest",
+    "test:dist": "cross-env LIB_DIR=dist vitest",
     "test:update": "vitest -u",
     "test:coverage": "vitest --coverage",
-    "test:ci": "vitest --coverage",
+    "test:ci": "cross-env LIB_DIR=normal vitest --coverage",
     "lint": "pnpm run \"/^lint:.+/\"",
     "lint:eslint": "eslint --ext .ts,.tsx .",
     "eslint": "eslint . --fix",
@@ -97,5 +98,8 @@
   "engines": {
     "node": ">=18"
   },
-  "repository": "https://github.com/ant-design/ant-design-web3.git"
+  "repository": "https://github.com/ant-design/ant-design-web3.git",
+  "dependencies": {
+    "cross-env": "^7.0.3"
+  }
 }
