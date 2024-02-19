@@ -152,7 +152,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           };
         } else {
           console.error(
-            `Can not find chain ${item.id}, you should config it in WagmiWeb3ConfigProvider 'assets'.`,
+            `Can not find chain ${item.id}, you should config it in WagmiWeb3ConfigProvider 'chains'.`,
           );
           return null;
         }
