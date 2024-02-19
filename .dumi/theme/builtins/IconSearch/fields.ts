@@ -36,6 +36,7 @@ const tool = [
   'SushiSwap',
   'Phantom',
   'OkxWallet',
+  'ImToken',
 ];
 
 const datum = [...chain, ...token, ...tool];
