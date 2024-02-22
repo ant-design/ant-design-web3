@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns:xodm="http://www.corel.com/coreldraw/odm/2003" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 2500 2500" style="enable-background:new 0 0 2500 2500;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#1EEFA4;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;}
+</style>
+<g id="Layer_x0020_1">
+	<g id="_2250709451472">
+		<path class="st0" d="M1250,0L1250,0c688,0,1250,563,1250,1250l0,0c0,688-563,1250-1250,1250l0,0C562,2500,0,1937,0,1250l0,0    C0,562,563,0,1250,0z"></path>
+		<g>
+			<path d="M1384,1530c0-67,54-122,122-122h49l0,0c67,0,121,54,121,122v49c0,67-54,122-122,122h-49l0,0c-67,0-121-54-121-122V1530     L1384,1530z M1506,971L1506,971c-67,0-121,54-121,122v49c0,67,54,122,122,122h49l0,0c67,0,121-54,121-122v-49     c0-67-54-122-122-122H1506L1506,971z"></path>
+			<path class="st1" d="M946,460c-269,0-486,218-486,486v608c0,269,218,486,486,486h608c269,0,486-218,486-486V946     c0-269-218-486-486-486H946z M1554,654H946c-161,0-292,131-292,292v608c0,161,131,292,292,292h608c161,0,292-131,292-292V946     C1846,785,1715,654,1554,654L1554,654z"></path>
+		</g>
+	</g>
+</g>
+</svg>

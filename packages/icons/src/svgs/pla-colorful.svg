@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns:xodm="http://www.corel.com/coreldraw/odm/2003" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 2500 2500" style="enable-background:new 0 0 2500 2500;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#01D4C9;}
+</style>
+<g id="Layer_x0020_1">
+	<g id="_2806048578960">
+		<rect y="0" class="st0" width="2500" height="2500"></rect>
+		<path class="st1" d="M213,0h1010c675,0,1224,561,1224,1250s-549,1250-1224,1250H213c-89,0-161-74-161-165V164C52,73,124-1,213-1V0    z M651,773l674,423l276-173c27-17,58-29,89-34L847,459c-86-54-200-28-254,59s-28,201,59,255H651z M564,782c15,17,33,32,53,45    l315,198v826c0,102-83,185-184,185c-102,0-184-83-184-185V781V782z M1634,1077c86-54,200-28,254,59s28,201-59,255l-843,530    c6-22,10-45,10-69v-374L1634,1077z"></path>
+	</g>
+</g>
+</svg>

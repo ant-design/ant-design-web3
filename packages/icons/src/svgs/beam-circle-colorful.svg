@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 47 47" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="d" x2="69.924%" y1="50%" y2="50%">
+<stop stop-color="#fff" stop-opacity="0" offset="0"/>
+<stop stop-color="#fff" offset="1"/>
+</linearGradient>
+<linearGradient id="c" x1="96.834%" x2="32.057%" y1="31.578%" y2="34.803%">
+<stop stop-color="#FD76FD" stop-opacity="0" offset="0"/>
+<stop stop-color="#FF51FF" offset="1"/>
+</linearGradient>
+<linearGradient id="b" x1="95.948%" x2="45.029%" y1="44.431%" y2="44.431%">
+<stop stop-color="#5300FF" stop-opacity="0" offset="0"/>
+<stop stop-color="#9D6EFF" offset="1"/>
+</linearGradient>
+<linearGradient id="a" x1="96.966%" x2="44.149%" y1="35.409%" y2="42.312%">
+<stop stop-color="#AE60D6" stop-opacity="0" offset="0"/>
+<stop stop-color="#AB38E6" offset="1"/>
+</linearGradient>
+</defs>
+<g fill="none" fill-rule="evenodd">
+<circle cx="23.5" cy="23.5" r="23.5" fill="#000"/>
+<circle cx="23.5" cy="23.5" r="21.439" fill="#000" stroke="#fff"/>
+<g transform="translate(4.1228 6.1842)">
+<polygon points="19.267 22.103 27.137 22.103 19.269 8.4701 19.269 8.4717 19.269 0.2084 34.689 26.49 19.267 26.49" fill="#0B76FF"/>
+<polygon points="19.266 22.103 19.267 26.49 3.8436 26.49 19.264 0.2084 19.265 8.4717 19.264 8.4701 11.396 22.103" fill="#24C1FF"/>
+<polygon points="19.267 11.854 19.267 20.501 14.388 20.51" fill="#39FFF2"/>
+<polygon points="19.267 11.854 24.145 20.51 19.267 20.501" fill="#00E2C2"/>
+<polygon points="0.2239 9.1789 19.267 17.048 19.267 18.149 0.2239 13.428" fill="url(#d)"/>
+<polygon points="38.309 5.879 19.267 17.048 19.267 17.35 38.309 9.4936" fill="url(#c)"/>
+<polygon points="38.294 16.733 19.267 18.148 19.267 17.835 38.294 13.113" fill="url(#b)"/>
+<polygon points="38.309 9.6452 19.267 17.368 19.267 17.835 38.309 12.956" fill="url(#a)"/>
+</g>
+</g>
+</svg>

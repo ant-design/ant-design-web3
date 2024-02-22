@@ -1,4 +1,4 @@
-import { BitcoinCircleColorful, EthereumFilled } from '@ant-design/web3-icons';
+import { BitcoinCircleColorful, BtczCircleColorful, EthereumFilled } from '@ant-design/web3-icons';
 import { Space } from 'antd';
 
 const App: React.FC = () => {
@@ -6,6 +6,7 @@ const App: React.FC = () => {
     <Space wrap>
       <BitcoinCircleColorful />
       <EthereumFilled />
+      <BtczCircleColorful />
     </Space>
   );
 };
