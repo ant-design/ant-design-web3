@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 221.8 166.4" style="enable-background:new 0 0 221.8 166.4;" xml:space="preserve">
+<svg version="1.1" id="ant-web3-icon-merge-colorful-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 221.8 166.4" style="enable-background:new 0 0 221.8 166.4;" xml:space="preserve">
 
 <path d="M63,147.3v-39.2l-9.9,26.5L63,147.3z" style="fill: #205E2F;"/>
 <path d="M41.6,119.6l11.4,15l9.9-26.5v-0.4L41.6,119.6z" style="fill: #43B649;"/>
@@ -19,17 +19,17 @@
 <path d="M0.2,18.3L20.9,49l20.5-7.7L17,27.6L0.2,18.3z" style="fill: #2D84C6;"/>
 <path d="M41.6,80V41.5l-0.2-0.2L20.9,49L41.6,80z" style="fill: #0CA0D2;"/>
 <path d="M0,96.4v46.5v0.2l20.9-11.7l-20.7-35H0z" style="fill: #139146;"/>
-<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="0.2442" y1="697.7898" x2="41.4442" y2="697.7898" gradientTransform="matrix(1 0 0 1 0 -583.8898)">
+<linearGradient id="ant-web3-icon-merge-colorful-SVGID_1_" gradientUnits="userSpaceOnUse" x1="0.2442" y1="697.7898" x2="41.4442" y2="697.7898" gradientTransform="matrix(1 0 0 1 0 -583.8898)">
 	<stop offset="0" style="stop-color:#1E3B1C"/>
 	<stop offset="0.3548" style="stop-color:#43B649"/>
 	<stop offset="1" style="stop-color:#000000"/>
 </linearGradient>
-<path d="M0.2,96.4l20.7,35l20.5-11.7L0.2,96.4z" style="fill: url(#SVGID_1_);"/>
-<linearGradient id="SVGID_00000173130186851901483360000002026463705709516948_" gradientUnits="userSpaceOnUse" x1="0.1315" y1="732.6898" x2="41.5607" y2="732.6898" gradientTransform="matrix(1 0 0 1 0 -583.8898)">
+<path d="M0.2,96.4l20.7,35l20.5-11.7L0.2,96.4z" style="fill:url(#ant-web3-icon-merge-colorful-SVGID_1_);"/>
+<linearGradient id="ant-web3-icon-merge-colorful-SVGID_00000173130186851901483360000002026463705709516948_" gradientUnits="userSpaceOnUse" x1="0.1315" y1="732.6898" x2="41.5607" y2="732.6898" gradientTransform="matrix(1 0 0 1 0 -583.8898)">
 	<stop offset="0" style="stop-color:#1E3B1C"/>
 	<stop offset="1" style="stop-color:#000000"/>
 </linearGradient>
-<path style="fill:url(#SVGID_00000173130186851901483360000002026463705709516948_);" d="M0,143.1l17,9.5l7.7,4.2l17,9.5l-20.7-35
+<path style="fill:url(#ant-web3-icon-merge-colorful-SVGID_00000173130186851901483360000002026463705709516948_);" d="M0,143.1l17,9.5l7.7,4.2l17,9.5l-20.7-35
 	L0,143.1z"/>
 <path d="M20.9,131.4l20.7,35v-46.7L20.9,131.4z" style="fill: #205E2F;"/>
 <path d="M0.4,56.9L0,56.7v39.7l21.1-8.3L0.4,56.9z" style="fill: #76C043;"/>

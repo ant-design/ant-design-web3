@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 291 291" style="enable-background:new 0 0 291 291;" xml:space="preserve">
+<svg version="1.1" id="ant-web3-icon-bone-circle-colorful-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 291 291" style="enable-background:new 0 0 291 291;" xml:space="preserve">
 
-<radialGradient id="SVGID_1_" cx="-146.6151" cy="571.6459" r="1" gradientTransform="matrix(145.5 0 0 -145.5 21478 83319.9688)" gradientUnits="userSpaceOnUse">
+<radialGradient id="ant-web3-icon-bone-circle-colorful-SVGID_1_" cx="-146.6151" cy="571.6459" r="1" gradientTransform="matrix(145.5 0 0 -145.5 21478 83319.9688)" gradientUnits="userSpaceOnUse">
 	<stop offset="0" style="stop-color:#FFA1A1"/>
 	<stop offset="0.1828" style="stop-color:#FF7E7E"/>
 	<stop offset="0.5731" style="stop-color:#FF3A3A"/>
 	<stop offset="0.8559" style="stop-color:#FF1010"/>
 	<stop offset="1" style="stop-color:#FF0000"/>
 </radialGradient>
-<circle cx="145.5" cy="145.5" r="145.5" style="fill: url(#SVGID_1_);"/>
+<circle cx="145.5" cy="145.5" r="145.5" style="fill:url(#ant-web3-icon-bone-circle-colorful-SVGID_1_);"/>
 <path d="M169.6,185.2l27.1,26.1c-3.7,2.8-6.1,7.2-6.1,12.2c0,8.5,6.9,15.4,15.5,15.4c8.5,0,15.5-6.9,15.5-15.4
 	c0-0.7-0.1-1.4-0.2-2.1c0.7,0.1,1.4,0.2,2.1,0.2c8.5,0,15.5-6.9,15.5-15.4c0-8.5-6.9-15.4-15.5-15.4c-4.9,0-9.3,2.3-12.1,5.9
 	L184,170.3C173.7,169.9,169.1,175.1,169.6,185.2z" style="fill: #ECEDED;"/>
