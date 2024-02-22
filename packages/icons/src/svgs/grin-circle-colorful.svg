@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 191 191" style="enable-background:new 0 0 191 191;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#FEF102;}
-</style>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 191 191" style="enable-background:new 0 0 191 191;" xml:space="preserve">
+
 <circle cx="95.5" cy="95.5" r="95.5"/>
-<circle class="st0" cx="95.3" cy="95.5" r="85.3"/>
+<circle cx="95.3" cy="95.5" r="85.3" style="fill: #FEF102;"/>
 <path d="M135.7,63.5c-2-4.6-3.9-13.6-9.1-15.6c-6.7-2.6-10.9,14.3-11.9,18.6h-1c-1.7-7.3-4-17.7-12-20c-3.7,15.6,3.9,32.5,11,46
 	c7.6-3.6,11.3-15,12-23h1l8,24c6.4-1.8,8.7-8.2,11-14c5-12.4,9.2-27.7,6-41C141.1,41.2,138.2,55,135.7,63.5 M39.7,95.5
 	c8.6-4.1,12.7-17.1,14-26h1c1,4.3,3.7,15.4,9.1,16.1c6.8,0.9,10.4-14.3,10.9-19.1h1c2.2,7.5,4.5,17.3,12,21
