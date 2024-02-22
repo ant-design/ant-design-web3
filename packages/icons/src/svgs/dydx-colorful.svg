@@ -8,7 +8,7 @@
 			<stop offset="0" style="stop-color:#2C2C3D"/>
 			<stop offset="1" style="stop-color:#1A1A27"/>
 		</linearGradient>
-		<path d="M511.2,0h1477.6C2272.4,0,2500,227.6,2500,511.2v1477.6c0,283.6-227.6,511.2-511.2,511.2H511.2    C227.6,2500,0,2272.4,0,1988.8V511.2C0,227.6,227.6,0,511.2,0z" style="fill:url(#ant-web3-icon-dydx-colorful-SVGID_1_);"/>
+		<path d="M511.2,0h1477.6C2272.4,0,2500,227.6,2500,511.2v1477.6c0,283.6-227.6,511.2-511.2,511.2H511.2    C227.6,2500,0,2272.4,0,1988.8V511.2C0,227.6,227.6,0,511.2,0z" style="fill: url(#ant-web3-icon-dydx-colorful-SVGID_1_);"/>
 		<g>
 			<polygon points="1573.2,567.3 600.3,1932.7 897.1,1932.7 1873.4,567.3    " style="fill: #FFFFFF;"/>
 			

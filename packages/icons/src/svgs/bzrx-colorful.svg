@@ -6,7 +6,7 @@
 	<stop offset="0.1594" style="stop-color:#003CDA"/>
 	<stop offset="1" style="stop-color:#33DFCC"/>
 </linearGradient>
-<path d="M0,16C0,7.2,7.2,0,16,0h48c8.8,0,16,7.2,16,16v48c0,8.8-7.2,16-16,16H16C7.2,80,0,72.8,0,64V16z" style="fill:url(#ant-web3-icon-bzrx-colorful-SVGID_1_);"/>
+<path d="M0,16C0,7.2,7.2,0,16,0h48c8.8,0,16,7.2,16,16v48c0,8.8-7.2,16-16,16H16C7.2,80,0,72.8,0,64V16z" style="fill: url(#ant-web3-icon-bzrx-colorful-SVGID_1_);"/>
 <path d="M32,0h-8v18.4h8V0z" style="fill: #FFFFFF;"/>
 <path d="M45.5,56.7H34.9c-6,0-10.9-4.9-10.9-10.9V38h8v7.7c0,1.6,1.3,2.9,2.9,2.9h10.6c1.6,0,2.9-1.3,2.9-2.9V35.2
 	c0-1.6-1.3-2.9-2.9-2.9H0v-8h45.5c6,0,10.9,4.9,10.9,10.9v10.6C56.4,51.8,51.5,56.7,45.5,56.7z" style="fill: #FFFFFF;"/>

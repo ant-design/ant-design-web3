@@ -13,11 +13,11 @@
 	</defs>
 	
 		<mask maskUnits="userSpaceOnUse" x="5.2" y="4.1" width="39.7" height="62.2" id="ant-web3-icon-yooshi-circle-colorful-mask-2_00000091705656252258425660000000787210855926554258_">
-		<g style="filter:url(#ant-web3-icon-yooshi-circle-colorful-Adobe_OpacityMaskFilter);">
+		<g style="filter: url(#ant-web3-icon-yooshi-circle-colorful-Adobe_OpacityMaskFilter);">
 			<circle id="ant-web3-icon-yooshi-circle-colorful-path-1_00000052064544253088881570000002472190182971880112_" cx="25" cy="25" r="25" style="fill-rule: evenodd; clip-rule: evenodd; fill: #FFFFFF;"/>
 		</g>
 	</mask>
-	<g id="ant-web3-icon-yooshi-circle-colorful-edit-group-10" style="mask:url(#ant-web3-icon-yooshi-circle-colorful-mask-2_00000091705656252258425660000000787210855926554258_);">
+	<g id="ant-web3-icon-yooshi-circle-colorful-edit-group-10" style="mask: url(#ant-web3-icon-yooshi-circle-colorful-mask-2_00000091705656252258425660000000787210855926554258_);">
 		<g id="ant-web3-icon-yooshi-circle-colorful-edit-group" transform="translate(5.612245, 4.387755)">
 			<g transform="translate(0.000000, 0.000000)">
 				<g transform="translate(-0.000000, 0.000000)">
@@ -42,7 +42,7 @@
 						</mask>
 						<path id="ant-web3-icon-yooshi-circle-colorful-Fill-3" d="M2.8,0C2.8,0,0,8.9,0,12.4l0,0c0,3.5,1.7,9.9,1.7,9.9l0,0c0,0-1.4,1.2-0.5,2.7l0,0H8l0.9-6.1
 							l2,0l0.8,3.7c-1.2,1.7,0.2,2.4,0.2,2.4l0,0h6.8l0.6-6.4c0,0,4.6-0.5,6-4.2l0,0c-2.4,0-6.1-2.7-6.4-3.8l0,0C18.5,9.5,17,0,17,0
-							l0,0H2.8z" style="mask:url(#ant-web3-icon-yooshi-circle-colorful-mask-4_00000116917371200868130200000015472001115774130058_); fill: none;"/>
+							l0,0H2.8z" style="mask: url(#ant-web3-icon-yooshi-circle-colorful-mask-4_00000116917371200868130200000015472001115774130058_); fill: none;"/>
 					</g>
 					<g transform="translate(9.358000, 36.568843)">
 						
@@ -73,7 +73,7 @@
 										C1.7,0-1.5,5.7,0.9,6.6" style="fill-rule: evenodd; clip-rule: evenodd; fill: #FFFFFF;"/>
 								</g>
 							</mask>
-							<path id="ant-web3-icon-yooshi-circle-colorful-Fill-11" d="M0.9,6.6C3.2,7.4,6,2,6,2l0,0L1.7,0C1.7,0-1.5,5.7,0.9,6.6" style="mask:url(#ant-web3-icon-yooshi-circle-colorful-mask-7_00000152257679461119298200000009922484166457955468_); fill: none;"/>
+							<path id="ant-web3-icon-yooshi-circle-colorful-Fill-11" d="M0.9,6.6C3.2,7.4,6,2,6,2l0,0L1.7,0C1.7,0-1.5,5.7,0.9,6.6" style="mask: url(#ant-web3-icon-yooshi-circle-colorful-mask-7_00000152257679461119298200000009922484166457955468_); fill: none;"/>
 						</g>
 						<g id="ant-web3-icon-yooshi-circle-colorful-Fill-11backup-Clipped">
 							<g id="ant-web3-icon-yooshi-circle-colorful-path-8_00000107572063556382639280000017561929124290836359_">
@@ -118,7 +118,7 @@
 										C7.1,6,4.1,0,4.1,0l0,0L0,2.6z" style="fill-rule: evenodd; clip-rule: evenodd; fill: #FFFFFF;"/>
 								</g>
 							</mask>
-							<path id="ant-web3-icon-yooshi-circle-colorful-Fill-13" d="M0,2.6c0,0,2.4,4.9,4.7,4.1l0,0C7.1,6,4.1,0,4.1,0l0,0L0,2.6z" style="mask:url(#ant-web3-icon-yooshi-circle-colorful-mask-12_00000065770954105195124670000017287811827783251083_); fill: none;"/>
+							<path id="ant-web3-icon-yooshi-circle-colorful-Fill-13" d="M0,2.6c0,0,2.4,4.9,4.7,4.1l0,0C7.1,6,4.1,0,4.1,0l0,0L0,2.6z" style="mask: url(#ant-web3-icon-yooshi-circle-colorful-mask-12_00000065770954105195124670000017287811827783251083_); fill: none;"/>
 						</g>
 						<g id="ant-web3-icon-yooshi-circle-colorful-Fill-13backup-Clipped">
 							<g id="ant-web3-icon-yooshi-circle-colorful-path-13_00000052083343758383902140000007948577694941484162_">

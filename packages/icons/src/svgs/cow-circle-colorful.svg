@@ -9,7 +9,7 @@
 	<stop offset="0.766" style="stop-color:#0E0D0D"/>
 	<stop offset="1" style="stop-color:#000000"/>
 </linearGradient>
-<path d="M600,300c0,165.7-134.3,300-300,300S0,465.7,0,300S134.3,0,300,0S600,134.3,600,300z" style="fill:url(#ant-web3-icon-cow-circle-colorful-SVGID_1_);"/>
+<path d="M600,300c0,165.7-134.3,300-300,300S0,465.7,0,300S134.3,0,300,0S600,134.3,600,300z" style="fill: url(#ant-web3-icon-cow-circle-colorful-SVGID_1_);"/>
 <linearGradient id="ant-web3-icon-cow-circle-colorful-SVGID_00000023976467625729153770000003855256142524735384_" gradientUnits="userSpaceOnUse" x1="83" y1="279.8898" x2="516.4041" y2="279.8898" gradientTransform="matrix(1 0 0 -1 0 599.8898)">
 	<stop offset="0.344" style="stop-color:#FFFFFF"/>
 	<stop offset="0.495" style="stop-color:#8D9ACA"/>

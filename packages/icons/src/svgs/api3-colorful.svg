@@ -14,7 +14,7 @@
 				<stop offset="0.549" style="stop-color:#FDFDFD"/>
 				<stop offset="1" style="stop-color:#FFFFFF"/>
 			</linearGradient>
-			<path d="M318,2075h377l346-1311L303,2049c-10,10,0,26,16,26H318z" style="fill-rule: evenodd; clip-rule: evenodd; fill:url(#ant-web3-icon-api3-colorful-SVGID_1_);"/>
+			<path d="M318,2075h377l346-1311L303,2049c-10,10,0,26,16,26H318z" style="fill-rule: evenodd; clip-rule: evenodd; fill: url(#ant-web3-icon-api3-colorful-SVGID_1_);"/>
 			
 				<linearGradient id="ant-web3-icon-api3-colorful-SVGID_00000151518366963742479110000009879250187584820389_" gradientUnits="userSpaceOnUse" x1="952.2007" y1="1550.033" x2="951.5259" y2="1548.0045" gradientTransform="matrix(1512.0037 0 0 -346 -1437785.5 538038.375)">
 				<stop offset="0" style="stop-color:#C3C4C3"/>

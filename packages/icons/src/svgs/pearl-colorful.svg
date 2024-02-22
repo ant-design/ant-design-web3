@@ -48,5 +48,5 @@
 	<stop offset="5.586592e-03" style="stop-color:#F2F2F2"/>
 	<stop offset="1" style="stop-color:#FFFFFF"/>
 </linearGradient>
-<circle cx="237" cy="237.1" r="36.5" style="fill:url(#ant-web3-icon-pearl-colorful-SVGID_1_);"/>
+<circle cx="237" cy="237.1" r="36.5" style="fill: url(#ant-web3-icon-pearl-colorful-SVGID_1_);"/>
 </svg>

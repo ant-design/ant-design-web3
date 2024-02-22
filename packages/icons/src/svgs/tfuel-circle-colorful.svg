@@ -10,7 +10,7 @@
 				<stop offset="0" style="stop-color:#FFA50D"/>
 				<stop offset="1" style="stop-color:#FE5413"/>
 			</linearGradient>
-			<path id="ant-web3-icon-tfuel-circle-colorful-SVGID_1_" d="M500,0c276.1,0,500,223.9,500,500s-223.9,500-500,500S0,776.1,0,500S223.9,0,500,0L500,0z" style="fill:url(#ant-web3-icon-tfuel-circle-colorful-SVGID_2_);"/>
+			<path id="ant-web3-icon-tfuel-circle-colorful-SVGID_1_" d="M500,0c276.1,0,500,223.9,500,500s-223.9,500-500,500S0,776.1,0,500S223.9,0,500,0L500,0z" style="fill: url(#ant-web3-icon-tfuel-circle-colorful-SVGID_2_);"/>
 		</g>
 	</g>
 	<g>
@@ -28,7 +28,7 @@
 				<stop offset="0" style="stop-color:#FFA50D"/>
 				<stop offset="1" style="stop-color:#FE5413"/>
 			</linearGradient>
-			<polygon id="ant-web3-icon-tfuel-circle-colorful-SVGID_6_" points="349,522 349,619 452,619 452,722 549,722 549,619 652,619 652,522 			" style="fill:url(#ant-web3-icon-tfuel-circle-colorful-SVGID_3_);"/>
+			<polygon id="ant-web3-icon-tfuel-circle-colorful-SVGID_6_" points="349,522 349,619 452,619 452,722 549,722 549,619 652,619 652,522 			" style="fill: url(#ant-web3-icon-tfuel-circle-colorful-SVGID_3_);"/>
 		</g>
 	</g>
 </g>

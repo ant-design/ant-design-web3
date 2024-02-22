@@ -8,7 +8,7 @@
 	<stop offset="0" style="stop-color:#002D74"/>
 	<stop offset="1" style="stop-color:#002D74;stop-opacity:0"/>
 </linearGradient>
-<path d="M60.1,138.8l60-34.7V34.7L60.1,0v20.6L102.3,45v48.9l-42.3,24.4V138.8z" style="fill:url(#ant-web3-icon-cro-colorful-SVGID_1_);"/>
+<path d="M60.1,138.8l60-34.7V34.7L60.1,0v20.6L102.3,45v48.9l-42.3,24.4V138.8z" style="fill: url(#ant-web3-icon-cro-colorful-SVGID_1_);"/>
 <linearGradient id="ant-web3-icon-cro-colorful-SVGID_00000034064843000503835000000005854543727190432132_" gradientUnits="userSpaceOnUse" x1="30.0233" y1="139.8898" x2="30.0233" y2="70.4884" gradientTransform="matrix(1 0 0 -1 0 139.8898)">
 	<stop offset="0" style="stop-color:#002D74"/>
 	<stop offset="1" style="stop-color:#002D74;stop-opacity:0"/>

@@ -9,7 +9,7 @@
 	<stop offset="0.8559" style="stop-color:#FF1010"/>
 	<stop offset="1" style="stop-color:#FF0000"/>
 </radialGradient>
-<circle cx="145.5" cy="145.5" r="145.5" style="fill:url(#ant-web3-icon-bone-circle-colorful-SVGID_1_);"/>
+<circle cx="145.5" cy="145.5" r="145.5" style="fill: url(#ant-web3-icon-bone-circle-colorful-SVGID_1_);"/>
 <path d="M169.6,185.2l27.1,26.1c-3.7,2.8-6.1,7.2-6.1,12.2c0,8.5,6.9,15.4,15.5,15.4c8.5,0,15.5-6.9,15.5-15.4
 	c0-0.7-0.1-1.4-0.2-2.1c0.7,0.1,1.4,0.2,2.1,0.2c8.5,0,15.5-6.9,15.5-15.4c0-8.5-6.9-15.4-15.5-15.4c-4.9,0-9.3,2.3-12.1,5.9
 	L184,170.3C173.7,169.9,169.1,175.1,169.6,185.2z" style="fill: #ECEDED;"/>

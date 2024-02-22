@@ -15,7 +15,7 @@
 			<stop offset="0" style="stop-color:#FFC900"/>
 			<stop offset="1" style="stop-color:#FF9700"/>
 		</linearGradient>
-		<circle cx="422.3" cy="422.3" r="407.3" style="fill:url(#ant-web3-icon-cats-colorful-SVGID_1_);"/>
+		<circle cx="422.3" cy="422.3" r="407.3" style="fill: url(#ant-web3-icon-cats-colorful-SVGID_1_);"/>
 		<path d="M830.4,421.7c0-98.8-35.2-189.3-93.7-259.9l-68.1-42.1l-46.5,49L172.9,680.1L382.3,827c13.4,1.3,27,2,40.7,2
 			C648,829,830.4,646.6,830.4,421.7z" style="fill: #EFC700;"/>
 	</g>
@@ -186,7 +186,7 @@
 										c7.1,14.1,10.1,28.7,1,47c-1,2-32,23-68,23C206.3,466,182.6,410,213.2,368.1z"/>
 								</defs>
 								<clipPath id="ant-web3-icon-cats-colorful-SVGID_00000002347305094444013770000004293999043656273584_">
-									<use xlink:href="#SVGID_00000112607653115742387600000010940624443273382784_" style="overflow:visible;"/>
+									<use xlink:href="#ant-web3-icon-cats-colorful-SVGID_00000112607653115742387600000010940624443273382784_" style="overflow:visible;"/>
 								</clipPath>
 								<path style="clip-path:url(#ant-web3-icon-cats-colorful-SVGID_00000002347305094444013770000004293999043656273584_);fill:#FEFEFE;" d="M347.7,356.9
 									c15.6,8.8,23.7,86.6,23,101.1c-0.6,14.5-74.1,29.4-97.1,33c-73.3,5.7-116.9-84.1-86.1-155.1
@@ -198,7 +198,7 @@
 										c7.1,14.1,10.1,28.7,1,47c-1,2-32,23-68,23C206.3,466,182.6,410,213.2,368.1z"/>
 								</defs>
 								<clipPath id="ant-web3-icon-cats-colorful-SVGID_00000016055877052972223200000007816021861932290945_">
-									<use xlink:href="#SVGID_00000085241625288540863130000018128259761685086888_" style="overflow:visible;"/>
+									<use xlink:href="#ant-web3-icon-cats-colorful-SVGID_00000085241625288540863130000018128259761685086888_" style="overflow:visible;"/>
 								</clipPath>
 								<g style="clip-path:url(#ant-web3-icon-cats-colorful-SVGID_00000016055877052972223200000007816021861932290945_);">
 									<g>
@@ -297,7 +297,7 @@
 										c-9.1-18.3-6.1-32.9,1-47c15.3-30.3,118.6-38.7,126.5-27.8C664.6,410,640.9,466,574.5,466z"/>
 								</defs>
 								<clipPath id="ant-web3-icon-cats-colorful-SVGID_00000063618085691302659900000016425362639379514503_">
-									<use xlink:href="#SVGID_00000105417810771862153860000004872224606687436469_" style="overflow:visible;"/>
+									<use xlink:href="#ant-web3-icon-cats-colorful-SVGID_00000105417810771862153860000004872224606687436469_" style="overflow:visible;"/>
 								</clipPath>
 								<path style="clip-path:url(#ant-web3-icon-cats-colorful-SVGID_00000063618085691302659900000016425362639379514503_);fill:#2B293A;" d="M499.4,356.9
 									c-15.6,8.8-23.7,86.6-23,101.1c0.6,14.5,74.1,29.4,97.1,33c73.3,5.7,116.9-84.1,86.1-155.1
@@ -309,7 +309,7 @@
 										c-9.1-18.3-6.1-32.9,1-47c15.3-30.3,118.6-38.7,126.5-27.8C664.6,410,640.9,466,574.5,466z"/>
 								</defs>
 								<clipPath id="ant-web3-icon-cats-colorful-SVGID_00000181073745927223840800000000521902237884792974_">
-									<use xlink:href="#SVGID_00000092445649793003498500000018369092325071332510_" style="overflow:visible;"/>
+									<use xlink:href="#ant-web3-icon-cats-colorful-SVGID_00000092445649793003498500000018369092325071332510_" style="overflow:visible;"/>
 								</clipPath>
 								<g style="clip-path:url(#ant-web3-icon-cats-colorful-SVGID_00000181073745927223840800000000521902237884792974_);">
 									<g>
@@ -441,7 +441,7 @@
 										c7.1,14.1,10.1,28.7,1,47c-1,2-32,23-68,23C206.4,466,182.7,410,213.3,368.1z"/>
 								</defs>
 								<clipPath id="ant-web3-icon-cats-colorful-SVGID_00000036246778528979802470000017051953164969607348_">
-									<use xlink:href="#SVGID_00000138567706746249945100000004812757010479153596_" style="overflow:visible;"/>
+									<use xlink:href="#ant-web3-icon-cats-colorful-SVGID_00000138567706746249945100000004812757010479153596_" style="overflow:visible;"/>
 								</clipPath>
 								<path style="clip-path:url(#ant-web3-icon-cats-colorful-SVGID_00000036246778528979802470000017051953164969607348_);fill:#2B293A;" d="M499.4,356.9
 									c-15.6,8.8-23.7,86.6-23,101.1c0.6,14.5,74.1,29.4,97.1,33c73.3,5.7,116.9-84.1,86.1-155.1
@@ -453,7 +453,7 @@
 										c7.1,14.1,10.1,28.7,1,47c-1,2-32,23-68,23C206.4,466,182.7,410,213.3,368.1z"/>
 								</defs>
 								<clipPath id="ant-web3-icon-cats-colorful-SVGID_00000090989892069780712650000001209557657999528369_">
-									<use xlink:href="#SVGID_00000038373814282783248840000017670629102880820415_" style="overflow:visible;"/>
+									<use xlink:href="#ant-web3-icon-cats-colorful-SVGID_00000038373814282783248840000017670629102880820415_" style="overflow:visible;"/>
 								</clipPath>
 								<g style="clip-path:url(#ant-web3-icon-cats-colorful-SVGID_00000090989892069780712650000001209557657999528369_);">
 									<g>

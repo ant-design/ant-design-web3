@@ -6,7 +6,7 @@
 	<stop offset="1.800000e-02" style="stop-color:#CB1A4F"/>
 	<stop offset="0.415" style="stop-color:#E51B44"/>
 </linearGradient>
-<circle cx="137" cy="137" r="137" style="fill:url(#ant-web3-icon-meld-circle-colorful-SVGID_1_);"/>
+<circle cx="137" cy="137" r="137" style="fill: url(#ant-web3-icon-meld-circle-colorful-SVGID_1_);"/>
 <path d="M198.6,125.5l-16.7-47.4c-0.8-2.2-2.4-4.2-4.3-5.5s-4.3-2.1-6.7-2.1h-0.1c-5,0-9.4,3-11,7.6l-22.9,65.5
 	l-22.9-65.5c-1.7-4.6-6.1-7.6-11-7.6H103c-2.4,0-4.7,0.7-6.7,2.1c-2,1.4-3.5,3.3-4.3,5.6l-16.6,47.4h-16c-6.5,0-11.7,5-11.7,11.2
 	s5.2,11.2,11.7,11.2h8.2l-9.4,26.6c-2,5.8,1.2,12.2,7.3,14.2c1.2,0.4,2.5,0.6,3.7,0.6c4.9,0,9.4-3,11-7.6l23-65.2l22.8,65.3

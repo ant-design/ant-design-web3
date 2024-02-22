@@ -6,7 +6,7 @@
 	<stop offset="0" style="stop-color:#0057FF"/>
 	<stop offset="1" style="stop-color:#00A3FF"/>
 </linearGradient>
-<path d="M0,0v9.2l24.2,13.5L0,36.8h20c6.4,0,11.5-4.5,11.5-10.1v-8.3L0,0z" style="fill:url(#ant-web3-icon-deso-colorful-SVGID_1_);"/>
+<path d="M0,0v9.2l24.2,13.5L0,36.8h20c6.4,0,11.5-4.5,11.5-10.1v-8.3L0,0z" style="fill: url(#ant-web3-icon-deso-colorful-SVGID_1_);"/>
 <linearGradient id="ant-web3-icon-deso-colorful-SVGID_00000171704973816211991440000012006003443304955031_" gradientUnits="userSpaceOnUse" x1="13.2608" y1="28.0186" x2="33.6546" y2="33.4056" gradientTransform="matrix(1 0 0 -1 0 37.8898)">
 	<stop offset="0" style="stop-color:#0283FF"/>
 	<stop offset="1" style="stop-color:#01C2FF"/>

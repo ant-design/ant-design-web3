@@ -11,7 +11,7 @@
 			<stop offset="0.63" style="stop-color:#0BC27E"/>
 			<stop offset="0.79" style="stop-color:#04E087"/>
 		</linearGradient>
-		<circle cx="295.8" cy="295.8" r="295.8" style="fill:url(#ant-web3-icon-2key-circle-colorful-SVGID_1_);"/>
+		<circle cx="295.8" cy="295.8" r="295.8" style="fill: url(#ant-web3-icon-2key-circle-colorful-SVGID_1_);"/>
 		
 			<image style="overflow:visible;opacity:0.2;enable-background:new    ;" width="473" height="381" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAdkAAAF9CAYAAABIyhL6AAAACXBIWXMAAAsSAAALEgHS3X78AAAg
 AElEQVR4Xuyd7XbjOKxsIaf7nPd/3HumY90fCdrlchVAyk7HSVhrcRGiKIofIHaopGe2fd9jaWlp

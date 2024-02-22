@@ -10,9 +10,9 @@
 	</filter>
 </defs>
 <mask maskUnits="userSpaceOnUse" x="0" y="0" width="2000" height="2000" id="ant-web3-icon-husd-circle-colorful-a_1_">
-	<path d="M0,0h2000v2000H0V0z" style="fill-rule: evenodd; clip-rule: evenodd; fill: #FFFFFF; filter:url(#ant-web3-icon-husd-circle-colorful-Adobe_OpacityMaskFilter);"/>
+	<path d="M0,0h2000v2000H0V0z" style="fill-rule: evenodd; clip-rule: evenodd; fill: #FFFFFF; filter: url(#ant-web3-icon-husd-circle-colorful-Adobe_OpacityMaskFilter);"/>
 </mask>
-<g style="mask:url(#ant-web3-icon-husd-circle-colorful-a_1_);">
+<g style="mask: url(#ant-web3-icon-husd-circle-colorful-a_1_);">
 	<path d="M1419,1579.4h-212.9v-366.5c0-58.7-47.5-106.4-106.2-106.4c0,0-0.1,0-0.1,0h-306
 		c-117.5,0-212.8-95.3-212.8-212.8v-473h212.8v366.6c0,58.7,47.6,106.4,106.3,106.4c0,0,0,0,0,0h306
 		c117.5,0.1,212.7,95.3,212.8,212.8L1419,1579.4z M801.2,1579.4H588.3v-357.4c117.5,0,212.8,95.2,212.8,212.8L801.2,1579.4z

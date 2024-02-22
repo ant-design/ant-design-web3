@@ -12,7 +12,7 @@
 		<stop offset="0.7804" style="stop-color:#B6CDE2"/>
 		<stop offset="1" style="stop-color:#B7D0E1"/>
 	</linearGradient>
-	<polygon points="0,1259 756,0 756,941 	" style="fill:url(#ant-web3-icon-ethw-colorful-SVGID_1_);"/>
+	<polygon points="0,1259 756,0 756,941 	" style="fill: url(#ant-web3-icon-ethw-colorful-SVGID_1_);"/>
 	
 		<linearGradient id="ant-web3-icon-ethw-colorful-SVGID_00000150096747408209408200000006286286217726430623_" gradientUnits="userSpaceOnUse" x1="4850.7891" y1="2935.7253" x2="3845.9304" y2="1923.8612" gradientTransform="matrix(1 0 0 1 0 1658.1101)">
 		<stop offset="0" style="stop-color:#B2DBF5"/>

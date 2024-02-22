@@ -8,9 +8,9 @@
 		<rect id="ant-web3-icon-zlw-circle-colorful-SVGID_1_" width="27.9" height="28"/>
 	</defs>
 	<clipPath id="ant-web3-icon-zlw-circle-colorful-SVGID_2_">
-		<use xlink:href="#SVGID_1_" style="overflow:visible;"/>
+		<use xlink:href="#ant-web3-icon-zlw-circle-colorful-SVGID_1_" style="overflow:visible;"/>
 	</clipPath>
-	<g style="clip-path:url(#ant-web3-icon-zlw-circle-colorful-SVGID_2_);">
+	<g style="clip-path: url(#ant-web3-icon-zlw-circle-colorful-SVGID_2_);">
 		<path d="M27.9,14c0,7.7-6.3,14-13.9,14C6.3,28,0,21.7,0,14C0,6.2,6.3,0,13.9,0C21.6,0,27.9,6.3,27.9,14z M13.9,1.6
 			C7.2,1.6,1.6,7.3,1.6,14c0,6.7,5.6,12.3,12.3,12.3c6.7,0,12.3-5.6,12.3-12.3C26.3,7.2,20.6,1.6,13.9,1.6z" style="fill: #F9C910;"/>
 		<path d="M5,19c-1.8-3.1-1.8-7.5,0.3-10.7l3.5,3.5c0,0-0.6,1.4-0.3,2.9l-1.2,1.4c-0.7-1.9-0.2-4-0.2-4L5.8,11

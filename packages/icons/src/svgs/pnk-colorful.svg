@@ -14,7 +14,7 @@
 			<stop offset="0.8592" style="stop-color:#7C7C80"/>
 			<stop offset="1" style="stop-color:#707073"/>
 		</linearGradient>
-		<polygon points="157.4,329.9 577,148.4 516.2,597.7 		" style="fill:url(#ant-web3-icon-pnk-colorful-SVGID_1_);"/>
+		<polygon points="157.4,329.9 577,148.4 516.2,597.7 		" style="fill: url(#ant-web3-icon-pnk-colorful-SVGID_1_);"/>
 		
 			<linearGradient id="ant-web3-icon-pnk-colorful-SVGID_2_" gradientUnits="userSpaceOnUse" x1="154.5822" y1="400.2483" x2="452.7339" y2="695.5228" gradientTransform="matrix(1 0 0 -1 0 724.16)">
 			<stop offset="0" style="stop-color:#969598"/>
@@ -22,7 +22,7 @@
 			<stop offset="0.7917" style="stop-color:#7F7F82"/>
 			<stop offset="1" style="stop-color:#757578"/>
 		</linearGradient>
-		<polygon points="577,148.4 236,0.4 157.4,329.9 		" style="fill:url(#ant-web3-icon-pnk-colorful-SVGID_2_);"/>
+		<polygon points="577,148.4 236,0.4 157.4,329.9 		" style="fill: url(#ant-web3-icon-pnk-colorful-SVGID_2_);"/>
 		
 			<linearGradient id="ant-web3-icon-pnk-colorful-SVGID_3_" gradientUnits="userSpaceOnUse" x1="177.5621" y1="404.4149" x2="336.8316" y2="88.5752" gradientTransform="matrix(1 0 0 -1 0 724.16)">
 			<stop offset="0" style="stop-color:#9E9EA0"/>
@@ -32,7 +32,7 @@
 			<stop offset="0.8777" style="stop-color:#69696D"/>
 			<stop offset="1" style="stop-color:#55565A"/>
 		</linearGradient>
-		<polygon points="157.4,329.9 165.4,689.3 516.2,597.7 		" style="fill:url(#ant-web3-icon-pnk-colorful-SVGID_3_);"/>
+		<polygon points="157.4,329.9 165.4,689.3 516.2,597.7 		" style="fill: url(#ant-web3-icon-pnk-colorful-SVGID_3_);"/>
 		<polygon points="577,148.4 641.4,18.5 236,0.4 		" style="fill: #757578;"/>
 		<polygon points="641.4,18.5 807.9,382.6 577,148.4 		" style="fill: #6C6D70;"/>
 		<polygon points="807.9,382.6 574.8,714.1 516.2,597.7 		" style="fill: #6C6D70;"/>

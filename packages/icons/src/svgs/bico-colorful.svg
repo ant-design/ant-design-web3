@@ -6,7 +6,7 @@
 	<stop offset="0" style="stop-color:#8D3308"/>
 	<stop offset="1" style="stop-color:#8D3308"/>
 </linearGradient>
-<rect width="200" height="200" style="fill:url(#ant-web3-icon-bico-colorful-SVGID_1_);"/>
+<rect width="200" height="200" style="fill: url(#ant-web3-icon-bico-colorful-SVGID_1_);"/>
 <rect x="10" y="10" width="180" height="180"/>
 <path d="M113,49.4c-3.7-2.1-8-3.4-12.5-3.4h-25C82.4,46,88,51.6,88,58.5v25V96h12.5c4.6,0,8.8-1.2,12.5-3.4
 	c2.8-1.6,5.2-3.7,7.1-6.2c3.4-4.3,5.4-9.6,5.4-15.5C125.5,61.8,120.5,53.7,113,49.4z" style="fill: #D85111;"/>

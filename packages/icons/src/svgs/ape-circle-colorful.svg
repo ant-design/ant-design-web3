@@ -9,7 +9,7 @@
 		<stop offset="1" style="stop-color:#0054F9"/>
 	</radialGradient>
 	<path d="M185.6,92.8C185.6,41.5,144,0,92.8,0C41.5,0,0,41.5,0,92.8c0,51.2,41.5,92.8,92.8,92.8
-		C144,185.6,185.6,144,185.6,92.8z" style="fill:url(#ant-web3-icon-ape-circle-colorful-SVGID_1_);"/>
+		C144,185.6,185.6,144,185.6,92.8z" style="fill: url(#ant-web3-icon-ape-circle-colorful-SVGID_1_);"/>
 </g>
 <g id="ant-web3-icon-ape-circle-colorful-Layer_1_00000019678216197568292700000009484231850298271916_">
 	<path d="M155.9,63.8c-0.4,2.3-0.8,3.4-1.4,4.6l0,0c-0.6,1.4-1.2,2.9-1.8,6.1c-0.2,1.2-0.4,2.2-0.5,3v0.1l0,0
@@ -135,7 +135,7 @@
 			C41.5,0,0,41.5,0,92.8c0,51.2,41.5,92.8,92.8,92.8C144,185.6,185.6,144,185.6,92.8z"/>
 	</defs>
 	<clipPath id="ant-web3-icon-ape-circle-colorful-SVGID_00000112632825680152813190000016325904004000894366_">
-		<use xlink:href="#SVGID_00000128454529727717975320000012486895950618847389_" style="overflow:visible;"/>
+		<use xlink:href="#ant-web3-icon-ape-circle-colorful-SVGID_00000128454529727717975320000012486895950618847389_" style="overflow:visible;"/>
 	</clipPath>
 	
 		<g id="ant-web3-icon-ape-circle-colorful-Layer_2_00000107572151008996527030000016290061794924690866_" style="clip-path:url(#ant-web3-icon-ape-circle-colorful-SVGID_00000112632825680152813190000016325904004000894366_);">

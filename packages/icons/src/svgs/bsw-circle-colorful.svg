@@ -9,7 +9,7 @@
 </linearGradient>
 <path d="M48,10.2c-1.9,0.4-3.7,0.9-5.1,1.2c-3.4,0.8-6.5,3.3-7.2,8c-0.6,4.2,0.8,6,0.2,10.9
 	c-1.1,8.6-9.3,11.5-13.1,13.3c-2.2,1-7.6,3.4-11.7,5.2c4.5,3.3,10,5.3,16.1,5.3c15,0,27.1-12.1,27.1-27.1c0-6.4-2.2-12.2-5.9-16.9
-	C48.2,10.2,48.1,10.2,48,10.2z" style="fill:url(#ant-web3-icon-bsw-circle-colorful-SVGID_1_);"/>
+	C48.2,10.2,48.1,10.2,48,10.2z" style="fill: url(#ant-web3-icon-bsw-circle-colorful-SVGID_1_);"/>
 <linearGradient id="ant-web3-icon-bsw-circle-colorful-SVGID_00000062914791107164500290000013177463998386082734_" gradientUnits="userSpaceOnUse" x1="15.5519" y1="15.1248" x2="29.6757" y2="55.0107" gradientTransform="matrix(1 0 0 -1 0 55.8898)">
 	<stop offset="1.812290e-03" style="stop-color:#1158F1"/>
 	<stop offset="1" style="stop-color:#119BED"/>

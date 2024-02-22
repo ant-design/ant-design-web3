@@ -7,9 +7,9 @@
 		<rect id="ant-web3-icon-bifi-colorful-SVGID_1_" width="113" height="86"/>
 	</defs>
 	<clipPath id="ant-web3-icon-bifi-colorful-SVGID_2_">
-		<use xlink:href="#SVGID_1_" style="overflow:visible;"/>
+		<use xlink:href="#ant-web3-icon-bifi-colorful-SVGID_1_" style="overflow:visible;"/>
 	</clipPath>
-	<g style="clip-path:url(#ant-web3-icon-bifi-colorful-SVGID_2_);">
+	<g style="clip-path: url(#ant-web3-icon-bifi-colorful-SVGID_2_);">
 		<path d="M6,15.5c6.3,0,12.6,0,19,0c0,0.4,0,0.8,0,1.2c0,1.7-0.1,3.4,0,5.1c0.3,3.1,1.1,6.1,2.4,9
 			c1.2,2.6,2.7,4.9,4.7,6.9c2.4,2.5,5.3,4.4,8.7,5.4c0.3,0.1,0.4,0.2,0.4,0.5c-0.1,1.6,0.2,3.1-0.2,4.7c-0.6,2.6-2.1,4.4-4.4,5.4
 			c-1.1,0.5-2.2,0.7-3.4,0.7c-3.8,0-7.7,0-11.5,0c-1.8,0-3.5-0.3-5-1.4c-2.2-1.6-3.2-3.9-3.2-6.7c0-7.5,0-15.1,0-22.6

@@ -7,9 +7,9 @@
 		<rect id="ant-web3-icon-rose-circle-colorful-SVGID_1_" width="128" height="128"/>
 	</defs>
 	<clipPath id="ant-web3-icon-rose-circle-colorful-SVGID_2_">
-		<use xlink:href="#SVGID_1_" style="overflow:visible;"/>
+		<use xlink:href="#ant-web3-icon-rose-circle-colorful-SVGID_1_" style="overflow:visible;"/>
 	</clipPath>
-	<g style="clip-path:url(#ant-web3-icon-rose-circle-colorful-SVGID_2_);">
+	<g style="clip-path: url(#ant-web3-icon-rose-circle-colorful-SVGID_2_);">
 		<path d="M115,25.4C105.3,13,91.1,5.1,75.4,5.1C45,5.1,22.7,33.4,22.7,64c0,21.3,14.2,37.3,29.9,37.3
 			c1.5,0,2.9-0.1,4.4-0.4C46.4,93.2,39.7,79.2,39.7,64c0-24.2,16.4-43.1,35.7-43.1c21.1,0,35.7,20.9,35.7,43.1
 			c-0.1,16.4-5.9,32.7-16.2,44.7c-9,10.5-20.6,17.1-33.4,19.2c0,0,1.1,0.1,2.5,0.1c35.3,0,64-28.7,64-64

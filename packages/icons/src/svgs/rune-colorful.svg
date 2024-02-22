@@ -8,5 +8,5 @@
 	<stop offset="0" style="stop-color:#00CCFF"/>
 	<stop offset="1" style="stop-color:#33FF99"/>
 </linearGradient>
-<path d="M0,290.5l202.8-85.4L138.6,140L0,290.5z M74.5,75l64.2,65L253.3,0L74.5,75z" style="fill:url(#ant-web3-icon-rune-colorful-SVGID_1_);"/>
+<path d="M0,290.5l202.8-85.4L138.6,140L0,290.5z M74.5,75l64.2,65L253.3,0L74.5,75z" style="fill: url(#ant-web3-icon-rune-colorful-SVGID_1_);"/>
 </svg>
