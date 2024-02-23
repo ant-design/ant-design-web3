@@ -4,7 +4,7 @@ import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
 import { ConfigProvider } from 'antd';
 import classnames from 'classnames';
 
-import SVGComponent from '../svgs/2key-circle-colorful.svg';
+import SVGComponent from '../svgs/twokey-circle-colorful.svg';
 
 export const TwoKeyCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>(
   (props, ref) => {

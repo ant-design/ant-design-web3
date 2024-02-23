@@ -67,7 +67,7 @@ export * from './components/phantom-circle-filled';
 export * from './components/phantom-circle-colorful';
 
 export * from './components/zrx-circle-colorful';
-export * from './components/2key-circle-colorful';
+export * from './components/twokey-circle-colorful';
 export * from './components/mph-circle-colorful';
 export * from './components/abbc-circle-colorful';
 export * from './components/act-circle-colorful';
@@ -354,7 +354,7 @@ export * from './components/zec-circle-colorful';
 export * from './components/zcl-circle-colorful';
 export * from './components/flux-circle-colorful';
 export * from './components/zlw-circle-colorful';
-export * from './components/1inch-colorful';
+export * from './components/oneinch-colorful';
 export * from './components/elf-colorful';
 export * from './components/aeon-colorful';
 export * from './components/ae-colorful';

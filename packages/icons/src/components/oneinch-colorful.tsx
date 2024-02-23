@@ -4,7 +4,7 @@ import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
 import { ConfigProvider } from 'antd';
 import classnames from 'classnames';
 
-import SVGComponent from '../svgs/1inch-colorful.svg';
+import SVGComponent from '../svgs/oneinch-colorful.svg';
 
 export const OneInchColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
