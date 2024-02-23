@@ -43,7 +43,7 @@
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
     "debug": "^4.3.4",
-    "@wagmi/core": "^2.0.0",
+    "@wagmi/core": "^2.6.5",
     "viem": "2.0.0",
     "@tanstack/react-query": "^5.21.7"
   },
