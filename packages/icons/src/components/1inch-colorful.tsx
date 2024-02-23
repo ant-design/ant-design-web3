@@ -6,7 +6,7 @@ import classnames from 'classnames';
 
 import SVGComponent from '../svgs/1inch-colorful.svg';
 
-export const InchColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
+export const OneInchColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-icon-1inch-colorful');
 
@@ -20,4 +20,4 @@ export const InchColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((pr
   );
 });
 
-InchColorful.displayName = '1inchColorful';
+OneInchColorful.displayName = 'OneInchColorful';

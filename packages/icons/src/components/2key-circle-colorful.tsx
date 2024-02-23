@@ -6,18 +6,20 @@ import classnames from 'classnames';
 
 import SVGComponent from '../svgs/2key-circle-colorful.svg';
 
-export const KeyCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
-  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('web3-icon-2key-circle-colorful');
+export const TwoKeyCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>(
+  (props, ref) => {
+    const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+    const prefixCls = getPrefixCls('web3-icon-2key-circle-colorful');
 
-  return (
-    <AntdIcon
-      {...props}
-      className={classnames(prefixCls, props.className)}
-      ref={ref}
-      component={SVGComponent}
-    />
-  );
-});
+    return (
+      <AntdIcon
+        {...props}
+        className={classnames(prefixCls, props.className)}
+        ref={ref}
+        component={SVGComponent}
+      />
+    );
+  },
+);
 
-KeyCircleColorful.displayName = '2keyCircleColorful';
+TwoKeyCircleColorful.displayName = 'TwoKeyCircleColorful';
