@@ -67,6 +67,44 @@ describe('UniversalWallet', async () => {
     });
   });
 
+  it('get qr code in second times', async () => {
+    let eventFired = false;
+
+    const factory = new UniversalWallet({
+      name: 'TestWallet',
+      remark: 'TestWallet remark',
+      app: {
+        link: 'https://app.download',
+      },
+    });
+
+    const wallet = factory.create([
+      {
+        name: 'WalletConnect',
+        getProvider: async () => {
+          return {
+            on: (type: string, handler: any) => {
+              if (eventFired) {
+                return;
+              }
+              eventFired = true;
+              if (type === 'display_uri') {
+                setTimeout(() => {
+                  handler('https://web3.ant.design');
+                }, 10);
+              }
+            },
+          };
+        },
+      } as unknown as Connector,
+    ]);
+
+    const qrCode = await wallet.getQrCode?.();
+    expect(qrCode?.uri).toBe('https://web3.ant.design');
+    const qrCode2 = await wallet.getQrCode?.();
+    expect(qrCode2?.uri).toBe('https://web3.ant.design');
+  });
+
   it('only has extension, without install', async () => {
     const factory = new UniversalWallet({
       name: 'TestWallet',
