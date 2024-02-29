@@ -30,7 +30,7 @@ export const ConnectModal: React.FC<ConnectModalProps> & {
   return wrapSSR(
     <Modal
       footer={null}
-      width={isSimple ? 380 : 737}
+      width={isSimple ? 380 : 797}
       {...restProps}
       className={classNames(prefixCls, className, hashId)}
       rootClassName={classNames(`${prefixCls}-root`, rootClassName)}

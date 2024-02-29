@@ -1,10 +1,12 @@
 import React, { useContext, useMemo } from 'react';
-import { List } from 'antd';
+import { QrcodeOutlined } from '@ant-design/icons';
+import { Col, List, Row } from 'antd';
 import classNames from 'classnames';
 
 import { connectModalContext } from '../context';
 import type { ConnectModalProps, Wallet } from '../interface';
 import { defaultGroupOrder } from '../utils';
+import PluginTag from './PluginTag';
 
 export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'group' | 'groupOrder'>;
 
@@ -67,16 +69,34 @@ const WalletList: React.FC<WalletListProps> = (props) => {
               updatePanelRoute('wallet', true);
             }}
           >
-            <div className={`${prefixCls}-content`}>
-              <div className={`${prefixCls}-icon`}>
-                {typeof item.icon === 'string' || item.icon === undefined ? (
-                  <img src={item.icon} alt={item.name} />
-                ) : (
-                  item.icon
-                )}
-              </div>
-              <div className={`${prefixCls}-name`}>{item.name}</div>
-            </div>
+            <Row align="middle" justify="center" className={`${prefixCls}-row`}>
+              <Col span={16}>
+                <div className={`${prefixCls}-content`}>
+                  <div className={`${prefixCls}-icon`}>
+                    {typeof item.icon === 'string' || item.icon === undefined ? (
+                      <img src={item.icon} alt={item.name} />
+                    ) : (
+                      item.icon
+                    )}
+                  </div>
+                  <div className={`${prefixCls}-name`}>{item.name}</div>
+                </div>
+              </Col>
+              <Col span={6}>
+                <PluginTag wallet={item} />
+              </Col>
+              <Col span={2} className={`${prefixCls}-qc-icon`}>
+                {item.getQrCode ? (
+                  <QrcodeOutlined
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      updateSelectedWallet(item, true);
+                      updatePanelRoute('qrCode', true);
+                    }}
+                  />
+                ) : null}
+              </Col>
+            </Row>
           </List.Item>
         )}
       />

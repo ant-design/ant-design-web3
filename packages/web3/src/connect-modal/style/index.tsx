@@ -85,7 +85,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
         [`${componentCls}-list-panel`]: {
           paddingInline: 18,
           paddingBlock: 24,
-          width: 268,
+          width: 328,
           flexShrink: 0,
           borderRight: `1px solid ${token.splitColor}`,
           display: 'flex',
@@ -102,7 +102,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             [`${componentCls}-wallet-list`]: {
               maxHeight: 390,
               overflow: 'scroll',
-              ['::-webkit-scrollbar']: {
+              '&::-webkit-scrollbar': {
                 display: 'none',
               },
               scrollbarWidth: 'none',
@@ -126,6 +126,14 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                       fontSize: token.fontSizeSM,
                       color: token.colorTextDescription,
                     },
+                    [`${componentCls}-row`]: {
+                      width: '100%',
+                      fontSize: token.fontSizeLG,
+                      [`${componentCls}-qc-icon`]: {
+                        fontSize: 16,
+                        textAlign: 'right',
+                      },
+                    },
                     [`${componentCls}-content`]: {
                       display: 'flex',
                       alignItems: 'center',
@@ -146,6 +154,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                         justifySelf: 'flex-start',
                         marginInlineStart: token.marginSM,
                         color: token.colorText,
+                        wordBreak: 'break-word',
                       },
                     },
                     '&:last-child': {
@@ -155,10 +164,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                       background: token.hoverBg,
                     },
                     '&.selected': {
-                      background: token.selectedBg,
-                      [`${componentCls}-name`]: {
-                        color: token.selectedColor,
-                      },
+                      background: 'rgba(0,0,0,0.03)',
                     },
                   },
                 },
