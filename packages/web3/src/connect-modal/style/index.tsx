@@ -100,6 +100,12 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             marginBlock: token.marginSM,
             overflow: 'auto',
             [`${componentCls}-wallet-list`]: {
+              maxHeight: 390,
+              overflow: 'scroll',
+              ['::-webkit-scrollbar']: {
+                display: 'none',
+              },
+              scrollbarWidth: 'none',
               [`${componentCls}-group`]: {
                 marginBlockEnd: token.marginSM,
                 [`${componentCls}-group-title`]: {
