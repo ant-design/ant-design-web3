@@ -11,8 +11,10 @@ const PluginTag: React.FC<{ wallet: Wallet }> = ({ wallet }) => {
   const { getMessage, localeMessage } = React.useContext(connectModalContext);
 
   React.useEffect(() => {
+    // if don't have hasExtensionInstalled, then don't show the tag
     if (wallet.hasExtensionInstalled) {
       setHasExtension(true);
+      // check if extension installed
       wallet.hasWalletReady?.().then((res) => {
         if (res) {
           wallet.hasExtensionInstalled?.().then((result) => {
@@ -25,7 +27,9 @@ const PluginTag: React.FC<{ wallet: Wallet }> = ({ wallet }) => {
 
   return hasExtension ? (
     <Badge dot={extensionInstalled} color="#52c41a">
-      <Button size="small">{getMessage(localeMessage.walletPanelPluginTitle)}</Button>
+      <Button size="small" disabled={!extensionInstalled}>
+        {getMessage(localeMessage.walletPanelPluginTitle)}
+      </Button>
     </Badge>
   ) : null;
 };
