@@ -130,3 +130,7 @@ Any type of contribution is welcome, here are some examples of how you may contr
 - Propose [pull requests](https://github.com/ant-design/ant-design-web3/pulls) to improve our code.
 
 To better participate and contribute, please read our [contribution guidelines](https://web3.ant.design/guide/contributing).
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ant-design/ant-design-web3&type=Date)](https://star-history.com/#ant-design/ant-design-web3&Date)
