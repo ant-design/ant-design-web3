@@ -1,5 +1,12 @@
 # @ant-design/web3-icons
 
+## 1.4.0
+
+### Minor Changes
+
+- 081398d: add more web3 icons
+- e5b4fe9: feat: add imToken wallet info.
+
 ## 1.3.2
 
 ### Patch Changes

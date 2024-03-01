@@ -1,5 +1,15 @@
 # @ant-design/web3
 
+## 1.7.2
+
+### Patch Changes
+
+- ae85fa9: fix: NFTCard Displayed images that should not be displayed after switch chain
+- Updated dependencies [081398d]
+- Updated dependencies [e5b4fe9]
+  - @ant-design/web3-icons@1.4.0
+  - @ant-design/web3-assets@1.4.0
+
 ## 1.7.1
 
 ### Patch Changes
