@@ -111,6 +111,14 @@ AAVECircleColorful.displayName = 'AAVECircleColorful';
 
 命名规范为：`项目名-类型名称`，比如 `aave-circle-colorful`，使用正确的命名规范会在文档中自动分类。
 
+根据 icon 对应项目的功能做了以下几种区分：
+
+- Chain Icons
+- Token Icons
+- Tool Icons
+
+如果需要特别声明，可以在 `.dumi/theme/builtins/IconSearch/fields.ts` 文件中更改，否则会归为默认分类。
+
 ## 验证
 
 在 `src/index.ts` 中将新添加的 icon 导出，然后可以在本地调试环境验证图标的展示是否正确。

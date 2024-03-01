@@ -109,7 +109,15 @@ There are four types through the display form of icon:
 - circle filled
 - filled
 
-The naming specification is: `project name-type name`, such as `aave-circle-colorful`. Using the correct naming specification will be automatically classified in the document.
+The naming specification is: `{project name}-{type name}`, such as `aave-circle-colorful`. Using the correct naming specification will be automatically classified in the document.
+
+Based on the functions of the corresponding projects of icons, the following diversions are made:
+
+- Chain Icons
+- Token Icons
+- Tool Icons
+
+If you need to make a special declaration, you can change it in the `.dumi/theme/builtins/IconSearch/fields.ts` file, otherwise it will be classified as the default classification.
 
 ## Test and verify
 
