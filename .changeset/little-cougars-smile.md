@@ -3,4 +3,4 @@
 '@ant-design/web3': minor
 ---
 
-optimize connect-modal component
+feat: optimize connect-modal component

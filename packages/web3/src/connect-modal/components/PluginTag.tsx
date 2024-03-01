@@ -20,15 +20,13 @@ const PluginTag: React.FC<{ wallet: Wallet }> = ({ wallet }) => {
     judgeExtensionInstalled();
   }, [wallet]);
 
-  return (
-    wallet.hasExtensionInstalled && (
-      <Badge dot={extensionInstalled} color="#52c41a">
-        <Button size="small" disabled={!extensionInstalled}>
-          {getMessage(localeMessage.walletPanelPlugin)}
-        </Button>
-      </Badge>
-    )
-  );
+  return wallet.hasExtensionInstalled ? (
+    <Badge dot={extensionInstalled} color="#52c41a">
+      <Button size="small" disabled={!extensionInstalled}>
+        {getMessage(localeMessage.walletPanelPlugin)}
+      </Button>
+    </Badge>
+  ) : null;
 };
 
 export default PluginTag;
