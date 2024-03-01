@@ -38,7 +38,7 @@ group:
 
 ## 添加图标 svg
 
-在 `svgs` 目录下添加新的 svg 文件，文件名应该和图标名称一致，注意文件名应该使用 kebab-case。
+在 `svgs` 目录下添加新的 svg 文件，文件名应该和图标名称一致，注意文件名应该使用 [kebab-case](https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case) 风格。
 
 svg 里面如果需要使用 `id` 或者 `classname`，需要加上前缀 `ant-web3-icon-`，这是为了避免 `svgo` 将其简化导致找不到类型。svg 中尽量使用内联的方式写样式，比如颜色用 `fill: #fff`。
 

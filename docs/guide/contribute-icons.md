@@ -38,7 +38,7 @@ The `packages/icons` directory corresponds to the `@ant-design/web3-icons` packa
 
 ## Add icon svg
 
-Add new svg in `svgs` folder, file name should be the same as icon name, and use the kebab-case for file name.
+Add new svg in `svgs` folder, file name should be the same as icon name, and use the [kebab-case](https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case) style for file name.
 
 If you need to use `id` or `classname` in svg, you need to add the prefix `ant-web3-icon-`. This is to prevent `svgo` from simplifying it, which causes the type to not be found. In svg, try to use the inline way to write styles, such as `fill: fff` for colors.
 
