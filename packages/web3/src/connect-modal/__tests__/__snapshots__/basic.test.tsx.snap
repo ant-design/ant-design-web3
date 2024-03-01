@@ -136,7 +136,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -171,7 +171,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -235,7 +235,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -269,7 +269,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -303,7 +303,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -337,7 +337,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -371,7 +371,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -655,7 +655,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -690,7 +690,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -754,7 +754,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -788,7 +788,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -822,7 +822,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -856,7 +856,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -890,7 +890,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -1174,7 +1174,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -1209,7 +1209,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -1273,7 +1273,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -1307,7 +1307,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -1341,7 +1341,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -1375,7 +1375,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -1409,7 +1409,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -1688,7 +1688,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1hnpuv1"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1hnpuv1"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1hnpuv1"
                                       />
                                     </div>
                                   </li>
@@ -1723,7 +1723,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1hnpuv1"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1hnpuv1"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1hnpuv1"
                                       />
                                     </div>
                                   </li>
@@ -1787,7 +1787,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1hnpuv1"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1hnpuv1"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1hnpuv1"
                                       />
                                     </div>
                                   </li>
@@ -1821,7 +1821,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1hnpuv1"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1hnpuv1"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1hnpuv1"
                                       />
                                     </div>
                                   </li>
@@ -1855,7 +1855,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1hnpuv1"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1hnpuv1"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1hnpuv1"
                                       />
                                     </div>
                                   </li>
@@ -1889,7 +1889,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1hnpuv1"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1hnpuv1"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1hnpuv1"
                                       />
                                     </div>
                                   </li>
@@ -1923,7 +1923,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1hnpuv1"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1hnpuv1"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1hnpuv1"
                                       />
                                     </div>
                                   </li>
@@ -2227,7 +2227,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -2262,7 +2262,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -2326,7 +2326,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -2360,7 +2360,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -2394,7 +2394,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -2428,7 +2428,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>
@@ -2462,7 +2462,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                         class="ant-col ant-col-6 css-dev-only-do-not-override-1qhpsh8"
                                       />
                                       <div
-                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon css-dev-only-do-not-override-1qhpsh8"
+                                        class="ant-col ant-col-2 ant-web3-connect-modal-qc-icon-col css-dev-only-do-not-override-1qhpsh8"
                                       />
                                     </div>
                                   </li>

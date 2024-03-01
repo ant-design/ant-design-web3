@@ -25,9 +25,7 @@ describe('ConnectModal with qcCode & plugin tag', () => {
       />
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.ant-web3-connect-modal-qc-icon')?.hasChildNodes()).toBe(
-      true,
-    );
+    expect(baseElement.querySelector('.ant-web3-connect-modal-qc-icon')).toBeTruthy();
   });
 
   it('don not show qcCode', async () => {
@@ -45,9 +43,7 @@ describe('ConnectModal with qcCode & plugin tag', () => {
       />
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.ant-web3-connect-modal-qc-icon')?.hasChildNodes()).toBe(
-      false,
-    );
+    expect(baseElement.querySelector('.ant-web3-connect-modal-qc-icon')).not.toBeTruthy();
   });
 
   it('not show plugin tag', async () => {
@@ -111,5 +107,32 @@ describe('ConnectModal with qcCode & plugin tag', () => {
     render(<App />);
     const span = screen.queryByText('PLUGIN');
     expect(span?.parentElement?.getAttribute('disabled') === '').toBeTruthy();
+  });
+
+  it('click event trigger', async () => {
+    const wallet: Wallet = {
+      ...metadata_MetaMask,
+      getQrCode: async () => {
+        return {
+          uri: '',
+        };
+      },
+    };
+
+    const App = () => (
+      <ConnectModal
+        open
+        title="ConnectModal"
+        footer="Powered by AntChain"
+        mode="normal"
+        walletList={[wallet]}
+      />
+    );
+    const { baseElement } = render(<App />);
+    const icon = baseElement.querySelector('.ant-web3-connect-modal-qc-icon');
+    fireEvent.click(icon!);
+    await waitFor(() => {
+      expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code')).toBeTruthy();
+    });
   });
 });
