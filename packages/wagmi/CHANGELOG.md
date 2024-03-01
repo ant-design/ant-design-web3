@@ -1,5 +1,19 @@
 # @ant-design/web3-wagmi
 
+## 2.3.0
+
+### Minor Changes
+
+- e5b4fe9: feat: add imToken wallet info.
+
+### Patch Changes
+
+- 935b2e2: fix: prop name of error message is wrong
+- 0673036: fix: cache WalletConnect qrcode uri for fix qrcode display bug
+- 8731741: fix: UniversalWallet getQrCode bug on the second times
+- Updated dependencies [e5b4fe9]
+  - @ant-design/web3-assets@1.4.0
+
 ## 2.2.5
 
 ### Patch Changes
