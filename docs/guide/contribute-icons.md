@@ -36,7 +36,7 @@ The `packages/icons` directory corresponds to the `@ant-design/web3-icons` packa
   </ul>
 </Tree>
 
-## 添加图标 svg
+## Add icon svg
 
 Add new svg in `svgs` folder, file name should be the same as icon name, and use the kebab-case for file name.
 
