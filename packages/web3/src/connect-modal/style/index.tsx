@@ -129,9 +129,14 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     [`${componentCls}-row`]: {
                       width: '100%',
                       fontSize: token.fontSizeLG,
-                      [`${componentCls}-qc-icon`]: {
+                      [`${componentCls}-qc-icon-col`]: {
                         fontSize: 16,
                         textAlign: 'right',
+                        [`${componentCls}-qc-icon`]: {
+                          '&:hover': {
+                            color: token.colorPrimary,
+                          },
+                        },
                       },
                     },
                     [`${componentCls}-content`]: {
