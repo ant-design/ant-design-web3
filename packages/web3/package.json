@@ -45,7 +45,7 @@
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
     "@ant-design/web3-assets": "workspace:*",
-    "@ctrl/tinycolor": "^4.0.2",
+    "@ctrl/tinycolor": "^4.0.3",
     "antd": "^5.12.4",
     "classnames": "^2.3.2"
   },
