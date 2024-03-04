@@ -13,8 +13,8 @@ importers:
         version: 7.0.3
     devDependencies:
       '@ant-design/icons':
-        specifier: ^5.2.6
-        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^5.3.1
+        version: 5.3.1(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/web3':
         specifier: workspace:*
         version: link:packages/web3
@@ -210,8 +210,8 @@ importers:
   packages/icons:
     dependencies:
       '@ant-design/icons':
-        specifier: ^5.2.6
-        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^5.3.1
+        version: 5.3.1(react-dom@18.2.0)(react@18.2.0)
       classnames:
         specifier: ^2.3.2
         version: 2.3.2
@@ -318,8 +318,8 @@ importers:
         specifier: ^1.18.2
         version: 1.18.2(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/icons':
-        specifier: ^5.2.6
-        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^5.3.1
+        version: 5.3.1(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/web3-assets':
         specifier: workspace:*
         version: link:../assets
@@ -408,16 +408,20 @@ packages:
 
   /@ant-design/icons-svg@4.3.1:
     resolution: {integrity: sha512-4QBZg8ccyC6LPIRii7A0bZUk3+lEDCLnhB+FVsflGdcWPPmV+j3fire4AwwoqHV/BibgvBmR9ZIo4s867smv+g==}
+    dev: true
 
-  /@ant-design/icons@5.2.6(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-4wn0WShF43TrggskBJPRqCD0fcHbzTYjnaoskdiJrVHg86yxoZ8ZUqsXvyn4WUqehRiFKnaclOhqk9w4Ui2KVw==}
+  /@ant-design/icons-svg@4.4.2:
+    resolution: {integrity: sha512-vHbT+zJEVzllwP+CM+ul7reTEfBR0vgxFe7+lREAsAA7YGsYpboiq2sQNeQeRvh09GfQgs/GyFEvZpJ9cLXpXA==}
+
+  /@ant-design/icons@5.3.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-85zROTJCCApQn0Ee6L9561+Vd7yVKtSWNm2TpmOsYMrumchbzaRK83x1WWHv2VG+Y1ZAaKkDwcnnSPS/eSwNHA==}
     engines: {node: '>=8'}
     peerDependencies:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
     dependencies:
       '@ant-design/colors': 7.0.2
-      '@ant-design/icons-svg': 4.3.1
+      '@ant-design/icons-svg': 4.4.2
       '@babel/runtime': 7.23.6
       classnames: 2.5.1
       rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
@@ -5113,7 +5117,7 @@ packages:
       classnames: 2.5.1
       rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
       rc-resize-observer: 1.4.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
@@ -9536,7 +9540,7 @@ packages:
     dependencies:
       '@ant-design/colors': 7.0.2
       '@ant-design/cssinjs': 1.18.2(react-dom@18.2.0)(react@18.2.0)
-      '@ant-design/icons': 5.2.6(react-dom@18.2.0)(react@18.2.0)
+      '@ant-design/icons': 5.3.1(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/react-slick': 1.0.2(react@18.2.0)
       '@ctrl/tinycolor': 3.6.1
       '@rc-component/color-picker': 1.5.1(react-dom@18.2.0)(react@18.2.0)
@@ -19165,7 +19169,7 @@ packages:
       classnames: 2.5.1
       rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
       rc-overflow: 1.3.2(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
@@ -19177,7 +19181,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.6
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
@@ -19204,7 +19208,7 @@ packages:
       '@babel/runtime': 7.23.6
       classnames: 2.5.1
       rc-resize-observer: 1.4.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
@@ -19281,7 +19285,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.6
       classnames: 2.5.1
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       resize-observer-polyfill: 1.5.1
@@ -19311,7 +19315,7 @@ packages:
       classnames: 2.5.1
       rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
       rc-overflow: 1.3.2(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
       rc-virtual-list: 3.11.3(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -19324,7 +19328,7 @@ packages:
       react-dom: '>=16.9.0'
     dependencies:
       '@babel/runtime': 7.23.6
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -19337,7 +19341,7 @@ packages:
       react-dom: '>=16.9.0'
     dependencies:
       '@babel/runtime': 7.23.6
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -19415,7 +19419,7 @@ packages:
       classnames: 2.5.1
       rc-input: 1.4.3(react-dom@18.2.0)(react@18.2.0)
       rc-resize-observer: 1.4.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
@@ -19427,7 +19431,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.6
       '@rc-component/trigger': 1.18.2(react-dom@18.2.0)(react@18.2.0)
-      classnames: 2.3.2
+      classnames: 2.5.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
@@ -19453,9 +19457,9 @@ packages:
       react-dom: '*'
     dependencies:
       '@babel/runtime': 7.23.6
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
       rc-virtual-list: 3.11.3(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -19504,7 +19508,7 @@ packages:
       '@babel/runtime': 7.23.6
       classnames: 2.5.1
       rc-resize-observer: 1.4.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
