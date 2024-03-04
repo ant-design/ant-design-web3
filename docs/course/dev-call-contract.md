@@ -131,6 +131,7 @@ The code that needs to be modified is as follows:
 const CallTest = () => {
 
 // ...
++ const { writeContract } = useWriteContract();
 
   return (
     <div>
