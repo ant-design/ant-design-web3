@@ -6,6 +6,7 @@ import {
   EthereumCircleColorful,
   EthereumFilled,
   EtherscanCircleColorful,
+  OkxWalletColorful,
   OptimismCircleColorful,
   PolygonCircleColorful,
 } from '@ant-design/web3-icons';
@@ -85,4 +86,16 @@ export const Avalanche: Chain = {
     getBrowserLink: createGetBrowserLink('https://snowtrace.io'),
   },
   nativeCurrency: { name: 'Avalanche', symbol: 'AVAX', decimals: 18 },
+};
+
+// OKX X1: https://www.okx.com/cn/x1/docs/developer/build-on-x1/quickstart
+export const X1Testnet: Chain = {
+  id: ChainIds.X1Testnet,
+  name: 'X1 testnet',
+  icon: <OkxWalletColorful />,
+  browser: {
+    icon: <OkxWalletColorful />,
+    getBrowserLink: createGetBrowserLink('https://www.okx.com/explorer/x1-test'),
+  },
+  nativeCurrency: { name: 'OKB', symbol: 'OKB', decimals: 18 },
 };
