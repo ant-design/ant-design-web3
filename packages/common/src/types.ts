@@ -11,6 +11,7 @@ export enum ChainIds {
   Optimism = 10,
   Goerli = 5,
   Avalanche = 43_114,
+  X1Testnet = 195,
 }
 
 export enum SolanaChainIds {
