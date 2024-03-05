@@ -131,6 +131,7 @@ export default function Web3() {
 const CallTest = () => {
 
 // ...
++ const { writeContract } = useWriteContract();
 
   return (
     <div>

@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-icons",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -65,7 +65,7 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/icons": "^5.2.6",
+    "@ant-design/icons": "^5.3.1",
     "classnames": "^2.3.2"
   }
 }

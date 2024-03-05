@@ -418,7 +418,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           },
           [`${componentCls}-main-panel`]: {
             paddingInline: token.paddingLG,
-            background: token.colorBgContainer,
             [`${componentCls}-qr-code-box`]: {
               marginBlockStart: 24,
             },
