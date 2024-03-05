@@ -6,6 +6,8 @@ group:
 order: 1
 ---
 
+# Icons 图标
+
 ## 使用方法
 
 使用图标组件，你需要安装 [@ant-design/web3-icons](https://www.npmjs.com/package/@ant-design/web3-icons) 图标组件包：

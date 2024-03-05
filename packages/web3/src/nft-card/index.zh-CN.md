@@ -3,7 +3,7 @@ nav: 组件
 group: 展示
 ---
 
-# NFTCard
+# NFTCard NFT 卡片
 
 用于显示 NFTCard 的组件
 

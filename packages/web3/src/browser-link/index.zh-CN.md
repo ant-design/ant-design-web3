@@ -3,7 +3,7 @@ nav: 组件
 group: 展示
 ---
 
-# BrowerLink
+# BrowerLink 浏览器链接
 
 快速使用 etherscan 的地址.
 

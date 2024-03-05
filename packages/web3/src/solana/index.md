@@ -3,6 +3,9 @@ nav: Components
 group:
   title: Adapter
   order: 2
+tag:
+  title: New
+  color: success
 ---
 
 # Solana
