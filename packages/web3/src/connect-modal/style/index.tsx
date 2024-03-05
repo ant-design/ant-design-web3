@@ -169,7 +169,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                       background: token.hoverBg,
                     },
                     '&.selected': {
-                      background: 'rgba(0,0,0,0.03)',
+                      background: token.selectedBg,
                     },
                   },
                 },
@@ -444,14 +444,16 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
 export function useStyle(prefixCls: string): UseStyleResult {
   return useAntdStyle('ConnectModal', (token) => {
     const isDark = isDarkTheme(token);
+    const hoverBg = new TinyColor(isDark ? token.colorWhite : '#000')
+      .setAlpha(0.08)
+      .onBackground(token.colorBgContainer)
+      .toRgbString();
+
     const connectModalToken: ConnectModalToken = {
       ...token,
-      selectedBg: isDark ? token.colorWhite : token.colorPrimary,
       selectedColor: token.colorBgContainer,
-      hoverBg: new TinyColor(isDark ? token.colorWhite : token.colorPrimary)
-        .setAlpha(0.1)
-        .onBackground(token.colorBgContainer)
-        .toRgbString(),
+      hoverBg,
+      selectedBg: hoverBg,
       splitColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
       modalTitleStartColor: isDark ? token.colorWhite : token.colorPrimary,
       modalTitleEndColor: new TinyColor('#000')
