@@ -53,7 +53,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
   return [
     {
       [`${componentCls}`]: {
-        overflow: 'hidden',
         paddingBlockEnd: 0,
         '.ant-modal-content': {
           background: token.colorBgContainer,
