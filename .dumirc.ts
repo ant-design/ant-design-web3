@@ -115,9 +115,9 @@ export default defineConfig({
         { title: 'Components', link: '/components/icons' },
       ],
       'zh-CN': [
-        { title: '课程', link: '/course/introduction-zh' },
-        { title: '指南', link: '/guide/ant-design-web3-zh' },
-        { title: '组件', link: '/components/icons-zh' },
+        { title: '课程', link: '/course/introduction-cn' },
+        { title: '指南', link: '/guide/ant-design-web3-cn' },
+        { title: '组件', link: '/components/icons-cn' },
       ],
     },
     // @ts-ignore
@@ -128,8 +128,8 @@ export default defineConfig({
         'Made with<span style="color: rgb(255, 255, 255);">&nbsp;❤&nbsp;</span>by <span>ZAN Team and Ant Design Community</span>',
     },
     localesEnhance: [
-      { id: 'en-US', switchPrefix: 'en' },
-      { id: 'zh-CN', switchPrefix: '中' },
+      { id: 'en-US', switchPrefix: '中' },
+      { id: 'zh-CN', switchPrefix: 'en' },
     ],
     sidebarGroupModePath: ['/guide', '/components'],
     footerLinks: {
@@ -241,8 +241,7 @@ export default defineConfig({
     {
       id: 'zh-CN',
       name: '中文',
-      // TODO@jeasonstudio: '-cn' 在 dumi-theme-antd 中存在 bug，其中有一段硬编码，会导致中文 sidebar 的选中状态有误
-      suffix: '-zh',
+      suffix: '-cn',
     },
   ],
   extraBabelPlugins: [

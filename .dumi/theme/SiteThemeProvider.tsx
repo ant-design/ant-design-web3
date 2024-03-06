@@ -31,7 +31,7 @@ const SiteThemeProvider: React.FC<ThemeProviderProps<any>> = ({ children, theme,
       customToken={{
         bannerHeight,
         headerHeight,
-        anchorTop: token.margin,
+        anchorTop: headerHeight + token.margin,
       }}
     >
       {children}
