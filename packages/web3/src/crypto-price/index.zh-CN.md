@@ -4,7 +4,7 @@ group:
   title: 展示
 ---
 
-# CryptoPrice
+# CryptoPrice 加密价格
 
 ## 基本使用
 

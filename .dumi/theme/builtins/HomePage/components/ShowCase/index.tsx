@@ -6,7 +6,7 @@ import ConnectButton from './ConnectButton';
 import styles from './index.module.less';
 import NFTCard from './NFTCard';
 
-export default () => {
+export const ShowCase: React.FC = () => {
   const intl = useIntl();
 
   return (
@@ -21,11 +21,8 @@ export default () => {
         <NFTCard />
         <Connect />
       </div>
-
-      <div className={styles.footer}>
-        <div className={styles.footerText}>Made with ❤ by</div>
-        <div className={styles.footerDesc}>ANT DESIGN</div>
-      </div>
     </div>
   );
 };
+
+export default ShowCase;

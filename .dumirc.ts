@@ -19,15 +19,13 @@ const alias = pkgList.reduce(
     pre[pkg.name] = pkg.path;
 
     // has multiple entries
-    if (pkg.exports && pkg.exports['.']) {
+    if (pkg.exports?.['.']) {
       Object.keys(pkg.exports).forEach((key) => {
         pre[`${pkg.name}/${key}`] = join(pkg.path, key);
       });
     }
 
-    return {
-      ...pre,
-    };
+    return pre;
   },
   {} as Record<string, string>,
 );
@@ -88,12 +86,7 @@ export default defineConfig({
     },
   ],
   resolve: {
-    atomDirs: [
-      {
-        type: 'component',
-        dir: 'packages/web3/src',
-      },
-    ],
+    atomDirs: [{ type: 'component', dir: 'packages/web3/src' }],
   },
   jsMinifierOptions: {
     target: ['chrome80', 'es2020'],
@@ -114,6 +107,148 @@ export default defineConfig({
       github: 'https://github.com/ant-design/ant-design-web3',
       twitter: 'https://twitter.com/AntDesignWeb3',
     },
+    rtl: false,
+    nav: {
+      'en-US': [
+        { title: 'Course', link: '/course/introduction' },
+        { title: 'Guide', link: '/guide/ant-design-web3' },
+        { title: 'Components', link: '/components/icons' },
+      ],
+      'zh-CN': [
+        { title: '课程', link: '/course/introduction-cn' },
+        { title: '指南', link: '/guide/ant-design-web3-cn' },
+        { title: '组件', link: '/components/icons-cn' },
+      ],
+    },
+    // @ts-ignore
+    footer: {
+      'en-US':
+        'Made with<span style="color: rgb(255, 255, 255);">&nbsp;❤&nbsp;</span>by <span>ZAN Team and Ant Design Community</span>',
+      'zh-CN':
+        'Made with<span style="color: rgb(255, 255, 255);">&nbsp;❤&nbsp;</span>by <span>ZAN Team and Ant Design Community</span>',
+    },
+    localesEnhance: [
+      { id: 'en-US', switchPrefix: '中' },
+      { id: 'zh-CN', switchPrefix: 'en' },
+    ],
+    sidebarGroupModePath: ['/guide', '/components'],
+    docVersions: {
+      'v1.x': '',
+    },
+    footerLinks: {
+      'en-US': [
+        {
+          title: 'Related Resources',
+          items: [
+            {
+              title: 'Ant Design',
+              description: 'Front-end component library',
+              url: 'https://ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Umi',
+              description: 'React framework',
+              url: 'https://umijs.org',
+              openExternal: true,
+            },
+            {
+              title: 'ZAN',
+              description: 'Web3 tools and services',
+              url: 'https://zan.top',
+              openExternal: true,
+            },
+          ],
+        },
+        {
+          title: 'Help',
+          items: [
+            {
+              icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*4HOsS7jr3rwAAAAAAAAAAAAADlrGAQ/original',
+              title: 'GitHub',
+              url: 'https://github.com/ant-design/ant-design-web3',
+              openExternal: true,
+            },
+            {
+              icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*E4sRT7fDjkoAAAAAAAAAAAAADlrGAQ/original',
+              title: 'Changelog',
+              url: 'https://github.com/ant-design/ant-design-web3/releases',
+            },
+            {
+              icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*WoCtSojslJQAAAAAAAAAAAAADlrGAQ/original',
+              title: 'Report Bug',
+              url: 'https://github.com/ant-design/ant-design-web3/issues/new',
+              openExternal: true,
+            },
+          ],
+        },
+        {
+          title: 'Community',
+          items: [
+            {
+              title: 'X (Twitter)',
+              url: 'https://twitter.com/AntDesignWeb3',
+            },
+          ],
+        },
+      ],
+      'zh-CN': [
+        {
+          title: '相关资源',
+          items: [
+            {
+              title: 'Ant Design',
+              description: '前端组件库',
+              url: 'https://ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Umi',
+              description: 'React 应用开发框架',
+              url: 'https://umijs.org',
+              openExternal: true,
+            },
+            {
+              title: 'ZAN',
+              description: 'Web3 工具服务',
+              url: 'https://zan.top',
+              openExternal: true,
+            },
+          ],
+        },
+        {
+          title: '帮助',
+          items: [
+            {
+              icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*4HOsS7jr3rwAAAAAAAAAAAAADlrGAQ/original',
+              title: 'GitHub',
+              url: 'https://github.com/ant-design/ant-design-web3',
+              openExternal: true,
+            },
+            {
+              icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*E4sRT7fDjkoAAAAAAAAAAAAADlrGAQ/original',
+              title: '更新日志',
+              url: 'https://github.com/ant-design/ant-design-web3/releases',
+            },
+            {
+              icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*WoCtSojslJQAAAAAAAAAAAAADlrGAQ/original',
+              title: '报告 Bug',
+              url: 'https://github.com/ant-design/ant-design-web3/issues/new',
+              openExternal: true,
+            },
+          ],
+        },
+        {
+          title: '社区',
+          items: [
+            {
+              title: 'X (Twitter)',
+              url: 'https://twitter.com/AntDesignWeb3',
+            },
+          ],
+        },
+      ],
+    },
   },
   favicons: [
     'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*XACEQ5Lqbt8AAAAAAAAAAAAADlrGAQ/original',
@@ -122,8 +257,13 @@ export default defineConfig({
     {
       id: 'en-US',
       name: 'English',
+      suffix: '',
     },
-    { id: 'zh-CN', name: '中文' },
+    {
+      id: 'zh-CN',
+      name: '中文',
+      suffix: '-cn',
+    },
   ],
   extraBabelPlugins: [
     [
