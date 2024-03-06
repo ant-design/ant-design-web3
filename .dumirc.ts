@@ -132,6 +132,9 @@ export default defineConfig({
       { id: 'zh-CN', switchPrefix: 'en' },
     ],
     sidebarGroupModePath: ['/guide', '/components'],
+    docVersions: {
+      'v1.x': '',
+    },
     footerLinks: {
       'en-US': [
         {
