@@ -15,6 +15,19 @@ Through it, you don't need to handle the connection status of the component, cha
 
 Currently, we officially provide the adapter of Ethereum, and you can also develop your own adapter to support other chains. You can read the [adapter documentation](../../../../docs/guide/adapter.md) to learn more about the adapter.
 
+## Recommended configuration
+
+We support rich configurations of wallets, protocols, and interaction methods. For most DApps, we recommend using the following configuration:
+
+<code src="./demos/recommend.tsx"></code>
+
+The recommended configuration mainly includes:
+
+- Use the EIP6963 protocol to automatically add detected plugin wallets.
+- By default, add MetaMask and TokenPocket, Okx wallets, and provide download guides when users have not installed wallets.
+- By default, add WalletConnect, which supports users to connect various wallets through mobile phone scanning.
+- Remove wallet grouping to simplify the ui.
+
 ## Basic Usage
 
 <code src="./demos/basic.tsx"></code>
