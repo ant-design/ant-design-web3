@@ -182,6 +182,15 @@ export default defineConfig({
             },
           ],
         },
+        {
+          title: 'Community',
+          items: [
+            {
+              title: 'X (Twitter)',
+              url: 'https://twitter.com/AntDesignWeb3',
+            },
+          ],
+        },
       ],
       'zh-CN': [
         {
@@ -226,6 +235,15 @@ export default defineConfig({
               title: '报告 Bug',
               url: 'https://github.com/ant-design/ant-design-web3/issues/new',
               openExternal: true,
+            },
+          ],
+        },
+        {
+          title: '社区',
+          items: [
+            {
+              title: 'X (Twitter)',
+              url: 'https://twitter.com/AntDesignWeb3',
             },
           ],
         },
