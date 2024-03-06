@@ -24,7 +24,7 @@ export const Banner: React.FC = () => {
             alt="title"
           />
           <div className={styles.btn}>
-            <Link to={`${intl.locale === 'zh-CN' ? '/zh-CN' : ''}/guide`}>
+            <Link to={`/guide/ant-design-web3${intl.locale === 'zh-CN' ? '-cn' : ''}`}>
               {intl.formatMessage({ id: 'app.docs.site.index.banner.button-text' })}
             </Link>
             <a

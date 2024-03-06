@@ -45,8 +45,8 @@ order: 1
 
 ## 📚 延伸阅读
 
-- [课程：区块链和智能合约](/zh-CN/course/intro-blockchain)
-- [课程：DApp 如何调用智能合约](/zh-CN/course/intro-call-contract)
+- [课程：区块链和智能合约](/course/intro-blockchain-cn)
+- [课程：DApp 如何调用智能合约](/course/intro-call-contract-cn)
 - [Web3 技术服务 ZAN](https://zan.top/)
 - [探索去中心化应用程序](https://ethereum.org/dapps)
 - [Web3.0 应用程序架构](https://www.preethikasireddy.com/post/the-architecture-of-a-web-3-0-application)
