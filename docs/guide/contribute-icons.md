@@ -40,35 +40,6 @@ The `packages/icons` directory corresponds to the `@ant-design/web3-icons` packa
 
 Add new svg in `svgs` folder, file name should be the same as icon name, and use the [kebab-case](https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case) style for file name.
 
-If you need to use `id` or `classname` in svg, you need to add the prefix `ant-web3-icon-`. This is to prevent `svgo` from simplifying it, which causes the type to not be found. In svg, try to use the inline way to write styles, such as `fill: fff` for colors.
-
-Good writing:
-
-```svg
-<path
-  style="fill:#020041;"
-  d="M1494.8,856.4c171.5,289.1,336.4,582.2,505.2,873c-168.6,0.6-337.1-1-505.6,0C1493.8,1438.3,1492.9,1147.3,1494.8,856.4"
-/>
-```
-
-There may be problems with the writing:
-
-```svg
-<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="color">
-  <stop stop-color="#FF8B8B" offset="0%"></stop>
-  <stop stop-color="#FF1717" offset="100%"></stop>
-</linearGradient>
-```
-
-```svg
-<path
-  fill:url(#color)
-  d="M1494.8,856.4c171.5,289.1,336.4,582.2,505.2,873c-168.6,0.6-337.1-1-505.6,0C1493.8,1438.3,1492.9,1147.3,1494.8,856.4"
-/>
-```
-
-In these examples, the ids are used as the match, which causes style conflicts or loss when multiple identical svgs appear at the same time.
-
 ## Complete the icon react component
 
 In the `components` directory, refer to the following template to complete the component. There are two parts that need to be changed:

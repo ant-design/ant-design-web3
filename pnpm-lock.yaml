@@ -84,6 +84,9 @@ importers:
       babel-plugin-inline-react-svg:
         specifier: ^2.0.2
         version: 2.0.2(@babel/core@7.23.6)
+      babel-plugin-react-inline-svg-unique-id:
+        specifier: ^1.4.0
+        version: 1.4.0(@babel/core@7.23.6)
       classnames:
         specifier: ^2.3.2
         version: 2.3.2
@@ -215,6 +218,9 @@ importers:
       '@ant-design/icons':
         specifier: ^5.3.1
         version: 5.3.1(react-dom@18.2.0)(react@18.2.0)
+      '@inline-svg-unique-id/react':
+        specifier: ^1.2.3
+        version: 1.2.3(react@18.2.0)
       classnames:
         specifier: ^2.3.2
         version: 2.3.2
@@ -335,6 +341,9 @@ importers:
       '@ctrl/tinycolor':
         specifier: ^4.0.3
         version: 4.0.3
+      '@inline-svg-unique-id/react':
+        specifier: ^1.2.3
+        version: 1.2.3(react@18.2.0)
       antd:
         specifier: ^5.12.4
         version: 5.13.2(react-dom@18.2.0)(react@18.2.0)
@@ -1097,6 +1106,16 @@ packages:
     dependencies:
       '@babel/core': 7.23.6
       '@babel/helper-plugin-utils': 7.22.5
+
+  /@babel/plugin-syntax-jsx@7.14.5(@babel/core@7.23.6):
+    resolution: {integrity: sha512-ohuFIsOMXJnbOMRfX7/w7LocdR6R7whhuRD4ax8IipLcLPlZGJKkBxgHp++U4N/vKyU16/YDQr2f5seajD3jIw==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    dependencies:
+      '@babel/core': 7.23.6
+      '@babel/helper-plugin-utils': 7.22.5
+    dev: true
 
   /@babel/plugin-syntax-jsx@7.23.3(@babel/core@7.23.6):
     resolution: {integrity: sha512-EB2MELswq55OHUoRZLGg/zC7QWUKfNLpE57m/S2yr1uEneIgsTgrSzXP3NXEsMkVn76OlaVVnzN+ugObuYGwhg==}
@@ -1962,6 +1981,15 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.1
+
+  /@babel/template@7.15.4:
+    resolution: {integrity: sha512-UgBAfEa1oGuYgDIPM2G+aHa4Nlo9Lh6mGD2bDBGMTbYnc38vulXPuC1MGjYILIEmlwl6Rd+BPR9ee3gm20CBtg==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      '@babel/code-frame': 7.23.5
+      '@babel/parser': 7.23.6
+      '@babel/types': 7.23.6
+    dev: true
 
   /@babel/template@7.22.15:
     resolution: {integrity: sha512-QPErUVm4uyJa60rkI73qneDacvdvzxshT3kksGqlGWYdOTIUOwJ7RDUL8sGqslY1uXWSL6xMFKEXDS3ox2uF0w==}
@@ -3811,6 +3839,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@inline-svg-unique-id/react@1.2.3(react@18.2.0):
+    resolution: {integrity: sha512-Tf6u4pTdkeN4BLuh4aHNFDrKxUoiNbCglou3IDem7x0KRCt/rrhRgLljx85X2k5aAUdLvDhQcpeKVePFarF+8w==}
+    peerDependencies:
+      react: ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@ioredis/commands@1.2.0:
     resolution: {integrity: sha512-Sx1pU8EM64o2BrqNpEO1CNLtKQwyhuXuqyfH7oGKCk+1a33d2r5saW8zNwm3j6BTExtjrv2BxTgzzkMwts6vGg==}
@@ -10479,6 +10515,15 @@ packages:
       '@babel/helper-define-polyfill-provider': 0.4.4(@babel/core@7.23.6)
     transitivePeerDependencies:
       - supports-color
+
+  /babel-plugin-react-inline-svg-unique-id@1.4.0(@babel/core@7.23.6):
+    resolution: {integrity: sha512-8pps5AVafDvFpwgyFpkWkt1gutOL10Gq2Y/pDq+6C+IAEVRA8hx+qzHTW1m+wGxDrqyPO+B5etSrvvYo5l8hlA==}
+    dependencies:
+      '@babel/plugin-syntax-jsx': 7.14.5(@babel/core@7.23.6)
+      '@babel/template': 7.15.4
+    transitivePeerDependencies:
+      - '@babel/core'
+    dev: true
 
   /babel-plugin-styled-components@2.1.4(@babel/core@7.23.6)(styled-components@5.3.11):
     resolution: {integrity: sha512-Xgp9g+A/cG47sUyRwwYxGM4bR/jDRg5N6it/8+HxCnbT5XNKSKDT9xm4oag/osgqjC2It/vH0yXsomOG6k558g==}

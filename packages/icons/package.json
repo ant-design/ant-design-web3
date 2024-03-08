@@ -66,6 +66,7 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^5.3.1",
+    "@inline-svg-unique-id/react": "^1.2.3",
     "classnames": "^2.3.2"
   }
 }

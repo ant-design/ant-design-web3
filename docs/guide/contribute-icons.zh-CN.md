@@ -40,35 +40,6 @@ group:
 
 在 `svgs` 目录下添加新的 svg 文件，文件名应该和图标名称一致，注意文件名应该使用 [kebab-case](https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case) 风格。
 
-svg 里面如果需要使用 `id` 或者 `classname`，需要加上前缀 `ant-web3-icon-`，这是为了避免 `svgo` 将其简化导致找不到类型。svg 中尽量使用内联的方式写样式，比如颜色用 `fill: #fff`。
-
-好的写法：
-
-```svg
-<path
-  style="fill:#020041;"
-  d="M1494.8,856.4c171.5,289.1,336.4,582.2,505.2,873c-168.6,0.6-337.1-1-505.6,0C1493.8,1438.3,1492.9,1147.3,1494.8,856.4"
-/>
-```
-
-可能有问题的写法：
-
-```svg
-<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="color">
-  <stop stop-color="#FF8B8B" offset="0%"></stop>
-  <stop stop-color="#FF1717" offset="100%"></stop>
-</linearGradient>
-```
-
-```svg
-<path
-  fill:url(#color)
-  d="M1494.8,856.4c171.5,289.1,336.4,582.2,505.2,873c-168.6,0.6-337.1-1-505.6,0C1493.8,1438.3,1492.9,1147.3,1494.8,856.4"
-/>
-```
-
-这些例子里使用了 id 匹配，这样会导致多个相同 svg 同时出现的时候，样式冲突或丢失。
-
 ## 完成图标 react 组件
 
 在 `components` 目录下参考如下模板完成组件，有两部分需要更改：
