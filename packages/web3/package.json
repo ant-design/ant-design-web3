@@ -42,16 +42,17 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.18.2",
     "@ant-design/icons": "^5.3.1",
+    "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
-    "@ant-design/web3-assets": "workspace:*",
     "@ctrl/tinycolor": "^4.0.3",
+    "@inline-svg-unique-id/react": "^1.2.3",
     "antd": "^5.12.4",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@ant-design/web3-wagmi": "workspace:*",
     "@ant-design/web3-solana": "workspace:*",
+    "@ant-design/web3-wagmi": "workspace:*",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.19",
     "father": "^4.3.8",
