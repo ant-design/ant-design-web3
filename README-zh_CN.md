@@ -32,8 +32,8 @@
 </div>
 
 - 官网: https://web3.ant.design
-- 指南: https://web3.ant.design/guide
-- 课程: https://web3.ant.design/zh-CN/course
+- 指南: https://web3.ant.design/guide/ant-design-web3-cn
+- 课程: https://web3.ant.design/course/introduction-cn
 - 国内加速官网: https://web3.antdigital.dev
 
 ## 特性
@@ -127,7 +127,7 @@ $ pnpm start
 - 加入我们的 [discussion](https://github.com/ant-design/ant-design-web3/discussions) 并向我们提供建议.
 - 提交 [pull requests](https://github.com/ant-design/ant-design-web3/pulls) 改进我们的代码.
 
-为了更好地参与和贡献，请阅读我们的 [贡献指南](https://web3.ant.design/zh-CN/guide/contributing).
+为了更好地参与和贡献，请阅读我们的 [贡献指南](https://web3.ant.design/guide/contributing-cn).
 
 ## Star 趋势
 

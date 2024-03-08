@@ -41,7 +41,7 @@ export default () => {
 
 <code src="./demos/quick-start.tsx"></code>
 
-当然，相比 `NFTImage`，可能我们使用更多的是连接区块链按钮的组件，你可以阅读 [Connector](/zh-CN/components/connector) 组件的具体文档来学习如何使用它。
+当然，相比 `NFTImage`，可能我们使用更多的是连接区块链按钮的组件，你可以阅读 [Connector](/components/connector-cn) 组件的具体文档来学习如何使用它。
 
 ## 在 Next.js 中使用
 

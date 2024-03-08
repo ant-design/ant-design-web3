@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { usePrefersColor } from 'dumi';
 
-import HomeBanner from './components/Banner';
-import Features from './components/Features';
-import ShowCase from './components/ShowCase';
-import Theme from './components/Theme';
+import { Banner } from './components/Banner';
+import { Features } from './components/Features';
+import { ShowCase } from './components/ShowCase';
+import { Theme } from './components/Theme';
 import styles from './index.module.less';
 
-export default () => {
+export const HomePage: React.FC = () => {
   const [, prefersColor] = usePrefersColor();
 
   useEffect(() => {
@@ -17,14 +17,14 @@ export default () => {
     if (prefersColor === 'auto') {
       document.documentElement.setAttribute(
         'data-prefers-color',
-        window.matchMedia(`(prefers-color-scheme: dark)`).matches ? 'dark' : 'light',
+        window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
       );
     }
   }, [prefersColor]);
 
   return (
     <div className={styles.container}>
-      <HomeBanner />
+      <Banner />
       <div className={styles.centerbg}>
         <Features />
         <Theme />
@@ -35,3 +35,5 @@ export default () => {
     </div>
   );
 };
+
+export default HomePage;

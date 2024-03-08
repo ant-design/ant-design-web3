@@ -5,7 +5,7 @@ group:
   order: 4
 ---
 
-# Web3ConfigProvider
+# Web3ConfigProvider Web3 全局配置
 
 给组件提供全局配置和状态。
 

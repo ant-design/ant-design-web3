@@ -4,7 +4,7 @@ group: 通用
 order: 3
 ---
 
-# 类型
+# Types 类型
 
 这里定义了 Ant Design Web3 统一类型，在多个组件中可能都会用到。
 

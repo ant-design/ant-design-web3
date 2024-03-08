@@ -5,13 +5,26 @@ group:
   order: 1
 ---
 
-# 以太坊
+# Ethereum 以太坊
 
 Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，它是一个基于 [wagmi 2.x](https://wagmi.sh/) 的 Ant Design Web3 以太坊适配器。它为 `@ant-design/web3` 的组件提供了连接以太坊等 EVM 兼容链的能力。通过它，你不需要自己处理组件的连接状态，链数据请求等逻辑。它会通过 [Web3ConfigProvider](../web3-config-provider/index.zh-CN.md) 为组件提供相关全局状态和接口。
 
 如果你使用的是 wagmi 1.x，你可以查看 [@ant-design/web3-wagmi@1.2.0 文档](https://github.com/ant-design/ant-design-web3/blob/f7c9d51086f82b13a9cf94353b999348e17001de/packages/web3/src/wagmi/index.zh-CN.md)。
 
 目前，我们官方提供了该以太坊的适配器，你也可以自己开发适配器来支持其它的链，关于适配器，你可以阅读[适配器文档](../../../../docs/guide/adapter.zh-CN.md)了解更多。
+
+## 推荐配置
+
+我们支持配置丰富的钱包、协议和交互方式，对于大部分 DApp 来说，我们基于对 DApp 用户的习惯分析，推荐使用如下配置：
+
+<code src="./demos/recommend.tsx"></code>
+
+该推荐配置主要包括：
+
+- 使用 EIP6963 协议，自动添加检测到的插件钱包。
+- 默认添加 MetaMask 和 TokenPocket、Okx 钱包，在用户未安装钱包情况下提供下载引导。
+- 默认添加 WalletConnect，支持用户通过手机扫码连接各类钱包。
+- 去掉钱包分组，简化界面。
 
 ## 基本使用
 

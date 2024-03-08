@@ -8,7 +8,7 @@ type FeatureType = {
   description: string;
 };
 
-export default () => {
+export const Features: React.FC = () => {
   const intl = useIntl();
 
   const features: FeatureType[] = [
@@ -31,8 +31,8 @@ export default () => {
 
   return (
     <div className={styles.container}>
-      {features.map((feature, index) => (
-        <div className={styles.item} key={index}>
+      {features.map((feature) => (
+        <div className={styles.item} key={feature.title}>
           <img className={styles.icon} src={feature.icon} alt={feature.title} />
           <div className={styles.title}>{feature.title}</div>
           <div className={styles.desc}>{feature.description}</div>
@@ -41,3 +41,5 @@ export default () => {
     </div>
   );
 };
+
+export default Features;

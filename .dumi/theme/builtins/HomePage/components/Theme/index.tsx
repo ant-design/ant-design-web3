@@ -16,7 +16,7 @@ const defaultColor = 'auto';
 
 const colors = [defaultColor, '#1677FF', '#9E339F', '#F2BD27', '#00B96B'];
 
-const App: React.FC = () => {
+export const Theme: React.FC = () => {
   const intl = useIntl();
   const [isDark, setIsDark] = React.useState(false);
   const [color] = usePrefersColor();
@@ -137,4 +137,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Theme;
