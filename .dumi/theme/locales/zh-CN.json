@@ -9,6 +9,7 @@
   "app.docs.components.icon.category.tool": "工具图标",
   "app.docs.components.icon.category.other": "其他图标",
 
+  "app.docs.site.index.banner.slogan": "高效的 React 组件库，更轻松地构建去中心化应用",
   "app.docs.site.index.banner.button-text": "开始使用",
 
   "app.docs.site.features.0.title": "Ant Design 友好",
