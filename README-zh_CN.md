@@ -4,7 +4,7 @@
 
 <h1 align="center">Ant Design Web3</h1>
 
-一套 Web3 的组件库.
+高效的 React 组件库，更轻松地构建去中心化应用。
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
