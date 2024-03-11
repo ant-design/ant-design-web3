@@ -40,7 +40,7 @@
     "build": "father build"
   },
   "devDependencies": {
-    "@types/react": "^18.2.45",
+    "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.19",
     "antd": "^5.12.4",
     "father": "^4.3.8",
