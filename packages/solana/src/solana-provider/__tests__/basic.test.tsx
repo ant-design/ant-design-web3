@@ -1,6 +1,5 @@
 import { useState, type FC, type PropsWithChildren } from 'react';
 import { Connector, useProvider, type ConnectorTriggerProps } from '@ant-design/web3';
-import { SolanaTestnet } from '@ant-design/web3-assets/solana';
 import type { ConnectionContextState } from '@solana/wallet-adapter-react';
 import { fireEvent, render } from '@testing-library/react';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -110,11 +109,18 @@ describe('SolanaWeb3ConfigProvider', () => {
     expect(baseElement.querySelector('.content')?.textContent).toBe('test');
   });
 
-  it('print error if not found chainAsset', async () => {
+  it('print error if not solana chain', async () => {
     const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
+    const fakeChain = {
+      id: 1000_000 as any,
+      name: 'fake solana chain',
+      network: 'fake solana network',
+      rpcUrls: {},
+    };
+
     const App = () => (
-      <SolanaWeb3ConfigProvider chains={[solana]} chainAssets={[SolanaTestnet]}>
+      <SolanaWeb3ConfigProvider chains={[fakeChain]}>
         <div>test</div>
       </SolanaWeb3ConfigProvider>
     );
@@ -125,7 +131,7 @@ describe('SolanaWeb3ConfigProvider', () => {
       expect(consoleErrorSpy).toHaveBeenCalled();
     });
     expect(consoleErrorSpy).toHaveBeenCalledWith(
-      `Can not find chain ${solana.id}, you should config it in SolanaWeb3ConfigProvider 'chainAssets'.`,
+      `Can not find chain ${fakeChain.id}, SolanaWeb3ConfigProvider only support Solana`,
     );
 
     consoleErrorSpy.mockRestore();

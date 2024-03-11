@@ -100,7 +100,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
           };
         } else {
           console.error(
-            `Can not find chain ${item.id}, you should config it in SolanaWeb3ConfigProvider 'chainAssets'.`,
+            `Can not find chain ${item.id}, SolanaWeb3ConfigProvider only support Solana`,
           );
           return null;
         }

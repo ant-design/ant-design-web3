@@ -75,7 +75,6 @@ describe('Switch network', () => {
           autoConnect
           chains={[solana, solanaDevnet, solanaTestnet]}
           wallets={[WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet)]}
-          chainAssets={[Solana, SolanaDevnet, SolanaTestnet]}
         >
           <Connector>
             <ConnectButton />
