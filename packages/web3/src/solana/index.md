@@ -18,7 +18,7 @@ Ant Design Web3 officially provides `@ant-design/web3-solana` to adapt to Solana
 
 ## Add more wallets
 
-To reduce the size of the package you're including, you need to manually configure the `wallets` to import the relevant wallets. You can export the necessary resources from `@ant-design/web3-assets` and `@solana/wallet-adapter-wallets`. If you don't find the resources you need, you can let us know by submitting a [Github issue](https://github.com/ant-design/ant-design-web3/issues). You can also configure it yourself or submit a Pull Request to us for support.
+To reduce the size of the package you're including, you need to manually configure the `wallets` to import the relevant wallets. You can export the necessary resources from `@ant-design/web3-assets` and `@solana/wallet-adapter-wallets`. If you don't find the resources you need, you can let us know by submitting a [GitHub issue](https://github.com/ant-design/ant-design-web3/issues). You can also configure it yourself or submit a Pull Request to us for support.
 
 <code src="./demos/more-wallets.tsx"></code>
 

@@ -147,6 +147,6 @@ export default function Web3() {
 
 <code src="./demos/dapp.tsx"></code>
 
-你也可以参考 Github 项目源代码[https://github.com/ant-design/ant-design-web3-demo](https://github.com/ant-design/ant-design-web3-demo)。
+你也可以参考 GitHub 项目源代码[https://github.com/ant-design/ant-design-web3-demo](https://github.com/ant-design/ant-design-web3-demo)。
 
 至此，我们完成了本次课程的所有内容，希望你能够从中学到一些东西，谢谢大家！🎉

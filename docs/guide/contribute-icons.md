@@ -45,7 +45,7 @@ Add new svg in `svgs` folder, file name should be the same as icon name, and use
 In the `components` directory, refer to the following template to complete the component. There are two parts that need to be changed:
 
 1. Icon component name
-2. Svg introduction name
+2. SVG introduction name
 
 ```tsx | pure
 import * as React from 'react';

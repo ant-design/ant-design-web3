@@ -14,7 +14,7 @@ In this course, we will use `Remix` to run the `Solidity` contract.
 
 `Remix` is the official recommended integrated development environment (IDE) for smart contracts on Ethereum. It is suitable for novices. It provides an easy-to-use interface to quickly write, compile and deploy smart contracts in the browser without installing any programs locally.
 
-`Solidity` is a high-level programming language created for implementing `smart contracts`. This language is influenced by the `C++`, `Python` and `Javascript` languages, and is designed to run on the Ethereum virtual machine (`EVM`). `Solidity` is a statically typed language that supports inheritance, libraries, and complex user-defined types.
+`Solidity` is a high-level programming language created for implementing `smart contracts`. This language is influenced by the `C++`, `Python` and `JavaScript` languages, and is designed to run on the Ethereum virtual machine (`EVM`). `Solidity` is a statically typed language that supports inheritance, libraries, and complex user-defined types.
 
 ## Panel
 
@@ -33,7 +33,7 @@ As you can see, `Remix` consists of three panels and a terminal.
 
 ![](./img/slide.png)
 
-A brief introduction to the side panel icon function, we will have a more detailed introduction when we use it later. `Home` can always open the main page, even if it is turned off. `File explorer` is used to manage workspaces and files. `Search` is a global search function. `Solidity Compiler` is the interface of the contract compiler. The interface displays the basic configuration items of the compiler by default, and the `Advanced Configurations` button opens the advanced configuration panel. `Deploy&Run` is to send the transaction to the current `environment`. `Debugger` is a debugger. When debugging a transaction, the debugger will display the status of the contract. `Plugin mananer` is a plug-in manager, there are many plug-ins to choose from. `Setting` will have some basic settings, such as `language`, `theme`, `Github access token`, `general settings`, etc.
+A brief introduction to the side panel icon function, we will have a more detailed introduction when we use it later. `Home` can always open the main page, even if it is turned off. `File explorer` is used to manage workspaces and files. `Search` is a global search function. `Solidity Compiler` is the interface of the contract compiler. The interface displays the basic configuration items of the compiler by default, and the `Advanced Configurations` button opens the advanced configuration panel. `Deploy&Run` is to send the transaction to the current `environment`. `Debugger` is a debugger. When debugging a transaction, the debugger will display the status of the contract. `Plugin mananer` is a plug-in manager, there are many plug-ins to choose from. `Setting` will have some basic settings, such as `language`, `theme`, `GitHub access token`, `general settings`, etc.
 
 ## Workspace and file
 

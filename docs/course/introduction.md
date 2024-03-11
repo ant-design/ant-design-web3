@@ -23,4 +23,4 @@ This course has certain prerequisites, which require you to have a basic underst
 
 ## Contribution
 
-If you find any problems in the course, please feel free to submit an [issue](https://github.com/ant-design/ant-design-web3/issues). Of course, we welcome you to submit a Pull Request directly to us to make the course better. The content of the course is [open source on Github](https://github.com/ant-design/ant-design-web3/tree/main/docs/course). Whether it is course optimization, spelling and translation errors, you are welcome to submit a PR to us.
+If you find any problems in the course, please feel free to submit an [issue](https://github.com/ant-design/ant-design-web3/issues). Of course, we welcome you to submit a Pull Request directly to us to make the course better. The content of the course is [open source on GitHub](https://github.com/ant-design/ant-design-web3/tree/main/docs/course). Whether it is course optimization, spelling and translation errors, you are welcome to submit a PR to us.
