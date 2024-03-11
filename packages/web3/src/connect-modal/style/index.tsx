@@ -128,11 +128,13 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                         width: token.iconSize,
                         height: token.iconSize,
                         fontSize: token.iconSize,
-                        lineHeight: 1,
-                        img: {
-                          width: '100%',
-                          height: '100%',
-                        },
+                        lineHeight: `${token.iconSize}px`,
+                      },
+                      [`${componentCls}-img`]: {
+                        borderRadius: 8,
+                        overflow: 'hidden',
+                        width: token.iconSize,
+                        height: token.iconSize,
                       },
                       [`${componentCls}-name`]: {
                         fontSize: token.fontSizeLG,
