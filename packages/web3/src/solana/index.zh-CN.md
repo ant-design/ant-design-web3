@@ -48,7 +48,6 @@ Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它
 | connectionConfig | 连接节点的配置 | [ConnectionConfig](https://solana-labs.github.io/solana-web3.js/types/ConnectionConfig.html) | - | - |
 | balance | 是否显示余额 | `boolean` | - | - |
 | chains | 可用的链 | SolanaChainConfig\[\] | - | \[solana\] |
-| chainAssets | 链的图标等信息的配置 | [Chain](./types#chain)\[\] | - | - |
 | wallets | 可用的钱包 | WalletFactory\[\] | - | - |
 | autoConnect | 是否自动连接 | `boolean` | `false` | - |
 | walletProviderProps | WalletProvider 的属性 | [WalletProviderProps](https://github.com/solana-labs/wallet-adapter/blob/master/packages/core/react/src/WalletProvider.tsx#L17) | - | - |

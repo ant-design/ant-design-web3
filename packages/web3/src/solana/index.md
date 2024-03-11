@@ -37,3 +37,18 @@ We have built-in support for the Solana mainnet (`mainnet-beta`). To support oth
 You can use more components together. The content related to the chain in the component will be obtained from the adapter. Of course, the properties configured directly on the component have a higher priority.
 
 <code src="./demos/more-components.tsx"></code>
+
+## API
+
+### SolanaWeb3ConfigProvider
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| rpcProvider | RPC provider for connecting nodes | (chain?: [Chain](./types#chain)) => string | - | - |
+| connectionConfig | Configuration for instantiating a Connection | [ConnectionConfig](https://solana-labs.github.io/solana-web3.js/types/ConnectionConfig.html) | - | - |
+| balance | Whether to display balance | `boolean` | - | - |
+| chains | Chains | SolanaChainConfig\[\] | - | \[solana\] |
+| wallets | Wallets | WalletFactory\[\] | - | - |
+| autoConnect | Whether to connect automatically | `boolean` | `false` | - |
+| walletProviderProps | Transparent to WalletProvider | [WalletProviderProps](https://github.com/solana-labs/wallet-adapter/blob/master/packages/core/react/src/WalletProvider.tsx#L17) | - | - |
+| locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
