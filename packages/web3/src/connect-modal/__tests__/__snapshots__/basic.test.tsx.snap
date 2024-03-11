@@ -111,14 +111,11 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet"
+                                        class="ant-web3-connect-modal-img"
+                                        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -132,14 +129,11 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet3"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet3"
+                                        class="ant-web3-connect-modal-img"
+                                        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -182,14 +176,11 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet2"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet2"
+                                        class="ant-web3-connect-modal-img"
+                                        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -203,13 +194,10 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet4"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet4"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -223,13 +211,10 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet5"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet5"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -243,13 +228,10 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet6"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet6"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -263,13 +245,10 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet6"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet6"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -532,14 +511,11 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet"
+                                        class="ant-web3-connect-modal-img"
+                                        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -553,14 +529,11 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet3"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet3"
+                                        class="ant-web3-connect-modal-img"
+                                        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -603,14 +576,11 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet2"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet2"
+                                        class="ant-web3-connect-modal-img"
+                                        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -624,13 +594,10 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet4"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet4"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -644,13 +611,10 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet5"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet5"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -664,13 +628,10 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet6"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet6"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -684,13 +645,10 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet6"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet6"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -953,14 +911,11 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet"
+                                        class="ant-web3-connect-modal-img"
+                                        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -974,14 +929,11 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet3"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet3"
+                                        class="ant-web3-connect-modal-img"
+                                        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1024,14 +976,11 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet2"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet2"
+                                        class="ant-web3-connect-modal-img"
+                                        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1045,13 +994,10 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet4"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet4"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1065,13 +1011,10 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet5"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet5"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1085,13 +1028,10 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet6"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet6"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1105,13 +1045,10 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet6"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet6"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1369,14 +1306,11 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet"
+                                        class="ant-web3-connect-modal-img"
+                                        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1390,14 +1324,11 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet3"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet3"
+                                        class="ant-web3-connect-modal-img"
+                                        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1440,14 +1371,11 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet2"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet2"
+                                        class="ant-web3-connect-modal-img"
+                                        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1461,13 +1389,10 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet4"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet4"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1481,13 +1406,10 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet5"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet5"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1501,13 +1423,10 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet6"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet6"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1521,13 +1440,10 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet6"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet6"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1810,14 +1726,11 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet"
+                                        class="ant-web3-connect-modal-img"
+                                        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1831,14 +1744,11 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet3"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet3"
+                                        class="ant-web3-connect-modal-img"
+                                        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1881,14 +1791,11 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet2"
-                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet2"
+                                        class="ant-web3-connect-modal-img"
+                                        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1902,13 +1809,10 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet4"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet4"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1922,13 +1826,10 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet5"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet5"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1942,13 +1843,10 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet6"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet6"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
@@ -1962,13 +1860,10 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                     <div
                                       class="ant-web3-connect-modal-content"
                                     >
-                                      <div
-                                        class="ant-web3-connect-modal-icon"
-                                      >
-                                        <img
-                                          alt="Test Wallet6"
-                                        />
-                                      </div>
+                                      <img
+                                        alt="Test Wallet6"
+                                        class="ant-web3-connect-modal-img"
+                                      />
                                       <div
                                         class="ant-web3-connect-modal-name"
                                       >
