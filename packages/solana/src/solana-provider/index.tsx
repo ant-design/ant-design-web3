@@ -1,5 +1,5 @@
 import { useMemo, useState, type FC, type PropsWithChildren } from 'react';
-import { Solana } from '@ant-design/web3-assets/solana';
+import { Solana, SolanaDevnet, SolanaTestnet } from '@ant-design/web3-assets/solana';
 import type { Chain, Locale } from '@ant-design/web3-common';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { type ConnectionConfig } from '@solana/web3.js';
@@ -11,7 +11,6 @@ import { AntDesignWeb3ConfigProvider } from './config-provider';
 export interface SolanaWeb3ConfigProviderProps {
   locale?: Locale;
   chains?: SolanaChainConfig[];
-  chainAssets?: Chain[];
   wallets?: WalletFactory[];
   balance?: boolean;
 
@@ -30,7 +29,6 @@ export interface SolanaWeb3ConfigProviderProps {
 export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProviderProps>> = ({
   locale,
   chains,
-  chainAssets,
   wallets: walletFactorys = [],
   balance,
   rpcProvider,
@@ -57,7 +55,7 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
       <WalletProvider wallets={adapters} autoConnect={autoConnect} {...walletProviderProps}>
         <AntDesignWeb3ConfigProvider
           locale={locale}
-          chainAssets={chainAssets ?? [Solana]}
+          chainAssets={[Solana, SolanaDevnet, SolanaTestnet]}
           availableWallets={availableWallets}
           balance={balance}
           currentChain={currentChain}
