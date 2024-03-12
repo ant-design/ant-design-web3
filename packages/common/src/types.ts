@@ -75,6 +75,12 @@ export interface UniversalWeb3ProviderInterface {
   disconnect?: () => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;
 
+  // sign utf-8/raw message or typed data(EIP-712)
+  signMessage?: (
+    // biome-ignore lint/suspicious/noExplicitAny: any means not limited
+    message: string | { raw: Uint8Array } | Record<PropertyKey, any>,
+  ) => Promise<{ signature: string }>;
+
   getNFTMetadata?: (params: { address: string; tokenId: bigint }) => Promise<NFTMetadata>;
 }
 
