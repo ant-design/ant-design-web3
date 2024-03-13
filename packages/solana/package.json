@@ -50,7 +50,7 @@
   "devDependencies": {
     "@types/debug": "^4.1.12",
     "father": "^4.3.8",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.2",
     "@solana/wallet-adapter-base": "^0.9.23"
   },
   "peerDependencies": {
