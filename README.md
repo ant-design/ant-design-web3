@@ -4,7 +4,7 @@
 
 <h1 align="center">Ant Design Web3</h1>
 
-A collection of components for Web3.
+Efficient react components for building dapps easier.
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 

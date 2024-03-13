@@ -72,13 +72,11 @@ const WalletList: React.FC<WalletListProps> = (props) => {
             <Row align="middle" justify="center" className={`${prefixCls}-row`}>
               <Col span={16}>
                 <div className={`${prefixCls}-content`}>
-                  <div className={`${prefixCls}-icon`}>
-                    {typeof item.icon === 'string' || item.icon === undefined ? (
-                      <img src={item.icon} alt={item.name} />
-                    ) : (
-                      item.icon
-                    )}
-                  </div>
+                  {typeof item.icon === 'string' || item.icon === undefined ? (
+                    <img className={`${prefixCls}-img`} src={item.icon} alt={item.name} />
+                  ) : (
+                    <div className={`${prefixCls}-icon`}>{item.icon}</div>
+                  )}
                   <div className={`${prefixCls}-name`}>{item.name}</div>
                 </div>
               </Col>

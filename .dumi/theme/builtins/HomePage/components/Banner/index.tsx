@@ -23,6 +23,9 @@ export const Banner: React.FC = () => {
             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8Aj9RZXO3d0AAAAAAAAAAAAADlrGAQ/original"
             alt="title"
           />
+          <div className={styles.slogan}>
+            {intl.formatMessage({ id: 'app.docs.site.index.banner.slogan' })}
+          </div>
           <div className={styles.btn}>
             <Link to={`/guide/ant-design-web3${intl.locale === 'zh-CN' ? '-cn' : ''}`}>
               {intl.formatMessage({ id: 'app.docs.site.index.banner.button-text' })}

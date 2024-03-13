@@ -18,7 +18,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它
 
 ## 添加更多钱包
 
-为了降低引入包的大小，你需要手动配置 `wallets` 引入相关钱包。你可以从 `@ant-design/web3-assets` 和 `@solana/wallet-adapter-wallets` 中导出相关资源，如果没有你需要的资源，你可以通过提交 [Github issue](https://github.com/ant-design/ant-design-web3/issues) 告诉我们。也自己配置或者给我们提交 PR 支持。
+为了降低引入包的大小，你需要手动配置 `wallets` 引入相关钱包。你可以从 `@ant-design/web3-assets` 和 `@solana/wallet-adapter-wallets` 中导出相关资源，如果没有你需要的资源，你可以通过提交 [GitHub issue](https://github.com/ant-design/ant-design-web3/issues) 告诉我们。也自己配置或者给我们提交 PR 支持。
 
 <code src="./demos/more-wallets.tsx"></code>
 
@@ -48,7 +48,6 @@ Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它
 | connectionConfig | 连接节点的配置 | [ConnectionConfig](https://solana-labs.github.io/solana-web3.js/types/ConnectionConfig.html) | - | - |
 | balance | 是否显示余额 | `boolean` | - | - |
 | chains | 可用的链 | SolanaChainConfig\[\] | - | \[solana\] |
-| chainAssets | 链的图标等信息的配置 | [Chain](./types#chain)\[\] | - | - |
 | wallets | 可用的钱包 | WalletFactory\[\] | - | - |
 | autoConnect | 是否自动连接 | `boolean` | `false` | - |
 | walletProviderProps | WalletProvider 的属性 | [WalletProviderProps](https://github.com/solana-labs/wallet-adapter/blob/master/packages/core/react/src/WalletProvider.tsx#L17) | - | - |

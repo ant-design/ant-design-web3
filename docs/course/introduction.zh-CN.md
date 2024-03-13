@@ -23,4 +23,4 @@ order: 1
 
 ## 贡献
 
-如果你发现课程中有任何问题，欢迎提交 [issue](https://github.com/ant-design/ant-design-web3/issues) 给我们。当然，我们更欢迎你直接给我们提交 Pull Request，让课程变得更好。课程的内容在 [Github 开源](https://github.com/ant-design/ant-design-web3/tree/main/docs/course)。不管课程优化，还是拼写和翻译错误，都欢迎你给我们提交 PR。
+如果你发现课程中有任何问题，欢迎提交 [issue](https://github.com/ant-design/ant-design-web3/issues) 给我们。当然，我们更欢迎你直接给我们提交 Pull Request，让课程变得更好。课程的内容在 [GitHub 开源](https://github.com/ant-design/ant-design-web3/tree/main/docs/course)。不管课程优化，还是拼写和翻译错误，都欢迎你给我们提交 PR。

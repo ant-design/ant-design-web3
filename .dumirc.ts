@@ -265,26 +265,5 @@ export default defineConfig({
       suffix: '-cn',
     },
   ],
-  extraBabelPlugins: [
-    [
-      'inline-react-svg',
-      {
-        svgo: {
-          plugins: [
-            {
-              name: 'preset-default',
-              params: {
-                overrides: {
-                  cleanupIDs: {
-                    // Don't minify ids in `svg` to avoid conflict.
-                    preservePrefixes: ['ant-web3-icon-'],
-                  },
-                },
-              },
-            },
-          ],
-        },
-      },
-    ],
-  ],
+  extraBabelPlugins: ['inline-react-svg', 'react-inline-svg-unique-id'],
 });

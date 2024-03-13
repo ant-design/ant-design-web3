@@ -18,7 +18,7 @@ Ant Design Web3 officially provides `@ant-design/web3-solana` to adapt to Solana
 
 ## Add more wallets
 
-To reduce the size of the package you're including, you need to manually configure the `wallets` to import the relevant wallets. You can export the necessary resources from `@ant-design/web3-assets` and `@solana/wallet-adapter-wallets`. If you don't find the resources you need, you can let us know by submitting a [Github issue](https://github.com/ant-design/ant-design-web3/issues). You can also configure it yourself or submit a Pull Request to us for support.
+To reduce the size of the package you're including, you need to manually configure the `wallets` to import the relevant wallets. You can export the necessary resources from `@ant-design/web3-assets` and `@solana/wallet-adapter-wallets`. If you don't find the resources you need, you can let us know by submitting a [GitHub issue](https://github.com/ant-design/ant-design-web3/issues). You can also configure it yourself or submit a Pull Request to us for support.
 
 <code src="./demos/more-wallets.tsx"></code>
 
@@ -37,3 +37,18 @@ We have built-in support for the Solana mainnet (`mainnet-beta`). To support oth
 You can use more components together. The content related to the chain in the component will be obtained from the adapter. Of course, the properties configured directly on the component have a higher priority.
 
 <code src="./demos/more-components.tsx"></code>
+
+## API
+
+### SolanaWeb3ConfigProvider
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| rpcProvider | RPC provider for connecting nodes | (chain?: [Chain](./types#chain)) => string | - | - |
+| connectionConfig | Configuration for instantiating a Connection | [ConnectionConfig](https://solana-labs.github.io/solana-web3.js/types/ConnectionConfig.html) | - | - |
+| balance | Whether to display balance | `boolean` | - | - |
+| chains | Chains | SolanaChainConfig\[\] | - | \[solana\] |
+| wallets | Wallets | WalletFactory\[\] | - | - |
+| autoConnect | Whether to connect automatically | `boolean` | `false` | - |
+| walletProviderProps | Transparent to WalletProvider | [WalletProviderProps](https://github.com/solana-labs/wallet-adapter/blob/master/packages/core/react/src/WalletProvider.tsx#L17) | - | - |
+| locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |

@@ -1,5 +1,4 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { Solana, SolanaDevnet, SolanaTestnet } from '@ant-design/web3-assets/solana';
 import {
   CoinbaseWallet,
   solana,
@@ -14,7 +13,6 @@ const App: React.FC = () => {
       balance={false}
       autoConnect
       chains={[solana, solanaTestnet, solanaDevnet]}
-      chainAssets={[Solana, SolanaTestnet, SolanaDevnet]}
       wallets={[CoinbaseWallet()]}
     >
       <Connector>
