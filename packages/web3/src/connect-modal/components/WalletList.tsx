@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react';
 import { QrcodeOutlined } from '@ant-design/icons';
-import { Col, List, Row } from 'antd';
+import { Button, List, Space } from 'antd';
 import classNames from 'classnames';
 
 import { connectModalContext } from '../context';
@@ -69,33 +69,30 @@ const WalletList: React.FC<WalletListProps> = (props) => {
               updatePanelRoute('wallet', true);
             }}
           >
-            <Row align="middle" justify="center" className={`${prefixCls}-row`}>
-              <Col span={16}>
-                <div className={`${prefixCls}-content`}>
-                  {typeof item.icon === 'string' || item.icon === undefined ? (
-                    <img className={`${prefixCls}-img`} src={item.icon} alt={item.name} />
-                  ) : (
-                    <div className={`${prefixCls}-icon`}>{item.icon}</div>
-                  )}
-                  <div className={`${prefixCls}-name`}>{item.name}</div>
-                </div>
-              </Col>
-              <Col span={6}>
-                <PluginTag wallet={item} />
-              </Col>
-              <Col span={2} className={`${prefixCls}-qc-icon-col`}>
-                {item.getQrCode && (
+            <div className={`${prefixCls}-content`}>
+              {typeof item.icon === 'string' || item.icon === undefined ? (
+                <img className={`${prefixCls}-img`} src={item.icon} alt={item.name} />
+              ) : (
+                <div className={`${prefixCls}-icon`}>{item.icon}</div>
+              )}
+              <div className={`${prefixCls}-name`}>{item.name}</div>
+            </div>
+            <Space>
+              <PluginTag wallet={item} />
+              {item.getQrCode ? (
+                <Button size="small">
                   <QrcodeOutlined
-                    className={`${prefixCls}-qc-icon`}
                     onClick={(e) => {
                       e.stopPropagation();
                       updateSelectedWallet(item, false);
                       updatePanelRoute('qrCode', true);
                     }}
                   />
-                )}
-              </Col>
-            </Row>
+                </Button>
+              ) : (
+                <div className={`${prefixCls}-qr-icon-empty`} />
+              )}
+            </Space>
           </List.Item>
         )}
       />

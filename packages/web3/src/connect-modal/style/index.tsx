@@ -121,23 +121,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     transition: 'background .3s, color .3s',
                     marginBlockEnd: 5,
                     border: 'none',
-                    [`${componentCls}-extra`]: {
-                      fontSize: token.fontSizeSM,
-                      color: token.colorTextDescription,
-                    },
-                    [`${componentCls}-row`]: {
-                      width: '100%',
-                      fontSize: token.fontSizeLG,
-                      [`${componentCls}-qc-icon-col`]: {
-                        fontSize: 16,
-                        textAlign: 'right',
-                        [`${componentCls}-qc-icon`]: {
-                          '&:hover': {
-                            color: token.colorPrimary,
-                          },
-                        },
-                      },
-                    },
                     [`${componentCls}-content`]: {
                       display: 'flex',
                       alignItems: 'center',
@@ -162,6 +145,9 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                         color: token.colorText,
                         wordBreak: 'break-word',
                       },
+                    },
+                    [`${componentCls}-qr-icon-empty`]: {
+                      width: 30,
                     },
                     '&:last-child': {
                       marginBlockEnd: 0,

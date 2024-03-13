@@ -4,8 +4,8 @@ import { Wallet } from '@ant-design/web3-common';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-describe('ConnectModal with qcCode & plugin tag', () => {
-  it('show qcCode', async () => {
+describe('ConnectModal with qrCode & plugin tag', () => {
+  it('show qrCode', async () => {
     const wallet: Wallet = {
       ...metadata_MetaMask,
       getQrCode: async () => {
@@ -25,10 +25,10 @@ describe('ConnectModal with qcCode & plugin tag', () => {
       />
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.ant-web3-connect-modal-qc-icon')).toBeTruthy();
+    expect(baseElement.querySelector('.anticon-qrcode')).toBeTruthy();
   });
 
-  it('don not show qcCode', async () => {
+  it('don not show qrCode', async () => {
     const wallet: Wallet = {
       ...metadata_MetaMask,
     };
@@ -43,7 +43,7 @@ describe('ConnectModal with qcCode & plugin tag', () => {
       />
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.ant-web3-connect-modal-qc-icon')).not.toBeTruthy();
+    expect(baseElement.querySelector('.anticon-qrcode')).not.toBeTruthy();
   });
 
   it('not show plugin tag', async () => {
@@ -129,10 +129,10 @@ describe('ConnectModal with qcCode & plugin tag', () => {
       />
     );
     const { baseElement } = render(<App />);
-    const icon = baseElement.querySelector('.ant-web3-connect-modal-qc-icon');
+    const icon = baseElement.querySelector('.anticon-qrcode');
     fireEvent.click(icon!);
     await waitFor(() => {
-      expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code')).toBeTruthy();
+      expect(baseElement.querySelector('.anticon-qrcode')).toBeTruthy();
     });
   });
 });
