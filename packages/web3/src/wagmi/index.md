@@ -64,9 +64,13 @@ We have built-in `Mainnet`, and the remaining chains need to configure `chains` 
 
 ## Display ENS
 
+> You need to connect to an address containing ENS to see the example effect.
+
 <code src="./demos/name.tsx"></code>
 
 ## Display Balance
+
+> You need to connect your account in order to see the example effect.
 
 <code src="./demos/balance.tsx"></code>
 

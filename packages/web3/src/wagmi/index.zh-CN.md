@@ -62,9 +62,13 @@ Ant Design Web3 内置了对 [TokenPocket](https://www.tokenpocket.pro/) 的支�
 
 ## 显示 ENS
 
+> 你需要连接包含 ENS 的地址才能看到示例效果
+
 <code src="./demos/name.tsx"></code>
 
 ## 显示余额
+
+> 你需要连接账号后才能看到示例效果
 
 <code src="./demos/balance.tsx"></code>
 
