@@ -28,7 +28,7 @@ describe('ConnectModal with qrCode & plugin tag', () => {
     expect(baseElement.querySelector('.anticon-qrcode')).toBeTruthy();
   });
 
-  it('don not show qrCode', async () => {
+  it('do not show qrCode', async () => {
     const wallet: Wallet = {
       ...metadata_MetaMask,
     };
