@@ -3,6 +3,7 @@ import { ConnectModal, type Wallet } from '@ant-design/web3';
 import {
   metadata_CoinbaseWallet,
   metadata_MetaMask,
+  metadata_OkxWallet,
   metadata_TokenPocket,
   metadata_WalletConnect,
 } from '@ant-design/web3-assets';
@@ -34,24 +35,54 @@ export const Theme: React.FC = () => {
   const walletList: Wallet[] = [
     {
       ...metadata_MetaMask,
+      hasWalletReady: async () => {
+        return true;
+      },
+      hasExtensionInstalled: async () => {
+        return true;
+      },
+      getQrCode: async () => {
+        return {
+          uri: 'https://web3.ant.design',
+        };
+      },
     },
     {
       ...metadata_WalletConnect,
-      getQrCode: () => {
-        return new Promise<{
-          uri: string;
-        }>((resolve) =>
-          setTimeout(
-            () =>
-              resolve({
-                uri: `https://web3.ant.design/?timestamp=${Date.now()}&random=${Math.random()}`,
-              }),
-            2000,
-          ),
-        );
+      getQrCode: async () => {
+        return {
+          uri: 'https://web3.ant.design',
+        };
       },
     },
-    metadata_TokenPocket,
+    {
+      ...metadata_TokenPocket,
+      hasWalletReady: async () => {
+        return true;
+      },
+      hasExtensionInstalled: async () => {
+        return true;
+      },
+      getQrCode: async () => {
+        return {
+          uri: 'https://web3.ant.design',
+        };
+      },
+    },
+    {
+      ...metadata_OkxWallet,
+      hasWalletReady: async () => {
+        return true;
+      },
+      hasExtensionInstalled: async () => {
+        return false;
+      },
+      getQrCode: async () => {
+        return {
+          uri: 'https://web3.ant.design',
+        };
+      },
+    },
     metadata_CoinbaseWallet,
   ];
 
