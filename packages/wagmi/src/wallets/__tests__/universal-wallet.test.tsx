@@ -242,6 +242,21 @@ describe('UniversalWallet', async () => {
     expect(wallet.getQrCode).toBeTruthy();
     expect(await wallet.hasExtensionInstalled?.()).toBeTruthy();
     expect((await wallet.getWagmiConnector?.())?.name).toEqual('TestWalletInjectedConnector');
+    expect(
+      (
+        await wallet.getWagmiConnector?.({
+          connectType: 'extension',
+        })
+      )?.name,
+    ).toEqual('TestWalletInjectedConnector');
+    expect(
+      (
+        await wallet.getWagmiConnector?.({
+          connectType: 'qrCode',
+        })
+      )?.name,
+    ).toEqual('WalletConnect');
+    expect((await wallet.getWagmiConnector?.({}))?.name).toEqual('TestWalletInjectedConnector');
   });
 
   it('both has extension and app, without install', async () => {
