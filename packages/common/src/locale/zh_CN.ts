@@ -33,6 +33,7 @@ const localeValues: RequiredLocale = {
     walletCardAppTitle: '在手机使用 {selectedWalletName}',
     walletCardAppDesc: '使用移动钱包探索以太坊世界。',
     walletCardExtensionTitle: '在 {selectedExtensionBrowserName} 浏览器中使用 {selectedWalletName}',
+    walletPanelPlugin: '插件',
   },
   NFTCard: {
     actionText: '立即购买',

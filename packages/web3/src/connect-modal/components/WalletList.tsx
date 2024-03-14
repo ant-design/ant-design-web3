@@ -1,10 +1,12 @@
 import React, { useContext, useMemo } from 'react';
-import { List } from 'antd';
+import { QrcodeOutlined } from '@ant-design/icons';
+import { Button, List, Space } from 'antd';
 import classNames from 'classnames';
 
 import { connectModalContext } from '../context';
 import type { ConnectModalProps, Wallet } from '../interface';
 import { defaultGroupOrder } from '../utils';
+import PluginTag from './PluginTag';
 
 export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'group' | 'groupOrder'>;
 
@@ -75,6 +77,22 @@ const WalletList: React.FC<WalletListProps> = (props) => {
               )}
               <div className={`${prefixCls}-name`}>{item.name}</div>
             </div>
+            <Space>
+              <PluginTag wallet={item} />
+              {item.getQrCode ? (
+                <Button size="small">
+                  <QrcodeOutlined
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      updateSelectedWallet(item, false);
+                      updatePanelRoute('qrCode', true);
+                    }}
+                  />
+                </Button>
+              ) : (
+                <div className={`${prefixCls}-qr-icon-empty`} />
+              )}
+            </Space>
           </List.Item>
         )}
       />

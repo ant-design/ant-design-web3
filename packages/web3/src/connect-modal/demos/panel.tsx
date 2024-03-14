@@ -55,7 +55,7 @@ const App: React.FC = () => {
   return (
     <Card
       style={{
-        maxWidth: 737,
+        maxWidth: 797,
       }}
       bodyStyle={{
         padding: 0,

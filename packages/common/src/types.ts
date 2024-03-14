@@ -211,6 +211,7 @@ export interface RequiredLocale {
     walletCardAppTitle: string;
     walletCardAppDesc: string;
     walletCardExtensionTitle: string;
+    walletPanelPlugin: string;
   };
   NFTCard: {
     actionText: string;
