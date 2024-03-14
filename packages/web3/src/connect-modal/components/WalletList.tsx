@@ -80,14 +80,16 @@ const WalletList: React.FC<WalletListProps> = (props) => {
             <Space>
               <PluginTag wallet={item} />
               {item.getQrCode ? (
-                <Button size="small">
-                  <QrcodeOutlined
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      updateSelectedWallet(item, false);
-                      updatePanelRoute('qrCode', true);
-                    }}
-                  />
+                <Button
+                  size="small"
+                  className={`${prefixCls}-qr-btn`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    updateSelectedWallet(item, false);
+                    updatePanelRoute('qrCode', true);
+                  }}
+                >
+                  <QrcodeOutlined />
                 </Button>
               ) : (
                 <div className={`${prefixCls}-qr-icon-empty`} />
