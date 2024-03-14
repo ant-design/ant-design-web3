@@ -46,7 +46,10 @@ export class UniversalWallet implements WalletFactory {
 
     return {
       ...this.wallet,
-      getWagmiConnector: async () => {
+      getWagmiConnector: async (options) => {
+        if (options?.connectType === 'qrCode') {
+          return walletConnector;
+        }
         if (await hasExtensionInstalled()) {
           return injectedConnector;
         }

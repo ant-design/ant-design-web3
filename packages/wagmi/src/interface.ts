@@ -1,8 +1,8 @@
-import type { Wallet, WalletMetadata } from '@ant-design/web3-common';
+import type { ConnectOptions, Wallet, WalletMetadata } from '@ant-design/web3-common';
 import type { Connector } from 'wagmi';
 
 export interface WalletUseInWagmiAdapter extends Wallet {
-  getWagmiConnector?: () => Promise<Connector | undefined>;
+  getWagmiConnector?: (options?: ConnectOptions) => Promise<Connector | undefined>;
 }
 
 export type EthereumWallet = (metadata?: Partial<WalletMetadata>) => WalletFactory;

@@ -1,4 +1,5 @@
 import React from 'react';
+import type { ConnectOptions } from '@ant-design/web3-common';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 
@@ -49,11 +50,15 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
   }, []);
 
   const updateSelectedWallet = React.useCallback(
-    (wallet?: Wallet, triggerConnect?: boolean) => {
+    (wallet?: Wallet, connectOptions?: ConnectOptions) => {
       setSelectedWallet(wallet);
-      if (wallet && triggerConnect) {
-        setPanelRoute('init');
-        onWalletSelected?.(wallet);
+      if (wallet && connectOptions) {
+        if (connectOptions.connectType === 'qrCode') {
+          updatePanelRoute('qrCode', true);
+        } else {
+          setPanelRoute('init');
+        }
+        onWalletSelected?.(wallet, connectOptions);
       }
     },
     [onWalletSelected],
