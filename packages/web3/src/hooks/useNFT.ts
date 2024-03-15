@@ -30,6 +30,7 @@ export default function useNFT(
         })
         .catch((err) => {
           setError(err);
+          setMetadata({});
         })
         .finally(() => {
           setLoading(false);

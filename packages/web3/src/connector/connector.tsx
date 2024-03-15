@@ -1,6 +1,6 @@
-import React, { isValidElement } from 'react';
+import React from 'react';
 import { ConnectModal } from '@ant-design/web3';
-import type { Chain, ConnectorTriggerProps, Wallet } from '@ant-design/web3-common';
+import type { Chain, ConnectOptions, ConnectorTriggerProps, Wallet } from '@ant-design/web3-common';
 import { message } from 'antd';
 
 import useProvider from '../hooks/useProvider';
@@ -25,16 +25,17 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     chain,
     switchChain,
     balance,
+    addressPrefix,
   } = useProvider(props);
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [messageApi, contextHolder] = message.useMessage();
 
-  const connectWallet = async (wallet?: Wallet) => {
+  const connectWallet = async (wallet?: Wallet, options?: ConnectOptions) => {
     onConnect?.();
     try {
       setLoading(true);
-      await connect?.(wallet);
+      await connect?.(wallet, options);
       onConnected?.();
       setOpen(false);
     } catch (e: any) {
@@ -44,6 +45,11 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       setLoading(false);
     }
   };
+
+  if (!React.isValidElement(children)) {
+    console.error('"children" property of the "Connector" is must be a React element');
+    return null;
+  }
 
   return (
     <>
@@ -64,23 +70,24 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         balance,
         availableChains,
         chain,
+        addressPrefix,
         onSwitchChain: async (c: Chain) => {
           await switchChain?.(c);
           onChainSwitched?.(c);
         },
         loading,
-        ...(isValidElement(children) ? children.props : {}),
+        ...children.props,
       })}
 
       <ConnectModal
         open={open}
         walletList={availableWallets}
-        onWalletSelected={async (wallet) => {
-          if (!wallet.getQrCode) {
+        onWalletSelected={async (wallet, options) => {
+          if (options?.connectType !== 'qrCode') {
             // not need show qr code, hide immediately
             setOpen(false);
           }
-          await connectWallet(wallet);
+          await connectWallet(wallet, options);
         }}
         {...modalProps}
         onCancel={(e) => {

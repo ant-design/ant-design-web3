@@ -11,6 +11,13 @@ export enum ChainIds {
   Optimism = 10,
   Goerli = 5,
   Avalanche = 43_114,
+  X1Testnet = 195,
+}
+
+export enum SolanaChainIds {
+  MainnetBeta = 2,
+  Devnet = 3,
+  Testnet = 4,
 }
 
 export type BrowserLinkType = 'address' | 'transaction';
@@ -48,6 +55,10 @@ export interface NFTMetadata {
   compiler?: string;
 }
 
+export interface ConnectOptions {
+  connectType?: 'extension' | 'qrCode';
+}
+
 export interface UniversalWeb3ProviderInterface {
   // current connected account
   account?: Account;
@@ -61,7 +72,10 @@ export interface UniversalWeb3ProviderInterface {
 
   extendsContextFromParent?: boolean;
 
-  connect?: (wallet?: Wallet) => Promise<void>;
+  /** Such as `0x` */
+  addressPrefix?: string | false;
+
+  connect?: (wallet?: Wallet, options?: ConnectOptions) => Promise<void>;
   disconnect?: () => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;
 
@@ -203,6 +217,7 @@ export interface RequiredLocale {
     walletCardExtensionTitle: string;
     defaultSimpleFooter: string;
     defaultInfoMoreLinkFooter: string;
+    walletPanelPlugin: string;
   };
   NFTCard: {
     actionText: string;

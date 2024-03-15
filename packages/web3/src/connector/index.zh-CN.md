@@ -6,7 +6,7 @@ group:
 order: 0
 ---
 
-# Connector
+# Connector 连接器
 
 `Connector` 组件整合了 [ConnectButton](../connect-button/index.zh-CN.md) 和 [ConnectModal](../connect-modal/index.zh-CN.md) 组件，提供了一个完整的连接钱包的功能的 UI。
 
@@ -32,17 +32,17 @@ order: 0
 | --- | --- | --- | --- | --- |
 | children | 连接控件，通常是 `ConnectButton` | `React.ReactNode` | - | - |
 | modalProps | 透传给 `ConnectModal` 的属性 | `ModalProps` | - | - |
-| onConnect | 触发连接时的回调 | `() => Promise<viod>` | - | - |
-| onDisconnect | 触发断开连接时的回调 | `() => Promise<viod>` | - | - |
-| onConnected | 连接成功时的回调 | `() => Promise<viod>` | - | - |
-| onDisconnected | 断开连接时的回调 | `() => Promise<viod>` | - | - |
-| onChainSwitched | 切换网络时的回调 | `(chain: Chain) => Promise<viod>` | - | - |
+| onConnect | 触发连接时的回调 | `() => Promise<void>` | - | - |
+| onDisconnect | 触发断开连接时的回调 | `() => Promise<void>` | - | - |
+| onConnected | 连接成功时的回调 | `() => Promise<void>` | - | - |
+| onDisconnected | 断开连接时的回调 | `() => Promise<void>` | - | - |
+| onChainSwitched | 切换网络时的回调 | `(chain: Chain) => Promise<void>` | - | - |
 | wavailableWallets | 钱包列表 | `Wallet[]` | - | - |
 | account | 当前连接账号 | `Account[]` | - | - |
 | availableChains | 可以连接的链列表 | `Chain[]` | - | - |
 | requestAccounts | 请求账户列表的方法 | `() => Promise<Account[]>` | - | - |
-| disconnect | 断开连接的方法 | `() => Promise<viod>` | - | - |
-| switchChain | 切换网络的方法 | `(chain: Chain) => Promise<viod>` | - | - |
+| disconnect | 断开连接的方法 | `() => Promise<void>` | - | - |
+| switchChain | 切换网络的方法 | `(chain: Chain) => Promise<void>` | - | - |
 
 ### ConnectorTriggerProps
 
@@ -53,7 +53,7 @@ order: 0
 | account           | 当前连接的账户地址 | `string`                          | -      | -    |
 | onConnectClick    | 连接事件           | `() => void;`                     | -      | -    |
 | onDisconnectClick | 断开连接事件       | `() => void;`                     | -      | -    |
-| onSwitchChain     | 切换网络事件       | `(chain: Chain) => Promise<viod>` | -      | -    |
+| onSwitchChain     | 切换网络事件       | `(chain: Chain) => Promise<void>` | -      | -    |
 | balance           | 当前连接的账户余额 | `Balance[]` \| `Balance`          | -      | -    |
 | availableChains   | 可以连接的链列表   | `Chain[]`                         | -      | -    |
 | chain             | 当前连接的链       | [Chain](/components/types#chain)  | -      |      |

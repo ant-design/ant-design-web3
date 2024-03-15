@@ -1,4 +1,5 @@
 import React from 'react';
+import type { ConnectOptions } from '@ant-design/web3-common';
 import { Button, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 
@@ -14,7 +15,17 @@ import WalletList from './WalletList';
 export type ModalPanelProps = ConnectModalProps;
 
 const ModalPanel: React.FC<ModalPanelProps> = (props) => {
-  const { title, footer, walletList, groupOrder, guide, mode, onWalletSelected, locale } = props;
+  const {
+    title,
+    footer,
+    walletList,
+    guide,
+    group = true,
+    groupOrder,
+    mode,
+    onWalletSelected,
+    locale,
+  } = props;
   const intl = useIntl('ConnectModal', locale);
 
   const [panelRoute, setPanelRoute] = React.useState<PanelRoute>('init');
@@ -39,11 +50,15 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
   }, []);
 
   const updateSelectedWallet = React.useCallback(
-    (wallet?: Wallet, triggerConnect?: boolean) => {
+    (wallet?: Wallet, connectOptions?: ConnectOptions) => {
       setSelectedWallet(wallet);
-      if (wallet && triggerConnect) {
-        setPanelRoute('init');
-        onWalletSelected?.(wallet);
+      if (wallet && connectOptions) {
+        if (connectOptions.connectType === 'qrCode') {
+          updatePanelRoute('qrCode', true);
+        } else {
+          setPanelRoute('init');
+        }
+        onWalletSelected?.(wallet, connectOptions);
       }
     },
     [onWalletSelected],
@@ -92,7 +107,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
           <div className={classNames(`${prefixCls}-list-panel`)}>
             <div className={`${prefixCls}-header`}>{mergedTitle}</div>
             <div className={`${prefixCls}-list-container`}>
-              <WalletList walletList={walletList} groupOrder={groupOrder} />
+              <WalletList walletList={walletList} group={group} groupOrder={groupOrder} />
             </div>
             {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
             {!footer && isSimple && (

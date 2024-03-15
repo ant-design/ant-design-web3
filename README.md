@@ -4,7 +4,7 @@
 
 <h1 align="center">Ant Design Web3</h1>
 
-A collection of components for Web3.
+Efficient react components for building dapps easier.
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
@@ -32,7 +32,8 @@ English · [中文](./README-zh_CN.md)
 </div>
 
 - Home Page: https://web3.ant.design
-- Documentation: https://web3.ant.design/guide
+- Documentation: https://web3.ant.design/guide/ant-design-web3-cn
+- Course: https://web3.ant.design/course/introduction
 - 国内加速官网: https://web3.antdigital.dev
 
 ## Features
@@ -129,3 +130,7 @@ Any type of contribution is welcome, here are some examples of how you may contr
 - Propose [pull requests](https://github.com/ant-design/ant-design-web3/pulls) to improve our code.
 
 To better participate and contribute, please read our [contribution guidelines](https://web3.ant.design/guide/contributing).
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ant-design/ant-design-web3&type=Date)](https://star-history.com/#ant-design/ant-design-web3&Date)

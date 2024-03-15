@@ -1,5 +1,38 @@
 # @ant-design/web3-assets
 
+## 1.4.0
+
+### Minor Changes
+
+- e5b4fe9: feat: add imToken wallet info.
+
+### Patch Changes
+
+- Updated dependencies [081398d]
+- Updated dependencies [e5b4fe9]
+  - @ant-design/web3-icons@1.4.0
+
+## 1.3.1
+
+### Patch Changes
+
+- Updated dependencies [21a3e3b]
+  - @ant-design/web3-common@1.5.0
+
+## 1.3.0
+
+### Minor Changes
+
+- d601345: Add support for Solana
+- d601345: Address-like components support addressPrefix prop, add solana chain configs
+
+## 1.2.3
+
+### Patch Changes
+
+- Updated dependencies [dead69b]
+  - @ant-design/web3-common@1.4.0
+
 ## 1.2.2
 
 ### Patch Changes

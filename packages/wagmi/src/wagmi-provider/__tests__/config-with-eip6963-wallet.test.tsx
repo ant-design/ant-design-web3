@@ -65,12 +65,12 @@ describe('WagmiWeb3ConfigProvider with EIP6963 Wallet', () => {
     expect(walletItems[1].querySelector('.ant-web3-connect-modal-name')?.textContent).toBe(
       target2.name,
     );
-    expect(
-      walletItems[0].querySelector('.ant-web3-connect-modal-icon > img')?.getAttribute('src'),
-    ).toBe(target1.icon);
-    expect(
-      walletItems[1].querySelector('.ant-web3-connect-modal-icon > img')?.getAttribute('src'),
-    ).toBe(target2.icon);
+    expect(walletItems[0].querySelector('.ant-web3-connect-modal-img')?.getAttribute('src')).toBe(
+      target1.icon,
+    );
+    expect(walletItems[1].querySelector('.ant-web3-connect-modal-img')?.getAttribute('src')).toBe(
+      target2.icon,
+    );
     const groupTitle = baseElement.querySelector('.ant-web3-connect-modal-group-title');
     expect(groupTitle?.textContent).toBe('More');
   });

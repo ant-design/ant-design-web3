@@ -1,13 +1,14 @@
 import React from 'react';
-import { defaultLocale } from '@ant-design/web3-common';
+import { ConnectOptions, defaultLocale } from '@ant-design/web3-common';
 
 import type { IntlType } from '../../hooks/useIntl';
 import type { PanelRoute, Wallet } from '../interface';
 
 export type ConnectModalContext = {
   prefixCls: string;
+  addressPrefix?: string | false;
   selectedWallet?: Wallet;
-  updateSelectedWallet: (wallet?: Wallet, triggerConnect?: boolean) => void;
+  updateSelectedWallet: (wallet?: Wallet, connectOptions?: ConnectOptions) => void;
   panelRoute: PanelRoute;
   updatePanelRoute: (route: PanelRoute, clear?: boolean) => void;
   panelRouteBack: () => void;
@@ -18,6 +19,7 @@ export type ConnectModalContext = {
 
 export const connectModalContext = React.createContext<ConnectModalContext>({
   prefixCls: 'ant-web3-connect-modal',
+  addressPrefix: undefined,
   selectedWallet: undefined,
   updateSelectedWallet: () => {},
   panelRoute: 'init',

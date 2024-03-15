@@ -1,5 +1,5 @@
 import type React from 'react';
-import type { Locale, Wallet } from '@ant-design/web3-common';
+import type { ConnectOptions, Locale, Wallet } from '@ant-design/web3-common';
 import type { ModalProps } from 'antd';
 
 export type { Wallet, WalletExtensionItem } from '@ant-design/web3-common';
@@ -66,7 +66,7 @@ export type ConnectModalProps = ModalProps & {
    * @paramEn Selected wallet
    * @returns
    */
-  onWalletSelected?: (wallet: Wallet) => void;
+  onWalletSelected?: (wallet: Wallet, options?: ConnectOptions) => void;
   /**
    * @desc 自定义 footer
    * @descEn Custom footer
@@ -77,6 +77,18 @@ export type ConnectModalProps = ModalProps & {
    * @descEn Wallet list
    */
   walletList?: Wallet[];
+  /**
+   * @desc 支持分组 | 钱包分组排序函数
+   * @descEn support grouping | Wallet group sorting function
+   * @param a groupName1
+   * @param b groupName2
+   * @returns
+   */
+  group?:
+    | boolean
+    | {
+        groupOrder?: (a: string, b: string) => number;
+      };
   /**
    * @desc 钱包分组排序函数
    * @descEn Wallet group sorting function
@@ -100,6 +112,8 @@ export type ConnectModalProps = ModalProps & {
    * @descEn Custom localization configuration
    */
   locale?: Locale['ConnectModal'];
+
+  addressPrefix?: string | false;
 };
 
 export type PanelRoute = 'init' | 'guide' | 'getWallet' | 'wallet' | 'qrCode' | 'downloadQrCode';

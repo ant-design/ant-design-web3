@@ -1,6 +1,6 @@
 import { WalletConnect } from '@ant-design/web3-wagmi';
 import { describe, expect, it } from 'vitest';
-import { createConfig, http } from 'wagmi';
+import { Connector, createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { walletConnect } from 'wagmi/connectors';
 
@@ -56,5 +56,29 @@ describe('WalletConnect', async () => {
       useWalletConnectOfficialModal: true,
     }).create();
     expect(wallet.getQrCode).toBe(undefined);
+  });
+
+  it('get qr code', async () => {
+    let eventFired = false;
+    const testConnector = {
+      getProvider: async () => {
+        return {
+          on: (name: string, callback: (uri: string) => void) => {
+            if (eventFired) {
+              return;
+            }
+            eventFired = true;
+            setTimeout(() => {
+              callback('https://web3.ant.design');
+            }, 100);
+          },
+        };
+      },
+    } as Connector;
+    const wallet = WalletConnect().create([testConnector]);
+    const qrCode = await wallet.getQrCode?.();
+    expect(qrCode?.uri).toBe('https://web3.ant.design');
+    const qrCode2 = await wallet.getQrCode?.();
+    expect(qrCode2?.uri).toBe('https://web3.ant.design');
   });
 });

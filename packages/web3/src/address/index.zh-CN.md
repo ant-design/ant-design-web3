@@ -5,7 +5,7 @@ group:
   order: 3
 ---
 
-# Address
+# Address 地址
 
 ## 基本使用
 
@@ -32,4 +32,4 @@ group:
 | address | 地址 | `string` | - | - |
 | tooltip | 鼠标移入地址时展示提示 | `boolean \|` [Tooltip.title](https://ant.design/components/tooltip-cn#api) | `true ` | - |
 | format | 地址格式化 | `boolean \| (input: string) => ReactNode` | `false` | - |
-| locale | 多语言文案设置 | `Locale["address"]` | - | - |
+| locale | 多语言设置 | `Locale["address"]` | - | - |

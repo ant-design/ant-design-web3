@@ -37,6 +37,7 @@ const localeValues: RequiredLocale = {
     walletCardExtensionTitle: '{selectedWalletName} for {selectedExtensionBrowserName}',
     defaultSimpleFooter: 'New to Ethereum wallets?',
     defaultInfoMoreLinkFooter: 'Learn More',
+    walletPanelPlugin: 'PLUGIN',
   },
   NFTCard: {
     actionText: 'Buy Now',

@@ -56,6 +56,10 @@ The current core members are:
 - [@liangchaofei](https://github.com/liangchaofei)
 - [@thinkasany](https://github.com/thinkasany)
 
+Design-related issues can @ our designers:
+
+- [@wenqing993](https://github.com/wenqing993)
+
 ## Labels
 
 - `feature` Independent new features.

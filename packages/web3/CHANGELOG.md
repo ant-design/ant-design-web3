@@ -1,5 +1,62 @@
 # @ant-design/web3
 
+## 1.7.2
+
+### Patch Changes
+
+- ae85fa9: fix: NFTCard Displayed images that should not be displayed after switch chain
+- Updated dependencies [081398d]
+- Updated dependencies [e5b4fe9]
+  - @ant-design/web3-icons@1.4.0
+  - @ant-design/web3-assets@1.4.0
+
+## 1.7.1
+
+### Patch Changes
+
+- Updated dependencies [21a3e3b]
+  - @ant-design/web3-common@1.5.0
+  - @ant-design/web3-assets@1.3.1
+
+## 1.7.0
+
+### Minor Changes
+
+- d601345: Add support for Solana
+- d601345: Address-like components support addressPrefix prop, add solana chain configs
+
+### Patch Changes
+
+- Updated dependencies [d601345]
+  - @ant-design/web3-assets@1.3.0
+
+## 1.6.0
+
+### Minor Changes
+
+- dc8f442: fix: devUseWarning reference path
+
+## 1.5.1
+
+### Patch Changes
+
+- b379585: fix: connect-button cannot find warning utils
+- Updated dependencies [dead69b]
+  - @ant-design/web3-common@1.4.0
+  - @ant-design/web3-assets@1.2.3
+
+## 1.5.0
+
+### Minor Changes
+
+- 90db5e8: feat: ConnectModal support group configuration
+
+### Patch Changes
+
+- 6e7c44b: refactor: modify connector code
+- d91ec4a: refactor: displayIcon of the BrowserLink
+- c5e640a: refactor: return null when connector children is null
+
 ## 1.4.3
 
 ### Patch Changes

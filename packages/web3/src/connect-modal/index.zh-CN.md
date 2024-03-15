@@ -4,7 +4,7 @@ group: 连接
 order: 2
 ---
 
-# ConnectModal
+# ConnectModal 连接钱包弹窗
 
 连接钱包弹窗，与 [ConnectButton](../connect-button/index.zh-CN.md) 配合使用完成钱包的链接流程。通常来说，你只要直接使用 [Connector](../connector/index.zh-CN.md) 组件即可。
 
@@ -13,6 +13,10 @@ order: 2
 ## 基本使用
 
 <code src="./demos/basic.tsx"></code>
+
+## 钱包不进行分组
+
+<code src="./demos/ungroupedBasic.tsx"></code>
 
 ## 自定义主题
 
@@ -45,7 +49,7 @@ order: 2
 | onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | `(e:React.SyntheticEvent) => void` | - | - |
 | footer | 自定义 footer | `React.ReactNode` | - | - |
 | walletList | 钱包列表 | [Wallet](./types#wallet)\[\] | - | - |
-| groupOrder | 钱包分组排序函数 | `(a: string, b: string) => number` | - | - |
+| group | 钱包是否需要分组 | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | `true` | - |
 | mode | 弹窗模式 | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
 | guide | 新手指引内容 | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |
 | locale | 多语言设置 | `Locale["ConnectModal"]` | - | - |

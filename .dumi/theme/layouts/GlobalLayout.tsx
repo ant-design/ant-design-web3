@@ -13,7 +13,7 @@ const GlobalLayout: React.FC = () => {
   return (
     <Web3ConfigProvider locale={locale === 'zh-CN' ? zh_CN : en_US}>
       <SiteThemeProvider themeMode={color || 'auto'}>
-        <div className={pathname === '/' || pathname === '/zh-CN' ? 'home' : ''}>{outlet}</div>
+        <div className={pathname === '/' || pathname === '/index-cn' ? 'home' : ''}>{outlet}</div>
       </SiteThemeProvider>
     </Web3ConfigProvider>
   );

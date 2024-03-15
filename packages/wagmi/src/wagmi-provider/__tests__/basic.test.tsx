@@ -130,7 +130,6 @@ describe('WagmiWeb3ConfigProvider', () => {
         }),
         coinbaseWallet({
           appName: 'ant.design.web3',
-          jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/test`,
         }),
       ],
     });
@@ -166,7 +165,6 @@ describe('WagmiWeb3ConfigProvider', () => {
         }),
         coinbaseWallet({
           appName: 'ant.design.web3',
-          jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/test`,
         }),
       ],
     });
@@ -236,7 +234,6 @@ describe('WagmiWeb3ConfigProvider', () => {
         }),
         coinbaseWallet({
           appName: 'ant.design.web3',
-          jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/test`,
         }),
       ],
     });
@@ -271,7 +268,6 @@ describe('WagmiWeb3ConfigProvider', () => {
         }),
         coinbaseWallet({
           appName: 'ant.design.web3',
-          jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/test`,
         }),
       ],
     });

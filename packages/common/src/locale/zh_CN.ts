@@ -35,6 +35,7 @@ const localeValues: RequiredLocale = {
     walletCardExtensionTitle: '在 {selectedExtensionBrowserName} 浏览器中使用 {selectedWalletName}',
     defaultSimpleFooter: '初次接触以太坊钱包?',
     defaultInfoMoreLinkFooter: '了解更多',
+    walletPanelPlugin: '插件',
   },
   NFTCard: {
     actionText: '立即购买',

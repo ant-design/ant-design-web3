@@ -5,13 +5,26 @@ group:
   order: 1
 ---
 
-# 以太坊
+# Ethereum 以太坊
 
 Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，它是一个基于 [wagmi 2.x](https://wagmi.sh/) 的 Ant Design Web3 以太坊适配器。它为 `@ant-design/web3` 的组件提供了连接以太坊等 EVM 兼容链的能力。通过它，你不需要自己处理组件的连接状态，链数据请求等逻辑。它会通过 [Web3ConfigProvider](../web3-config-provider/index.zh-CN.md) 为组件提供相关全局状态和接口。
 
 如果你使用的是 wagmi 1.x，你可以查看 [@ant-design/web3-wagmi@1.2.0 文档](https://github.com/ant-design/ant-design-web3/blob/f7c9d51086f82b13a9cf94353b999348e17001de/packages/web3/src/wagmi/index.zh-CN.md)。
 
 目前，我们官方提供了该以太坊的适配器，你也可以自己开发适配器来支持其它的链，关于适配器，你可以阅读[适配器文档](../../../../docs/guide/adapter.zh-CN.md)了解更多。
+
+## 推荐配置
+
+我们支持配置丰富的钱包、协议和交互方式，对于大部分 DApp 来说，我们基于对 DApp 用户的习惯分析，推荐使用如下配置：
+
+<code src="./demos/recommend.tsx"></code>
+
+该推荐配置主要包括：
+
+- 使用 EIP6963 协议，自动添加检测到的插件钱包。
+- 默认添加 MetaMask 和 TokenPocket、Okx 钱包，在用户未安装钱包情况下提供下载引导。
+- 默认添加 WalletConnect，支持用户通过手机扫码连接各类钱包。
+- 去掉钱包分组，简化界面。
 
 ## 基本使用
 
@@ -25,7 +38,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 
 ## 添加更多钱包
 
-为了降低引入包的大小，你需要手动配置 `wallets` 引入相关钱包。你可以从 `@ant-design/web3-wagmi` 中导出相关资源，如果没有你需要的资源，你可以通过提交 [Github issue](https://github.com/ant-design/ant-design-web3/issues) 告诉我们。也自己配置或者给我们提交 PR 支持。
+为了降低引入包的大小，你需要手动配置 `wallets` 引入相关钱包。你可以从 `@ant-design/web3-wagmi` 中导出相关资源，如果没有你需要的资源，你可以通过提交 [GitHub issue](https://github.com/ant-design/ant-design-web3/issues) 告诉我们。也自己配置或者给我们提交 PR 支持。
 
 另外，我们推荐设置 `eip6963` 为 `true`，避免用户安装多个钱包情况下出现冲突。配置了 `eip6963` 的情况下，你不再需要配置 wagmi 的 `injected` Connector, wagmi 的 [multiInjectedProviderDiscovery](https://wagmi.sh/core/api/createConfig#multiinjectedproviderdiscovery) 配置默认为 `true`，会自动添加检测到的钱包。
 
@@ -49,9 +62,13 @@ Ant Design Web3 内置了对 [TokenPocket](https://www.tokenpocket.pro/) 的支�
 
 ## 显示 ENS
 
+> 你需要连接包含 ENS 的地址才能看到示例效果
+
 <code src="./demos/name.tsx"></code>
 
 ## 显示余额
+
+> 你需要连接账号后才能看到示例效果
 
 <code src="./demos/balance.tsx"></code>
 
@@ -85,7 +102,7 @@ Ant Design Web3 内置了对 [TokenPocket](https://www.tokenpocket.pro/) 的支�
 | chains | 链的配置 | [Chain](./types#chain)\[\] | - | - |
 | ens | 是否显示 ENS | `boolean` | - | - |
 | balance | 是否显示余额 | `boolean` | - | - |
-| locale | 多语言文案设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
+| locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
 | eip6963 | 是否采用 EIP6963 协议钱包以及相关配置 | `boolean` \| `EIP6963Config` | `false` | `2.2.0` |
 
 ### EIP6963Config

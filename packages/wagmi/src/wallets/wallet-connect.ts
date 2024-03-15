@@ -15,10 +15,18 @@ export const WalletConnect: EthereumWalletConnect = (metadata) => {
   return {
     connectors: ['WalletConnect'],
     create: (connectors?: readonly Connector[]): Wallet => {
+      let qrCodeUri: string | undefined = undefined;
       const getQrCode = async () => {
         const provider = await connectors?.[0]?.getProvider();
         return new Promise<{ uri: string }>((resolve) => {
+          if (qrCodeUri) {
+            resolve({
+              uri: qrCodeUri,
+            });
+            return;
+          }
           (provider as any)?.on('display_uri', (uri: string) => {
+            qrCodeUri = uri;
             resolve({
               uri,
             });

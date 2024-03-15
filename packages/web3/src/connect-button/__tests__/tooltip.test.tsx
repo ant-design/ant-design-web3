@@ -8,10 +8,40 @@ import { mockClipboard } from '../../utils/test-utils';
 describe('ConnectButton', () => {
   let resetMockClipboard: () => void;
   beforeEach(() => {
+    vi.useFakeTimers();
     resetMockClipboard = mockClipboard();
   });
   afterEach(() => {
+    vi.useRealTimers();
     resetMockClipboard();
+  });
+
+  it('when tooltip is boolean, ant-tooltip not toBeNull', async () => {
+    const App = () => {
+      return (
+        <ConnectButton
+          account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18' }}
+          tooltip={true}
+        />
+      );
+    };
+    const { baseElement, rerender } = render(<App />);
+    const btn = baseElement.querySelector('.ant-web3-address-text')!;
+    fireEvent.mouseEnter(btn);
+    rerender(<App />);
+    // When the tooltip's title is string, baseElement.outerHTML does not contain '.ant-tooltip'.
+    // mouseEnterDelay defaults is 0.1s and waitFakeTimer is required.
+    await vi.runAllTimersAsync();
+    expect(baseElement.querySelector('.ant-tooltip')).not.toBeNull();
+  });
+  it('when mergedTitle does not exist, ant-tooltip toBeNull', () => {
+    const { baseElement } = render(
+      <ConnectButton
+        account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18' }}
+        tooltip={{ open: true, copyable: true, title: undefined }}
+      />,
+    );
+    expect(baseElement.querySelector('.ant-tooltip')).toBeNull();
   });
 
   it('display tooltip', () => {

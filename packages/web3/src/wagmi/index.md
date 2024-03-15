@@ -15,6 +15,19 @@ Through it, you don't need to handle the connection status of the component, cha
 
 Currently, we officially provide the adapter of Ethereum, and you can also develop your own adapter to support other chains. You can read the [adapter documentation](../../../../docs/guide/adapter.md) to learn more about the adapter.
 
+## Recommended configuration
+
+We support rich configurations of wallets, protocols, and interaction methods. For most DApps, we recommend using the following configuration:
+
+<code src="./demos/recommend.tsx"></code>
+
+The recommended configuration mainly includes:
+
+- Use the EIP6963 protocol to automatically add detected plugin wallets.
+- By default, add MetaMask and TokenPocket, Okx wallets, and provide download guides when users have not installed wallets.
+- By default, add WalletConnect, which supports users to connect various wallets through mobile phone scanning.
+- Remove wallet grouping to simplify the ui.
+
 ## Basic Usage
 
 <code src="./demos/basic.tsx"></code>
@@ -27,7 +40,7 @@ Automatically add wallets based on EIP6963. Under the [EIP6963](https://eips.eth
 
 ## Add more wallets
 
-In order to reduce the size of the package, you need to configure `wallets` to import wallets. You can export related resources from `@ant-design/web3-wagmi`. If you don't have the resources you need, you can submit [Github issue](https://github.com/ant-design/ant-design-web3/issues) to tell us. You can also configure it yourself or submit a PR to support it.
+In order to reduce the size of the package, you need to configure `wallets` to import wallets. You can export related resources from `@ant-design/web3-wagmi`. If you don't have the resources you need, you can submit [GitHub issue](https://github.com/ant-design/ant-design-web3/issues) to tell us. You can also configure it yourself or submit a PR to support it.
 
 In addition, we recommend setting `eip6963` to `true` to avoid conflicts when users install multiple wallets. When the `eip6963` is configured, you no longer need to configure the wagmi `injected` Connector. wagmi's [multiInjectedProviderDiscovery](https://wagmi.sh/core/api/createConfig#multiinjectedproviderdiscovery) configuration defaults to `true` and will automatically add detected wallets.
 
@@ -51,9 +64,13 @@ We have built-in `Mainnet`, and the remaining chains need to configure `chains` 
 
 ## Display ENS
 
+> You need to connect to an address containing ENS to see the example effect.
+
 <code src="./demos/name.tsx"></code>
 
 ## Display Balance
+
+> You need to connect your account in order to see the example effect.
 
 <code src="./demos/balance.tsx"></code>
 

@@ -1,5 +1,6 @@
 declare const YOUR_ZAN_API_KEY: string;
 declare const YOUR_WALLET_CONNET_PROJECT_ID: string;
+declare const YOUR_HELIUS_API_KEY: string;
 declare module '*.svg' {
   import type * as React from 'react';
 

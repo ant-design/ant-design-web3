@@ -1,4 +1,5 @@
 import React from 'react';
+import { devUseWarning } from '@ant-design/web3-common';
 import { ConfigProvider, Modal } from 'antd';
 import classNames from 'classnames';
 
@@ -22,10 +23,14 @@ export const ConnectModal: React.FC<ConnectModalProps> & {
   const prefixCls = getPrefixCls('web3-connect-modal');
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
+  // Warning for deprecated usage
+  const warning = devUseWarning('ConnectModal');
+  warning.deprecated(!('groupOrder' in restProps), 'groupOrder', 'group={{groupOrder: ()=> {}}}');
+
   return wrapSSR(
     <Modal
       footer={null}
-      width={isSimple ? 380 : 737}
+      width={isSimple ? 380 : 797}
       {...restProps}
       className={classNames(prefixCls, className, hashId)}
       rootClassName={classNames(`${prefixCls}-root`, rootClassName)}

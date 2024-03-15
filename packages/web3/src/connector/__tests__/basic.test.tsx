@@ -11,6 +11,23 @@ import { Button } from 'antd';
 import { describe, expect, it, vi } from 'vitest';
 
 describe('Connector', () => {
+  it('expect onCancelCallTest toBeCalled', async () => {
+    const onCancelCallTest = vi.fn();
+    const App = () => {
+      return (
+        <Connector modalProps={{ title: 'modal title', open: true, onCancel: onCancelCallTest }}>
+          <Button>children</Button>
+        </Connector>
+      );
+    };
+    const { baseElement } = render(<App />);
+    const btn = baseElement.querySelector('.ant-btn')!;
+    fireEvent.click(btn);
+    const closeBtn = baseElement.querySelector('.ant-modal-close')!;
+    fireEvent.click(closeBtn);
+    expect(onCancelCallTest).toBeCalled();
+  });
+
   it('render children', () => {
     const App = () => (
       <Connector>
@@ -19,6 +36,21 @@ describe('Connector', () => {
     );
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
+  });
+
+  it('render when children is null', () => {
+    const originalConsoleError = console.error;
+    const mockConsoleError = (message: any) => {
+      mockConsoleError.calls.push(message);
+    };
+    mockConsoleError.calls = [] as any[];
+    console.error = mockConsoleError;
+    expect(() => render(<Connector>{null}</Connector>)).not.toThrow();
+    expect(mockConsoleError.calls.length).toBe(1);
+    expect(mockConsoleError.calls[0]).toContain(
+      '"children" property of the "Connector" is must be a React element',
+    );
+    console.error = originalConsoleError;
   });
 
   it('modalProps', () => {
@@ -38,6 +70,7 @@ describe('Connector', () => {
   it('connect', async () => {
     const onConnectCallTest = vi.fn();
     const onDisconnected = vi.fn();
+    const onDisconnect = vi.fn();
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { account, onConnectClick, onDisconnectClick, children } = props;
       return (
@@ -79,6 +112,7 @@ describe('Connector', () => {
             setAccount(undefined);
           }}
           onDisconnected={onDisconnected}
+          onDisconnect={onDisconnect}
           onConnected={() => {
             onConnected();
           }}
@@ -112,9 +146,11 @@ describe('Connector', () => {
     fireEvent.click(baseElement.querySelector('.ant-btn')!);
     await vi.waitFor(() => {
       expect(onDisconnected).toBeCalled();
+      expect(onDisconnect).toBeCalled();
     });
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
   });
+
   it('should support controlled  loading', async () => {
     const App = () => {
       const [account, setAccount] = React.useState<Account | undefined>();
@@ -150,6 +186,7 @@ describe('Connector', () => {
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.anticon-loading')).toBeTruthy();
   });
+
   it('should support both of uncontrolled loading', async () => {
     const App = () => {
       const [account, setAccount] = React.useState<Account | undefined>();
@@ -192,6 +229,7 @@ describe('Connector', () => {
       expect(baseElement.querySelector('.anticon-loading')).toBeTruthy();
     });
   });
+
   it('connect throw error', async () => {
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { account, onConnectClick, onDisconnectClick, children } = props;

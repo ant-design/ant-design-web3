@@ -20,6 +20,7 @@ export type ConnectButtonProps = ButtonProps &
     onMenuItemClick?: (e: NonNullable<MenuProps['items']>[number]) => void;
     tooltip?: boolean | ConnectButtonTooltipProps;
     profileModal?: boolean | ProfileModalProps['modalProps'];
+    addressPrefix?: string | false;
     actionsMenu?:
       | boolean
       | {

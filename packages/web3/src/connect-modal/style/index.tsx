@@ -53,7 +53,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
   return [
     {
       [`${componentCls}`]: {
-        overflow: 'hidden',
         paddingBlockEnd: 0,
         '.ant-modal-content': {
           background: token.colorBgContainer,
@@ -85,7 +84,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
         [`${componentCls}-list-panel`]: {
           paddingInline: 18,
           paddingBlock: 24,
-          width: 268,
+          width: 328,
           flexShrink: 0,
           borderRight: `1px solid ${token.splitColor}`,
           display: 'flex',
@@ -100,6 +99,12 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             marginBlock: token.marginSM,
             overflow: 'auto',
             [`${componentCls}-wallet-list`]: {
+              maxHeight: 390,
+              overflow: 'scroll',
+              '&::-webkit-scrollbar': {
+                display: 'none',
+              },
+              scrollbarWidth: 'none',
               [`${componentCls}-group`]: {
                 marginBlockEnd: token.marginSM,
                 [`${componentCls}-group-title`]: {
@@ -116,10 +121,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     transition: 'background .3s, color .3s',
                     marginBlockEnd: 5,
                     border: 'none',
-                    [`${componentCls}-extra`]: {
-                      fontSize: token.fontSizeSM,
-                      color: token.colorTextDescription,
-                    },
                     [`${componentCls}-content`]: {
                       display: 'flex',
                       alignItems: 'center',
@@ -129,18 +130,24 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                         width: token.iconSize,
                         height: token.iconSize,
                         fontSize: token.iconSize,
-                        lineHeight: 1,
-                        img: {
-                          width: '100%',
-                          height: '100%',
-                        },
+                        lineHeight: `${token.iconSize}px`,
+                      },
+                      [`${componentCls}-img`]: {
+                        borderRadius: 8,
+                        overflow: 'hidden',
+                        width: token.iconSize,
+                        height: token.iconSize,
                       },
                       [`${componentCls}-name`]: {
                         fontSize: token.fontSizeLG,
                         justifySelf: 'flex-start',
                         marginInlineStart: token.marginSM,
                         color: token.colorText,
+                        wordBreak: 'break-word',
                       },
+                    },
+                    [`${componentCls}-qr-icon-empty`]: {
+                      width: 30,
                     },
                     '&:last-child': {
                       marginBlockEnd: 0,
@@ -150,9 +157,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     },
                     '&.selected': {
                       background: token.selectedBg,
-                      [`${componentCls}-name`]: {
-                        color: token.selectedColor,
-                      },
                     },
                   },
                 },
@@ -416,7 +420,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           },
           [`${componentCls}-main-panel`]: {
             paddingInline: token.paddingLG,
-            background: token.colorBgContainer,
             [`${componentCls}-qr-code-box`]: {
               marginBlockStart: 24,
             },
@@ -442,14 +445,16 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
 export function useStyle(prefixCls: string): UseStyleResult {
   return useAntdStyle('ConnectModal', (token) => {
     const isDark = isDarkTheme(token);
+    const hoverBg = new TinyColor(isDark ? token.colorWhite : '#000')
+      .setAlpha(0.08)
+      .onBackground(token.colorBgContainer)
+      .toRgbString();
+
     const connectModalToken: ConnectModalToken = {
       ...token,
-      selectedBg: isDark ? token.colorWhite : token.colorPrimary,
       selectedColor: token.colorBgContainer,
-      hoverBg: new TinyColor(isDark ? token.colorWhite : token.colorPrimary)
-        .setAlpha(0.1)
-        .onBackground(token.colorBgContainer)
-        .toRgbString(),
+      hoverBg,
+      selectedBg: hoverBg,
       splitColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
       modalTitleStartColor: isDark ? token.colorWhite : token.colorPrimary,
       modalTitleEndColor: new TinyColor('#000')

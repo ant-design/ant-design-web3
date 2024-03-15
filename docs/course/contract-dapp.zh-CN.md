@@ -113,7 +113,7 @@ const CallTest = () => {
   );
 };
 
-export default () => {
+export default function Web3() {
   return (
     <WagmiWeb3ConfigProvider
       config={config}
@@ -122,8 +122,8 @@ export default () => {
     >
       <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
       <NFTCard
-        address="0x79fcdef22feed20eddacbb2587640e45491b757f"
-        tokenId={8540}
+        address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9"
+        tokenId={641}
       />
       <Connector>
         <ConnectButton />
@@ -147,6 +147,6 @@ export default () => {
 
 <code src="./demos/dapp.tsx"></code>
 
-你也可以参考 Github 项目源代码[https://github.com/ant-design/ant-design-web3-demo](https://github.com/ant-design/ant-design-web3-demo)。
+你也可以参考 GitHub 项目源代码[https://github.com/ant-design/ant-design-web3-demo](https://github.com/ant-design/ant-design-web3-demo)。
 
 至此，我们完成了本次课程的所有内容，希望你能够从中学到一些东西，谢谢大家！🎉

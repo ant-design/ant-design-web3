@@ -15,11 +15,9 @@ order: 2
 
 首先，同[快速开始](../guide/quick-start.zh-CN.md)中文档指引的类似，我们需要安装一些依赖。在上一篇课程中，我们已经安装了 `antd` 和 `@ant-design/web3`，所以我们接下来只需要安装 `@ant-design/web3-wagmi` 和 `wagmi`。
 
-<br />
-
-<NormalInstallDependencies packageNames="@ant-design/web3-wagmi wagmi" save="true"></NormalInstallDependencies>
-
-<br />
+```shell
+npm i @ant-design/web3-wagmi wagmi --save
+```
 
 `@ant-design/web3` 是一个 UI 组件库，它通过不同的[适配器](../guide/adapter.zh-CN.md)和不同的区块链连接。本课程中，我们主要基于的是[以太坊](https://ethereum.org/zh/)。对应的，我们也将使用[以太坊的适配器](../../packages/web3/src/wagmi/index.zh-CN.md)来实现课程的需求。
 
@@ -37,7 +35,7 @@ order: 2
 + import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { Address } from "@ant-design/web3";
 
-export default () => {
+export default function Web3() {
   return (
     <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
   );
@@ -49,7 +47,7 @@ export default () => {
 - [createConfig](https://wagmi.sh/react/config)：wagmi 用来创建配置的方法。
 - [http]：wagmi 用来创建 [HTTP JSON RPC](https://wagmi.sh/core/api/transports/http) 连接的方法，通过它你可以通过 HTTP 请求访问区块链。
 - [mainnet](https://wagmi.sh/react/chains)：代表以太坊主网，除了 `mainnet` 以外还会有类似 `goerli` 的测速网和类似 `bsc` 和 `base` 的 EVM 兼容的其它公链，有的是和以太坊一样的 L1 公链，有的是 L2 公链，这里先暂不展开。
-- [WagmiWeb3ConfigProvider](https://web3.ant.design/zh-CN/components/wagmi#wagmiweb3configproviderprops)：Ant Design Web3 用来接收 wagmi 配置的 Provider。
+- [WagmiWeb3ConfigProvider](https://web3.ant.design/components/wagmi-cn#wagmiweb3configproviderprops)：Ant Design Web3 用来接收 wagmi 配置的 Provider。
 
 接着创建配置：
 
@@ -66,7 +64,7 @@ import { Address } from "@ant-design/web3";
 +   },
 + });
 
-export default () => {
+export default function Web3() {
   return (
 +     <WagmiWeb3ConfigProvider config={config}>
       <div
@@ -101,7 +99,7 @@ const config = createConfig({
   },
 });
 
-export default () => {
+export default function Web3() {
   return (
     <WagmiWeb3ConfigProvider config={config}>
       <div
@@ -111,14 +109,14 @@ export default () => {
         }}
       >
          <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
-+        <NFTCard address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={8540} />
++        <NFTCard address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" tokenId={641} />
       </div>
     </WagmiWeb3ConfigProvider>
   );
 };
 ```
 
-`NFTCard` 组件会从 [0x79fcdef22feed20eddacbb2587640e45491b757f](https://etherscan.io/address/0x79fcdef22feed20eddacbb2587640e45491b757f) NFT 合约中获取 tokenId 为 8540 的 NFT 信息，然后展示在页面上。
+`NFTCard` 组件会从 [0xEcd0D12E21805803f70de03B72B1C162dB0898d9](https://etherscan.io/address/0xEcd0D12E21805803f70de03B72B1C162dB0898d9) NFT 合约中获取 tokenId 为 641 的 NFT 信息，然后展示在页面上。
 
 效果如下：
 
@@ -154,14 +152,14 @@ const config = createConfig({
 +   ],
 });
 
-export default () => {
+export default function Web3() {
   return (
 -   <WagmiWeb3ConfigProvider config={config}>
 +    <WagmiWeb3ConfigProvider config={config} wallets={[MetaMask()]}>
       <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
       <NFTCard
-        address="0x79fcdef22feed20eddacbb2587640e45491b757f"
-        tokenId={8540}
+        address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9"
+        tokenId={641}
       />
 +       <Connector>
 +         <ConnectButton />

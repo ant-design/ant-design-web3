@@ -4,7 +4,7 @@
 
 <h1 align="center">Ant Design Web3</h1>
 
-一套 Web3 的组件库.
+高效的 React 组件库，更轻松地构建去中心化应用。
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
@@ -32,7 +32,8 @@
 </div>
 
 - 官网: https://web3.ant.design
-- 指南: https://web3.ant.design/guide
+- 指南: https://web3.ant.design/guide/ant-design-web3-cn
+- 课程: https://web3.ant.design/course/introduction-cn
 - 国内加速官网: https://web3.antdigital.dev
 
 ## 特性
@@ -126,4 +127,8 @@ $ pnpm start
 - 加入我们的 [discussion](https://github.com/ant-design/ant-design-web3/discussions) 并向我们提供建议.
 - 提交 [pull requests](https://github.com/ant-design/ant-design-web3/pulls) 改进我们的代码.
 
-为了更好地参与和贡献，请阅读我们的 [贡献指南](https://web3.ant.design/zh-CN/guide/contributing).
+为了更好地参与和贡献，请阅读我们的 [贡献指南](https://web3.ant.design/guide/contributing-cn).
+
+## Star 趋势
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ant-design/ant-design-web3&type=Date)](https://star-history.com/#ant-design/ant-design-web3&Date)

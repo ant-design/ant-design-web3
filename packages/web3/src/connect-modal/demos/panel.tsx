@@ -55,13 +55,18 @@ const App: React.FC = () => {
   return (
     <Card
       style={{
-        maxWidth: 737,
+        maxWidth: 797,
       }}
       bodyStyle={{
         padding: 0,
       }}
     >
-      <ConnectModal.ModalPanel groupOrder={groupOrder} walletList={walletList} />
+      <ConnectModal.ModalPanel
+        group={{
+          groupOrder,
+        }}
+        walletList={walletList}
+      />
     </Card>
   );
 };

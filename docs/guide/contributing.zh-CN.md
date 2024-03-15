@@ -56,6 +56,10 @@ group:
 - [@liangchaofei](https://github.com/liangchaofei)
 - [@thinkasany](https://github.com/thinkasany)
 
+设计相关问题可以 @ 我们的设计师：
+
+- [@wenqing993](https://github.com/wenqing993)
+
 ## 标签
 
 - `feature` 独立的新功能。

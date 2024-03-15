@@ -152,7 +152,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           };
         } else {
           console.error(
-            `Can not find chain ${item.id}, you should config it in WagmiWeb3ConfigProvider 'assets'.`,
+            `Can not find chain ${item.id}, you should config it in WagmiWeb3ConfigProvider 'chains'.`,
           );
           return null;
         }
@@ -180,6 +180,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     return;
   }, [chain, chainAssets, availableChains, currentChain]);
 
+  const currency = currentChain?.nativeCurrency;
+
   return (
     <Web3ConfigProvider
       locale={locale}
@@ -192,13 +194,14 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
               symbol: balanceData?.symbol,
               value: balanceData?.value,
               decimals: balanceData?.decimals,
-              icon: currentChain?.nativeCurrency?.icon,
+              icon: currency?.icon,
             }
           : undefined
       }
       availableWallets={wallets}
-      connect={async (wallet) => {
-        let connector = await (wallet as WalletUseInWagmiAdapter)?.getWagmiConnector?.();
+      addressPrefix="0x"
+      connect={async (wallet, options) => {
+        let connector = await (wallet as WalletUseInWagmiAdapter)?.getWagmiConnector?.(options);
         if (!connector && wallet) {
           connector = findConnectorByName(wallet.name);
         }

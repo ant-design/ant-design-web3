@@ -1,0 +1,109 @@
+.bannerContainer {
+  width: 100%;
+  position: relative;
+  .bgImg {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 256px;
+  }
+  .wrap {
+    position: absolute;
+    inset: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 60px;
+
+    .titleImg {
+      display: block;
+      width: 660px;
+      max-width: 100%;
+      z-index: 9;
+    }
+
+    .slogan {
+      font-size: 22px;
+      color: #333;
+      padding-inline-start: 14px;
+      margin-top: -12px;
+    }
+
+    .btn {
+      z-index: 9;
+      display: flex;
+      column-gap: 28px;
+      margin-block-start: 22px;
+      padding-inline-start: 14px;
+
+      a {
+        width: 146px;
+        min-width: 146px;
+        height: 46px;
+        line-height: 46px;
+        border-radius: 9999px;
+        text-align: center;
+        display: inline-block;
+        font-size: 18px;
+        text-decoration: none;
+        box-sizing: border-box;
+        transition: opacity 0.2s;
+        &:first-child {
+          color: #fff;
+          background-color: #1677ff;
+        }
+        &:last-child {
+          color: #1677ff;
+          border: 1px solid #1677ff;
+        }
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+[data-prefers-color='dark'] {
+  .bannerContainer {
+    .bgImg {
+      filter: brightness(0.4) contrast(1.5) saturate(0.75);
+    }
+  }
+  .titleImg {
+    filter: brightness(0.8) contrast(1.5) saturate(5);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .bannerContainer {
+    .bgImg {
+      object-fit: cover;
+      object-position: left center;
+    }
+    .wrap {
+      inset: 0 20px;
+      width: calc(100% - 40px);
+      row-gap: 30px;
+
+      .slogan {
+        font-size: 14px;
+        text-align: center;
+        padding-inline-start: 0;
+      }
+
+      .btn {
+        column-gap: 14px;
+      }
+
+      .btn {
+        justify-content: center;
+        align-items: center;
+        padding-inline-start: 0;
+      }
+    }
+  }
+}

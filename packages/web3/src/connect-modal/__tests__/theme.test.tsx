@@ -27,7 +27,9 @@ describe('ConnectModal theme', () => {
         <ConnectModal
           open
           title="ConnectModal"
-          groupOrder={groupOrder}
+          group={{
+            groupOrder,
+          }}
           walletList={walletList}
           mode="normal"
         />
