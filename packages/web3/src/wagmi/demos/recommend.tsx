@@ -29,6 +29,7 @@ const App: React.FC = () => {
       eip6963={{
         autoAddInjectedWallets: true,
       }}
+      ens
       wallets={[
         MetaMask(),
         WalletConnect(),

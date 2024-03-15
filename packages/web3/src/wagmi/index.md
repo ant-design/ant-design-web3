@@ -24,6 +24,7 @@ We support rich configurations of wallets, protocols, and interaction methods. F
 The recommended configuration mainly includes:
 
 - Use the EIP6963 protocol to automatically add detected plugin wallets.
+- Support displaying ENS.
 - By default, add MetaMask and TokenPocket, Okx wallets, and provide download guides when users have not installed wallets.
 - By default, add WalletConnect, which supports users to connect various wallets through mobile phone scanning.
 - Remove wallet grouping to simplify the ui.
