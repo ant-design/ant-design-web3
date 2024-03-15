@@ -23,5 +23,7 @@
   "app.docs.site.theme.description": "Open more style algorithms to make it easier to customize your theme",
 
   "app.docs.site.case.title": "Rich components, easy to choose",
-  "app.docs.site.case.description": "A large number of practical components to meet your needs, flexible customization and expansion"
+  "app.docs.site.case.description": "A large number of practical components to meet your needs, flexible customization and expansion",
+
+  "app.docs.theme-editor.export-tooltip": "👈 Click to export the theme"
 }

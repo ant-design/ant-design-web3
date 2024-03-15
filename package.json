@@ -68,6 +68,7 @@
     "@vitest/coverage-v8": "^1.1.0",
     "antd": "^5.13.2",
     "antd-style": "^3.6.1",
+    "antd-token-previewer": "^2.0.8",
     "babel-plugin-add-import-extension": "^1.6.0",
     "babel-plugin-inline-react-svg": "^2.0.2",
     "babel-plugin-react-inline-svg-unique-id": "^1.4.0",
