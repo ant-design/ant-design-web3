@@ -59,7 +59,7 @@ describe('ConnectModal without guide', () => {
       <ConnectModal open groupOrder={groupOrder} walletList={walletList} mode="simple" />
     );
     const { baseElement } = render(<App />);
-    const btn = baseElement.querySelector('.ant-web3-connect-modal-simple-footer-right');
+    const btn = baseElement.querySelector('.ant-web3-connect-modal-simple-guide-right');
     fireEvent.click(btn!);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-web3-connect-modal-simple-guide-panel')).not.toBe(

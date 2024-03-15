@@ -363,11 +363,11 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                     </div>
                   </div>
                   <div
-                    class="ant-web3-connect-modal-simple-footer"
+                    class="ant-web3-connect-modal-simple-guide"
                   >
-                    New to Ethereum wallets?
+                    New to crypto wallets?
                     <button
-                      class="ant-btn css-dev-only-do-not-override-1hnpuv1 ant-btn-link ant-btn-sm ant-web3-connect-modal-simple-footer-right"
+                      class="ant-btn css-dev-only-do-not-override-1hnpuv1 ant-btn-link ant-btn-sm ant-web3-connect-modal-simple-guide-right"
                       type="button"
                     >
                       <span>
@@ -759,11 +759,11 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                     </div>
                   </div>
                   <div
-                    class="ant-web3-connect-modal-simple-footer"
+                    class="ant-web3-connect-modal-simple-guide"
                   >
-                    New to Ethereum wallets?
+                    New to crypto wallets?
                     <button
-                      class="ant-btn css-dev-only-do-not-override-1qhpsh8 ant-btn-link ant-btn-sm ant-web3-connect-modal-simple-footer-right"
+                      class="ant-btn css-dev-only-do-not-override-1qhpsh8 ant-btn-link ant-btn-sm ant-web3-connect-modal-simple-guide-right"
                       type="button"
                     >
                       <span>
