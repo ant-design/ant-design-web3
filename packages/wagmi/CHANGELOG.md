@@ -1,5 +1,21 @@
 # @ant-design/web3-wagmi
 
+## 2.4.0
+
+### Minor Changes
+
+- 52d58e5: feat: Add ConnectType for wallet connect
+
+### Patch Changes
+
+- 8d71a6d: fix: The button status is incorrect when requesting ENS information
+- 6eaee12: chore: adjust the display dom structure of wallet icon in eip6963 mode
+- Updated dependencies [52d58e5]
+- Updated dependencies [201c2ec]
+- Updated dependencies [d273651]
+  - @ant-design/web3-common@1.6.0
+  - @ant-design/web3-assets@1.4.1
+
 ## 2.3.0
 
 ### Minor Changes

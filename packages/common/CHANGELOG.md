@@ -1,5 +1,12 @@
 # @ant-design/web3-common
 
+## 1.6.0
+
+### Minor Changes
+
+- 52d58e5: feat: Add ConnectType for wallet connect
+- 201c2ec: feat: optimize connect-modal component
+
 ## 1.5.0
 
 ### Minor Changes

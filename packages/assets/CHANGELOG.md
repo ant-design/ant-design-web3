@@ -1,5 +1,16 @@
 # @ant-design/web3-assets
 
+## 1.4.1
+
+### Patch Changes
+
+- d273651: fix: OKX Wallet name
+- Updated dependencies [52d58e5]
+- Updated dependencies [201c2ec]
+- Updated dependencies [0958090]
+  - @ant-design/web3-common@1.6.0
+  - @ant-design/web3-icons@1.4.1
+
 ## 1.4.0
 
 ### Minor Changes

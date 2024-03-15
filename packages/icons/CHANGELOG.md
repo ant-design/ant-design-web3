@@ -1,5 +1,11 @@
 # @ant-design/web3-icons
 
+## 1.4.1
+
+### Patch Changes
+
+- 0958090: fix: use react-inline-svg-unique-id plugin for fix svg id issue in runtime
+
 ## 1.4.0
 
 ### Minor Changes
