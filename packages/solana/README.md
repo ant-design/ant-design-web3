@@ -5,7 +5,7 @@ This package provides a [Solana](https://solana.com) adapter for [@ant-design/we
 ## Installation
 
 ```bash
-npm install @ant-design/web3-solana
+npm install @ant-design/web3 @ant-design/web3-solana --save
 ```
 
 ## Usage
