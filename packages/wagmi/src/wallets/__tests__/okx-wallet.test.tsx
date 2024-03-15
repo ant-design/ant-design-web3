@@ -31,7 +31,7 @@ describe('OkxWallet', () => {
   const wallet = OkxWallet().create(config.connectors);
 
   it('name', async () => {
-    expect(wallet.name).toBe('OkxWallet');
+    expect(wallet.name).toBe('OKX Wallet');
   });
 
   it('always return true for hasWalletReady', async () => {
