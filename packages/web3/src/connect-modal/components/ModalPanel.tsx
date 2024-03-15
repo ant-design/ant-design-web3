@@ -110,17 +110,17 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
               <WalletList walletList={walletList} group={group} groupOrder={groupOrder} />
             </div>
             {isSimple && (
-              <div className={`${prefixCls}-simple-footer`}>
-                {intl.getMessage(intl.messages.defaultSimpleFooter)}
+              <div className={`${prefixCls}-simple-guide`}>
+                {intl.getMessage(intl.messages.guideTipTitle)}
                 <Button
                   type="link"
-                  className={`${prefixCls}-simple-footer-right`}
+                  className={`${prefixCls}-simple-guide-right`}
                   onClick={() => {
                     updatePanelRoute('guide');
                   }}
                   size="small"
                 >
-                  {intl.getMessage(intl.messages.defaultInfoMoreLinkFooter)}
+                  {intl.getMessage(intl.messages.guideTipLearnMoreLinkText)}
                 </Button>
               </div>
             )}

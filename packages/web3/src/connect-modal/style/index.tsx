@@ -65,7 +65,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
         position: 'relative',
 
         [`${componentCls}-title`]: {
-          fontSize: 20,
+          fontSize: token.fontSizeXL,
           lineHeight: '28px',
           fontWeight: 600,
           // color: token.colorText,
@@ -75,7 +75,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           margin: 0,
-          paddingInline: 6,
+          paddingInline: token.paddingXS,
           color: 'red',
         },
         [`${componentCls}-list-panel, ${componentCls}-main-panel`]: {
@@ -91,13 +91,13 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           justifyContent: 'space-between',
           boxSizing: 'border-box',
           [`${componentCls}-header`]: {
-            paddingInline: 24,
+            paddingInline: token.paddingMD,
             height: 30,
           },
           [`${componentCls}-list-container`]: {
             flexGrow: 1,
             marginBlock: token.marginSM,
-            paddingInline: 24,
+            paddingInline: token.paddingMD,
             overflow: 'auto',
             [`${componentCls}-wallet-list`]: {
               maxHeight: 390,
@@ -110,14 +110,14 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 marginBlockEnd: token.marginSM,
                 [`${componentCls}-group-title`]: {
                   color: token.groupTextColor,
-                  fontSize: 14,
-                  paddingInline: 6,
+                  fontSize: token.fontSizeSM,
+                  paddingInline: token.paddingXS,
                 },
                 [`${componentCls}-group-content`]: {
-                  marginBlockStart: 8,
+                  marginBlockStart: token.marginSM,
                   [`${componentCls}-wallet-item`]: {
                     cursor: 'pointer',
-                    paddingInline: 6,
+                    paddingInline: token.paddingSM,
                     borderRadius: 8,
                     transition: 'background .3s, color .3s',
                     marginBlockEnd: 5,
@@ -167,21 +167,19 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           [`${componentCls}-footer`]: {
             color: token.listItemDescriptionColor,
             borderBlockStart: `1px solid ${token.splitColor}`,
-            paddingInline: 24,
-            paddingBlockStart: 16,
-            display: 'flex',
-            alignItems: 'center',
+            paddingInline: token.paddingMD,
+            paddingBlockStart: token.padding,
           },
-          [`${componentCls}-simple-footer`]: {
+          [`${componentCls}-simple-guide`]: {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
             color: token.listItemDescriptionColor,
-            margin: '0 24px 12px 24px',
-            padding: '8px 16px',
+            margin: `0 ${token.marginMD}px ${token.marginSM}px ${token.marginMD}px`,
+            padding: `${token.paddingXS}px ${token.paddingMD}px`,
             borderRadius: 18,
             background: '#f5f5f5',
-            [`${componentCls}-simple-footer-right`]: {
+            [`${componentCls}-simple-guide-right`]: {
               fontWeight: 400,
               padding: '0 15px',
             },
@@ -214,7 +212,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             },
           },
           [`${componentCls}-guide-panel`]: {
-            marginBlockStart: 48,
+            marginBlockStart: token.marginXXL,
             [`${componentCls}-guide-title`]: {
               textAlign: 'center',
               fontSize: token.fontSizeXL,
@@ -226,7 +224,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             marginBlockStart: 0,
           },
           [`${componentCls}-guide-list`]: {
-            marginBlock: 28,
+            marginBlock: token.marginLG,
             maxHeight: 300,
             overflow: 'auto',
             '&::-webkit-scrollbar': {
@@ -236,7 +234,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             [`${componentCls}-guide-item`]: {
               display: 'flex',
               alignItems: 'center',
-              marginBlockEnd: 32,
+              marginBlockEnd: token.marginXL,
               '&:last-child': {
                 marginBlockEnd: 0,
               },
@@ -246,7 +244,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 height: 56,
               },
               [`${componentCls}-guide-item-content`]: {
-                marginInlineStart: 12,
+                marginInlineStart: token.marginSM,
                 [`${componentCls}-guide-item-title`]: {
                   fontSize: token.fontSizeLG,
                   color: token.colorText,
@@ -255,7 +253,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 [`${componentCls}-guide-item-description`]: {
                   fontSize: token.fontSizeSM,
                   color: token.listItemDescriptionColor,
-                  marginBlockStart: 4,
+                  marginBlockStart: token.marginXXS,
                   wordBreak: 'break-word',
                 },
               },
@@ -276,7 +274,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             color: token.colorText,
             fontSize: token.fontSizeLG,
             textAlign: 'center',
-            marginBlockStart: 16,
+            marginBlockStart: token.margin,
             opacity: 0.8,
             ['&:hover']: {
               opacity: 1,
@@ -286,11 +284,11 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             position: 'relative',
             height: '100%',
             [`${componentCls}-list`]: {
-              marginBlockStart: 32,
+              marginBlockStart: token.marginXL,
               minHeight: 286,
               overflow: 'auto',
               [`${componentCls}-item`]: {
-                marginBlockEnd: 24,
+                marginBlockEnd: token.marginLG,
                 '&:last-child': {
                   marginBlockEnd: 0,
                 },
@@ -327,7 +325,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               h3: {
                 fontSize: token.fontSizeLG,
                 color: token.colorText,
-                marginBlockEnd: 16,
+                marginBlockEnd: token.margin,
               },
               p: {
                 fontSize: token.fontSizeSM,
@@ -344,9 +342,9 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              marginBlockEnd: 16,
+              marginBlockEnd: token.margin,
               boxSizing: 'border-box',
-              paddingInline: 30,
+              paddingInline: token.paddingXL,
               background: token.cardBg,
               borderRadius: 16,
               cursor: 'pointer',
@@ -367,7 +365,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 },
               },
               [`${componentCls}-card-content`]: {
-                marginInlineStart: 12,
+                marginInlineStart: token.marginSM,
                 [`${componentCls}-card-title`]: {
                   fontSize: token.fontSizeLG,
                   color: token.colorText,
@@ -384,7 +382,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           },
           [`${componentCls}-qr-code-container`]: {
             [`${componentCls}-qr-code-box`]: {
-              marginBlockStart: 12,
+              marginBlockStart: token.marginSM,
               marginInline: 'auto',
               [`${componentCls}-qr-code`]: {
                 marginInline: 'auto',
@@ -433,7 +431,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           [`${componentCls}-main-panel`]: {
             paddingInline: token.paddingLG,
             [`${componentCls}-qr-code-box`]: {
-              marginBlockStart: 24,
+              marginBlockStart: token.marginLG,
             },
             [`${componentCls}-qr-code-tips`]: {
               marginBlockStart: token.marginXL,
