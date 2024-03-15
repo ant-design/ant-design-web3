@@ -109,20 +109,22 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
             <div className={`${prefixCls}-list-container`}>
               <WalletList walletList={walletList} group={group} groupOrder={groupOrder} />
             </div>
-            {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
-            {!footer && isSimple && (
+            {isSimple && (
               <div className={`${prefixCls}-simple-footer`}>
                 {intl.getMessage(intl.messages.defaultSimpleFooter)}
                 <Button
                   type="link"
                   className={`${prefixCls}-simple-footer-right`}
-                  href={'https://ethereum.org/en/wallets/'}
-                  target="_blank"
+                  onClick={() => {
+                    updatePanelRoute('guide');
+                  }}
+                  size="small"
                 >
                   {intl.getMessage(intl.messages.defaultInfoMoreLinkFooter)}
                 </Button>
               </div>
             )}
+            {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
           </div>
         )}
         {!(panelRoute === 'init' && isSimple) && (

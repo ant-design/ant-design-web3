@@ -82,8 +82,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           boxSizing: 'border-box',
         },
         [`${componentCls}-list-panel`]: {
-          paddingInline: 18,
-          paddingBlock: 24,
+          paddingBlock: '24px 16px',
           width: 328,
           flexShrink: 0,
           borderRight: `1px solid ${token.splitColor}`,
@@ -92,11 +91,13 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           justifyContent: 'space-between',
           boxSizing: 'border-box',
           [`${componentCls}-header`]: {
+            paddingInline: 24,
             height: 30,
           },
           [`${componentCls}-list-container`]: {
             flexGrow: 1,
             marginBlock: token.marginSM,
+            paddingInline: 24,
             overflow: 'auto',
             [`${componentCls}-wallet-list`]: {
               maxHeight: 390,
@@ -165,20 +166,24 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           },
           [`${componentCls}-footer`]: {
             color: token.listItemDescriptionColor,
+            borderBlockStart: `1px solid ${token.splitColor}`,
+            paddingInline: 24,
+            paddingBlockStart: 16,
+            display: 'flex',
+            alignItems: 'center',
           },
           [`${componentCls}-simple-footer`]: {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
             color: token.listItemDescriptionColor,
-            fontSize: 16,
-            paddingInline: 6,
-            paddingBlockStart: 12,
-            borderTop: `1px solid ${token.splitColor}`,
+            margin: '0 24px 12px 24px',
+            padding: '8px 16px',
+            borderRadius: 18,
+            background: '#f5f5f5',
             [`${componentCls}-simple-footer-right`]: {
               fontWeight: 400,
-              fontSize: 16,
-              padding: `0 15px`,
+              padding: '0 15px',
             },
           },
         },
@@ -217,10 +222,17 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               marginBlock: 0,
             },
           },
+          [`${componentCls}-simple-guide-panel`]: {
+            marginBlockStart: 0,
+          },
           [`${componentCls}-guide-list`]: {
             marginBlock: 28,
             maxHeight: 300,
             overflow: 'auto',
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
+            scrollbarWidth: 'none',
             [`${componentCls}-guide-item`]: {
               display: 'flex',
               alignItems: 'center',
