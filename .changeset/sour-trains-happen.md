@@ -1,5 +1,5 @@
 ---
-'@ant-design/web3-assets': minor
+'@ant-design/web3-assets': patch
 ---
 
 fix: OKX Wallet name
