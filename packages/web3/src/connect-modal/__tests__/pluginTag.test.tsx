@@ -129,10 +129,10 @@ describe('ConnectModal with qrCode & plugin tag', () => {
       />
     );
     const { baseElement } = render(<App />);
-    const icon = baseElement.querySelector('.anticon-qrcode');
+    const icon = baseElement.querySelector('.ant-web3-connect-modal-qr-btn');
     fireEvent.click(icon!);
     await waitFor(() => {
-      expect(baseElement.querySelector('.anticon-qrcode')).toBeTruthy();
+      expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code-box')).toBeTruthy();
     });
   });
 });

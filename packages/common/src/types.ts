@@ -55,6 +55,10 @@ export interface NFTMetadata {
   compiler?: string;
 }
 
+export interface ConnectOptions {
+  connectType?: 'extension' | 'qrCode';
+}
+
 export interface UniversalWeb3ProviderInterface {
   // current connected account
   account?: Account;
@@ -71,7 +75,7 @@ export interface UniversalWeb3ProviderInterface {
   /** Such as `0x` */
   addressPrefix?: string | false;
 
-  connect?: (wallet?: Wallet) => Promise<void>;
+  connect?: (wallet?: Wallet, options?: ConnectOptions) => Promise<void>;
   disconnect?: () => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;
 

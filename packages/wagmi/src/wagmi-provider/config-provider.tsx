@@ -200,8 +200,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       }
       availableWallets={wallets}
       addressPrefix="0x"
-      connect={async (wallet) => {
-        let connector = await (wallet as WalletUseInWagmiAdapter)?.getWagmiConnector?.();
+      connect={async (wallet, options) => {
+        let connector = await (wallet as WalletUseInWagmiAdapter)?.getWagmiConnector?.(options);
         if (!connector && wallet) {
           connector = findConnectorByName(wallet.name);
         }

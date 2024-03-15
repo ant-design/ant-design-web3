@@ -1,3 +1,4 @@
+import { connect } from 'http2';
 import { ConnectModal } from '@ant-design/web3';
 import { metadata_MetaMask } from '@ant-design/web3-assets';
 import { fireEvent, render, waitFor } from '@testing-library/react';
@@ -29,7 +30,9 @@ describe('ConnectModal with hasExtensionInstalled', () => {
 
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item') as Element);
     await waitFor(() => {
-      expect(onWalletSelected).toBeCalledWith(wallet);
+      expect(onWalletSelected).toBeCalledWith(wallet, {
+        connectType: 'extension',
+      });
     });
   });
 
@@ -58,7 +61,7 @@ describe('ConnectModal with hasExtensionInstalled', () => {
 
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item') as Element);
     await waitFor(() => {
-      expect(onWalletSelected).toBeCalledWith(wallet);
+      expect(onWalletSelected).toBeCalledWith(wallet, {});
       expect(
         baseElement.querySelector('.ant-web3-connect-modal-main-panel-header-title'),
       ).toBeNull();
@@ -96,7 +99,9 @@ describe('ConnectModal with hasExtensionInstalled', () => {
 
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item') as Element);
     await waitFor(() => {
-      expect(onWalletSelected).toBeCalledWith(wallet);
+      expect(onWalletSelected).toBeCalledWith(wallet, {
+        connectType: 'qrCode',
+      });
       expect(
         baseElement.querySelector('.ant-web3-connect-modal-main-panel-header-title')?.textContent,
       ).toBe('Scan with MyWallet');

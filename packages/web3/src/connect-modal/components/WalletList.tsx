@@ -55,10 +55,18 @@ const WalletList: React.FC<WalletListProps> = (props) => {
               if (hasWalletReady) {
                 // wallet is ready, call ConnectModal's onWalletSelected
                 const hasExtensionInstalled = await item?.hasExtensionInstalled?.();
-                updateSelectedWallet(item, true);
-                if (item.getQrCode && !hasExtensionInstalled) {
+                if (hasExtensionInstalled) {
+                  updateSelectedWallet(item, {
+                    connectType: 'extension',
+                  });
+                } else if (item.getQrCode) {
                   // Extension not installed and can use qr code to connect
-                  updatePanelRoute('qrCode', true);
+                  updateSelectedWallet(item, {
+                    connectType: 'qrCode',
+                  });
+                } else {
+                  // use the default connect
+                  updateSelectedWallet(item, {});
                 }
                 return;
               }
@@ -80,14 +88,17 @@ const WalletList: React.FC<WalletListProps> = (props) => {
             <Space>
               <PluginTag wallet={item} />
               {item.getQrCode ? (
-                <Button size="small">
-                  <QrcodeOutlined
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      updateSelectedWallet(item, false);
-                      updatePanelRoute('qrCode', true);
-                    }}
-                  />
+                <Button
+                  size="small"
+                  className={`${prefixCls}-qr-btn`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    updateSelectedWallet(item, {
+                      connectType: 'qrCode',
+                    });
+                  }}
+                >
+                  <QrcodeOutlined />
                 </Button>
               ) : (
                 <div className={`${prefixCls}-qr-icon-empty`} />
