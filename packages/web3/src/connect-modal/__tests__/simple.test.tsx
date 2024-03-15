@@ -1,7 +1,7 @@
 import { ConnectModal } from '@ant-design/web3';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { theme as antTheme, ConfigProvider, Grid } from 'antd';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { groupOrder, walletList } from './mock';
 
@@ -54,15 +54,17 @@ describe('ConnectModal without guide', () => {
       walletList.length,
     );
   });
-  it('render with mode simple', () => {
+  it('render with mode simple', async () => {
     const App = () => (
       <ConnectModal open groupOrder={groupOrder} walletList={walletList} mode="simple" />
     );
     const { baseElement } = render(<App />);
-    expect(
-      baseElement
-        .querySelector('.ant-web3-connect-modal-simple-footer-right')
-        ?.getAttribute('href'),
-    ).toBe('https://ethereum.org/en/wallets/');
+    const btn = baseElement.querySelector('.ant-web3-connect-modal-simple-footer-right');
+    fireEvent.click(btn!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-web3-connect-modal-simple-guide-panel')).not.toBe(
+        null,
+      );
+    });
   });
 });
