@@ -11,6 +11,7 @@ export interface WalletUseInSolanaAdapter extends Wallet {
 }
 
 export interface WalletFactory {
-  adapter: Adapter;
+  // Only need when use `@solana/wallet-adapter-*`
+  adapter?: Adapter;
   create: () => WalletUseInSolanaAdapter;
 }

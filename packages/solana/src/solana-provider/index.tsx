@@ -1,8 +1,12 @@
 import { useMemo, useState, type FC, type PropsWithChildren } from 'react';
 import { Solana, SolanaDevnet, SolanaTestnet } from '@ant-design/web3-assets/solana';
-import type { Chain, Locale } from '@ant-design/web3-common';
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
-import { type ConnectionConfig } from '@solana/web3.js';
+import type { Locale } from '@ant-design/web3-common';
+import { WalletConnectionError, type Adapter } from '@solana/wallet-adapter-base';
+import {
+  ConnectionProvider,
+  WalletProvider,
+  type ConnectionProviderProps,
+} from '@solana/wallet-adapter-react';
 
 import { solana, type SolanaChainConfig } from '../chains';
 import type { WalletFactory } from '../wallets/types';
@@ -17,7 +21,7 @@ export interface SolanaWeb3ConfigProviderProps {
   rpcProvider?: (chain?: SolanaChainConfig) => string;
 
   //#region Solana ConnectionProvider specific
-  connectionConfig?: ConnectionConfig;
+  connectionConfig?: ConnectionProviderProps['config'];
   //#endregion
 
   //#region Solana WalletProvider specific
@@ -38,6 +42,7 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
   walletProviderProps,
 }) => {
   const [currentChain, setCurrentChain] = useState<SolanaChainConfig | undefined>(solana);
+  const [connectionError, setConnectionError] = useState<WalletConnectionError>();
 
   const endpoint = useMemo(() => {
     if (typeof rpcProvider === 'function') {
@@ -48,11 +53,27 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
   }, [rpcProvider, currentChain]);
 
   const availableWallets = walletFactorys.map((factory) => factory.create());
-  const adapters = walletFactorys.map((w) => w.adapter);
+
+  // Only filter out the wallets that have an adapter
+  const walletAdapters = useMemo(
+    () => walletFactorys.map((w) => w.adapter).filter((v): v is Adapter => !!v),
+    [walletFactorys],
+  );
 
   return (
     <ConnectionProvider endpoint={endpoint} config={connectionConfig}>
-      <WalletProvider wallets={adapters} autoConnect={autoConnect} {...walletProviderProps}>
+      <WalletProvider
+        wallets={walletAdapters}
+        autoConnect={autoConnect}
+        {...walletProviderProps}
+        onError={(error, adapter) => {
+          if (error instanceof WalletConnectionError) {
+            setConnectionError(error);
+          }
+
+          walletProviderProps?.onError?.(error, adapter);
+        }}
+      >
         <AntDesignWeb3ConfigProvider
           locale={locale}
           chainAssets={[Solana, SolanaDevnet, SolanaTestnet]}
@@ -61,6 +82,7 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
           currentChain={currentChain}
           onCurrentChainChange={(chain) => setCurrentChain(chain)}
           availableChains={chains || [solana]}
+          connectionError={connectionError}
         >
           {children}
         </AntDesignWeb3ConfigProvider>

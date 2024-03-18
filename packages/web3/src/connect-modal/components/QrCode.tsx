@@ -32,8 +32,10 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
       }
       setLoading(true);
       wallet.getQrCode?.().then(({ uri }) => {
-        setQrCodeValue(uri);
-        setLoading(false);
+        if (uri) {
+          setQrCodeValue(uri);
+          setLoading(false);
+        }
       });
     }
   }, [wallet]);

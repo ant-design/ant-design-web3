@@ -19,6 +19,10 @@ To reduce the size of the package you're including, you need to manually configu
 
 <code src="./demos/more-wallets.tsx"></code>
 
+## WalletConnect
+
+<code src="./demos/wallet-connect.tsx"></code>
+
 ## Support switch chains
 
 We have built-in support for the Solana mainnet (`mainnet-beta`). To support other networks, you need to configure the `chains` and import the relevant resources. The import process is similar to that for wallets.

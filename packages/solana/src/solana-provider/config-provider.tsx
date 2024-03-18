@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import type { Account, Chain, Locale, Wallet } from '@ant-design/web3-common';
 import { Web3ConfigProvider } from '@ant-design/web3-common';
 import { Metaplex, PublicKey } from '@metaplex-foundation/js';
-import type { WalletName } from '@solana/wallet-adapter-base';
+import type { WalletConnectionError, WalletName } from '@solana/wallet-adapter-base';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 
 import type { SolanaChainConfig } from '../chains';
@@ -10,6 +10,7 @@ import type { SolanaChainConfig } from '../chains';
 interface ConnectAsync {
   promise: Promise<void>;
   resolve: () => void;
+  reject: (reason: any) => void;
 }
 
 export interface AntDesignWeb3ConfigProviderProps {
@@ -19,6 +20,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   balance?: boolean;
   currentChain?: SolanaChainConfig;
   availableWallets: Wallet[];
+  connectionError?: WalletConnectionError;
   onCurrentChainChange?: (chain?: SolanaChainConfig) => void;
 }
 
@@ -57,6 +59,13 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       connectAsyncRef.current = undefined;
     }
   }, [connected]);
+
+  useEffect(() => {
+    if (props.connectionError) {
+      connectAsyncRef.current?.reject(props.connectionError);
+      connectAsyncRef.current = undefined;
+    }
+  }, [props.connectionError]);
 
   // get balance
   useEffect(() => {
@@ -138,12 +147,15 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       }}
       connect={async (_wallet) => {
         let resolve: any;
-        const promise = new Promise<void>((res) => {
+        let reject: any;
+
+        const promise = new Promise<void>((res, rej) => {
           resolve = res;
+          reject = rej;
         });
 
         connectAsyncRef.current?.resolve();
-        connectAsyncRef.current = { promise, resolve };
+        connectAsyncRef.current = { promise, resolve, reject };
 
         const walletName = (_wallet?.name as WalletName) ?? null;
         selectWallet(walletName);
