@@ -47,7 +47,7 @@
     "@ant-design/web3-icons": "workspace:*",
     "@ctrl/tinycolor": "^4.0.3",
     "@inline-svg-unique-id/react": "^1.2.3",
-    "antd": "^5.12.4",
+    "antd": "^5.15.3",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
