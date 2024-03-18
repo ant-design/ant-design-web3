@@ -1,6 +1,6 @@
-# Contributing to Ant Design
+# Contributing to Ant Design Web3
 
-Want to contribute to Ant Design? There are a few things you need to know.
+Want to contribute to Ant Design Web3? There are a few things you need to know.
 
 We wrote a **[contribution guide](https://web3.ant.design/guide/contributing)** to help you get started.
 
