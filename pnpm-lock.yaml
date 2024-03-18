@@ -78,7 +78,7 @@ importers:
       antd-style:
         specifier: ^3.6.1
         version: 3.6.1(@types/react@18.2.65)(antd@5.13.2)(react-dom@18.2.0)(react@18.2.0)
-      antd-token-previewer:
+      antd-token-previewer-web3:
         specifier: ^2.0.8
         version: 2.0.8(@babel/core@7.23.6)(@types/react@18.2.65)(antd@5.13.2)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
       babel-plugin-add-import-extension:
@@ -494,6 +494,22 @@ packages:
       rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+
+  /@ant-design/icons@5.3.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-U5eTSeSFr2V9SeJzYOo5mybAZfsoNuiIA8bvFoZUe+h9LBLs8UwrVaVwcMQC4AhBuojXkLMlmtnIlvUczXXHaQ==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      react: '>=16.0.0'
+      react-dom: '>=16.0.0'
+    dependencies:
+      '@ant-design/colors': 7.0.2
+      '@ant-design/icons-svg': 4.4.2
+      '@babel/runtime': 7.23.6
+      classnames: 2.5.1
+      rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: true
 
   /@ant-design/react-slick@1.0.2(react@18.2.0):
     resolution: {integrity: sha512-Wj8onxL/T8KQLFFiCA4t8eIRGpRR+UPgOdac2sYzonv+i0n3kXHmvHLLiOYL655DQx2Umii9Y9nNgL7ssu5haQ==}
@@ -3889,14 +3905,14 @@ packages:
     resolution: {integrity: sha512-bOhuFnlRaS7CU33+rFFIWdcET/Vkyn1vsN8BYFwCDEF5P1fVVvYN7bFOsQLTMD3nvi35C1AGmtqUr/Wfv8Xaow==}
     engines: {node: '>=12'}
     dependencies:
-      '@expo/spawn-async': 1.5.0
+      '@expo/spawn-async': 1.7.2
       exec-async: 2.2.0
 
   /@expo/package-manager@1.4.2:
     resolution: {integrity: sha512-LKdo/6y4W7llZ6ghsg1kdx2CeH/qR/c6QI/JI8oPUvppsZoeIYjSkdflce978fAMfR8IXoi0wt0jA2w0kWpwbg==}
     dependencies:
       '@expo/json-file': 8.3.0
-      '@expo/spawn-async': 1.5.0
+      '@expo/spawn-async': 1.7.2
       ansi-regex: 5.0.1
       chalk: 4.1.2
       find-up: 5.0.0
@@ -10912,6 +10928,35 @@ packages:
       - react-dom
     dev: true
 
+  /antd-token-previewer-web3@2.0.8(@babel/core@7.23.6)(@types/react@18.2.65)(antd@5.13.2)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-PMJvLkb34EFqoCtsxuHJl0UjPNj/CSQSRlG+g6GW2uKy1kIYPjaWUvw7KycePEuGDJ7UvYiFCgrjmz4tJ5qD1w==}
+    peerDependencies:
+      antd: ^5.5.0
+      react: '>=16.0.0'
+      react-dom: '>=16.0.0'
+    dependencies:
+      '@ant-design/colors': 6.0.0
+      '@ant-design/cssinjs': 1.18.2(react-dom@18.2.0)(react@18.2.0)
+      '@ant-design/icons': 5.3.4(react-dom@18.2.0)(react@18.2.0)
+      '@arvinxu/layout-kit': 1.4.0(@babel/core@7.23.6)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      '@babel/runtime': 7.23.6
+      '@ctrl/tinycolor': 3.6.1
+      antd: 5.13.2(react-dom@18.2.0)(react@18.2.0)
+      classnames: 2.5.1
+      rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-colorful: 5.6.1(react-dom@18.2.0)(react@18.2.0)
+      react-dom: 18.2.0(react@18.2.0)
+      reactflow: 11.10.4(@types/react@18.2.65)(react-dom@18.2.0)(react@18.2.0)
+      use-debouncy: 4.3.1(react@18.2.0)
+      vanilla-jsoneditor: 0.16.1
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@types/react'
+      - immer
+      - react-is
+    dev: true
+
   /antd-token-previewer@2.0.0-alpha.6(@babel/core@7.23.6)(@types/react@18.2.65)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-I2C+c5g6irJO6XGnkVaF5uKxPwThXz1OxESPDjHc26OFLaJ894YkjK8N+7/jKEohuTUZfKLdauJF79Z0PgOmZA==}
     peerDependencies:
@@ -10940,35 +10985,6 @@ packages:
       - immer
       - luxon
       - moment
-      - react-is
-    dev: true
-
-  /antd-token-previewer@2.0.8(@babel/core@7.23.6)(@types/react@18.2.65)(antd@5.13.2)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Dp5a1thv8lHTJdmJAog75Mt8ZXQ9NYXX7WxRy49UeYVeR+kDKbolww+aIQlO974jQBF+swtL/jL0MMgIUg0WKg==}
-    peerDependencies:
-      antd: ^5.5.0
-      react: '>=16.0.0'
-      react-dom: '>=16.0.0'
-    dependencies:
-      '@ant-design/colors': 6.0.0
-      '@ant-design/cssinjs': 1.18.2(react-dom@18.2.0)(react@18.2.0)
-      '@ant-design/icons': 5.3.1(react-dom@18.2.0)(react@18.2.0)
-      '@arvinxu/layout-kit': 1.4.0(@babel/core@7.23.6)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-      '@babel/runtime': 7.23.6
-      '@ctrl/tinycolor': 3.6.1
-      antd: 5.13.2(react-dom@18.2.0)(react@18.2.0)
-      classnames: 2.5.1
-      rc-util: 5.38.2(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-colorful: 5.6.1(react-dom@18.2.0)(react@18.2.0)
-      react-dom: 18.2.0(react@18.2.0)
-      reactflow: 11.10.4(@types/react@18.2.65)(react-dom@18.2.0)(react@18.2.0)
-      use-debouncy: 4.3.1(react@18.2.0)
-      vanilla-jsoneditor: 0.16.1
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@types/react'
-      - immer
       - react-is
     dev: true
 
