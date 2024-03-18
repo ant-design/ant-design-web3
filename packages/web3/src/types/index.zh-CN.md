@@ -40,6 +40,7 @@ order: 3
 | group | 钱包所属分组名称 | `string` | - | - |
 | hasWalletReady | 是否已安装浏览器扩展程序 | `() => boolean` | - | - |
 | getQrCode | 获取钱包的二维码 | `() => { uri: string }` | - | - |
+| universalProtocol | 是否是通用协议 | `boolean` | `false` | - |
 
 ### ExtensionItem
 

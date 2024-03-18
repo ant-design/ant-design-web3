@@ -62,6 +62,8 @@ The button to connect to the blockchain wallet. Usually, you need to use it with
 | onMenuItemClick | Menu item click event | `(e: NonNullable<MenuProps['items']>[number]) => void` | - | - |
 | balance | Balance | [Balance](#balance) | - | - |
 | availableChains | List of available chains | [Chain](../types/index.md#chain)\[] | - | - |
+| availableWallets | List of available wallets | [Wallet](../types/index.md#wallet)\[] | - | - |
+| quickConnect | Quick connect | `boolean` | `false` | - |
 | locale | Multilingual settings | `Locale["ConnectButton"]` | - | - |
 
 ### Balance

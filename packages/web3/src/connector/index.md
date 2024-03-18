@@ -57,3 +57,5 @@ The properties of the `children` component of `Connector` are inherited and util
 | balance | Balance of the currently connected account | `Balance[]` \| `Balance` | - | - |
 | availableChains | List of available chains | `Chain[]` | - | - |
 | chain | Current chain | [Chain](/components/types#chain) | - |  |
+| availableWallets | List of available wallets | [Wallet](/components/types#wallet)[] | - | - |
+| quickConnect | Whether to display the quick connect button | `boolean` | - | - |

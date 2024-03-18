@@ -48,12 +48,14 @@ order: 0
 
 `Connector` 的 `children` 组件的属性，`ConnectButton` 继承并使用了这些属性。如果你不使用 `ConnectButton`，可以通过在自己的组件中来使用这些属性来自定义 `Connector` 的 `chidlren`。
 
-| 属性              | 描述               | 类型                              | 默认值 | 版本 |
-| ----------------- | ------------------ | --------------------------------- | ------ | ---- |
-| account           | 当前连接的账户地址 | `string`                          | -      | -    |
-| onConnectClick    | 连接事件           | `() => void;`                     | -      | -    |
-| onDisconnectClick | 断开连接事件       | `() => void;`                     | -      | -    |
-| onSwitchChain     | 切换网络事件       | `(chain: Chain) => Promise<void>` | -      | -    |
-| balance           | 当前连接的账户余额 | `Balance[]` \| `Balance`          | -      | -    |
-| availableChains   | 可以连接的链列表   | `Chain[]`                         | -      | -    |
-| chain             | 当前连接的链       | [Chain](/components/types#chain)  | -      |      |
+| 属性              | 描述               | 类型                                 | 默认值  | 版本 |
+| ----------------- | ------------------ | ------------------------------------ | ------- | ---- |
+| account           | 当前连接的账户地址 | `string`                             | -       | -    |
+| onConnectClick    | 连接事件           | `() => void;`                        | -       | -    |
+| onDisconnectClick | 断开连接事件       | `() => void;`                        | -       | -    |
+| onSwitchChain     | 切换网络事件       | `(chain: Chain) => Promise<void>`    | -       | -    |
+| balance           | 当前连接的账户余额 | `Balance[]` \| `Balance`             | -       | -    |
+| availableChains   | 可以连接的链列表   | `Chain[]`                            | -       | -    |
+| chain             | 当前连接的链       | [Chain](/components/types#chain)     | -       |      |
+| availabelWallets  | 可用的钱包列表     | [Wallet](/components/types#wallet)[] | -       | -    |
+| quickConnect      | 快速连接钱包       | `boolean`                            | `false` | -    |

@@ -52,6 +52,7 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 | group | Does the wallet need to be grouped | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | `true` | - |
 | mode | Popup mode | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
 | guide | Newbie guide content | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |
+| defaultSelecteWallet | Default selected wallet | `Wallet` | - | - |
 | locale | Multilingual settings | `Locale["ConnectModal"]` | - | - |
 
 Other modal properties see: [ModalProps](https://ant.design/components/modal#API)
