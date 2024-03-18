@@ -13,6 +13,7 @@ import useIntl from '../hooks/useIntl';
 import { fillWithPrefix, writeCopyText } from '../utils';
 import { ChainSelect } from './chain-select';
 import type { ChainSelectProps } from './chain-select';
+import { ConnectButtonInner } from './connect-button-inner';
 import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
 import type { ProfileModalProps } from './profile-modal';
 import { ProfileModal } from './profile-modal';
@@ -37,6 +38,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     balance,
     className,
     locale,
+    quickConnect,
     addressPrefix: addressPrefixProp,
     ...restProps
   } = props;
@@ -136,13 +138,10 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     </div>
   );
 
-  const buttonContent = chainSelect ? (
-    <Space.Compact>
-      {chainSelect}
-      <Button {...buttonProps}>{buttonInnerText}</Button>
-    </Space.Compact>
-  ) : (
-    <Button {...buttonProps}>{buttonInnerText}</Button>
+  const buttonContent = (
+    <ConnectButtonInner {...buttonProps} preContent={chainSelect}>
+      {buttonInnerText}
+    </ConnectButtonInner>
   );
 
   const defaultMenuItems: MenuItemType[] = useMemo(

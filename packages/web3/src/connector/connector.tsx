@@ -69,6 +69,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         },
         balance,
         availableChains,
+        availableWallets,
         chain,
         addressPrefix,
         onSwitchChain: async (c: Chain) => {

@@ -178,6 +178,7 @@ export interface ConnectorTriggerProps {
   onDisconnectClick?: () => void;
   onSwitchChain?: (chain: Chain) => Promise<void>;
   availableChains?: Chain[];
+  availableWallets?: Wallet[];
   chain?: Chain;
   balance?: Balance;
 }
