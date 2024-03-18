@@ -76,7 +76,7 @@ describe('WagmiWeb3ConfigProvider getMetadata', () => {
     );
     const { baseElement } = render(<App />);
     await waitFor(() => {
-      expect(baseElement.querySelector('.ant-nft-card-name')?.textContent).toBe('NFT name');
+      expect(baseElement.querySelector('.ant-web3-nft-card-name')?.textContent).toBe('NFT name');
     });
   });
 });
