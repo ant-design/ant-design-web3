@@ -19,7 +19,7 @@ import HeartFilledSvg from './icons/heart-filled.svg';
 import HeartSvg from './icons/heart.svg';
 import { useStyle } from './style';
 
-const customizePrefixCls = 'ant-nft-card';
+const customizePrefixCls = 'ant-web3-nft-card';
 
 const { useToken } = theme;
 

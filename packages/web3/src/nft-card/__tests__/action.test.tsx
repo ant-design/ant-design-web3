@@ -21,8 +21,8 @@ describe('NFTCard actions', () => {
       />,
     );
     // Ensure the like and price elements are rendered
-    expect(baseElement.querySelector('.ant-nft-card-action')?.textContent).toBe('ActionTest');
-    fireEvent.click(baseElement.querySelector('.ant-nft-card-action .ant-btn')!);
+    expect(baseElement.querySelector('.ant-web3-nft-card-action')?.textContent).toBe('ActionTest');
+    fireEvent.click(baseElement.querySelector('.ant-web3-nft-card-action .ant-btn')!);
     expect(actionFn).toHaveBeenCalled();
   });
   it('render action and onActionClick work', () => {
@@ -42,8 +42,8 @@ describe('NFTCard actions', () => {
       />,
     );
     // Ensure the like and price elements are rendered
-    expect(baseElement.querySelector('.ant-nft-card-action')?.textContent).toBe('Buy Now');
-    fireEvent.click(baseElement.querySelector('.ant-nft-card-action .ant-btn')!);
+    expect(baseElement.querySelector('.ant-web3-nft-card-action')?.textContent).toBe('Buy Now');
+    fireEvent.click(baseElement.querySelector('.ant-web3-nft-card-action .ant-btn')!);
     expect(actionFn).toHaveBeenCalled();
   });
 });
