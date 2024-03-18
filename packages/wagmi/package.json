@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-wagmi",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -45,7 +45,7 @@
     "debug": "^4.3.4",
     "@wagmi/core": "^2.6.5",
     "viem": "2.0.0",
-    "@tanstack/react-query": "^5.21.7"
+    "@tanstack/react-query": "^5.28.4"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",

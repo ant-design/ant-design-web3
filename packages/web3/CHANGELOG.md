@@ -1,5 +1,27 @@
 # @ant-design/web3
 
+## 1.8.0
+
+### Minor Changes
+
+- 52d58e5: feat: Add ConnectType for wallet connect
+- 201c2ec: feat: optimize connect-modal component
+
+### Patch Changes
+
+- f2a8e32: patch: remove connect-modal overflow hide
+- 8c5c3ba: fix: connect modal radius
+- 52d58e5: fix: bind wallet qr code click event on the button and fix qrcode display bug
+- 6eaee12: chore: adjust the display dom structure of wallet icon in eip6963 mode
+- 0958090: fix: use react-inline-svg-unique-id plugin for fix svg id issue in runtime
+- Updated dependencies [52d58e5]
+- Updated dependencies [201c2ec]
+- Updated dependencies [0958090]
+- Updated dependencies [d273651]
+  - @ant-design/web3-common@1.6.0
+  - @ant-design/web3-icons@1.4.1
+  - @ant-design/web3-assets@1.4.1
+
 ## 1.7.2
 
 ### Patch Changes
