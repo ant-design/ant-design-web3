@@ -4,7 +4,7 @@ exports[`ConnectButton > should display formatted by custom formatter when pass 
 <body>
   <div>
     <button
-      class="ant-btn css-dev-only-do-not-override-1qhpsh8 ant-btn-default ant-web3-connect-button css-dev-only-do-not-override-1qhpsh8 ant-tooltip-open"
+      class="ant-btn css-dev-only-do-not-override-djtmh8 ant-btn-default ant-web3-connect-button css-dev-only-do-not-override-djtmh8 ant-tooltip-open"
       type="button"
     >
       <div
@@ -17,7 +17,7 @@ exports[`ConnectButton > should display formatted by custom formatter when pass 
             class="ant-web3-connect-button-text"
           >
             <div
-              class="ant-space css-dev-only-do-not-override-1qhpsh8 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-web3-address css-dev-only-do-not-override-1qhpsh8"
+              class="ant-space css-dev-only-do-not-override-djtmh8 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-web3-address css-dev-only-do-not-override-djtmh8"
             >
               <div
                 class="ant-space-item"
@@ -36,7 +36,7 @@ exports[`ConnectButton > should display formatted by custom formatter when pass 
   </div>
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-web3-connect-button-tooltip css-dev-only-do-not-override-1qhpsh8 css-dev-only-do-not-override-1qhpsh8 ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-web3-connect-button-tooltip css-dev-only-do-not-override-djtmh8 css-dev-only-do-not-override-djtmh8 ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
