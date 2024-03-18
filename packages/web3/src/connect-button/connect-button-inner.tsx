@@ -45,6 +45,11 @@ export const ConnectButtonInner: React.FC<
   };
 
   const generateQuickConnectItems = async (wallets: Wallet[] = []) => {
+    if (!showQuickConnect) {
+      setFirstInstallWallet(undefined);
+      setItems([]);
+      return;
+    }
     const filterNotInstallWallets = await Promise.all(
       wallets.map(async (wallet) => {
         if (wallet.universalProtocol || (await wallet.hasExtensionInstalled?.())) {
@@ -80,7 +85,7 @@ export const ConnectButtonInner: React.FC<
 
   useEffect(() => {
     generateQuickConnectItems(availableWallets);
-  }, [availableWallets]);
+  }, [availableWallets, showQuickConnect]);
 
   const buttonContent =
     showQuickConnect && firstInstallWallet ? (
