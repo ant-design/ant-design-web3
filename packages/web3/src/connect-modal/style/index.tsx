@@ -26,6 +26,7 @@ export interface ConnectModalToken extends Web3AliasToken {
   listItemDescriptionColor: string;
   cardBg: string;
   iconSize: number;
+  simpleGuideBg: string;
 }
 
 const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
@@ -178,7 +179,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             margin: `0 ${token.marginMD}px ${token.marginSM}px ${token.marginMD}px`,
             padding: `${token.paddingXS}px ${token.paddingMD}px`,
             borderRadius: 18,
-            background: '#f5f5f5',
+            background: token.simpleGuideBg,
             [`${componentCls}-simple-guide-right`]: {
               fontWeight: 400,
               padding: '0 15px',
@@ -476,6 +477,7 @@ export function useStyle(prefixCls: string): UseStyleResult {
       cardBg: new TinyColor(token.colorText).setAlpha(0.1).toRgbString(),
       iconSize: token.sizeXL,
       web3ComponentsCls: `.${prefixCls}`,
+      simpleGuideBg: isDark ? 'rgba(255,255,255,0.08)' : '#f5f5f5',
     };
     return [genModalStyle(connectModalToken)];
   });
