@@ -1,8 +1,8 @@
 import React, { useContext, useMemo, useState } from 'react';
 import { CopyOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
-import { type Chain } from '@ant-design/web3-common';
+import { Wallet, type Chain } from '@ant-design/web3-common';
 import type { ButtonProps } from 'antd';
-import { Avatar, Button, ConfigProvider, Divider, Dropdown, message, Space } from 'antd';
+import { Avatar, ConfigProvider, Divider, Dropdown, message } from 'antd';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 
@@ -25,6 +25,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     onConnectClick,
     onDisconnectClick,
     availableChains,
+    availableWallets,
     onSwitchChain,
     tooltip,
     chain,
@@ -79,8 +80,6 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       setShowMenu(false);
       if (account && !profileOpen && profileModal) {
         setProfileOpen(true);
-      } else {
-        onConnectClick?.();
       }
       onClick?.(e);
     },
@@ -139,7 +138,18 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   );
 
   const buttonContent = (
-    <ConnectButtonInner {...buttonProps} preContent={chainSelect}>
+    <ConnectButtonInner
+      intl={intl}
+      {...buttonProps}
+      preContent={chainSelect}
+      showQuickConnect={quickConnect && !account}
+      availableWallets={availableWallets}
+      onConnectClick={(wallet?: Wallet) => {
+        if (!account) {
+          onConnectClick?.(wallet);
+        }
+      }}
+    >
       {buttonInnerText}
     </ConnectButtonInner>
   );

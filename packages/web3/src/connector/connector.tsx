@@ -30,6 +30,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [messageApi, contextHolder] = message.useMessage();
+  const [selectWallet, setSelectWallet] = React.useState<Wallet | undefined>();
 
   const connectWallet = async (wallet?: Wallet, options?: ConnectOptions) => {
     onConnect?.();
@@ -56,8 +57,19 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       {contextHolder}
       {React.cloneElement(children as React.ReactElement<ConnectorTriggerProps>, {
         account,
-        onConnectClick: () => {
-          setOpen(true);
+        onConnectClick: async (wallet?: Wallet) => {
+          if (wallet) {
+            setLoading(true);
+            if (await wallet?.hasExtensionInstalled?.()) {
+              connectWallet(wallet);
+            } else {
+              setSelectWallet(wallet);
+              setOpen(true);
+            }
+            setLoading(false);
+          } else {
+            setOpen(true);
+          }
         },
         onDisconnectClick: () => {
           setLoading(true);
@@ -82,8 +94,10 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
 
       <ConnectModal
         open={open}
+        defaultSelecteWallet={selectWallet}
         walletList={availableWallets}
         onWalletSelected={async (wallet, options) => {
+          setSelectWallet(undefined);
           if (options?.connectType !== 'qrCode') {
             // not need show qr code, hide immediately
             setOpen(false);
@@ -95,6 +109,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
           modalProps?.onCancel?.(e);
           setOpen(false);
           setLoading(false);
+          setSelectWallet(undefined);
         }}
       />
     </>

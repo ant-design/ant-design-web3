@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import { QrcodeOutlined } from '@ant-design/icons';
 import { Button, List, Space } from 'antd';
 import classNames from 'classnames';
@@ -8,10 +8,13 @@ import type { ConnectModalProps, Wallet } from '../interface';
 import { defaultGroupOrder } from '../utils';
 import PluginTag from './PluginTag';
 
-export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'group' | 'groupOrder'>;
+export type WalletListProps = Pick<
+  ConnectModalProps,
+  'walletList' | 'group' | 'groupOrder' | 'defaultSelecteWallet'
+>;
 
 const WalletList: React.FC<WalletListProps> = (props) => {
-  const { walletList = [], group: internalGroup, groupOrder } = props;
+  const { walletList = [], group: internalGroup, groupOrder, defaultSelecteWallet } = props;
   const { prefixCls, updateSelectedWallet, selectedWallet, updatePanelRoute } =
     useContext(connectModalContext);
   const dataSource: Record<string, Wallet[]> = useMemo(() => {
@@ -36,6 +39,40 @@ const WalletList: React.FC<WalletListProps> = (props) => {
     return Object.keys(dataSource).sort(orderFn);
   }, [dataSource, internalGroup, groupOrder]);
 
+  const selectWallet = async (wallet: Wallet) => {
+    const hasWalletReady = await wallet.hasWalletReady?.();
+    if (hasWalletReady) {
+      // wallet is ready, call ConnectModal's onWalletSelected
+      const hasExtensionInstalled = await wallet?.hasExtensionInstalled?.();
+      if (hasExtensionInstalled) {
+        updateSelectedWallet(wallet, {
+          connectType: 'extension',
+        });
+      } else if (wallet.getQrCode) {
+        // Extension not installed and can use qr code to connect
+        updateSelectedWallet(wallet, {
+          connectType: 'qrCode',
+        });
+      } else {
+        // use the default connect
+        updateSelectedWallet(wallet, {});
+      }
+      return;
+    }
+
+    // wallet not ready
+    // go to wallet page
+    updateSelectedWallet(wallet);
+    updatePanelRoute('wallet', true);
+  };
+
+  useEffect(() => {
+    console.log('defaultSelecteWallet', defaultSelecteWallet);
+    if (defaultSelecteWallet) {
+      selectWallet(defaultSelecteWallet);
+    }
+  }, [defaultSelecteWallet]);
+
   const RenderContent = ({ group }: { group?: string }) => {
     return (
       <List<Wallet>
@@ -50,31 +87,8 @@ const WalletList: React.FC<WalletListProps> = (props) => {
                   ? selectedWallet?.key === item.key
                   : selectedWallet?.name === item.name,
             })}
-            onClick={async () => {
-              const hasWalletReady = await item.hasWalletReady?.();
-              if (hasWalletReady) {
-                // wallet is ready, call ConnectModal's onWalletSelected
-                const hasExtensionInstalled = await item?.hasExtensionInstalled?.();
-                if (hasExtensionInstalled) {
-                  updateSelectedWallet(item, {
-                    connectType: 'extension',
-                  });
-                } else if (item.getQrCode) {
-                  // Extension not installed and can use qr code to connect
-                  updateSelectedWallet(item, {
-                    connectType: 'qrCode',
-                  });
-                } else {
-                  // use the default connect
-                  updateSelectedWallet(item, {});
-                }
-                return;
-              }
-
-              // wallet not ready
-              // go to wallet page
-              updateSelectedWallet(item);
-              updatePanelRoute('wallet', true);
+            onClick={() => {
+              selectWallet(item);
             }}
           >
             <div className={`${prefixCls}-content`}>

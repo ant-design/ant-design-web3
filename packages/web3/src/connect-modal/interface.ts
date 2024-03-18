@@ -73,6 +73,11 @@ export type ConnectModalProps = ModalProps & {
    */
   footer?: React.ReactNode;
   /**
+   * @desc 默认选择的钱包
+   * @descEn Wallet select by default
+   */
+  defaultSelecteWallet?: Wallet;
+  /**
    * @desc 钱包列表
    * @descEn Wallet list
    */

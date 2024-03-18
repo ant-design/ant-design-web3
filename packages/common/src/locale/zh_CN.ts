@@ -7,6 +7,7 @@ const localeValues: RequiredLocale = {
     copyAddress: '复制地址',
     copied: '复制成功！',
     walletAddress: '钱包地址',
+    moreWallets: '更多钱包',
   },
   ConnectModal: {
     title: '连接钱包',
