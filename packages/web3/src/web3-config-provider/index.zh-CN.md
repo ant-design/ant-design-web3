@@ -1,11 +1,12 @@
 ---
 nav: 组件
+subtitle: Web3 全局配置
 group:
   title: 高级
   order: 4
 ---
 
-# Web3ConfigProvider Web3 全局配置
+# Web3ConfigProvider
 
 给组件提供全局配置和状态。
 
