@@ -40,7 +40,6 @@ if (typeof window !== 'undefined') {
   window.getComputedStyle = (elt) => getComputedStyle(elt);
 }
 
-// eslint-disable-next-line no-console
-console.log('Current React Version:', React.version);
-
 afterEach(() => cleanup());
+
+vi.mock('@coinbase/wallet-sdk', () => vi.importMock('@coinbase/wallet-sdk'));
