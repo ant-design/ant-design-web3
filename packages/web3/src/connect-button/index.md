@@ -14,6 +14,12 @@ The button to connect to the blockchain wallet. Usually, you need to use it with
 
 <code src="./demos/basic.tsx"></code>
 
+## Quick Connect
+
+After configuring the `quickConnect` property, the installed wallets and universal protocols (such as WalletConnect) will be displayed directly on the button.
+
+<code src="./demos/quick-connect.tsx"></code>
+
 ## Show Tooltip
 
 <code src="./demos/tooltip.tsx"></code>

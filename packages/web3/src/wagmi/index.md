@@ -27,6 +27,7 @@ The recommended configuration mainly includes:
 - Support displaying ENS.
 - By default, add MetaMask and TokenPocket, Okx wallets, and provide download guides when users have not installed wallets.
 - By default, add WalletConnect, which supports users to connect various wallets through mobile phone scanning.
+- Configure `quickConnect` to provide quick connection entry to simplify user operations.
 - Remove wallet grouping to simplify the ui.
 
 ## Basic Usage

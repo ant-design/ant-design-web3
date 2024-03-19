@@ -14,6 +14,12 @@ order: 1
 
 <code src="./demos/basic.tsx"></code>
 
+## 快速连接
+
+配置了 `quickConnect` 属性后，会在按钮上直接展示已安装的钱包和通用协议（比如 WalletConnect）的钱包。
+
+<code src="./demos/quick-connect"></code>
+
 ## 展示提示
 
 <code src="./demos/tooltip.tsx"></code>
