@@ -38,8 +38,7 @@ describe('ConnectButton with quickConnect', async () => {
 
       const wallets = [
         {
-          ...metadata_MetaMask,
-          hasExtensionInstalled: async () => true,
+          ...metadata_WalletConnect,
           getQrCode: async () => {
             return {
               uri: 'http://example.com',
@@ -47,7 +46,8 @@ describe('ConnectButton with quickConnect', async () => {
           },
         },
         {
-          ...metadata_WalletConnect,
+          ...metadata_MetaMask,
+          hasExtensionInstalled: async () => true,
           getQrCode: async () => {
             return {
               uri: 'http://example.com',
@@ -178,7 +178,7 @@ describe('ConnectButton with quickConnect', async () => {
     const { baseElement } = render(<App />);
 
     await vi.waitFor(() => {
-      // show metamask quick connect
+      // show wallet connect quick connect
       expect(baseElement.querySelector('.ant-web3-icon-wallet-connect-colorful')).toBeTruthy();
     });
 

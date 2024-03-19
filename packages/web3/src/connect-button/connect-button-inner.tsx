@@ -52,7 +52,7 @@ export const ConnectButtonInner: React.FC<
     }
     const filterNotInstallWallets = await Promise.all(
       wallets.map(async (wallet) => {
-        if (wallet.universalProtocol || (await wallet.hasExtensionInstalled?.())) {
+        if (await wallet.hasExtensionInstalled?.()) {
           return wallet;
         }
         return null;
@@ -61,8 +61,14 @@ export const ConnectButtonInner: React.FC<
     const installedWallets: Wallet[] = filterNotInstallWallets.filter(
       (item) => item !== null,
     ) as Wallet[];
-    setFirstInstallWallet(installedWallets.shift());
-    const newItems = installedWallets.map((item) => {
+
+    // Add universal protocol wallets to the list
+    const allQuickWallets = installedWallets.concat(
+      wallets.filter((item) => item.universalProtocol && !installedWallets.includes(item)),
+    );
+
+    setFirstInstallWallet(allQuickWallets.shift());
+    const newItems = allQuickWallets.map((item) => {
       return {
         key: item.name,
         icon: getWalletIcon(item.icon),
@@ -72,6 +78,7 @@ export const ConnectButtonInner: React.FC<
         },
       };
     });
+
     newItems.push({
       key: '__more__',
       icon: <MoreOutlined />,
