@@ -298,7 +298,6 @@ describe('ConnectButton with quickConnect', async () => {
         {
           ...metadata_MetaMask,
           hasExtensionInstalled: async () => {
-            return true;
             throw new Error('error');
           },
           icon: 'https://www.tokenpocket.pro/_nuxt/img/logo.03b9a69.png',
