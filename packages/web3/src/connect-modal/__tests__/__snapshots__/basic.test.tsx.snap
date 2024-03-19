@@ -1370,9 +1370,6 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                   <div
                     class="ant-web3-connect-modal-guide-panel"
                   >
-                    <div
-                      class="ant-web3-connect-modal-main-panel-header"
-                    />
                     <h2
                       class="ant-web3-connect-modal-guide-title"
                     >
@@ -1866,9 +1863,6 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                   <div
                     class="ant-web3-connect-modal-guide-panel"
                   >
-                    <div
-                      class="ant-web3-connect-modal-main-panel-header"
-                    />
                     <h2
                       class="ant-web3-connect-modal-guide-title"
                     >
@@ -2387,9 +2381,6 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                   <div
                     class="ant-web3-connect-modal-guide-panel"
                   >
-                    <div
-                      class="ant-web3-connect-modal-main-panel-header"
-                    />
                     <h2
                       class="ant-web3-connect-modal-guide-title"
                     >

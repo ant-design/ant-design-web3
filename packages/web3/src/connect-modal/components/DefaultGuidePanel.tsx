@@ -50,7 +50,7 @@ const DefaultGuidePanel: React.FC<{
     const { title, infos } = guide;
     return (
       <>
-        <MainPanelHeader />
+        {props.simple && <MainPanelHeader />}
         <h2 className={`${prefixCls}-guide-title`}>{title}</h2>
         <div className={`${prefixCls}-guide-list`}>
           {infos.map((info) => {

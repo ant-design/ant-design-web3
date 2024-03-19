@@ -182,6 +182,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             background: token.simpleGuideBg,
             [`${componentCls}-simple-guide-right`]: {
               fontWeight: 400,
+              color: token.colorPrimary,
               padding: '0 15px',
             },
           },
@@ -477,7 +478,7 @@ export function useStyle(prefixCls: string): UseStyleResult {
       cardBg: new TinyColor(token.colorText).setAlpha(0.1).toRgbString(),
       iconSize: token.sizeXL,
       web3ComponentsCls: `.${prefixCls}`,
-      simpleGuideBg: isDark ? 'rgba(255,255,255,0.08)' : '#f5f5f5',
+      simpleGuideBg: new TinyColor(token.colorText).complement().setAlpha(0.06).toRgbString(),
     };
     return [genModalStyle(connectModalToken)];
   });
