@@ -5,7 +5,7 @@ exports[`ProfileModal > match snapshot 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-1qhpsh8"
+      class="ant-modal-root css-dev-only-do-not-override-djtmh8"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -16,7 +16,7 @@ exports[`ProfileModal > match snapshot 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-1qhpsh8 hashId ant-web3-connect-button-profile-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-djtmh8 hashId ant-web3-connect-button-profile-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 280px;"
         >
@@ -26,106 +26,111 @@ exports[`ProfileModal > match snapshot 1`] = `
             tabindex="0"
           />
           <div
-            class="ant-modal-content"
+            style="outline: none;"
+            tabindex="-1"
           >
-            <button
-              aria-label="Close"
-              class="ant-modal-close"
-              type="button"
+            <div
+              class="ant-modal-content"
             >
-              <span
-                class="ant-modal-close-x"
+              <button
+                aria-label="Close"
+                class="ant-modal-close"
+                type="button"
               >
                 <span
-                  aria-label="close"
-                  class="anticon anticon-close ant-modal-close-icon"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </button>
-            <div
-              class="ant-modal-body"
-              style="text-align: center;"
-            >
-              <div
-                class="ant-space css-dev-only-do-not-override-1qhpsh8 ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-              >
-                <div
-                  class="ant-space-item"
+                  class="ant-modal-close-x"
                 >
                   <span
-                    class="ant-avatar ant-avatar-circle ant-avatar-image css-dev-only-do-not-override-1qhpsh8"
+                    aria-label="close"
+                    class="anticon anticon-close ant-modal-close-icon"
+                    role="img"
                   >
-                    <img
-                      src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original"
-                    />
+                    <svg
+                      aria-hidden="true"
+                      data-icon="close"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                      />
+                    </svg>
                   </span>
-                </div>
+                </span>
+              </button>
+              <div
+                class="ant-modal-body"
+                style="text-align: center;"
+              >
                 <div
-                  class="ant-space-item"
+                  class="ant-space css-dev-only-do-not-override-djtmh8 ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
-                    class="ant-web3-connect-button-profile-modal-name hashId"
+                    class="ant-space-item"
                   >
-                    wanderingearth.eth
+                    <span
+                      class="ant-avatar ant-avatar-circle ant-avatar-image css-dev-only-do-not-override-djtmh8"
+                    >
+                      <img
+                        src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original"
+                      />
+                    </span>
                   </div>
-                </div>
-                <div
-                  class="ant-space-item"
-                >
                   <div
-                    class="ant-space css-dev-only-do-not-override-1qhpsh8 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-web3-address css-dev-only-do-not-override-1qhpsh8"
+                    class="ant-space-item"
                   >
                     <div
-                      class="ant-space-item"
+                      class="ant-web3-connect-button-profile-modal-name hashId"
                     >
-                      <span
-                        class="ant-web3-address-text"
+                      wanderingearth.eth
+                    </div>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    <div
+                      class="ant-space css-dev-only-do-not-override-djtmh8 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-web3-address css-dev-only-do-not-override-djtmh8"
+                    >
+                      <div
+                        class="ant-space-item"
                       >
-                        0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B
-                      </span>
+                        <span
+                          class="ant-web3-address-text"
+                        >
+                          0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="ant-modal-footer"
-            >
               <div
-                class="ant-web3-connect-button-profile-modal-footer hashId"
+                class="ant-modal-footer"
               >
-                <button
-                  class="ant-btn css-dev-only-do-not-override-1qhpsh8 ant-btn-default"
-                  type="button"
+                <div
+                  class="ant-web3-connect-button-profile-modal-footer hashId"
                 >
-                  <span>
-                    Copy Address
-                  </span>
-                </button>
-                <button
-                  class="ant-btn css-dev-only-do-not-override-1qhpsh8 ant-btn-default"
-                  type="button"
-                >
-                  <span>
-                    Disconnect
-                  </span>
-                </button>
+                  <button
+                    class="ant-btn css-dev-only-do-not-override-djtmh8 ant-btn-default"
+                    type="button"
+                  >
+                    <span>
+                      Copy Address
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn css-dev-only-do-not-override-djtmh8 ant-btn-default"
+                    type="button"
+                  >
+                    <span>
+                      Disconnect
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
