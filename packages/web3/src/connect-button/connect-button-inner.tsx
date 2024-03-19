@@ -7,17 +7,17 @@ import classNames from 'classnames';
 
 import type { IntlType } from '../hooks/useIntl';
 
-export const ConnectButtonInner: React.FC<
-  ButtonProps & {
-    /** @internal */
-    __hashId__: string;
-    preContent: React.ReactNode;
-    showQuickConnect?: boolean;
-    availableWallets?: Wallet[];
-    onConnectClick?: (wallet?: Wallet) => void;
-    intl: IntlType;
-  }
-> = (props) => {
+export interface ConnectButtonInnerProps extends ButtonProps {
+  /** @internal */
+  __hashId__: string;
+  preContent: React.ReactNode;
+  showQuickConnect?: boolean;
+  availableWallets?: Wallet[];
+  onConnectClick?: (wallet?: Wallet) => void;
+  intl: IntlType;
+}
+
+export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => {
   const {
     preContent,
     showQuickConnect,
@@ -51,8 +51,12 @@ export const ConnectButtonInner: React.FC<
     }
     const filterNotInstallWallets = await Promise.all(
       wallets.map(async (wallet) => {
-        if (await wallet.hasExtensionInstalled?.()) {
-          return wallet;
+        try {
+          if (await wallet.hasExtensionInstalled?.()) {
+            return wallet;
+          }
+        } catch (e) {
+          console.error(`Check wallet ${wallet.name} hasExtensionInstalled error:`, e);
         }
         return null;
       }),

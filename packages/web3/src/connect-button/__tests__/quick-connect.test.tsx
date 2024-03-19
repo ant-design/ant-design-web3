@@ -270,4 +270,69 @@ describe('ConnectButton with quickConnect', async () => {
       ).toBe(2);
     });
   });
+
+  it('ignore hasExtensionInstalled error', async () => {
+    const onClickCallFn = vi.fn();
+    const CustomConnector = () => {
+      const { connect, account, disconnect, availableWallets } = useProvider();
+
+      return (
+        <ConnectButton
+          className="custom-btn"
+          account={account}
+          availableWallets={availableWallets}
+          quickConnect
+          onConnectClick={(wallet) => {
+            onClickCallFn(wallet);
+            connect?.();
+          }}
+          onDisconnectClick={() => {
+            disconnect?.();
+          }}
+        />
+      );
+    };
+
+    const App = () => {
+      const wallets = [
+        {
+          ...metadata_MetaMask,
+          hasExtensionInstalled: async () => {
+            return true;
+            throw new Error('error');
+          },
+          icon: 'https://www.tokenpocket.pro/_nuxt/img/logo.03b9a69.png',
+        },
+        {
+          ...metadata_WalletConnect,
+          getQrCode: async () => {
+            return {
+              uri: 'http://example.com',
+            };
+          },
+        },
+        {
+          ...metadata_TokenPocket,
+          hasExtensionInstalled: async () => true,
+          icon: 'https://www.tokenpocket.pro/_nuxt/img/logo.03b9a69.png',
+        },
+      ];
+
+      return (
+        <Web3ConfigProvider availableWallets={wallets}>
+          <CustomConnector />
+        </Web3ConfigProvider>
+      );
+    };
+    const { baseElement } = render(<App />);
+
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-btn.ant-dropdown-trigger')).toBeTruthy();
+    });
+    // click for open menu
+    fireEvent.mouseOver(baseElement.querySelector('.ant-btn.ant-dropdown-trigger')!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelectorAll('.ant-dropdown-menu-item').length).toBe(2);
+    });
+  });
 });
