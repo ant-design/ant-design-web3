@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConnectModal } from '@ant-design/web3';
+import { ConnectModal, type ConnectModalActionType } from '@ant-design/web3';
 import type { Chain, ConnectOptions, ConnectorTriggerProps, Wallet } from '@ant-design/web3-common';
 import { message } from 'antd';
 
@@ -29,8 +29,9 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
   } = useProvider(props);
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
+  const [defaultSelectWallet, setDefaultSelectWallet] = React.useState<Wallet>();
+  const actionRef = React.useRef<ConnectModalActionType>();
   const [messageApi, contextHolder] = message.useMessage();
-  const [selectWallet, setSelectWallet] = React.useState<Wallet | undefined>();
 
   const connectWallet = async (wallet?: Wallet, options?: ConnectOptions) => {
     onConnect?.();
@@ -58,12 +59,12 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       {React.cloneElement(children as React.ReactElement<ConnectorTriggerProps>, {
         account,
         onConnectClick: async (wallet?: Wallet) => {
+          setDefaultSelectWallet(wallet);
           if (wallet) {
             setLoading(true);
             if (await wallet?.hasExtensionInstalled?.()) {
               connectWallet(wallet);
             } else {
-              setSelectWallet(wallet);
               setOpen(true);
             }
             setLoading(false);
@@ -94,10 +95,9 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
 
       <ConnectModal
         open={open}
-        defaultSelecteWallet={selectWallet}
+        actionRef={actionRef}
         walletList={availableWallets}
         onWalletSelected={async (wallet, options) => {
-          setSelectWallet(undefined);
           if (options?.connectType !== 'qrCode') {
             // not need show qr code, hide immediately
             setOpen(false);
@@ -109,7 +109,14 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
           modalProps?.onCancel?.(e);
           setOpen(false);
           setLoading(false);
-          setSelectWallet(undefined);
+          modalProps?.onCancel?.(e);
+        }}
+        afterOpenChange={(visible) => {
+          if (visible && defaultSelectWallet) {
+            actionRef?.current?.selectWallet(defaultSelectWallet);
+          }
+          setDefaultSelectWallet(undefined);
+          modalProps?.afterOpenChange?.(visible);
         }}
       />
     </>

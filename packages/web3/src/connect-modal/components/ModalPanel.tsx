@@ -24,7 +24,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     groupOrder,
     mode,
     onWalletSelected,
-    defaultSelecteWallet,
+    actionRef,
     locale,
   } = props;
   const intl = useIntl('ConnectModal', locale);
@@ -109,10 +109,10 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
             <div className={`${prefixCls}-header`}>{mergedTitle}</div>
             <div className={`${prefixCls}-list-container`}>
               <WalletList
+                ref={actionRef}
                 walletList={walletList}
                 group={group}
                 groupOrder={groupOrder}
-                defaultSelecteWallet={defaultSelecteWallet}
               />
             </div>
             {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}

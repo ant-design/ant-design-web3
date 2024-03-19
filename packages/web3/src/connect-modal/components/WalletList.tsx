@@ -1,20 +1,17 @@
-import React, { useContext, useEffect, useMemo } from 'react';
+import React, { forwardRef, useContext, useImperativeHandle, useMemo } from 'react';
 import { QrcodeOutlined } from '@ant-design/icons';
 import { Button, List, Space } from 'antd';
 import classNames from 'classnames';
 
 import { connectModalContext } from '../context';
-import type { ConnectModalProps, Wallet } from '../interface';
+import type { ConnectModalActionType, ConnectModalProps, Wallet } from '../interface';
 import { defaultGroupOrder } from '../utils';
 import PluginTag from './PluginTag';
 
-export type WalletListProps = Pick<
-  ConnectModalProps,
-  'walletList' | 'group' | 'groupOrder' | 'defaultSelecteWallet'
->;
+export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'group' | 'groupOrder'>;
 
-const WalletList: React.FC<WalletListProps> = (props) => {
-  const { walletList = [], group: internalGroup, groupOrder, defaultSelecteWallet } = props;
+const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, ref) => {
+  const { walletList = [], group: internalGroup, groupOrder } = props;
   const { prefixCls, updateSelectedWallet, selectedWallet, updatePanelRoute } =
     useContext(connectModalContext);
   const dataSource: Record<string, Wallet[]> = useMemo(() => {
@@ -66,12 +63,11 @@ const WalletList: React.FC<WalletListProps> = (props) => {
     updatePanelRoute('wallet', true);
   };
 
-  useEffect(() => {
-    console.log('defaultSelecteWallet', defaultSelecteWallet);
-    if (defaultSelecteWallet) {
-      selectWallet(defaultSelecteWallet);
-    }
-  }, [defaultSelecteWallet]);
+  useImperativeHandle(ref, () => {
+    return {
+      selectWallet,
+    };
+  });
 
   const RenderContent = ({ group }: { group?: string }) => {
     return (
@@ -144,6 +140,6 @@ const WalletList: React.FC<WalletListProps> = (props) => {
       )}
     </div>
   );
-};
+});
 
 export default WalletList;
