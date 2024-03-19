@@ -29,7 +29,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
   } = useProvider(props);
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
-  const [defaultSelectWallet, setDefaultSelectWallet] = React.useState<Wallet>();
+  const [defaultSelectedWallet, setDefaultSelectedWallet] = React.useState<Wallet>();
   const actionRef = React.useRef<ConnectModalActionType>();
   const [messageApi, contextHolder] = message.useMessage();
 
@@ -59,15 +59,26 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       {React.cloneElement(children as React.ReactElement<ConnectorTriggerProps>, {
         account,
         onConnectClick: async (wallet?: Wallet) => {
-          setDefaultSelectWallet(wallet);
           if (wallet) {
-            setLoading(true);
             if (await wallet?.hasExtensionInstalled?.()) {
-              connectWallet(wallet);
+              // call extnesion directly
+              connectWallet(wallet, {
+                connectType: 'extension',
+              });
             } else {
+              // show qr code
+              if (actionRef.current?.selectWallet) {
+                // ConnectModal already mounted, call select
+                actionRef.current.selectWallet(wallet);
+              } else {
+                // ConnectModal not mounted, set defaultSelectWallet
+                connectWallet(wallet, {
+                  connectType: 'qrCode',
+                });
+                setDefaultSelectedWallet(wallet);
+              }
               setOpen(true);
             }
-            setLoading(false);
           } else {
             setOpen(true);
           }
@@ -96,6 +107,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       <ConnectModal
         open={open}
         actionRef={actionRef}
+        defaultSelectedWallet={defaultSelectedWallet}
         walletList={availableWallets}
         onWalletSelected={async (wallet, options) => {
           if (options?.connectType !== 'qrCode') {
@@ -110,13 +122,6 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
           setOpen(false);
           setLoading(false);
           modalProps?.onCancel?.(e);
-        }}
-        afterOpenChange={(visible) => {
-          if (visible && defaultSelectWallet) {
-            actionRef?.current?.selectWallet(defaultSelectWallet);
-          }
-          setDefaultSelectWallet(undefined);
-          modalProps?.afterOpenChange?.(visible);
         }}
       />
     </>

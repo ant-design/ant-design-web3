@@ -53,6 +53,7 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 | mode | Popup mode | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
 | guide | Newbie guide content | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |
 | actionRef | Used to control the component | `MutableRefObject<ConnectModalActionType>` | - | - |
+| defaultSelectedWallet | Default selected wallet | `Wallet` | - | - |
 | locale | Multilingual settings | `Locale["ConnectModal"]` | - | - |
 
 Other modal properties see: [ModalProps](https://ant.design/components/modal#API)

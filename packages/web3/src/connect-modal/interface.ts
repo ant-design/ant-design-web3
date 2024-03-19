@@ -84,6 +84,11 @@ export type ConnectModalProps = ModalProps & {
    */
   actionRef?: React.MutableRefObject<ConnectModalActionType>;
   /**
+   * @desc 默认选中的钱包
+   * @descEn Default selected wallet
+   */
+  defaultSelectedWallet?: Wallet;
+  /**
    * @desc 钱包列表
    * @descEn Wallet list
    */
