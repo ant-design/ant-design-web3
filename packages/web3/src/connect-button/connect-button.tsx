@@ -149,6 +149,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
           onConnectClick?.(wallet);
         }
       }}
+      __hashId__={hashId}
     >
       {buttonInnerText}
     </ConnectButtonInner>

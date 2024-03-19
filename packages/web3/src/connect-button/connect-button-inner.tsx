@@ -1,13 +1,16 @@
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { MoreOutlined } from '@ant-design/icons';
 import type { Wallet } from '@ant-design/web3-common';
 import type { ButtonProps, MenuProps } from 'antd';
-import { Avatar, Button, ConfigProvider, Divider, Dropdown, message, Space } from 'antd';
+import { Button, ConfigProvider, Dropdown, Space } from 'antd';
+import classNames from 'classnames';
 
 import type { IntlType } from '../hooks/useIntl';
 
 export const ConnectButtonInner: React.FC<
   ButtonProps & {
+    /** @internal */
+    __hashId__: string;
     preContent: React.ReactNode;
     showQuickConnect?: boolean;
     availableWallets?: Wallet[];
@@ -24,21 +27,17 @@ export const ConnectButtonInner: React.FC<
     onClick,
     onConnectClick,
     intl,
+    __hashId__,
     ...restProps
   } = props;
-
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('web3-connect-button');
   const [firstInstallWallet, setFirstInstallWallet] = useState<Wallet | undefined>(undefined);
   const [items, setItems] = useState<MenuProps['items']>([]);
 
   const getWalletIcon = (icon?: string | React.ReactNode) => {
     return typeof icon === 'string' ? (
-      <img
-        style={{
-          height: 14,
-          width: 14,
-        }}
-        src={icon}
-      />
+      <img className={classNames(__hashId__, `${prefixCls}-quick-connect-icon`)} src={icon} />
     ) : (
       icon
     );

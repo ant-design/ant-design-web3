@@ -6,6 +6,56 @@ import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 describe('Connector quick connect', () => {
+  it('quick connect with extension', async () => {
+    const connectFn = vi.fn();
+    const App = () => {
+      const wallets: Wallet[] = [
+        {
+          ...metadata_MetaMask,
+          hasWalletReady: async () => {
+            return true;
+          },
+          hasExtensionInstalled: async () => true,
+        },
+        {
+          ...metadata_WalletConnect,
+          hasWalletReady: async () => {
+            return true;
+          },
+          getQrCode: async () => {
+            return {
+              uri: 'http://test.com',
+            };
+          },
+        },
+      ];
+
+      return (
+        <Connector availableWallets={wallets} connect={connectFn}>
+          <ConnectButton quickConnect />
+        </Connector>
+      );
+    };
+    const { baseElement } = render(<App />);
+
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-web3-icon-metamask-colorful')).toBeTruthy();
+    });
+
+    fireEvent.click(baseElement.querySelector('.ant-btn')!);
+
+    await vi.waitFor(() => {
+      expect(connectFn).toHaveBeenCalledWith(
+        expect.objectContaining({
+          name: 'MetaMask',
+        }),
+        expect.objectContaining({
+          connectType: 'extension',
+        }),
+      );
+    });
+  });
+
   it('open qrcode default', async () => {
     const App = () => {
       const [account, setAccount] = React.useState<Account | undefined>();

@@ -48,6 +48,11 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
       padding: `4px 15px`,
     },
 
+    [`${token.componentCls}-quick-connect-icon`]: {
+      height: token.fontSize,
+      width: token.fontSize,
+    },
+
     [`${token.componentCls}-profile-modal`]: {
       [`${token.antCls}-modal-content`]: {
         padding: token.padding,
