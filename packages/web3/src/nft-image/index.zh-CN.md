@@ -1,9 +1,10 @@
 ---
 nav: 组件
+subtitle: NFT 图片
 group: 展示
 ---
 
-# NFTImage NFT 图片
+# NFTImage
 
 更简单地展示 NFT 图片的组件。
 

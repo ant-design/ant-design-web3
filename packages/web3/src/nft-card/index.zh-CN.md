@@ -1,9 +1,10 @@
 ---
 nav: 组件
+subtitle: NFT 卡片
 group: 展示
 ---
 
-# NFTCard NFT 卡片
+# NFTCard
 
 用于显示 NFTCard 的组件
 
