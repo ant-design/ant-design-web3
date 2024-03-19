@@ -169,7 +169,9 @@ export type WalletMetadata = {
    * @desc 是否是通用协议
    * @descEn Whether it is a universal protocol
    */
-  universalProtocol?: boolean;
+  universalProtocol?: {
+    link: string;
+  };
 };
 
 export type Balance = BalanceMetadata & {
@@ -209,6 +211,7 @@ export interface RequiredLocale {
     guideInfosGetWalletBtnText: string;
     guideInfosMoreLinkText: string;
     getWalletBtnText: string;
+    getWalletUniversalProtocolBtnText: string;
     getWalletPanelTitle: string;
     getWalletPanelInfoTitle: string;
     getWalletPanelInfoDesc: string;
@@ -218,6 +221,7 @@ export interface RequiredLocale {
     qrCodePanelLinkForConnect: string;
     qrCodePanelDownloadTipForReady: string;
     qrCodePanelDownloadTipForNotReady: string;
+    qrCodePanelUniversalProtocolTipForNotReady: string;
     walletCardPanelTitle: string;
     walletCardAppTitle: string;
     walletCardAppDesc: string;
