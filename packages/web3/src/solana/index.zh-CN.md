@@ -20,7 +20,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它
 
 <code src="./demos/more-wallets.tsx"></code>
 
-## WalletConnect
+## 使用 WalletConnect 协议
 
 <code src="./demos/wallet-connect.tsx"></code>
 
