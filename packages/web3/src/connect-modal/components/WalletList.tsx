@@ -69,7 +69,8 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
     };
   });
 
-  const RenderContent = ({ group }: { group?: string }) => {
+  const renderContent = (params?: { group?: string }) => {
+    const { group } = params || {};
     return (
       <List<Wallet>
         itemLayout="horizontal"
@@ -127,15 +128,15 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
           <div className={`${prefixCls}-group`} key={group}>
             <div className={`${prefixCls}-group-title`}>{group}</div>
             <div className={`${prefixCls}-group-content`}>
-              <RenderContent group={group} />
+              {renderContent({
+                group,
+              })}
             </div>
           </div>
         ))
       ) : (
         <div className={`${prefixCls}-group`}>
-          <div className={`${prefixCls}-group-content`}>
-            <RenderContent />
-          </div>
+          <div className={`${prefixCls}-group-content`}>{renderContent()}</div>
         </div>
       )}
     </div>
