@@ -14,7 +14,7 @@ vi.mock('@wagmi/core', () => {
         return new Promise((resolve) => {
           setTimeout(() => {
             resolve('wanderingearth.eth');
-          }, 1000);
+          }, 0);
         });
       }
       return null;

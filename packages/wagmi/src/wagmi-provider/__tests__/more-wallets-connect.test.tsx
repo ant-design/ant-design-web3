@@ -12,7 +12,7 @@ import { Grid } from 'antd';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
-import { coinbaseWallet, injected, walletConnect } from 'wagmi/connectors';
+import { injected, walletConnect } from 'wagmi/connectors';
 
 import { mockBrowser } from '../../../../web3/src/utils/test-utils';
 
@@ -41,10 +41,6 @@ describe('more-wallets-connect', () => {
         walletConnect({
           showQrModal: false,
           projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
-        }),
-        coinbaseWallet({
-          appName: 'ant.design.web3',
-          jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${'YOUR_ZAN_API_KEY'}`,
         }),
         injected({
           target() {
@@ -84,7 +80,7 @@ describe('more-wallets-connect', () => {
     const btn = baseElement.querySelector('.ant-web3-connect-button');
     fireEvent.click(btn!);
     const walletItems = baseElement.querySelectorAll('.ant-web3-connect-modal-wallet-item');
-    expect(walletItems.length).toBe(5);
+    expect(walletItems.length).toBe(4);
     fireEvent.click(walletItems[0]!);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code-box')).toBeTruthy();
@@ -147,10 +143,6 @@ describe('more-wallets-connect', () => {
           showQrModal: false,
           projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
         }),
-        coinbaseWallet({
-          appName: 'ant.design.web3',
-          jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${'YOUR_ZAN_API_KEY'}`,
-        }),
       ],
     });
 
@@ -198,10 +190,6 @@ describe('more-wallets-connect', () => {
         walletConnect({
           showQrModal: false,
           projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
-        }),
-        coinbaseWallet({
-          appName: 'ant.design.web3',
-          jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${'YOUR_ZAN_API_KEY'}`,
         }),
       ],
     });
