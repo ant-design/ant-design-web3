@@ -165,6 +165,13 @@ export type WalletMetadata = {
    * @descEn The name of the group to which the wallet belongs
    */
   group?: string;
+  /**
+   * @desc 是否是通用协议
+   * @descEn Whether it is a universal protocol
+   */
+  universalProtocol?: {
+    link: string;
+  };
 };
 
 export type Balance = BalanceMetadata & {
@@ -174,10 +181,11 @@ export type Balance = BalanceMetadata & {
 export interface ConnectorTriggerProps {
   account?: Account;
   loading?: boolean;
-  onConnectClick?: () => void;
+  onConnectClick?: (wallet?: Wallet) => void;
   onDisconnectClick?: () => void;
   onSwitchChain?: (chain: Chain) => Promise<void>;
   availableChains?: Chain[];
+  availableWallets?: Wallet[];
   chain?: Chain;
   balance?: Balance;
 }
@@ -189,6 +197,7 @@ export interface RequiredLocale {
     copyAddress: string;
     copied: string;
     walletAddress: string;
+    moreWallets: string;
   };
   ConnectModal: {
     title: string;
@@ -202,6 +211,7 @@ export interface RequiredLocale {
     guideInfosGetWalletBtnText: string;
     guideInfosMoreLinkText: string;
     getWalletBtnText: string;
+    getWalletUniversalProtocolBtnText: string;
     getWalletPanelTitle: string;
     getWalletPanelInfoTitle: string;
     getWalletPanelInfoDesc: string;
@@ -211,6 +221,7 @@ export interface RequiredLocale {
     qrCodePanelLinkForConnect: string;
     qrCodePanelDownloadTipForReady: string;
     qrCodePanelDownloadTipForNotReady: string;
+    qrCodePanelUniversalProtocolTipForNotReady: string;
     walletCardPanelTitle: string;
     walletCardAppTitle: string;
     walletCardAppDesc: string;

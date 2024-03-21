@@ -14,6 +14,12 @@ The button to connect to the blockchain wallet. Usually, you need to use it with
 
 <code src="./demos/basic.tsx"></code>
 
+## Quick Connect
+
+After configuring the `quickConnect` property, the installed wallets and universal protocols (such as WalletConnect) will be displayed directly on the button.
+
+<code src="./demos/quick-connect.tsx"></code>
+
 ## Show Tooltip
 
 <code src="./demos/tooltip.tsx"></code>
@@ -62,6 +68,8 @@ The button to connect to the blockchain wallet. Usually, you need to use it with
 | onMenuItemClick | Menu item click event | `(e: NonNullable<MenuProps['items']>[number]) => void` | - | - |
 | balance | Balance | [Balance](#balance) | - | - |
 | availableChains | List of available chains | [Chain](../types/index.md#chain)\[] | - | - |
+| availableWallets | List of available wallets | [Wallet](../types/index.md#wallet)\[] | - | - |
+| quickConnect | Quick connect | `boolean` | `false` | - |
 | locale | Multilingual settings | `Locale["ConnectButton"]` | - | - |
 
 ### Balance

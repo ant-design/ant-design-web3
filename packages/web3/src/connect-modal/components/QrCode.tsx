@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { ArrowRightOutlined } from '@ant-design/icons';
-import { Button, QRCode, Space } from 'antd';
+import { Button, Flex, QRCode, Space } from 'antd';
 import classNames from 'classnames';
 
 import { connectModalContext } from '../context';
@@ -87,16 +87,32 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
             {localeMessage.qrCodePanelDownloadTipForReady}
           </div>
         ) : (
-          <>
-            {localeMessage.qrCodePanelDownloadTipForNotReady} {wallet.name}?
-            <Button
-              type="default"
-              className={`${prefixCls}-get-wallet-btn`}
-              onClick={handleGetWallet}
-            >
-              {localeMessage.getWalletBtnText}
-            </Button>
-          </>
+          <Flex justify="space-between">
+            <div className={`${prefixCls}-get-wallet-tip`}>
+              {wallet.universalProtocol
+                ? localeMessage.qrCodePanelUniversalProtocolTipForNotReady
+                : localeMessage.qrCodePanelDownloadTipForNotReady}{' '}
+              {wallet.name}?
+            </div>
+            {wallet.universalProtocol ? (
+              <Button
+                type="default"
+                href={wallet.universalProtocol.link}
+                className={`${prefixCls}-get-wallet-btn`}
+              >
+                {localeMessage.getWalletUniversalProtocolBtnText}
+              </Button>
+            ) : (
+              <Button
+                type="default"
+                target="_blank"
+                className={`${prefixCls}-get-wallet-btn`}
+                onClick={handleGetWallet}
+              >
+                {localeMessage.getWalletBtnText}
+              </Button>
+            )}
+          </Flex>
         )}
       </div>
     </div>

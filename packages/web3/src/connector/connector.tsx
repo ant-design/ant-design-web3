@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConnectModal } from '@ant-design/web3';
+import { ConnectModal, type ConnectModalActionType } from '@ant-design/web3';
 import type { Chain, ConnectOptions, ConnectorTriggerProps, Wallet } from '@ant-design/web3-common';
 import { message } from 'antd';
 
@@ -29,6 +29,8 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
   } = useProvider(props);
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
+  const [defaultSelectedWallet, setDefaultSelectedWallet] = React.useState<Wallet>();
+  const actionRef = React.useRef<ConnectModalActionType>();
   const [messageApi, contextHolder] = message.useMessage();
 
   const connectWallet = async (wallet?: Wallet, options?: ConnectOptions) => {
@@ -56,8 +58,30 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       {contextHolder}
       {React.cloneElement(children as React.ReactElement<ConnectorTriggerProps>, {
         account,
-        onConnectClick: () => {
-          setOpen(true);
+        onConnectClick: async (wallet?: Wallet) => {
+          if (wallet) {
+            if (await wallet?.hasExtensionInstalled?.()) {
+              // call extnesion directly
+              connectWallet(wallet, {
+                connectType: 'extension',
+              });
+            } else {
+              // show qr code
+              if (actionRef.current?.selectWallet) {
+                // ConnectModal already mounted, call select
+                actionRef.current.selectWallet(wallet);
+              } else {
+                // ConnectModal not mounted, set defaultSelectWallet
+                connectWallet(wallet, {
+                  connectType: 'qrCode',
+                });
+                setDefaultSelectedWallet(wallet);
+              }
+              setOpen(true);
+            }
+          } else {
+            setOpen(true);
+          }
         },
         onDisconnectClick: () => {
           setLoading(true);
@@ -69,6 +93,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         },
         balance,
         availableChains,
+        availableWallets,
         chain,
         addressPrefix,
         onSwitchChain: async (c: Chain) => {
@@ -81,6 +106,8 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
 
       <ConnectModal
         open={open}
+        actionRef={actionRef}
+        defaultSelectedWallet={defaultSelectedWallet}
         walletList={availableWallets}
         onWalletSelected={async (wallet, options) => {
           if (options?.connectType !== 'qrCode') {
@@ -94,6 +121,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
           modalProps?.onCancel?.(e);
           setOpen(false);
           setLoading(false);
+          modalProps?.onCancel?.(e);
         }}
       />
     </>

@@ -1,8 +1,8 @@
 import React, { useContext, useMemo, useState } from 'react';
 import { CopyOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
-import { type Chain } from '@ant-design/web3-common';
+import { Wallet, type Chain } from '@ant-design/web3-common';
 import type { ButtonProps } from 'antd';
-import { Avatar, Button, ConfigProvider, Divider, Dropdown, message, Space } from 'antd';
+import { Avatar, ConfigProvider, Divider, Dropdown, message } from 'antd';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 
@@ -13,6 +13,7 @@ import useIntl from '../hooks/useIntl';
 import { fillWithPrefix, writeCopyText } from '../utils';
 import { ChainSelect } from './chain-select';
 import type { ChainSelectProps } from './chain-select';
+import { ConnectButtonInner } from './connect-button-inner';
 import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
 import type { ProfileModalProps } from './profile-modal';
 import { ProfileModal } from './profile-modal';
@@ -24,6 +25,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     onConnectClick,
     onDisconnectClick,
     availableChains,
+    availableWallets,
     onSwitchChain,
     tooltip,
     chain,
@@ -37,6 +39,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     balance,
     className,
     locale,
+    quickConnect,
     addressPrefix: addressPrefixProp,
     ...restProps
   } = props;
@@ -77,8 +80,6 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       setShowMenu(false);
       if (account && !profileOpen && profileModal) {
         setProfileOpen(true);
-      } else {
-        onConnectClick?.();
       }
       onClick?.(e);
     },
@@ -136,13 +137,22 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     </div>
   );
 
-  const buttonContent = chainSelect ? (
-    <Space.Compact>
-      {chainSelect}
-      <Button {...buttonProps}>{buttonInnerText}</Button>
-    </Space.Compact>
-  ) : (
-    <Button {...buttonProps}>{buttonInnerText}</Button>
+  const buttonContent = (
+    <ConnectButtonInner
+      intl={intl}
+      {...buttonProps}
+      preContent={chainSelect}
+      showQuickConnect={quickConnect && !account}
+      availableWallets={availableWallets}
+      onConnectClick={(wallet?: Wallet) => {
+        if (!account) {
+          onConnectClick?.(wallet);
+        }
+      }}
+      __hashId__={hashId}
+    >
+      {buttonInnerText}
+    </ConnectButtonInner>
   );
 
   const defaultMenuItems: MenuItemType[] = useMemo(

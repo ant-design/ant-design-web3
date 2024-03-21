@@ -24,13 +24,22 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     groupOrder,
     mode,
     onWalletSelected,
+    actionRef,
+    defaultSelectedWallet,
     locale,
   } = props;
   const intl = useIntl('ConnectModal', locale);
 
-  const [panelRoute, setPanelRoute] = React.useState<PanelRoute>('init');
-  const routeStack = React.useRef<PanelRoute[]>(['init']);
-  const [selectedWallet, setSelectedWallet] = React.useState<Wallet>();
+  const showQRCoodByDefault = defaultSelectedWallet?.getQrCode;
+  const [panelRoute, setPanelRoute] = React.useState<PanelRoute>(
+    showQRCoodByDefault ? 'qrCode' : 'init',
+  );
+  const routeStack = React.useRef<PanelRoute[]>(
+    showQRCoodByDefault ? ['init', 'qrCode'] : ['init'],
+  );
+  const [selectedWallet, setSelectedWallet] = React.useState<Wallet | undefined>(
+    defaultSelectedWallet,
+  );
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-modal');
   const { wrapSSR, hashId } = useStyle(prefixCls);
@@ -107,7 +116,12 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
           <div className={classNames(`${prefixCls}-list-panel`)}>
             <div className={`${prefixCls}-header`}>{mergedTitle}</div>
             <div className={`${prefixCls}-list-container`}>
-              <WalletList walletList={walletList} group={group} groupOrder={groupOrder} />
+              <WalletList
+                ref={actionRef}
+                walletList={walletList}
+                group={group}
+                groupOrder={groupOrder}
+              />
             </div>
             {isSimple && (
               <div className={`${prefixCls}-simple-guide`}>
