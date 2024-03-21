@@ -47,7 +47,7 @@ In order to help everyone build the front-end user interface of DApp better and 
 
 - [Course: Blockchain and Smart Contracts](/course/intro-blockchain)
 - [Course: How DApp calls smart contracts](/course/intro-call-contract)
-- [Web3 Technology Service ZAN](https://zan.top/)
+- [Web3 Technology Service ZAN](https://zan.top/?chInfo=ch_antdweb3)
 - [Explore Decentralized Applications](https://ethereum.org/dapps)
 - [Web3.0 Application Architecture](https://www.preethikasireddy.com/post/the-architecture-of-a-web-3-0-application)
 - [Popular DApp Tools](https://www.alchemy.com/dapps)

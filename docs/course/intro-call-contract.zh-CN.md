@@ -57,7 +57,7 @@ await getAccount(); // 你的账户地址
 
 ## 通过节点 RPC
 
-通过前面的学习，我们了解到区块链是一个去中心化的网络，我们可以通过访问其中一个节点来获取数据。以太坊网络中有很多节点，我们可以通过 [ZAN](https://zan.top/)、[Infura](https://infura.io/) 等节点服务提供商来获取 RPC 接口。
+通过前面的学习，我们了解到区块链是一个去中心化的网络，我们可以通过访问其中一个节点来获取数据。以太坊网络中有很多节点，我们可以通过 [ZAN](https://zan.top/?chInfo=ch_antdweb3)、[Infura](https://infura.io/) 等节点服务提供商来获取 RPC 接口。
 
 在 ZAN.top 提供的[文档](https://docs.zan.top/reference/eth-accounts)中，我们可以方便的测试 RPC，以及通过 RPC 调用智能合约的方法。
 
