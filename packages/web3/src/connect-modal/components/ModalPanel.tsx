@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ConnectOptions } from '@ant-design/web3-common';
-import { ConfigProvider } from 'antd';
+import { Button, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 
 import useIntl from '../../hooks/useIntl';
@@ -109,6 +109,21 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
             <div className={`${prefixCls}-list-container`}>
               <WalletList walletList={walletList} group={group} groupOrder={groupOrder} />
             </div>
+            {isSimple && (
+              <div className={`${prefixCls}-simple-guide`}>
+                {intl.getMessage(intl.messages.guideTipTitle)}
+                <Button
+                  type="link"
+                  className={`${prefixCls}-simple-guide-right`}
+                  onClick={() => {
+                    updatePanelRoute('guide');
+                  }}
+                  size="small"
+                >
+                  {intl.getMessage(intl.messages.guideTipLearnMoreLinkText)}
+                </Button>
+              </div>
+            )}
             {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
           </div>
         )}

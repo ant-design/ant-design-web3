@@ -215,6 +215,8 @@ export interface RequiredLocale {
     walletCardAppTitle: string;
     walletCardAppDesc: string;
     walletCardExtensionTitle: string;
+    guideTipTitle: string;
+    guideTipLearnMoreLinkText: string;
     walletPanelPlugin: string;
   };
   NFTCard: {
