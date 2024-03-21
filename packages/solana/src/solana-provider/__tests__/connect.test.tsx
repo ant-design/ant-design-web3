@@ -194,7 +194,10 @@ describe('Solana Connect', () => {
 
     fireEvent.click(connectBtn);
     await vi.waitFor(() => {
-      expect(mockSelectWalletFn).toBeCalledTimes(2);
+      // 1st. Phantom
+      // 2nd. Coinbase Wallet
+      // 3rd. null (because of no wallet installed)
+      expect(mockSelectWalletFn).toBeCalledTimes(3);
     });
 
     await vi.waitFor(
