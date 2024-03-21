@@ -1,6 +1,5 @@
 import React from 'react';
 import { ConfigProvider, message } from 'antd';
-// import type { Theme } from 'antd-token-previewer-web3';
 import {
   defaultAntdComponents,
   parsePlainConfig,
@@ -43,7 +42,6 @@ const ThemeEditorPage: React.FC = () => {
             components={{ Web3: ['Connector'], ...defaultAntdComponents }}
             demos={{ Connector }}
             onSave={(newConfig) => {
-              console.log('newConfig', newConfig);
               localStorage.setItem(
                 ANT_DESIGN_WEB3_CUSTOM_THEME,
                 JSON.stringify(parsePlainConfig(newConfig)),
