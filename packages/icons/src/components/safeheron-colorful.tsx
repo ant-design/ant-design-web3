@@ -18,4 +18,5 @@ export const SafeheronColorful = React.forwardRef<HTMLSpanElement, IconBaseProps
     />
   );
 });
+
 SafeheronColorful.displayName = 'SafeheronColorful';
