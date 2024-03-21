@@ -26,7 +26,7 @@ If you want to further try how to use Ant Design Web3 in your own project, or wa
 
 Why use Ant Design Web3?
 
-- 🎨 Provides high-quality UI components based on Ant Design. [Ant Design](https://github.com/ant-design/ant-design) is a high-quality UI basic component set that supports flexible theme customization and has nearly 100,000 Github stars and many users, which gives Ant Design Web3 a basic quality guarantee.
+- 🎨 Provides high-quality UI components based on Ant Design. [Ant Design](https://github.com/ant-design/ant-design) is a high-quality UI basic component set that supports flexible theme customization and has nearly 100,000 GitHub stars and many users, which gives Ant Design Web3 a basic quality guarantee.
 - 📦 Out-of-the-box experience, not only provides `ConnectModal` for connecting wallets, but also `Address`, `NFTCard` and other components, continuously iterates to cover the needs you may encounter in DApp development, bringing the R&D experience of Web2 to Web3. We also pay attention to user experience and bring the user experience of Web2 to Web3.
 - 🔌 Flexible and reliable architecture design, UI layer and adapter layer are separated, which makes it possible to support different blockchains and different chain SDKs, and also allows components to be continuously and stably iterated and upgraded.
 
