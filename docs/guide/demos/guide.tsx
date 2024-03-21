@@ -41,7 +41,7 @@ const App: React.FC = () => {
       config={config}
     >
       <Connector>
-        <ConnectButton />
+        <ConnectButton quickConnect />
       </Connector>
     </WagmiWeb3ConfigProvider>
   );
