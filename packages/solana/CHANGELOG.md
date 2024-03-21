@@ -1,5 +1,19 @@
 # @ant-design/web3-solana
 
+## 1.0.0
+
+### Major Changes
+
+- ac8854e: feat(solana): Remove the `chainAssets` prop , it's no longer needed.
+
+### Patch Changes
+
+- Updated dependencies [52d58e5]
+- Updated dependencies [201c2ec]
+- Updated dependencies [d273651]
+  - @ant-design/web3-common@1.6.0
+  - @ant-design/web3-assets@1.4.1
+
 ## 0.1.2
 
 ### Patch Changes

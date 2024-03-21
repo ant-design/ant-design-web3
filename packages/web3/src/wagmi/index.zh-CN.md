@@ -1,11 +1,12 @@
 ---
 nav: 组件
+subtitle: 以太坊
 group:
   title: 适配器
   order: 1
 ---
 
-# Ethereum 以太坊
+# Ethereum
 
 Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，它是一个基于 [wagmi 2.x](https://wagmi.sh/) 的 Ant Design Web3 以太坊适配器。它为 `@ant-design/web3` 的组件提供了连接以太坊等 EVM 兼容链的能力。通过它，你不需要自己处理组件的连接状态，链数据请求等逻辑。它会通过 [Web3ConfigProvider](../web3-config-provider/index.zh-CN.md) 为组件提供相关全局状态和接口。
 
@@ -22,6 +23,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 该推荐配置主要包括：
 
 - 使用 EIP6963 协议，自动添加检测到的插件钱包。
+- 支持显示 ENS。
 - 默认添加 MetaMask 和 TokenPocket、Okx 钱包，在用户未安装钱包情况下提供下载引导。
 - 默认添加 WalletConnect，支持用户通过手机扫码连接各类钱包。
 - 去掉钱包分组，简化界面。

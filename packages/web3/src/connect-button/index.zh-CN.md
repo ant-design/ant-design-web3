@@ -1,10 +1,11 @@
 ---
 nav: 组件
+subtitle: 连接钱包按钮
 group: 连接
 order: 1
 ---
 
-# ConnectButton 连接钱包按钮
+# ConnectButton
 
 连接区块链钱包的按钮。通常来说，你需要配合 [Connector](../connector/index.zh-CN.md) 组件使用。
 

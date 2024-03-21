@@ -11,7 +11,11 @@ vi.mock('@wagmi/core', () => {
   return {
     getEnsName: (_: any, { address }: { address: string }) => {
       if (address === '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B') {
-        return 'wanderingearth.eth';
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve('wanderingearth.eth');
+          }, 0);
+        });
       }
       return null;
     },
@@ -59,7 +63,9 @@ describe('WagmiWeb3ConfigProvider ens', () => {
       const { account } = useProvider();
       return (
         <div>
-          <div className="custom-text">{account ? account?.name : 'Connect'}</div>
+          <div className="custom-text">
+            {account ? account?.name || account?.address : 'Connect'}
+          </div>
         </div>
       );
     };
@@ -76,6 +82,11 @@ describe('WagmiWeb3ConfigProvider ens', () => {
       </AntDesignWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
+    await waitFor(() => {
+      expect(baseElement.querySelector('.custom-text')?.textContent).toBe(
+        '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+      );
+    });
     await waitFor(() => {
       expect(baseElement.querySelector('.custom-text')?.textContent).toBe('wanderingearth.eth');
     });

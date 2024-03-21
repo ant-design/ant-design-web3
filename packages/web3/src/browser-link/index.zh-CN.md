@@ -1,9 +1,10 @@
 ---
 nav: 组件
+subtitle: 浏览器链接
 group: 展示
 ---
 
-# BrowerLink 浏览器链接
+# BrowerLink
 
 快速使用 etherscan 的地址.
 

@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-common",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -46,7 +46,7 @@
     "@types/react": "^18.2.65",
     "@types/react-dom": "^18.2.19",
     "@types/lodash-es": "^4.17.12",
-    "antd": "^5.12.4",
+    "antd": "^5.15.3",
     "father": "^4.3.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

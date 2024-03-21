@@ -1,10 +1,11 @@
 ---
 nav: 组件
+subtitle: 加密价格
 group:
   title: 展示
 ---
 
-# CryptoPrice 加密价格
+# CryptoPrice
 
 ## 基本使用
 

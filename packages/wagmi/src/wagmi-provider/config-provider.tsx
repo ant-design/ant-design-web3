@@ -67,7 +67,10 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       const a = {
         address,
       };
-      setAccount(ens ? await addNameToAccount(config, a) : a);
+      setAccount(a);
+      if (ens) {
+        setAccount(await addNameToAccount(config, a));
+      }
     };
     updateAccounts();
   }, [address, isDisconnected, chain, ens]);

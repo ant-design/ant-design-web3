@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3",
-  "version": "1.7.2",
+  "version": "1.8.0",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -40,14 +40,14 @@
     "build": "father build"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "^1.18.2",
+    "@ant-design/cssinjs": "^1.18.4",
     "@ant-design/icons": "^5.3.1",
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
     "@ctrl/tinycolor": "^4.0.3",
     "@inline-svg-unique-id/react": "^1.2.3",
-    "antd": "^5.12.4",
+    "antd": "^5.15.3",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
