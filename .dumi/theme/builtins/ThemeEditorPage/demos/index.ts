@@ -1,7 +1,7 @@
-import { ComponentDemo } from 'antd-token-previewer-web3';
+import { ComponentDemo, defaultAntdComponents } from 'antd-token-previewer-web3';
 
 import ConnectButton from './connect-button';
 
-const previewerDemo: ComponentDemo[] = [ConnectButton];
+export const components: typeof defaultAntdComponents = { Web3: ['ConnectButton'] };
 
-export default previewerDemo;
+export const demos: Record<string, ComponentDemo[]> = { ConnectButton };

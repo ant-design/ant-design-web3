@@ -22,10 +22,12 @@ const Demo = () => {
   );
 };
 
-const componentDemo: ComponentDemo = {
-  demo: <Demo />,
-  tokens: ['blue'],
-  key: 'Connect Button',
-};
+const demos: ComponentDemo[] = [
+  {
+    demo: <Demo />,
+    tokens: [],
+    key: 'Connect Button',
+  },
+];
 
-export default componentDemo;
+export default demos;

@@ -8,7 +8,7 @@ import {
 } from 'antd-token-previewer-web3';
 import { useLocale } from 'dumi';
 
-import Connector from './demos';
+import { components, demos } from './demos';
 
 import 'antd/es/style/reset.css';
 
@@ -39,8 +39,8 @@ const ThemeEditorPage: React.FC = () => {
           <Previewer
             showTheme
             initialThemeConfig={initialThemeConfigRef.current}
-            components={{ Web3: ['Connector'], ...defaultAntdComponents }}
-            demos={{ Connector }}
+            components={components}
+            demos={demos}
             onSave={(newConfig) => {
               localStorage.setItem(
                 ANT_DESIGN_WEB3_CUSTOM_THEME,
