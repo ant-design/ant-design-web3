@@ -1,35 +1,24 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
-  CoinbaseWallet,
   MetaMask,
+  OkxWallet,
   TokenPocket,
   WagmiWeb3ConfigProvider,
   WalletConnect,
 } from '@ant-design/web3-wagmi';
 import { createConfig, http } from 'wagmi';
-import { mainnet, polygon } from 'wagmi/chains';
-import { coinbaseWallet, injected, walletConnect } from 'wagmi/connectors';
+import { mainnet } from 'wagmi/chains';
+import { walletConnect } from 'wagmi/connectors';
 
 const config = createConfig({
-  chains: [mainnet, polygon],
+  chains: [mainnet],
   transports: {
     [mainnet.id]: http(),
-    [polygon.id]: http(),
   },
   connectors: [
-    injected({
-      target: 'metaMask',
-    }),
     walletConnect({
       showQrModal: false,
       projectId: YOUR_WALLET_CONNET_PROJECT_ID,
-    }),
-    coinbaseWallet({
-      appName: 'ant.design.web3',
-      jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${YOUR_ZAN_API_KEY}`,
-    }),
-    injected({
-      target: 'tokenPocket',
     }),
   ],
 });
@@ -37,8 +26,19 @@ const config = createConfig({
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
+      eip6963={{
+        autoAddInjectedWallets: true,
+      }}
+      ens
+      wallets={[
+        MetaMask(),
+        WalletConnect(),
+        TokenPocket({
+          group: 'Popular',
+        }),
+        OkxWallet(),
+      ]}
       config={config}
-      wallets={[MetaMask(), WalletConnect(), TokenPocket(), CoinbaseWallet()]}
     >
       <Connector>
         <ConnectButton />

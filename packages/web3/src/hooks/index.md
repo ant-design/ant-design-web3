@@ -14,7 +14,7 @@ Connect or disconnect the wallet. Usually, you don't need to use this Hook direc
 
 ### Examples
 
-The following example simulates the connection through `Web3ConfigProvider`. Usually, your application will use [adapter](../adapter/index.md), so you don't need to do this like the example, but use `useConnection` directly.
+The following example simulates the connection through `Web3ConfigProvider`. Usually, your application will use [adapter](../../../../docs/guide/adapter.md), so you don't need to do this like the example, but use `useConnection` directly.
 
 <code src="./demos/useConnection.tsx"></code>
 
