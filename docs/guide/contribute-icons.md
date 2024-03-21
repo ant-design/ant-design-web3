@@ -40,6 +40,13 @@ The `packages/icons` directory corresponds to the `@ant-design/web3-icons` packa
 
 Add new svg in `svgs` folder, file name should be the same as icon name, and use the [kebab-case](https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case) style for file name.
 
+Also, please note that do not use `id` in the `style` attribute of the svg, because the `react-inline-svg-unique-id` plugin does not support `style`. We recommend that the properties in `style` be taken out as separate attributes as much as possible:
+
+```diff
+- <circle style="fill:url(#ant-web3-icon-aave-circle-colorful-3);" cx="400" cy="400" r="388"/> # bad
++ <circle fill="url(#ant-web3-icon-aave-circle-colorful-3)" cx="400" cy="400" r="388"/> # good
+```
+
 ## Complete the icon react component
 
 In the `components` directory, refer to the following template to complete the component. There are two parts that need to be changed:

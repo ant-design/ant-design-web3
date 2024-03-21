@@ -1,12 +1,13 @@
 ---
 nav: 组件
+subtitle: 连接器
 group:
   title: 连接
   order: 2
 order: 0
 ---
 
-# Connector 连接器
+# Connector
 
 `Connector` 组件整合了 [ConnectButton](../connect-button/index.zh-CN.md) 和 [ConnectModal](../connect-modal/index.zh-CN.md) 组件，提供了一个完整的连接钱包的功能的 UI。
 

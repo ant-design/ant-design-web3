@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="ant-web3-icon-cow-circle-colorful-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 600 600" style="enable-background:new 0 0 600 600;" xml:space="preserve">
+<svg version="1.1" id="ant-web3-icon-cow-circle-colorful-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 600 600" enable-background="new 0 0 600 600" xml:space="preserve">
 
-<path d="M0,0h600v600H0V0z" style="fill: #FFFFFF;"/>
+<path d="M0,0h600v600H0V0z" fill="#FFFFFF"/>
 <linearGradient id="ant-web3-icon-cow-circle-colorful-SVGID_1_" gradientUnits="userSpaceOnUse" x1="17.6782" y1="198.1874" x2="578.1832" y2="400.1014" gradientTransform="matrix(1 0 0 -1 0 599.8898)">
-	<stop offset="0" style="stop-color:#3B3C44"/>
-	<stop offset="0.521" style="stop-color:#1C1D22"/>
-	<stop offset="0.766" style="stop-color:#0E0D0D"/>
-	<stop offset="1" style="stop-color:#000000"/>
+	<stop offset="0" stop-color="#3B3C44"/>
+	<stop offset="0.521" stop-color="#1C1D22"/>
+	<stop offset="0.766" stop-color="#0E0D0D"/>
+	<stop offset="1" stop-color="#000000"/>
 </linearGradient>
-<path d="M600,300c0,165.7-134.3,300-300,300S0,465.7,0,300S134.3,0,300,0S600,134.3,600,300z" style="fill: url(#ant-web3-icon-cow-circle-colorful-SVGID_1_);"/>
+<path d="M600,300c0,165.7-134.3,300-300,300S0,465.7,0,300S134.3,0,300,0S600,134.3,600,300z" fill=" url(#ant-web3-icon-cow-circle-colorful-SVGID_1_)"/>
 <linearGradient id="ant-web3-icon-cow-circle-colorful-SVGID_00000023976467625729153770000003855256142524735384_" gradientUnits="userSpaceOnUse" x1="83" y1="279.8898" x2="516.4041" y2="279.8898" gradientTransform="matrix(1 0 0 -1 0 599.8898)">
-	<stop offset="0.344" style="stop-color:#FFFFFF"/>
-	<stop offset="0.495" style="stop-color:#8D9ACA"/>
-	<stop offset="1" style="stop-color:#FF784A"/>
+	<stop offset="0.344" stop-color="#FFFFFF"/>
+	<stop offset="0.495" stop-color="#8D9ACA"/>
+	<stop offset="1" stop-color="#FF784A"/>
 </linearGradient>
-<path style="fill:url(#ant-web3-icon-cow-circle-colorful-SVGID_00000023976467625729153770000003855256142524735384_);" d="M499.6,254.4l-59.7-9.8l44-18.4l12.3-49
+<path fill="url(#ant-web3-icon-cow-circle-colorful-SVGID_00000023976467625729153770000003855256142524735384_)" d="M499.6,254.4l-59.7-9.8l44-18.4l12.3-49
 	L481.4,151l-75.3-22l35.9,51.5h0l0.4,0.6l-21.3,5.3l-65.2-44.7l-56.2,6.7l-56.2-6.7l-65.2,44.7l-21.3-5.3l0.4-0.6h0l35.9-51.5
 	L118,151l-14.7,26.2l12.3,49l44,18.4l-59.7,9.8L83,299.8l49.7,24l41.7-14.7l5.9,43.8l28.9,67.4l14.3,37.2l73.2,51.4v0.1l2.8,2
 	l0.1-0.1l0.1,0l2.8-2v-0.1l73.2-51.4l14.3-37.2l29-67.4l5.9-43.8l41.7,14.7l49.7-24L499.6,254.4L499.6,254.4L499.6,254.4z

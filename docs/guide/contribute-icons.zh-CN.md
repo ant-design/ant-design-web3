@@ -40,6 +40,13 @@ group:
 
 在 `svgs` 目录下添加新的 svg 文件，文件名应该和图标名称一致，注意文件名应该使用 [kebab-case](https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case) 风格。
 
+另外需要注意的是，在 svg 的 `style` 属性中请勿使用 `id`，因为 `react-inline-svg-unique-id` 插件不支持识别 `style`，我们建议 `style` 中的属性尽量拿出来单独作为属性：
+
+```diff
+- <circle style="fill:url(#ant-web3-icon-aave-circle-colorful-3);" cx="400" cy="400" r="388"/> # bad
++ <circle fill="url(#ant-web3-icon-aave-circle-colorful-3)" cx="400" cy="400" r="388"/> # good
+```
+
 ## 完成图标 react 组件
 
 在 `components` 目录下参考如下模板完成组件，有两部分需要更改：

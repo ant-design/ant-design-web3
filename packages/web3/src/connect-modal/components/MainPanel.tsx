@@ -17,7 +17,9 @@ const MainPanel: React.FC<MainPanelProps> = (props) => {
 
   return (
     <div className={`${prefixCls}-main-panel`}>
-      {panelRoute === 'guide' || panelRoute === 'init' ? <DefaultGuidePanel guide={guide} /> : null}
+      {panelRoute === 'guide' || panelRoute === 'init' ? (
+        <DefaultGuidePanel guide={guide} simple={simple} />
+      ) : null}
       {panelRoute === 'getWallet' ? <GetWalletPanel walletList={walletList} /> : null}
       {panelRoute === 'wallet' && selectedWallet ? <WalletCard /> : null}
       {panelRoute === 'qrCode' && selectedWallet ? (

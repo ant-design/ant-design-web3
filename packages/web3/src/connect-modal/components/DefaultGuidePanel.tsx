@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
 import { Avatar, Button } from 'antd';
+import classNames from 'classnames';
 
 import { connectModalContext } from '../context';
 import type { ConnectModalProps } from '../interface';
+import MainPanelHeader from './MainPanelHeader';
 
 const DefaultGuidePanel: React.FC<{
   guide?: ConnectModalProps['guide'];
+  simple?: boolean;
 }> = (props) => {
   const { localeMessage } = useContext(connectModalContext);
   const defaultGuide: ConnectModalProps['guide'] = {
@@ -47,6 +50,7 @@ const DefaultGuidePanel: React.FC<{
     const { title, infos } = guide;
     return (
       <>
+        {props.simple && <MainPanelHeader />}
         <h2 className={`${prefixCls}-guide-title`}>{title}</h2>
         <div className={`${prefixCls}-guide-list`}>
           {infos.map((info) => {
@@ -79,7 +83,11 @@ const DefaultGuidePanel: React.FC<{
   } = guide;
 
   return (
-    <div className={`${prefixCls}-guide-panel`}>
+    <div
+      className={classNames(`${prefixCls}-guide-panel`, {
+        [`${prefixCls}-simple-guide-panel`]: props.simple,
+      })}
+    >
       {renderContent()}
       <Button
         block

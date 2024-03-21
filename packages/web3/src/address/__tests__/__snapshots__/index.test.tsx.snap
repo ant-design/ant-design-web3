@@ -2,7 +2,7 @@
 
 exports[`Address > display address with default format 1`] = `
 <div
-  class="ant-space css-dev-only-do-not-override-1qhpsh8 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-web3-address css-dev-only-do-not-override-1qhpsh8"
+  class="ant-space css-dev-only-do-not-override-djtmh8 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-web3-address css-dev-only-do-not-override-djtmh8"
 >
   <div
     class="ant-space-item"
