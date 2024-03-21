@@ -15,7 +15,7 @@ order: 2
 
 ### 代码演示
 
-下面的示例通过 `Web3ConfigProvider` 提供模拟了连接。通常来说，你的应用中会使用[适配器](../adapter/index.zh-CN.md)，所以你并不需要像示例中这么做，而是直接使用 `useConnection` 即可。
+下面的示例通过 `Web3ConfigProvider` 提供模拟了连接。通常来说，你的应用中会使用[适配器](../../../../docs/guide/adapter.zh-CN.md)，所以你并不需要像示例中这么做，而是直接使用 `useConnection` 即可。
 
 <code src="./demos/useConnection.tsx"></code>
 
