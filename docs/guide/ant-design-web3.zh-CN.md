@@ -24,7 +24,7 @@ Ant Design Web3 是一个基于 [Ant Design](https://ant.design/index-cn) 的 We
 
 为什么使用 Ant Design Web3？
 
-- 🎨 基于 Ant Design 提供了高质量的 UI 组件。[Ant Design](https://github.com/ant-design/ant-design) 是一套高质量的 UI 基础组件，支持灵活的主题定制，并拥有近十万的 Github star 和众多的使用者，这让 Ant Design Web3 有了很基础的质量保障。
+- 🎨 基于 Ant Design 提供了高质量的 UI 组件。[Ant Design](https://github.com/ant-design/ant-design) 是一套高质量的 UI 基础组件，支持灵活的主题定制，并拥有近十万的 GitHub Stars 和众多的使用者，这让 Ant Design Web3 有了很基础的质量保障。
 - 📦 开箱即用的体验，不仅仅提供了用于连接钱包的 `ConnectModal`，还有 `Address`、`NFTCard` 等组件，持续迭代覆盖你在 DApp 开发中可能会遇到的需求，把 Web2 的研发体验带到 Web3。我们也关注用户体验，把 Web2 的用户体验也带到 Web3。
 - 🔌 灵活可靠的架构设计，UI 层和适配层分离，使得可以支持不同的区块链和不同的链 SDK，也让组件可以持续稳定的迭代升级。
 
