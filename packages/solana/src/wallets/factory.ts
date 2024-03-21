@@ -1,6 +1,12 @@
 import { WalletReadyState } from '@solana/wallet-adapter-base';
 
-import type { WalletFactoryBuilder } from './types';
+import { hasWalletReady } from '../utils';
+import type {
+  WalletConnectWalletFactoryBuild,
+  WalletConnectWalletFactory as WalletConnectWalletFactoryType,
+  WalletFactoryBuilder,
+  WalletFactory as WalletFactoryType,
+} from './types';
 
 export const WalletFactory: WalletFactoryBuilder = (adapter, metadata) => {
   return {
@@ -12,10 +18,7 @@ export const WalletFactory: WalletFactoryBuilder = (adapter, metadata) => {
         remark: metadata.remark,
         adapter: adapter,
         hasWalletReady: async () => {
-          return (
-            adapter.readyState === WalletReadyState.Installed ||
-            adapter.readyState === WalletReadyState.Loadable
-          );
+          return hasWalletReady(adapter);
         },
         hasExtensionInstalled: async () => {
           return adapter.readyState === WalletReadyState.Installed;
@@ -26,10 +29,11 @@ export const WalletFactory: WalletFactoryBuilder = (adapter, metadata) => {
 };
 
 // For `WalletConnect`
-export const WalletConnectWalletFactory: WalletFactoryBuilder = (adapter, metadata) => {
+export const WalletConnectWalletFactory: WalletConnectWalletFactoryBuild = (adapter, metadata) => {
   return {
+    isWalletConnect: true,
     adapter,
-    create: () => {
+    create: (getWalletConnectProvider) => {
       return {
         ...metadata,
         name: adapter.name,
@@ -39,10 +43,27 @@ export const WalletConnectWalletFactory: WalletFactoryBuilder = (adapter, metada
           return adapter.readyState === WalletReadyState.Loadable;
         },
 
-        // Provide a `getQrCode` method to signed it is useable,
-        // but it WILL NOT actually return a URL.
-        getQrCode: () => Promise.resolve({}),
+        getQrCode: getWalletConnectProvider
+          ? async () => {
+              const walletConnectProvider = await getWalletConnectProvider();
+
+              if (!walletConnectProvider) {
+                return Promise.reject(new Error('WalletConnect is not available'));
+              }
+
+              return new Promise((resolve) => {
+                walletConnectProvider.on('display_uri', (uri: string) => {
+                  resolve({ uri });
+                });
+              });
+            }
+          : undefined,
       };
     },
   };
 };
+
+export const isWalletConnnectFactory = (
+  factory: WalletFactoryType,
+): factory is WalletConnectWalletFactoryType =>
+  !!(factory as WalletConnectWalletFactoryType).isWalletConnect;

@@ -46,6 +46,10 @@
     "@solana/wallet-adapter-base": "^0.9.23",
     "@solana/wallet-adapter-react": "^0.15.35",
     "@solana/wallet-adapter-wallets": "^0.19.31",
+    "@walletconnect/core": "^2.11.2",
+    "@walletconnect/universal-provider": "^2.11.2",
+    "@walletconnect/utils": "^2.11.2",
+    "@walletconnect/web3wallet": "^1.10.2",
     "debug": "^4.3.4"
   },
   "devDependencies": {

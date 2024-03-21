@@ -2,10 +2,12 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import type { Account, Chain, Locale, Wallet } from '@ant-design/web3-common';
 import { Web3ConfigProvider } from '@ant-design/web3-common';
 import { Metaplex, PublicKey } from '@metaplex-foundation/js';
-import type { WalletConnectionError, WalletName } from '@solana/wallet-adapter-base';
+import { type WalletConnectionError, type WalletName } from '@solana/wallet-adapter-base';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 
 import type { SolanaChainConfig } from '../chains';
+import type { IUniversalProvider } from '../types';
+import { hasWalletReady } from '../utils';
 
 interface ConnectAsync {
   promise: Promise<void>;
@@ -21,6 +23,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   currentChain?: SolanaChainConfig;
   availableWallets: Wallet[];
   connectionError?: WalletConnectionError;
+  obtainWalletConnectProvider?: () => Promise<IUniversalProvider | undefined>;
   onCurrentChainChange?: (chain?: SolanaChainConfig) => void;
 }
 
@@ -84,13 +87,26 @@ export const AntDesignWeb3ConfigProvider: React.FC<
   // connect/disconnect wallet
   useEffect(() => {
     if (wallet?.adapter?.name) {
+      // if wallet is not ready, need clear selected wallet
+      if (!hasWalletReady(wallet.adapter)) {
+        selectWallet(null);
+      }
+
       connect();
     } else {
       if (connected) {
         disconnect();
       }
     }
-  }, [wallet, wallet?.adapter?.name, props.currentChain, connect, disconnect, connected]);
+  }, [
+    wallet,
+    wallet?.adapter?.name,
+    props.currentChain,
+    connect,
+    disconnect,
+    connected,
+    selectWallet,
+  ]);
 
   const chainList = useMemo(() => {
     return props.availableChains
