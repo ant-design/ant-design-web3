@@ -16,12 +16,12 @@
     "resolveJsonModule": true,
     "paths": {
       "@@/*": [".dumi/tmp/*"],
-      "@ant-design/web3": ["./packages/web3/src/index.ts"],
-      "@ant-design/web3-common": ["./packages/common/src/index.ts"],
-      "@ant-design/web3-icons": ["./packages/icons/src/index.ts"],
-      "@ant-design/web3-assets": ["./packages/assets/src/index.ts"],
-      "@ant-design/web3-wagmi": ["./packages/wagmi/src/index.ts"],
-      "@ant-design/web3-solana": ["./packages/solana/src/index.ts"]
+      "@ant-design/web3": ["./packages/web3/src/"],
+      "@ant-design/web3-common": ["./packages/common/src/"],
+      "@ant-design/web3-icons": ["./packages/icons/src/"],
+      "@ant-design/web3-assets": ["./packages/assets/src/"],
+      "@ant-design/web3-wagmi": ["./packages/wagmi/src/"],
+      "@ant-design/web3-solana": ["./packages/solana/src/"]
     }
   }
 }
