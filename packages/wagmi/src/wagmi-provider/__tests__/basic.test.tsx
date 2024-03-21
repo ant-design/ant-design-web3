@@ -5,7 +5,7 @@ import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { createConfig, http } from 'wagmi';
 import { base, goerli, mainnet, polygon } from 'wagmi/chains';
-import { coinbaseWallet, injected } from 'wagmi/connectors';
+import { injected } from 'wagmi/connectors';
 
 describe('WagmiWeb3ConfigProvider', () => {
   it('mount correctly', () => {
@@ -128,9 +128,6 @@ describe('WagmiWeb3ConfigProvider', () => {
         injected({
           target: 'metaMask',
         }),
-        coinbaseWallet({
-          appName: 'ant.design.web3',
-        }),
       ],
     });
 
@@ -162,9 +159,6 @@ describe('WagmiWeb3ConfigProvider', () => {
       connectors: [
         injected({
           target: 'metaMask',
-        }),
-        coinbaseWallet({
-          appName: 'ant.design.web3',
         }),
       ],
     });
@@ -221,7 +215,6 @@ describe('WagmiWeb3ConfigProvider', () => {
   });
 
   it('avaliable wallets', () => {
-    const chains = [polygon, mainnet];
     const config = createConfig({
       chains: [polygon, mainnet],
       transports: {
@@ -231,9 +224,6 @@ describe('WagmiWeb3ConfigProvider', () => {
       connectors: [
         injected({
           target: 'metaMask',
-        }),
-        coinbaseWallet({
-          appName: 'ant.design.web3',
         }),
       ],
     });
@@ -266,9 +256,6 @@ describe('WagmiWeb3ConfigProvider', () => {
         injected({
           target: 'metaMask',
         }),
-        coinbaseWallet({
-          appName: 'ant.design.web3',
-        }),
       ],
     });
 
@@ -285,8 +272,6 @@ describe('WagmiWeb3ConfigProvider', () => {
       </WagmiWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.wallets-name')?.textContent).toBe(
-      'MetaMask,Coinbase Wallet',
-    );
+    expect(baseElement.querySelector('.wallets-name')?.textContent).toBe('MetaMask');
   });
 });
