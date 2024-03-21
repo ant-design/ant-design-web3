@@ -7,6 +7,7 @@ const localeValues: RequiredLocale = {
     copyAddress: '复制地址',
     copied: '复制成功！',
     walletAddress: '钱包地址',
+    moreWallets: '更多钱包',
   },
   ConnectModal: {
     title: '连接钱包',
@@ -20,6 +21,7 @@ const localeValues: RequiredLocale = {
     guideInfosGetWalletBtnText: '获取钱包',
     guideInfosMoreLinkText: '了解更多',
     getWalletBtnText: '获取',
+    getWalletUniversalProtocolBtnText: '更多',
     getWalletPanelTitle: '获取钱包',
     getWalletPanelInfoTitle: '没有找到你想要的？',
     getWalletPanelInfoDesc: '在左侧选择钱包，以开始使用不同的钱包提供商。',
@@ -29,6 +31,7 @@ const localeValues: RequiredLocale = {
     qrCodePanelLinkForConnect: '点击直接连接',
     qrCodePanelDownloadTipForReady: '扫描二维码下载钱包',
     qrCodePanelDownloadTipForNotReady: '暂无',
+    qrCodePanelUniversalProtocolTipForNotReady: '不了解',
     walletCardPanelTitle: '获取 {selectedWalletName}',
     walletCardAppTitle: '在手机使用 {selectedWalletName}',
     walletCardAppDesc: '使用移动钱包探索以太坊世界。',

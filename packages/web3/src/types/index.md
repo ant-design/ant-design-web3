@@ -40,6 +40,7 @@ This is an enum type that contains the IDs of some commonly used chains. Its val
 | group | Wallet group name | `string` | - | - |
 | hasWalletReady | Whether the browser extension is installed | `() => boolean` | - | - |
 | getQrCode | Get the QR code of the wallet | `() => { uri: string }` | - | - |
+| universalProtocol | Universal protocol config | `{ link: string }` | - | - |
 
 ## ExtensionItem
 

@@ -1,16 +1,16 @@
-import React, { useContext, useMemo } from 'react';
+import React, { forwardRef, useContext, useImperativeHandle, useMemo } from 'react';
 import { QrcodeOutlined } from '@ant-design/icons';
 import { Button, List, Space } from 'antd';
 import classNames from 'classnames';
 
 import { connectModalContext } from '../context';
-import type { ConnectModalProps, Wallet } from '../interface';
+import type { ConnectModalActionType, ConnectModalProps, Wallet } from '../interface';
 import { defaultGroupOrder } from '../utils';
 import PluginTag from './PluginTag';
 
 export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'group' | 'groupOrder'>;
 
-const WalletList: React.FC<WalletListProps> = (props) => {
+const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, ref) => {
   const { walletList = [], group: internalGroup, groupOrder } = props;
   const { prefixCls, updateSelectedWallet, selectedWallet, updatePanelRoute } =
     useContext(connectModalContext);
@@ -36,7 +36,41 @@ const WalletList: React.FC<WalletListProps> = (props) => {
     return Object.keys(dataSource).sort(orderFn);
   }, [dataSource, internalGroup, groupOrder]);
 
-  const RenderContent = ({ group }: { group?: string }) => {
+  const selectWallet = async (wallet: Wallet) => {
+    const hasWalletReady = await wallet.hasWalletReady?.();
+    if (hasWalletReady) {
+      // wallet is ready, call ConnectModal's onWalletSelected
+      const hasExtensionInstalled = await wallet?.hasExtensionInstalled?.();
+      if (hasExtensionInstalled) {
+        updateSelectedWallet(wallet, {
+          connectType: 'extension',
+        });
+      } else if (wallet.getQrCode) {
+        // Extension not installed and can use qr code to connect
+        updateSelectedWallet(wallet, {
+          connectType: 'qrCode',
+        });
+      } else {
+        // use the default connect
+        updateSelectedWallet(wallet, {});
+      }
+      return;
+    }
+
+    // wallet not ready
+    // go to wallet page
+    updateSelectedWallet(wallet);
+    updatePanelRoute('wallet', true);
+  };
+
+  useImperativeHandle(ref, () => {
+    return {
+      selectWallet,
+    };
+  });
+
+  const renderContent = (params?: { group?: string }) => {
+    const { group } = params || {};
     return (
       <List<Wallet>
         itemLayout="horizontal"
@@ -50,31 +84,8 @@ const WalletList: React.FC<WalletListProps> = (props) => {
                   ? selectedWallet?.key === item.key
                   : selectedWallet?.name === item.name,
             })}
-            onClick={async () => {
-              const hasWalletReady = await item.hasWalletReady?.();
-              if (hasWalletReady) {
-                // wallet is ready, call ConnectModal's onWalletSelected
-                const hasExtensionInstalled = await item?.hasExtensionInstalled?.();
-                if (hasExtensionInstalled) {
-                  updateSelectedWallet(item, {
-                    connectType: 'extension',
-                  });
-                } else if (item.getQrCode) {
-                  // Extension not installed and can use qr code to connect
-                  updateSelectedWallet(item, {
-                    connectType: 'qrCode',
-                  });
-                } else {
-                  // use the default connect
-                  updateSelectedWallet(item, {});
-                }
-                return;
-              }
-
-              // wallet not ready
-              // go to wallet page
-              updateSelectedWallet(item);
-              updatePanelRoute('wallet', true);
+            onClick={() => {
+              selectWallet(item);
             }}
           >
             <div className={`${prefixCls}-content`}>
@@ -117,19 +128,19 @@ const WalletList: React.FC<WalletListProps> = (props) => {
           <div className={`${prefixCls}-group`} key={group}>
             <div className={`${prefixCls}-group-title`}>{group}</div>
             <div className={`${prefixCls}-group-content`}>
-              <RenderContent group={group} />
+              {renderContent({
+                group,
+              })}
             </div>
           </div>
         ))
       ) : (
         <div className={`${prefixCls}-group`}>
-          <div className={`${prefixCls}-group-content`}>
-            <RenderContent />
-          </div>
+          <div className={`${prefixCls}-group-content`}>{renderContent()}</div>
         </div>
       )}
     </div>
   );
-};
+});
 
 export default WalletList;

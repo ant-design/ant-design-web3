@@ -5,7 +5,7 @@ export const metadata_WalletConnect: WalletMetadata = {
   icon: <WalletConnectColorful />,
   name: 'WalletConnect',
   remark: 'Connect with mobile APP',
-  app: {
+  universalProtocol: {
     link: 'https://walletconnect.com/',
   },
 };

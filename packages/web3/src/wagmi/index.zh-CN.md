@@ -26,6 +26,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，�
 - 支持显示 ENS。
 - 默认添加 MetaMask 和 TokenPocket、Okx 钱包，在用户未安装钱包情况下提供下载引导。
 - 默认添加 WalletConnect，支持用户通过手机扫码连接各类钱包。
+- 配置 `quickConnect`，提供快速连接入口，简化用户操作。
 - 去掉钱包分组，简化界面。
 
 ## 基本使用

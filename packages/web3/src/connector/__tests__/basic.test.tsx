@@ -67,6 +67,35 @@ describe('Connector', () => {
     );
   });
 
+  it('modalProps: onCancel', async () => {
+    const cancel = vi.fn();
+    const App = () => {
+      return (
+        <Connector
+          modalProps={{
+            title: 'modal title',
+            onCancel: () => {
+              cancel();
+            },
+          }}
+        >
+          <ConnectButton />
+        </Connector>
+      );
+    };
+    const { baseElement } = render(<App />);
+    fireEvent.click(baseElement.querySelector('.ant-btn')!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-web3-connect-modal-title')?.textContent).toBe(
+        'modal title',
+      );
+    });
+    fireEvent.click(baseElement.querySelector('.ant-modal-close')!);
+    await vi.waitFor(() => {
+      expect(cancel).toBeCalled();
+    });
+  });
+
   it('connect', async () => {
     const onConnectCallTest = vi.fn();
     const onDisconnected = vi.fn();

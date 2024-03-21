@@ -58,6 +58,12 @@ export type DefaultGuide = {
   moreLinkText?: string;
 };
 
+export type ConnectModalActionType =
+  | {
+      selectWallet: (wallet: Wallet) => void;
+    }
+  | undefined;
+
 export type ConnectModalProps = ModalProps & {
   /**
    * @desc 选中钱包回调
@@ -72,6 +78,16 @@ export type ConnectModalProps = ModalProps & {
    * @descEn Custom footer
    */
   footer?: React.ReactNode;
+  /**
+   * @desc 用于触发操作的引用
+   * @descEn ref for action
+   */
+  actionRef?: React.MutableRefObject<ConnectModalActionType>;
+  /**
+   * @desc 默认选中的钱包
+   * @descEn Default selected wallet
+   */
+  defaultSelectedWallet?: Wallet;
   /**
    * @desc 钱包列表
    * @descEn Wallet list

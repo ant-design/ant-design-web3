@@ -7,6 +7,7 @@ const localeValues: RequiredLocale = {
     copyAddress: 'Copy Address',
     copied: 'Copied!',
     walletAddress: 'Wallet address',
+    moreWallets: 'More Wallets',
   },
   ConnectModal: {
     title: 'Connect Wallet',
@@ -21,6 +22,7 @@ const localeValues: RequiredLocale = {
     guideInfosGetWalletBtnText: 'Get a Wallet',
     guideInfosMoreLinkText: 'Learn More',
     getWalletBtnText: 'Get',
+    getWalletUniversalProtocolBtnText: 'About',
     getWalletPanelTitle: 'Get a Wallet',
     getWalletPanelInfoTitle: "Not what you're looking for?",
     getWalletPanelInfoDesc:
@@ -31,6 +33,7 @@ const localeValues: RequiredLocale = {
     qrCodePanelLinkForConnect: 'Click to connect directly',
     qrCodePanelDownloadTipForReady: 'Scan the QR code to download the wallet.',
     qrCodePanelDownloadTipForNotReady: "Don't have",
+    qrCodePanelUniversalProtocolTipForNotReady: "Don't know",
     walletCardPanelTitle: 'Get {selectedWalletName}',
     walletCardAppTitle: '{selectedWalletName} for Mobile',
     walletCardAppDesc: 'Use the mobile wallet to explore the world of Ethereum.',

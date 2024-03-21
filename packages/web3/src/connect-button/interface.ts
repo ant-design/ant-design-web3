@@ -21,6 +21,7 @@ export type ConnectButtonProps = ButtonProps &
     tooltip?: boolean | ConnectButtonTooltipProps;
     profileModal?: boolean | ProfileModalProps['modalProps'];
     addressPrefix?: string | false;
+    quickConnect?: boolean;
     actionsMenu?:
       | boolean
       | {

@@ -53,6 +53,8 @@ order: 2
 | group | 钱包是否需要分组 | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | `true` | - |
 | mode | 弹窗模式 | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
 | guide | 新手指引内容 | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |
+| actionRef | 用于控制组件 | `MutableRefObject<ConnectModalActionType>` | - | - |
+| defaultSelectedWallet | 默认选中的钱包 | `Wallet` | - | - |
 | locale | 多语言设置 | `Locale["ConnectModal"]` | - | - |
 
 其他弹框属性详见： [ModalProps](https://ant.design/components/modal-cn#api)

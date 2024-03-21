@@ -307,16 +307,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 '.ant-list-item-meta-description': {
                   color: token.listItemDescriptionColor,
                 },
-                [`${componentCls}-get-wallet-btn`]: {
-                  width: 66,
-                  height: 32,
-                  lineHeight: 0,
-                  fontSize: token.fontSizeLG,
-                  ['&:hover']: {
-                    borderColor: isDark ? token.colorWhite : token.colorPrimary,
-                    color: isDark ? token.colorWhite : token.colorPrimary,
-                  },
-                },
               },
             },
             [`${componentCls}-info`]: {
@@ -408,19 +398,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               marginBlockStart: token.marginSM,
               [`${componentCls}-qr-code-tips-download`]: {
                 textAlign: 'center',
-              },
-              [`${componentCls}-get-wallet-btn`]: {
-                position: 'absolute',
-                right: 0,
-                top: '50%',
-                transform: 'translateY(-50%)',
-                width: 66,
-                height: 40,
-                lineHeight: 0,
-                ['&:hover']: {
-                  borderColor: isDark ? token.colorWhite : token.colorPrimary,
-                  color: isDark ? token.colorWhite : token.colorPrimary,
-                },
               },
             },
           },
