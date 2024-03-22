@@ -1,5 +1,24 @@
 # @ant-design/web3
 
+## 1.9.0
+
+### Minor Changes
+
+- b5eccf9: feat: Support quick connect
+
+### Patch Changes
+
+- 813ec32: chore: modify NFTCard className prefix
+- cb0a288: feat: Support skip to guide in simple mode
+- 6f4c55f: fix: qr code scan tip text for universal protocol
+- Updated dependencies [b5eccf9]
+- Updated dependencies [ec92a76]
+- Updated dependencies [cb0a288]
+- Updated dependencies [6f4c55f]
+  - @ant-design/web3-assets@1.5.0
+  - @ant-design/web3-common@1.7.0
+  - @ant-design/web3-icons@1.4.2
+
 ## 1.8.0
 
 ### Minor Changes
