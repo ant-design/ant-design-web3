@@ -1,5 +1,16 @@
 # @ant-design/web3-common
 
+## 1.7.0
+
+### Minor Changes
+
+- b5eccf9: feat: Support quick connect
+
+### Patch Changes
+
+- cb0a288: feat: Support skip to guide in simple mode
+- 6f4c55f: fix: qr code scan tip text for universal protocol
+
 ## 1.6.0
 
 ### Minor Changes
