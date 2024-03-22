@@ -102,8 +102,10 @@ export const Theme: React.FC = () => {
       >
         <Card
           className={styles.card}
-          bodyStyle={{
-            padding: 0,
+          styles={{
+            body: {
+              padding: 0,
+            },
           }}
         >
           <ConnectModal.ModalPanel walletList={walletList} />

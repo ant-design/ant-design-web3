@@ -67,9 +67,11 @@ const App: React.FC = () => {
         }}
       >
         <Card
-          bodyStyle={{
-            padding: 0,
-            maxWidth: 737,
+          styles={{
+            body: {
+              padding: 0,
+              maxWidth: 737,
+            },
           }}
         >
           <ConnectModal.ModalPanel walletList={walletList} />
