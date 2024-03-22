@@ -78,6 +78,9 @@ importers:
       antd-style:
         specifier: ^3.6.1
         version: 3.6.1(@types/react@18.2.65)(antd@5.15.3)(react-dom@18.2.0)(react@18.2.0)
+      antd-token-previewer-web3:
+        specifier: ^2.0.8
+        version: 2.0.8(@babel/core@7.23.6)(@types/react@18.2.65)(antd@5.15.3)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
       babel-plugin-add-import-extension:
         specifier: ^1.6.0
         version: 1.6.0(@babel/core@7.23.6)
@@ -10968,6 +10971,35 @@ packages:
     transitivePeerDependencies:
       - '@types/react'
       - react-dom
+    dev: true
+
+  /antd-token-previewer-web3@2.0.8(@babel/core@7.23.6)(@types/react@18.2.65)(antd@5.15.3)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-PMJvLkb34EFqoCtsxuHJl0UjPNj/CSQSRlG+g6GW2uKy1kIYPjaWUvw7KycePEuGDJ7UvYiFCgrjmz4tJ5qD1w==}
+    peerDependencies:
+      antd: ^5.5.0
+      react: '>=16.0.0'
+      react-dom: '>=16.0.0'
+    dependencies:
+      '@ant-design/colors': 6.0.0
+      '@ant-design/cssinjs': 1.18.4(react-dom@18.2.0)(react@18.2.0)
+      '@ant-design/icons': 5.3.4(react-dom@18.2.0)(react@18.2.0)
+      '@arvinxu/layout-kit': 1.4.0(@babel/core@7.23.6)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      '@babel/runtime': 7.24.0
+      '@ctrl/tinycolor': 3.6.1
+      antd: 5.15.3(react-dom@18.2.0)(react@18.2.0)
+      classnames: 2.5.1
+      rc-util: 5.39.1(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-colorful: 5.6.1(react-dom@18.2.0)(react@18.2.0)
+      react-dom: 18.2.0(react@18.2.0)
+      reactflow: 11.10.4(@types/react@18.2.65)(react-dom@18.2.0)(react@18.2.0)
+      use-debouncy: 4.3.1(react@18.2.0)
+      vanilla-jsoneditor: 0.16.1
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@types/react'
+      - immer
+      - react-is
     dev: true
 
   /antd-token-previewer@2.0.0-alpha.6(@babel/core@7.23.6)(@types/react@18.2.65)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
@@ -22888,7 +22920,7 @@ packages:
   /rpc-websockets@7.9.0:
     resolution: {integrity: sha512-DwKewQz1IUA5wfLvgM8wDpPRcr+nWSxuFxx5CbrI2z/MyyZ4nXLM86TvIA+cI1ZAdqC8JIBR1mZR55dzaLU+Hw==}
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.24.0
       eventemitter3: 4.0.7
       uuid: 8.3.2
       ws: 8.16.0(bufferutil@4.0.8)(utf-8-validate@5.0.10)
@@ -25133,6 +25165,14 @@ packages:
       '@types/w3c-web-usb': 1.0.10
       node-addon-api: 7.0.0
       node-gyp-build: 4.7.1
+
+  /use-debouncy@4.3.1(react@18.2.0):
+    resolution: {integrity: sha512-K+qtK89KojRB2GbTGtmJRysSii+wVg540bYeW9YBF7jqtwoGjIpY3m71BP0NeZzOMCcbZ6ZodLw6QeN3ascTZg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: true
 
   /use-debouncy@4.6.0(react@18.2.0):
     resolution: {integrity: sha512-5N3n/oQYMuU3QKLXDa9p/xtdPKBcNbGQdLqJJPrkT164IMpHdke5xqoehDZCmgDciy+wJC+iqyE3g8c+k03lGg==}
