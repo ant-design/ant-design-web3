@@ -57,8 +57,10 @@ const App: React.FC = () => {
       style={{
         maxWidth: 797,
       }}
-      bodyStyle={{
-        padding: 0,
+      styles={{
+        body: {
+          padding: 0,
+        },
       }}
     >
       <ConnectModal.ModalPanel
