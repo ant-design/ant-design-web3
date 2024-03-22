@@ -48,7 +48,9 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
         title={getMessage(
           download
             ? localeMessage.qrCodePanelTitleForDownload
-            : localeMessage.qrCodePanelTitleForScan,
+            : wallet.universalProtocol
+              ? localeMessage.qrCodePanelTitleForUniversalProtocol
+              : localeMessage.qrCodePanelTitleForScan,
           {
             walletName: wallet.name,
           },

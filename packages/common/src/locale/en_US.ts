@@ -29,6 +29,7 @@ const localeValues: RequiredLocale = {
       'Select a wallet on the left to get started with a different wallet provider.',
     qrCodePanelTitleForDownload: 'Download {walletName}',
     qrCodePanelTitleForScan: 'Scan with {walletName}',
+    qrCodePanelTitleForUniversalProtocol: 'Scan with your wallet',
     qrCodePanelLinkForDownload: 'Click to go to the download page',
     qrCodePanelLinkForConnect: 'Click to connect directly',
     qrCodePanelDownloadTipForReady: 'Scan the QR code to download the wallet.',

@@ -109,6 +109,12 @@ describe('Connector quick connect', () => {
       expect(baseElement.querySelector('.ant-btn-loading-icon')).toBeTruthy();
       expect(baseElement.querySelector('.ant-modal-body')).toBeTruthy();
       expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code')).toBeTruthy();
+      expect(baseElement.querySelector('.ant-web3-connect-modal-get-wallet-tip')?.textContent).toBe(
+        "Don't know WalletConnect?",
+      );
+      expect(
+        baseElement.querySelector('.ant-web3-connect-modal-main-panel-header-title')?.textContent,
+      ).toBe('Scan with your wallet');
     });
   });
 

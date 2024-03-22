@@ -27,6 +27,7 @@ const localeValues: RequiredLocale = {
     getWalletPanelInfoDesc: '在左侧选择钱包，以开始使用不同的钱包提供商。',
     qrCodePanelTitleForDownload: '下载 {walletName}',
     qrCodePanelTitleForScan: '使用 {walletName} 扫描',
+    qrCodePanelTitleForUniversalProtocol: '使用你的钱包扫描',
     qrCodePanelLinkForDownload: '点击前往下载页面',
     qrCodePanelLinkForConnect: '点击直接连接',
     qrCodePanelDownloadTipForReady: '扫描二维码下载钱包',
