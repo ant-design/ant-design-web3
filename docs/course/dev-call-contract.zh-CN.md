@@ -15,9 +15,9 @@ order: 3
 
 ## 配置节点服务
 
-因为我们只需要读取合约数据，并不需要修改合约数据。所以我们不需要向区块链发起交易，也就是说不需要消耗代币作为 [GAS](https://ethereum.org/zh/developers/docs/gas)。但是我们需要一个节点来帮助我们读取合约数据，在 Web3 生态中有很多提供节点服务的厂商，你可以选择自己喜欢的节点服务。这里以 [ZAN 的节点服务](https://zan.top/home/node-service)为例，指引你如何配置节点服务。
+因为我们只需要读取合约数据，并不需要修改合约数据。所以我们不需要向区块链发起交易，也就是说不需要消耗代币作为 [GAS](https://ethereum.org/zh/developers/docs/gas)。但是我们需要一个节点来帮助我们读取合约数据，在 Web3 生态中有很多提供节点服务的厂商，你可以选择自己喜欢的节点服务。这里以 [ZAN 的节点服务](https://zan.top/home/node-service?chInfo=ch_antdweb3)为例，指引你如何配置节点服务。
 
-首先注册并登录 [https://zan.top](https://zan.top) 之后进入到节点服务的控制台 [https://zan.top/service/apikeys](https://zan.top/service/apikeys) 创建一个 Key，每个 Key 都有默认的免费额度，对于微型项目来说够用了，但是对于生产环境的项目来说，请结合实际情况购买节点服务。
+首先注册并登录 [https://zan.top](https://zan.top?chInfo=ch_antdweb3) 之后进入到节点服务的控制台 [https://zan.top/service/apikeys](https://zan.top/service/apikeys?chInfo=ch_antdweb3) 创建一个 Key，每个 Key 都有默认的免费额度，对于微型项目来说够用了，但是对于生产环境的项目来说，请结合实际情况购买节点服务。
 
 创建成功后你会看到如下的页面：
 

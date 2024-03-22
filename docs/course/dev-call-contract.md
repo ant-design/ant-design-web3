@@ -15,9 +15,9 @@ Contract [0xEcd0D12E21805803f70de03B72B1C162dB0898d9](https://etherscan.io/addre
 
 ## Configure node service
 
-Because we only need to read the contract data and do not need to modify the contract data. So we don't need to initiate a transaction to the blockchain, that is, we don't need to consume tokens as [GAS](https://ethereum.org/developers/docs/gas). But we need a node to help us read the contract data. In the Web3 ecosystem, there are many vendors that provide node services, and you can choose your favorite node service. Here is an example of [ZAN's node service](https://zan.top/home/node-service) to guide you on how to configure the node service.
+Because we only need to read the contract data and do not need to modify the contract data. So we don't need to initiate a transaction to the blockchain, that is, we don't need to consume tokens as [GAS](https://ethereum.org/developers/docs/gas). But we need a node to help us read the contract data. In the Web3 ecosystem, there are many vendors that provide node services, and you can choose your favorite node service. Here is an example of [ZAN's node service](https://zan.top/home/node-service?chInfo=ch_antdweb3) to guide you on how to configure the node service.
 
-First register and log in to [https://zan.top](https://zan.top) and then enter the node service console [https://zan.top/service/apikeys](https://zan.top/service/apikeys) to create a Key. Each Key has a default free quota, which is enough for micro projects, but for production environment projects, please purchase node services according to the actual situation.
+First register and log in to [https://zan.top](https://zan.top?chInfo=ch_antdweb3) and then enter the node service console [https://zan.top/service/apikeys](https://zan.top/service/apikeys?chInfo=ch_antdweb3) to create a Key. Each Key has a default free quota, which is enough for micro projects, but for production environment projects, please purchase node services according to the actual situation.
 
 After the creation is successful, you will see the following page:
 

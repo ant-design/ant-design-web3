@@ -42,7 +42,7 @@ const App: React.FC = () => {
                 icon: <QuestionCircleOutlined />,
                 label: 'About us',
                 onClick: () => {
-                  window.open('https://zan.top/');
+                  window.open('https://zan.top/?chInfo=ch_antdweb3');
                 },
               },
             ],

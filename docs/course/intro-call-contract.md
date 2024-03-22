@@ -57,7 +57,7 @@ It is complex and error-prone to access the wallet directly with js. We recommen
 
 ## Through node RPC
 
-Through the previous study, we learned that the blockchain is a decentralized network, and we can access data by accessing one of the nodes. There are many nodes in the Ethereum network. We can use [ZAN](https://zan.top/), [Infura](https://infura.io/) and other node service providers to obtain RPC interfaces.
+Through the previous study, we learned that the blockchain is a decentralized network, and we can access data by accessing one of the nodes. There are many nodes in the Ethereum network. We can use [ZAN](https://zan.top/?chInfo=ch_antdweb3), [Infura](https://infura.io/) and other node service providers to obtain RPC interfaces.
 
 In the [document](https://docs.zan.top/reference/eth-accounts) provided by ZAN.top, we can easily test RPC, and call the method of smart contract through RPC.
 
