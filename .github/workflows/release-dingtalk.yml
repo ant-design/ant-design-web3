@@ -1,7 +1,8 @@
 name: DingTalk Release Notification
 
 on:
-  create
+  release:
+    types: [published]
 
 permissions:
   contents: read
@@ -10,7 +11,7 @@ jobs:
   release-helper:
     permissions:
       contents: write  # for actions-cool/release-helper to create releases
-    if: github.event.ref_type == 'tag'
+    if: ${{ !github.event.release.draft }}
     runs-on: ubuntu-latest
     steps:
       - name: Send to Ant Design Web3 DingGroup
