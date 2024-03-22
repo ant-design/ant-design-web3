@@ -1,6 +1,6 @@
 {
-  "name": "@ant-design/web3",
-  "version": "1.8.0",
+  "name": "@ant-design/web3-ethers",
+  "version": "0.0.1",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -25,7 +25,9 @@
     "react",
     "react-component",
     "ui",
-    "web3"
+    "web3",
+    "ethers",
+    "ethersjs"
   ],
   "homepage": "https://we3.ant.design",
   "bugs": {
@@ -40,32 +42,28 @@
     "build": "father build"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "^1.18.4",
-    "@ant-design/icons": "^5.3.1",
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
-    "@ant-design/web3-icons": "workspace:*",
-    "@ctrl/tinycolor": "^4.0.3",
-    "@inline-svg-unique-id/react": "^1.2.3",
-    "antd": "^5.15.3",
-    "classnames": "^2.3.2"
+    "debug": "^4.3.4",
+    "@tanstack/react-query": "^5.28.4"
   },
   "devDependencies": {
-    "@ant-design/web3-solana": "workspace:*",
-    "@ant-design/web3-wagmi": "workspace:*",
-    "@ant-design/web3-ethers": "workspace:*",
-    "@types/react": "^18.2.65",
-    "@types/react-dom": "^18.2.19",
+    "@types/debug": "^4.1.12",
+    "ethers": "^6.11.1",
     "father": "^4.3.8",
     "typescript": "^5.4.2"
   },
   "peerDependencies": {
-    "antd": ">=5.0.0",
-    "react": ">=17.0.0",
-    "react-dom": ">=17.0.0"
+    "ethers": "^6.0.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
 }

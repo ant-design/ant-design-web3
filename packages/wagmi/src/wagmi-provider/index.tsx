@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { WagmiProvider } from 'wagmi';
 import type { Config } from 'wagmi';
 
-import type { EIP6963Config, WalletFactory } from '../interface';
+import type { WagmiEIP6963Config, WalletFactory } from '../interface';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 
 export type WagmiWeb3ConfigProviderProps = {
@@ -17,7 +17,7 @@ export type WagmiWeb3ConfigProviderProps = {
   ens?: boolean;
   queryClient?: QueryClient;
   balance?: boolean;
-  eip6963?: EIP6963Config;
+  eip6963?: WagmiEIP6963Config;
 };
 
 export function WagmiWeb3ConfigProvider({

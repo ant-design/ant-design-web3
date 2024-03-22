@@ -24,6 +24,9 @@ importers:
       '@ant-design/web3-common':
         specifier: workspace:*
         version: link:packages/common
+      '@ant-design/web3-ethers':
+        specifier: workspace:*
+        version: link:packages/ethers
       '@ant-design/web3-icons':
         specifier: workspace:*
         version: link:packages/icons
@@ -213,6 +216,34 @@ importers:
         specifier: ^5.4.2
         version: 5.4.2
 
+  packages/ethers:
+    dependencies:
+      '@ant-design/web3-assets':
+        specifier: workspace:*
+        version: link:../assets
+      '@ant-design/web3-common':
+        specifier: workspace:*
+        version: link:../common
+      '@tanstack/react-query':
+        specifier: ^5.28.4
+        version: 5.28.4(react@18.2.0)
+      debug:
+        specifier: ^4.3.4
+        version: 4.3.4(supports-color@5.5.0)
+    devDependencies:
+      '@types/debug':
+        specifier: ^4.1.12
+        version: 4.1.12
+      ethers:
+        specifier: ^6.11.1
+        version: 6.11.1
+      father:
+        specifier: ^4.3.8
+        version: 4.3.8(@types/node@20.10.5)(webpack@5.89.0)
+      typescript:
+        specifier: ^5.4.2
+        version: 5.4.2
+
   packages/icons:
     dependencies:
       '@ant-design/icons':
@@ -357,6 +388,9 @@ importers:
         specifier: '>=17.0.0'
         version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@ant-design/web3-ethers':
+        specifier: workspace:*
+        version: link:../ethers
       '@ant-design/web3-solana':
         specifier: workspace:*
         version: link:../solana
@@ -17806,7 +17840,6 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -17824,7 +17857,6 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -17842,7 +17874,6 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -17860,7 +17891,6 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -21876,7 +21906,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.24.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-is: 18.2.0
@@ -22888,7 +22918,7 @@ packages:
   /rpc-websockets@7.9.0:
     resolution: {integrity: sha512-DwKewQz1IUA5wfLvgM8wDpPRcr+nWSxuFxx5CbrI2z/MyyZ4nXLM86TvIA+cI1ZAdqC8JIBR1mZR55dzaLU+Hw==}
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.24.0
       eventemitter3: 4.0.7
       uuid: 8.3.2
       ws: 8.16.0(bufferutil@4.0.8)(utf-8-validate@5.0.10)
