@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send to Ant Design Web3 DingGroup
-        uses: thinkasany/release-helper@master
+        uses: thinkasany/release-helper@main
         with:
           dingding-token: ${{ secrets.WEB3_DINGDING_BOT_TOKEN }}
           msg-title: '{{v}} 发布日志'
