@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send to Ant Design Web3 DingGroup
-        uses: actions-cool/release-helper@v2
+        uses: thinkasany/release-helper@master
         with:
           trigger: 'tag'
           branch: 'main'
@@ -23,6 +23,3 @@ jobs:
           msg-title: '{{v}} 发布日志'
           msg-poster: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ'
           msg-footer: '💬 前往 [**Ant Design Web3 Releases**]({{url}}) 查看更新日志  🐦 twitter: https://twitter.com/AntDesignWeb3'
-          prettier: true
-          prerelease-notice: true
-          prerelease-filter: '-, a, b, A, B'
