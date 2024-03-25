@@ -74,3 +74,4 @@ group:
 - `duplicate` 重复的问题。
 - `enhancement` 新增功能。
 - `documentation` 文档相关。
+- `dependencies` 依赖更新。
