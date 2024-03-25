@@ -70,7 +70,7 @@ const App: React.FC = () => {
           styles={{
             body: {
               padding: 0,
-              maxWidth: 737,
+              maxWidth: 795,
             },
           }}
         >
