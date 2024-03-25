@@ -126,3 +126,7 @@ Ant Design Web3 内置了对 [TokenPocket](https://www.tokenpocket.pro/) 的支�
 ### UniversalWallet
 
 用于自己定钱包的类，它满足 WalletFactory 的接口要求。具体使用可以参考[自定义钱包信息](#自定义钱包信息)的示例。
+
+### Ethers
+
+<code src="./demos/ethers-basic.tsx"></code>

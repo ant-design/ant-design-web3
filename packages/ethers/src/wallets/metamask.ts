@@ -1,10 +1,13 @@
 import { metadata_MetaMask } from '@ant-design/web3-assets';
+import { UniversalWallet } from '@ant-design/web3-wagmi';
 
-import type { EthereumWallet } from '../interface';
-import { UniversalWallet } from './universal-wallet';
-
-export const MetaMask: EthereumWallet = (metadata) =>
-  new UniversalWallet({
+// TODO@jeasonstudio 考虑 wallet 抽象设计
+export const MetaMask = (metadata?: any): any => {
+  const wallet = new UniversalWallet({
     ...metadata_MetaMask,
     ...metadata,
+    name: 'ethers',
   });
+  wallet.connectors = ['ethers'];
+  return wallet;
+};
