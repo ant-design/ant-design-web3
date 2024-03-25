@@ -1,5 +1,11 @@
 # @ant-design/web3-icons
 
+## 1.4.2
+
+### Patch Changes
+
+- ec92a76: fix: icon svg style error
+
 ## 1.4.1
 
 ### Patch Changes

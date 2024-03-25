@@ -28,7 +28,6 @@ const walletList: Wallet[] = [
       );
     },
   },
-  metadata_CoinbaseWallet,
 ];
 
 export default () => {
@@ -43,7 +42,10 @@ export default () => {
         <span className={styles.title}>Connect Wallet</span>
         <div className={classNames(styles.connectContainer, styles.connectModalContainer)}>
           <ConnectModal.ModalPanel
-            mode="normal"
+            locale={{
+              guideTipTitle: 'New to Web3?',
+            }}
+            mode="simple"
             title="Connect Wallet"
             footer="Powered by AntChain"
             walletList={walletList}

@@ -1,5 +1,16 @@
 # @ant-design/web3-wagmi
 
+## 2.4.1
+
+### Patch Changes
+
+- 813ec32: chore: modify NFTCard className prefix
+- Updated dependencies [b5eccf9]
+- Updated dependencies [cb0a288]
+- Updated dependencies [6f4c55f]
+  - @ant-design/web3-assets@1.5.0
+  - @ant-design/web3-common@1.7.0
+
 ## 2.4.0
 
 ### Minor Changes

@@ -53,7 +53,7 @@ Then, `MetaMask` will pop up a window and prompt to connect it to `Remix`. After
 
 <img src='./img/connect2.png' width="33%">
 
-Now, the wallet connection is complete, and you can start deploying the contract. Since a simple `ERC721` smart contract is being deployed, the default `Gas Lmit` set by `Remix` is 3 million, which is enough, and there is no need to specify the value sent with the deployment. For this, you can perform the following steps to deploy the contract:
+Now, the wallet connection is complete, and you can start deploying the contract. Since a simple `ERC721` smart contract is being deployed, the default `Gas Limit` set by `Remix` is 3 million, which is enough, and there is no need to specify the value sent with the deployment. For this, you can perform the following steps to deploy the contract:
 
 - Make sure that `ENVIRONMENT` is set to `Injected Provider - MetaMask`
 - Make sure the connected account is the account you want to deploy
