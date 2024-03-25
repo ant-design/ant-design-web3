@@ -55,7 +55,7 @@ We will demonstrate through the `Create` button in this tutorial. When we click 
 
 When you select an `ERC721` template of the `OpenZeppelin` library, you can add additional features.
 
-> [ERC721](https://eips.ethereum.org/EIPS/eip-721) (Ethereum Request for Comments 721), proposed by William Entriken, Dieter Shirley, Jacob Evans, Nastassia Sachs in January 2018, is a non-homogeneous token standard that implements token APIs in smart contracts. [OpenZeppelin](https://docs.openzeppelin.com/contracts/5.x/) is a library for secure smart contract development, which contains the standard implementation of many commonly used contracts.
+> [ERC721](https://eips.ethereum.org/EIPS/eip-721) (Ethereum Request for Comments 721), proposed by William Entriken, Dieter Shirley, Jacob Evans, Nastasia Sachs in January 2018, is a non-homogeneous token standard that implements token APIs in smart contracts. [OpenZeppelin](https://docs.openzeppelin.com/contracts/5.x/) is a library for secure smart contract development, which contains the standard implementation of many commonly used contracts.
 
 ![](./img/create.png) ![](./img/mintable.png)
 
