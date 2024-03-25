@@ -51,7 +51,7 @@ order: 3
 <img src='./img/connect1.png' width="33%">
 <img src='./img/connect2.png' width="33%">
 
-现在，已完成钱包连接，可以开始部署合约。由于正在部署一个简单的 `ERC721` 智能合约，因此 `Remix` 设置的默认 `Gas Lmit` 为 300 万就足够了，无需指定随部署一同发送的值。为此，您可以执行以下步骤部署合约：
+现在，已完成钱包连接，可以开始部署合约。由于正在部署一个简单的 `ERC721` 智能合约，因此 `Remix` 设置的默认 `Gas Limit` 为 300 万就足够了，无需指定随部署一同发送的值。为此，您可以执行以下步骤部署合约：
 
 - 确保 `ENVIRONMENT` 已设置为 `Injected Provider - MetaMask`
 - 确保连接的账户是想要部署的账户
