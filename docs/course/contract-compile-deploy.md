@@ -50,7 +50,7 @@ Then, `MetaMask` will pop up a window and prompt to connect it to `Remix`. After
 
 <img src='./img/changeNode.png' width="33%" alt="choose Injected Provider - MetaMask" />
 
-<img src='./img/connect1.png' width="33%" alt="">
+<img src='./img/connect1.png' width="33%" alt="connecting MetaMask to Remix" />
 
 <img src='./img/connect2.png' width="33%" alt="">
 
