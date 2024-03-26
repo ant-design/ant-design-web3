@@ -67,7 +67,12 @@ export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
 
   const renderContent = (content: React.ReactNode) => (
     <Tooltip title={filledAddress}>
-      <a href={browserLink} style={{ display: 'inline-block' }}>
+      <a
+        href={browserLink}
+        style={{ display: 'inline-block' }}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Space size="small">
           {displayIcon}
           {!iconOnly && content}
