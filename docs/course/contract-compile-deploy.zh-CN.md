@@ -47,9 +47,9 @@ order: 3
 
 随后，`MetaMask` 将跳出弹窗并提示将其连接至 `Remix`。将`MetaMask` 连接至 `Remix` 后，侧面板将更新显示所连接的网络和账户。部署到测试网也需要测试网的代币，你可以在网络上查找对应的测试网代币水龙头充值使用。
 
-<img src='./img/changeNode.png' width="33%" alt="">
-<img src='./img/connect1.png' width="33%" alt="">
-<img src='./img/connect2.png' width="33%" alt="">
+<img src='./img/changeNode.png' width="33%" alt="选择 Injected Provider - MetaMask" />
+<img src='./img/connect1.png' width="33%" alt="将 MetaMask 连接到 Remix" />
+<img src='./img/connect2.png' width="33%" alt="显示连接的网络和账户" />
 
 现在，已完成钱包连接，可以开始部署合约。由于正在部署一个简单的 `ERC721` 智能合约，因此 `Remix` 设置的默认 `Gas Limit` 为 300 万就足够了，无需指定随部署一同发送的值。为此，您可以执行以下步骤部署合约：
 
