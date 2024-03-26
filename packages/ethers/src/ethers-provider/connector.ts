@@ -17,6 +17,8 @@ import {
 } from 'viem';
 import { createConnector, normalizeChainId, type CreateConnectorFn } from 'wagmi';
 
+import { ProviderNotFoundError, ProviderNotSupportedError } from './errors';
+
 export type EthersParameters = {
   provider?: Provider;
   signer?: Signer;
@@ -45,10 +47,10 @@ export const ethersConnector = (
       chainId: number;
     }> {
       const provider = await this.getProvider();
-      if (!provider) throw new Error('Provider not found');
+      if (!provider) throw new ProviderNotFoundError();
 
       if (!(provider instanceof BrowserProvider) && !(provider instanceof JsonRpcProvider))
-        throw new Error('Provider should be BrowserProvider or JsonRpcProvider');
+        throw new ProviderNotSupportedError();
 
       // Switch to chain if provided
       let chainId = await this.getChainId();
@@ -74,7 +76,7 @@ export const ethersConnector = (
 
     async getAccounts(): Promise<readonly Address[]> {
       const provider = await this.getProvider();
-      if (!provider) throw new Error('Provider not found');
+      if (!provider) throw new ProviderNotFoundError();
 
       // Only JsonRpcApiProvider has listAccounts method
       // Such as BrowserProvider, JsonRpcProvider
@@ -90,7 +92,7 @@ export const ethersConnector = (
 
     async getChainId(): Promise<number> {
       const provider = await this.getProvider();
-      if (!provider) throw new Error('Provider not found');
+      if (!provider) throw new ProviderNotFoundError();
 
       const network = await provider.getNetwork();
       return Number(network.chainId);
@@ -116,7 +118,7 @@ export const ethersConnector = (
 
     async switchChain(args: { chainId: number }): Promise<Chain> {
       const provider = await this.getProvider();
-      if (!provider) throw new Error('Provider not found');
+      if (!provider) throw new ProviderNotFoundError();
 
       const chain = config.chains.find((x) => x.id === args.chainId);
       if (!chain) throw new Error('Chain not found');
