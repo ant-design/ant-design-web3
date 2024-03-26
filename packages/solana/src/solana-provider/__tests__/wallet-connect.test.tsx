@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useWallet, type ConnectionContextState } from '@solana/wallet-adapter-react';
+import { type ConnectionContextState } from '@solana/wallet-adapter-react';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { WalletConnectWallet } from '../../wallets/built-in';

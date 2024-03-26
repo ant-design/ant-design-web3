@@ -48,8 +48,9 @@ You can use more components together. The content related to the chain in the co
 | rpcProvider | RPC provider for connecting nodes | (chain?: [Chain](./types#chain)) => string | - | - |
 | connectionConfig | Configuration for instantiating a Connection | [ConnectionConfig](https://solana-labs.github.io/solana-web3.js/types/ConnectionConfig.html) | - | - |
 | balance | Whether to display balance | `boolean` | - | - |
-| chains | Chains | SolanaChainConfig\[\] | - | \[solana\] |
+| chains | Chains | SolanaChainConfig\[\] | - | - |
 | wallets | Wallets | WalletFactory\[\] | - | - |
 | autoConnect | Whether to connect automatically | `boolean` | `false` | - |
 | walletProviderProps | Transparent to WalletProvider | [WalletProviderProps](https://github.com/solana-labs/wallet-adapter/blob/master/packages/core/react/src/WalletProvider.tsx#L17) | - | - |
 | locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
+| walletConnect | WalletConnect configs | [UniversalProviderOpts](https://github.com/WalletConnect/walletconnect-monorepo/blob/v2.0/providers/universal-provider/src/types/misc.ts#L9) | - | - |
