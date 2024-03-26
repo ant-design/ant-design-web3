@@ -1898,6 +1898,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                           >
                             <img
                               src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=4"
+                              alt="ant-avatar"
                             />
                           </span>
                           <div
@@ -1923,6 +1924,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                           >
                             <img
                               src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
+                              alt="ant-avatar"
                             />
                           </span>
                           <div
@@ -1948,6 +1950,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                           >
                             <img
                               src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
+                              alt="ant-avatar"
                             />
                           </span>
                           <div
@@ -1973,6 +1976,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                           >
                             <img
                               src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=5"
+                              alt="ant-avatar"
                             />
                           </span>
                           <div
