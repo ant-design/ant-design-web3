@@ -6,9 +6,12 @@ import {
   WagmiWeb3ConfigProvider,
   WalletConnect,
 } from '@ant-design/web3-wagmi';
+import { QueryClient } from '@tanstack/react-query';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { walletConnect } from 'wagmi/connectors';
+
+const queryClient = new QueryClient();
 
 const config = createConfig({
   chains: [mainnet],
@@ -39,10 +42,11 @@ const App: React.FC = () => {
         OkxWallet(),
       ]}
       config={config}
+      queryClient={queryClient}
     >
       <Connector
         modalProps={{
-          group: false,
+          mode: 'simple',
         }}
       >
         <ConnectButton quickConnect />

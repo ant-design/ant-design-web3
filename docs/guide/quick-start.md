@@ -13,7 +13,7 @@ You can install the relevant dependencies under the root directory of the projec
 
 <br />
 
-<NormalInstallDependencies packageNames="antd @ant-design/web3 @ant-design/web3-wagmi wagmi" save="true"></NormalInstallDependencies>
+<NormalInstallDependencies packageNames="antd @ant-design/web3 @ant-design/web3-wagmi wagmi viem @tanstack/react-query" save="true"></NormalInstallDependencies>
 
 <br />
 
