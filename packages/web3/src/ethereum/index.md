@@ -3,6 +3,9 @@ nav: Components
 group:
   title: Adapter
   order: 1
+tag:
+  title: Update
+  color: success
 ---
 
 # Ethereum

@@ -4,9 +4,6 @@ subtitle: 索拉纳
 group:
   title: 适配器
   order: 2
-tag:
-  title: New
-  color: success
 ---
 
 # Solana

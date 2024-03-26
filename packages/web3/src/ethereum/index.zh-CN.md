@@ -4,6 +4,9 @@ subtitle: 以太坊
 group:
   title: 适配器
   order: 1
+tag:
+  title: 更新
+  color: success
 ---
 
 # Ethereum

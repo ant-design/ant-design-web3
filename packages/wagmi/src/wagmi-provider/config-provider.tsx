@@ -18,7 +18,7 @@ import {
   type Connector as WagmiConnector,
 } from 'wagmi';
 
-import type { WagmiEIP6963Config, WalletFactory, WalletUseInWagmiAdapter } from '../interface';
+import type { EIP6963Config, WalletFactory, WalletUseInWagmiAdapter } from '../interface';
 import { isEIP6963Connector } from '../utils';
 import { EIP6963Wallet } from '../wallets/eip6963';
 import { addNameToAccount, getNFTMetadata } from './methods';
@@ -30,7 +30,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   children?: React.ReactNode;
   ens?: boolean;
   balance?: boolean;
-  eip6963?: WagmiEIP6963Config;
+  eip6963?: EIP6963Config;
   readonly availableChains: readonly WagmiChain[];
   readonly availableConnectors: readonly WagmiConnector[];
 }

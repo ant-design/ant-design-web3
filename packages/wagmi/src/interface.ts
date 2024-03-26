@@ -17,4 +17,4 @@ export interface WalletFactory {
   create: (connector?: readonly Connector[]) => WalletUseInWagmiAdapter;
 }
 
-export type WagmiEIP6963Config = boolean | UniversalEIP6963Config;
+export type EIP6963Config = boolean | UniversalEIP6963Config;
