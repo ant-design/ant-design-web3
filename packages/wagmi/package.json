@@ -44,8 +44,7 @@
     "@ant-design/web3-common": "workspace:*",
     "debug": "^4.3.4",
     "@wagmi/core": "^2.6.5",
-    "viem": "2.0.0",
-    "@tanstack/react-query": "^5.28.4"
+    "viem": "2.0.0"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
@@ -54,7 +53,8 @@
     "wagmi": "^2.5.7"
   },
   "peerDependencies": {
-    "wagmi": "^2.5.7"
+    "wagmi": "^2.5.7",
+    "@tanstack/react-query": "^5.28.4"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
