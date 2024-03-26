@@ -36,9 +36,9 @@ const CopyableIcon: React.FC<CopyableIconProps> = ({
   const onCopy = (text: string, result: boolean) => {
     if (result) {
       onCopied(name, text);
-    } else {
-      message.error('Copy icon name failed, please try again.');
+      return;
     }
+    message.error('Copy icon name failed, please try again.');
   };
 
   return (

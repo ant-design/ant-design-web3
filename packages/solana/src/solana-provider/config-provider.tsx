@@ -98,12 +98,11 @@ export const AntDesignWeb3ConfigProvider: React.FC<
             name: c.name,
             icon: c.icon,
           };
-        } else {
-          console.error(
-            `Can not find chain ${item.id}, SolanaWeb3ConfigProvider only support Solana`,
-          );
-          return null;
         }
+        console.error(
+          `Can not find chain ${item.id}, SolanaWeb3ConfigProvider only support Solana`,
+        );
+        return null;
       })
       .filter((item) => item !== null) as (Chain & SolanaChainConfig)[];
   }, [props.availableChains, props.chainAssets]);
