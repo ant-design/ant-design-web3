@@ -58,7 +58,7 @@ contract MyToken is ERC721, Ownable {
 
 1. 单元测试插件
 
-我们需要点击左下角的 `Plugin mananer `图标在插件管理器搜索 `unit` 关键字，然后会出现搜索结果 `SOLIDITY UNIT TESTING`，点击 `Activate`，安装激活插件，如下图所示：
+我们需要点击左下角的 `Plugin Manager`图标在插件管理器搜索 `unit` 关键字，然后会出现搜索结果 `SOLIDITY UNIT TESTING`，点击 `Activate`，安装激活插件，如下图所示：
 
 ![](./img/unitTest.png)
 
