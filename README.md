@@ -1,6 +1,6 @@
 <div align="center">
 
-<img height="180" src="https://github.com/ant-design/ant-design/assets/507615/12d2c16d-92b1-4202-ba6f-4da5ee3622ba">
+<img height="180" alt="ant design web3 logo" src="https://github.com/ant-design/ant-design/assets/507615/12d2c16d-92b1-4202-ba6f-4da5ee3622ba">
 
 <h1 align="center">Ant Design Web3</h1>
 
