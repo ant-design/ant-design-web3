@@ -10,7 +10,7 @@ const DefaultGuidePanel: React.FC<{
   guide?: ConnectModalProps['guide'];
   simple?: boolean;
 }> = (props) => {
-  const { localeMessage } = useContext(connectModalContext);
+  const { localeMessage, prefixCls, updatePanelRoute } = useContext(connectModalContext);
   const defaultGuide: ConnectModalProps['guide'] = {
     title: localeMessage.guideTitle,
     infos: [
@@ -35,8 +35,6 @@ const DefaultGuidePanel: React.FC<{
     moreLinkText: localeMessage.guideInfosMoreLinkText,
   };
   const { guide = defaultGuide } = props;
-
-  const { prefixCls, updatePanelRoute } = useContext(connectModalContext);
 
   if (!guide) {
     return null;
