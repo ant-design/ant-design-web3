@@ -48,7 +48,7 @@ Click the drop-down box of `ENVIRONMENT`, you can see many options to choose fro
 
 Then, `MetaMask` will pop up a window and prompt to connect it to `Remix`. After connecting `MetaMask` to `Remix`, the side panel will be updated to display the connected network and account. Deploying to the testnet also requires testnet tokens. You can find the corresponding testnet token faucet on the network for recharging.
 
-<img src='./img/changeNode.png' width="33%" alt="">
+<img src='./img/changeNode.png' width="33%" alt="choose Injected Provider - MetaMask" />
 
 <img src='./img/connect1.png' width="33%" alt="">
 
