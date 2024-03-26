@@ -2,6 +2,7 @@
 nav: Course
 group:
   title: Develop Smart Contract
+  order: 3
 order: 3
 ---
 
