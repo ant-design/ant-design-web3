@@ -153,15 +153,32 @@ export default defineConfig({
               openExternal: true,
             },
             {
+              title: 'Theme Editor',
+              description: 'Customize theme',
+              url: '/theme-editor',
+              openExternal: true,
+            },
+            {
+              title: 'WTF Dapp Course',
+              description: 'WTF DApp minimal introduction course',
+              url: 'https://github.com/WTFAcademy/WTF-Dapp',
+              openExternal: true,
+            },
+          ],
+        },
+        {
+          title: 'Partners',
+          items: [
+            {
               title: 'ZAN',
-              description: 'Web3 tools and services',
+              description: 'Web3 tool service',
               url: 'https://zan.top?chInfo=ch_antdweb3',
               openExternal: true,
             },
             {
-              title: 'Theme Editor',
-              description: 'Customize theme',
-              url: '/theme-editor',
+              title: 'WTF Academy',
+              description: 'Web3 open source university for developers',
+              url: 'https://www.wtf.academy',
               openExternal: true,
             },
           ],
@@ -190,12 +207,7 @@ export default defineConfig({
         },
         {
           title: 'Community',
-          items: [
-            {
-              title: 'X (Twitter)',
-              url: 'https://twitter.com/AntDesignWeb3',
-            },
-          ],
+          items: [{ title: 'X (Twitter)', url: 'https://twitter.com/AntDesignWeb3' }],
         },
       ],
       'zh-CN': [
@@ -215,15 +227,32 @@ export default defineConfig({
               openExternal: true,
             },
             {
+              title: '主题编辑器',
+              description: '定制主题',
+              url: '/theme-editor-cn',
+              openExternal: true,
+            },
+            {
+              title: 'WTF Dapp 课程',
+              description: 'WTF DApp 极简入门教程',
+              url: 'https://github.com/WTFAcademy/WTF-Dapp',
+              openExternal: true,
+            },
+          ],
+        },
+        {
+          title: '合作伙伴',
+          items: [
+            {
               title: 'ZAN',
               description: 'Web3 工具服务',
               url: 'https://zan.top?chInfo=ch_antdweb3',
               openExternal: true,
             },
             {
-              title: '主题编辑器',
-              description: '定制主题',
-              url: '/theme-editor-cn',
+              title: 'WTF Academy',
+              description: '开发者的 Web3 开源大学',
+              url: 'https://www.wtf.academy',
               openExternal: true,
             },
           ],
@@ -252,12 +281,7 @@ export default defineConfig({
         },
         {
           title: '社区',
-          items: [
-            {
-              title: 'X (Twitter)',
-              url: 'https://twitter.com/AntDesignWeb3',
-            },
-          ],
+          items: [{ title: 'X (Twitter)', url: 'https://twitter.com/AntDesignWeb3' }],
         },
       ],
     },

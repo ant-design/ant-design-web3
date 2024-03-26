@@ -74,3 +74,4 @@ Design-related issues can @ our designers:
 - `duplicate` Duplicate issue.
 - `enhancement` New feature.
 - `documentation` Documentation related.
+- `dependencies` Dependency related.

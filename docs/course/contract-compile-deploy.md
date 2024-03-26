@@ -2,6 +2,7 @@
 nav: Course
 group:
   title: Develop Smart Contract
+  order: 3
 order: 3
 ---
 
@@ -47,11 +48,11 @@ Click the drop-down box of `ENVIRONMENT`, you can see many options to choose fro
 
 Then, `MetaMask` will pop up a window and prompt to connect it to `Remix`. After connecting `MetaMask` to `Remix`, the side panel will be updated to display the connected network and account. Deploying to the testnet also requires testnet tokens. You can find the corresponding testnet token faucet on the network for recharging.
 
-<img src='./img/changeNode.png' width="33%">
+<img src='./img/changeNode.png' width="33%" alt="choose Injected Provider - MetaMask" />
 
-<img src='./img/connect1.png' width="33%">
+<img src='./img/connect1.png' width="33%" alt="connecting MetaMask to Remix" />
 
-<img src='./img/connect2.png' width="33%">
+<img src='./img/connect2.png' width="33%" alt="display the connected network and account" />
 
 Now, the wallet connection is complete, and you can start deploying the contract. Since a simple `ERC721` smart contract is being deployed, the default `Gas Limit` set by `Remix` is 3 million, which is enough, and there is no need to specify the value sent with the deployment. For this, you can perform the following steps to deploy the contract:
 

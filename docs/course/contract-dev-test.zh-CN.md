@@ -16,11 +16,11 @@ order: 2
 具体要修改的内有：
 
 1. 把 `initialOwner` 设置为合约发行人，这样在部署合约的时候就会更简单，不用指定 `initialOwner`。
-1. 定义了一个名为 `_nextTokenId` 类型为`uint256`合约私有变量`private`，用来标记当前的进度，每新增一个 NFT 该值需要加一；
-1. 在 `mint` 方法中要求传入的类型为 `uint256` 的 `quantity`，代表这次要铸造多少个 NFT。在这里，我们先简化逻辑，限制每次只能铸造一个。
-1. 去掉 `onlyOwner` 修饰符，这样就可以让任何人都可以调用 `mint` 方法了。
-1. 添加 `payable` 修饰符，这样就可以让调用 `mint` 方法的人可以同时向合约转账了。
-1. `_safeMint` 也要改为 `_mint`，这个主要是为了避免在后面通过 Remix 合约调用合约来测试的时候报错，`to` 也对应改为 `msg.sender`，代表 NFT 铸造给发起交易的地址。
+2. 定义了一个名为 `_nextTokenId` 类型为`uint256`合约私有变量`private`，用来标记当前的进度，每新增一个 NFT 该值需要加一；
+3. 在 `mint` 方法中要求传入的类型为 `uint256` 的 `quantity`，代表这次要铸造多少个 NFT。在这里，我们先简化逻辑，限制每次只能铸造一个。
+4. 去掉 `onlyOwner` 修饰符，这样就可以让任何人都可以调用 `mint` 方法了。
+5. 添加 `payable` 修饰符，这样就可以让调用 `mint` 方法的人可以同时向合约转账了。
+6. `_safeMint` 也要改为 `_mint`，这个主要是为了避免在后面通过 Remix 合约调用合约来测试的时候报错，`to` 也对应改为 `msg.sender`，代表 NFT 铸造给发起交易的地址。
 
 代码如下：
 
@@ -58,7 +58,7 @@ contract MyToken is ERC721, Ownable {
 
 1. 单元测试插件
 
-我们需要点击左下角的 `Plugin mananer `图标在插件管理器搜索 `unit` 关键字，然后会出现搜索结果 `SOLIDITY UNIT TESTING`，点击 `Activate`，安装激活插件，如下图所示：
+我们需要点击左下角的 `Plugin Manager`图标在插件管理器搜索 `unit` 关键字，然后会出现搜索结果 `SOLIDITY UNIT TESTING`，点击 `Activate`，安装激活插件，如下图所示：
 
 ![](./img/unitTest.png)
 

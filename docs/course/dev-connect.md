@@ -16,7 +16,7 @@ In this part of the course, we will guide you to connect the DApp to the blockch
 First, similar to the [Quick Start](../guide/quick-start.md) documentation guide, we need to install some dependencies. In the previous course, we have installed `antd` and `@ant-design/web3`, so we only need to install `@ant-design/web3-wagmi` and `wagmi` next.
 
 ```shell
-npm i @ant-design/web3-wagmi wagmi --save
+npm i @ant-design/web3-wagmi wagmi viem @tanstack/react-query --save
 ```
 
 `@ant-design/web3` is a UI component library, which connects to different blockchains through different [adapters](../guide/adapter.md). In this course, we mainly use [Ethereum](https://ethereum.org/) as an example. Correspondingly, we will also use the [adapter of Ethereum](../../packages/web3/src/ethereum/index.md) to implement the requirements of the course.
