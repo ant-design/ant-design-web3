@@ -1,7 +1,7 @@
 import { OkxWallet } from '@ant-design/web3-wagmi';
-import { mainnet } from 'viem/chains';
 import { describe, expect, it } from 'vitest';
 import { createConfig, http } from 'wagmi';
+import { mainnet } from 'wagmi/chains';
 import { injected, walletConnect } from 'wagmi/connectors';
 
 describe('OkxWallet', () => {

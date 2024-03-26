@@ -7,7 +7,7 @@ import {
   type Locale,
   type Wallet,
 } from '@ant-design/web3-common';
-import type { Chain as WagmiChain } from 'viem';
+import type { Config } from 'wagmi';
 import {
   useAccount,
   useBalance,
@@ -31,7 +31,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   ens?: boolean;
   balance?: boolean;
   eip6963?: EIP6963Config;
-  readonly availableChains: readonly WagmiChain[];
+  readonly availableChains: Config['chains'];
   readonly availableConnectors: readonly WagmiConnector[];
 }
 
