@@ -2,7 +2,7 @@ import { WalletReadyState } from '@solana/wallet-adapter-base';
 
 import { hasWalletReady } from '../utils';
 import type {
-  WalletConnectWalletFactoryBuild,
+  WalletConnectWalletFactoryBuilder,
   WalletConnectWalletFactory as WalletConnectWalletFactoryType,
   WalletFactoryBuilder,
   WalletFactory as WalletFactoryType,
@@ -29,7 +29,10 @@ export const WalletFactory: WalletFactoryBuilder = (adapter, metadata) => {
 };
 
 // For `WalletConnect`
-export const WalletConnectWalletFactory: WalletConnectWalletFactoryBuild = (adapter, metadata) => {
+export const WalletConnectWalletFactory: WalletConnectWalletFactoryBuilder = (
+  adapter,
+  metadata,
+) => {
   return {
     isWalletConnect: true,
     adapter,

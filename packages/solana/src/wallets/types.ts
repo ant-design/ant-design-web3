@@ -9,7 +9,7 @@ export type WalletFactoryBuilder = (
   walletMetadata: WalletMetadata,
 ) => AdapterWalletFactory;
 
-export type WalletConnectWalletFactoryBuild = (
+export type WalletConnectWalletFactoryBuilder = (
   adapter: WalletConnectWalletAdapter,
   walletMetadata: WalletMetadata,
 ) => WalletConnectWalletFactory;
