@@ -11,7 +11,6 @@ import { WalletConnectWalletFactory, WalletFactory } from './factory';
 export const CoinbaseWallet = () =>
   WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet);
 
-/** @deprecated Phantom was registered as a Standard Wallet. */
 export const PhantomWallet = () => WalletFactory(new PhantomWalletAdapter(), metadata_Phantom);
 
 export const WalletConnectWallet = () =>
