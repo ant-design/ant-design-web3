@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState, type FC, type PropsWithChildren } from 'react';
+import { useMemo, useState, type FC, type PropsWithChildren } from 'react';
 import { Solana, SolanaDevnet, SolanaTestnet } from '@ant-design/web3-assets/solana';
 import type { Locale } from '@ant-design/web3-common';
 import { WalletConnectionError } from '@solana/wallet-adapter-base';
@@ -6,6 +6,7 @@ import {
   ConnectionProvider,
   WalletProvider,
   type ConnectionProviderProps,
+  type WalletProviderProps,
 } from '@solana/wallet-adapter-react';
 import { type UniversalProviderOpts } from '@walletconnect/universal-provider';
 
@@ -29,7 +30,7 @@ export interface SolanaWeb3ConfigProviderProps {
 
   //#region Solana WalletProvider specific
   autoConnect?: boolean;
-  walletProviderProps?: React.ComponentProps<typeof WalletProvider>;
+  walletProviderProps?: Omit<WalletProviderProps, 'wallets' | 'autoConnect' | 'children'>;
   //#endregion
 
   walletConnect?: UniversalProviderOpts;
@@ -50,10 +51,6 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
   const [currentChain, setCurrentChain] = useState<SolanaChainConfig | undefined>(solana);
   const [connectionError, setConnectionError] = useState<WalletConnectionError>();
   const walletConnectProviderGetter = useWalletConnectProvider(walletConnect);
-
-  const obtainWalletConnectProvider = useCallback(async () => {
-    return walletConnectProviderGetter();
-  }, [walletConnectProviderGetter]);
 
   const endpoint = useMemo(() => {
     if (typeof rpcProvider === 'function') {
@@ -107,7 +104,6 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
           onCurrentChainChange={(chain) => setCurrentChain(chain)}
           availableChains={chains || [solana]}
           connectionError={connectionError}
-          obtainWalletConnectProvider={obtainWalletConnectProvider}
         >
           {children}
         </AntDesignWeb3ConfigProvider>

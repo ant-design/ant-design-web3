@@ -6,7 +6,6 @@ import { type WalletConnectionError, type WalletName } from '@solana/wallet-adap
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 
 import type { SolanaChainConfig } from '../chains';
-import type { IUniversalProvider } from '../types';
 import { hasWalletReady } from '../utils';
 
 interface ConnectAsync {
@@ -23,7 +22,6 @@ export interface AntDesignWeb3ConfigProviderProps {
   currentChain?: SolanaChainConfig;
   availableWallets: Wallet[];
   connectionError?: WalletConnectionError;
-  obtainWalletConnectProvider?: () => Promise<IUniversalProvider | undefined>;
   onCurrentChainChange?: (chain?: SolanaChainConfig) => void;
 }
 
