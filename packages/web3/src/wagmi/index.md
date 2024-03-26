@@ -124,3 +124,5 @@ A Class for creating your own wallet, it meets the interface requirements of Wal
 ### Ethers
 
 <code src="./demos/ethers-basic.tsx"></code>
+
+<code src="./demos/ethers-more-components.tsx"></code>

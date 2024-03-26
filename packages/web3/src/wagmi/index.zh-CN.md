@@ -130,3 +130,5 @@ Ant Design Web3 内置了对 [TokenPocket](https://www.tokenpocket.pro/) 的支�
 ### Ethers
 
 <code src="./demos/ethers-basic.tsx"></code>
+
+<code src="./demos/ethers-more-components.tsx"></code>

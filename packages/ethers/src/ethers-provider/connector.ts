@@ -15,7 +15,7 @@ import {
   type ProviderConnectInfo,
   type ProviderMessage,
 } from 'viem';
-import { createConnector } from 'wagmi';
+import { createConnector, normalizeChainId, type CreateConnectorFn } from 'wagmi';
 
 export type EthersParameters = {
   provider?: Provider;
@@ -25,7 +25,9 @@ export type EthersParameters = {
 
 export type EthersStorageItem = { 'ethers.connected': true; 'ethers.disconnected': true };
 
-export const ethersConnector = (parameters: EthersParameters = {}) => {
+export const ethersConnector = (
+  parameters: EthersParameters = {},
+): CreateConnectorFn<Provider, any, EthersStorageItem> => {
   const _provider: Provider =
     parameters.provider ??
     (window.ethereum && new ethers.BrowserProvider(window.ethereum)) ??
@@ -35,6 +37,9 @@ export const ethersConnector = (parameters: EthersParameters = {}) => {
     type: 'ethers', // wagmi connector adapter for ethersjs
     id: 'ethers',
     name: 'ethers',
+
+    async setup() {},
+
     async connect(args?: { chainId?: number; isReconnecting?: boolean }): Promise<{
       accounts: readonly Address[];
       chainId: number;
@@ -91,9 +96,7 @@ export const ethersConnector = (parameters: EthersParameters = {}) => {
       return Number(network.chainId);
     },
 
-    async getProvider(
-      _parameters?: { chainId?: number | undefined } | undefined,
-    ): Promise<Provider> {
+    async getProvider(_parameters?: { chainId?: number }): Promise<Provider> {
       return _provider;
     },
 
@@ -122,19 +125,52 @@ export const ethersConnector = (parameters: EthersParameters = {}) => {
     },
 
     // events
-    onAccountsChanged: (accounts: string[]): void => {
-      throw new Error('Method not implemented');
+    async onAccountsChanged(accounts: string[]) {
+      if (accounts.length === 0) {
+        // Disconnect if there are no accounts
+        this.onDisconnect();
+      } else if (config.emitter.listenerCount('connect')) {
+        // Connect if emitter is listening for connect event (e.g. is disconnected and connects through wallet interface)
+        const chainId = (await this.getChainId()).toString();
+        this.onConnect({ chainId });
+      } else {
+        // Regular change event
+        config.emitter.emit('change', {
+          accounts: accounts.map((x) => getAddress(x)),
+        });
+      }
     },
-    onChainChanged: (chainId: string): void => {
-      throw new Error('Method not implemented');
+    async onChainChanged(id: string) {
+      const chainId = normalizeChainId(id);
+      config.emitter.emit('change', { chainId });
     },
-    onConnect: (connectInfo: ProviderConnectInfo): void => {
-      throw new Error('Method not implemented');
+    async onConnect(connectInfo: ProviderConnectInfo) {
+      const accounts = await this.getAccounts();
+      if (accounts.length === 0) return;
+
+      const chainId = normalizeChainId(connectInfo.chainId);
+      config.emitter.emit('connect', { accounts, chainId });
+
+      const provider = await this.getProvider();
+      if (provider) {
+        provider.removeListener('connect', this.onConnect.bind(this));
+        provider.on('accountsChanged', this.onAccountsChanged.bind(this));
+        provider.on('chainChanged', this.onChainChanged);
+        provider.on('disconnect', this.onDisconnect.bind(this));
+      }
     },
-    onDisconnect: (error?: Error | undefined): void => {
-      throw new Error('Method not implemented');
+    async onDisconnect(_error?: Error) {
+      const provider = await this.getProvider();
+      config.emitter.emit('disconnect');
+
+      if (provider) {
+        provider.removeListener('accountsChanged', this.onAccountsChanged.bind(this));
+        provider.removeListener('chainChanged', this.onChainChanged);
+        provider.removeListener('disconnect', this.onDisconnect.bind(this));
+        provider.on('connect', this.onConnect.bind(this));
+      }
     },
-    onMessage: (message: ProviderMessage): void => {
+    onMessage: (_message: ProviderMessage): void => {
       throw new Error('Method not implemented');
     },
   }));
