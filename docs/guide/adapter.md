@@ -15,7 +15,7 @@ Among them, `@ant-design/web3` is the most core module, which contains a series 
 
 But if the developer only uses this part of the UI components, then the part that interacts with the blockchain still needs to be implemented by the developer. For example, the interface for connecting to the blockchain, getting blockchain information, etc. need to be implemented by the developer.
 
-Therefore, we put forward the concept of an adapter, which can connect Ant Design Web3 UI components and the blockchain, so that these UI components can quickly connect to the blockchain. For example, when you use [@ant-design/web3-wagmi](../../packages/web3/src/wagmi/index.md), the `Connector`, `NFTCard` and other components can be directly connected to Ethereum.
+Therefore, we put forward the concept of an adapter, which can connect Ant Design Web3 UI components and the blockchain, so that these UI components can quickly connect to the blockchain. For example, when you use [@ant-design/web3-wagmi](../../packages/web3/src/ethereum/index.md), the `Connector`, `NFTCard` and other components can be directly connected to Ethereum.
 
 ## How does the adapter work?
 

@@ -15,7 +15,7 @@ group:
 
 但是如果开发者仅仅是使用这部分 UI 组件，那么和区块链交互的部分还需要开发者自行实现。比如连接区块链，获取区块链信息等接口都需要开发者自行实现。
 
-所以，我们提出了适配器的概念，适配器可以连接 Ant Design Web3 UI 组件和区块链，让这些 UI 组件可以快速连接上区块链。比如，当你使用了 [@ant-design/web3-wagmi](../../packages/web3/src/wagmi/index.zh-CN.md)后，`Connector`、`NFTCard` 等组件就可以直接连接上以太坊了。
+所以，我们提出了适配器的概念，适配器可以连接 Ant Design Web3 UI 组件和区块链，让这些 UI 组件可以快速连接上区块链。比如，当你使用了 [@ant-design/web3-wagmi](../../packages/web3/src/ethereum/index.zh-CN.md)后，`Connector`、`NFTCard` 等组件就可以直接连接上以太坊了。
 
 ## 适配器是如何工作的？
 

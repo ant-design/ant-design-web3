@@ -6,7 +6,11 @@ const provider = new ethers.BrowserProvider(window.ethereum);
 
 const App: React.FC = () => {
   return (
-    <EthersWeb3ConfigProvider provider={provider} wallets={[MetaMask()]}>
+    <EthersWeb3ConfigProvider
+      provider={provider}
+      wallets={[MetaMask()]}
+      // eip6963={{ autoAddInjectedWallets: true }}
+    >
       <Connector>
         <ConnectButton />
       </Connector>
