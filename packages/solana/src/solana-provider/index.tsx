@@ -11,8 +11,8 @@ import {
 import { type UniversalProviderOpts } from '@walletconnect/universal-provider';
 
 import { solana, type SolanaChainConfig } from '../chains';
-import { isWalletConnnectFactory } from '../wallets/factory';
-import { isAdapterWalletFactory, type WalletFactory } from '../wallets/types';
+import { isAdapterWalletFactory, isWalletConnnectFactory } from '../utils';
+import { type WalletFactory } from '../wallets/types';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 import { useWalletConnectProvider } from './useWalletConnectProvider';
 
