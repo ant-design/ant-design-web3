@@ -37,7 +37,7 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
 
   const getWalletIcon = (icon?: string | React.ReactNode) => {
     return typeof icon === 'string' ? (
-      <img className={classNames(__hashId__, `${prefixCls}-quick-connect-icon`)} src={icon} />
+      <img className={classNames(__hashId__, `${prefixCls}-quick-connect-icon`)} src={icon} alt='wallet-icon' />
     ) : (
       icon
     );
