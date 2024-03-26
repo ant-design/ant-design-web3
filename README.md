@@ -74,7 +74,11 @@ $ pnpm start
     <tr>
       <th colspan="2">
         <br/>
-        <img src="https://contrib.rocks/image?repo=ant-design/ant-design-web3"><br/><br/>
+        <img
+          alt="Contributors of ant-design/ant-design-web3"
+          src="https://contrib.rocks/image?repo=ant-design/ant-design-web3"
+        />
+        <br/><br/>
       </th>
     </tr>
     <tr>
