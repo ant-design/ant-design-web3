@@ -97,8 +97,8 @@ importers:
         specifier: ^2.2.17
         version: 2.2.17(@babel/core@7.24.3)(@types/node@20.10.5)(@types/react@18.2.65)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(stylelint@14.16.1)(typescript@5.4.2)(webpack@5.89.0)
       dumi-theme-antd-web3:
-        specifier: ^0.3.13
-        version: 0.3.13(@babel/core@7.24.3)(@types/react@18.2.65)(antd@5.15.4)(dumi@2.2.17)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 0.3.14-bate.2
+        version: 0.3.14-bate.2(@babel/core@7.24.3)(@types/react@18.2.65)(antd@5.15.4)(dumi@2.2.17)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -15086,8 +15086,8 @@ packages:
     resolution: {integrity: sha512-a/Y5lf0G6gwsEQ9hop/n03CcjmHsGBk384Cz/AEX6mRYrfSpUx/lQvP9HLoXkCzScl9PL1sSmLPnMkgaXDCZLA==}
     dev: true
 
-  /dumi-theme-antd-web3@0.3.13(@babel/core@7.24.3)(@types/react@18.2.65)(antd@5.15.4)(dumi@2.2.17)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Rja86ncCULN/GUrKmOq2vpUNMHy/sA+6acYvhWVdz0ngee+C0s2Qafiu+U1k52F37XceVyySpdzwNzImcWkIcg==}
+  /dumi-theme-antd-web3@0.3.14-bate.2(@babel/core@7.24.3)(@types/react@18.2.65)(antd@5.15.4)(dumi@2.2.17)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-RxyFeVRNHe9sdWT4gf4sTm80HXhAJ5S2yb0jGGD3WYtMs0s6NwRyy++QP9A1/PASPh+Qk9lkfSNwTqbxuX5cPA==}
     peerDependencies:
       antd: ~5.7.0
       dumi: ~2.2.17
