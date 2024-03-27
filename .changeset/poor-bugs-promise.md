@@ -2,5 +2,5 @@
 '@ant-design/web3': patch
 ---
 
-- fix lint error
-- BrowerLink props extend anchor element
+- fix: fix lint error
+- feat: BrowerLink props extend anchor element
