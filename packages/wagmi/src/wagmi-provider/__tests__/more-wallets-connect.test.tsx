@@ -40,7 +40,7 @@ describe('more-wallets-connect', () => {
         }),
         walletConnect({
           showQrModal: false,
-          projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
+          projectId: 'YOUR_WALLET_CONNECT_PROJECT_ID',
         }),
         injected({
           target() {
@@ -108,7 +108,7 @@ describe('more-wallets-connect', () => {
       connectors: [
         walletConnect({
           showQrModal: false,
-          projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
+          projectId: 'YOUR_WALLET_CONNECT_PROJECT_ID',
         }),
       ],
     });
@@ -141,7 +141,7 @@ describe('more-wallets-connect', () => {
       connectors: [
         walletConnect({
           showQrModal: false,
-          projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
+          projectId: 'YOUR_WALLET_CONNECT_PROJECT_ID',
         }),
       ],
     });
@@ -189,7 +189,7 @@ describe('more-wallets-connect', () => {
       connectors: [
         walletConnect({
           showQrModal: false,
-          projectId: 'YOUR_WALLET_CONNET_PROJECT_ID',
+          projectId: 'YOUR_WALLET_CONNECT_PROJECT_ID',
         }),
       ],
     });

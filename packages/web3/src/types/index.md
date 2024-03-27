@@ -90,3 +90,7 @@ This is an enum type that contains the IDs of some commonly used chains. Its val
 | disconnect | Disconnect from the chain | `() => Promise<void>` | - | - |
 | switchChain | Switch to another chain | `(chainId: ChainIds) => Promise<void>` | - | - |
 | getNFTMetadata | Get the metadata of the NFT | `(contractAddress: string, tokenId: string) => Promise<NFTMetadata>` | - | - |
+
+## Locale
+
+Internationalization support text can be found in the [code](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/en_US.ts).

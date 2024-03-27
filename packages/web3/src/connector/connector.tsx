@@ -61,26 +61,27 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         onConnectClick: async (wallet?: Wallet) => {
           if (!wallet) {
             setOpen(true);
+            return;
           }
           if (await wallet?.hasExtensionInstalled?.()) {
-            // call extnesion directly
+            // call extension directly
             connectWallet(wallet, {
               connectType: 'extension',
             });
-          } else {
-            // show qr code
-            if (actionRef.current?.selectWallet) {
-              // ConnectModal already mounted, call select
-              actionRef.current.selectWallet(wallet);
-            } else {
-              // ConnectModal not mounted, set defaultSelectWallet
-              connectWallet(wallet, {
-                connectType: 'qrCode',
-              });
-              setDefaultSelectedWallet(wallet);
-            }
-            setOpen(true);
+            return;
           }
+          // show qr code
+          if (actionRef.current?.selectWallet) {
+            // ConnectModal already mounted, call select
+            actionRef.current.selectWallet(wallet);
+          } else {
+            // ConnectModal not mounted, set defaultSelectWallet
+            connectWallet(wallet, {
+              connectType: 'qrCode',
+            });
+            setDefaultSelectedWallet(wallet);
+          }
+          setOpen(true);
         },
         onDisconnectClick: () => {
           setLoading(true);

@@ -91,7 +91,7 @@ You can use more components together. The content related to the chain in the co
 
 ## Use web3modal for WalletConnect
 
-When the `showQrModal` configuration is not `false`, the built-in [web3modal](https://web3modal.com/) pop-up window of WallectConnect will be used.
+When the `showQrModal` configuration is not `false`, the built-in [web3modal](https://web3modal.com/) pop-up window of WalletConnect will be used.
 
 <code src="./demos/web3modal.tsx"></code>
 

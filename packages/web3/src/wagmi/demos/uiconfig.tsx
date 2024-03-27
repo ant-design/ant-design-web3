@@ -16,7 +16,7 @@ const config = createConfig({
     }),
     walletConnect({
       showQrModal: false,
-      projectId: YOUR_WALLET_CONNET_PROJECT_ID,
+      projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
     }),
   ],
 });
