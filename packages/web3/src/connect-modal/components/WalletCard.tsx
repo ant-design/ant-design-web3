@@ -57,10 +57,7 @@ const WalletCard: React.FC = () => {
             link={selectedExtension.link}
             icon={
               typeof selectedExtension.browserIcon === 'string' ? (
-                <img
-                  alt='selected extension browser icon'
-                  src={selectedExtension.browserIcon}
-                />
+                <img alt="selected extension browser icon" src={selectedExtension.browserIcon} />
               ) : (
                 selectedExtension.browserIcon
               )
@@ -72,14 +69,12 @@ const WalletCard: React.FC = () => {
             desc={selectedExtension.description}
           />
         )}
+
         {selectedWallet?.app && (
           <CardItem
             icon={
               typeof selectedWallet.icon === 'string' ? (
-                <img
-                  alt='selected wallet icon'
-                  src={selectedWallet.icon}
-                />
+                <img alt="selected wallet icon" src={selectedWallet.icon} />
               ) : (
                 selectedWallet.icon
               )
