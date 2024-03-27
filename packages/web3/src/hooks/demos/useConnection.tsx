@@ -11,10 +11,10 @@ const Demo: React.FC = () => {
         onClick={() => {
           if (account) {
             disconnect?.();
-          } else {
-            console.log('connect');
-            connect?.();
+            return;
           }
+          console.log('connect');
+          connect?.();
         }}
       >
         {account ? 'Disconnect' : 'Connect'}

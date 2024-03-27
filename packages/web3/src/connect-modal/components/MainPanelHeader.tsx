@@ -14,12 +14,12 @@ const MainPanelHeader: React.FC<MainPanelHeaderProps> = (props) => {
   const { prefixCls, panelRouteBack, canBack } = useContext(connectModalContext);
 
   const handleBack = async () => {
-    if (onBack) {
-      const isBack = await onBack();
-      if (isBack !== false) {
-        panelRouteBack();
-      }
-    } else {
+    if (!onBack) {
+      panelRouteBack();
+      return;
+    }
+    const isBack = await onBack();
+    if (isBack !== false) {
       panelRouteBack();
     }
   };
