@@ -1,6 +1,6 @@
 <div align="center">
 
-<img height="180" src="https://github.com/ant-design/ant-design/assets/507615/12d2c16d-92b1-4202-ba6f-4da5ee3622ba">
+<img height="180" alt="ant design web3 logo" src="https://github.com/ant-design/ant-design/assets/507615/12d2c16d-92b1-4202-ba6f-4da5ee3622ba">
 
 <h1 align="center">Ant Design Web3</h1>
 
@@ -135,4 +135,8 @@ $ pnpm start
 
 ## Star 趋势
 
-[![Star History Chart](https://api.star-history.com/svg?repos=ant-design/ant-design-web3&type=Date)](https://star-history.com/#ant-design/ant-design-web3&Date)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ant-design/ant-design-web3&type=Date&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ant-design/ant-design-web3&type=Date" />
+  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ant-design/ant-design-web3&type=Date" />
+</picture>

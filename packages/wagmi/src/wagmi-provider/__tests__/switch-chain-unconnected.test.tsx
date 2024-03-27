@@ -51,8 +51,8 @@ vi.mock('wagmi', () => {
   };
 });
 
-describe('switch chain when not conncted', () => {
-  it('switch chain when not conncted', () => {
+describe('switch chain when not connected', () => {
+  it('switch chain when not connected', () => {
     const App = () => (
       <AntDesignWeb3ConfigProvider
         availableConnectors={[]}

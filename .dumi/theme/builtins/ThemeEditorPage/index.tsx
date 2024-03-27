@@ -1,21 +1,12 @@
 import React from 'react';
 import { ConfigProvider, message } from 'antd';
-import {
-  defaultAntdComponents,
-  parsePlainConfig,
-  parseThemeConfig,
-  Previewer,
-} from 'antd-token-previewer-web3';
+import { useTheme } from 'antd-style';
+import { parsePlainConfig, parseThemeConfig, Previewer } from 'antd-token-previewer-web3';
+import antdEnUS from 'antd/locale/en_US';
+import antdZhCN from 'antd/locale/zh_CN';
 import { useLocale } from 'dumi';
 
 import { components, demos } from './demos';
-
-import 'antd/es/style/reset.css';
-
-import { useTheme } from 'antd-style';
-import antdEnUS from 'antd/locale/en_US';
-import antdZhCN from 'antd/locale/zh_CN';
-
 import styles from './index.module.less';
 
 const ANT_DESIGN_WEB3_CUSTOM_THEME = 'ant-design-web3-custom-theme';
