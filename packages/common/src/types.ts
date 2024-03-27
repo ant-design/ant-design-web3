@@ -246,3 +246,7 @@ export interface Locale {
   NFTCard?: Partial<RequiredLocale['NFTCard']>;
   Address?: Partial<RequiredLocale['Address']>;
 }
+
+export interface UniversalEIP6963Config {
+  autoAddInjectedWallets?: boolean;
+}

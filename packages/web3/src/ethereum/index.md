@@ -3,6 +3,9 @@ nav: Components
 group:
   title: Adapter
   order: 1
+tag:
+  title: Update
+  color: success
 ---
 
 # Ethereum
@@ -121,3 +124,9 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 ### UniversalWallet
 
 A Class for creating your own wallet, it meets the interface requirements of WalletFactory. For specific use, please refer to the example in [Customize Wallet Information](#customize-wallet-information).
+
+### Ethers
+
+<code src="./demos/ethers-basic.tsx"></code>
+
+<code src="./demos/ethers-more-components.tsx"></code>

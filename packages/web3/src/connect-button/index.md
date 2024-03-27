@@ -8,7 +8,7 @@ order: 1
 
 The button to connect to the blockchain wallet. Usually, you need to use it with the [Connector](../connector/index.md) component.
 
-> Note: **The examples in this document are just pure UI examples**. In Ant Design Web3, the UI module and the connection module are separated. To connect to the wallet, please refer to the documentation of [Ethereum Adapter](../wagmi/index.md) or read the [Adapter documentation](../../../../docs/guide/adapter.md) for more information.
+> Note: **The examples in this document are just pure UI examples**. In Ant Design Web3, the UI module and the connection module are separated. To connect to the wallet, please refer to the documentation of [Ethereum Adapter](../ethereum/index.md) or read the [Adapter documentation](../../../../docs/guide/adapter.md) for more information.
 
 ## Basic Usage
 

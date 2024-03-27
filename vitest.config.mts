@@ -24,6 +24,7 @@ export default defineConfig({
       '@ant-design/web3-assets/solana': resolve('./packages/assets/dist/esm/solana/index'),
       '@ant-design/web3-assets': resolve('./packages/assets/dist/esm/index'),
       '@ant-design/web3-wagmi': resolve('./packages/wagmi/dist/esm/index'),
+      '@ant-design/web3-ethers': resolve('./packages/ethers/dist/esm/index'),
       '@ant-design/web3-solana': resolve('./packages/solana/dist/esm/index'),
       '@ant-design/web3-common': resolve('./packages/common/dist/esm/index'),
     } : {
@@ -32,6 +33,7 @@ export default defineConfig({
       '@ant-design/web3-assets/solana': resolve('./packages/assets/src/solana/index'),
       '@ant-design/web3-assets': resolve('./packages/assets/src/index'),
       '@ant-design/web3-wagmi': resolve('./packages/wagmi/src/index'),
+      '@ant-design/web3-ethers': resolve('./packages/ethers/src/index'),
       '@ant-design/web3-solana': resolve('./packages/solana/src/index'),
       '@ant-design/web3-common': resolve('./packages/common/src/index'),
     },
