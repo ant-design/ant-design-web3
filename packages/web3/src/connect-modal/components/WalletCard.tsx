@@ -69,7 +69,6 @@ const WalletCard: React.FC = () => {
             desc={selectedExtension.description}
           />
         )}
-
         {selectedWallet?.app && (
           <CardItem
             icon={
