@@ -34,6 +34,7 @@ export const Banner: React.FC = () => {
               href="https://github.com/ant-design/ant-design-web3"
               target="_blank"
               rel="noreferrer"
+              className={styles.link}
             >
               GitHub
             </a>
