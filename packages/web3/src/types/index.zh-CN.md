@@ -91,3 +91,7 @@ order: 3
 | disconnect | 断开钱包连接 | `() => Promise<void>` | - | - |
 | switchChain | 切换链 | `(chain: Chain) => Promise<void>` | - | - |
 | getNFTMetadata | 获取 NFT 的元数据 | `(params: { address: string; tokenId: bigint \| number }) => Promise<NFTMetadata>` | - | - |
+
+## Locale
+
+国际化支持的文案请参考[代码](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts)。

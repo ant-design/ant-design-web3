@@ -17,10 +17,10 @@ Provide global configuration and states for components.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/b3b5e19be68fd67c24f20341365fad188ed499d5/packages/common/src/types.ts#L212) | - |  |
+| locale | Multilingual settings | [Locale](/components/types#locale) | - |  |
 | account | Account | [Account](/components/types#account) | - |  |
 | chain | Chain | [Chain](/components/types#chain) | - |  |
-| balance | Balance | [Balance](/components/connect-button#balance-1) | - |  |
+| balance | Balance | [Balance](/components/connect-button#balance) | - |  |
 | availableWallets | List of available wallets | [Wallet](/components/types#wallet)\[] | - |  |
 | availableChains | List of available chains | [Chain](/components/types#chain)\[] | - |  |
 | extendsContextFromParent | extends context from parent `Provider` | `boolean` | `true` |  |
