@@ -3,4 +3,4 @@
 ---
 
 - fix lint error
-- add target and rel attributes to anchor
+- BrowerLink props extend anchor element
