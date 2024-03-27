@@ -7,7 +7,7 @@ import { Address } from '../address';
 import useProvider from '../hooks/useProvider';
 import { fillWithPrefix } from '../utils';
 
-export interface BrowserLinkProps extends React.ComponentProps<'a'> {
+export interface BrowserLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   icon?: boolean | React.ReactNode;
   iconStyle?: React.CSSProperties;
   iconOnly?: boolean;
