@@ -1,0 +1,55 @@
+# Origin Source
+# https://github.com/ant-design/ant-design/blob/79f566b7f8abb1012ef55b0d2793bfdf5595b85d/.github/workflows/issue-reply.yml
+name: Issue Labeled
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: read
+
+jobs:
+  issue-labeled:
+    permissions:
+      issues: write  # for actions-cool/issues-helper to update issues
+      pull-requests: write  # for actions-cool/issues-helper to update PRs
+    runs-on: ubuntu-latest
+    steps:
+      - name: help wanted
+        if: github.event.label.name == 'help wanted'
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hello @${{ github.event.issue.user.login }}. We totally like your proposal/feedback, welcome to [send us a Pull Request](https://help.github.com/en/articles/creating-a-pull-request) for it. provide changelog/documentation/test cases if needed and make sure CI passed, we will review it soon. We appreciate your effort in advance and looking forward to your contribution!
+
+            你好 @${{ github.event.issue.user.login }}，我们完全同意你的提议/反馈，欢迎直接在此仓库 [创建一个 Pull Request](https://help.github.com/en/articles/creating-a-pull-request) 来解决这个问题。提供改动所需相应的 changelog、测试用例、文档等，并确保 CI 通过，我们会尽快进行 Review，提前感谢和期待您的贡献。
+
+
+      - name: Need Reproduce
+        if: github.event.label.name == 'Need Reproduce'
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hello @${{ github.event.issue.user.login }}. We need you to provide us with a reproducible example online so that we can help you troubleshoot the problem..
+
+            你好 @${{ github.event.issue.user.login }}，我们需要你提供一个在线的重现实例以便于我们帮你排查问题。
+
+
+      - name: invalid
+        if: github.event.label.name == 'Invalid'
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment,close-issue'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hello @${{ github.event.issue.user.login }}, your issue has been closed because it does not conform to our issue requirements.
+
+            你好 @${{ github.event.issue.user.login }}，为了能够进行高效沟通，我们对 issue 有一定的格式要求，你的 issue 因为不符合要求而被自动关闭。
