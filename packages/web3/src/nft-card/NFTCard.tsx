@@ -1,5 +1,5 @@
 import type { PropsWithChildren, ReactNode } from 'react';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Icon from '@ant-design/icons';
 import {
   getWeb3AssetUrl,
@@ -84,7 +84,7 @@ const NFTCard: React.FC<NFTCardProps> = (props) => {
     locale,
     ...metadataProps
   } = props;
-  const { liked, totalLikes = 0, onLikeChange } = likeConfig || {};
+  const { liked = false, totalLikes = 0, onLikeChange } = likeConfig || {};
   const { token } = useToken();
   const { metadata, loading } = useNFT(address, parseNumberToBigint(tokenId), getNFTMetadata);
   const {
@@ -107,13 +107,11 @@ const NFTCard: React.FC<NFTCardProps> = (props) => {
     hashId,
   );
 
-  const [like, setLike] = useState(false);
+  const [like, setLike] = useState(liked);
 
   const handleLikeChange = () => {
     const likeValue = !like;
-    if (liked === undefined) {
-      setLike(likeValue);
-    }
+    setLike(likeValue);
     onLikeChange?.(likeValue);
   };
 
@@ -148,18 +146,12 @@ const NFTCard: React.FC<NFTCardProps> = (props) => {
     </div>
   );
 
-  useEffect(() => {
-    if (liked !== undefined) {
-      setLike(liked);
-    }
-  }, [liked]);
-
   const content = (
     <>
       <div className={`${prefixCls}-content`}>
-        {type !== 'pithy' && tokenId !== undefined ? (
+        {type !== 'pithy' && tokenId !== undefined && (
           <div className={`${prefixCls}-serial-number`}>{`#${tokenId}`}</div>
-        ) : null}
+        )}
         {typeof image === 'string' ? (
           <Image
             width="100%"
@@ -172,18 +164,18 @@ const NFTCard: React.FC<NFTCardProps> = (props) => {
         )}
       </div>
       <div className={`${prefixCls}-body`}>
-        {tokenId !== undefined && type === 'pithy' ? (
+        {tokenId !== undefined && type === 'pithy' && (
           <div className={`${prefixCls}-serial-number`}>No:{tokenId.toString()}</div>
-        ) : null}
-        {name ? <div className={`${prefixCls}-name`}>{name}</div> : null}
-        {description ? <div className={`${prefixCls}-description`}>{description}</div> : null}
+        )}
+        {name && <div className={`${prefixCls}-name`}>{name}</div>}
+        {description && <div className={`${prefixCls}-description`}>{description}</div>}
         <div className={`${prefixCls}-info`}>
-          {price ? (
+          {price && (
             <div className={`${prefixCls}-price`}>
               <CryptoPrice {...price} />
             </div>
-          ) : null}
-          {likeConfig ? (
+          )}
+          {likeConfig && (
             <div className={`${prefixCls}-likes`}>
               <div
                 className={classNames(`${prefixCls}-like-icon`, {
@@ -192,25 +184,25 @@ const NFTCard: React.FC<NFTCardProps> = (props) => {
                 onClick={handleLikeChange}
               >
                 {iconLikeGroup}
-                {!like ? (
+                {!like && (
                   <Icon component={HeartSvg} className={`${prefixCls}-like-icon-icon-heart`} />
-                ) : null}
+                )}
               </div>
               <span className={`${prefixCls}-like-value`}>{formatNumUnit(totalLikes)}</span>
             </div>
-          ) : null}
+          )}
         </div>
-        {showAction ? (
+        {showAction && (
           <div className={`${prefixCls}-action`}>
             <Button onClick={onActionClick}>{actionText ?? messages.actionText}</Button>
           </div>
-        ) : null}
-        {footer ? (
+        )}
+        {footer && (
           <div className={`${prefixCls}-footer`}>
             <Divider dashed />
             {footer}
           </div>
-        ) : null}
+        )}
       </div>
     </>
   );
