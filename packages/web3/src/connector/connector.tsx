@@ -61,7 +61,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         onConnectClick: async (wallet?: Wallet) => {
           if (wallet) {
             if (await wallet?.hasExtensionInstalled?.()) {
-              // call extnesion directly
+              // call extension directly
               connectWallet(wallet, {
                 connectType: 'extension',
               });

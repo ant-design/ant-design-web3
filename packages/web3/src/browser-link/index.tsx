@@ -7,7 +7,7 @@ import { Address } from '../address';
 import useProvider from '../hooks/useProvider';
 import { fillWithPrefix } from '../utils';
 
-export interface BrowserLinkProps {
+export interface BrowserLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   icon?: boolean | React.ReactNode;
   iconStyle?: React.CSSProperties;
   iconOnly?: boolean;
@@ -34,6 +34,7 @@ export const getBrowserLink = (
 export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
   const {
     icon,
+    iconStyle,
     ellipsis,
     address,
     addressPrefix: addressPrefixProp,
@@ -42,6 +43,7 @@ export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
     chain,
     name,
     iconOnly = false,
+    ...rest
   } = props;
   const { chain: currentChain = Mainnet, addressPrefix: addressPrefixContext } = useProvider({
     chain,
@@ -51,7 +53,7 @@ export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
   const displayIcon = React.isValidElement(mergedIcon)
     ? React.cloneElement<any>(mergedIcon, {
         style: {
-          ...props.iconStyle,
+          ...iconStyle,
           ...mergedIcon.props.style,
         },
       })
@@ -67,7 +69,7 @@ export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
 
   const renderContent = (content: React.ReactNode) => (
     <Tooltip title={filledAddress}>
-      <a href={browserLink} style={{ display: 'inline-block' }}>
+      <a href={browserLink} style={{ display: 'inline-block' }} {...rest}>
         <Space size="small">
           {displayIcon}
           {!iconOnly && content}
