@@ -42,7 +42,7 @@ export type UseStyleResult = {
 
 export type Web3AliasToken = GlobalToken & {
   /**
-   * classname for web3 compoennts
+   * className for web3 components
    * @type {string}
    * @example .ant-pro
    */
