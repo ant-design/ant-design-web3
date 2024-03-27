@@ -1,6 +1,6 @@
 ---
-'@ant-design/web3-wagmi': major
-'@ant-design/web3': major
+'@ant-design/web3-wagmi': patch
+'@ant-design/web3': patch
 ---
 
-修改connet错误拼写
+fix: Correct typos for connect
