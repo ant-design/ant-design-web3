@@ -17,6 +17,8 @@ const App: React.FC = () => {
           padding: 8,
           borderRadius: '50%',
         }}
+        target="_blank"
+        rel="noopener noreferrer"
       />
     </Space>
   );
