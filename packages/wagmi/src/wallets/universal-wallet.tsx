@@ -4,8 +4,10 @@ import type { Connector } from 'wagmi';
 import type { WalletFactory, WalletUseInWagmiAdapter } from '../interface';
 
 export class UniversalWallet implements WalletFactory {
-  connectors: string[] = [];
+  public name?: string;
+  public connectors: string[] = [];
   constructor(private wallet: WalletMetadata) {
+    this.name = wallet.name;
     if (wallet.extensions) {
       // support injected connector
       // https://wagmi.sh/react/connectors/injected

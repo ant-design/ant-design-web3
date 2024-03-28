@@ -4,24 +4,19 @@ import {
   WagmiWeb3ConfigProvider,
   type WagmiWeb3ConfigProviderProps,
 } from '@ant-design/web3-wagmi';
-import type { Provider, Signer } from 'ethers';
 import type { Chain } from 'viem';
 import { createConfig, http, type CreateConfigParameters } from 'wagmi';
 import * as wagmiChains from 'wagmi/chains';
-import { walletConnect as walletConnectConnector } from 'wagmi/connectors';
+import * as wagmiConnectors from 'wagmi/connectors';
 
 import { WalletConnectFactory } from '../wallets/wallet-connect';
-import { ethersConnector } from './connector';
 
 export interface EthersWeb3ConfigProviderProps
-  extends Omit<WagmiWeb3ConfigProviderProps, 'config'> {
-  provider?: Provider;
-  signer?: Signer;
-}
+  extends Omit<WagmiWeb3ConfigProviderProps, 'config'> {}
 
 export const EthersWeb3ConfigProvider: React.FC<
   React.PropsWithChildren<EthersWeb3ConfigProviderProps>
-> = ({ children, provider, signer, ...props }) => {
+> = ({ children, ...props }) => {
   const chains = React.useMemo(
     () =>
       (props.chains ?? [Mainnet])
@@ -46,19 +41,24 @@ export const EthersWeb3ConfigProvider: React.FC<
 
   const wagmiConfig = React.useMemo(() => {
     const transports = Object.fromEntries(chains.map((chain) => [chain.id, http()]));
-    const connectors: CreateConfigParameters['connectors'] = [
-      ethersConnector({ provider, signer }),
-    ];
+    const connectors: CreateConfigParameters['connectors'] = [wagmiConnectors.injected()];
+
+    (props.wallets ?? []).forEach((wallet) => {
+      if (wallet.name) {
+        connectors.push(wagmiConnectors.injected({ target: wallet.name as any }));
+      }
+    });
+
     if (walletConnect?.params?.projectId) {
       connectors.push(
-        walletConnectConnector({
+        wagmiConnectors.walletConnect({
           ...walletConnect.params,
           showQrModal: walletConnect.useWalletConnectOfficialModal,
         }),
       );
     }
     return createConfig({ chains, transports, connectors });
-  }, [chains, provider, signer, walletConnect]);
+  }, [chains, walletConnect, props.wallets]);
 
   return (
     <WagmiWeb3ConfigProvider config={wagmiConfig} {...props}>

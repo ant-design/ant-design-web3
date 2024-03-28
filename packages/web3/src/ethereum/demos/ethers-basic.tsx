@@ -3,30 +3,38 @@ import {
   EthersWeb3ConfigProvider,
   MetaMask,
   OkxWallet,
+  useBlockNumber,
+  useEthersProvider,
+  useEthersSigner,
   WalletConnect,
 } from '@ant-design/web3-ethers';
-import { ethers } from 'ethers';
+import { Typography } from 'antd';
 
-const provider = new ethers.BrowserProvider(window.ethereum);
+const AddressPreviewer = () => {
+  const provider = useEthersProvider(); // ethers provider
+  const signer = useEthersSigner();
+  const blockNumber = useBlockNumber();
+
+  return (
+    <Typography.Paragraph>
+      address: {signer?.address ?? '-'} (at {Number(blockNumber.data)})
+    </Typography.Paragraph>
+  );
+};
 
 const App: React.FC = () => {
   return (
     <EthersWeb3ConfigProvider
-      provider={provider}
       wallets={[
         MetaMask(),
         OkxWallet(),
         WalletConnect({ projectId: YOUR_WALLET_CONNET_PROJECT_ID }),
       ]}
     >
-      <Connector
-        onConnected={() => {
-          console.log('connected');
-          (window as any).provider = provider;
-        }}
-      >
+      <Connector>
         <ConnectButton />
       </Connector>
+      <AddressPreviewer />
     </EthersWeb3ConfigProvider>
   );
 };

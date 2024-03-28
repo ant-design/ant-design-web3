@@ -13,6 +13,7 @@ export interface WalletUseInWagmiAdapter extends Wallet {
 export type EthereumWallet = (metadata?: Partial<WalletMetadata>) => WalletFactory;
 
 export interface WalletFactory {
+  name?: string;
   connectors: Connector['name'][];
   create: (connector?: readonly Connector[]) => WalletUseInWagmiAdapter;
 }

@@ -1,10 +1,8 @@
 import { metadata_WalletConnect } from '@ant-design/web3-assets';
 import type { WalletMetadata } from '@ant-design/web3-common';
-import type { WalletUseInWagmiAdapter } from '@ant-design/web3-wagmi';
+import type { WalletFactory, WalletUseInWagmiAdapter } from '@ant-design/web3-wagmi';
 import type { Connector } from 'wagmi';
 import type { WalletConnectParameters } from 'wagmi/connectors';
-
-import { UniversalWallet } from './universal-wallet';
 
 export type WalletConnectConnectorParams = Pick<
   WalletConnectParameters,
@@ -23,9 +21,25 @@ export interface WalletConnectMetadata
   useWalletConnectOfficialModal?: boolean;
 }
 
-export class WalletConnectFactory extends UniversalWallet {
+export class WalletConnectFactory implements WalletFactory {
   public params: WalletConnectParameters;
   public useWalletConnectOfficialModal: boolean = false;
+  public connectors: string[] = ['ethers', 'WalletConnect'];
+
+  protected wallet: WalletMetadata;
+  protected qrCodeUri?: string;
+  protected getQrCode = async (walletConnector: Connector) => {
+    const provider = await walletConnector?.getProvider();
+    return new Promise<{ uri: string }>((resolve) => {
+      if (this.qrCodeUri) {
+        return resolve({ uri: this.qrCodeUri });
+      }
+      (provider as any)?.on('display_uri', (uri: string) => {
+        this.qrCodeUri = uri;
+        resolve({ uri });
+      });
+    });
+  };
 
   public constructor({
     disableProviderPing,
@@ -38,7 +52,8 @@ export class WalletConnectFactory extends UniversalWallet {
     useWalletConnectOfficialModal = false,
     ...wallet
   }: WalletConnectMetadata) {
-    super({ ...metadata_WalletConnect, ...wallet });
+    this.wallet = { ...metadata_WalletConnect, ...wallet };
+    this.connectors.push(this.wallet.name);
     this.useWalletConnectOfficialModal = useWalletConnectOfficialModal;
     this.params = {
       disableProviderPing,
