@@ -94,6 +94,12 @@ Ant Design Web3 内置了对 [TokenPocket](https://www.tokenpocket.pro/) 的支�
 
 <code src="./demos/web3modal.tsx"></code>
 
+## 登陆
+
+连接钱包后通过 `onConnected` 回调签名用户信息完成登陆。
+
+<code src="./demos/signin.tsx"></code>
+
 ## API
 
 ### WagmiWeb3ConfigProviderProps

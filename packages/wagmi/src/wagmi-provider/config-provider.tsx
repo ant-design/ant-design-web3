@@ -7,6 +7,11 @@ import {
   type Locale,
   type Wallet,
 } from '@ant-design/web3-common';
+import {
+  signTypedData,
+  signMessage as wagmiSignMessage,
+  type SignTypedDataParameters,
+} from '@wagmi/core';
 import type { Chain as WagmiChain } from 'viem';
 import {
   useAccount,
@@ -231,6 +236,28 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       getNFTMetadata={async ({ address: contractAddress, tokenId }) =>
         getNFTMetadata(config, contractAddress, tokenId, chain?.id)
       }
+      signMessage={async (message) => {
+        let signature: string;
+        if (typeof message === 'string') {
+          signature = await wagmiSignMessage(config, { message });
+        } else if (message?.raw && message.raw instanceof Uint8Array) {
+          signature = await wagmiSignMessage(config, {
+            account: account?.address as `0x${string}`,
+            message: { raw: message.raw },
+          });
+        } else {
+          // ERC712 spec the typed data must be an object and contains types and message
+          // See: https://eips.ethereum.org/EIPS/eip-712
+          // Here should do some validation for the typed data.
+          const typedData = message as SignTypedDataParameters;
+
+          if (!typedData?.types || !typedData?.message) {
+            throw new Error("The 'message' and 'types' is required for signTypedData");
+          }
+          signature = await signTypedData(config, typedData);
+        }
+        return { signature };
+      }}
     >
       {children}
     </Web3ConfigProvider>

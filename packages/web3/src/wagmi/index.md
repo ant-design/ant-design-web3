@@ -95,6 +95,12 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 
 <code src="./demos/web3modal.tsx"></code>
 
+## Sign in
+
+After connecting the wallet, complete the login by signing the user information through `onConnected` callback.
+
+<code src="./demos/signin.tsx"></code>
+
 ## API
 
 ### WagmiWeb3ConfigProviderProps
