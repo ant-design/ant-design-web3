@@ -1,6 +1,6 @@
 import { ConnectModal } from '@ant-design/web3';
 import { metadata_MetaMask } from '@ant-design/web3-assets';
-import { Wallet } from '@ant-design/web3-common';
+import type { Wallet } from '@ant-design/web3-common';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
