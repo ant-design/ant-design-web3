@@ -22,6 +22,10 @@ To reduce the size of the package you're including, you need to manually configu
 
 <code src="./demos/more-wallets.tsx"></code>
 
+## WalletConnect
+
+<code src="./demos/wallet-connect.tsx"></code>
+
 ## Support switch chains
 
 We have built-in support for the Solana mainnet (`mainnet-beta`). To support other networks, you need to configure the `chains` and import the relevant resources. The import process is similar to that for wallets.
@@ -47,8 +51,9 @@ You can use more components together. The content related to the chain in the co
 | rpcProvider | RPC provider for connecting nodes | (chain?: [Chain](./types#chain)) => string | - | - |
 | connectionConfig | Configuration for instantiating a Connection | [ConnectionConfig](https://solana-labs.github.io/solana-web3.js/types/ConnectionConfig.html) | - | - |
 | balance | Whether to display balance | `boolean` | - | - |
-| chains | Chains | SolanaChainConfig\[\] | - | \[solana\] |
+| chains | Chains | SolanaChainConfig\[\] | - | - |
 | wallets | Wallets | WalletFactory\[\] | - | - |
 | autoConnect | Whether to connect automatically | `boolean` | `false` | - |
 | walletProviderProps | Transparent to WalletProvider | [WalletProviderProps](https://github.com/solana-labs/wallet-adapter/blob/master/packages/core/react/src/WalletProvider.tsx#L17) | - | - |
 | locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
+| walletConnect | WalletConnect configs | [UniversalProviderOpts](https://github.com/WalletConnect/walletconnect-monorepo/blob/v2.0/providers/universal-provider/src/types/misc.ts#L9) | - | - |

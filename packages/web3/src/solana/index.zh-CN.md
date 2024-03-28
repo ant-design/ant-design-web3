@@ -23,6 +23,10 @@ Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它
 
 <code src="./demos/more-wallets.tsx"></code>
 
+## 使用 WalletConnect 协议
+
+<code src="./demos/wallet-connect.tsx"></code>
+
 ## 支持切换网络
 
 我们内置了 Solana 主网 `mainnet-beta`，其余的网络需要配置 `chains`，并引入相关资源才可支持。引入方式和钱包类似。
@@ -48,8 +52,9 @@ Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它
 | rpcProvider | 连接节点的 RPC 提供商 | (chain?: [Chain](./types#chain)) => string | - | - |
 | connectionConfig | 连接节点的配置 | [ConnectionConfig](https://solana-labs.github.io/solana-web3.js/types/ConnectionConfig.html) | - | - |
 | balance | 是否显示余额 | `boolean` | - | - |
-| chains | 可用的链 | SolanaChainConfig\[\] | - | \[solana\] |
+| chains | 可用的链 | SolanaChainConfig\[\] | - | - |
 | wallets | 可用的钱包 | WalletFactory\[\] | - | - |
 | autoConnect | 是否自动连接 | `boolean` | `false` | - |
 | walletProviderProps | WalletProvider 的属性 | [WalletProviderProps](https://github.com/solana-labs/wallet-adapter/blob/master/packages/core/react/src/WalletProvider.tsx#L17) | - | - |
 | locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
+| walletConnect | WalletConnect 配置 | [UniversalProviderOpts](https://github.com/WalletConnect/walletconnect-monorepo/blob/v2.0/providers/universal-provider/src/types/misc.ts#L9) | - | - |

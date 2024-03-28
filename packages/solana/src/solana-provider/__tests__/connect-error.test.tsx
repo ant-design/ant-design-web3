@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useProvider } from '@ant-design/web3';
 import type { ConnectionContextState } from '@solana/wallet-adapter-react';
 import { fireEvent } from '@testing-library/react';
@@ -28,8 +28,25 @@ const mockSelectWalletFn = vi.fn();
 const mockWalletChanged = vi.fn();
 const mockSelectWalletFnNotWalletName = vi.fn();
 
+const mockThrowWalletConnectionError = vi.fn();
+
+vi.mock('@solana/wallet-adapter-base', async () => {
+  const originModules = (await vi.importActual('@solana/wallet-adapter-base')) as any;
+  class WalletConnectionError {
+    // eslint-disable-next-line @typescript-eslint/no-useless-constructor
+    constructor(public message: string) {}
+  }
+
+  return {
+    ...originModules,
+    WalletConnectionError,
+  };
+});
+
 vi.mock('@solana/wallet-adapter-react', async () => {
+  const { WalletConnectionError } = await import('@solana/wallet-adapter-base');
   const originModules = await vi.importActual('@solana/wallet-adapter-react');
+
   const { remember } = await import('./utils');
   const mfjs =
     // eslint-disable-next-line @typescript-eslint/consistent-type-imports
@@ -47,14 +64,29 @@ vi.mock('@solana/wallet-adapter-react', async () => {
       {children}
     </div>
   );
-  const WalletProvider: React.FC<React.PropsWithChildren> = ({ children }) => <>{children}</>;
+
+  const WalletProvider: React.FC<
+    React.PropsWithChildren<{
+      onError?: (err: any) => void;
+      /** Use as mock throw connect error */
+      mockThrowError: boolean;
+    }>
+  > = ({ children, onError, mockThrowError }) => {
+    useEffect(() => {
+      if (mockThrowError) {
+        mockThrowWalletConnectionError();
+        onError?.(new WalletConnectionError('mock error'));
+      }
+    }, [mockThrowError]);
+    return <>{children}</>;
+  };
 
   const connectedRef = remember(false);
   const currentWalletRef = remember<any>(null);
 
   const useWallet = () => {
     // provide a state to emit re-render
-    const [connected, setConnected] = useState(() => 0);
+    const [connected] = useState(() => 0);
     const [currentWallet, setCurrentWallet] = useState(() => currentWalletRef.value);
     const [connecting, setConnecting] = useState(() => false);
 
@@ -63,7 +95,6 @@ vi.mock('@solana/wallet-adapter-react', async () => {
 
       if (currentWallet) {
         connectedRef.value = true;
-        setConnected((p) => p + 1);
       }
     }, [currentWallet]);
 
@@ -71,7 +102,6 @@ vi.mock('@solana/wallet-adapter-react', async () => {
       if (connecting) {
         setConnecting(false);
         connectedRef.value = true;
-        setConnected((p) => p + 1);
       }
     }, [connecting]);
 
@@ -111,7 +141,7 @@ vi.mock('@solana/wallet-adapter-react', async () => {
   };
 });
 
-describe('Solana Connect', () => {
+describe('Solana Connect Errors', () => {
   beforeEach(() => {
     vi.resetAllMocks();
   });
@@ -122,16 +152,15 @@ describe('Solana Connect', () => {
     mockSelectWalletFn.mockClear();
   });
 
-  it('could connect', async () => {
+  it('could hold connect failure (such as user reject)', async () => {
     const { useWallet } = await import('@solana/wallet-adapter-react');
     const switchWalletRunned = vi.fn();
-    const connectRunned = vi.fn();
 
-    const CustomConnectBtn: React.FC = () => {
+    const CustomConnectBtn: React.FC<{
+      onConnect: () => void;
+    }> = ({ onConnect }) => {
       const { connect, availableWallets } = useProvider();
       const { connect: connectWallet } = useWallet();
-
-      const [connectRunDone, setConnectRunDone] = useState(false);
 
       return (
         <div className="custom-connectbtn">
@@ -147,41 +176,52 @@ describe('Solana Connect', () => {
             className="btn-connect"
             onClick={async () => {
               await connectWallet();
-              // mock connect twice
-              connect?.(availableWallets?.[1]);
-              await connect?.(availableWallets?.[0]);
-
-              connectRunned();
-              setConnectRunDone(true);
+              connect?.(availableWallets?.[1]).catch(() => {});
+              onConnect();
             }}
           >
             Connect
           </button>
-          <div className="shown-connectRunDone">{connectRunDone ? 'true' : 'false'}</div>
         </div>
       );
     };
 
     const App = () => {
+      const [connectFail, setConnectFail] = useState(false);
+      const [mockThrowError, setMockThrowError] = useState(false);
+      const onError = useCallback(() => {
+        setConnectFail(true);
+      }, []);
+
       return (
-        <SolanaWeb3ConfigProvider wallets={[CoinbaseWallet(), PhantomWallet()]}>
+        <SolanaWeb3ConfigProvider
+          wallets={[CoinbaseWallet(), PhantomWallet()]}
+          walletProviderProps={{
+            //@ts-ignore
+            mockThrowError,
+            onError,
+          }}
+        >
           <div>
-            <div className="content">test</div>
-            <CustomConnectBtn />
+            <div className="error">{connectFail ? 'true' : 'false'}</div>
+            <CustomConnectBtn
+              onConnect={() => {
+                setMockThrowError(true);
+              }}
+            />
           </div>
         </SolanaWeb3ConfigProvider>
       );
     };
 
     const { selector } = xrender(App);
-    expect(selector('.content')?.textContent).toBe('test');
 
+    const errorDom = selector('.error')!;
     const connectBtn = selector('.btn-connect')!;
     const switchWalletBtn = selector('.btn-switchwallet')!;
-    const shownConnectRunDone = selector('.shown-connectRunDone')!;
 
+    expect(errorDom.textContent).toBe('false');
     expect(connectBtn).not.toBeNull();
-    expect(shownConnectRunDone.textContent).toBe('false');
 
     fireEvent.click(switchWalletBtn);
     await vi.waitFor(() => {
@@ -194,68 +234,8 @@ describe('Solana Connect', () => {
 
     fireEvent.click(connectBtn);
     await vi.waitFor(() => {
-      // 1st. Phantom
-      // 2nd. Coinbase Wallet
-      // 3rd. null (because of no wallet installed)
-      expect(mockSelectWalletFn).toBeCalledTimes(3);
-    });
-
-    await vi.waitFor(
-      () => {
-        expect(connectRunned).toBeCalled();
-        expect(shownConnectRunDone.textContent).toBe('true');
-      },
-      {
-        timeout: 5000,
-      },
-    );
-  });
-
-  it('call connect but not provide wallet', async () => {
-    const { useWallet } = await import('@solana/wallet-adapter-react');
-    const connectRunned = vi.fn();
-
-    const CustomConnectBtn: React.FC = () => {
-      const { connect } = useProvider();
-      const { connect: connectWallet } = useWallet();
-
-      return (
-        <div className="custom-connectbtn">
-          <button
-            className="btn-connect"
-            onClick={async () => {
-              await connectWallet();
-              connect?.();
-              connectRunned();
-            }}
-          >
-            Connect
-          </button>
-        </div>
-      );
-    };
-
-    const App = () => {
-      return (
-        <SolanaWeb3ConfigProvider>
-          <div>
-            <div className="content">test</div>
-            <CustomConnectBtn />
-          </div>
-        </SolanaWeb3ConfigProvider>
-      );
-    };
-
-    const { selector } = xrender(App);
-    expect(selector('.content')?.textContent).toBe('test');
-
-    const connectBtn = selector('.btn-connect')!;
-    expect(connectBtn).not.toBeNull();
-
-    fireEvent.click(connectBtn);
-    await vi.waitFor(() => {
-      expect(connectRunned).toBeCalled();
-      expect(mockSelectWalletFnNotWalletName).toBeCalledWith(null);
+      expect(mockThrowWalletConnectionError).toBeCalled();
+      expect(errorDom.textContent).toBe('true');
     });
   });
 });

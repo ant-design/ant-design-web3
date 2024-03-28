@@ -43,15 +43,19 @@
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
     "@metaplex-foundation/js": "^0.20.1",
+    "@solana/wallet-adapter-base": "^0.9.23",
     "@solana/wallet-adapter-react": "^0.15.35",
     "@solana/wallet-adapter-wallets": "^0.19.31",
+    "@walletconnect/core": "^2.11.2",
+    "@walletconnect/universal-provider": "^2.11.2",
+    "@walletconnect/utils": "^2.11.2",
+    "@walletconnect/web3wallet": "^1.10.2",
     "debug": "^4.3.4"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
     "father": "^4.3.8",
-    "typescript": "^5.4.2",
-    "@solana/wallet-adapter-base": "^0.9.23"
+    "typescript": "^5.4.2"
   },
   "peerDependencies": {
     "@solana/web3.js": "^1.89.1"
