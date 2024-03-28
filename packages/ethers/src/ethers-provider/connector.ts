@@ -142,10 +142,12 @@ export const ethersConnector = (
         });
       }
     },
+
     async onChainChanged(id: string) {
       const chainId = normalizeChainId(id);
       config.emitter.emit('change', { chainId });
     },
+
     async onConnect(connectInfo: ProviderConnectInfo) {
       const accounts = await this.getAccounts();
       if (accounts.length === 0) return;
@@ -161,6 +163,7 @@ export const ethersConnector = (
         provider.on('disconnect', this.onDisconnect.bind(this));
       }
     },
+
     async onDisconnect(_error?: Error) {
       const provider = await this.getProvider();
       config.emitter.emit('disconnect');
@@ -172,8 +175,9 @@ export const ethersConnector = (
         provider.on('connect', this.onConnect.bind(this));
       }
     },
-    onMessage: (_message: ProviderMessage): void => {
-      throw new Error('Method not implemented');
+
+    async onMessage(_message: ProviderMessage) {
+      throw new Error('Method `onMessage` not implemented in ethers connector');
     },
   }));
 };

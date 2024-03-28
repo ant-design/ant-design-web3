@@ -6,9 +6,11 @@ import {
 } from '@ant-design/web3-wagmi';
 import type { Provider, Signer } from 'ethers';
 import type { Chain } from 'viem';
-import { createConfig, http } from 'wagmi';
+import { createConfig, http, type CreateConfigParameters } from 'wagmi';
 import * as wagmiChains from 'wagmi/chains';
+import { walletConnect as walletConnectConnector } from 'wagmi/connectors';
 
+import { WalletConnectFactory } from '../wallets/wallet-connect';
 import { ethersConnector } from './connector';
 
 export interface EthersWeb3ConfigProviderProps
@@ -35,14 +37,28 @@ export const EthersWeb3ConfigProvider: React.FC<
     [props.chains?.map((chain) => chain.id).join()],
   );
 
+  const walletConnect = React.useMemo(
+    () =>
+      (props.wallets?.find((wallet) => wallet instanceof WalletConnectFactory) ??
+        null) as WalletConnectFactory | null,
+    [props.wallets],
+  );
+
   const wagmiConfig = React.useMemo(() => {
-    const config = createConfig({
-      chains,
-      transports: Object.fromEntries(chains.map((chain) => [chain.id, http()])),
-      connectors: [ethersConnector({ provider, signer })],
-    });
-    return config;
-  }, [chains, provider, signer]);
+    const transports = Object.fromEntries(chains.map((chain) => [chain.id, http()]));
+    const connectors: CreateConfigParameters['connectors'] = [
+      ethersConnector({ provider, signer }),
+    ];
+    if (walletConnect?.params?.projectId) {
+      connectors.push(
+        walletConnectConnector({
+          ...walletConnect.params,
+          showQrModal: walletConnect.useWalletConnectOfficialModal,
+        }),
+      );
+    }
+    return createConfig({ chains, transports, connectors });
+  }, [chains, provider, signer, walletConnect]);
 
   return (
     <WagmiWeb3ConfigProvider config={wagmiConfig} {...props}>
