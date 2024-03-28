@@ -1,6 +1,6 @@
 import React, { useContext, useMemo, useState } from 'react';
 import { CopyOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
-import { Wallet, type Chain } from '@ant-design/web3-common';
+import type { Wallet, Chain } from '@ant-design/web3-common';
 import type { ButtonProps } from 'antd';
 import { Avatar, ConfigProvider, Divider, Dropdown, message } from 'antd';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
