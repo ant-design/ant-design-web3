@@ -1,7 +1,11 @@
 import { useMemo } from 'react';
-import { BrowserProvider, JsonRpcSigner } from 'ethers';
+import { JsonRpcSigner } from 'ethers';
+import type { BrowserProvider as BrowserProviderType } from 'ethers';
+import type { providers as ProvidersType } from 'ethers5';
 import type { Account, Chain, Client, Transport } from 'viem';
 import { useConnectorClient, type Config } from 'wagmi';
+
+import { BrowserProvider, isEthersV5 } from './utils';
 
 export function clientToSigner(client: Client<Transport, Chain, Account>) {
   const { account, chain, transport } = client;
@@ -10,7 +14,12 @@ export function clientToSigner(client: Client<Transport, Chain, Account>) {
     name: chain.name,
     ensAddress: chain.contracts?.ensRegistry?.address,
   };
-  const provider = new BrowserProvider(transport, network);
+  if (isEthersV5()) {
+    const provider = new BrowserProvider(transport, network) as ProvidersType.Web3Provider;
+    const signer = provider.getSigner(account.address);
+    return signer;
+  }
+  const provider = new BrowserProvider(transport, network) as BrowserProviderType;
   const signer = new JsonRpcSigner(provider, account.address);
   return signer;
 }

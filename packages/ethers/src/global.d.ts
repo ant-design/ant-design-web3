@@ -1,3 +1,5 @@
+import type { EIP1193Provider } from 'viem';
+
 declare interface Window {
-  ethereum?: any;
+  ethereum?: EIP1193Provider;
 }
