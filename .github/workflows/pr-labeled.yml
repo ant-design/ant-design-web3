@@ -1,7 +1,7 @@
 name: PR Labeled
 
 on:
-  pull_request:
+  pull_request_target:
     types: [labeled]
 
 permissions:
@@ -22,6 +22,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            @${{ github.actor }} You can run the `pnpm changeset` command locally to generate a changelog. Please refer to the operation precautions. https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md
+            @${{ github.event.pull_request.user.login }} You can run the ```pnpm changeset``` command locally to generate a changelog. Please refer to the operation precautions. https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md
 
-            @${{ github.actor }} 可以在本地运行 `pnpm changeset` 命令生成 changelog, 操作注意事项参考：https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md
+            @${{ github.event.pull_request.user.login }} 可以在本地运行 ```pnpm changeset``` 命令生成 changelog, 操作注意事项参考：https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md
