@@ -1,12 +1,10 @@
 import { NFTCard } from '@ant-design/web3';
-import { EthersWeb3ConfigProvider, MetaMask } from '@ant-design/web3-ethers';
-import { ethers } from 'ethers';
-
-const provider = new ethers.BrowserProvider(window.ethereum);
+import { Mainnet } from '@ant-design/web3-assets';
+import { EthersWeb3ConfigProvider } from '@ant-design/web3-ethers';
 
 const App: React.FC = () => {
   return (
-    <EthersWeb3ConfigProvider wallets={[MetaMask()]} provider={provider}>
+    <EthersWeb3ConfigProvider chains={[Mainnet]}>
       <NFTCard address="0x79fcdef22feed20eddacbb2587640e45491b757f" tokenId={8540} />
     </EthersWeb3ConfigProvider>
   );
