@@ -24,7 +24,7 @@ const AddressPreviewer = () => {
 const App: React.FC = () => {
   return (
     <EthersWeb3ConfigProvider
-      walletConnect={{ projectId: YOUR_WALLET_CONNET_PROJECT_ID }}
+      walletConnect={{ projectId: YOUR_WALLET_CONNECT_PROJECT_ID }}
       wallets={[MetaMask(), OkxWallet()]}
     >
       <Connector>
