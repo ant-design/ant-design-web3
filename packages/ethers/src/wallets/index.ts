@@ -1,4 +1,3 @@
-export * from './wallet-connect';
 export {
   MetaMask,
   CoinbaseWallet,

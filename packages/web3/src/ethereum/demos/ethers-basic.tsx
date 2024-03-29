@@ -6,7 +6,6 @@ import {
   useBlockNumber,
   useEthersProvider,
   useEthersSigner,
-  WalletConnect,
 } from '@ant-design/web3-ethers';
 import { Typography } from 'antd';
 
@@ -25,11 +24,8 @@ const AddressPreviewer = () => {
 const App: React.FC = () => {
   return (
     <EthersWeb3ConfigProvider
-      wallets={[
-        MetaMask(),
-        OkxWallet(),
-        WalletConnect({ projectId: YOUR_WALLET_CONNET_PROJECT_ID }),
-      ]}
+      walletConnect={{ projectId: YOUR_WALLET_CONNET_PROJECT_ID }}
+      wallets={[MetaMask(), OkxWallet()]}
     >
       <Connector>
         <ConnectButton />

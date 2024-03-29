@@ -2,21 +2,37 @@ import React from 'react';
 import {
   Mainnet,
   WagmiWeb3ConfigProvider,
+  WalletConnect,
   type WagmiWeb3ConfigProviderProps,
 } from '@ant-design/web3-wagmi';
 import type { Chain } from 'viem';
 import { createConfig, http, type CreateConfigParameters } from 'wagmi';
 import * as wagmiChains from 'wagmi/chains';
 import * as wagmiConnectors from 'wagmi/connectors';
+import type { WalletConnectParameters } from 'wagmi/connectors';
 
-import { WalletConnectFactory } from '../wallets/wallet-connect';
+export interface WalletConnectOptions
+  extends Pick<
+    WalletConnectParameters,
+    | 'disableProviderPing'
+    | 'isNewChainsStale'
+    | 'projectId'
+    | 'metadata'
+    | 'relayUrl'
+    | 'storageOptions'
+    | 'qrModalOptions'
+  > {
+  useWalletConnectOfficialModal?: boolean;
+}
 
 export interface EthersWeb3ConfigProviderProps
-  extends Omit<WagmiWeb3ConfigProviderProps, 'config'> {}
+  extends Omit<WagmiWeb3ConfigProviderProps, 'config'> {
+  walletConnect?: false | WalletConnectOptions;
+}
 
 export const EthersWeb3ConfigProvider: React.FC<
   React.PropsWithChildren<EthersWeb3ConfigProviderProps>
-> = ({ children, ...props }) => {
+> = ({ children, walletConnect, ...props }) => {
   const chains = React.useMemo(
     () =>
       (props.chains ?? [Mainnet])
@@ -32,12 +48,10 @@ export const EthersWeb3ConfigProvider: React.FC<
     [props.chains?.map((chain) => chain.id).join()],
   );
 
-  const walletConnect = React.useMemo(
-    () =>
-      (props.wallets?.find((wallet) => wallet instanceof WalletConnectFactory) ??
-        null) as WalletConnectFactory | null,
-    [props.wallets],
-  );
+  const wallets = React.useMemo(() => {
+    if (!walletConnect || !walletConnect?.projectId) return props.wallets;
+    return [...(props.wallets ?? []), WalletConnect()];
+  }, [props.wallets, walletConnect]);
 
   const wagmiConfig = React.useMemo(() => {
     const transports = Object.fromEntries(chains.map((chain) => [chain.id, http()]));
@@ -49,11 +63,11 @@ export const EthersWeb3ConfigProvider: React.FC<
       }
     });
 
-    if (walletConnect?.params?.projectId) {
+    if (walletConnect && walletConnect.projectId) {
       connectors.push(
         wagmiConnectors.walletConnect({
-          ...walletConnect.params,
-          showQrModal: walletConnect.useWalletConnectOfficialModal,
+          ...walletConnect,
+          showQrModal: walletConnect.useWalletConnectOfficialModal ?? false,
         }),
       );
     }
@@ -61,7 +75,7 @@ export const EthersWeb3ConfigProvider: React.FC<
   }, [chains, walletConnect, props.wallets]);
 
   return (
-    <WagmiWeb3ConfigProvider config={wagmiConfig} {...props}>
+    <WagmiWeb3ConfigProvider {...props} config={wagmiConfig} wallets={wallets}>
       {children}
     </WagmiWeb3ConfigProvider>
   );
