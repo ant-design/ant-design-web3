@@ -44,6 +44,26 @@ describe('ethers-provider', async () => {
     expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Ethereum,OP Mainnet');
   });
 
+  test('chains but not found', async () => {
+    const CustomConnector: React.FC = () => {
+      const { availableChains } = useProvider();
+      return (
+        <div className="chains-name">{availableChains?.map((item) => item.name).join(',')}</div>
+      );
+    };
+
+    const UnknownChain = { ...Mainnet, name: 'Unknown', chainId: -9999 };
+
+    const App = () => (
+      <EthersWeb3ConfigProvider chains={[Mainnet, UnknownChain]}>
+        <CustomConnector />
+      </EthersWeb3ConfigProvider>
+    );
+
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Ethereum,Ethereum');
+  });
+
   test('wallets', async () => {
     const CustomConnector: React.FC = () => {
       const { availableWallets } = useProvider();
