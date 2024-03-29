@@ -6,9 +6,16 @@
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
   "exports": {
-    "import": "./dist/esm/index.js",
-    "require": "./dist/lib/index.js",
-    "types": "./dist/esm/index.d.ts"
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/esm/index.d.ts"
+    },
+    "./legacy-v5": {
+      "import": "./dist/esm/index-v5.js",
+      "require": "./dist/lib/index-v5.js",
+      "types": "./dist/esm/index-v5.d.ts"
+    }
   },
   "files": [
     "dist",
@@ -52,13 +59,13 @@
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
-    "ethers5": "npm:ethers@^5.7.2",
-    "ethers": "^6.11.1",
     "father": "^4.3.8",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "ethers-v5": "npm:ethers@^5.7.2",
+    "ethers-v6": "npm:ethers@^6.11.1"
   },
   "peerDependencies": {
-    "ethers": "^5.0.0 || ^6.0.0"
+    "ethers": "^5.7.2 || ^6.11.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",

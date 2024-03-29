@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { BrowserProvider, JsonRpcSigner } from 'ethers-v6';
+import { providers } from 'ethers-v5';
 import type { Account, Chain, Client, Transport } from 'viem';
 import { useConnectorClient, type Config } from 'wagmi';
 
@@ -10,8 +10,8 @@ export function clientToSigner(client: Client<Transport, Chain, Account>) {
     name: chain.name,
     ensAddress: chain.contracts?.ensRegistry?.address,
   };
-  const provider = new BrowserProvider(transport, network);
-  const signer = new JsonRpcSigner(provider, account.address);
+  const provider = new providers.Web3Provider(transport, network);
+  const signer = provider.getSigner(account.address);
   return signer;
 }
 
