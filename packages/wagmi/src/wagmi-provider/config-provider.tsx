@@ -153,12 +153,11 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
             name: c.name,
             icon: c.icon,
           };
-        } else {
-          console.error(
-            `Can not find chain ${item.id}, you should config it in WagmiWeb3ConfigProvider 'chains'.`,
-          );
-          return null;
         }
+        console.error(
+          `Can not find chain ${item.id}, you should config it in WagmiWeb3ConfigProvider 'chains'.`,
+        );
+        return null;
       })
       .filter((item) => item !== null) as Chain[];
   }, [availableChains, chainAssets]);
@@ -223,11 +222,11 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         if (!chain) {
           // hava not connected any chain
           setCurrentChain(c);
-        } else {
-          switchChain?.({
-            chainId: c.id,
-          });
+          return;
         }
+        switchChain?.({
+          chainId: c.id,
+        });
       }}
       getNFTMetadata={async ({ address: contractAddress, tokenId }) =>
         getNFTMetadata(config, contractAddress, tokenId, chain?.id)
