@@ -151,6 +151,12 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     [`${componentCls}-qr-icon-empty`]: {
                       width: 30,
                     },
+                    [`${componentCls}-plugin-tag`]: {
+                      '&:hover': {
+                        color: token.colorText,
+                        borderColor: token.colorText,
+                      },
+                    },
                     '&:last-child': {
                       marginBlockEnd: 0,
                     },
