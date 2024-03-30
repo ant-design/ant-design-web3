@@ -152,7 +152,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                       width: 30,
                     },
                     [`${componentCls}-plugin-tag`]: {
-                      '&:hover': {
+                      '&:not(:disabled):not(.ant-btn-disabled):hover': {
                         color: token.colorText,
                         borderColor: token.colorText,
                       },
