@@ -76,3 +76,4 @@ Design-related issues can @ our designers:
 - `documentation` Documentation related.
 - `dependencies` Dependency related.
 - `Need Changelog` Need to generate changelog (after adding this label, the bot will automatically add relevant operation instructions comments).
+- `site` Some issues about the website.
