@@ -96,15 +96,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         disconnect();
       }
     }
-  }, [
-    wallet,
-    wallet?.adapter?.name,
-    props.currentChain,
-    connect,
-    disconnect,
-    connected,
-    selectWallet,
-  ]);
+  }, [wallet, connected, connect, selectWallet, disconnect]);
 
   const chainList = useMemo(() => {
     return props.availableChains
@@ -159,16 +151,20 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         props.onCurrentChainChange?.(foundChain ?? chainList[0]);
         selectWallet(currentWalletName);
       }}
-      connect={async (_wallet) => {
+      connect={async (_wallet, options) => {
         let resolve: any;
         let reject: any;
+
+        // when use qrCode to connect, need clear selected wallet first.
+        if (options?.connectType === 'qrCode') {
+          selectWallet(null);
+        }
 
         const promise = new Promise<void>((res, rej) => {
           resolve = res;
           reject = rej;
         });
 
-        connectAsyncRef.current?.resolve();
         connectAsyncRef.current = { promise, resolve, reject };
 
         const walletName = (_wallet?.name as WalletName) ?? null;
