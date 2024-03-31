@@ -76,3 +76,4 @@ group:
 - `documentation` 文档相关。
 - `dependencies` 依赖更新。
 - `Need Changelog` 需要生成 changelog（打上该标签后 bot 会自动添加相关操作指引评论）。
+- `site` 关于网站的一些问题。
