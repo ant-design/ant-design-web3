@@ -1,4 +1,4 @@
-export { useWallet } from '@solana/wallet-adapter-react';
+export { useWallet, useAnchorWallet, useConnection } from '@solana/wallet-adapter-react';
 export { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 
 export * from './solana-provider';
