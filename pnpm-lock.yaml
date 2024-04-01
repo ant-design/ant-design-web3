@@ -13,8 +13,8 @@ importers:
         version: 7.0.3
     devDependencies:
       '@ant-design/icons':
-        specifier: ^5.3.1
-        version: 5.3.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^5.3.6
+        version: 5.3.6(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/web3':
         specifier: workspace:*
         version: link:packages/web3
@@ -219,8 +219,8 @@ importers:
   packages/icons:
     dependencies:
       '@ant-design/icons':
-        specifier: ^5.3.1
-        version: 5.3.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^5.3.6
+        version: 5.3.6(react-dom@18.2.0)(react@18.2.0)
       '@inline-svg-unique-id/react':
         specifier: ^1.2.3
         version: 1.2.3(react@18.2.0)
@@ -330,8 +330,8 @@ importers:
         specifier: ^1.18.5
         version: 1.18.5(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/icons':
-        specifier: ^5.3.1
-        version: 5.3.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^5.3.6
+        version: 5.3.6(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/web3-assets':
         specifier: workspace:*
         version: link:../assets
@@ -497,39 +497,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
-  /@ant-design/icons@5.3.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-85zROTJCCApQn0Ee6L9561+Vd7yVKtSWNm2TpmOsYMrumchbzaRK83x1WWHv2VG+Y1ZAaKkDwcnnSPS/eSwNHA==}
-    engines: {node: '>=8'}
-    peerDependencies:
-      react: '>=16.0.0'
-      react-dom: '>=16.0.0'
-    dependencies:
-      '@ant-design/colors': 7.0.2
-      '@ant-design/icons-svg': 4.4.2
-      '@babel/runtime': 7.23.6
-      classnames: 2.5.1
-      rc-util: 5.39.1(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-
-  /@ant-design/icons@5.3.4(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-U5eTSeSFr2V9SeJzYOo5mybAZfsoNuiIA8bvFoZUe+h9LBLs8UwrVaVwcMQC4AhBuojXkLMlmtnIlvUczXXHaQ==}
-    engines: {node: '>=8'}
-    peerDependencies:
-      react: '>=16.0.0'
-      react-dom: '>=16.0.0'
-    dependencies:
-      '@ant-design/colors': 7.0.2
-      '@ant-design/icons-svg': 4.4.2
-      '@babel/runtime': 7.24.1
-      classnames: 2.5.1
-      rc-util: 5.39.1(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: true
-
-  /@ant-design/icons@5.3.5(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Vyv/OsKz56BsKBtcRlLP6G8RGaRW43f7G5dK3XNPCaeV4YyehLVaITuNKi2YJG9hMVURkBdzdGhveNQlnKTFqw==}
+  /@ant-design/icons@5.3.6(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-JeWsgNjvkTTC73YDPgWOgdScRku/iHN9JU0qk39OSEmJSCiRghQMLlxGTCY5ovbRRoXjxHXnUKgQEgBDnQfKmA==}
     engines: {node: '>=8'}
     peerDependencies:
       react: '>=16.0.0'
@@ -12260,7 +12229,7 @@ packages:
     dependencies:
       '@ant-design/colors': 6.0.0
       '@ant-design/cssinjs': 1.18.4(react-dom@18.2.0)(react@18.2.0)
-      '@ant-design/icons': 5.3.4(react-dom@18.2.0)(react@18.2.0)
+      '@ant-design/icons': 5.3.6(react-dom@18.2.0)(react@18.2.0)
       '@arvinxu/layout-kit': 1.4.0(@babel/core@7.24.3)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
       '@babel/runtime': 7.24.0
       '@ctrl/tinycolor': 3.6.1
@@ -12319,7 +12288,7 @@ packages:
     dependencies:
       '@ant-design/colors': 7.0.2
       '@ant-design/cssinjs': 1.18.5(react-dom@18.2.0)(react@18.2.0)
-      '@ant-design/icons': 5.3.5(react-dom@18.2.0)(react@18.2.0)
+      '@ant-design/icons': 5.3.6(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/react-slick': 1.1.1(react@18.2.0)
       '@babel/runtime': 7.24.1
       '@ctrl/tinycolor': 3.6.1
@@ -19145,6 +19114,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -19163,6 +19133,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -19181,6 +19152,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -19199,6 +19171,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 
