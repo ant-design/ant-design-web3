@@ -5,6 +5,8 @@ group:
   order: 4
 ---
 
+# How to add Changelog
+
 ## What changes need a Changelog?
 
 Modified files under `packages`

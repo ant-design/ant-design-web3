@@ -5,6 +5,8 @@ group:
   order: 4
 ---
 
+# 如何添加 Changelog
+
 ## 什么变更需要 Changelog
 
 修改了 `packages` 下的文件
