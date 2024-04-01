@@ -12,7 +12,8 @@ import {
   WalletSignMessageError,
   WalletSignTransactionError,
 } from '@solana/wallet-adapter-base';
-import { PublicKey, Transaction, TransactionVersion, VersionedTransaction } from '@solana/web3.js';
+import type { TransactionVersion, VersionedTransaction } from '@solana/web3.js';
+import { PublicKey, Transaction } from '@solana/web3.js';
 import type { UniversalProviderOpts } from '@walletconnect/universal-provider';
 import { parseAccountId, parseChainId } from '@walletconnect/utils';
 import base58 from 'bs58';
