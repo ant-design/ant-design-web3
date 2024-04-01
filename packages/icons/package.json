@@ -65,7 +65,7 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/icons": "^5.3.1",
+    "@ant-design/icons": "^5.3.6",
     "@inline-svg-unique-id/react": "^1.2.3",
     "classnames": "^2.3.2"
   }
