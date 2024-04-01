@@ -16,7 +16,7 @@ Modified files under `packages`
 - @ant-design/web3-wagmi
 - @ant-design/web3
 
-# How to generate changelog
+## How to generate changelog
 
 1. First of all, you need to run the command:
 
