@@ -29,7 +29,7 @@ MacBook-Pro ant-design-web3 % pnpm changeset
 > changeset
 ```
 
-2. Select the modified package by space and enter enter to confirm。
+2. Select the modified package by space and press enter to confirm。
 
 ```
 🦋  Which packages would you like to include? …
