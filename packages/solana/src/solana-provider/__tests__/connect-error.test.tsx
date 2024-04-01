@@ -157,8 +157,8 @@ describe('Solana Connect Errors', () => {
     const switchWalletRunned = vi.fn();
 
     const CustomConnectBtn: React.FC<{
-      onConnect: () => void;
-    }> = ({ onConnect }) => {
+      onThrowMockError: () => void;
+    }> = ({ onThrowMockError }) => {
       const { connect, availableWallets } = useProvider();
       const { connect: connectWallet } = useWallet();
 
@@ -177,7 +177,7 @@ describe('Solana Connect Errors', () => {
             onClick={async () => {
               await connectWallet();
               connect?.(availableWallets?.[1]).catch(() => {});
-              onConnect();
+              onThrowMockError();
             }}
           >
             Connect
@@ -205,7 +205,7 @@ describe('Solana Connect Errors', () => {
           <div>
             <div className="error">{connectFail ? 'true' : 'false'}</div>
             <CustomConnectBtn
-              onConnect={() => {
+              onThrowMockError={() => {
                 setMockThrowError(true);
               }}
             />
