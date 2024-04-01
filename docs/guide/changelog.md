@@ -5,7 +5,7 @@ group:
   order: 4
 ---
 
-# What changes need a Changelog?
+## What changes need a Changelog?
 
 Modified files under `packages`
 
