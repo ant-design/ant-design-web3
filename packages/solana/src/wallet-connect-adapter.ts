@@ -1,17 +1,18 @@
 import type { WalletName } from '@solana/wallet-adapter-base';
 import {
   BaseSignerWalletAdapter,
+  isVersionedTransaction,
   WalletConnectionError,
   WalletDisconnectedError,
   WalletDisconnectionError,
   WalletNotConnectedError,
   WalletNotReadyError,
+  WalletPublicKeyError,
   WalletReadyState,
   WalletSignMessageError,
   WalletSignTransactionError,
 } from '@solana/wallet-adapter-base';
-import type { Transaction, TransactionVersion, VersionedTransaction } from '@solana/web3.js';
-import { PublicKey } from '@solana/web3.js';
+import { PublicKey, Transaction, TransactionVersion, VersionedTransaction } from '@solana/web3.js';
 import type { UniversalProviderOpts } from '@walletconnect/universal-provider';
 import { parseAccountId, parseChainId } from '@walletconnect/utils';
 import base58 from 'bs58';
@@ -157,11 +158,45 @@ export class WalletConnectWalletAdapter extends BaseSignerWalletAdapter {
       const provider = this._walletProvider;
       if (!provider) throw new WalletNotConnectedError();
 
+      if (!this.publicKey) throw new WalletPublicKeyError();
+
+      const network = this._getWalletConnectConfigGetter?.().currentChain?.network;
+      const chain = network && WalletConnectChainID[network];
+
+      let rawTransaction: string;
+      let legacyTransaction: Transaction | VersionedTransaction | undefined;
+
+      if (isVersionedTransaction(transaction)) {
+        rawTransaction = Buffer.from(transaction.serialize()).toString('base64');
+
+        if (transaction.version === 'legacy') {
+          legacyTransaction = Transaction.from(transaction.serialize());
+        }
+      } else {
+        rawTransaction = transaction
+          .serialize({
+            requireAllSignatures: false,
+            verifySignatures: false,
+          })
+          .toString('base64');
+        legacyTransaction = transaction;
+      }
+
       try {
-        return await provider.request({
-          method: 'solana_signTransaction',
-          params: { pubkey: this.publicKey?.toString(), transaction },
-        });
+        const { signature } = await provider.request<{ signature: string }>(
+          {
+            method: 'solana_signTransaction',
+            params: {
+              pubkey: this.publicKey?.toString(),
+              ...legacyTransaction,
+              transaction: rawTransaction,
+            },
+          },
+          chain,
+        );
+
+        transaction.addSignature(this.publicKey!, Buffer.from(base58.decode(signature)));
+        return transaction;
       } catch (error: any) {
         throw new WalletSignTransactionError(error?.message, error);
       }
