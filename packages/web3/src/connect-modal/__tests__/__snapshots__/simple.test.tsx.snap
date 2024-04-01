@@ -5,7 +5,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-70l36u ant-web3-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-ysyo1 ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -16,7 +16,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-70l36u ant-web3-connect-modal css-dev-only-do-not-override-70l36u ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-ysyo1 ant-web3-connect-modal css-dev-only-do-not-override-ysyo1 ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 380px;"
         >
@@ -66,7 +66,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                 class="ant-modal-body"
               >
                 <div
-                  class="ant-web3-connect-modal-body ant-web3-connect-modal-body-simple css-dev-only-do-not-override-70l36u"
+                  class="ant-web3-connect-modal-body ant-web3-connect-modal-body-simple css-dev-only-do-not-override-ysyo1"
                 >
                   <div
                     class="ant-web3-connect-modal-list-panel"
@@ -98,10 +98,10 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                             class="ant-web3-connect-modal-group-content"
                           >
                             <div
-                              class="ant-list ant-list-split css-dev-only-do-not-override-70l36u"
+                              class="ant-list ant-list-split css-dev-only-do-not-override-ysyo1"
                             >
                               <div
-                                class="ant-spin-nested-loading css-dev-only-do-not-override-70l36u"
+                                class="ant-spin-nested-loading css-dev-only-do-not-override-ysyo1"
                               >
                                 <div
                                   class="ant-spin-container"
@@ -127,7 +127,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-space css-dev-only-do-not-override-70l36u ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                        class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                       >
                                         <div
                                           class="ant-space-item"
@@ -159,7 +159,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-space css-dev-only-do-not-override-70l36u ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                        class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                       >
                                         <div
                                           class="ant-space-item"
@@ -191,10 +191,10 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                             class="ant-web3-connect-modal-group-content"
                           >
                             <div
-                              class="ant-list ant-list-split css-dev-only-do-not-override-70l36u"
+                              class="ant-list ant-list-split css-dev-only-do-not-override-ysyo1"
                             >
                               <div
-                                class="ant-spin-nested-loading css-dev-only-do-not-override-70l36u"
+                                class="ant-spin-nested-loading css-dev-only-do-not-override-ysyo1"
                               >
                                 <div
                                   class="ant-spin-container"
@@ -220,7 +220,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-space css-dev-only-do-not-override-70l36u ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                        class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                       >
                                         <div
                                           class="ant-space-item"
@@ -251,7 +251,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-space css-dev-only-do-not-override-70l36u ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                        class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                       >
                                         <div
                                           class="ant-space-item"
@@ -282,7 +282,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-space css-dev-only-do-not-override-70l36u ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                        class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                       >
                                         <div
                                           class="ant-space-item"
@@ -313,7 +313,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-space css-dev-only-do-not-override-70l36u ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                        class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                       >
                                         <div
                                           class="ant-space-item"
@@ -344,7 +344,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-space css-dev-only-do-not-override-70l36u ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                        class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                       >
                                         <div
                                           class="ant-space-item"
@@ -371,7 +371,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                     >
                       New to crypto wallets?
                       <button
-                        class="ant-btn css-dev-only-do-not-override-70l36u ant-btn-link ant-btn-sm ant-web3-connect-modal-simple-guide-right"
+                        class="ant-btn css-dev-only-do-not-override-ysyo1 ant-btn-link ant-btn-sm ant-web3-connect-modal-simple-guide-right"
                         type="button"
                       >
                         <span>
@@ -406,7 +406,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-42nv3w ant-web3-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-11xg00t ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -417,7 +417,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-42nv3w ant-web3-connect-modal css-dev-only-do-not-override-42nv3w ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-11xg00t ant-web3-connect-modal css-dev-only-do-not-override-11xg00t ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 380px;"
         >
@@ -467,7 +467,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                 class="ant-modal-body"
               >
                 <div
-                  class="ant-web3-connect-modal-body ant-web3-connect-modal-body-simple css-dev-only-do-not-override-42nv3w"
+                  class="ant-web3-connect-modal-body ant-web3-connect-modal-body-simple css-dev-only-do-not-override-11xg00t"
                 >
                   <div
                     class="ant-web3-connect-modal-list-panel"
@@ -499,10 +499,10 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                             class="ant-web3-connect-modal-group-content"
                           >
                             <div
-                              class="ant-list ant-list-split css-dev-only-do-not-override-42nv3w"
+                              class="ant-list ant-list-split css-dev-only-do-not-override-11xg00t"
                             >
                               <div
-                                class="ant-spin-nested-loading css-dev-only-do-not-override-42nv3w"
+                                class="ant-spin-nested-loading css-dev-only-do-not-override-11xg00t"
                               >
                                 <div
                                   class="ant-spin-container"
@@ -528,7 +528,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-space css-dev-only-do-not-override-42nv3w ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                        class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                       >
                                         <div
                                           class="ant-space-item"
@@ -560,7 +560,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-space css-dev-only-do-not-override-42nv3w ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                        class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                       >
                                         <div
                                           class="ant-space-item"
@@ -592,10 +592,10 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                             class="ant-web3-connect-modal-group-content"
                           >
                             <div
-                              class="ant-list ant-list-split css-dev-only-do-not-override-42nv3w"
+                              class="ant-list ant-list-split css-dev-only-do-not-override-11xg00t"
                             >
                               <div
-                                class="ant-spin-nested-loading css-dev-only-do-not-override-42nv3w"
+                                class="ant-spin-nested-loading css-dev-only-do-not-override-11xg00t"
                               >
                                 <div
                                   class="ant-spin-container"
@@ -621,7 +621,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-space css-dev-only-do-not-override-42nv3w ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                        class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                       >
                                         <div
                                           class="ant-space-item"
@@ -652,7 +652,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-space css-dev-only-do-not-override-42nv3w ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                        class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                       >
                                         <div
                                           class="ant-space-item"
@@ -683,7 +683,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-space css-dev-only-do-not-override-42nv3w ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                        class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                       >
                                         <div
                                           class="ant-space-item"
@@ -714,7 +714,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-space css-dev-only-do-not-override-42nv3w ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                        class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                       >
                                         <div
                                           class="ant-space-item"
@@ -745,7 +745,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-space css-dev-only-do-not-override-42nv3w ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                        class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                       >
                                         <div
                                           class="ant-space-item"
@@ -772,7 +772,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                     >
                       New to crypto wallets?
                       <button
-                        class="ant-btn css-dev-only-do-not-override-42nv3w ant-btn-link ant-btn-sm ant-web3-connect-modal-simple-guide-right"
+                        class="ant-btn css-dev-only-do-not-override-11xg00t ant-btn-link ant-btn-sm ant-web3-connect-modal-simple-guide-right"
                         type="button"
                       >
                         <span>
