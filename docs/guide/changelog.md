@@ -62,7 +62,7 @@ MacBook-Pro ant-design-web3 % pnpm changeset
 🦋  Summary ›
 ```
 
-As a final step, we submit message in the `Summary` that conforms to [Angular's commit convention](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular).
+4. As a final step, we submit message in the `Summary` that conforms to [Angular's commit convention](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular).
 
 ```
 🦋  Summary › feat: support more icons

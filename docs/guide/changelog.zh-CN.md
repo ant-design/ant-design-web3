@@ -62,7 +62,7 @@ MacBook-Pro ant-design-web3 % pnpm changeset
 🦋  Summary ›
 ```
 
-最后一步，我们在 Summary 中提交符合 [Angular's commit convention](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular) 规范的信息。
+4. 最后一步，我们在 Summary 中提交符合 [Angular's commit convention](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular) 规范的信息。
 
 ```
 🦋  Summary › feat: support more icons
