@@ -1,4 +1,4 @@
-import type { WalletAdapterNetwork, WalletName } from '@solana/wallet-adapter-base';
+import type { WalletName } from '@solana/wallet-adapter-base';
 import {
   BaseSignerWalletAdapter,
   WalletConnectionError,
@@ -13,7 +13,8 @@ import {
 import type { Transaction, TransactionVersion, VersionedTransaction } from '@solana/web3.js';
 import { PublicKey } from '@solana/web3.js';
 import type { UniversalProviderOpts } from '@walletconnect/universal-provider';
-import { parseAccountId } from '@walletconnect/utils';
+import { parseAccountId, parseChainId } from '@walletconnect/utils';
+import base58 from 'bs58';
 
 import type { SolanaChainConfig } from './chains';
 import type { IUniversalProvider } from './types';
@@ -23,6 +24,7 @@ export const WalletConnectWalletName = 'WalletConnect' as WalletName<'WalletConn
 export type WalletConnectConfig = {
   walletConnect?: UniversalProviderOpts;
   currentChain?: SolanaChainConfig;
+  rpcEndpoint: string;
 };
 
 export const WalletConnectChainID: Record<string, string> = {
@@ -103,8 +105,11 @@ export class WalletConnectWalletAdapter extends BaseSignerWalletAdapter {
           namespaces: {
             solana: {
               chains: [chain],
-              methods: [],
-              events: ['chainChanged', 'accountsChanged'],
+              methods: ['solana_signMessage', 'solana_signTransaction'],
+              events: [],
+              rpcMap: {
+                [parseChainId(chain).reference]: walletConnectConfig.rpcEndpoint,
+              },
             },
           },
           skipPairing: hasPairing,
@@ -166,16 +171,24 @@ export class WalletConnectWalletAdapter extends BaseSignerWalletAdapter {
     }
   }
 
-  async signMessage(message: string): Promise<Uint8Array> {
+  async signMessage(message: Uint8Array): Promise<Uint8Array> {
     try {
       const provider = this._walletProvider;
       if (!provider) throw new WalletNotConnectedError();
 
+      const network = this._getWalletConnectConfigGetter?.().currentChain?.network;
+      const chain = network && WalletConnectChainID[network];
+
       try {
-        return await provider.request({
-          method: 'solana_signMessage',
-          params: { pubkey: this.publicKey?.toString(), message },
-        });
+        const { signature } = await provider.request<{ signature: string }>(
+          {
+            method: 'solana_signMessage',
+            params: { pubkey: this.publicKey?.toString(), message: base58.encode(message) },
+          },
+          chain,
+        );
+
+        return base58.decode(signature);
       } catch (error: any) {
         throw new WalletSignMessageError(error?.message, error);
       }

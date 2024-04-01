@@ -96,7 +96,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         disconnect();
       }
     }
-  }, [wallet, connected, connect, selectWallet, disconnect]);
+  }, [wallet?.adapter?.name, connected]);
 
   const chainList = useMemo(() => {
     return props.availableChains

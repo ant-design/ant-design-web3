@@ -73,12 +73,13 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
           w.adapter.setWalletConnectConfigGetter(() => ({
             walletConnect,
             currentChain,
+            rpcEndpoint: endpoint,
           }));
         }
 
         return w.adapter;
       }),
-    [currentChain, walletConnect, walletConnectProviderGetter, walletFactorys],
+    [currentChain, endpoint, walletConnect, walletConnectProviderGetter, walletFactorys],
   );
 
   return (

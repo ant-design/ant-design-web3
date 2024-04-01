@@ -37,12 +37,14 @@ export const useWalletConnectProvider = (walletConnect?: UniversalProviderOpts) 
       promiseResolvesRef.current.forEach((resolve) => {
         resolve(provider);
       });
-
-      return () => {
-        setMounted(false);
-      };
     });
   }, [mounted, promiseResolvesRef, walletConnect]);
+
+  useEffect(() => {
+    return () => {
+      setMounted(false);
+    };
+  }, []);
 
   return getWalletConnectProvider;
 };
