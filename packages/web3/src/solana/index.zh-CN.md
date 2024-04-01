@@ -30,6 +30,10 @@ Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它
 
 <code src="./demos/networks.tsx"></code>
 
+## 调用钱包方法
+
+<code src="./demos/sign-message.tsx"></code>
+
 ## 显示余额
 
 <code src="./demos/balance.tsx"></code>

@@ -29,6 +29,10 @@ We have built-in support for the Solana mainnet (`mainnet-beta`). To support oth
 
 <code src="./demos/networks.tsx"></code>
 
+## Call wallet methods
+
+<code src="./demos/sign-message.tsx"></code>
+
 ## Display Balance
 
 <code src="./demos/balance.tsx"></code>
