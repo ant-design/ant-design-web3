@@ -53,7 +53,7 @@
   "devDependencies": {
     "@ant-design/web3-solana": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
-    "@types/react": "^18.2.65",
+    "@types/react": "^18.2.73",
     "@types/react-dom": "^18.2.23",
     "father": "^4.3.8",
     "typescript": "^5.4.2"
