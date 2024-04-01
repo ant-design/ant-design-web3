@@ -16,7 +16,7 @@ group:
 - @ant-design/web3-wagmi
 - @ant-design/web3
 
-# 如何生成 Changelog
+## 如何生成 Changelog
 
 1. 首先需要执行命令:
 
