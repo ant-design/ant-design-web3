@@ -299,8 +299,8 @@ importers:
         specifier: workspace:*
         version: link:../common
       '@wagmi/core':
-        specifier: ^2.6.5
-        version: 2.6.5(@types/react@18.2.73)(react@18.2.0)(typescript@5.4.2)(viem@2.0.0)
+        specifier: ^2.6.13
+        version: 2.6.13(@types/react@18.2.73)(react@18.2.0)(typescript@5.4.2)(viem@2.0.0)
       debug:
         specifier: ^4.3.4
         version: 4.3.4(supports-color@5.5.0)
@@ -11362,6 +11362,32 @@ packages:
       - zod
     dev: true
 
+  /@wagmi/core@2.6.13(@types/react@18.2.73)(react@18.2.0)(typescript@5.4.2)(viem@2.0.0):
+    resolution: {integrity: sha512-RZQ0mBXMH5oe7uvFkNh0e/gPWWLsbkDv/6/SeTY2H7fsH4I/T62ID6eNYUtyOoz7FgQTdAyPdSEt9lst1ZXxkQ==}
+    peerDependencies:
+      '@tanstack/query-core': '>=5.0.0'
+      typescript: '>=5.0.4'
+      viem: 2.x
+    peerDependenciesMeta:
+      '@tanstack/query-core':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      eventemitter3: 5.0.1
+      mipd: 0.0.5(typescript@5.4.2)
+      typescript: 5.4.2
+      viem: 2.0.0(typescript@5.4.2)
+      zustand: 4.4.1(@types/react@18.2.73)(react@18.2.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - bufferutil
+      - immer
+      - react
+      - utf-8-validate
+      - zod
+    dev: false
+
   /@wagmi/core@2.6.5(@types/react@18.2.73)(react@18.2.0)(typescript@5.4.2)(viem@2.0.0):
     resolution: {integrity: sha512-DLyrc0o+dx05oIhBJuxnS7ekS5e6rB5mytlqPme+Km7aLdeBdcfYB4yJyYCyWoi93OLa7M5sbflTttz3o56bKw==}
     peerDependencies:
@@ -11386,6 +11412,7 @@ packages:
       - react
       - utf-8-validate
       - zod
+    dev: true
 
   /@wallet-standard/app@1.0.1:
     resolution: {integrity: sha512-LnLYq2Vy2guTZ8GQKKSXQK3+FRGPil75XEdkZqE6fiLixJhZJoJa5hT7lXxwe0ykVTt9LEThdTbOpT7KadS26Q==}
@@ -19110,7 +19137,6 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -19129,7 +19155,6 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -19148,7 +19173,6 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -19167,7 +19191,6 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     optional: true
 
