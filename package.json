@@ -36,7 +36,8 @@
     "clean:test": "rimraf --glob ./coverage ./packages/*/coverage ./examples/*/coverage",
     "husky:prepare": "husky install",
     "husky:pre-commit": "lint-staged",
-    "biome:format": "biome format --write ."
+    "biome:format": "biome format --write .",
+    "icons:generate": "NODE_OPTIONS='--experimental-specifier-resolution=node' node --loader ts-node/esm ./packages/icons/scripts/generate.ts"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
@@ -89,6 +90,7 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.2",
     "viem": "^2.0.0",
     "vite-plugin-svgr": "^4.2.0",
