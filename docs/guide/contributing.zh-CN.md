@@ -13,7 +13,7 @@ group:
 
 ## 如何贡献
 
-**提交 PR 时请先执行 `pnpm changeset` 生成变更说明，然后再提交 PR。** 我们通过 [changesets](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md) 管理版本发布，执行该命令会在 `.changeset` 下生成变更说明文件，这些文件会在发布时自动合并到 `CHANGELOG.md` 中。但是并不是每个 PR 都需要变更说明，比如文档、官网等不涉及到包内容修改的 PR，可以不用执行该命令。更多 changesets 的使用指南详见：[adding-a-changeset](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md)。
+**提交 PR 时请先执行 `pnpm changeset` 生成变更说明，然后再提交 PR。** 我们通过 [changesets](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md) 管理版本发布，执行该命令会在 `.changeset` 下生成变更说明文件，这些文件会在发布时自动合并到 `CHANGELOG.md` 中。但是并不是每个 PR 都需要变更说明，比如文档、官网等不涉及到包内容修改的 PR，可以不用执行该命令。更多 changesets 的使用指南详见：[如何添加 Changelog](https://web3.ant.design/guide/changelog-cn)。
 
 ### 贡献代码
 
