@@ -13,7 +13,7 @@ All work on Ant Design Web3 happens directly on [GitHub](https://github.com/ant-
 
 ## How to Contribute
 
-**When submitting a PR, please execute `pnpm changeset` to generate the changelog first, and then submit the PR.** We manage version releases through [changesets](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md). Executing this command will generate changelog files under `.changeset`, and these files will be automatically merged into `CHANGELOG.md` when released. But not every PR needs a changelog, for example, PRs that do not involve package content modifications such as documents and official websites do not need to execute this command. For more changesets usage guide, please refer to: [adding-a-changeset](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md).
+**When submitting a PR, please execute `pnpm changeset` to generate the changelog first, and then submit the PR.** We manage version releases through [changesets](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md). Executing this command will generate changelog files under `.changeset`, and these files will be automatically merged into `CHANGELOG.md` when released. But not every PR needs a changelog, for example, PRs that do not involve package content modifications such as documents and official websites do not need to execute this command. For more changesets usage guide, please refer to: [How to add Changelog](https://web3.ant.design/guide/changelog).
 
 ### Contribute Code
 
