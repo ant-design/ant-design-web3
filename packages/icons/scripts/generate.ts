@@ -19,7 +19,7 @@ interface IconDefinitionWithIdentifier extends IconDefinition {
 
 function camelToKebab(camelCaseString: string) {
   return camelCaseString
-    .replace(/([a-z\d])([A-Z][a-z])|([A-Z]+(?![a-z]))/g, '$1$3-$2')
+    .replace(/([a-z\d])([A-Z][a-z\d])|([A-Z]+(?![a-z\d]))/g, '$1$3-$2')
     .toLowerCase();
 }
 
