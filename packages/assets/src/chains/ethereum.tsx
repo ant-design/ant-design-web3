@@ -41,7 +41,7 @@ export const Sepolia: Chain = {
     icon: <EthereumCircleColorful />,
     getBrowserLink: createGetBrowserLink('https://sepolia.etherscan.io'),
   },
-  nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
+  nativeCurrency: { name: 'Sepolia Ether', symbol: 'ETH', decimals: 18 },
 };
 
 export const Polygon: Chain = {
