@@ -12,6 +12,7 @@ export enum ChainIds {
   Goerli = 5,
   Avalanche = 43_114,
   X1Testnet = 195,
+  Sepolia = 11155111
 }
 
 export enum SolanaChainIds {
