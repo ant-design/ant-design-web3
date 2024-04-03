@@ -1,5 +1,5 @@
 ---
-"@ant-design/web3-assets": patch
+"@ant-design/web3-assets": minor
 ---
 
 feat(ethers): support ether testnet 'Sepolia'
