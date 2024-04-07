@@ -41,7 +41,7 @@ export * from './components/fantom-circle-colorful';
 export * from './components/chrome-circle-colorful';
 
 export * from './components/tokenpocket-colorful';
-export * from './components/okx-colorful';
+export * from './components/okx-wallet-colorful';
 
 export * from './components/imtoken-colorful';
 export * from './components/imtoken-circle-colorful';
