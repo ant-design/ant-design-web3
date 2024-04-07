@@ -10,26 +10,27 @@ import {
 } from '@ant-design/web3-ethers/legacy-v5';
 import { Button, message } from 'antd';
 
-// import { version } from 'ethers';
-
 const App = () => {
+  const [messageApi, contextHolder] = message.useMessage();
+
   const account = useAccount();
   const provider = useEthersProvider();
   const signer = useEthersSigner();
   return (
     <div>
+      {contextHolder}
       <Connector modalProps={{ mode: 'simple' }}>
         <ConnectButton quickConnect style={{ minWidth: 120 }} />
       </Connector>
       <Button
         onClick={async () => {
           if (!account?.account) {
-            message.error('Please connect wallet first!');
+            messageApi.error('Please connect wallet first!');
             return;
           }
           const signature = await signer!.signMessage('hi antd web3!');
           const blockNum = await provider!.getBlockNumber();
-          message.success(`Signature: ${signature}, current block number: ${blockNum}`);
+          messageApi.success(`Signature: ${signature}, current block number: ${blockNum}`);
         }}
       >
         Sign Message
