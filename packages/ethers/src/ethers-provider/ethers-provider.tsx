@@ -38,7 +38,7 @@ export const EthersWeb3ConfigProvider: React.FC<
       (props.chains ?? [Mainnet])
         .map((chain) => {
           const wagmiChain = Object.values(wagmiChains).find((wc) => wc.id === chain.id) ?? null;
-          if (!wagmiChain) console.warn(`Chain ${chain.id} is not supported`);
+          if (!wagmiChain?.id) console.warn(`Chain ${chain.id} is not supported`);
           return wagmiChain;
         })
         .filter((chain) => chain !== null) as unknown as readonly [Chain, ...Chain[]],
@@ -49,8 +49,9 @@ export const EthersWeb3ConfigProvider: React.FC<
   );
 
   const wallets = React.useMemo(() => {
-    if (!walletConnect || !walletConnect?.projectId) return props.wallets;
-    return [...(props.wallets ?? []), WalletConnect()];
+    const targetWallets = [...(props.wallets ?? [])];
+    if (walletConnect && walletConnect.projectId) targetWallets.push(WalletConnect());
+    return targetWallets;
   }, [props.wallets, walletConnect]);
 
   const wagmiConfig = React.useMemo(() => {

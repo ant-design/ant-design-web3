@@ -52,7 +52,7 @@ describe('ethers-provider', async () => {
       );
     };
 
-    const UnknownChain = { ...Mainnet, name: 'Unknown', chainId: -9999 };
+    const UnknownChain = { ...Mainnet, name: 'Unknown', id: -9999 };
 
     const App = () => (
       <EthersWeb3ConfigProvider chains={[Mainnet, UnknownChain]}>
@@ -61,7 +61,7 @@ describe('ethers-provider', async () => {
     );
 
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Ethereum,Ethereum');
+    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Ethereum');
   });
 
   test('wallets', async () => {
