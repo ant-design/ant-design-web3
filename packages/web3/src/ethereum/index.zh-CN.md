@@ -11,9 +11,11 @@ tag:
 
 # Ethereum
 
-Ant Design Web3 官方提供了 `@ant-design/web3-wagmi` 来适配以太坊，它是一个基于 [wagmi 2.x](https://wagmi.sh/) 的 Ant Design Web3 以太坊适配器。它为 `@ant-design/web3` 的组件提供了连接以太坊等 EVM 兼容链的能力。通过它，你不需要自己处理组件的连接状态，链数据请求等逻辑。它会通过 [Web3ConfigProvider](../web3-config-provider/index.zh-CN.md) 为组件提供相关全局状态和接口。
+Ant Design Web3 官方提供了 `wagmi`、`ethers` 等多个框架的适配器来适配以太坊，我们推荐使用 `@ant-design/web3-wagmi`，它是一个基于 [wagmi 2.x](https://wagmi.sh/) 的 Ant Design Web3 以太坊适配器。它为 `@ant-design/web3` 的组件提供了连接以太坊等 EVM 兼容链的能力。通过它，你不需要自己处理组件的连接状态，链数据请求等逻辑。它会通过 [Web3ConfigProvider](../web3-config-provider/index.zh-CN.md) 为组件提供相关全局状态和接口。
 
 如果你使用的是 wagmi 1.x，你可以查看 [@ant-design/web3-wagmi@1.2.0 文档](https://github.com/ant-design/ant-design-web3/blob/f7c9d51086f82b13a9cf94353b999348e17001de/packages/web3/src/wagmi/index.zh-CN.md)。
+
+如果你希望在项目中使用 `ethers`，我们提供了 `@ant-design/web3-ethers` 适配器，它兼容最新的 `v6` 和 `v5` 版本，你可以[查看文档](#ethers-适配器)使用。
 
 目前，我们官方提供了该以太坊的适配器，你也可以自己开发适配器来支持其它的链，关于适配器，你可以阅读[适配器文档](../../../../docs/guide/adapter.zh-CN.md)了解更多。
 
@@ -131,8 +133,58 @@ Ant Design Web3 内置了对 [TokenPocket](https://www.tokenpocket.pro/) 的支�
 
 用于自己定钱包的类，它满足 WalletFactory 的接口要求。具体使用可以参考[自定义钱包信息](#自定义钱包信息)的示例。
 
-### Ethers
+## Ethers 适配器
+
+熟悉 `ethers` 的开发者可以安装 `@ant-design/web3-ethers` 配合组件库使用，其中绝大部份用法都与 `wagmi` 适配器一致。
+
+<NormalInstallDependencies packageNames="@ant-design/web3 @ant-design/web3-ethers ethers" save="true"></NormalInstallDependencies>
+
+### 基本使用
+
+这个例子展示了使用 `ethers` 适配器的基本用法。我们提供了两个 react hooks 来获取 `provider` 和 `signer`，你可以在组件中使用它们来进行链上操作：
+
+- `useEthersProvider`: 获取 `ethers` 的 `Provider` 实例。
+- `useEthersSigner`: 获取 `ethers` 的 `Signer` 实例。
 
 <code src="./demos/ethers-basic.tsx"></code>
 
+### Ethers 旧版本兼容
+
+如果您是 `ethers@5.x` 的用户，可以手动安装 v5 版本的 ethers，并修改适配器的引入方式，v5 以前的版本不再提供支持，建议升级到最新版本后使用：
+
+<NormalInstallDependencies packageNames="@ant-design/web3 @ant-design/web3-ethers ethers@legacy-v5" save="true"></NormalInstallDependencies>
+
+```tsx | pure
+import { EthersWeb3ConfigProvider, useEthersProvider } from '@ant-design/web3-ethers/legacy-v5'; // 引入 ethers@5.x 的适配器
+
+const Component = () => {
+  const provider = useEthersProvider();
+  // do something with provider
+};
+
+const App = () => {
+  return (
+    <EthersWeb3ConfigProvider>
+      <Component />
+    </EthersWeb3ConfigProvider>
+  );
+};
+```
+
+### 更多组件
+
+你可以配合更多组件使用，组件中涉及到链部分的内容都会从适配器中获取。当然，在组件上直接配置的属性优先级更高。
+
 <code src="./demos/ethers-more-components.tsx"></code>
+
+### EthersWeb3ConfigProviderProps
+
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| wallets | 钱包配置 | [WalletFactory](#walletfactory)\[\] | - | - |
+| chains | 链的配置 | [Chain](./types#chain)\[\] | - | - |
+| ens | 是否显示 ENS | `boolean` | - | - |
+| balance | 是否显示余额 | `boolean` | - | - |
+| locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
+| eip6963 | 是否采用 EIP6963 协议钱包以及相关配置 | `boolean` \| `EIP6963Config` | `false` |  |
+| walletConnect | 是否采用 Wallet Connect 协议 | `false` \| [WalletConnectOptions](https://wagmi.sh/core/api/connectors/walletConnect#parameters) | `false` |  |

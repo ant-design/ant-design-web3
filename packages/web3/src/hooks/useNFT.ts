@@ -16,7 +16,6 @@ export default function useNFT(
   });
 
   useEffect(() => {
-    console.log('run');
     if (!address || !tokenId) {
       return;
     }
