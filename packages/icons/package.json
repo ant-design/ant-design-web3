@@ -40,11 +40,11 @@
     "build": "father build"
   },
   "devDependencies": {
-    "@types/react": "^18.2.65",
-    "@types/react-dom": "^18.2.19",
-    "antd": "^5.15.3",
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.23",
+    "antd": "^5.16.0",
     "father": "^4.3.8",
-    "glob": "^10.3.10",
+    "glob": "^10.3.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.4.2"
@@ -65,7 +65,7 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/icons": "^5.3.1",
+    "@ant-design/icons": "^5.3.6",
     "@inline-svg-unique-id/react": "^1.2.3",
     "classnames": "^2.3.2"
   }

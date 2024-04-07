@@ -10,5 +10,26 @@ export default defineConfig({
     output: 'dist/esm',
     transformer: 'babel',
   },
-  extraBabelPlugins: ['inline-react-svg', 'react-inline-svg-unique-id'],
+  extraBabelPlugins: [
+    [
+      'inline-react-svg',
+      {
+        svgo: {
+          plugins: [
+            {
+              name: 'preset-default',
+              params: {
+                overrides: {
+                  removeViewBox: false,
+                },
+              },
+            },
+            'removeDimensions',
+            'convertStyleToAttrs',
+          ],
+        },
+      },
+    ],
+    'react-inline-svg-unique-id',
+  ],
 });

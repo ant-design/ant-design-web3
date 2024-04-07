@@ -39,7 +39,8 @@
     "clean:test": "rimraf --glob ./coverage ./packages/*/coverage ./examples/*/coverage",
     "husky:prepare": "husky install",
     "husky:pre-commit": "lint-staged",
-    "biome:format": "biome format --write ."
+    "biome:format": "biome format --write .",
+    "icons:generate": "NODE_OPTIONS='--experimental-specifier-resolution=node' node --loader ts-node/esm ./packages/icons/scripts/generate.ts"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
@@ -49,7 +50,7 @@
     "*.{json,less,md}": "prettier --ignore-unknown --write"
   },
   "devDependencies": {
-    "@ant-design/icons": "^5.3.1",
+    "@ant-design/icons": "^5.3.6",
     "@ant-design/web3": "workspace:*",
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
@@ -66,11 +67,11 @@
     "@testing-library/react": "^14.2.1",
     "@types/lodash": "^4.14.202",
     "@types/node": "^20.10.5",
-    "@types/react": "^18.2.65",
+    "@types/react": "^18.2.73",
     "@types/react-copy-to-clipboard": "^5.0.7",
     "@umijs/fabric": "^4.0.1",
     "@vitest/coverage-v8": "^1.1.0",
-    "antd": "^5.15.4",
+    "antd": "^5.16.0",
     "antd-style": "^3.6.1",
     "antd-token-previewer-web3": "^2.0.8",
     "babel-plugin-add-import-extension": "^1.6.0",
@@ -93,6 +94,7 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.2",
     "viem": ">=2.0.0",
     "vite-plugin-svgr": "^4.2.0",

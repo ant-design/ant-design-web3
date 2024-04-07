@@ -33,6 +33,17 @@ export const Goerli: Chain = {
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
 };
 
+export const Sepolia: Chain = {
+  id: ChainIds.Sepolia,
+  name: 'Sepolia',
+  icon: <EthereumCircleColorful />,
+  browser: {
+    icon: <EthereumCircleColorful />,
+    getBrowserLink: createGetBrowserLink('https://sepolia.etherscan.io'),
+  },
+  nativeCurrency: { name: 'Sepolia Ether', symbol: 'ETH', decimals: 18 },
+};
+
 export const Polygon: Chain = {
   id: ChainIds.Polygon,
   name: 'Polygon',
