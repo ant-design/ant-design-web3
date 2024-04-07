@@ -10,7 +10,6 @@ import {
 } from '@ant-design/web3-ethers';
 import { Button, message } from 'antd';
 
-// import { version } from 'ethers';
 
 const App = () => {
   const provider = useEthersProvider();
