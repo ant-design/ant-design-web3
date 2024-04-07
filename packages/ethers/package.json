@@ -15,6 +15,11 @@
       "import": "./dist/esm/index-v5.js",
       "require": "./dist/lib/index-v5.js",
       "types": "./dist/esm/index-v5.d.ts"
+    },
+    "./wagmi": {
+      "import": "./dist/esm/wagmi.js",
+      "require": "./dist/lib/wagmi.js",
+      "types": "./dist/esm/wagmi.d.ts"
     }
   },
   "files": [

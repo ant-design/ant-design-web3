@@ -3,10 +3,10 @@ import {
   EthersWeb3ConfigProvider,
   MetaMask,
   OkxWallet,
-  useBlockNumber,
   useEthersProvider,
   useEthersSigner,
 } from '@ant-design/web3-ethers';
+import { useBlockNumber } from '@ant-design/web3-ethers/wagmi';
 import { Typography } from 'antd';
 
 const AddressPreviewer = () => {
