@@ -4,11 +4,11 @@ import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
 import { ConfigProvider } from 'antd';
 import classnames from 'classnames';
 
-import SVGComponent from '../svgs/okx-colorful.svg';
+import SVGComponent from '../svgs/okx-wallet-colorful.svg';
 
 export const OkxWalletColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('web3-icon-okx-colorful');
+  const prefixCls = getPrefixCls('web3-icon-okx-wallet-colorful');
   return (
     <AntdIcon
       {...props}
