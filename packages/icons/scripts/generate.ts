@@ -17,7 +17,21 @@ interface IconDefinitionWithIdentifier extends IconDefinition {
   svgBase64: string | null;
 }
 
+const IdentifierMap: { [key: string]: string } = {
+  ImTokenCircleColorful: 'imtoken-circle-colorful',
+  ImTokenColorful: 'imtoken-colorful',
+  MetaMaskColorful: 'metamask-colorful',
+  OneInchColorful: 'oneinch-colorful',
+  PancakeSwapColorful: 'pancakeswap-colorful',
+  SushiSwapColorful: 'sushiswap-colorful',
+  TokenPocketColorful: 'tokenpocket-colorful',
+  TwoKeyCircleColorful: 'twokey-circle-colorful',
+};
+
 function camelToKebab(camelCaseString: string) {
+  if (Object.keys(IdentifierMap).some((key) => key === camelCaseString)) {
+    return IdentifierMap[camelCaseString];
+  }
   return camelCaseString
     .replace(/([a-z\d])([A-Z][a-z\d])|([A-Z]+(?![a-z\d]))/g, '$1$3-$2')
     .toLowerCase();
@@ -54,6 +68,8 @@ function walk<T>(fn: (iconDef: IconDefinitionWithIdentifier) => Promise<T>) {
         try {
           svgBase64 = svg2base64(realSvgPath);
         } catch (e) {}
+      } else {
+        console.log(svgIdentifier);
       }
       return fn({ svgIdentifier, svgBase64, svgPathToKebab, ...iconDef });
     }),
