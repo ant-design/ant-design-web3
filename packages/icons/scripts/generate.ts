@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { promisify } from 'util';
-import * as allIconDefs from '@ant-design/web3-icons';
 import pkg from 'lodash';
 
 const __dirname = new URL(import.meta.url).pathname;
@@ -18,23 +17,62 @@ interface IconDefinitionWithIdentifier extends IconDefinition {
 }
 
 const IdentifierMap: { [key: string]: string } = {
-  ImTokenCircleColorful: 'imtoken-circle-colorful',
-  ImTokenColorful: 'imtoken-colorful',
-  MetaMaskColorful: 'metamask-colorful',
-  OneInchColorful: 'oneinch-colorful',
-  PancakeSwapColorful: 'pancakeswap-colorful',
-  SushiSwapColorful: 'sushiswap-colorful',
-  TokenPocketColorful: 'tokenpocket-colorful',
-  TwoKeyCircleColorful: 'twokey-circle-colorful',
+  'imtoken-circle-colorful': 'ImTokenCircleColorful',
+  'imtoken-colorful': 'ImTokenColorful',
+  'metamask-colorful': 'MetaMaskColorful',
+  'oneinch-colorful': 'OneInchColorful',
+  'pancakeswap-colorful': 'PancakeSwapColorful',
+  'sushiswap-colorful': 'SushiSwapColorful',
+  'tokenpocket-colorful': 'TokenPocketColorful',
+  'twokey-circle-colorful': 'TwoKeyCircleColorful',
+  'aave-circle-colorful': 'AAVECircleColorful',
+  'usdt-filled': 'USDTFilled',
+  'usdt-colorful': 'USDTColorful',
+  'usdt-circle-filled': 'USDTCircleFilled',
+  'bsc-circle-colorful': 'BSCCircleColorful',
+  'wbtc-circle-colorful': 'WBTCCircleColorful',
+  'dai-circle-colorful': 'DAICircleColorful',
 };
 
-function camelToKebab(camelCaseString: string) {
-  if (Object.keys(IdentifierMap).some((key) => key === camelCaseString)) {
-    return IdentifierMap[camelCaseString];
+function getAllFilesInDirectory(dirPath: string) {
+  let filesList: string[] = [];
+
+  try {
+    const directoryContent = fs.readdirSync(dirPath, { withFileTypes: true });
+
+    for (const entry of directoryContent) {
+      const fileNameWithExtension = entry.name;
+      const fileName = path.basename(fileNameWithExtension, path.extname(fileNameWithExtension));
+      if (fileName === '.DS_Store') {
+        // for Mac OS
+        continue;
+      }
+      if (entry.isDirectory()) {
+        filesList = filesList.concat(getAllFilesInDirectory(fileName));
+      } else {
+        filesList.push(fileName);
+      }
+    }
+
+    return filesList;
+  } catch (err) {
+    console.error('Error reading directory:', err);
+    return [];
   }
-  return camelCaseString
-    .replace(/([a-z\d])([A-Z][a-z\d])|([A-Z]+(?![a-z\d]))/g, '$1$3-$2')
-    .toLowerCase();
+}
+const AllSvgFiles = getAllFilesInDirectory(path.resolve(__dirname, '../../src/svgs'));
+function kebabToCamel(kebabCaseString: string) {
+  if (Object.keys(IdentifierMap).some((key) => key === kebabCaseString)) {
+    return IdentifierMap[kebabCaseString];
+  }
+  const camelCaseWithoutFirstLetterCapitalized = kebabCaseString
+    .replace(/(-[a-z])/g, (match) => match.toUpperCase().slice(1))
+    .replace(/^([A-Z])/, (match) => match.toLowerCase());
+
+  return (
+    camelCaseWithoutFirstLetterCapitalized.charAt(0).toUpperCase() +
+    camelCaseWithoutFirstLetterCapitalized.slice(1)
+  );
 }
 
 function detectRealPath(_path: string) {
@@ -55,23 +93,22 @@ function svg2base64(svgPath: string, size = 50) {
 
 function walk<T>(fn: (iconDef: IconDefinitionWithIdentifier) => Promise<T>) {
   return Promise.all(
-    Object.keys(allIconDefs).map((svgIdentifier) => {
-      const iconDef = (allIconDefs as { [id: string]: IconDefinition })[svgIdentifier];
-      const svgPathToKebab = camelToKebab(svgIdentifier);
+    AllSvgFiles.map((svgIdentifier) => {
       const realSvgPath = detectRealPath(
-        path.resolve(__dirname, `../../src/svgs/${svgPathToKebab}.svg`),
+        path.resolve(__dirname, `../../src/svgs/${svgIdentifier}.svg`),
       );
 
       let svgBase64: string | null = null;
+      const svgCamelPath = kebabToCamel(svgIdentifier);
 
       if (realSvgPath) {
         try {
           svgBase64 = svg2base64(realSvgPath);
         } catch (e) {}
       } else {
-        console.log(svgIdentifier);
+        console.log('realSvgPath is not found:', svgIdentifier);
       }
-      return fn({ svgIdentifier, svgBase64, svgPathToKebab, ...iconDef });
+      return fn({ svgIdentifier, svgBase64, svgCamelPath });
     }),
   );
 }
@@ -95,12 +132,12 @@ import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
 import { ConfigProvider } from 'antd';
 import classnames from 'classnames';
 
-import SVGComponent from '../svgs/<%= svgPathToKebab %>.svg';
+import SVGComponent from '../svgs/<%= svgIdentifier %>.svg';
 
-<% if (svgBase64) { %> /**![<%= svgIdentifier %>](<%= svgBase64 %>) */ <% } %>
-export const <%= svgIdentifier %> = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
+<% if (svgCamelPath) { %>/**![<%= svgCamelPath %>](<%= svgBase64 %>) */<% }%>
+export const <%= svgCamelPath %> = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('web3-icon-<%= svgPathToKebab %>');
+  const prefixCls = getPrefixCls('web3-icon-<%= svgIdentifier %>');
 
   return (
     <AntdIcon
@@ -112,37 +149,34 @@ export const <%= svgIdentifier %> = React.forwardRef<HTMLSpanElement, IconBasePr
   );
 });
 
-<%= svgIdentifier %>.displayName = '<%= svgIdentifier %>';
-
-`.trim(),
+<%= svgCamelPath %>.displayName = '<%= svgCamelPath %>';
+`.trimStart(),
   );
 
   await walk(async (item) => {
     // generate icon file
-    const svgPathToKebab = camelToKebab(item.svgIdentifier);
-
     try {
       await writeFile(
-        path.resolve(__dirname, `../../src/components/${svgPathToKebab}.tsx`),
+        path.resolve(__dirname, `../../src/components/${item.svgIdentifier}.tsx`),
         render(item),
       );
     } catch (error) {}
   });
 
   // generate icon index
-  const entryText = Object.keys(allIconDefs)
-    .sort()
-    .map((svgIdentifier) => `export * from './components/${camelToKebab(svgIdentifier)}';`)
+  const entryText = AllSvgFiles.sort()
+    .map((svgIdentifier) => `export * from './components/${svgIdentifier}';`)
     .join('\n');
-
+  const exportPath = path.resolve(__dirname, '../../src/index.ts');
+  fs.unlinkSync(exportPath);
   await promisify(fs.appendFile)(
-    path.resolve(__dirname, '../../src/index.ts'),
+    exportPath,
     `
-  // GENERATE BY ./scripts/generate.ts
-  // DON NOT EDIT IT MANUALLY
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
 
-  ${entryText}
-      `.trim(),
+${entryText}
+`.trimStart(),
   );
 }
 
