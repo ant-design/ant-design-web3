@@ -4538,7 +4538,7 @@ exports[`Test Icons > should render all icons 79`] = `
 
 exports[`Test Icons > should render all icons 80`] = `
 <span
-  class="anticon ant-web3-icon-2key-circle-colorful"
+  class="anticon ant-web3-icon-twokey-circle-colorful"
   role="img"
 >
   <svg
@@ -14183,7 +14183,7 @@ exports[`Test Icons > should render all icons 235`] = `
 
 exports[`Test Icons > should render all icons 236`] = `
 <span
-  class="anticon ant-web3-icon-1inch-colorful"
+  class="anticon ant-web3-icon-oneinch-colorful"
   role="img"
 >
   <svg
@@ -21560,7 +21560,7 @@ exports[`Test Icons > should render all icons 348`] = `
 
 exports[`Test Icons > should render all icons 349`] = `
 <span
-  class="anticon ant-web3-icon-imtoken-colorful"
+  class="anticon ant-web3-icon-imtoken-circle-colorful"
   role="img"
 >
   <svg
