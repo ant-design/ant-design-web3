@@ -14382,7 +14382,7 @@ exports[`Test Icons > should render all icons 239`] = `
 
 exports[`Test Icons > should render all icons 240`] = `
 <span
-  class="anticon ant-web3-icon-okx-colorful"
+  class="anticon ant-web3-icon-okx-wallet-colorful"
   role="img"
 >
   <svg
