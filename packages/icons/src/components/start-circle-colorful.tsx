@@ -9,20 +9,18 @@ import classnames from 'classnames';
 import SVGComponent from '../svgs/start-circle-colorful.svg';
 
 /**![StartCircleColorful](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IiNjYWNhY2EiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiBmaWxsPSIjMDFhZWYwIiByPSIxNiIvPjxwYXRoIGQ9Ik0yMS4wNjkgMTguODljLS4wMTMgMi4wNzQtMS4yMTEgMy44NC0zLjEyMiA0LjU2NS0uNDQ4LjE3LS45MTQuMjk1LTEuMzc4LjQxMS0uMjc3LjA3LS40MjguMjA3LS40NS41MS0uMDI4LjM4Mi0uMDY3Ljc2My0uMTIgMS4xNC0uMDY0LjQ0Ni0uMjE3LjU0OC0uNjI3LjQ1LS43MDYtLjE2OC0uNzgyLS4yODItLjY4OC0xLjAyMy4wMDgtLjA2My4wMTctLjEyNi4wMjQtLjE5LjA3LS42MDctLjAxNi0uNjk0LS41OTctLjY2NS0uMjYxLjAxMy0uMzcuMTQyLS4zOTUuMzk4LS4wMzQuMzY4LS4wNy43MzctLjEzIDEuMS0uMDYuMzcyLS4yMTYuNDY0LS41NzQuMzg2LS43NjQtLjE2NS0uODItLjI1LS43Mi0xLjA1OC4xMjYtMS4wMDMuMTIzLS45OTItLjgwMy0xLjI3MS0uNDEtLjEyNC0uODA4LS4yOTYtMS4yMDktLjQ1NS0uMjQ0LS4wOTYtLjMyNC0uMjc4LS4yNTgtLjU0OS4wODQtLjM0NS4xNDItLjY5OC4yMTQtMS4wNDcuMTI0LS41OTUuNDEyLS43NzUuOTYyLS41NTkuOTc0LjM4MyAxLjk3NC42MTkgMy4wMTUuNjQ0LjkzOS4wMjMgMS44NjgtLjAzOSAyLjcyNS0uNS41NjYtLjMwNS45ODItLjc1MiAxLjE5MS0xLjM5My4zMS0uOTUyLjAzMi0xLjcyMi0uODYtMi4xMDUtLjczNS0uMzE1LTEuNTI0LS40OS0yLjI2NS0uNzkyLS42NTgtLjI2OC0xLjM0Mi0uNTM2LTEuOTEtLjk1Ny0xLjI3Ny0uOTQ0LTEuNS0yLjM0LTEuMjItMy44MzEuMzE4LTEuNjgxIDEuMzQ3LTIuNzcxIDIuODc0LTMuMzUuNDA3LS4xNTMuNTkxLS4zNjcuNTk4LS44MjQuMDA2LS40OTUuMDg1LS45OS4xNDUtMS40ODMuMDQ2LS4zNzkuMTk0LS40ODUuNTQ4LS40MjcuNzUyLjEyMy44NDIuMjQyLjc2OCAxLjAyMy0uMDI5LjMwNS0uMDU0LjYxLS4wOS45MTMtLjAzLjI1NS4wNTEuMzcyLjMxOC4zOC42MDkuMDE4LjYzNS4wMDcuNzA3LS42MjMuMDQ2LS40MDUuMDgtLjgxMS4xMzUtMS4yMTUuMDYtLjQ0OC4yMDUtLjU1LjYxOC0uNDY2LjY5NS4xNDMuNzcyLjI0OS43MDQuOTczLS4wMy4zMTctLjA0NS42MzctLjEuOTUtLjA2My4zNi4wNDcuNTI3LjQwNS42MS42ODEuMTU4IDEuMzU1LjM1OCAyLjAyNC41NjYuNTAzLjE1Ni41MjMuMjEzLjQyNi43MzYtLjA1Ny4zMTMtLjExNC42MjctLjE4OC45MzYtLjEzOC41ODItLjQyOC43NTUtLjk4Mi41NjktLjk0OC0uMzItMS45LS42MDktMi45MDUtLjY1Mi0uODgtLjAzNy0xLjc0OC0uMDI0LTIuNTEyLjUyOS0xLjA3Ni43NzgtMS4wODIgMi4zNi4wNjIgMy4wMjYuNzI4LjQyNCAxLjU2OS42NCAyLjM1OC45NTIuNDgxLjE5Ljk3NS4zNTQgMS40MzcuNTg0IDEuMjM4LjYxOCAxLjg1OSAxLjY1MSAxLjg0NSAzLjA4NSIgZmlsbD0iI2ZmZiIvPjwvZz48L3N2Zz4=) */
-export const StartCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>(
-  (props, ref) => {
-    const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
-    const prefixCls = getPrefixCls('web3-icon-start-circle-colorful');
+export const StartCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('web3-icon-start-circle-colorful');
 
-    return (
-      <AntdIcon
-        {...props}
-        className={classnames(prefixCls, props.className)}
-        ref={ref}
-        component={SVGComponent}
-      />
-    );
-  },
-);
+  return (
+    <AntdIcon
+      {...props}
+      className={classnames(prefixCls, props.className)}
+      ref={ref}
+      component={SVGComponent}
+    />
+  );
+});
 
 StartCircleColorful.displayName = 'StartCircleColorful';
