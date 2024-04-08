@@ -19,7 +19,7 @@ First, similar to the [Quick Start](../guide/quick-start.md) documentation guide
 npm i @ant-design/web3-wagmi wagmi viem @tanstack/react-query --save
 ```
 
-`@ant-design/web3` is a UI component library, which connects to different blockchains through different [adapters](../guide/adapter.md). In this course, we mainly use [Ethereum](https://ethereum.org/) as an example. Correspondingly, we will also use the [adapter of Ethereum](../../packages/web3/src/wagmi/index.md) to implement the requirements of the course.
+`@ant-design/web3` is a UI component library, which connects to different blockchains through different [adapters](../guide/adapter.md). In this course, we mainly use [Ethereum](https://ethereum.org/) as an example. Correspondingly, we will also use the [adapter of Ethereum](../../packages/web3/src/ethereum/index.md) to implement the requirements of the course.
 
 > [wagmi](https://wagmi.sh/) is an open source React Hooks library that serves Ethereum. The adapter `@ant-design/web3-wagmi` of Ant Design Web3 is based on it. In the later part of this course, unless otherwise specified, the adapter mentioned refers to `@ant-design/web3-wagmi`.
 
@@ -179,4 +179,4 @@ The result is as follows:
 
 ![](./img/connect.png)
 
-You can try to refer to [this document](../../packages/web3/src/wagmi/index.md#add-more-wallets) to configure support for more wallets.
+You can try to refer to [this document](../../packages/web3/src/ethereum/index.md#add-more-wallets) to configure support for more wallets.

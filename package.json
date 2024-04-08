@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "examples/*"
   ],
   "packageManager": "pnpm@8.9.0",
   "files": [],
@@ -11,8 +12,10 @@
     "start": "dumi dev",
     "dev": "dumi dev",
     "dev:lib": "pnpm run --parallel --if-present --recursive --filter \"@ant-design/*\" dev",
-    "build": "pnpm run --if-present --recursive build",
+    "build": "pnpm run --if-present --recursive --filter \"@ant-design/*\" build",
     "build:docs": "dumi build",
+    "example:ethers": "pnpm run --filter \"@example/ethers\" dev",
+    "example:ethers-v5": "pnpm run --filter \"@example/ethers-v5\" dev",
     "postinstall": "pnpm run husky:prepare",
     "changeset": "changeset",
     "release:prepare": "npm run build && npm run lint && npm run test:ci",
@@ -54,6 +57,7 @@
     "@ant-design/web3-icons": "workspace:*",
     "@ant-design/web3-solana": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
+    "@ant-design/web3-ethers": "workspace:*",
     "@biomejs/biome": "^1.6.2",
     "@changesets/changelog-git": "^0.2.0",
     "@changesets/cli": "^2.27.1",
@@ -92,7 +96,7 @@
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.2",
-    "viem": "^2.0.0",
+    "viem": ">=2.0.0",
     "vite-plugin-svgr": "^4.2.0",
     "vitest": "~1.4.0",
     "wagmi": "^2.5.7"

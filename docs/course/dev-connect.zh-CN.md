@@ -19,7 +19,7 @@ order: 2
 npm i @ant-design/web3-wagmi wagmi viem @tanstack/react-query --save
 ```
 
-`@ant-design/web3` 是一个 UI 组件库，它通过不同的[适配器](../guide/adapter.zh-CN.md)和不同的区块链连接。本课程中，我们主要基于的是[以太坊](https://ethereum.org/zh/)。对应的，我们也将使用[以太坊的适配器](../../packages/web3/src/wagmi/index.zh-CN.md)来实现课程的需求。
+`@ant-design/web3` 是一个 UI 组件库，它通过不同的[适配器](../guide/adapter.zh-CN.md)和不同的区块链连接。本课程中，我们主要基于的是[以太坊](https://ethereum.org/zh/)。对应的，我们也将使用[以太坊的适配器](../../packages/web3/src/ethereum/index.zh-CN.md)来实现课程的需求。
 
 > [wagmi](https://wagmi.sh/) 是一个开源的服务以太坊的 React Hooks 库，Ant Design Web3 的适配器 `@ant-design/web3-wagmi` 基于它实现，在本课程的后面部分，如果没有特殊说明，那提到的适配器就是指 `@ant-design/web3-wagmi`。
 
@@ -179,4 +179,4 @@ export default function Web3() {
 
 ![](./img/connect.png)
 
-你可以尝试参考[这篇文档](../../packages/web3/src/wagmi/index.zh-CN.md#添加更多钱包)配置支持更多钱包。
+你可以尝试参考[这篇文档](../../packages/web3/src/ethereum/index.zh-CN.md#添加更多钱包)配置支持更多钱包。
