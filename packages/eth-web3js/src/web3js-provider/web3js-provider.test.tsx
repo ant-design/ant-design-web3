@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
 
 import { MetaMask, TokenPocket } from '../wallets';
-import { Web3jsConfigProvider } from './web3js-provider';
+import { EthWeb3jsConfigProvider } from './web3js-provider';
 
 describe('web3js-provider', async () => {
   test('basic usage', async () => {
@@ -17,9 +17,9 @@ describe('web3js-provider', async () => {
     };
 
     const App = () => (
-      <Web3jsConfigProvider>
+      <EthWeb3jsConfigProvider>
         <CustomConnector />
-      </Web3jsConfigProvider>
+      </EthWeb3jsConfigProvider>
     );
 
     const { baseElement } = render(<App />);
@@ -35,9 +35,9 @@ describe('web3js-provider', async () => {
     };
 
     const App = () => (
-      <Web3jsConfigProvider chains={[Mainnet, Optimism]}>
+      <EthWeb3jsConfigProvider chains={[Mainnet, Optimism]}>
         <CustomConnector />
-      </Web3jsConfigProvider>
+      </EthWeb3jsConfigProvider>
     );
 
     const { baseElement } = render(<App />);
@@ -55,9 +55,9 @@ describe('web3js-provider', async () => {
     const UnknownChain = { ...Mainnet, name: 'Unknown', id: -9999 };
 
     const App = () => (
-      <Web3jsConfigProvider chains={[Mainnet, UnknownChain]}>
+      <EthWeb3jsConfigProvider chains={[Mainnet, UnknownChain]}>
         <CustomConnector />
-      </Web3jsConfigProvider>
+      </EthWeb3jsConfigProvider>
     );
 
     const { baseElement } = render(<App />);
@@ -73,9 +73,9 @@ describe('web3js-provider', async () => {
     };
 
     const App = () => (
-      <Web3jsConfigProvider wallets={[MetaMask(), TokenPocket()]}>
+      <EthWeb3jsConfigProvider wallets={[MetaMask(), TokenPocket()]}>
         <CustomConnector />
-      </Web3jsConfigProvider>
+      </EthWeb3jsConfigProvider>
     );
 
     const { baseElement } = render(<App />);
@@ -91,12 +91,12 @@ describe('web3js-provider', async () => {
     };
 
     const App = () => (
-      <Web3jsConfigProvider
+      <EthWeb3jsConfigProvider
         wallets={[MetaMask()]}
         walletConnect={{ projectId: 'YOUR_WALLET_CONNECT_PROJECT_ID' }}
       >
         <CustomConnector />
-      </Web3jsConfigProvider>
+      </EthWeb3jsConfigProvider>
     );
 
     const { baseElement } = render(<App />);

@@ -25,15 +25,13 @@ export interface WalletConnectOptions
   useWalletConnectOfficialModal?: boolean;
 }
 
-export interface Web3jsConfigProviderProps extends Omit<WagmiWeb3ConfigProviderProps, 'config'> {
+export interface EthWeb3jsConfigProviderProps extends Omit<WagmiWeb3ConfigProviderProps, 'config'> {
   walletConnect?: false | WalletConnectOptions;
 }
 
-export const Web3jsConfigProvider: React.FC<React.PropsWithChildren<Web3jsConfigProviderProps>> = ({
-  children,
-  walletConnect,
-  ...props
-}) => {
+export const EthWeb3jsConfigProvider: React.FC<
+  React.PropsWithChildren<EthWeb3jsConfigProviderProps>
+> = ({ children, walletConnect, ...props }) => {
   const chains = React.useMemo(
     () =>
       (props.chains ?? [Mainnet])

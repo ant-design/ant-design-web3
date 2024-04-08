@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  wagmi: ^2.5.7
+
 importers:
 
   .:
@@ -162,6 +165,40 @@ importers:
       wagmi:
         specifier: ^2.5.7
         version: 2.5.7(@tanstack/react-query@5.28.4)(@types/react@18.2.73)(react-dom@18.2.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.2)(viem@2.0.0)
+
+  examples/eth-web3js:
+    dependencies:
+      '@ant-design/web3':
+        specifier: workspace:*
+        version: link:../../packages/web3
+      '@ant-design/web3-assets':
+        specifier: workspace:*
+        version: link:../../packages/assets
+      '@ant-design/web3-common':
+        specifier: workspace:*
+        version: link:../../packages/common
+      '@ant-design/web3-eth-web3js':
+        specifier: workspace:*
+        version: link:../../packages/eth-web3js
+      antd:
+        specifier: ^5.15.4
+        version: 5.16.0(react-dom@18.2.0)(react@18.2.0)
+      umi:
+        specifier: ^4.1.5
+        version: 4.1.5(@babel/core@7.24.3)(@types/node@20.10.5)(@types/react@18.2.73)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(stylelint@14.16.1)(typescript@5.4.3)(webpack@5.91.0)
+      web3:
+        specifier: ^4.7.0
+        version: 4.7.0(typescript@5.4.3)
+    devDependencies:
+      '@types/react':
+        specifier: ^18.2.73
+        version: 18.2.73
+      '@types/react-dom':
+        specifier: ^18.2.22
+        version: 18.2.23
+      typescript:
+        specifier: ^5.4.3
+        version: 5.4.3
 
   examples/ethers:
     dependencies:
@@ -1482,7 +1519,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.24.3
-      '@babel/helper-plugin-utils': 7.22.5
+      '@babel/helper-plugin-utils': 7.24.0
 
   /@babel/plugin-syntax-class-properties@7.12.13(@babel/core@7.23.6):
     resolution: {integrity: sha512-fm4idjKla0YahUNgFNLCB0qySdsoPiZP3iQE3rky0mBUtMZ23yDJ9SJdg6dXTSDnulOVqiF3Hgr9nbXvXTQZYA==}
@@ -2362,7 +2399,7 @@ packages:
     dependencies:
       '@babel/core': 7.24.3
       '@babel/helper-module-transforms': 7.23.3(@babel/core@7.24.3)
-      '@babel/helper-plugin-utils': 7.22.5
+      '@babel/helper-plugin-utils': 7.24.0
       '@babel/helper-simple-access': 7.22.5
     dev: true
 
@@ -2374,7 +2411,7 @@ packages:
     dependencies:
       '@babel/core': 7.23.6
       '@babel/helper-module-transforms': 7.23.3(@babel/core@7.23.6)
-      '@babel/helper-plugin-utils': 7.22.5
+      '@babel/helper-plugin-utils': 7.24.0
       '@babel/helper-simple-access': 7.22.5
     dev: true
 
@@ -2386,7 +2423,7 @@ packages:
     dependencies:
       '@babel/core': 7.24.3
       '@babel/helper-module-transforms': 7.23.3(@babel/core@7.24.3)
-      '@babel/helper-plugin-utils': 7.22.5
+      '@babel/helper-plugin-utils': 7.24.0
       '@babel/helper-simple-access': 7.22.5
 
   /@babel/plugin-transform-modules-systemjs@7.23.3(@babel/core@7.23.6):
@@ -2738,7 +2775,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.24.3
-      '@babel/helper-plugin-utils': 7.22.5
+      '@babel/helper-plugin-utils': 7.24.0
 
   /@babel/plugin-transform-react-jsx-source@7.23.3(@babel/core@7.24.3):
     resolution: {integrity: sha512-91RS0MDnAWDNvGC6Wio5XYkyWI39FMFO+JK9+4AlgaTH+yWwVTsw7/sn6LK0lH7c5F+TFkpv/3LfCJ1Ydwof/g==}
@@ -2747,7 +2784,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.24.3
-      '@babel/helper-plugin-utils': 7.22.5
+      '@babel/helper-plugin-utils': 7.24.0
 
   /@babel/plugin-transform-react-jsx@7.23.4(@babel/core@7.23.6):
     resolution: {integrity: sha512-5xOpoPguCZCRbo/JeHlloSkTA8Bld1J/E1/kLfD1nsuiW1m8tduTA1ERCgIZokDflX/IBzKcqR3l7VlRgiIfHA==}
@@ -10600,7 +10637,6 @@ packages:
     resolution: {integrity: sha512-6YOoWjruKj1uLf3INHH7D3qTXwFfEsg1kf3c0uDdSBJwfa/llkwIjrAGV7j7mVgGNbzTQ3HiHKKDXl6bJPD97w==}
     dependencies:
       '@types/node': 20.10.5
-    dev: true
 
   /@types/yargs-parser@21.0.3:
     resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
@@ -12951,7 +12987,6 @@ packages:
         optional: true
     dependencies:
       typescript: 5.4.3
-    dev: true
 
   /abitype@0.9.8(typescript@5.4.2):
     resolution: {integrity: sha512-puLifILdm+8sjyss4S+fsUN09obiT1g2YW6CtcQF+QDzxR0euzgEB29MZujC6zMk2a6SVmtttq1fc6+YFA7WYQ==}
@@ -13804,7 +13839,7 @@ packages:
     resolution: {integrity: sha512-Y1IQok9821cC9onCx5otgFfRm7Lm+I+wwxOx738M/WLPZ9Q42m4IG5W0FNX8WLL2gYMZo3JkuXIH2DOpWM+qwA==}
     engines: {node: '>=8'}
     dependencies:
-      '@babel/helper-plugin-utils': 7.22.5
+      '@babel/helper-plugin-utils': 7.24.0
       '@istanbuljs/load-nyc-config': 1.1.0
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-instrument: 5.2.1
@@ -19468,7 +19503,6 @@ packages:
       ws: '*'
     dependencies:
       ws: 8.16.0(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-    dev: true
 
   /isows@1.0.3(ws@8.13.0):
     resolution: {integrity: sha512-2cKei4vlmg2cxEjm3wVSqn8pcoRF/LX/wpifuuNquFO4SQmPwarClT+SUCA2lt+l581tTeZIPIZuIDo2jWN1fg==}
@@ -28125,14 +28159,12 @@ packages:
       - bufferutil
       - encoding
       - utf-8-validate
-    dev: true
 
   /web3-errors@1.1.4:
     resolution: {integrity: sha512-WahtszSqILez+83AxGecVroyZsMuuRT+KmQp4Si5P4Rnqbczno1k748PCrZTS1J4UCPmXMG2/Vt+0Bz2zwXkwQ==}
     engines: {node: '>=14', npm: '>=6.12.0'}
     dependencies:
       web3-types: 1.5.0
-    dev: true
 
   /web3-eth-abi@4.2.0(typescript@5.4.3):
     resolution: {integrity: sha512-x7dUCmk6th+5N63s5kUusoNtsDJKUUQgl9+jECvGTBOTiyHe/V6aOY0120FUjaAGaapOnR7BImQdhqHv6yT2YQ==}
@@ -28146,7 +28178,6 @@ packages:
     transitivePeerDependencies:
       - typescript
       - zod
-    dev: true
 
   /web3-eth-accounts@4.1.1:
     resolution: {integrity: sha512-9JqhRi1YhO1hQOEmmBHgEGsME/B1FHMxpA/AK3vhpvQ8QeP6KbJW+cForTLfPpUbkmPxnRunG4PNNaETNlZfrA==}
@@ -28159,7 +28190,6 @@ packages:
       web3-types: 1.5.0
       web3-utils: 4.2.2
       web3-validator: 2.0.5
-    dev: true
 
   /web3-eth-contract@4.3.0(typescript@5.4.3):
     resolution: {integrity: sha512-4fzSklA65zUn6SthU3T3tbVJacfP8/wkJmCuvmPaf2ZTFdnhsF96G5IQtCRf0+wASb4yk0A6IBvXZfk1B4R4HA==}
@@ -28178,7 +28208,6 @@ packages:
       - typescript
       - utf-8-validate
       - zod
-    dev: true
 
   /web3-eth-ens@4.2.0(typescript@5.4.3):
     resolution: {integrity: sha512-qYj34te2UctoObt8rlEIY/t2MuTMiMiiHhO2JAHRGqSLCQ7b8DM3RpvkiiSB0N0ZyEn+CetZqJCTYb8DNKBS/g==}
@@ -28199,7 +28228,6 @@ packages:
       - typescript
       - utf-8-validate
       - zod
-    dev: true
 
   /web3-eth-iban@4.0.7:
     resolution: {integrity: sha512-8weKLa9KuKRzibC87vNLdkinpUE30gn0IGY027F8doeJdcPUfsa4IlBgNC4k4HLBembBB2CTU0Kr/HAOqMeYVQ==}
@@ -28209,7 +28237,6 @@ packages:
       web3-types: 1.5.0
       web3-utils: 4.2.2
       web3-validator: 2.0.5
-    dev: true
 
   /web3-eth-personal@4.0.8(typescript@5.4.3):
     resolution: {integrity: sha512-sXeyLKJ7ddQdMxz1BZkAwImjqh7OmKxhXoBNF3isDmD4QDpMIwv/t237S3q4Z0sZQamPa/pHebJRWVuvP8jZdw==}
@@ -28227,7 +28254,6 @@ packages:
       - typescript
       - utf-8-validate
       - zod
-    dev: true
 
   /web3-eth@4.5.0(typescript@5.4.3):
     resolution: {integrity: sha512-crisE46o/SHMVm+XHAXEaR8k76NCImq+hi0QQEJ+VaLZbDobI/Gvog1HwTukDUDRgnYSAFGqD0cTRyAwDurwpA==}
@@ -28250,7 +28276,6 @@ packages:
       - typescript
       - utf-8-validate
       - zod
-    dev: true
 
   /web3-net@4.0.7:
     resolution: {integrity: sha512-SzEaXFrBjY25iQGk5myaOfO9ZyfTwQEa4l4Ps4HDNVMibgZji3WPzpjq8zomVHMwi8bRp6VV7YS71eEsX7zLow==}
@@ -28264,7 +28289,6 @@ packages:
       - bufferutil
       - encoding
       - utf-8-validate
-    dev: true
 
   /web3-providers-http@4.1.0:
     resolution: {integrity: sha512-6qRUGAhJfVQM41E5t+re5IHYmb5hSaLc02BE2MaRQsz2xKA6RjmHpOA5h/+ojJxEpI9NI2CrfDKOAgtJfoUJQg==}
@@ -28276,7 +28300,6 @@ packages:
       web3-utils: 4.2.2
     transitivePeerDependencies:
       - encoding
-    dev: true
 
   /web3-providers-ipc@4.0.7:
     resolution: {integrity: sha512-YbNqY4zUvIaK2MHr1lQFE53/8t/ejHtJchrWn9zVbFMGXlTsOAbNoIoZWROrg1v+hCBvT2c9z8xt7e/+uz5p1g==}
@@ -28286,7 +28309,6 @@ packages:
       web3-errors: 1.1.4
       web3-types: 1.5.0
       web3-utils: 4.2.2
-    dev: true
     optional: true
 
   /web3-providers-ws@4.0.7:
@@ -28302,7 +28324,6 @@ packages:
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
-    dev: true
 
   /web3-rpc-methods@1.2.0:
     resolution: {integrity: sha512-CWJ/g4I4WyYvLkf21wCZAehdhU/VjX/OAPHnqF5/FPDJlogOsOnGXHqi1Z5AP+ocdt395PNubd8jyMMJoYGSBA==}
@@ -28315,12 +28336,10 @@ packages:
       - bufferutil
       - encoding
       - utf-8-validate
-    dev: true
 
   /web3-types@1.5.0:
     resolution: {integrity: sha512-geWuMIeegQ8AedKAO6wO4G4j1gyQ1F/AyKLMw2vud4bsfZayyzWJgCMDZtjYMm5uo2a7i8j1W3/4QFmzlSy5cw==}
     engines: {node: '>=14', npm: '>=6.12.0'}
-    dev: true
 
   /web3-utils@1.10.3:
     resolution: {integrity: sha512-OqcUrEE16fDBbGoQtZXWdavsPzbGIDc5v3VrRTZ0XrIpefC/viZ1ZU9bGEemazyS0catk/3rkOOxpzTfY+XsyQ==}
@@ -28345,7 +28364,6 @@ packages:
       web3-errors: 1.1.4
       web3-types: 1.5.0
       web3-validator: 2.0.5
-    dev: true
 
   /web3-validator@2.0.5:
     resolution: {integrity: sha512-2gLOSW8XqEN5pw5jVUm20EB7A8SbQiekpAtiI0JBmCIV0a2rp97v8FgWY5E3UEqnw5WFfEqvcDVW92EyynDTyQ==}
@@ -28356,7 +28374,6 @@ packages:
       web3-errors: 1.1.4
       web3-types: 1.5.0
       zod: 3.22.4
-    dev: true
 
   /web3@4.7.0(typescript@5.4.3):
     resolution: {integrity: sha512-3g+1e7B/IW0Nw9WP1dotrZKWD9o5IBfl27dxEnE1LxBZBax6ZkviiAwf18utIhlNBD07RgI+PPfKDXxfDBlHWA==}
@@ -28384,7 +28401,6 @@ packages:
       - typescript
       - utf-8-validate
       - zod
-    dev: true
 
   /webextension-polyfill-ts@0.25.0:
     resolution: {integrity: sha512-ikQhwwHYkpBu00pFaUzIKY26I6L87DeRI+Q6jBT1daZUNuu8dSrg5U9l/ZbqdaQ1M/TTSPKeAa3kolP5liuedw==}
@@ -28935,7 +28951,6 @@ packages:
 
   /zod@3.22.4:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
-    dev: true
 
   /zustand@4.4.1(@types/react@18.2.73)(react@18.2.0):
     resolution: {integrity: sha512-QCPfstAS4EBiTQzlaGP1gmorkh/UL1Leaj2tdj+zZCZ/9bm0WS7sI2wnfD5lpOszFqWJ1DcPnGoY8RDL61uokw==}

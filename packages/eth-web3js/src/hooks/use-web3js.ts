@@ -1,12 +1,10 @@
 import { useMemo } from 'react';
 import type { Chain, Client, Transport } from 'viem';
-import { useClient, type Config } from 'wagmi';
+import { useConnectorClient, type Config } from 'wagmi';
 import { Web3 } from 'web3';
 
-export const clientToWeb3js = (client?: Client<Transport, Chain>): Web3 => {
-  if (!client) return new Web3();
+export const clientToWeb3js = (client: Client<Transport, Chain>): Web3 => {
   const { transport } = client;
-
   if (transport.type === 'fallback') {
     return new Web3(transport.transports[0].value.url);
   }
@@ -14,6 +12,6 @@ export const clientToWeb3js = (client?: Client<Transport, Chain>): Web3 => {
 };
 
 export function useWeb3js(): Web3 | null {
-  const client = useClient<Config>();
+  const { data: client } = useConnectorClient<Config>();
   return useMemo(() => (client ? clientToWeb3js(client) : null), [client]);
 }

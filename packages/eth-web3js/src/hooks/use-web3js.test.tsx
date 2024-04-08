@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
 import Web3 from 'web3';
 
-import { Web3jsConfigProvider } from '../web3js-provider';
+import { EthWeb3jsConfigProvider } from '../web3js-provider';
 import { useWeb3js } from './use-web3js';
 
 describe('useWeb3js', async () => {
@@ -14,9 +14,9 @@ describe('useWeb3js', async () => {
     };
 
     const App = () => (
-      <Web3jsConfigProvider>
+      <EthWeb3jsConfigProvider>
         <CustomConnector />
-      </Web3jsConfigProvider>
+      </EthWeb3jsConfigProvider>
     );
 
     render(<App />);

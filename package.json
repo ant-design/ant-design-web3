@@ -16,6 +16,7 @@
     "build:docs": "dumi build",
     "example:ethers": "pnpm run --filter \"@example/ethers\" dev",
     "example:ethers-v5": "pnpm run --filter \"@example/ethers-v5\" dev",
+    "example:eth-web3js": "pnpm run --filter \"@example/eth-web3js\" dev",
     "postinstall": "pnpm run husky:prepare",
     "changeset": "changeset",
     "release:prepare": "npm run build && npm run lint && npm run test:ci",
@@ -112,5 +113,10 @@
   "repository": "https://github.com/ant-design/ant-design-web3.git",
   "dependencies": {
     "cross-env": "^7.0.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "wagmi": "^2.5.7"
+    }
   }
 }
