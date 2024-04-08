@@ -9,20 +9,18 @@ import classnames from 'classnames';
 import SVGComponent from '../svgs/ethereum-circle-colorful.svg';
 
 /**![EthereumCircleColorful](data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IiNjYWNhY2EiIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTc4OSwgLTU5NDUpIiBpZD0iZXRoZXJldW0tY2lyY2xlLWNvbG9yZnVsIj4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTc4OSwgNTk0NSkiPgogICAgICAgICAgICAgICAgPGcgZmlsbD0iIzU4N0VGMiIgZmlsbC1ydWxlPSJub256ZXJvIj4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiByeD0iNTEyIj48L3JlY3Q+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8ZyBpZD0iUHJvdG9jb2w9RXRoZXJldW0sLUVmZmVjdD1Ob25lLUNsaXBwZWQiPgogICAgICAgICAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgICAgICAgICA8Y2lyY2xlIGN4PSI1MTIiIGN5PSI1MTIiIHI9IjUxMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwb2x5Z29uIGZpbGw9IiNCRENDRkIiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI1MTEuOTYyMjA5IDE4Mi44NTcxNDMgNTA3LjQzNDY2NiAxOTcuODU4NzQzIDUwNy40MzQ2NjYgNjMzLjEzMTg4NiA1MTEuOTYyMjA5IDYzNy41Mzg3NDMgNzE5LjExMDA5NSA1MTguMTA3NDI5Ij48L3BvbHlnb24+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI1MTEuOTE0NjY2IDE4Mi44NTcxNDMgMzA0Ljc2MTkwNSA1MTguMTA3NDI5IDUxMS45MTQ2NjYgNjM3LjUzODc0MyA1MTEuOTE0NjY2IDQyNi4yNjkyNTciPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgICAgICAgICAgPHBvbHlnb24gZmlsbD0iI0JEQ0NGQiIgZmlsbC1ydWxlPSJub256ZXJvIiBwb2ludHM9IjUxMS45NjIyMDkgNjc1Ljc5MTIzNyA1MDkuNDEwNzQzIDY3OC44MjY2NjYgNTA5LjQxMDc0MyA4MzMuODc3MzM0IDUxMS45NjIyMDkgODQxLjE0NDA3NyA3MTkuMjM2ODc3IDU1Ni40MjIwOTUiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgICAgICAgICAgPHBvbHlnb24gZmlsbD0iI0ZGRkZGRiIgZmlsbC1ydWxlPSJub256ZXJvIiBwb2ludHM9IjUxMS45MTQ2NjYgODQxLjE0NDA3NyA1MTEuOTE0NjY2IDY3NS43OTEyMzcgMzA0Ljc2MTkwNSA1NTYuNDIyMDk1Ij48L3BvbHlnb24+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwb2x5Z29uIGZpbGw9IiM3QTk4RjUiIGZpbGwtcnVsZT0ibm9uemVybyIgcG9pbnRzPSI1MTEuODg2NjI5IDYzNy41MzE0MjkgNzE5LjAzNDUxNCA1MTguMTAxMzM0IDUxMS44ODY2MjkgNDI2LjI2MTk0MyI+PC9wb2x5Z29uPgogICAgICAgICAgICAgICAgICAgICAgICA8cG9seWdvbiBmaWxsPSIjQkRDQ0ZCIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHBvaW50cz0iMzA0Ljc2MTkwNSA1MTguMTAxMzM0IDUxMS45MTQ2NjYgNjM3LjUzMTQyOSA1MTEuOTE0NjY2IDQyNi4yNjE5NDMiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo=) */
-export const EthereumCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>(
-  (props, ref) => {
-    const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
-    const prefixCls = getPrefixCls('web3-icon-ethereum-circle-colorful');
+export const EthereumCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('web3-icon-ethereum-circle-colorful');
 
-    return (
-      <AntdIcon
-        {...props}
-        className={classnames(prefixCls, props.className)}
-        ref={ref}
-        component={SVGComponent}
-      />
-    );
-  },
-);
+  return (
+    <AntdIcon
+      {...props}
+      className={classnames(prefixCls, props.className)}
+      ref={ref}
+      component={SVGComponent}
+    />
+  );
+});
 
 EthereumCircleColorful.displayName = 'EthereumCircleColorful';
