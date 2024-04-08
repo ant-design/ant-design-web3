@@ -120,11 +120,11 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                           class="ant-web3-connect-modal-img"
                                           src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
                                         />
-                                        <div
-                                          class="ant-web3-connect-modal-name"
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
                                         >
                                           Test Wallet
-                                        </div>
+                                        </span>
                                       </div>
                                       <div
                                         class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -132,13 +132,6 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         <div
                                           class="ant-space-item"
                                         />
-                                        <div
-                                          class="ant-space-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-qr-icon-empty"
-                                          />
-                                        </div>
                                       </div>
                                     </li>
                                     <li
@@ -152,11 +145,11 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                           class="ant-web3-connect-modal-img"
                                           src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
                                         />
-                                        <div
-                                          class="ant-web3-connect-modal-name"
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
                                         >
                                           Test Wallet3
-                                        </div>
+                                        </span>
                                       </div>
                                       <div
                                         class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -164,13 +157,6 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         <div
                                           class="ant-space-item"
                                         />
-                                        <div
-                                          class="ant-space-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-qr-icon-empty"
-                                          />
-                                        </div>
                                       </div>
                                     </li>
                                   </ul>
@@ -213,11 +199,11 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                           class="ant-web3-connect-modal-img"
                                           src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
                                         />
-                                        <div
-                                          class="ant-web3-connect-modal-name"
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
                                         >
                                           Test Wallet2
-                                        </div>
+                                        </span>
                                       </div>
                                       <div
                                         class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -225,13 +211,6 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         <div
                                           class="ant-space-item"
                                         />
-                                        <div
-                                          class="ant-space-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-qr-icon-empty"
-                                          />
-                                        </div>
                                       </div>
                                     </li>
                                     <li
@@ -244,11 +223,11 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                           alt="Test Wallet4"
                                           class="ant-web3-connect-modal-img"
                                         />
-                                        <div
-                                          class="ant-web3-connect-modal-name"
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
                                         >
                                           Test Wallet4
-                                        </div>
+                                        </span>
                                       </div>
                                       <div
                                         class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -256,13 +235,6 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         <div
                                           class="ant-space-item"
                                         />
-                                        <div
-                                          class="ant-space-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-qr-icon-empty"
-                                          />
-                                        </div>
                                       </div>
                                     </li>
                                     <li
@@ -275,11 +247,11 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                           alt="Test Wallet5"
                                           class="ant-web3-connect-modal-img"
                                         />
-                                        <div
-                                          class="ant-web3-connect-modal-name"
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
                                         >
                                           Test Wallet5
-                                        </div>
+                                        </span>
                                       </div>
                                       <div
                                         class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -287,13 +259,6 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         <div
                                           class="ant-space-item"
                                         />
-                                        <div
-                                          class="ant-space-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-qr-icon-empty"
-                                          />
-                                        </div>
                                       </div>
                                     </li>
                                     <li
@@ -306,11 +271,11 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                           alt="Test Wallet6"
                                           class="ant-web3-connect-modal-img"
                                         />
-                                        <div
-                                          class="ant-web3-connect-modal-name"
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
                                         >
                                           Test Wallet6
-                                        </div>
+                                        </span>
                                       </div>
                                       <div
                                         class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -318,13 +283,6 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         <div
                                           class="ant-space-item"
                                         />
-                                        <div
-                                          class="ant-space-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-qr-icon-empty"
-                                          />
-                                        </div>
                                       </div>
                                     </li>
                                     <li
@@ -337,11 +295,11 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                           alt="Test Wallet6"
                                           class="ant-web3-connect-modal-img"
                                         />
-                                        <div
-                                          class="ant-web3-connect-modal-name"
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
                                         >
                                           Test Wallet6
-                                        </div>
+                                        </span>
                                       </div>
                                       <div
                                         class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -349,13 +307,6 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                         <div
                                           class="ant-space-item"
                                         />
-                                        <div
-                                          class="ant-space-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-qr-icon-empty"
-                                          />
-                                        </div>
                                       </div>
                                     </li>
                                   </ul>
@@ -521,11 +472,11 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                           class="ant-web3-connect-modal-img"
                                           src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
                                         />
-                                        <div
-                                          class="ant-web3-connect-modal-name"
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
                                         >
                                           Test Wallet
-                                        </div>
+                                        </span>
                                       </div>
                                       <div
                                         class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -533,13 +484,6 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         <div
                                           class="ant-space-item"
                                         />
-                                        <div
-                                          class="ant-space-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-qr-icon-empty"
-                                          />
-                                        </div>
                                       </div>
                                     </li>
                                     <li
@@ -553,11 +497,11 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                           class="ant-web3-connect-modal-img"
                                           src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
                                         />
-                                        <div
-                                          class="ant-web3-connect-modal-name"
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
                                         >
                                           Test Wallet3
-                                        </div>
+                                        </span>
                                       </div>
                                       <div
                                         class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -565,13 +509,6 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         <div
                                           class="ant-space-item"
                                         />
-                                        <div
-                                          class="ant-space-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-qr-icon-empty"
-                                          />
-                                        </div>
                                       </div>
                                     </li>
                                   </ul>
@@ -614,11 +551,11 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                           class="ant-web3-connect-modal-img"
                                           src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
                                         />
-                                        <div
-                                          class="ant-web3-connect-modal-name"
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
                                         >
                                           Test Wallet2
-                                        </div>
+                                        </span>
                                       </div>
                                       <div
                                         class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -626,13 +563,6 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         <div
                                           class="ant-space-item"
                                         />
-                                        <div
-                                          class="ant-space-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-qr-icon-empty"
-                                          />
-                                        </div>
                                       </div>
                                     </li>
                                     <li
@@ -645,11 +575,11 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                           alt="Test Wallet4"
                                           class="ant-web3-connect-modal-img"
                                         />
-                                        <div
-                                          class="ant-web3-connect-modal-name"
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
                                         >
                                           Test Wallet4
-                                        </div>
+                                        </span>
                                       </div>
                                       <div
                                         class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -657,13 +587,6 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         <div
                                           class="ant-space-item"
                                         />
-                                        <div
-                                          class="ant-space-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-qr-icon-empty"
-                                          />
-                                        </div>
                                       </div>
                                     </li>
                                     <li
@@ -676,11 +599,11 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                           alt="Test Wallet5"
                                           class="ant-web3-connect-modal-img"
                                         />
-                                        <div
-                                          class="ant-web3-connect-modal-name"
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
                                         >
                                           Test Wallet5
-                                        </div>
+                                        </span>
                                       </div>
                                       <div
                                         class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -688,13 +611,6 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         <div
                                           class="ant-space-item"
                                         />
-                                        <div
-                                          class="ant-space-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-qr-icon-empty"
-                                          />
-                                        </div>
                                       </div>
                                     </li>
                                     <li
@@ -707,11 +623,11 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                           alt="Test Wallet6"
                                           class="ant-web3-connect-modal-img"
                                         />
-                                        <div
-                                          class="ant-web3-connect-modal-name"
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
                                         >
                                           Test Wallet6
-                                        </div>
+                                        </span>
                                       </div>
                                       <div
                                         class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -719,13 +635,6 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         <div
                                           class="ant-space-item"
                                         />
-                                        <div
-                                          class="ant-space-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-qr-icon-empty"
-                                          />
-                                        </div>
                                       </div>
                                     </li>
                                     <li
@@ -738,11 +647,11 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                           alt="Test Wallet6"
                                           class="ant-web3-connect-modal-img"
                                         />
-                                        <div
-                                          class="ant-web3-connect-modal-name"
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
                                         >
                                           Test Wallet6
-                                        </div>
+                                        </span>
                                       </div>
                                       <div
                                         class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -750,13 +659,6 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                         <div
                                           class="ant-space-item"
                                         />
-                                        <div
-                                          class="ant-space-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-qr-icon-empty"
-                                          />
-                                        </div>
                                       </div>
                                     </li>
                                   </ul>

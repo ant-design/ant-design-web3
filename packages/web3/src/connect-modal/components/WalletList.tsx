@@ -94,7 +94,7 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
                 <div className={`${prefixCls}-icon`}>{item.icon}</div>
               )}
               <Typography.Text ellipsis={{ tooltip: true }} className={`${prefixCls}-name`}>
-                {item.name}1
+                {item.name}
               </Typography.Text>
             </div>
             <Space>
