@@ -11,7 +11,7 @@ export const hasWalletReady = (adapter: Adapter) =>
   adapter.readyState === WalletReadyState.Installed ||
   adapter.readyState === WalletReadyState.Loadable;
 
-export const isWalletConnnectFactory = (
+export const isWalletConnectFactory = (
   factory: WalletFactoryType,
 ): factory is WalletConnectWalletFactoryType =>
   !!(factory as WalletConnectWalletFactoryType).isWalletConnect;
