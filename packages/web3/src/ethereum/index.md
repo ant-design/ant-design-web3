@@ -2,7 +2,7 @@
 nav: Components
 group:
   title: Adapter
-  order: 1
+  order: 2
 tag:
   title: Update
   color: success
