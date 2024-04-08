@@ -23,7 +23,8 @@
       "@ant-design/web3-ethers": ["./packages/ethers/src/"],
       "@ant-design/web3-ethers/legacy-v5": ["./packages/ethers/src/index-v5.ts"],
       "@ant-design/web3-ethers/wagmi": ["./packages/ethers/src/wagmi.ts"],
-      "@ant-design/web3-solana": ["./packages/solana/src/"]
+      "@ant-design/web3-solana": ["./packages/solana/src/"],
+      "@ant-design/web3-eth-web3js": ["./packages/eth-web3js/src/"]
     }
   }
 }

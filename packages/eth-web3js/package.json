@@ -1,14 +1,21 @@
 {
-  "name": "@ant-design/web3",
-  "version": "1.9.0",
+  "name": "@ant-design/web3-eth-web3js",
+  "version": "0.0.1",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
   "exports": {
-    "import": "./dist/esm/index.js",
-    "require": "./dist/lib/index.js",
-    "types": "./dist/esm/index.d.ts"
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/esm/index.d.ts"
+    },
+    "./wagmi": {
+      "import": "./dist/esm/wagmi.js",
+      "require": "./dist/lib/wagmi.js",
+      "types": "./dist/esm/wagmi.d.ts"
+    }
   },
   "files": [
     "dist",
@@ -25,7 +32,7 @@
     "react",
     "react-component",
     "ui",
-    "web3"
+    "web3js"
   ],
   "homepage": "https://we3.ant.design",
   "bugs": {
@@ -40,34 +47,31 @@
     "build": "father build"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "^1.18.5",
-    "@ant-design/icons": "^5.3.6",
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
-    "@ant-design/web3-icons": "workspace:*",
-    "@ctrl/tinycolor": "^4.0.3",
-    "@inline-svg-unique-id/react": "^1.2.3",
-    "antd": "^5.16.0",
-    "bs58": "^5.0.0",
-    "classnames": "^2.3.2"
+    "@ant-design/web3-wagmi": "workspace:*",
+    "@tanstack/react-query": "^5.28.4",
+    "debug": "^4.3.4",
+    "viem": ">=2.0.0",
+    "wagmi": "^2.5.7"
   },
   "devDependencies": {
-    "@ant-design/web3-solana": "workspace:*",
-    "@ant-design/web3-wagmi": "workspace:*",
-    "@ant-design/web3-ethers": "workspace:*",
-    "@ant-design/web3-eth-web3js": "workspace:*",
-    "@types/react": "^18.2.73",
-    "@types/react-dom": "^18.2.23",
+    "@types/debug": "^4.1.12",
     "father": "^4.3.8",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "web3": "^4.7.0"
   },
   "peerDependencies": {
-    "antd": ">=5.0.0",
-    "react": ">=17.0.0",
-    "react-dom": ">=17.0.0"
+    "web3": "^4.0.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
 }
