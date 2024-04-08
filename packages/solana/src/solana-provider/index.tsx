@@ -11,7 +11,7 @@ import {
 import { type UniversalProviderOpts } from '@walletconnect/universal-provider';
 
 import { solana, type SolanaChainConfig } from '../chains';
-import { isAdapterWalletFactory, isWalletConnnectFactory } from '../utils';
+import { isAdapterWalletFactory, isWalletConnectFactory } from '../utils';
 import { type WalletFactory } from '../wallets/types';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 import { useWalletConnectProvider } from './useWalletConnectProvider';
@@ -68,7 +68,7 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
   const walletAdapters = useMemo(
     () =>
       walletFactorys.filter(isAdapterWalletFactory).map((w) => {
-        if (isWalletConnnectFactory(w)) {
+        if (isWalletConnectFactory(w)) {
           w.adapter.setWalletConnectProviderGetter(walletConnectProviderGetter);
           w.adapter.setWalletConnectConfigGetter(() => ({
             walletConnect,
