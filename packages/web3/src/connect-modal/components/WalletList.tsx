@@ -1,6 +1,6 @@
 import React, { forwardRef, useContext, useImperativeHandle, useMemo } from 'react';
 import { QrcodeOutlined } from '@ant-design/icons';
-import { Button, List, Space } from 'antd';
+import { Button, List, Space, Typography } from 'antd';
 import classNames from 'classnames';
 
 import { connectModalContext } from '../context';
@@ -68,7 +68,6 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
       selectWallet,
     };
   });
-
   const renderContent = (params?: { group?: string }) => {
     const { group } = params || {};
     return (
@@ -94,7 +93,9 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
               ) : (
                 <div className={`${prefixCls}-icon`}>{item.icon}</div>
               )}
-              <div className={`${prefixCls}-name`}>{item.name}</div>
+              <Typography.Text ellipsis={{ tooltip: true }} className={`${prefixCls}-name`}>
+                {item.name}1
+              </Typography.Text>
             </div>
             <Space>
               <PluginTag wallet={item} />
@@ -112,7 +113,9 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
                   <QrcodeOutlined />
                 </Button>
               ) : (
-                <div className={`${prefixCls}-qr-icon-empty`} />
+                walletList.some((w) => w.getQrCode) && (
+                  <div className={`${prefixCls}-qr-icon-empty`} />
+                )
               )}
             </Space>
           </List.Item>
