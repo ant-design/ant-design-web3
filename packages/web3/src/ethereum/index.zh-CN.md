@@ -3,7 +3,7 @@ nav: 组件
 subtitle: 以太坊
 group:
   title: 适配器
-  order: 1
+  order: 2
 tag:
   title: 更新
   color: success
