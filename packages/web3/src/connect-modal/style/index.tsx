@@ -48,6 +48,10 @@ const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
   ];
 };
 
+function safeToken<T = unknown, P = unknown>(isDark: boolean, token: T, darkToken: P): T | P {
+  return isDark ? darkToken : token;
+}
+
 const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
   const { web3ComponentsCls: componentCls } = token;
   const isDark = isDarkTheme(token);
@@ -274,16 +278,20 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             },
           },
           [`${componentCls}-get-btn`]: {
-            background: isDark
-              ? new TinyColor(token.colorWhite).setAlpha(0.15).toRgbString()
-              : token.colorPrimary,
+            background: safeToken(
+              isDark,
+              token.colorPrimary,
+              new TinyColor(token.colorWhite).setAlpha(0.15).toRgbString(),
+            ),
             color: token.colorTextLightSolid,
             opacity: 0.6,
             fontSize: token.fontSizeLG,
             ['&:hover']: {
-              background: isDark
-                ? new TinyColor(token.colorWhite).setAlpha(0.15).toRgbString()
-                : token.colorPrimary,
+              background: safeToken(
+                isDark,
+                token.colorPrimary,
+                new TinyColor(token.colorWhite).setAlpha(0.15).toRgbString(),
+              ),
               opacity: 1,
             },
           },
@@ -324,12 +332,12 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                   color: token.listItemDescriptionColor,
                 },
                 [`${componentCls}-get-wallet-btn`]: {
-                  borderColor: token.colorText,
-                  color: token.colorText,
+                  borderColor: safeToken(isDark, token.colorPrimary, token.colorText),
+                  color: safeToken(isDark, token.colorPrimary, token.colorText),
                   opacity: 0.8,
                   '&:hover': {
-                    borderColor: token.colorText,
-                    color: token.colorText,
+                    borderColor: safeToken(isDark, token.colorPrimary, token.colorText),
+                    color: safeToken(isDark, token.colorPrimary, token.colorText),
                     opacity: 1,
                   },
                 },
@@ -369,7 +377,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               border: `1px solid transparent`,
               transition: 'border-color .3s',
               '&:hover': {
-                borderColor: isDark ? token.colorWhite : token.colorPrimary,
+                borderColor: safeToken(isDark, token.colorPrimary, token.colorWhite),
               },
               [`${componentCls}-card-icon`]: {
                 width: 64,
@@ -476,7 +484,7 @@ export function useStyle(prefixCls: string): UseStyleResult {
       hoverBg,
       selectedBg: hoverBg,
       splitColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
-      modalTitleStartColor: isDark ? token.colorWhite : token.colorPrimary,
+      modalTitleStartColor: safeToken(isDark, token.colorPrimary, token.colorWhite),
       modalTitleEndColor: new TinyColor('#000')
         .setAlpha(0.85)
         .onBackground(token.colorWhite)
