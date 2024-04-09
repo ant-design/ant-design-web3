@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useProvider } from '@ant-design/web3';
+import { WalletReadyState } from '@solana/wallet-adapter-base';
 import type { ConnectionContextState } from '@solana/wallet-adapter-react';
 import { fireEvent } from '@testing-library/react';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { CoinbaseWallet, PhantomWallet } from '../../wallets/built-in';
+import { CoinbaseWallet, OKXWallet, PhantomWallet } from '../../wallets/built-in';
 import { SolanaWeb3ConfigProvider } from '../index';
 import { xrender } from './utils';
 
@@ -84,13 +85,35 @@ vi.mock('@solana/wallet-adapter-react', async () => {
       },
       select: (walletName: string | null) => {
         mockSelectWalletFnNotWalletName(walletName);
-        const mockWalletAdapter = { adapter: { name: walletName } };
+        const mockWalletAdapter = {
+          adapter: { name: walletName, readyState: WalletReadyState.Installed },
+        };
         currentWalletRef.value = mockWalletAdapter;
         setCurrentWallet(mockWalletAdapter);
         mockSelectWalletFn();
       },
       disconnect: () => {},
       wallet: currentWalletRef.value,
+      wallets: [
+        {
+          adapter: {
+            name: 'Coinbase Wallet',
+            readyState: WalletReadyState.Installed,
+          },
+        },
+        {
+          adapter: {
+            name: 'Phantom Wallet',
+            readyState: WalletReadyState.Installed,
+          },
+        },
+        {
+          adapter: {
+            name: 'OKX Wallet',
+            readyState: WalletReadyState.NotDetected,
+          },
+        },
+      ],
     };
   };
 
@@ -150,6 +173,7 @@ describe('Solana Connect', () => {
               // mock connect twice
               connect?.(availableWallets?.[1]);
               await connect?.(availableWallets?.[0]);
+              await connect?.(availableWallets?.[2]);
 
               connectRunned();
               setConnectRunDone(true);
@@ -164,7 +188,7 @@ describe('Solana Connect', () => {
 
     const App = () => {
       return (
-        <SolanaWeb3ConfigProvider wallets={[CoinbaseWallet(), PhantomWallet()]}>
+        <SolanaWeb3ConfigProvider wallets={[CoinbaseWallet(), PhantomWallet(), OKXWallet()]}>
           <div>
             <div className="content">test</div>
             <CustomConnectBtn />
@@ -256,6 +280,37 @@ describe('Solana Connect', () => {
     await vi.waitFor(() => {
       expect(connectRunned).toBeCalled();
       expect(mockSelectWalletFnNotWalletName).toBeCalledWith(null);
+    });
+  });
+
+  it('hasExtensionInstalled', async () => {
+    const Display = () => {
+      const { availableWallets } = useProvider();
+      const [hasExtensionInstalled, setHasExtensionInstalled] = useState(false);
+
+      useEffect(() => {
+        availableWallets![0]?.hasExtensionInstalled?.().then((v) => {
+          setHasExtensionInstalled(v);
+        });
+      }, [availableWallets]);
+
+      return <div className="plugin-check">{hasExtensionInstalled ? 'true' : 'false'}</div>;
+    };
+
+    const App = () => {
+      return (
+        <SolanaWeb3ConfigProvider wallets={[CoinbaseWallet()]}>
+          <Display />
+        </SolanaWeb3ConfigProvider>
+      );
+    };
+
+    const { selector } = xrender(App);
+
+    const pluginCheck = selector('.plugin-check')!;
+
+    await vi.waitFor(async () => {
+      expect(pluginCheck.textContent).toBe('true');
     });
   });
 });
