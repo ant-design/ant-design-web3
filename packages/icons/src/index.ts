@@ -439,6 +439,8 @@ export * from './components/san-circle-colorful';
 export * from './components/sand-circle-colorful';
 export * from './components/sbd-colorful';
 export * from './components/sc-colorful';
+export * from './components/scroll-circle-colorful';
+export * from './components/scroll-colorful';
 export * from './components/scrt-circle-colorful';
 export * from './components/seele-colorful';
 export * from './components/senso-colorful';
