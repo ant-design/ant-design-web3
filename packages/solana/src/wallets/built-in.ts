@@ -1,5 +1,6 @@
 import {
   metadata_CoinbaseWallet,
+  metadata_OkxWallet,
   metadata_Phantom,
   metadata_Trust,
   metadata_WalletConnect,
@@ -11,7 +12,7 @@ import {
 } from '@solana/wallet-adapter-wallets';
 
 import { WalletConnectWalletAdapter } from '../wallet-connect-adapter';
-import { WalletConnectWalletFactory, WalletFactory } from './factory';
+import { StandardWalletFactory, WalletConnectWalletFactory, WalletFactory } from './factory';
 
 export const CoinbaseWallet = () =>
   WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet);
