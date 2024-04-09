@@ -278,9 +278,12 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               ? new TinyColor(token.colorWhite).setAlpha(0.15).toRgbString()
               : token.colorPrimary,
             color: token.colorTextLightSolid,
-            opacity: 0.8,
+            opacity: 0.6,
             fontSize: token.fontSizeLG,
             ['&:hover']: {
+              background: isDark
+                ? new TinyColor(token.colorWhite).setAlpha(0.15).toRgbString()
+                : token.colorPrimary,
               opacity: 1,
             },
           },
@@ -289,8 +292,9 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             fontSize: token.fontSizeLG,
             textAlign: 'center',
             marginBlockStart: token.margin,
-            opacity: 0.8,
+            opacity: 0.6,
             ['&:hover']: {
+              color: token.colorText,
               opacity: 1,
             },
           },
@@ -318,6 +322,16 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 },
                 '.ant-list-item-meta-description': {
                   color: token.listItemDescriptionColor,
+                },
+                [`${componentCls}-get-wallet-btn`]: {
+                  borderColor: token.colorText,
+                  color: token.colorText,
+                  opacity: 0.8,
+                  '&:hover': {
+                    borderColor: token.colorText,
+                    color: token.colorText,
+                    opacity: 1,
+                  },
                 },
               },
             },
@@ -397,6 +411,11 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               fontSize: token.fontSizeLG,
               textAlign: 'center',
               display: 'block',
+              opacity: 0.8,
+              '&:hover': {
+                color: token.blue,
+                opacity: 1,
+              },
             },
             [`${componentCls}-qr-code-link-loading`]: {
               cursor: 'not-allowed',
