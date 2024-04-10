@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>xrp-xrp-logo_Filled</title>
+    <g id="xrp-xrp-logo_Filled" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="xrp-xrp-logo" transform="translate(112, 181)" fill="#555555" fill-rule="nonzero">
+            <path d="M682.8125,0 L798.4375,0 L557.8125,238.429811 C470.671875,324.729269 329.390625,324.729269 242.1875,238.429811 L1.46875,0 L117.1875,0 L300,181.120967 C355.422842,235.785941 444.436533,235.785941 499.859375,181.120967 L682.8125,0 Z" id="路径"></path>
+            <path d="M115.703125,663 L0,663 L242.1875,423.10033 C329.328125,336.800873 470.609375,336.800873 557.8125,423.10033 L800,663 L684.375,663 L500,480.409175 C444.577158,425.744201 355.563467,425.744201 300.140625,480.409175 L115.703125,663 Z" id="路径"></path>
+        </g>
+    </g>
+</svg>
