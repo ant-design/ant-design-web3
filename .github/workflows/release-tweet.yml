@@ -1,0 +1,29 @@
+name: Release to Tweet
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  tweet:
+    # https://docs.github.com/en/webhooks/webhook-events-and-payloads?actionType=published#release
+    if: ${{ !github.event.release.draft }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Release Name
+        id: set_release_name
+        run: |
+          echo "::set-output name=release_name::$(echo "${{ github.event.release.tag_name }}" | sed 's/@/@​/')"
+
+      - name: Tweet
+        uses: nearform-actions/github-action-notify-twitter@v1
+        with:
+          message: |
+            🤖 Ant Design Web3 just released ${{ steps.set_release_name.outputs.release_name }} ✨🎊✨ Check out the full release note: https://github.com/ant-design/ant-design-web3/releases/tag/${{ github.event.release.tag_name }}
+          twitter-app-key: ${{ secrets.WEB3_TWITTER_API_KEY }}
+          twitter-app-secret: ${{ secrets.WEB3_TWITTER_API_SECRET_KEY }}
+          twitter-access-token: ${{ secrets.WEB3_TWITTER_ACCESS_TOKEN }}
+          twitter-access-token-secret: ${{ secrets.WEB3_TWITTER_ACCESS_TOKEN_SECRET }}

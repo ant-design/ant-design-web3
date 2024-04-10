@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
+import { ArrowRightOutlined } from '@ant-design/icons';
+import { Button, Flex, QRCode, Space } from 'antd';
+import classNames from 'classnames';
+
+import { connectModalContext } from '../context';
 import type { Wallet } from '../interface';
 import MainPanelHeader from './MainPanelHeader';
-import { connectModalContext } from '../context';
-import { Button, QRCode, Space } from 'antd';
-import { ArrowRightOutlined } from '@ant-design/icons';
-import classNames from 'classnames';
 
 export type QrCodeProps = {
   wallet: Wallet;
@@ -14,7 +15,8 @@ export type QrCodeProps = {
 
 const QrCode: React.FC<QrCodeProps> = (props) => {
   const { wallet, simple, download } = props;
-  const { prefixCls, updatePanelRoute, updateSelectedWallet } = useContext(connectModalContext);
+  const { prefixCls, updatePanelRoute, updateSelectedWallet, localeMessage, getMessage } =
+    useContext(connectModalContext);
   const [qrCodeValue, setQrCodeValue] = useState('QR code not ready');
   const [loading, setLoading] = useState(false);
 
@@ -42,7 +44,18 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
   };
   return (
     <div className={`${prefixCls}-qr-code-container`}>
-      <MainPanelHeader title={download ? `Download ${wallet.name}` : `Scan with ${wallet.name}`} />
+      <MainPanelHeader
+        title={getMessage(
+          download
+            ? localeMessage.qrCodePanelTitleForDownload
+            : wallet.universalProtocol
+              ? localeMessage.qrCodePanelTitleForUniversalProtocol
+              : localeMessage.qrCodePanelTitleForScan,
+          {
+            walletName: wallet.name,
+          },
+        )}
+      />
       <div className={`${prefixCls}-qr-code-box`}>
         <QRCode
           className={`${prefixCls}-qr-code`}
@@ -62,7 +75,9 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
         >
           <Space>
             <span>
-              {download ? 'Click to go to the download page' : 'Click to connect directly'}
+              {download
+                ? localeMessage.qrCodePanelLinkForDownload
+                : localeMessage.qrCodePanelLinkForConnect}
             </span>
             <ArrowRightOutlined />
           </Space>
@@ -71,19 +86,35 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
       <div className={`${prefixCls}-qr-code-tips`}>
         {download ? (
           <div className={`${prefixCls}-qr-code-tips-download`}>
-            Scan the QR code to download the wallet.
+            {localeMessage.qrCodePanelDownloadTipForReady}
           </div>
         ) : (
-          <>
-            Don&apos;t have {wallet.name}?
-            <Button
-              type="default"
-              className={`${prefixCls}-get-wallet-btn`}
-              onClick={handleGetWallet}
-            >
-              GET
-            </Button>
-          </>
+          <Flex justify="space-between">
+            <div className={`${prefixCls}-get-wallet-tip`}>
+              {wallet.universalProtocol
+                ? localeMessage.qrCodePanelUniversalProtocolTipForNotReady
+                : localeMessage.qrCodePanelDownloadTipForNotReady}{' '}
+              {wallet.name}?
+            </div>
+            {wallet.universalProtocol ? (
+              <Button
+                type="default"
+                href={wallet.universalProtocol.link}
+                className={`${prefixCls}-get-wallet-btn`}
+              >
+                {localeMessage.getWalletUniversalProtocolBtnText}
+              </Button>
+            ) : (
+              <Button
+                type="default"
+                target="_blank"
+                className={`${prefixCls}-get-wallet-btn`}
+                onClick={handleGetWallet}
+              >
+                {localeMessage.getWalletBtnText}
+              </Button>
+            )}
+          </Flex>
         )}
       </div>
     </div>

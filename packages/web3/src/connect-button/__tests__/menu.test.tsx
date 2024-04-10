@@ -1,9 +1,10 @@
-import { ConnectButton } from '..';
 import { fireEvent, render } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { mockClipboard } from '../../utils/test-utils';
-import { readCopyText } from '../../utils';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
+import { ConnectButton } from '..';
+import { readCopyText } from '../../utils';
+import { mockClipboard } from '../../utils/test-utils';
 
 const menuItems: MenuItemType[] = [
   {
@@ -59,9 +60,7 @@ describe('ConnectButton', () => {
     await vi.waitFor(() => {
       expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
-      expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe(
-        'Address Copied!',
-      );
+      expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe('Copied!');
     });
   });
 
@@ -157,9 +156,7 @@ describe('ConnectButton', () => {
     await vi.waitFor(() => {
       expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
-      expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe(
-        'Address Copied!',
-      );
+      expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe('Copied!');
       expect(menuClickFn).toBeCalledWith('copyAddress');
     });
   });

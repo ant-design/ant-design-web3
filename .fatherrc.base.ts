@@ -20,16 +20,16 @@ export default defineConfig({
               name: 'preset-default',
               params: {
                 overrides: {
-                  cleanupIDs: {
-                    // Don't minify ids in `svg` to avoid conflict.
-                    preservePrefixes: ['ant-web3-icon-'],
-                  },
+                  removeViewBox: false,
                 },
               },
             },
+            'removeDimensions',
+            'convertStyleToAttrs',
           ],
         },
       },
     ],
+    'react-inline-svg-unique-id',
   ],
 });

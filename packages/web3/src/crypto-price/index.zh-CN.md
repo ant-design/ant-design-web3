@@ -1,5 +1,6 @@
 ---
 nav: 组件
+subtitle: 加密价格
 group:
   title: 展示
 ---
@@ -22,11 +23,12 @@ group:
 
 ## API
 
-| 属性     | 描述                   | 类型                   | 默认值    | 版本 |
-| -------- | ---------------------- | ---------------------- | --------- | ---- |
-| value    | 值，基于代币的最小单位 | `bigint`               | `0`       | -    |
-| icon     | 图标                   | `boolean \| ReactNode` | `true`    | -    |
-| decimals | 小数位数               | `number`               | `18`      | -    |
-| symbol   | 代币符号               | `string`               | `ETH`     | -    |
-| chain    | 链                     | `Chain`                | `Mainnet` | -    |
-| fixed    | 小数点后固定位数       | `number`               | -         | -    |
+| 属性      | 描述                   | 类型                   | 默认值    | 版本 |
+| --------- | ---------------------- | ---------------------- | --------- | ---- |
+| className | 加密货币的类名         | `string`               | -         | -    |
+| value     | 值，基于代币的最小单位 | `bigint`               | `0`       | -    |
+| icon      | 图标                   | `boolean \| ReactNode` | `true`    | -    |
+| decimals  | 小数位数               | `number`               | `18`      | -    |
+| symbol    | 代币符号               | `string`               | `ETH`     | -    |
+| chain     | 链                     | `Chain`                | `Mainnet` | -    |
+| fixed     | 小数点后固定位数       | `number`               | -         | -    |

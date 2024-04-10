@@ -1,27 +1,46 @@
-import { type Wallet } from '@ant-design/web3-common';
 import { metadata_WalletConnect } from '@ant-design/web3-assets';
-import type { WalletFactory } from '../interface';
+import type { Wallet, WalletMetadata } from '@ant-design/web3-common';
 import type { Connector } from 'wagmi';
 
-export const WalletConnect: WalletFactory = {
-  name: 'WalletConnect',
-  create: (connector?: Connector): Wallet => {
-    const getQrCode = async () => {
-      const provider = await connector?.getProvider();
-      return new Promise<{ uri: string }>((resolve) => {
-        provider.on('display_uri', (uri: string) => {
-          resolve({
-            uri,
+import type { WalletFactory } from '../interface';
+
+type EthereumWalletConnect = (
+  metadata?: Partial<WalletMetadata> & {
+    useWalletConnectOfficialModal?: boolean;
+  },
+) => WalletFactory;
+
+export const WalletConnect: EthereumWalletConnect = (metadata) => {
+  const { useWalletConnectOfficialModal = false, ...rest } = metadata || {};
+  return {
+    connectors: ['WalletConnect'],
+    create: (connectors?: readonly Connector[]): Wallet => {
+      let qrCodeUri: string | undefined = undefined;
+      const getQrCode = async () => {
+        const provider = await connectors?.[0]?.getProvider();
+        return new Promise<{ uri: string }>((resolve) => {
+          if (qrCodeUri) {
+            resolve({
+              uri: qrCodeUri,
+            });
+            return;
+          }
+          (provider as any)?.on('display_uri', (uri: string) => {
+            qrCodeUri = uri;
+            resolve({
+              uri,
+            });
           });
         });
-      });
-    };
-    return {
-      ...metadata_WalletConnect,
-      hasWalletReady: async () => {
-        return true;
-      },
-      getQrCode: connector?.options.showQrModal === false ? getQrCode : undefined,
-    };
-  },
+      };
+      return {
+        ...metadata_WalletConnect,
+        hasWalletReady: async () => {
+          return true;
+        },
+        getQrCode: useWalletConnectOfficialModal ? undefined : getQrCode,
+        ...rest,
+      };
+    },
+  };
 };

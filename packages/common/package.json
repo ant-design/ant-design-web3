@@ -1,9 +1,15 @@
 {
   "name": "@ant-design/web3-common",
-  "version": "1.0.0",
-  "main": "dist/lib/index.js",
+  "version": "1.7.0",
+  "type": "module",
+  "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/lib/index.js",
+    "types": "./dist/esm/index.d.ts"
+  },
   "files": [
     "dist",
     "CHANGELOG.md",
@@ -33,14 +39,18 @@
     "dev": "father dev",
     "build": "father build"
   },
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  },
   "devDependencies": {
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
-    "antd": "^5.12.4",
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.23",
+    "@types/lodash-es": "^4.17.12",
+    "antd": "^5.16.0",
     "father": "^4.3.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.4"
   },
   "peerDependencies": {
     "antd": ">=4.23.0 || >=5.0.0",

@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
-import type { ConnectModalProps } from '../interface';
+
 import { connectModalContext } from '../context';
+import type { ConnectModalProps } from '../interface';
 import DefaultGuidePanel from './DefaultGuidePanel';
 import GetWalletPanel from './GetWalletPanel';
 import QrCode from './QrCode';
 import WalletCard from './WalletCard';
 
-export type MainPanelProps = Pick<ConnectModalProps, 'guide' | 'walletList'> & {
+export type MainPanelProps = Pick<ConnectModalProps, 'guide' | 'walletList' | 'locale'> & {
   simple: boolean;
 };
 
@@ -16,7 +17,9 @@ const MainPanel: React.FC<MainPanelProps> = (props) => {
 
   return (
     <div className={`${prefixCls}-main-panel`}>
-      {panelRoute === 'guide' || panelRoute === 'init' ? <DefaultGuidePanel guide={guide} /> : null}
+      {panelRoute === 'guide' || panelRoute === 'init' ? (
+        <DefaultGuidePanel guide={guide} simple={simple} />
+      ) : null}
       {panelRoute === 'getWallet' ? <GetWalletPanel walletList={walletList} /> : null}
       {panelRoute === 'wallet' && selectedWallet ? <WalletCard /> : null}
       {panelRoute === 'qrCode' && selectedWallet ? (

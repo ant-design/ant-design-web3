@@ -1,7 +1,7 @@
 import { ConnectButton } from '@ant-design/web3';
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
 import { ConfigProvider } from 'antd';
+import { describe, expect, it } from 'vitest';
 
 describe('ConnectButton style', () => {
   it('should use colorPrimary', async () => {

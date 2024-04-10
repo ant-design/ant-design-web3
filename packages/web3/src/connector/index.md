@@ -14,6 +14,8 @@ The properties related to blockchain interaction are configured through Connecto
 
 In addition, `Connector` is usually used with [adapter](../../guide/adapter). The adapter can help you quickly interact with the blockchain. In the case of using the adapter, you basically don’t need to configure the properties of `Connector`.
 
+> Note: **The examples in this document are just pure UI examples**. In Ant Design Web3, the UI module and the connection module are separated. To connect to the wallet, please refer to the documentation of [Ethereum Adapter](../ethereum/index.md) or read the [Adapter documentation](../../../../docs/guide/adapter.md) for more information.
+
 ## Basic Usage
 
 <code src="./demos/basic.tsx"></code>
@@ -30,17 +32,17 @@ In addition, `Connector` is usually used with [adapter](../../guide/adapter). Th
 | --- | --- | --- | --- | --- |
 | children | Connection control, typically a `ConnectButton` | `React.ReactNode` | - | - |
 | modalProps | Properties passed through to `ConnectModal`. | `ModalProps` | - | - |
-| onConnect | Callback when triggering the connection. | `() => Promise<viod>` | - | - |
-| onDisconnect | Callback when triggering the disconnection. | `() => Promise<viod>` | - | - |
-| onConnected | Callback when the connection is successful. | `() => Promise<viod>` | - | - |
-| onDisconnected | Callback when the connection is disconnected. | `() => Promise<viod>` | - | - |
-| onChainSwitched | Callback when switching networks. | `(chain: Chain) => Promise<viod>` | - | - |
+| onConnect | Callback when triggering the connection. | `() => Promise<void>` | - | - |
+| onDisconnect | Callback when triggering the disconnection. | `() => Promise<void>` | - | - |
+| onConnected | Callback when the connection is successful. | `() => Promise<void>` | - | - |
+| onDisconnected | Callback when the connection is disconnected. | `() => Promise<void>` | - | - |
+| onChainSwitched | Callback when switching networks. | `(chain: Chain) => Promise<void>` | - | - |
 | availableWallets | Available aallet list | `Wallet[]` | - | - |
 | account | Current connected account | `Account` | - | - |
-| availableChains | Available select chains list | `Chain[]` | - | - |
+| availableChains | List of available chains | `Chain[]` | - | - |
 | connect | Method to request the account list | `() => Promise<void>` | - | - |
-| disconnect | Method to disconnect | `() => Promise<viod>` | - | - |
-| switchChain | Method to switch networks | `(chain: Chain) => Promise<viod>` | - | - |
+| disconnect | Method to disconnect | `() => Promise<void>` | - | - |
+| switchChain | Method to switch networks | `(chain: Chain) => Promise<void>` | - | - |
 
 ### ConnectorTriggerProps
 
@@ -51,7 +53,9 @@ The properties of the `children` component of `Connector` are inherited and util
 | account | The currently connected account | `string` | - | - |
 | onConnectClick | Connection event | `() => void;` | - | - |
 | onDisconnectClick | Disconnection event | `() => void;` | - | - |
-| onSwitchChain | Network switch event | `(chain: Chain) => Promise<viod>` | - | - |
-| connected | Is Connected | `boolean` | - | - |
-| chains | List of networks currently connected | `ChainSelectItem[]` | - | - |
+| onSwitchChain | Network switch event | `(chain: Chain) => Promise<void>` | - | - |
 | balance | Balance of the currently connected account | `Balance[]` \| `Balance` | - | - |
+| availableChains | List of available chains | `Chain[]` | - | - |
+| chain | Current chain | [Chain](/components/types#chain) | - |  |
+| availableWallets | List of available wallets | [Wallet](/components/types#wallet)[] | - | - |
+| quickConnect | Whether to display the quick connect button | `boolean` | - | - |

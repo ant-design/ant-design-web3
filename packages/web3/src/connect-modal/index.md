@@ -8,9 +8,15 @@ order: 2
 
 The connection wallet popup, used with [ConnectButton](../connect-button/index.md) to complete the wallet connection process. Usually, you only need to use the [Connector](../connector/index.md) component directly.
 
+> Note: **The examples in this document are just pure UI examples**. In Ant Design Web3, the UI module and the connection module are separated. To connect to the wallet, please refer to the documentation of [Ethereum Adapter](../ethereum/index.md) or read the [Adapter documentation](../../../../docs/guide/adapter.md) for more information.
+
 ## Basic Usage
 
 <code src="./demos/basic.tsx"></code>
+
+## Wallets are not grouped
+
+<code src="./demos/ungroupedBasic.tsx"></code>
 
 ## Custom Theme
 
@@ -38,12 +44,17 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| onWalletSelected | Callback when the wallet is selected | `(wallet: Wallet) => void` | - | - |
+| title | Custom connect modal title | `React.ReactNode` | - | - |
+| onWalletSelected | Callback when the wallet is selected | `(wallet: Walle, options?: ConnectOptions) => void` | - | - |
+| onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | `(e:React.SyntheticEvent) => void` | - | - |
 | footer | Custom footer | `React.ReactNode` | - | - |
 | walletList | Wallet list | `Wallet[]` | - | - |
-| groupOrder | Wallet group sorting function | `(a: string, b: string) => number` | - | - |
+| group | Does the wallet need to be grouped | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | `true` | - |
 | mode | Popup mode | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
 | guide | Newbie guide content | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |
+| actionRef | Used to control the component | `MutableRefObject<ConnectModalActionType>` | - | - |
+| defaultSelectedWallet | Default selected wallet | `Wallet` | - | - |
+| locale | Multilingual settings | `Locale["ConnectModal"]` | - | - |
 
 Other modal properties see: [ModalProps](https://ant.design/components/modal#API)
 

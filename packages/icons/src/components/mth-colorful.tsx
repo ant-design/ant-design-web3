@@ -1,0 +1,26 @@
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+import * as React from 'react';
+import AntdIcon from '@ant-design/icons';
+import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
+import { ConfigProvider } from 'antd';
+import classnames from 'classnames';
+
+import SVGComponent from '../svgs/mth-colorful.svg';
+
+/**![MthColorful](data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjAuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iI2NhY2FjYSIgdmVyc2lvbj0iMS4xIiBpZD0iYW50LXdlYjMtaWNvbi1tdGgtY29sb3JmdWwtTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAyMzAuMiAyMDguNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjMwLjIgMjA4LjQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggc3R5bGU9ImZpbGw6IzQyNkZCNjsiIGQ9Ik0xODcuNiwxMjMuMmMtMTUuOCwwLTI5LjYsOC42LTM2LjksMjEuNGwtNDcuMy0yMC44YzIuOC02LjUsNC40LTEzLjcsNC40LTIxLjMKCWMwLTcuNC0xLjUtMTQuNS00LjItMjAuOWwzMS44LTE4LjhjNyw4LDE3LjIsMTMsMjguNSwxM2MyMC45LDAsMzcuOS0xNywzNy45LTM3LjlTMTg0LjgsMCwxNjMuOSwwUzEyNiwxNywxMjYsMzcuOQoJYzAsNC41LDAuOCw4LjcsMi4yLDEyLjZMOTYuMyw2OS4zYy05LjktMTIuNi0yNS4yLTIwLjgtNDIuNC0yMC44QzI0LjEsNDguNSwwLDcyLjYsMCwxMDIuNHMyNC4xLDUzLjksNTMuOSw1My45CgljMTcuMSwwLDMyLjMtOCw0Mi4yLTIwLjRsNDkuNywyMS45Yy0wLjUsMi42LTAuOCw1LjItMC44LDcuOWMwLDIzLjUsMTkuMSw0Mi42LDQyLjYsNDIuNnM0Mi42LTE5LjEsNDIuNi00Mi42CglDMjMwLjMsMTQyLjIsMjExLjIsMTIzLjIsMTg3LjYsMTIzLjJ6IE0xNjMuOSwxNC4yYzEzLjEsMCwyMy43LDEwLjYsMjMuNywyMy43UzE3Nyw2MS42LDE2My45LDYxLjZTMTQwLjIsNTEsMTQwLjIsMzcuOQoJUzE1MC44LDE0LjIsMTYzLjksMTQuMnogTTUzLjgsMTQyLjFjLTIxLjksMC0zOS43LTE3LjgtMzkuNy0zOS43czE3LjgtMzkuNywzOS43LTM5LjdzMzkuNywxNy44LDM5LjcsMzkuN1M3NS44LDE0Mi4xLDUzLjgsMTQyLjF6CgkgTTE4Ny42LDE5NC4yYy0xNS43LDAtMjguNC0xMi43LTI4LjQtMjguNHMxMi43LTI4LjQsMjguNC0yOC40czI4LjQsMTIuNywyOC40LDI4LjRTMjAzLjMsMTk0LjIsMTg3LjYsMTk0LjJ6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiM0MjZGQjY7IiBkPSJNMTAwLjQsMTk0LjJINy4zYy00LjEsMC03LjMsMy4yLTcuMyw3LjFjMCwzLjksMy4zLDcuMSw3LjMsNy4xaDkzLjFjNC4xLDAsNy4zLTMuMiw3LjMtNy4xCglTMTA0LjUsMTk0LjIsMTAwLjQsMTk0LjJ6Ii8+Cjwvc3ZnPgo=) */
+export const MthColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('web3-icon-mth-colorful');
+
+  return (
+    <AntdIcon
+      {...props}
+      className={classnames(prefixCls, props.className)}
+      ref={ref}
+      component={SVGComponent}
+    />
+  );
+});
+
+MthColorful.displayName = 'MthColorful';

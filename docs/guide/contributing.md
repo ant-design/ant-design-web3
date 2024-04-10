@@ -13,7 +13,7 @@ All work on Ant Design Web3 happens directly on [GitHub](https://github.com/ant-
 
 ## How to Contribute
 
-**When submitting a PR, please execute `pnpm changeset` to generate the changelog first, and then submit the PR.** We manage version releases through [changesets](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md). Executing this command will generate changelog files under `.changeset`, and these files will be automatically merged into `CHANGELOG.md` when released. But not every PR needs a changelog, for example, PRs that do not involve package content modifications such as documents and official websites do not need to execute this command.
+**When submitting a PR, please execute `pnpm changeset` to generate the changelog first, and then submit the PR.** We manage version releases through [changesets](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md). Executing this command will generate changelog files under `.changeset`, and these files will be automatically merged into `CHANGELOG.md` when released. But not every PR needs a changelog, for example, PRs that do not involve package content modifications such as documents and official websites do not need to execute this command. For more changesets usage guide, please refer to: [How to add Changelog](https://web3.ant.design/guide/changelog).
 
 ### Contribute Code
 
@@ -52,6 +52,13 @@ The current core members are:
 - [@yutingzhao1991](https://github.com/yutingzhao1991)
 - [@kiner-tang](https://github.com/kiner-tang)
 - [@jeasonstudio](https://github.com/jeasonstudio)
+- [@gin-lsl](https://github.com/gin-lsl)
+- [@liangchaofei](https://github.com/liangchaofei)
+- [@thinkasany](https://github.com/thinkasany)
+
+Design-related issues can @ our designers:
+
+- [@wenqing993](https://github.com/wenqing993)
 
 ## Labels
 
@@ -67,3 +74,6 @@ The current core members are:
 - `duplicate` Duplicate issue.
 - `enhancement` New feature.
 - `documentation` Documentation related.
+- `dependencies` Dependency related.
+- `Need Changelog` Need to generate changelog (after adding this label, the bot will automatically add relevant operation instructions comments).
+- `site` Some issues about the website.

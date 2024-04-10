@@ -1,6 +1,6 @@
 import { NFTCard } from '@ant-design/web3';
 import { fireEvent, render } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 describe('NFTCard like', () => {
   it('renders correctly with likeConfig and onLikeChange work', () => {
@@ -24,9 +24,9 @@ describe('NFTCard like', () => {
       />,
     );
     // Ensure the like and price elements are rendered
-    expect(baseElement.querySelector('.ant-nft-card-like-value')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-web3-nft-card-like-value')).toBeTruthy();
     expect(baseElement.querySelector('.ant-web3-crypto-price-balance')).toBeTruthy();
-    fireEvent.click(baseElement.querySelector('.ant-nft-card-like-icon')!);
+    fireEvent.click(baseElement.querySelector('.ant-web3-nft-card-like-icon')!);
     expect(likeFn).toHaveBeenCalled();
   });
 
@@ -50,9 +50,9 @@ describe('NFTCard like', () => {
       />,
     );
     // Ensure the like and price elements are rendered
-    expect(baseElement.querySelector('.ant-nft-card-like-value')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-web3-nft-card-like-value')).toBeTruthy();
     expect(baseElement.querySelector('.ant-web3-crypto-price-balance')).toBeTruthy();
-    fireEvent.click(baseElement.querySelector('.ant-nft-card-like-icon')!);
+    fireEvent.click(baseElement.querySelector('.ant-web3-nft-card-like-icon')!);
     expect(likeFn).toHaveBeenCalled();
   });
 });

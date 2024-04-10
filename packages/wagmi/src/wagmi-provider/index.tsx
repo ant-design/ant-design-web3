@@ -1,67 +1,59 @@
 import React from 'react';
-import { WagmiConfig } from 'wagmi';
-
-import type { PublicClient, WebSocketPublicClient, Config, Chain as WagmiChain } from 'wagmi';
-import { AntDesignWeb3ConfigProvider } from './config-provider';
-import type { Chain } from '@ant-design/web3-common';
-import type { WalletFactory } from '../interface';
 // Built in popular chains
-import { Mainnet, Goerli } from '@ant-design/web3-assets';
-// MetaMask built-in
-import { MetaMask } from '../wallets';
+import { Mainnet } from '@ant-design/web3-assets';
+import type { Chain, Locale } from '@ant-design/web3-common';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { WagmiProvider } from 'wagmi';
+import type { Config } from 'wagmi';
 
-export type WagmiWeb3ConfigProviderProps<
-  TPublicClient extends PublicClient = PublicClient,
-  TWebSocketPublicClient extends WebSocketPublicClient = WebSocketPublicClient,
-> = {
-  config: Config<TPublicClient, TWebSocketPublicClient>;
-  assets?: (Chain | WalletFactory)[];
+import type { EIP6963Config, WalletFactory } from '../interface';
+import { AntDesignWeb3ConfigProvider } from './config-provider';
+
+export type WagmiWeb3ConfigProviderProps = {
+  config: Config;
+  locale?: Locale;
+  wallets?: WalletFactory[];
+  chains?: Chain[];
   ens?: boolean;
+  queryClient?: QueryClient;
   balance?: boolean;
+  eip6963?: EIP6963Config;
 };
 
-export function WagmiWeb3ConfigProvider<
-  TPublicClient extends PublicClient,
-  TWebSocketPublicClient extends WebSocketPublicClient,
->({
+export function WagmiWeb3ConfigProvider({
   children,
-  assets = [],
+  wallets = [],
+  chains = [],
   ens,
+  locale,
   balance,
   config,
+  queryClient,
+  eip6963,
   ...restProps
-}: React.PropsWithChildren<
-  WagmiWeb3ConfigProviderProps<TPublicClient, TWebSocketPublicClient>
->): React.ReactElement {
-  const availableChains: WagmiChain[] = React.useMemo(() => {
-    // merge all available chains fro user select
-    const chains: WagmiChain[] = [];
+}: React.PropsWithChildren<WagmiWeb3ConfigProviderProps>): React.ReactElement {
+  const chainAssets = [...chains, Mainnet];
 
-    for (const connector of config.connectors) {
-      connector.chains.forEach((chain) => {
-        if (chains.find((c) => c.id === chain.id)) return;
-        chains.push(chain);
-      });
-    }
-
-    config.publicClient.chains?.forEach((chain) => {
-      if (chains.find((c) => c.id === chain.id)) return;
-      chains.push(chain);
-    });
-    return chains;
-  }, [config]);
+  const mergedQueryClient = React.useMemo(() => {
+    return queryClient ?? new QueryClient();
+  }, [queryClient]);
 
   return (
-    <WagmiConfig config={config} {...restProps}>
-      <AntDesignWeb3ConfigProvider
-        assets={[...assets, MetaMask, Mainnet, Goerli]}
-        availableChains={availableChains}
-        availableConnectors={config.connectors || []}
-        ens={ens}
-        balance={balance}
-      >
-        {children}
-      </AntDesignWeb3ConfigProvider>
-    </WagmiConfig>
+    <WagmiProvider config={config} {...restProps}>
+      <QueryClientProvider client={mergedQueryClient}>
+        <AntDesignWeb3ConfigProvider
+          locale={locale}
+          chainAssets={chainAssets}
+          walletFactorys={wallets}
+          availableChains={config.chains}
+          availableConnectors={config.connectors}
+          ens={ens}
+          balance={balance}
+          eip6963={eip6963}
+        >
+          {children}
+        </AntDesignWeb3ConfigProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
   );
 }

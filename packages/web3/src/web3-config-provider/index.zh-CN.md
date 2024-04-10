@@ -1,5 +1,6 @@
 ---
 nav: 组件
+subtitle: Web3 全局配置
 group:
   title: 高级
   order: 4
@@ -12,3 +13,19 @@ group:
 ## 基本使用
 
 <code src="./demos/basic.tsx"></code>
+
+## API
+
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| locale | 多语言设置 | [Locale](/components/types-cn#locale) | - |  |
+| account | 当前连接的账户地址 | [Account](/components/types-cn#account) | - |  |
+| chain | 当前连接的链 | [Chain](/components/types-cn#chain) | - |  |
+| balance | 当前连接的账户余额 | [Balance](/components/connect-button-cn#balance) | - |  |
+| availableWallets | 可用钱包列表 | [Wallet](/components/types-cn#wallet)\[] | - |  |
+| availableChains | 可以连接的链列表 | [Chain](/components/types-cn#chain)\[] | - |  |
+| extendsContextFromParent | 继承父级 `Provider` 的值 | `boolean` | `true` |  |
+| connect | 连接链 | `(wallet?: Wallet) => Promise<void>` | - |  |
+| disconnect | 断开连接 | `() => Promise<void>` | - |  |
+| switchChain | 切换链 | `(chain: Chain) => Promise<void>` | - |  |
+| getNFTMetadata | 获取 NFT 元数据 | `(params: { address: string; tokenId: bigint }) => Promise<NFTMetadata>;` | - |  |

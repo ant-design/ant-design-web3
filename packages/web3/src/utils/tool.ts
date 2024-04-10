@@ -1,5 +1,5 @@
-import type { GlobalToken } from 'antd';
 import { TinyColor } from '@ctrl/tinycolor';
+import type { GlobalToken } from 'antd';
 
 export const isDarkTheme = (token: GlobalToken) => {
   const hsv = new TinyColor(token.colorFill).onBackground(token.colorBgElevated).toHsv();

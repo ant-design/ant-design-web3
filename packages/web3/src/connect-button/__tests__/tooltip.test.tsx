@@ -1,16 +1,47 @@
-import { ConnectButton } from '..';
 import { fireEvent, render } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { mockClipboard } from '../../utils/test-utils';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
+import { ConnectButton } from '..';
 import { readCopyText } from '../../utils';
+import { mockClipboard } from '../../utils/test-utils';
 
 describe('ConnectButton', () => {
   let resetMockClipboard: () => void;
   beforeEach(() => {
+    vi.useFakeTimers();
     resetMockClipboard = mockClipboard();
   });
   afterEach(() => {
+    vi.useRealTimers();
     resetMockClipboard();
+  });
+
+  it('when tooltip is boolean, ant-tooltip not toBeNull', async () => {
+    const App = () => {
+      return (
+        <ConnectButton
+          account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18' }}
+          tooltip={true}
+        />
+      );
+    };
+    const { baseElement, rerender } = render(<App />);
+    const btn = baseElement.querySelector('.ant-web3-address-text')!;
+    fireEvent.mouseEnter(btn);
+    rerender(<App />);
+    // When the tooltip's title is string, baseElement.outerHTML does not contain '.ant-tooltip'.
+    // mouseEnterDelay defaults is 0.1s and waitFakeTimer is required.
+    await vi.runAllTimersAsync();
+    expect(baseElement.querySelector('.ant-tooltip')).not.toBeNull();
+  });
+  it('when mergedTitle does not exist, ant-tooltip toBeNull', () => {
+    const { baseElement } = render(
+      <ConnectButton
+        account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18' }}
+        tooltip={{ open: true, copyable: true, title: undefined }}
+      />,
+    );
+    expect(baseElement.querySelector('.ant-tooltip')).toBeNull();
   });
 
   it('display tooltip', () => {
@@ -43,6 +74,20 @@ describe('ConnectButton', () => {
     expect(baseElement.querySelector('.anticon-copy')).toBeNull();
   });
 
+  it('Enable copyable in tooltip', () => {
+    const { baseElement } = render(
+      <ConnectButton
+        account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18' }}
+        tooltip={{ open: true, copyable: true }}
+      />,
+    );
+    expect(baseElement.querySelector('.ant-tooltip')).not.toBeNull();
+    expect(baseElement.querySelector('.ant-tooltip-inner')?.textContent?.trim()).toBe(
+      '0x3ea2cfd153b8d8505097b81c87c11f5d05097c18',
+    );
+    expect(baseElement.querySelector('.anticon-copy')).toBeTruthy();
+  });
+
   it('custom title in tooltip', () => {
     const { baseElement } = render(
       <ConnectButton
@@ -61,6 +106,11 @@ describe('ConnectButton', () => {
     expect(baseElement.querySelector('.ant-tooltip')).toBeNull();
   });
 
+  it('should not display tooltip when without tooltip in tooltip', () => {
+    const { baseElement } = render(<ConnectButton />);
+    expect(baseElement.querySelector('.ant-tooltip')).toBeNull();
+  });
+
   it('should copy text after click copy icon', async () => {
     const { baseElement } = render(
       <ConnectButton
@@ -76,9 +126,7 @@ describe('ConnectButton', () => {
     fireEvent.click(baseElement.querySelector('.anticon-copy')!);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
-      expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe(
-        'Address Copied!',
-      );
+      expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe('Copied!');
       expect(readCopyText()).resolves.toBe('0x3ea2cfd153b8d8505097b81c87c11f5d05097c18');
     });
   });
@@ -96,7 +144,7 @@ describe('ConnectButton', () => {
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
       expect(baseElement.querySelector('.ant-message-notice-content')?.textContent?.trim()).toBe(
-        'Address Copied!',
+        'Copied!',
       );
       expect(readCopyText()).resolves.toBe('aaaaaabbbbbbcccccc');
     });
@@ -119,7 +167,7 @@ describe('ConnectButton', () => {
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
       expect(baseElement.querySelector('.ant-message-notice-content')?.textContent?.trim()).toBe(
-        'Address Copied!',
+        'Copied!',
       );
       expect(readCopyText()).resolves.toBe('0x3ea2cfd153b8d8505097b81c87c11f5d05097c18');
     });

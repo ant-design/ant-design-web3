@@ -1,6 +1,6 @@
 import React from 'react';
-import { type Account, type Wallet, type Chain, Web3ConfigProvider } from '@ant-design/web3-common';
-import { Connector, ConnectButton } from '@ant-design/web3';
+import { ConnectButton, Connector } from '@ant-design/web3';
+import { Web3ConfigProvider, type Account, type Chain, type Wallet } from '@ant-design/web3-common';
 
 export interface YourAdapterProps {
   wallets?: Wallet[];
@@ -29,11 +29,11 @@ export const YourAdapterPropsProvider: React.FC<YourAdapterProps> = (props) => {
         // 这里可以实现断开连接的逻辑
         return;
       }}
-      switchChain={async (c: Chain) => {
+      switchChain={async () => {
         // 这里可以实现切换链的逻辑
         return;
       }}
-      getNFTMetadata={async ({ address: contractAddress, tokenId }) => {
+      getNFTMetadata={async () => {
         // 这里可以实现获取 NFT 元数据的逻辑
         return {
           name: 'NFT',
@@ -47,7 +47,7 @@ export const YourAdapterPropsProvider: React.FC<YourAdapterProps> = (props) => {
   );
 };
 
-export default () => {
+const App: React.FC = () => {
   return (
     <YourAdapterPropsProvider>
       <Connector>
@@ -56,3 +56,5 @@ export default () => {
     </YourAdapterPropsProvider>
   );
 };
+
+export default App;

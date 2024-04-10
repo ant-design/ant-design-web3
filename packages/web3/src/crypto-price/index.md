@@ -24,6 +24,7 @@ You can customize the chain through the `chain` property. If you don't customize
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| className | The className of the CryptoPrice | `string` | - | - |
 | value | Value, based on the minimum unit of the token | `bigint` | `0` | - |
 | icon | Icon | `boolean` \| `ReactNode` | `true` | - |
 | decimals | Number of decimal places | `number` | `18` | - |

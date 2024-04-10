@@ -1,0 +1,74 @@
+{
+  "name": "@ant-design/web3-solana",
+  "version": "1.0.1",
+  "main": "dist/lib/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/lib/index.js",
+    "types": "./dist/esm/index.d.ts"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "keywords": [
+    "ant",
+    "component",
+    "components",
+    "design",
+    "framework",
+    "frontend",
+    "react",
+    "react-component",
+    "ui",
+    "web3",
+    "solana"
+  ],
+  "homepage": "https://web3.ant.design",
+  "bugs": {
+    "url": "https://github.com/ant-design/ant-design-web3/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/ant-design-web3"
+  },
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build"
+  },
+  "dependencies": {
+    "@ant-design/web3-assets": "workspace:*",
+    "@ant-design/web3-common": "workspace:*",
+    "@metaplex-foundation/js": "^0.20.1",
+    "@solana/wallet-adapter-base": "^0.9.23",
+    "@solana/wallet-adapter-react": "^0.15.35",
+    "@solana/wallet-adapter-wallets": "^0.19.31",
+    "@walletconnect/core": "^2.12.1",
+    "@walletconnect/universal-provider": "^2.11.2",
+    "@walletconnect/utils": "^2.11.2",
+    "@walletconnect/web3wallet": "^1.10.2",
+    "bs58": "^5.0.0",
+    "debug": "^4.3.4"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.12",
+    "father": "^4.3.8",
+    "typescript": "^5.4.4"
+  },
+  "peerDependencies": {
+    "@solana/web3.js": "^1.89.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
+}

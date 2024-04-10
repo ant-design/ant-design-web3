@@ -1,12 +1,13 @@
-import { createConfig, configureChains, mainnet } from 'wagmi';
-import { publicProvider } from 'wagmi/providers/public';
-import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { NFTImage } from '@ant-design/web3';
-
-const { publicClient } = configureChains([mainnet], [publicProvider()]);
+import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { createConfig, http } from 'wagmi';
+import { mainnet } from 'wagmi/chains';
 
 const config = createConfig({
-  publicClient,
+  chains: [mainnet],
+  transports: {
+    [mainnet.id]: http(),
+  },
 });
 
 const App: React.FC = () => {

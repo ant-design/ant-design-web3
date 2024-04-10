@@ -1,5 +1,6 @@
 ---
 nav: 组件
+subtitle: NFT 图片
 group: 展示
 ---
 

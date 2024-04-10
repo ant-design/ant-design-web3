@@ -40,6 +40,7 @@ This is an enum type that contains the IDs of some commonly used chains. Its val
 | group | Wallet group name | `string` | - | - |
 | hasWalletReady | Whether the browser extension is installed | `() => boolean` | - | - |
 | getQrCode | Get the QR code of the wallet | `() => { uri: string }` | - | - |
+| universalProtocol | Universal protocol config | `{ link: string }` | - | - |
 
 ## ExtensionItem
 
@@ -71,6 +72,12 @@ This is an enum type that contains the IDs of some commonly used chains. Its val
 | trait_type | The type of the attribute representing the characteristic type of the NFT. | `string` | - | - |
 | value | The value of the attribute representing the characteristic of the NFT. | `string` | - | - |
 
+## ConnectOptions
+
+| Property    | Description     | Type                      | Default | Version |
+| ----------- | --------------- | ------------------------- | ------- | ------- |
+| connectType | Connection type | `'extension' \| 'qrCode'` | -       | -       |
+
 ## UniversalWeb3ProviderInterface
 
 | Property | Description | Type | Default | Version |
@@ -79,7 +86,11 @@ This is an enum type that contains the IDs of some commonly used chains. Its val
 | chain | Current chain | [Chain](#chain) | - | - |
 | availableChains | List of available chains | [Chain](#chain)\[] | - | - |
 | availableWallets | List of available wallets | [Wallet](#wallet)\[] | - | - |
-| connect | Connect to the chain | `(chainId: ChainIds) => Promise<void>` | - | - |
+| connect | Connect to the wallet | `(wallet: Wallet, options?: ConnectOptions) => Promise<void>` | - | - |
 | disconnect | Disconnect from the chain | `() => Promise<void>` | - | - |
 | switchChain | Switch to another chain | `(chainId: ChainIds) => Promise<void>` | - | - |
 | getNFTMetadata | Get the metadata of the NFT | `(contractAddress: string, tokenId: string) => Promise<NFTMetadata>` | - | - |
+
+## Locale
+
+Internationalization support text can be found in the [code](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/en_US.ts).

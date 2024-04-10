@@ -1,10 +1,14 @@
+import React, { useEffect, useState } from 'react';
+import type { DefaultGuide } from '@ant-design/web3';
 import { ConnectModal } from '@ant-design/web3';
-import { groupOrder, guide, walletList } from './mock';
+import { BitcoinCircleColorful } from '@ant-design/web3-icons';
 import { fireEvent, render } from '@testing-library/react';
-import { useEffect, useState } from 'react';
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { ConfigProvider, theme as antTheme, Grid } from 'antd';
+import { theme as antTheme, ConfigProvider, Grid } from 'antd';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { mockBrowser } from '../../utils/test-utils';
+import DefaultGuidePanel from '../components/DefaultGuidePanel';
+import { groupOrder, guide, walletList } from './mock';
 
 describe('ConnectModal with guide', () => {
   beforeEach(() => {
@@ -18,7 +22,10 @@ describe('ConnectModal with guide', () => {
     vi.spyOn(Grid, 'useBreakpoint').mockReturnValue({
       md: true, // ≥ 768px, mock PC
     });
-
+    const errorFn = vi.fn();
+    vi.spyOn(console, 'error').mockImplementation((msg) => {
+      errorFn(msg);
+    });
     const App = () => (
       <ConfigProvider
         theme={{
@@ -36,6 +43,9 @@ describe('ConnectModal with guide', () => {
       </ConfigProvider>
     );
     const { baseElement } = render(<App />);
+    expect(errorFn).toBeCalledWith(
+      'Warning: [ant-design-web3: ConnectModal] `groupOrder` is deprecated. Please use `group={{groupOrder: ()=> {}}}` instead.',
+    );
 
     expect(baseElement).toMatchSnapshot();
     // should have ant-web3-connect-modal class
@@ -121,7 +131,9 @@ describe('ConnectModal with guide', () => {
           open={open}
           title="ConnectModal"
           footer="Powered by AntChain"
-          groupOrder={groupOrder}
+          group={{
+            groupOrder,
+          }}
           walletList={walletList}
           guide={guide}
           destroyOnClose={true}
@@ -151,7 +163,9 @@ describe('ConnectModal with guide', () => {
         open
         title="ConnectModal"
         footer="Powered by AntChain"
-        groupOrder={groupOrder}
+        group={{
+          groupOrder,
+        }}
         walletList={walletList}
       />
     );
@@ -161,5 +175,56 @@ describe('ConnectModal with guide', () => {
 
   it('ModalPanel', async () => {
     expect(ConnectModal.ModalPanel).not.toBeUndefined();
+  });
+
+  it('when DefaultGuidePanel guide is null', async () => {
+    const App = () => <DefaultGuidePanel guide={null as unknown as DefaultGuide} />;
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.ant-web3-connect-modal-guide-panel')).toBeNull();
+  });
+
+  it('when DefaultGuidePanel guide is a valid React element', async () => {
+    const ValidReactElement: React.FC = () => <div className="custom">valid</div>;
+    const App = () => (
+      <DefaultGuidePanel
+        guide={React.createElement(ValidReactElement) as unknown as DefaultGuide}
+      />
+    );
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.custom')).toBeTruthy();
+    expect(baseElement.querySelector('.custom')?.textContent).toBe('valid');
+  });
+
+  it('when DefaultGuidePanel guide element icon is not string', async () => {
+    const Guide = {
+      title: 'title',
+      infos: [
+        {
+          icon: <BitcoinCircleColorful />,
+          title: 'title',
+          description: 'desc',
+        },
+      ],
+    };
+    const App = () => <DefaultGuidePanel guide={Guide as unknown as DefaultGuide} />;
+    const { baseElement } = render(<App />);
+    // Show `ant-web3-connect-modal-guide-item-icon` classname only if icon is string
+    expect(baseElement.querySelector('.ant-web3-connect-modal-guide-item-icon')).toBeNull();
+    expect(baseElement.querySelector('.ant-web3-icon-bitcoin-circle-colorful')).toBeTruthy();
+  });
+
+  it('Wallets are not grouped', async () => {
+    const App = () => (
+      <ConnectModal
+        open
+        title="ConnectModal"
+        footer="Powered by AntChain"
+        walletList={walletList}
+        guide={guide}
+        group={false}
+      />
+    );
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.ant-web3-connect-modal-group-title')).toBeNull();
   });
 });

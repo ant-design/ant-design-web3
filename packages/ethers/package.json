@@ -1,0 +1,85 @@
+{
+  "name": "@ant-design/web3-ethers",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/esm/index.d.ts"
+    },
+    "./legacy-v5": {
+      "import": "./dist/esm/index-v5.js",
+      "require": "./dist/lib/index-v5.js",
+      "types": "./dist/esm/index-v5.d.ts"
+    },
+    "./wagmi": {
+      "import": "./dist/esm/wagmi.js",
+      "require": "./dist/lib/wagmi.js",
+      "types": "./dist/esm/wagmi.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "keywords": [
+    "ant",
+    "component",
+    "components",
+    "design",
+    "framework",
+    "frontend",
+    "react",
+    "react-component",
+    "ui",
+    "web3",
+    "ethers",
+    "ethersjs"
+  ],
+  "homepage": "https://we3.ant.design",
+  "bugs": {
+    "url": "https://github.com/ant-design/ant-design-web3/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/ant-design-web3"
+  },
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build"
+  },
+  "dependencies": {
+    "@ant-design/web3-assets": "workspace:*",
+    "@ant-design/web3-common": "workspace:*",
+    "@ant-design/web3-wagmi": "workspace:*",
+    "@tanstack/react-query": "^5.28.4",
+    "debug": "^4.3.4",
+    "viem": ">=2.0.0",
+    "wagmi": "^2.5.7"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.12",
+    "father": "^4.3.8",
+    "typescript": "^5.4.4",
+    "ethers-v5": "npm:ethers@^5.7.2",
+    "ethers-v6": "npm:ethers@^6.11.1"
+  },
+  "peerDependencies": {
+    "ethers": "^5.7.2 || ^6.11.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
+}

@@ -1,16 +1,32 @@
-import { BrowserLink } from '..';
-import { render } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
 import { LinkOutlined } from '@ant-design/icons';
+import { Mainnet } from '@ant-design/web3-assets';
 import { ChainIds, Web3ConfigProvider } from '@ant-design/web3-common';
 import { BitcoinCircleColorful } from '@ant-design/web3-icons';
-import { Mainnet } from '@ant-design/web3-assets';
+import { render } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
+
+import { BrowserLink } from '..';
 
 describe('BrowserLink', () => {
   it('mount correctly', () => {
     expect(() =>
       render(<BrowserLink address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />),
     ).not.toThrow();
+  });
+
+  it('when there is no address output console.error', () => {
+    const originalConsoleError = console.error;
+    const mockConsoleError = (message: any) => {
+      mockConsoleError.calls.push(message);
+    };
+    mockConsoleError.calls = [] as any[];
+    console.error = mockConsoleError;
+    expect(() => render(<BrowserLink address="" />)).not.toThrow();
+    expect(mockConsoleError.calls.length).toBe(1);
+    expect(mockConsoleError.calls[0]).toContain(
+      '"address" property of the "BrowserLink" is required',
+    );
+    console.error = originalConsoleError;
   });
 
   it('renders address link correctly', () => {

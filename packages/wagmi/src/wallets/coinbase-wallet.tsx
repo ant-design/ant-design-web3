@@ -1,15 +1,19 @@
-import { type Wallet } from '@ant-design/web3-common';
 import { metadata_CoinbaseWallet } from '@ant-design/web3-assets';
-import type { WalletFactory } from '../interface';
+import { type Wallet } from '@ant-design/web3-common';
 
-export const CoinbaseWallet: WalletFactory = {
-  name: 'Coinbase Wallet',
-  create: (): Wallet => {
-    return {
-      ...metadata_CoinbaseWallet,
-      hasWalletReady: async () => {
-        return true;
-      },
-    };
-  },
+import type { EthereumWallet } from '../interface';
+
+export const CoinbaseWallet: EthereumWallet = (metadata) => {
+  return {
+    connectors: ['Coinbase Wallet'],
+    create: (): Wallet => {
+      return {
+        ...metadata_CoinbaseWallet,
+        hasWalletReady: async () => {
+          return true;
+        },
+        ...metadata,
+      };
+    },
+  };
 };

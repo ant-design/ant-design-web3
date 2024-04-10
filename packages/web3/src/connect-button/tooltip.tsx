@@ -1,19 +1,19 @@
-import { Tooltip, message } from 'antd';
-import { CopyOutlined } from '@ant-design/icons';
-import type { ConnectButtonTooltipProps } from './interface';
 import { useMemo, type PropsWithChildren } from 'react';
-import { formatAddress, writeCopyText } from '../utils';
+import { CopyOutlined } from '@ant-design/icons';
+import { message, Tooltip } from 'antd';
 import classNames from 'classnames';
 
-export const ConnectButtonTooltip: React.FC<PropsWithChildren<ConnectButtonTooltipProps>> = ({
-  title,
-  copyable,
-  children,
-  format,
-  prefixCls,
-  __hashId__,
-  ...restProps
-}) => {
+import type { IntlType } from '../hooks/useIntl';
+import { formatAddress, writeCopyText } from '../utils';
+import type { ConnectButtonTooltipProps } from './interface';
+
+export const ConnectButtonTooltip: React.FC<
+  PropsWithChildren<
+    ConnectButtonTooltipProps & {
+      intl: IntlType;
+    }
+  >
+> = ({ title, intl, copyable, children, format, prefixCls, __hashId__, ...restProps }) => {
   const [messageApi, contextHolder] = message.useMessage();
   const mergedFormat = useMemo(() => {
     if (typeof format === 'function') {
@@ -32,12 +32,12 @@ export const ConnectButtonTooltip: React.FC<PropsWithChildren<ConnectButtonToolt
     format ? (
       <>
         <div className={`${prefixCls}-tooltip-title`}>
-          Wallet address{' '}
+          {intl.getMessage(intl.messages.walletAddress)}{' '}
           <CopyOutlined
-            title="Copy Address"
+            title={intl.getMessage(intl.messages.copyAddress)}
             onClick={() => {
               writeCopyText(String(title)).then(() => {
-                messageApi.success('Address Copied!');
+                messageApi.success(intl.getMessage(intl.messages.copied));
               });
             }}
           />
@@ -48,10 +48,10 @@ export const ConnectButtonTooltip: React.FC<PropsWithChildren<ConnectButtonToolt
       <>
         {mergedTitle}{' '}
         <CopyOutlined
-          title="Copy Address"
+          title={intl.getMessage(intl.messages.copyAddress)}
           onClick={() => {
             writeCopyText(String(title)).then(() => {
-              messageApi.success('Address Copied!');
+              messageApi.success(intl.getMessage(intl.messages.copied));
             });
           }}
         />

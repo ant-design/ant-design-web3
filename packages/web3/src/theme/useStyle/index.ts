@@ -1,12 +1,10 @@
+import type React from 'react';
+import { useContext } from 'react';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-
-import { ConfigProvider as AntdConfigProvider } from 'antd';
-import { theme as AntTheme } from 'antd';
-import type { GlobalToken } from 'antd/lib/theme/interface';
-import type React from 'react';
-import { useContext } from 'react';
+import { ConfigProvider as AntdConfigProvider, theme as AntTheme } from 'antd';
+import type { GlobalToken } from 'antd';
 
 const { useToken } = AntTheme;
 
@@ -44,7 +42,7 @@ export type UseStyleResult = {
 
 export type Web3AliasToken = GlobalToken & {
   /**
-   * classname for web3 compoennts
+   * className for web3 components
    * @type {string}
    * @example .ant-pro
    */
@@ -78,7 +76,7 @@ export function useStyle(
   return {
     wrapSSR: useStyleRegister(
       {
-        theme: theme,
+        theme,
         token: web3Token,
         hashId,
         path: [componentName],

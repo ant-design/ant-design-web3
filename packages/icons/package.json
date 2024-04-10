@@ -1,9 +1,15 @@
 {
   "name": "@ant-design/web3-icons",
-  "version": "1.0.0",
-  "main": "dist/lib/index.js",
+  "version": "1.4.2",
+  "type": "module",
+  "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/lib/index.js",
+    "types": "./dist/esm/index.d.ts"
+  },
   "files": [
     "dist",
     "CHANGELOG.md",
@@ -34,15 +40,14 @@
     "build": "father build"
   },
   "devDependencies": {
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
-    "antd": "^5.12.4",
-    "babel-plugin-inline-react-svg": "^2.0.2",
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.23",
+    "antd": "^5.16.0",
     "father": "^4.3.8",
-    "glob": "^10.3.10",
+    "glob": "^10.3.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.4"
   },
   "peerDependencies": {
     "antd": ">=4.23.0 || >=5.0.0",
@@ -60,7 +65,8 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/icons": "^5.2.6",
+    "@ant-design/icons": "^5.3.6",
+    "@inline-svg-unique-id/react": "^1.2.3",
     "classnames": "^2.3.2"
   }
 }

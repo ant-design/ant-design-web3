@@ -1,0 +1,94 @@
+name: PR Changeset Check
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+
+permissions:
+  contents: read
+
+jobs:
+  check_changeset:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Changed Files
+        id: changed-files
+        uses: tj-actions/changed-files@v41.0.1
+        with:
+          files: |
+            .changeset/**.md
+
+      - name: Check for major changes
+        id: check_changeset
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # 拉取 pr 源分支代码
+          files=$ALL_CHANGED_FILES
+          echo "File list: $files"
+          diff=$(gh pr diff ${{ github.event.pull_request.number }})
+          if echo $diff | grep $ALL_CHANGED_FILES -A 8 | grep "major"; then
+            major_changes=$(gh pr diff ${{ github.event.pull_request.number }} | grep $ALL_CHANGED_FILES -A 8 | grep "major")
+            echo "Found major changes."
+            echo "comment=$major_changes" >> $GITHUB_OUTPUT
+          else
+            echo "Not found major changes."
+            comment=""
+            echo "comment=$comment" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Add label
+        if: ${{ steps.check_changeset.outputs.comment != '' }}
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'add-labels'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          labels: 'major'
+
+      - name: update status comment
+        if: ${{ steps.check_changeset.outputs.comment != '' }}
+        uses: actions-cool/maintain-one-comment@v3
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            body: |
+              ## 🚨 @${{ github.actor }}, 本次 PR 的更改包含 major 变更，请确认是否符合预期。
+              ___
+              ## 🚨 @${{ github.actor }}, this PR contains major changes, please confirm if it is as expected.
+
+              ```diff
+
+              ${{ steps.check_changeset.outputs.comment }}
+
+              ```
+              
+              <!-- AUTO_CHANGESET_CHECK_HOOK -->
+            body-include: '<!-- AUTO_CHANGESET_CHECK_HOOK -->'
+            number: ${{ github.event.pull_request.number }}
+
+      - name: Delete comment
+        if: ${{ steps.check_changeset.outputs.comment == '' }}
+        uses: actions-cool/maintain-one-comment@v3
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            body-include: '<!-- AUTO_CHANGESET_CHECK_HOOK -->'
+            number: ${{ github.event.pull_request.number }}
+            delete: true
+
+      - name: Remove labels
+        if: ${{ steps.check_changeset.outputs.comment == '' }}
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'remove-labels'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          labels: 'major'

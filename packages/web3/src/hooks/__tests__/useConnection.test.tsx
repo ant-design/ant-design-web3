@@ -1,8 +1,8 @@
 import React from 'react';
-import { useConnection, Web3ConfigProvider, useAccount, type Account } from '@ant-design/web3';
-import { render, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { useAccount, useConnection, Web3ConfigProvider, type Account } from '@ant-design/web3';
+import { fireEvent, render } from '@testing-library/react';
 import { Button } from 'antd';
+import { describe, expect, it, vi } from 'vitest';
 
 describe('ConnectButton', () => {
   it('basic use', () => {

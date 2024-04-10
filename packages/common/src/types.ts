@@ -11,6 +11,17 @@ export enum ChainIds {
   Optimism = 10,
   Goerli = 5,
   Avalanche = 43_114,
+  X1Testnet = 195,
+  Sepolia = 11_155_111,
+  Holesky = 17_000,
+  Scroll = 534_352,
+  ScrollSepolia = 534_351,
+}
+
+export enum SolanaChainIds {
+  MainnetBeta = 2,
+  Devnet = 3,
+  Testnet = 4,
 }
 
 export type BrowserLinkType = 'address' | 'transaction';
@@ -48,6 +59,10 @@ export interface NFTMetadata {
   compiler?: string;
 }
 
+export interface ConnectOptions {
+  connectType?: 'extension' | 'qrCode';
+}
+
 export interface UniversalWeb3ProviderInterface {
   // current connected account
   account?: Account;
@@ -59,7 +74,12 @@ export interface UniversalWeb3ProviderInterface {
   availableWallets?: Wallet[];
   availableChains?: Chain[];
 
-  connect?: (wallet?: Wallet) => Promise<void>;
+  extendsContextFromParent?: boolean;
+
+  /** Such as `0x` */
+  addressPrefix?: string | false;
+
+  connect?: (wallet?: Wallet, options?: ConnectOptions) => Promise<void>;
   disconnect?: () => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;
 
@@ -68,9 +88,8 @@ export interface UniversalWeb3ProviderInterface {
 
 export interface Wallet extends WalletMetadata {
   hasWalletReady?: () => Promise<boolean>;
-  getQrCode?: () => Promise<{
-    uri: string;
-  }>;
+  hasExtensionInstalled?: () => Promise<boolean>;
+  getQrCode?: () => Promise<{ uri: string }>;
 }
 
 /**
@@ -148,6 +167,13 @@ export type WalletMetadata = {
    * @descEn The name of the group to which the wallet belongs
    */
   group?: string;
+  /**
+   * @desc 是否是通用协议
+   * @descEn Whether it is a universal protocol
+   */
+  universalProtocol?: {
+    link: string;
+  };
 };
 
 export type Balance = BalanceMetadata & {
@@ -157,10 +183,72 @@ export type Balance = BalanceMetadata & {
 export interface ConnectorTriggerProps {
   account?: Account;
   loading?: boolean;
-  onConnectClick?: () => void;
+  onConnectClick?: (wallet?: Wallet) => void;
   onDisconnectClick?: () => void;
   onSwitchChain?: (chain: Chain) => Promise<void>;
   availableChains?: Chain[];
+  availableWallets?: Wallet[];
   chain?: Chain;
   balance?: Balance;
+}
+
+export interface RequiredLocale {
+  ConnectButton: {
+    connect: string;
+    disconnect: string;
+    copyAddress: string;
+    copied: string;
+    walletAddress: string;
+    moreWallets: string;
+  };
+  ConnectModal: {
+    title: string;
+    guideTitle: string;
+    guideInfos1Title: string;
+    guideInfos1Desc: string;
+    guideInfos2Title: string;
+    guideInfos2Desc: string;
+    guideInfos3Title: string;
+    guideInfos3Desc: string;
+    guideInfosGetWalletBtnText: string;
+    guideInfosMoreLinkText: string;
+    getWalletBtnText: string;
+    getWalletUniversalProtocolBtnText: string;
+    getWalletPanelTitle: string;
+    getWalletPanelInfoTitle: string;
+    getWalletPanelInfoDesc: string;
+    qrCodePanelTitleForDownload: string;
+    qrCodePanelTitleForScan: string;
+    qrCodePanelTitleForUniversalProtocol: string;
+    qrCodePanelLinkForDownload: string;
+    qrCodePanelLinkForConnect: string;
+    qrCodePanelDownloadTipForReady: string;
+    qrCodePanelDownloadTipForNotReady: string;
+    qrCodePanelUniversalProtocolTipForNotReady: string;
+    walletCardPanelTitle: string;
+    walletCardAppTitle: string;
+    walletCardAppDesc: string;
+    walletCardExtensionTitle: string;
+    guideTipTitle: string;
+    guideTipLearnMoreLinkText: string;
+    walletPanelPlugin: string;
+  };
+  NFTCard: {
+    actionText: string;
+  };
+  Address: {
+    copyTips: string;
+    copiedTips: string;
+  };
+}
+
+export interface Locale {
+  ConnectButton?: Partial<RequiredLocale['ConnectButton']>;
+  ConnectModal?: Partial<RequiredLocale['ConnectModal']>;
+  NFTCard?: Partial<RequiredLocale['NFTCard']>;
+  Address?: Partial<RequiredLocale['Address']>;
+}
+
+export interface UniversalEIP6963Config {
+  autoAddInjectedWallets?: boolean;
 }

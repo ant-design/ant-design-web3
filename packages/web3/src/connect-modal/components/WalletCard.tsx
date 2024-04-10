@@ -1,9 +1,10 @@
 /* eslint-disable react/no-unknown-property */
 import type { ReactNode } from 'react';
 import { useContext, useMemo } from 'react';
+
+import { getPlatform } from '../../utils';
 import { connectModalContext } from '../context';
 import MainPanelHeader from './MainPanelHeader';
-import { getPlatform } from '../../utils';
 
 const CardItem: React.FC<{
   icon: ReactNode;
@@ -34,7 +35,8 @@ const CardItem: React.FC<{
 };
 
 const WalletCard: React.FC = () => {
-  const { prefixCls, selectedWallet, updatePanelRoute } = useContext(connectModalContext);
+  const { prefixCls, selectedWallet, updatePanelRoute, localeMessage, getMessage } =
+    useContext(connectModalContext);
   const selectedExtension = useMemo(
     () =>
       selectedWallet?.extensions
@@ -44,19 +46,26 @@ const WalletCard: React.FC = () => {
   );
   return (
     <>
-      <MainPanelHeader title={`Get ${selectedWallet?.name}`} />
+      <MainPanelHeader
+        title={getMessage(localeMessage.walletCardPanelTitle, {
+          selectedWalletName: selectedWallet!.name,
+        })}
+      />
       <div className={`${prefixCls}-card-list`}>
         {selectedExtension && (
           <CardItem
             link={selectedExtension.link}
             icon={
               typeof selectedExtension.browserIcon === 'string' ? (
-                <img src={selectedExtension.browserIcon} />
+                <img alt="selected extension browser icon" src={selectedExtension.browserIcon} />
               ) : (
                 selectedExtension.browserIcon
               )
             }
-            title={`${selectedWallet!.name} for ${selectedExtension.browserName}`}
+            title={getMessage(localeMessage.walletCardExtensionTitle, {
+              selectedWalletName: selectedWallet!.name,
+              selectedExtensionBrowserName: selectedExtension.browserName,
+            })}
             desc={selectedExtension.description}
           />
         )}
@@ -64,13 +73,15 @@ const WalletCard: React.FC = () => {
           <CardItem
             icon={
               typeof selectedWallet.icon === 'string' ? (
-                <img src={selectedWallet.icon} />
+                <img alt="selected wallet icon" src={selectedWallet.icon} />
               ) : (
                 selectedWallet.icon
               )
             }
-            title={`${selectedWallet.name} for Mobile`}
-            desc="Use the mobile wallet to explore the world of Ethereum."
+            title={getMessage(localeMessage.walletCardAppTitle, {
+              selectedWalletName: selectedWallet.name,
+            })}
+            desc={localeMessage.walletCardAppDesc}
             onClick={() => {
               updatePanelRoute('downloadQrCode');
             }}

@@ -1,5 +1,6 @@
-import { ConfigProvider, Space } from 'antd';
 import React from 'react';
+import { ConfigProvider, Space } from 'antd';
+
 import BasiceDemo from './basic';
 
 const App: React.FC = () => {

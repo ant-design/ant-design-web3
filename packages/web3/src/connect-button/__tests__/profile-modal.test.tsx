@@ -1,10 +1,12 @@
-import { render, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { Polygon } from '@ant-design/web3-assets';
+import { fireEvent, render } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
+import { ConnectButton } from '..';
+import useIntl from '../../hooks/useIntl';
+import { readCopyText } from '../../utils';
 import { mockClipboard } from '../../utils/test-utils';
 import { ProfileModal } from '../profile-modal';
-import { ConnectButton } from '..';
-import { readCopyText } from '../../utils';
 
 describe('ProfileModal', () => {
   let resetMockClipboard: () => void;
@@ -16,17 +18,21 @@ describe('ProfileModal', () => {
   });
 
   it('match snapshot', () => {
-    const App = () => (
-      <ProfileModal
-        open
-        __hashId__="hashId"
-        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
-        name="wanderingearth.eth"
-        avatar={{
-          src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
-        }}
-      />
-    );
+    const App = () => {
+      const intl = useIntl('ConnectButton');
+      return (
+        <ProfileModal
+          intl={intl}
+          open
+          __hashId__="hashId"
+          address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+          name="wanderingearth.eth"
+          avatar={{
+            src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
+          }}
+        />
+      );
+    };
     const { baseElement } = render(<App />);
     expect(baseElement).toMatchSnapshot();
   });
@@ -104,14 +110,18 @@ describe('ProfileModal', () => {
 
   it('Disconnect & Copy Address Button', () => {
     const disconnectTestFn = vi.fn();
-    const App = () => (
-      <ProfileModal
-        open
-        __hashId__="hashId"
-        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
-        onDisconnect={disconnectTestFn}
-      />
-    );
+    const App = () => {
+      const intl = useIntl('ConnectButton');
+      return (
+        <ProfileModal
+          open
+          intl={intl}
+          __hashId__="hashId"
+          address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+          onDisconnect={disconnectTestFn}
+        />
+      );
+    };
     const { baseElement } = render(<App />);
     const btns = baseElement.querySelectorAll('.ant-web3-connect-button-profile-modal .ant-btn');
     expect(btns.length).toBe(2);

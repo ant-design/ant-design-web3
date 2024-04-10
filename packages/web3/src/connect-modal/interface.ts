@@ -1,7 +1,6 @@
 import type React from 'react';
+import type { ConnectOptions, Locale, Wallet } from '@ant-design/web3-common';
 import type { ModalProps } from 'antd';
-import type { Wallet } from '@ant-design/web3-common';
-import { get } from 'lodash';
 
 export type { Wallet, WalletExtensionItem } from '@ant-design/web3-common';
 
@@ -59,6 +58,12 @@ export type DefaultGuide = {
   moreLinkText?: string;
 };
 
+export type ConnectModalActionType =
+  | {
+      selectWallet: (wallet: Wallet) => void;
+    }
+  | undefined;
+
 export type ConnectModalProps = ModalProps & {
   /**
    * @desc 选中钱包回调
@@ -67,17 +72,39 @@ export type ConnectModalProps = ModalProps & {
    * @paramEn Selected wallet
    * @returns
    */
-  onWalletSelected?: (wallet: Wallet) => void;
+  onWalletSelected?: (wallet: Wallet, options?: ConnectOptions) => void;
   /**
    * @desc 自定义 footer
    * @descEn Custom footer
    */
   footer?: React.ReactNode;
   /**
+   * @desc 用于触发操作的引用
+   * @descEn ref for action
+   */
+  actionRef?: React.MutableRefObject<ConnectModalActionType>;
+  /**
+   * @desc 默认选中的钱包
+   * @descEn Default selected wallet
+   */
+  defaultSelectedWallet?: Wallet;
+  /**
    * @desc 钱包列表
    * @descEn Wallet list
    */
   walletList?: Wallet[];
+  /**
+   * @desc 支持分组 | 钱包分组排序函数
+   * @descEn support grouping | Wallet group sorting function
+   * @param a groupName1
+   * @param b groupName2
+   * @returns
+   */
+  group?:
+    | boolean
+    | {
+        groupOrder?: (a: string, b: string) => number;
+      };
   /**
    * @desc 钱包分组排序函数
    * @descEn Wallet group sorting function
@@ -96,6 +123,13 @@ export type ConnectModalProps = ModalProps & {
    * @descEn modal mode
    */
   mode?: 'simple' | 'normal' | 'auto';
+  /**
+   * @desc 自定义本地化配置
+   * @descEn Custom localization configuration
+   */
+  locale?: Locale['ConnectModal'];
+
+  addressPrefix?: string | false;
 };
 
 export type PanelRoute = 'init' | 'guide' | 'getWallet' | 'wallet' | 'qrCode' | 'downloadQrCode';

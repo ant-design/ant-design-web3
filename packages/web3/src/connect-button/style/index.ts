@@ -1,10 +1,11 @@
-import type React from 'react';
+import { TinyColor } from '@ctrl/tinycolor';
+
 import {
   useStyle as useAntdStyle,
   type GenerateStyle,
+  type UseStyleResult,
   type Web3AliasToken,
 } from '../../theme/useStyle';
-import { TinyColor } from '@ctrl/tinycolor';
 
 export interface ConnectButtonToken extends Web3AliasToken {
   componentCls: string;
@@ -51,21 +52,46 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
       padding: `4px 15px`,
     },
 
+    [`${token.componentCls}-quick-connect-icon`]: {
+      height: token.fontSize,
+      width: token.fontSize,
+    },
+
     [`${token.componentCls}-profile-modal`]: {
       [`${token.antCls}-modal-content`]: {
         padding: token.padding,
       },
+      [`${token.antCls}-avatar`]: {
+        width: token.sizeXXL,
+        height: token.sizeXXL,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      [`${token.antCls}-avatar-image`]: {
+        width: token.sizeXXL,
+        height: token.sizeXXL,
+      },
       [`&-footer`]: {
         display: 'flex',
+        marginTop: token.margin,
+        gap: token.marginXS,
         [`${token.antCls}-btn`]: {
           flex: 1,
         },
       },
+      [`&-name`]: {
+        color: token.colorTextHeading,
+        fontSize: token.fontSizeLG,
+      },
       [`${token.componentCls}-chain-icon`]: {
-        fontSize: 38,
+        fontSize: token.sizeXXL,
+      },
+      [`${token.componentCls}-default-icon`]: {
+        fontSize: token.sizeLG,
       },
       [`${token.antCls}-web3-address`]: {
-        color: token.colorTextSecondary,
+        color: token.colorTextTertiary,
       },
     },
 
@@ -83,7 +109,7 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
   };
 };
 
-export function useStyle(prefixCls: string) {
+export function useStyle(prefixCls: string): UseStyleResult {
   return useAntdStyle('ConnectButton', (token) => {
     const proListToken: ConnectButtonToken = {
       ...token,

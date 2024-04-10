@@ -1,30 +1,52 @@
 import React from 'react';
-import { mergeReactNodeProps } from '../utils';
-import type { ConnectModalProps } from '../interface';
+import type { ConnectOptions } from '@ant-design/web3-common';
+import { Button, ConfigProvider } from 'antd';
 import classNames from 'classnames';
-import WalletList from './WalletList';
-import MainPanel from './MainPanel';
-import { ConfigContext } from 'antd/lib/config-provider';
+
+import useIntl from '../../hooks/useIntl';
 import { ConnectModalContextProvider } from '../context';
-import { useStyle } from '../style';
 import useMode from '../hooks/useMode';
-import type { PanelRoute, Wallet } from '../interface';
+import type { ConnectModalProps, PanelRoute, Wallet } from '../interface';
+import { useStyle } from '../style';
+import { mergeReactNodeProps } from '../utils';
+import MainPanel from './MainPanel';
+import WalletList from './WalletList';
 
 export type ModalPanelProps = ConnectModalProps;
 
 const ModalPanel: React.FC<ModalPanelProps> = (props) => {
-  const { title, footer, walletList, groupOrder, guide, mode, onWalletSelected } = props;
+  const {
+    title,
+    footer,
+    walletList,
+    guide,
+    group = true,
+    groupOrder,
+    mode,
+    onWalletSelected,
+    actionRef,
+    defaultSelectedWallet,
+    locale,
+  } = props;
+  const intl = useIntl('ConnectModal', locale);
 
-  const [panelRoute, setPanelRoute] = React.useState<PanelRoute>('init');
-  const routeStack = React.useRef<PanelRoute[]>(['init']);
-  const [selectedWallet, setSelectedWallet] = React.useState<Wallet>();
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const showQRCoodByDefault = defaultSelectedWallet?.getQrCode;
+  const [panelRoute, setPanelRoute] = React.useState<PanelRoute>(
+    showQRCoodByDefault ? 'qrCode' : 'init',
+  );
+  const routeStack = React.useRef<PanelRoute[]>(
+    showQRCoodByDefault ? ['init', 'qrCode'] : ['init'],
+  );
+  const [selectedWallet, setSelectedWallet] = React.useState<Wallet | undefined>(
+    defaultSelectedWallet,
+  );
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-modal');
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
   const mergedTitle = mergeReactNodeProps(
     title,
-    <h2 className={`${prefixCls}-title`}>Connect Modal</h2>,
+    <h2 className={`${prefixCls}-title`}>{intl.messages.title}</h2>,
     (node) => <h2 className={`${prefixCls}-title`}>{node}</h2>,
   );
 
@@ -37,10 +59,15 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
   }, []);
 
   const updateSelectedWallet = React.useCallback(
-    (wallet: Wallet | undefined, triggerConnect?: boolean) => {
+    (wallet?: Wallet, connectOptions?: ConnectOptions) => {
       setSelectedWallet(wallet);
-      if (wallet && triggerConnect) {
-        onWalletSelected?.(wallet);
+      if (wallet && connectOptions) {
+        if (connectOptions.connectType === 'qrCode') {
+          updatePanelRoute('qrCode', true);
+        } else {
+          setPanelRoute('init');
+        }
+        onWalletSelected?.(wallet, connectOptions);
       }
     },
     [onWalletSelected],
@@ -72,6 +99,8 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
         updatePanelRoute,
         panelRouteBack,
         canBack: routeStack.current.length > 1,
+        localeMessage: intl.messages,
+        getMessage: intl.getMessage,
       }}
     >
       <div
@@ -87,8 +116,28 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
           <div className={classNames(`${prefixCls}-list-panel`)}>
             <div className={`${prefixCls}-header`}>{mergedTitle}</div>
             <div className={`${prefixCls}-list-container`}>
-              <WalletList walletList={walletList} groupOrder={groupOrder} />
+              <WalletList
+                ref={actionRef}
+                walletList={walletList}
+                group={group}
+                groupOrder={groupOrder}
+              />
             </div>
+            {isSimple && (
+              <div className={`${prefixCls}-simple-guide`}>
+                {intl.getMessage(intl.messages.guideTipTitle)}
+                <Button
+                  type="link"
+                  className={`${prefixCls}-simple-guide-right`}
+                  onClick={() => {
+                    updatePanelRoute('guide');
+                  }}
+                  size="small"
+                >
+                  {intl.getMessage(intl.messages.guideTipLearnMoreLinkText)}
+                </Button>
+              </div>
+            )}
             {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
           </div>
         )}

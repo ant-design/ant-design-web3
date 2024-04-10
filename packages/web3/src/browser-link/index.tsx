@@ -1,16 +1,19 @@
 import React from 'react';
-import { Space, Tooltip } from 'antd';
 import { Mainnet } from '@ant-design/web3-assets';
-import { fillAddressWith0x, type BrowserLinkType, type Chain } from '@ant-design/web3-common';
+import { type BrowserLinkType, type Chain } from '@ant-design/web3-common';
+import { Space, Tooltip } from 'antd';
+
 import { Address } from '../address';
 import useProvider from '../hooks/useProvider';
+import { fillWithPrefix } from '../utils';
 
-export interface BrowserLinkProps {
+export interface BrowserLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   icon?: boolean | React.ReactNode;
   iconStyle?: React.CSSProperties;
   iconOnly?: boolean;
   ellipsis?: boolean;
   address: string;
+  addressPrefix?: string | false;
   href?: string;
   chain?: Chain;
   type?: BrowserLinkType;
@@ -29,8 +32,20 @@ export const getBrowserLink = (
 };
 
 export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
-  const { icon, ellipsis, address, href, type, chain, name, iconOnly = false } = props;
-  const { chain: currentChain = Mainnet } = useProvider({
+  const {
+    icon,
+    iconStyle,
+    ellipsis,
+    address,
+    addressPrefix: addressPrefixProp,
+    href,
+    type,
+    chain,
+    name,
+    iconOnly = false,
+    ...rest
+  } = props;
+  const { chain: currentChain = Mainnet, addressPrefix: addressPrefixContext } = useProvider({
     chain,
   });
 
@@ -38,18 +53,23 @@ export const BrowserLink: React.FC<BrowserLinkProps> = (props) => {
   const displayIcon = React.isValidElement(mergedIcon)
     ? React.cloneElement<any>(mergedIcon, {
         style: {
-          ...props.iconStyle,
-          ...(React.isValidElement(mergedIcon) ? mergedIcon.props.style : {}),
+          ...iconStyle,
+          ...mergedIcon.props.style,
         },
       })
     : mergedIcon;
 
-  const filledAddress = fillAddressWith0x(address);
+  if (!address) {
+    console.error('"address" property of the "BrowserLink" is required');
+    return null;
+  }
+
+  const filledAddress = fillWithPrefix(address, addressPrefixProp, addressPrefixContext);
   const browserLink = href ?? getBrowserLink(filledAddress, type, currentChain);
 
   const renderContent = (content: React.ReactNode) => (
     <Tooltip title={filledAddress}>
-      <a href={browserLink} style={{ display: 'inline-block' }}>
+      <a href={browserLink} style={{ display: 'inline-block' }} {...rest}>
         <Space size="small">
           {displayIcon}
           {!iconOnly && content}

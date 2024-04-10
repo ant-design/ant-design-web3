@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { NFTMetadata, Web3ConfigProviderProps } from '@ant-design/web3-common';
+
 import useProvider from './useProvider';
 
 export default function useNFT(
@@ -29,6 +30,7 @@ export default function useNFT(
         })
         .catch((err) => {
           setError(err);
+          setMetadata({});
         })
         .finally(() => {
           setLoading(false);

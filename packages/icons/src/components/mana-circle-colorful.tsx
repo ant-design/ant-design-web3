@@ -1,0 +1,26 @@
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+import * as React from 'react';
+import AntdIcon from '@ant-design/icons';
+import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
+import { ConfigProvider } from 'antd';
+import classnames from 'classnames';
+
+import SVGComponent from '../svgs/mana-circle-colorful.svg';
+
+/**![ManaCircleColorful](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IiNjYWNhY2EiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDQwMCA0MDAiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IHgxPSI4NS4zNTUlIiB5MT0iMTQuNjQ1JSIgeDI9IjE0LjY0NSUiIHkyPSI4NS4zNTUlIiBpZD0iYW50LXdlYjMtaWNvbi1tYW5hLWNpcmNsZS1jb2xvcmZ1bC1hIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0ZGMkQ1NSIgb2Zmc2V0PSIwJSIgLz4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0ZGQkM1QiIgb2Zmc2V0PSIxMDAlIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iNDkuOTY2JSIgeTE9IjAlIiB4Mj0iNDkuOTY2JSIgeTI9IjEwMCUiIGlkPSJhbnQtd2ViMy1pY29uLW1hbmEtY2lyY2xlLWNvbG9yZnVsLWIiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjQTUyNEIzIiBvZmZzZXQ9IjAlIiAvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkYyRDU1IiBvZmZzZXQ9IjEwMCUiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPGNpcmNsZSBmaWxsPSJ1cmwoI2FudC13ZWIzLWljb24tbWFuYS1jaXJjbGUtY29sb3JmdWwtYSkiIGN4PSIyMDAiIGN5PSIyMDAiIHI9IjIwMCIgLz4KICAgIDxwYXRoIGZpbGw9InVybCgjYW50LXdlYjMtaWNvbi1tYW5hLWNpcmNsZS1jb2xvcmZ1bC1iKSIgZD0iTTEyNS43IDB2MTUwaDEyNXoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2IDEzMCkiIC8+CiAgICA8cGF0aCBmaWxsPSIjRkZGIiBkPSJNMTYuNyAyODBoMTI1VjEzMHoiIC8+CiAgICA8cGF0aCBkPSJNNDAgMzIwYzExLjQgMTUuMSAyNC45IDI4LjYgNDAgNDBoMjQwYzE1LjEtMTEuNCAyOC42LTI0LjkgNDAtNDBINDB6IiBmaWxsPSIjRkM5OTY1IiAvPgogICAgPHBhdGggZD0iTTgwIDM2MGMzMy40IDI1LjEgNzUgNDAgMTIwIDQwczg2LjYtMTQuOSAxMjAtNDBIODB6IiBmaWxsPSIjRkYyRDU1IiAvPgogICAgPHBhdGggZmlsbD0idXJsKCNhbnQtd2ViMy1pY29uLW1hbmEtY2lyY2xlLWNvbG9yZnVsLWIpIiBkPSJNMjUyLjMgMHYxMTBIMzQ0eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTYgMjEwKSIgLz4KICAgIDxwYXRoIGQ9Ik0yNjguMyAyODBIMTYuN2M2LjIgMTQuMyAxNC4xIDI3LjcgMjMuMyA0MGgyMjguNHYtNDBoLS4xeiIgZmlsbD0iI0ZGQkM1QiIgLz4KICAgIDxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0xNzYuNyAzMjBoOTEuNlYyMTB6IiAvPgogICAgPGNpcmNsZSBmaWxsPSIjRkZDOTVCIiBjeD0iMjY4LjMiIGN5PSIxMzAiIHI9IjUwIiAvPgogICAgPGNpcmNsZSBmaWxsPSIjRkZDOTVCIiBjeD0iMTQxLjciIGN5PSI3NSIgcj0iMjUiIC8+CiAgPC9nPgo8L3N2Zz4K) */
+export const ManaCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('web3-icon-mana-circle-colorful');
+
+  return (
+    <AntdIcon
+      {...props}
+      className={classnames(prefixCls, props.className)}
+      ref={ref}
+      component={SVGComponent}
+    />
+  );
+});
+
+ManaCircleColorful.displayName = 'ManaCircleColorful';

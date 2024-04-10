@@ -1,8 +1,9 @@
 import { ConnectModal } from '@ant-design/web3';
-import { groupOrder, guide, walletList } from './mock';
 import { render } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
 import { Grid } from 'antd';
+import { describe, expect, it, vi } from 'vitest';
+
+import { groupOrder, guide, walletList } from './mock';
 
 describe('ConnectModal with guide', () => {
   it('render with mode simple', () => {
@@ -15,7 +16,9 @@ describe('ConnectModal with guide', () => {
         open
         title="ConnectModal"
         footer="Powered by AntChain"
-        groupOrder={groupOrder}
+        group={{
+          groupOrder,
+        }}
         walletList={walletList}
         guide={guide}
         mode="simple"
@@ -38,7 +41,9 @@ describe('ConnectModal with guide', () => {
         open
         title="ConnectModal"
         footer="Powered by AntChain"
-        groupOrder={groupOrder}
+        group={{
+          groupOrder,
+        }}
         walletList={walletList}
         guide={guide}
         mode="auto"
@@ -61,7 +66,9 @@ describe('ConnectModal with guide', () => {
         open
         title="ConnectModal"
         footer="Powered by AntChain"
-        groupOrder={groupOrder}
+        group={{
+          groupOrder,
+        }}
         walletList={walletList}
         guide={guide}
       />
@@ -83,7 +90,9 @@ describe('ConnectModal with guide', () => {
         open
         title="ConnectModal"
         footer="Powered by AntChain"
-        groupOrder={groupOrder}
+        group={{
+          groupOrder,
+        }}
         walletList={walletList}
         guide={guide}
         mode="normal"

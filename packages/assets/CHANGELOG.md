@@ -1,5 +1,153 @@
 # @ant-design/web3-assets
 
+## 1.5.0
+
+### Minor Changes
+
+- b5eccf9: feat: Support quick connect
+
+### Patch Changes
+
+- Updated dependencies [b5eccf9]
+- Updated dependencies [ec92a76]
+- Updated dependencies [cb0a288]
+- Updated dependencies [6f4c55f]
+  - @ant-design/web3-common@1.7.0
+  - @ant-design/web3-icons@1.4.2
+
+## 1.4.1
+
+### Patch Changes
+
+- d273651: fix: OKX Wallet name
+- Updated dependencies [52d58e5]
+- Updated dependencies [201c2ec]
+- Updated dependencies [0958090]
+  - @ant-design/web3-common@1.6.0
+  - @ant-design/web3-icons@1.4.1
+
+## 1.4.0
+
+### Minor Changes
+
+- e5b4fe9: feat: add imToken wallet info.
+
+### Patch Changes
+
+- Updated dependencies [081398d]
+- Updated dependencies [e5b4fe9]
+  - @ant-design/web3-icons@1.4.0
+
+## 1.3.1
+
+### Patch Changes
+
+- Updated dependencies [21a3e3b]
+  - @ant-design/web3-common@1.5.0
+
+## 1.3.0
+
+### Minor Changes
+
+- d601345: Add support for Solana
+- d601345: Address-like components support addressPrefix prop, add solana chain configs
+
+## 1.2.3
+
+### Patch Changes
+
+- Updated dependencies [dead69b]
+  - @ant-design/web3-common@1.4.0
+
+## 1.2.2
+
+### Patch Changes
+
+- f1b0b17: fix: use esm import as the default import way for fix use in Remix and NextJS
+- Updated dependencies [f1b0b17]
+  - @ant-design/web3-common@1.3.3
+  - @ant-design/web3-icons@1.3.2
+
+## 1.2.1
+
+### Patch Changes
+
+- cf6c520: fix: Add exports field for fix require bug in nextjs
+- Updated dependencies [cf6c520]
+  - @ant-design/web3-common@1.3.2
+  - @ant-design/web3-icons@1.3.1
+
+## 1.2.0
+
+### Minor Changes
+
+- 77615f9: feat: Add OKX wallet info
+
+### Patch Changes
+
+- Updated dependencies [f135178]
+- Updated dependencies [77615f9]
+  - @ant-design/web3-common@1.3.1
+  - @ant-design/web3-icons@1.3.0
+
+## 1.1.4
+
+### Patch Changes
+
+- Updated dependencies [879548d]
+  - @ant-design/web3-common@1.3.0
+
+## 1.1.3
+
+### Patch Changes
+
+- 17ca201: perf: Modify import type
+- Updated dependencies [e5db9b7]
+- Updated dependencies [8bba386]
+- Updated dependencies [18def13]
+- Updated dependencies [dc083a3]
+- Updated dependencies [64a2de3]
+- Updated dependencies [c549a09]
+  - @ant-design/web3-common@1.2.0
+  - @ant-design/web3-icons@1.2.0
+
+## 1.1.2
+
+### Patch Changes
+
+- d6a5339: chore: release 1.1.2 for republish
+- Updated dependencies [d6a5339]
+  - @ant-design/web3-common@1.1.2
+  - @ant-design/web3-icons@1.1.2
+
+## 1.1.1
+
+### Patch Changes
+
+- 32f276a: chore: 1.1.1
+- Updated dependencies [32f276a]
+  - @ant-design/web3-common@1.1.1
+  - @ant-design/web3-icons@1.1.1
+
+## 1.1.0
+
+### Minor Changes
+
+- b00a377: feat: add TokenPocket wallet icon and metadata
+- b3e95c2: feat: support safeheron browser wallet
+
+### Patch Changes
+
+- 69a3597: fix: Improve the package.json information and add a main field to accommodate more projects.
+- Updated dependencies [73e8e32]
+- Updated dependencies [69a3597]
+- Updated dependencies [b00a377]
+- Updated dependencies [b3e95c2]
+- Updated dependencies [3547f6b]
+- Updated dependencies [9de319c]
+  - @ant-design/web3-common@1.1.0
+  - @ant-design/web3-icons@1.1.0
+
 ## 1.0.0
 
 ### Major Changes

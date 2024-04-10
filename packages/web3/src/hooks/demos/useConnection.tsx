@@ -1,23 +1,26 @@
 import React from 'react';
-import { useConnection, Web3ConfigProvider, useAccount, type Account } from '@ant-design/web3';
+import { useAccount, useConnection, Web3ConfigProvider, type Account } from '@ant-design/web3';
 import { Button } from 'antd';
 
 const Demo: React.FC = () => {
   const { account } = useAccount();
   const { connect, disconnect } = useConnection();
   return (
-    <Button
-      onClick={() => {
-        if (account) {
-          disconnect?.();
-        } else {
+    <>
+      <Button
+        onClick={() => {
+          if (account) {
+            disconnect?.();
+            return;
+          }
           console.log('connect');
           connect?.();
-        }
-      }}
-    >
-      {account ? 'Disconnect' : 'Connect'}
-    </Button>
+        }}
+      >
+        {account ? 'Disconnect' : 'Connect'}
+      </Button>
+      {account ? <p>Account: {account?.address}</p> : <p>Not Connected</p>}
+    </>
   );
 };
 

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Image, type ImageProps } from 'antd';
 import type { UniversalWeb3ProviderInterface } from '@ant-design/web3-common';
 import { getWeb3AssetUrl, parseNumberToBigint } from '@ant-design/web3-common';
+import { Image, type ImageProps } from 'antd';
+
 import useNFT from '../hooks/useNFT';
 
 export interface NFTCardProps extends ImageProps {

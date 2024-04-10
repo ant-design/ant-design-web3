@@ -10,3 +10,5 @@ packages/mysolidity/solc
 .umi-production
 .umi-test
 .umi
+.changeset
+packages/icons/src/components

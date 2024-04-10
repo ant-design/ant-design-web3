@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
-import { cleanup } from '@testing-library/react';
-import React from 'react';
 import util from 'util';
+import { cleanup } from '@testing-library/react';
 import { afterEach, vi } from 'vitest';
 
 /* eslint-disable global-require */
@@ -39,8 +38,5 @@ if (typeof window !== 'undefined') {
   const { getComputedStyle } = window;
   window.getComputedStyle = (elt) => getComputedStyle(elt);
 }
-
-// eslint-disable-next-line no-console
-console.log('Current React Version:', React.version);
 
 afterEach(() => cleanup());

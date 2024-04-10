@@ -1,6 +1,7 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render } from '@testing-library/react';
 import { Grid } from 'antd';
+import { describe, expect, it, vi } from 'vitest';
+
 import useMode from './useMode';
 
 describe('useMode', () => {
@@ -74,7 +75,7 @@ describe('useMode', () => {
       md: true,
     });
     const App = () => {
-      const { isSimple, md } = useMode('auto');
+      const { isSimple } = useMode('auto');
       return <div>{'' + isSimple}</div>;
     };
     const { baseElement } = render(<App />);
@@ -100,7 +101,7 @@ describe('useMode', () => {
       md: true,
     });
     const App = () => {
-      const { isSimple, md } = useMode();
+      const { isSimple } = useMode();
       return <div>{'' + isSimple}</div>;
     };
     const { baseElement } = render(<App />);

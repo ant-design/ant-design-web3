@@ -1,14 +1,17 @@
 import React, { useContext } from 'react';
-import { Modal, ConfigProvider, Space, Button, Avatar, message, type AvatarProps } from 'antd';
-import classNames from 'classnames';
-import type { Balance } from '@ant-design/web3-common';
 import { Address } from '@ant-design/web3';
-import { writeCopyText } from '../utils';
+import type { Balance } from '@ant-design/web3-common';
+import { Avatar, Button, ConfigProvider, message, Modal, Space } from 'antd';
+import type { AvatarProps, ModalProps } from 'antd';
+import classNames from 'classnames';
+
 import { CryptoPrice } from '../crypto-price';
-import type { ModalProps } from 'antd';
+import type { IntlType } from '../hooks/useIntl';
+import { writeCopyText } from '../utils';
 
 export interface ProfileModalProps {
   className?: string;
+  intl: IntlType;
   /** @internal */
   __hashId__: string;
   avatar?: AvatarProps;
@@ -19,10 +22,12 @@ export interface ProfileModalProps {
   onClose?: () => void;
   modalProps?: Omit<ModalProps, 'open' | 'onClose' | 'className'>;
   balance?: Balance;
+  addressPrefix?: string | false;
 }
 
 export const ProfileModal: React.FC<ProfileModalProps> = ({
   className,
+  intl,
   __hashId__,
   open,
   onClose,
@@ -32,31 +37,34 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   address,
   modalProps,
   balance,
+  addressPrefix,
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-button-profile-modal');
   const [messageApi, contextHolder] = message.useMessage();
 
+  const footer = (
+    <div className={classNames(`${prefixCls}-footer`, __hashId__)}>
+      {address ? (
+        <Button
+          onClick={() => {
+            writeCopyText(address).then(() => {
+              messageApi.success(intl.getMessage(intl.messages.copied));
+            });
+          }}
+        >
+          {intl.getMessage(intl.messages.copyAddress)}
+        </Button>
+      ) : null}
+      <Button onClick={onDisconnect}>{intl.getMessage(intl.messages.disconnect)}</Button>
+    </div>
+  );
+
   return (
     <>
       {contextHolder}
       <Modal
-        footer={
-          <div className={classNames(`${prefixCls}-footer`, __hashId__)}>
-            {address ? (
-              <Button
-                onClick={() => {
-                  writeCopyText(address).then(() => {
-                    messageApi.success('Address Copied!');
-                  });
-                }}
-              >
-                Copy Address
-              </Button>
-            ) : null}
-            <Button onClick={onDisconnect}>Disconnect</Button>
-          </div>
-        }
+        footer={footer}
         width={280}
         {...modalProps}
         onCancel={onClose}
@@ -75,7 +83,12 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
           {avatar ? <Avatar {...avatar} /> : null}
           {name ? <div className={classNames(`${prefixCls}-name`, __hashId__)}>{name}</div> : null}
           {address ? (
-            <Address ellipsis={false} address={address} tooltip={false}>
+            <Address
+              ellipsis={false}
+              address={address}
+              tooltip={false}
+              addressPrefix={addressPrefix}
+            >
               {balance && <CryptoPrice {...balance} />}
             </Address>
           ) : null}

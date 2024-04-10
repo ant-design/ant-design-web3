@@ -1,43 +1,47 @@
-import { createConfig, configureChains } from 'wagmi';
-import { mainnet, polygon } from 'wagmi/chains';
-import { publicProvider } from 'wagmi/providers/public';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
-import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
-import { WagmiWeb3ConfigProvider, WalletConnect, CoinbaseWallet } from '@ant-design/web3-wagmi';
 import { ConnectButton, Connector } from '@ant-design/web3';
-
-const { publicClient, chains } = configureChains([mainnet, polygon], [publicProvider()]);
+import {
+  MetaMask,
+  OkxWallet,
+  TokenPocket,
+  WagmiWeb3ConfigProvider,
+  WalletConnect,
+} from '@ant-design/web3-wagmi';
+import { createConfig, http } from 'wagmi';
+import { mainnet } from 'wagmi/chains';
+import { walletConnect } from 'wagmi/connectors';
 
 const config = createConfig({
-  autoConnect: true,
-  publicClient,
+  chains: [mainnet],
+  transports: {
+    [mainnet.id]: http(),
+  },
   connectors: [
-    new MetaMaskConnector({
-      chains,
-    }),
-    new WalletConnectConnector({
-      chains,
-      options: {
-        showQrModal: false,
-        projectId: YOUR_WALLET_CONNET_PROJECT_ID,
-      },
-    }),
-    new CoinbaseWalletConnector({
-      chains,
-      options: {
-        appName: 'ant.design.web3',
-        jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${YOUR_ZAN_API_KEY}`,
-      },
+    walletConnect({
+      showQrModal: false,
+      projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
     }),
   ],
 });
 
 const App: React.FC = () => {
   return (
-    <WagmiWeb3ConfigProvider config={config} assets={[WalletConnect, CoinbaseWallet]}>
+    <WagmiWeb3ConfigProvider
+      eip6963={{
+        autoAddInjectedWallets: true,
+      }}
+      ens
+      wallets={[
+        MetaMask(),
+        WalletConnect(),
+        TokenPocket({
+          group: 'Popular',
+        }),
+        OkxWallet(),
+      ]}
+      config={config}
+    >
       <Connector>
-        <ConnectButton />
+        <ConnectButton quickConnect />
       </Connector>
     </WagmiWeb3ConfigProvider>
   );

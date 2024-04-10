@@ -13,19 +13,39 @@ const chain = [
   'Polygon',
   'Sui',
   'Tron',
-  'USDT',
   'Base',
   'Avalanche',
+  'Fantom',
+  'Celo',
+  'Cronos',
+  'Moonbeam',
+  'Solana',
 ];
 
-const tool = ['CoinbaseWallet', 'Etherscan', 'MetaMask', 'WalletConnect'];
+const token = ['DAI', 'WBTC', 'AAVE', 'USDT'];
 
-const datum = [...chain, ...tool];
+const tool = [
+  'CoinbaseWallet',
+  'Etherscan',
+  'MetaMask',
+  'WalletConnect',
+  'TokenPocket',
+  'Safeheron',
+  'Uniswap',
+  'PancakeSwap',
+  'SushiSwap',
+  'Phantom',
+  'OkxWallet',
+  'ImToken',
+];
+
+const datum = [...chain, ...token, ...tool];
 
 const other = all.filter((n) => !datum.includes(n));
 
 export const categories = {
   chain,
+  token,
   tool,
   other,
 };

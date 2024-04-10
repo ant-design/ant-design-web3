@@ -1,7 +1,8 @@
+import React from 'react';
 import { ConnectModal } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import { Button } from 'antd';
-import React from 'react';
+
 import type { DefaultGuide, Wallet } from '../interface';
 
 const walletList: Wallet[] = [
@@ -25,7 +26,7 @@ const walletList: Wallet[] = [
   {
     icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
     name: 'Test Wallet3',
-    remark: '备注3',
+    remark: 'remark 3',
     app: {
       link: 'https://test.com/xxx',
     },
@@ -89,9 +90,9 @@ const App: React.FC = () => {
       </Button>
       <ConnectModal
         open={open}
-        title="Connect Wallet"
-        footer="Powered by AntChain"
-        groupOrder={groupOrder}
+        group={{
+          groupOrder,
+        }}
         walletList={walletList}
         onCancel={() => setOpen(false)}
         guide={guide}

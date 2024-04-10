@@ -1,14 +1,14 @@
 import React, { CSSProperties, useCallback, useMemo, useState } from 'react';
-import { Affix, Empty, Input, Segmented, Grid, type SegmentedProps } from 'antd';
 import AntdIcon from '@ant-design/icons';
 import * as AntdWeb3Icons from '@ant-design/web3-icons';
+import { Affix, Empty, Grid, Input, Segmented, type SegmentedProps } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
 
 import Category from './Category';
 import { categories, CategoriesKeys } from './fields';
-import { CircleFilledIcon, ColorfulIcon, CircleColorfulIcon, FilledIcon } from './themeIcons';
+import { CircleColorfulIcon, CircleFilledIcon, ColorfulIcon, FilledIcon } from './themeIcons';
 
 export enum ThemeType {
   Filled = 'Filled',

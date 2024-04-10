@@ -1,9 +1,21 @@
 import { WalletColorful } from '@ant-design/web3-icons';
-import { ConnectButton } from '..';
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
+
+import { ConnectButton } from '..';
 
 describe('ConnectButton', () => {
+  it(`when actionsMenu's extraItems is undefined, mount correctly`, async () => {
+    expect(() =>
+      render(
+        <ConnectButton
+          actionsMenu={{
+            extraItems: undefined,
+          }}
+        />,
+      ),
+    ).not.toThrow();
+  });
   it('mount correctly', () => {
     expect(() => render(<ConnectButton />)).not.toThrow();
   });

@@ -1,6 +1,6 @@
 import { CryptoPrice } from '@ant-design/web3';
-import { Space } from 'antd';
 import { BitcoinCircleColorful } from '@ant-design/web3-icons';
+import { Space } from 'antd';
 
 const App: React.FC = () => {
   return (

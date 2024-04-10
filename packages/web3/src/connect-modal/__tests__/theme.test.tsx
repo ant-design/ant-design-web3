@@ -1,8 +1,9 @@
 import { ConnectModal } from '@ant-design/web3';
-import { groupOrder, walletList } from './mock';
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
 import { ConfigProvider } from 'antd';
+import { describe, expect, it } from 'vitest';
+
+import { groupOrder, walletList } from './mock';
 
 describe('ConnectModal theme', () => {
   it('should use antd design token', async () => {
@@ -26,7 +27,9 @@ describe('ConnectModal theme', () => {
         <ConnectModal
           open
           title="ConnectModal"
-          groupOrder={groupOrder}
+          group={{
+            groupOrder,
+          }}
           walletList={walletList}
           mode="normal"
         />

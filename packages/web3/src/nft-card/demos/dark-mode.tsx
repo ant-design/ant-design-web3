@@ -1,5 +1,6 @@
 import { NFTCard } from '@ant-design/web3';
 import { ConfigProvider, Space, theme } from 'antd';
+
 const { darkAlgorithm } = theme;
 
 const App: React.FC = () => {

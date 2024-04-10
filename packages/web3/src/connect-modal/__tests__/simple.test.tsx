@@ -1,8 +1,9 @@
 import { ConnectModal } from '@ant-design/web3';
+import { fireEvent, render } from '@testing-library/react';
+import { theme as antTheme, ConfigProvider, Grid } from 'antd';
+import { describe, expect, it, vi } from 'vitest';
+
 import { groupOrder, walletList } from './mock';
-import { render } from '@testing-library/react';
-import { it, describe, expect } from 'vitest';
-import { ConfigProvider, theme as antTheme } from 'antd';
 
 describe('ConnectModal without guide', () => {
   it.each(['light', 'dark'] as const)(`should render in %s mode`, async (theme) => {
@@ -16,7 +17,9 @@ describe('ConnectModal without guide', () => {
           open
           title="ConnectModal"
           footer="Powered by AntChain"
-          groupOrder={groupOrder}
+          group={{
+            groupOrder,
+          }}
           walletList={walletList}
         />
       </ConfigProvider>
@@ -50,5 +53,18 @@ describe('ConnectModal without guide', () => {
     expect(baseElement.querySelectorAll('.ant-web3-connect-modal-wallet-item').length).toBe(
       walletList.length,
     );
+  });
+  it('render with mode simple', async () => {
+    const App = () => (
+      <ConnectModal open groupOrder={groupOrder} walletList={walletList} mode="simple" />
+    );
+    const { baseElement } = render(<App />);
+    const btn = baseElement.querySelector('.ant-web3-connect-modal-simple-guide-right');
+    fireEvent.click(btn!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-web3-connect-modal-simple-guide-panel')).not.toBe(
+        null,
+      );
+    });
   });
 });

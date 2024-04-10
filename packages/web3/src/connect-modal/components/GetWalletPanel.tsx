@@ -1,27 +1,41 @@
 import { useContext } from 'react';
-import type { ConnectModalProps } from '../interface';
+import { Avatar, Button, List, type ListProps } from 'antd';
+
 import { connectModalContext } from '../context';
+import type { ConnectModalProps } from '../interface';
 import MainPanelHeader from './MainPanelHeader';
-import { Avatar, Button, List, message } from 'antd';
 
 export type GetWalletPanelProps = Pick<ConnectModalProps, 'walletList'>;
 
 const GetWalletPanel: React.FC<GetWalletPanelProps> = (props) => {
   const { walletList = [] } = props;
-  const [messageApi, contextHolder] = message.useMessage();
-  const { prefixCls, updateSelectedWallet, updatePanelRoute } = useContext(connectModalContext);
+  const { prefixCls, updateSelectedWallet, updatePanelRoute, localeMessage } =
+    useContext(connectModalContext);
 
   const list = (
     <>
-      {contextHolder}
       <div className={`${prefixCls}-list`}>
         <List
           itemLayout="horizontal"
           dataSource={walletList}
-          renderItem={(item) => (
-            <List.Item
-              className={`${prefixCls}-item`}
-              actions={[
+          renderItem={(item) => {
+            let action: React.ReactNode;
+            if (item.universalProtocol) {
+              action = (
+                <Button
+                  key="get"
+                  type="default"
+                  target="_blank"
+                  shape="round"
+                  href={item.universalProtocol.link}
+                  className={`${prefixCls}-get-wallet-btn`}
+                >
+                  {localeMessage.getWalletUniversalProtocolBtnText}
+                </Button>
+              );
+            }
+            if (item.app || item.extensions) {
+              action = (
                 <Button
                   key="get"
                   type="default"
@@ -32,33 +46,36 @@ const GetWalletPanel: React.FC<GetWalletPanelProps> = (props) => {
                     updatePanelRoute('wallet');
                   }}
                 >
-                  Get
-                </Button>,
-              ]}
-            >
-              <List.Item.Meta
-                avatar={
-                  <Avatar size={48} shape="square" src={item.icon}>
-                    {item.name[0]}
-                  </Avatar>
-                }
-                title={item.name}
-                description={item.remark}
-              />
-            </List.Item>
-          )}
+                  {localeMessage.getWalletBtnText}
+                </Button>
+              );
+            }
+            return (
+              <List.Item className={`${prefixCls}-item`} actions={action ? [action] : []}>
+                <List.Item.Meta
+                  avatar={
+                    <Avatar size={48} shape="square" src={item.icon}>
+                      {item.name[0]}
+                    </Avatar>
+                  }
+                  title={item.name}
+                  description={item.remark}
+                />
+              </List.Item>
+            );
+          }}
         />
       </div>
       <div className={`${prefixCls}-info`}>
-        <h3>Not what you&apos;re looking for?</h3>
-        <div>Select a wallet on the left to get started with a different wallet provider.</div>
+        <h3>{localeMessage.getWalletPanelInfoTitle}</h3>
+        <div>{localeMessage.getWalletPanelInfoDesc}</div>
       </div>
     </>
   );
 
   return (
     <div className={`${prefixCls}-get-wallet-panel`}>
-      <MainPanelHeader title="Get a Wallet" />
+      <MainPanelHeader title={localeMessage.getWalletPanelTitle} />
       {list}
     </div>
   );

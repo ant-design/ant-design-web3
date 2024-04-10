@@ -1,10 +1,11 @@
 ---
 nav: 组件
+subtitle: 类型
 group: 通用
 order: 3
 ---
 
-# 类型
+# Types
 
 这里定义了 Ant Design Web3 统一类型，在多个组件中可能都会用到。
 
@@ -40,6 +41,7 @@ order: 3
 | group | 钱包所属分组名称 | `string` | - | - |
 | hasWalletReady | 是否已安装浏览器扩展程序 | `() => boolean` | - | - |
 | getQrCode | 获取钱包的二维码 | `() => { uri: string }` | - | - |
+| universalProtocol | 通用协议配置 | `{ link: string }` | - | - |
 
 ### ExtensionItem
 
@@ -71,15 +73,25 @@ order: 3
 | trait_type | 属性的类型，表示 NFT 的特征类型 | `string` | -      | -    |
 | value      | 属性的值，表示 NFT 的特征值     | `string` | -      | -    |
 
+### ConnectOptions
+
+| 属性        | 描述     | 类型                      | 默认值 | 版本 |
+| ----------- | -------- | ------------------------- | ------ | ---- |
+| connectType | 连接类型 | `'extension' \| 'qrCode'` | -      | -    |
+
 ## UniversalWeb3ProviderInterface
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | account | 当前账户 | [Account](#account) | - | - |
 | chain | 当前链 | [Chain](#chain) | - | - |
-| availableChains | 可用的链列表 | [Chain](#chain)[] | - | - |
+| availableChains | 可以连接的链列表 | [Chain](#chain)[] | - | - |
 | availableWallets | 可用的钱包列表 | [Wallet](#wallet)[] | - | - |
-| connect | 连接钱包 | `(wallet: Wallet) => Promise<void>` | - | - |
+| connect | 连接钱包 | `(wallet: Wallet, options?: ConnectOptions) => Promise<void>` | - | - |
 | disconnect | 断开钱包连接 | `() => Promise<void>` | - | - |
 | switchChain | 切换链 | `(chain: Chain) => Promise<void>` | - | - |
 | getNFTMetadata | 获取 NFT 的元数据 | `(params: { address: string; tokenId: bigint \| number }) => Promise<NFTMetadata>` | - | - |
+
+## Locale
+
+国际化支持的文案请参考[代码](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts)。

@@ -1,6 +1,7 @@
-import { NFTImage } from '..';
 import { render } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+
+import { NFTImage } from '..';
 
 describe('NFTImage', () => {
   it('renders correctly with valid address and tokenId', () => {

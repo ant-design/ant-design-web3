@@ -1,5 +1,6 @@
 ---
 nav: 组件
+subtitle: 连接钱包按钮
 group: 连接
 order: 1
 ---
@@ -8,9 +9,17 @@ order: 1
 
 连接区块链钱包的按钮。通常来说，你需要配合 [Connector](../connector/index.zh-CN.md) 组件使用。
 
+> 注：**本文档中的示例仅仅是纯 UI 的示例**，在 Ant Design Web3 中。UI 模块和连接模块是分离的。要像真正的连接钱包，请参考[以太坊适配器](../ethereum/index.zh-CN.md)的文档，或阅读[适配器文档](../../../../docs/guide/adapter.zh-CN.md)了解更多。
+
 ## 基本使用
 
 <code src="./demos/basic.tsx"></code>
+
+## 快速连接
+
+配置了 `quickConnect` 属性后，会在按钮上直接展示已安装的钱包和通用协议（比如 WalletConnect）的钱包。
+
+<code src="./demos/quick-connect"></code>
 
 ## 展示提示
 
@@ -53,13 +62,16 @@ order: 1
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | account | 当前连接账号 | `Account` | - | - |
-| tooltip | 鼠标移入地址时展示提示 | `boolean \|` [ConnectButtonTooltipProps](#connectbuttontooltipprops) | `true`，默认显示 address 信息 | - |
+| tooltip | 鼠标移入地址时展示提示 | `boolean \|` [ConnectButtonTooltipProps](#connectbuttontooltipprops) | `false` | - |
 | actionsMenu | 配置菜单项 | `boolean \|` [ActionsMenu](#actionsmenu) | - | - |
 | profileModal | 配置信息弹框 | `boolean \|` [ProfileModal](#profilemodal) | - | - |
 | avatar | 配置头像，用于在个人信息弹框中展示用户头像 | [AvatarProps](https://ant.design/components/avatar-cn#api) | - | - |
 | onMenuItemClick | 菜单项点击事件 | `(e: NonNullable<MenuProps['items']>[number]) => void` | - | - |
 | balance | 余额 | [Balance](#balance) | - | - |
-| availableChains | 可用的链 | [Chain](../types/index.zh-CN.md#chain)\[] | - | - |
+| availableChains | 可以连接的链列表 | [Chain](../types/index.zh-CN.md#chain)\[] | - | - |
+| awailableWallets | 可用的钱包列表 | [Wallet](../types/index.zh-CN.md#wallet)\[] | - | - |
+| quickConnect | 快速连接钱包 | `boolean` | `false` | - |
+| locale | 多语言设置 | `Locale["ConnectButton"]` | - | - |
 
 ### Balance
 

@@ -1,9 +1,37 @@
 {
   "name": "@ant-design/web3-assets",
-  "version": "1.0.0",
-  "main": "dist/lib/index.js",
+  "version": "1.5.0",
+  "type": "module",
+  "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/esm/index.d.ts"
+    },
+    "./ethereum": {
+      "import": "./dist/esm/chains/ethereum.js",
+      "require": "./dist/lib/chains/ethereum.js",
+      "types": "./dist/esm/chains/ethereum.d.ts"
+    },
+    "./solana": {
+      "import": "./dist/esm/solana/index.js",
+      "require": "./dist/lib/solana/index.js",
+      "types": "./dist/esm/solana/index.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "solana": [
+        "./dist/esm/solana/index.d.ts"
+      ],
+      "*": [
+        "./dist/esm/index.d.ts"
+      ]
+    }
+  },
   "files": [
     "dist",
     "CHANGELOG.md",
@@ -38,12 +66,12 @@
     "@ant-design/web3-icons": "workspace:*"
   },
   "devDependencies": {
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.23",
     "father": "^4.3.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.4"
   },
   "peerDependencies": {
     "react": ">=17.0.0",

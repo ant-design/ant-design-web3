@@ -1,0 +1,26 @@
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+import * as React from 'react';
+import AntdIcon from '@ant-design/icons';
+import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
+import { ConfigProvider } from 'antd';
+import classnames from 'classnames';
+
+import SVGComponent from '../svgs/arpa-circle-colorful.svg';
+
+/**![ArpaCircleColorful](data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI0LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iI2NhY2FjYSIgdmVyc2lvbj0iMS4xIiBpZD0iYW50LXdlYjMtaWNvbi1hcnBhLWNpcmNsZS1jb2xvcmZ1bC1MYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDEwMDAgMTAwMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTAwMCAxMDAwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+Cgo8Zz4KCTxnPgoJCTxnPgoJCQk8cGF0aCBpZD0iYW50LXdlYjMtaWNvbi1hcnBhLWNpcmNsZS1jb2xvcmZ1bC1TVkdJRF8xXyIgZD0iTTUwMCwwYzI3Ni4xLDAsNTAwLDIyMy45LDUwMCw1MDBzLTIyMy45LDUwMC01MDAsNTAwUzAsNzc2LjEsMCw1MDBTMjIzLjksMCw1MDAsMEw1MDAsMHoiIHN0eWxlPSJmaWxsLXJ1bGU6IGV2ZW5vZGQ7IGNsaXAtcnVsZTogZXZlbm9kZDsgZmlsbDogIzI2MzE0NTsiLz4KCQk8L2c+Cgk8L2c+Cgk8Zz4KCQk8Zz4KCQkJPHBvbHlnb24gaWQ9ImFudC13ZWIzLWljb24tYXJwYS1jaXJjbGUtY29sb3JmdWwtU1ZHSURfM18iIHBvaW50cz0iNTMwLjcsMTc3IDQ2MC44LDE3NyAxNzIsNjgwIDY4NS4zLDY4MCA2ODYuOCw2ODAgNjUwLDYyMCAyNzYsNjIwIAkJCSIgc3R5bGU9ImZpbGwtcnVsZTogZXZlbm9kZDsgY2xpcC1ydWxlOiBldmVub2RkOyBmaWxsOiAjQ0NEOUUyOyIvPgoJCTwvZz4KCTwvZz4KCTxnPgoJCTxnPgoJCQk8cG9seWdvbiBpZD0iYW50LXdlYjMtaWNvbi1hcnBhLWNpcmNsZS1jb2xvcmZ1bC1TVkdJRF81XyIgcG9pbnRzPSI3ODUuMyw3MzkgODIxLDY3OC41IDUyOS43LDE3NyAyNzUsNjIwIDM0NSw2MjAgNTMwLjcsMjk2LjUgCQkJIiBzdHlsZT0iZmlsbC1ydWxlOiBldmVub2RkOyBjbGlwLXJ1bGU6IGV2ZW5vZGQ7IGZpbGw6ICNBQUFBQUE7Ii8+CgkJPC9nPgoJPC9nPgoJPGc+CgkJPGc+CgkJCTxwb2x5Z29uIGlkPSJhbnQtd2ViMy1pY29uLWFycGEtY2lyY2xlLWNvbG9yZnVsLVNWR0lEXzdfIiBwb2ludHM9IjE3Miw2ODAgMjA3LjcsNzM5IDc4NS4zLDczOSA1MzAuNywyOTUuMSA0OTUuNSwzNTcuMSA2ODQuNCw2ODAgCQkJIiBzdHlsZT0iZmlsbC1ydWxlOiBldmVub2RkOyBjbGlwLXJ1bGU6IGV2ZW5vZGQ7IGZpbGw6ICM1QTU5Njc7Ii8+CgkJPC9nPgoJPC9nPgo8L2c+Cjwvc3ZnPgo=) */
+export const ArpaCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('web3-icon-arpa-circle-colorful');
+
+  return (
+    <AntdIcon
+      {...props}
+      className={classnames(prefixCls, props.className)}
+      ref={ref}
+      component={SVGComponent}
+    />
+  );
+});
+
+ArpaCircleColorful.displayName = 'ArpaCircleColorful';

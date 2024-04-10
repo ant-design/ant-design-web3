@@ -1,0 +1,26 @@
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+import * as React from 'react';
+import AntdIcon from '@ant-design/icons';
+import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
+import { ConfigProvider } from 'antd';
+import classnames from 'classnames';
+
+import SVGComponent from '../svgs/strax-colorful.svg';
+
+/**![StraxColorful](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IiNjYWNhY2EiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDIwMDAgMTg1OC4yNCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJhbnQtd2ViMy1pY29uLXN0cmF4LWNvbG9yZnVsLTAiIHgyPSIyMDAwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agc3RvcC1jb2xvcj0iI2ZmZiIvPjxzdG9wIHN0b3AtY29sb3I9IiMyMWJiYzAiLz48c3RvcCBvZmZzZXQ9Ii4zNCIgc3RvcC1jb2xvcj0iIzIwYjljMCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzEzODdjOSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGQ9Ik0xMzUuODMsNzQwLjMybDg3NS4wNiw1NTEuNGExLjY3LDEuNjcsMCwwLDAsMS45MSwwbDg5Mi43LTU2My44OWExLjY4LDEuNjgsMCwwLDAsLjUtMi40MiwxLjIxLDEuMjEsMCwwLDAtLjUtMC41TDEwMjEsMTYxLjIxYTEuNjcsMS42NywwLDAsMC0xLjkxLDBMMTM1LjgzLDczNy4zYTEuODEsMS44MSwwLDAsMC0uMywyLjYyQTEuMzksMS4zOSwwLDAsMCwxMzUuODMsNzQwLjMyWk0xMDEwLjksMTkzOC4yNGE2MC4xMSw2MC4xMSwwLDAsMS0zMi43NS05LjY3TDQxLDEzMjUuMDdhMS44NCwxLjg0LDAsMCwxLDAtMi40MmwzOS45LTYyLjA3YTEuODQsMS44NCwwLDAsMSwyLjQyLDBsOTI3LjE2LDU5Ny4xNWExLjY3LDEuNjcsMCwwLDAsMS45MSwwbDg3OC42OS01NjQuNmE2OS44MSw2OS44MSwwLDAsMCwzMi4yNS01OXYtMTM5YTEuODgsMS44OCwwLDAsMC0xLjkxLTEuNzEsMi4zNywyLjM3LDAsMCwwLS44MS4ybC04ODcuNDYsNTY1LjJhNjAuNjIsNjAuNjIsMCwwLDEtNjUsMEw3MS4zNCwxMDg4LjI3QTE1MiwxNTIsMCwwLDEsMCw5NTkuMzlWNzY0LjkxYTYwLjMxLDYwLjMxLDAsMCwxLDE3LTQyLjEybDMtMi40MiwxNy4yMy0xMS43OSw5NTEuMzQtNjIwLDEtLjZhNjAuNSw2MC41LDAsMCwxLDYyLjQ4LDEuNTFsOTE5LjcsNTg1Ljg2YTYwLjY4LDYwLjY4LDAsMCwxLDAsMTAyLjQ4bC05MjcuNTYsNTg1LjY2YTYxLDYxLDAsMCwxLTY0LjQ5LDBMNzkuOTEsNzk3YTEuNzksMS43OSwwLDAsMC0yLjQyLjYsMS41LDEuNSwwLDAsMC0uMi45MVY5NTkuMjlBNzUuMTMsNzUuMTMsMCwwLDAsMTEyLjE1LDEwMjNsODg3LjY2LDU2NC4yYTEuNjcsMS42NywwLDAsMCwxLjkxLDBsOTA1LjM5LTU3Ny42YTYwLjM3LDYwLjM3LDAsMCwxLDczLDYsNjIuNzUsNjIuNzUsMCwwLDEsMTkuNDUsNDcuMjZ2MTcwLjZhMTQ3LjE5LDE0Ny4xOSwwLDAsMS02Ny43MiwxMjQuMzVsLTg4OC42Nyw1NzFhNjEuOTEsNjEuOTEsMCwwLDEtMzIuMjUsOS4zN2gwWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC04MCkiIGZpbGw9InVybCgjYW50LXdlYjMtaWNvbi1zdHJheC1jb2xvcmZ1bC0wKSIvPjwvc3ZnPg==) */
+export const StraxColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('web3-icon-strax-colorful');
+
+  return (
+    <AntdIcon
+      {...props}
+      className={classnames(prefixCls, props.className)}
+      ref={ref}
+      component={SVGComponent}
+    />
+  );
+});
+
+StraxColorful.displayName = 'StraxColorful';
