@@ -8,7 +8,7 @@ const {
   hostname: 'mempool.space',
 });
 
-export const getBalanceObject = (sats: number) => {
+export const getBalanceObject = (sats: number): Balance => {
   return {
     value: BigInt(sats / 100000000),
     decimals: 8,

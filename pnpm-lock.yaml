@@ -276,7 +276,7 @@ importers:
     devDependencies:
       father:
         specifier: ^4.3.8
-        version: 4.3.8(webpack@5.89.0)
+        version: 4.3.8(@types/node@20.10.5)(webpack@5.89.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
@@ -763,10 +763,10 @@ packages:
       '@babel/helpers': 7.23.6
       '@babel/parser': 7.23.6
       '@babel/template': 7.22.15
-      '@babel/traverse': 7.23.6
+      '@babel/traverse': 7.23.6(supports-color@5.5.0)
       '@babel/types': 7.23.6
       convert-source-map: 2.0.0
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@5.5.0)
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -1144,7 +1144,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/template': 7.22.15
-      '@babel/traverse': 7.23.6
+      '@babel/traverse': 7.23.6(supports-color@5.5.0)
       '@babel/types': 7.23.6
     transitivePeerDependencies:
       - supports-color
@@ -3363,23 +3363,6 @@ packages:
       '@babel/parser': 7.24.1
       '@babel/types': 7.24.0
 
-  /@babel/traverse@7.23.6:
-    resolution: {integrity: sha512-czastdK1e8YByZqezMPFiZ8ahwVMh/ESl9vPgvgdB9AmFMGP5jfpFax74AQgl5zj4XHzqeYAg2l8PuUeRS1MgQ==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/code-frame': 7.23.5
-      '@babel/generator': 7.23.6
-      '@babel/helper-environment-visitor': 7.22.20
-      '@babel/helper-function-name': 7.23.0
-      '@babel/helper-hoist-variables': 7.22.5
-      '@babel/helper-split-export-declaration': 7.22.6
-      '@babel/parser': 7.23.6
-      '@babel/types': 7.23.6
-      debug: 4.3.4
-      globals: 11.12.0
-    transitivePeerDependencies:
-      - supports-color
-
   /@babel/traverse@7.23.6(supports-color@5.5.0):
     resolution: {integrity: sha512-czastdK1e8YByZqezMPFiZ8ahwVMh/ESl9vPgvgdB9AmFMGP5jfpFax74AQgl5zj4XHzqeYAg2l8PuUeRS1MgQ==}
     engines: {node: '>=6.9.0'}
@@ -3396,7 +3379,6 @@ packages:
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /@babel/traverse@7.24.1:
     resolution: {integrity: sha512-xuU6o9m68KeqZbQuDt2TcKSxUw/mrsvavlEqQ1leZ/B+C9tk6E4sRWy97WaXgvq5E+nU3cXMxv3WKOCanVMCmQ==}
@@ -5747,7 +5729,7 @@ packages:
     dependencies:
       '@solana/web3.js': 1.89.1
       '@walletconnect/qrcode-modal': 1.8.0
-      '@walletconnect/sign-client': 2.11.3
+      '@walletconnect/sign-client': 2.12.1
       '@walletconnect/utils': 2.12.1
       bs58: 5.0.0
     transitivePeerDependencies:
@@ -5776,7 +5758,7 @@ packages:
     dependencies:
       '@solana/web3.js': 1.91.0
       '@walletconnect/qrcode-modal': 1.8.0
-      '@walletconnect/sign-client': 2.11.3
+      '@walletconnect/sign-client': 2.12.1
       '@walletconnect/utils': 2.12.1
       bs58: 5.0.0
     transitivePeerDependencies:
@@ -6393,42 +6375,12 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@microsoft/api-extractor-model@7.27.5:
-    resolution: {integrity: sha512-9/tBzYMJitR+o+zkPr1lQh2+e8ClcaTF6eZo7vZGDqRt2O5XmXWPbYJZmxyM3wb5at6lfJNEeGZrQXLjsQ0Nbw==}
-    dependencies:
-      '@microsoft/tsdoc': 0.14.2
-      '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 3.59.6
-    transitivePeerDependencies:
-      - '@types/node'
-    dev: true
-
   /@microsoft/api-extractor-model@7.27.5(@types/node@20.10.5):
     resolution: {integrity: sha512-9/tBzYMJitR+o+zkPr1lQh2+e8ClcaTF6eZo7vZGDqRt2O5XmXWPbYJZmxyM3wb5at6lfJNEeGZrQXLjsQ0Nbw==}
     dependencies:
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
       '@rushstack/node-core-library': 3.59.6(@types/node@20.10.5)
-    transitivePeerDependencies:
-      - '@types/node'
-    dev: true
-
-  /@microsoft/api-extractor@7.36.3:
-    resolution: {integrity: sha512-u0H6362AQq+r55X8drHx4npgkrCfJnMzRRHfQo8PMNKB8TcBnrTLfXhXWi+xnTM6CzlU/netEN8c4bq581Rnrg==}
-    hasBin: true
-    dependencies:
-      '@microsoft/api-extractor-model': 7.27.5
-      '@microsoft/tsdoc': 0.14.2
-      '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 3.59.6
-      '@rushstack/rig-package': 0.4.0
-      '@rushstack/ts-command-line': 4.15.1
-      colors: 1.2.5
-      lodash: 4.17.21
-      resolve: 1.22.8
-      semver: 7.5.4
-      source-map: 0.6.1
-      typescript: 5.0.4
     transitivePeerDependencies:
       - '@types/node'
     dev: true
@@ -7662,23 +7614,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /@rushstack/node-core-library@3.59.6:
-    resolution: {integrity: sha512-bMYJwNFfWXRNUuHnsE9wMlW/mOB4jIwSUkRKtu02CwZhQdmzMsUbxE0s1xOLwTpNIwlzfW/YT7OnOHgDffLgYg==}
-    peerDependencies:
-      '@types/node': '*'
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-    dependencies:
-      colors: 1.2.5
-      fs-extra: 7.0.1
-      import-lazy: 4.0.0
-      jju: 1.4.0
-      resolve: 1.22.8
-      semver: 7.5.4
-      z-schema: 5.0.5
-    dev: true
 
   /@rushstack/node-core-library@3.59.6(@types/node@20.10.5):
     resolution: {integrity: sha512-bMYJwNFfWXRNUuHnsE9wMlW/mOB4jIwSUkRKtu02CwZhQdmzMsUbxE0s1xOLwTpNIwlzfW/YT7OnOHgDffLgYg==}
@@ -11896,7 +11831,6 @@ packages:
       - encoding
       - supports-color
       - utf-8-validate
-    dev: false
 
   /@walletconnect/environment@1.0.1:
     resolution: {integrity: sha512-T426LLZtHj8e8rYnKfzsw1aG6+M0BT1ZxayMdv/p8yM0MU+eJDISqNY3/bccxRr4LrF9csq02Rhqt08Ibl0VRg==}
@@ -12026,7 +11960,6 @@ packages:
     dependencies:
       '@walletconnect/safe-json': 1.0.2
       pino: 7.11.0
-    dev: false
 
   /@walletconnect/mobile-registry@1.4.0:
     resolution: {integrity: sha512-ZtKRio4uCZ1JUF7LIdecmZt7FOLnX72RPSY7aUVu7mj7CSfxDwUn6gBuK6WGtH+NZCldBqDl5DenI5fFSvkKYw==}
@@ -12154,7 +12087,6 @@ packages:
       - encoding
       - supports-color
       - utf-8-validate
-    dev: false
 
   /@walletconnect/time@1.0.2:
     resolution: {integrity: sha512-uzdd9woDcJ1AaBZRhqy5rNC9laqWGErfc4dxA9a87mPdKOgWMD85mcFo9dIYIts/Jwocfwn07EC6EzclKubk/g==}
@@ -13215,7 +13147,7 @@ packages:
   /axios@0.24.0:
     resolution: {integrity: sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==}
     dependencies:
-      follow-redirects: 1.15.5
+      follow-redirects: 1.15.5(debug@4.3.4)
     transitivePeerDependencies:
       - debug
     dev: false
@@ -15098,17 +15030,6 @@ packages:
     dependencies:
       ms: 2.1.3
 
-  /debug@4.3.4:
-    resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
-    engines: {node: '>=6.0'}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
-    dependencies:
-      ms: 2.1.2
-
   /debug@4.3.4(supports-color@5.5.0):
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
     engines: {node: '>=6.0'}
@@ -16819,42 +16740,6 @@ packages:
       - webpack-plugin-serve
     dev: true
 
-  /father@4.3.8(webpack@5.89.0):
-    resolution: {integrity: sha512-uaKzB/UVG3YLBoptvv118U0pCw4iXo4OHHVMCkBlx2vrchO9oVH+tU8DOt3IsnMCOmtQwKo5imKC112R9pRcmw==}
-    hasBin: true
-    dependencies:
-      '@microsoft/api-extractor': 7.36.3
-      '@umijs/babel-preset-umi': 4.0.90
-      '@umijs/bundler-utils': 4.0.90
-      '@umijs/bundler-webpack': 4.0.90(typescript@5.0.4)(webpack@5.89.0)
-      '@umijs/case-sensitive-paths-webpack-plugin': 1.0.1
-      '@umijs/core': 4.0.90
-      '@umijs/utils': 4.0.90
-      '@vercel/ncc': 0.33.3
-      babel-plugin-dynamic-import-node: 2.3.3
-      babel-plugin-module-resolver: 4.1.0
-      babel-plugin-transform-define: 2.0.1
-      enhanced-resolve: 5.9.3
-      fast-glob: 3.2.12
-      file-system-cache: 2.0.0
-      loader-runner: 4.2.0
-      minimatch: 3.1.2
-      tsconfig-paths: 4.0.0
-      typescript: 5.0.4
-      typescript-transform-paths: 3.4.6(typescript@5.0.4)
-      v8-compile-cache: 2.3.0
-    transitivePeerDependencies:
-      - '@types/node'
-      - '@types/webpack'
-      - sockjs-client
-      - supports-color
-      - type-fest
-      - webpack
-      - webpack-dev-server
-      - webpack-hot-middleware
-      - webpack-plugin-serve
-    dev: true
-
   /fault@2.0.1:
     resolution: {integrity: sha512-WtySTkS4OKev5JtpHXnib4Gxiurzh5NCGvWrFaZ34m6JehfTUhKZvn9njTfw48t6JumVQOmrKqpmGcdwxnhqBQ==}
     dependencies:
@@ -17069,16 +16954,6 @@ packages:
       inherits: 2.0.4
       readable-stream: 2.3.8
     dev: true
-
-  /follow-redirects@1.15.5:
-    resolution: {integrity: sha512-vSFWUON1B+yAw1VN4xMfxgn5fTUiaOzAJCKBwIIgT/+7CuGy9+r+5gITvP62j3RmaD5Ph65UaERdOSRGUzZtgw==}
-    engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
-    dev: false
 
   /follow-redirects@1.15.5(debug@4.3.4):
     resolution: {integrity: sha512-vSFWUON1B+yAw1VN4xMfxgn5fTUiaOzAJCKBwIIgT/+7CuGy9+r+5gITvP62j3RmaD5Ph65UaERdOSRGUzZtgw==}
@@ -25115,7 +24990,7 @@ packages:
   /spdy-transport@3.0.0:
     resolution: {integrity: sha512-hsLVFE5SjA6TCisWeJXFKniGGOpBgMLmerfO2aCyCU5s7nJ/rpAepqmFifv/GCbSbueEeAJJnmSQ2rKC/g8Fcw==}
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@5.5.0)
       detect-node: 2.1.0
       hpack.js: 2.1.6
       obuf: 1.1.2
@@ -25128,7 +25003,7 @@ packages:
     resolution: {integrity: sha512-r46gZQZQV+Kl9oItvl1JZZqJKGr+oEkB08A6BzkiR7593/7IbtuncXHd2YoYeTsG4157ZssMu9KYvUHLcjcDoA==}
     engines: {node: '>=6.0.0'}
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@5.5.0)
       handle-thing: 2.0.1
       http-deceiver: 1.2.7
       select-hose: 2.0.0

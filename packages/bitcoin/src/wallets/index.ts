@@ -1,7 +1,8 @@
 import { metadata_Leather, metadata_Unisat, metadata_Xverse } from '@ant-design/web3-assets';
+import type { Wallet } from '@ant-design/web3-common';
 import { getProviders } from 'sats-connect';
 
-export const UnisatWallet = () => {
+export const UnisatWallet: () => Wallet = () => {
   return {
     ...metadata_Unisat,
     // @ts-ignore
@@ -10,7 +11,7 @@ export const UnisatWallet = () => {
   };
 };
 
-export const XverseWallet = () => {
+export const XverseWallet: () => Wallet = () => {
   const providers = getProviders();
   // 可能有其他钱包，暂不考虑
   const xverseProvider = providers.find(({ id }) => id === 'XverseProviders.BitcoinProvider');
@@ -21,7 +22,7 @@ export const XverseWallet = () => {
   };
 };
 
-export const LeatherWallet = () => {
+export const LeatherWallet: () => Wallet = () => {
   return {
     ...metadata_Leather,
     // @ts-ignore
