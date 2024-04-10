@@ -394,8 +394,8 @@ importers:
         specifier: ^1.89.1
         version: 1.89.1
       '@walletconnect/core':
-        specifier: ^2.11.2
-        version: 2.11.3
+        specifier: ^2.12.1
+        version: 2.12.1
       '@walletconnect/universal-provider':
         specifier: ^2.11.2
         version: 2.11.2
@@ -5712,7 +5712,7 @@ packages:
       '@solana/web3.js': 1.89.1
       '@walletconnect/qrcode-modal': 1.8.0
       '@walletconnect/sign-client': 2.11.3
-      '@walletconnect/utils': 2.11.3
+      '@walletconnect/utils': 2.12.1
       bs58: 5.0.0
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -5741,7 +5741,7 @@ packages:
       '@solana/web3.js': 1.91.0
       '@walletconnect/qrcode-modal': 1.8.0
       '@walletconnect/sign-client': 2.11.3
-      '@walletconnect/utils': 2.11.3
+      '@walletconnect/utils': 2.12.1
       bs58: 5.0.0
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -12291,7 +12291,6 @@ packages:
       - '@upstash/redis'
       - '@vercel/kv'
       - supports-color
-    dev: false
 
   /@walletconnect/universal-provider@2.11.1:
     resolution: {integrity: sha512-BJvPYByIfbBYF4x8mqDV79ebQX0tD54pp8itsqrHWn0qKZeJyIH8sQ69yY0GnbJrzoFS3ZLULdC0yDxWDeuRGw==}
@@ -12482,7 +12481,6 @@ packages:
       - '@upstash/redis'
       - '@vercel/kv'
       - supports-color
-    dev: false
 
   /@walletconnect/web3wallet@1.11.1:
     resolution: {integrity: sha512-R50v3Ez73cLEaXPJOGMEBeEw5xN8/V6tya7+49OqwLLlZ6VR3tdJm8Az8TrvTrbRZ38oXP0cIl9ky+bSMCJtYw==}
