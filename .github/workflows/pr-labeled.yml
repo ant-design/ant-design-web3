@@ -10,8 +10,8 @@ permissions:
 jobs:
   issue-labeled:
     permissions:
-      issues: write  # for actions-cool/issues-helper to update issues
-      pull-requests: write  # for actions-cool/issues-helper to update PRs
+      issues: write # for actions-cool/issues-helper to update issues
+      pull-requests: write # for actions-cool/issues-helper to update PRs
     runs-on: ubuntu-latest
     steps:
       - name: Need Changelog
@@ -25,3 +25,15 @@ jobs:
             @${{ github.event.pull_request.user.login }} You can run the ```pnpm changeset``` command locally to generate a changelog. Please refer to the operation precautions. https://web3.ant.design/guide/changelog
 
             @${{ github.event.pull_request.user.login }} 可以在本地运行 ```pnpm changeset``` 命令生成 changelog, 操作注意事项参考：https://web3.ant.design/guide/changelog-cn
+
+      - name: How to Contribute Icons
+        if: github.event.label.name == 'Generate Icons'
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: "create-comment"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            @${{ github.event.pull_request.user.login }} Instead of changing it manually, run the ``pnpm icons:generate`` command locally to generate the react component. Please refer to the operation precautions. https://web3.ant.design/guide/contribute-icons
+
+            @${{ github.event.pull_request.user.login }} 不要手动更改，请在本地运行 ```pnpm icons:generate``` 命令生成 react component , 操作注意事项参考：https://web3.ant.design/guide/contribute-icons-cn
