@@ -34,6 +34,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            @${{ github.event.pull_request.user.login }} Instead of changing it manually, run the ``pnpm icons:generate`` command locally to generate the react component. Please refer to the operation precautions. https://web3.ant.design/guide/contribute-icons
+            @${{ github.event.pull_request.user.login }} Instead of changing it manually, run the ```pnpm icons:generate``` command locally to generate the react component. Please refer to the operation precautions. https://web3.ant.design/guide/contribute-icons
 
             @${{ github.event.pull_request.user.login }} 不要手动更改，请在本地运行 ```pnpm icons:generate``` 命令生成 react component , 操作注意事项参考：https://web3.ant.design/guide/contribute-icons-cn
