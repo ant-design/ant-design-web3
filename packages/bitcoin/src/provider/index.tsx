@@ -1,56 +1,60 @@
 import { useState, type FC, type PropsWithChildren } from 'react';
-import {
-  Web3ConfigProvider,
-  type Account,
-  type Balance,
-  type Locale,
-} from '@ant-design/web3-common';
-import { message } from 'antd';
-import * as Wallet from 'sats-connect';
+import type { Account, Balance, Locale, Wallet } from '@ant-design/web3-common';
 
-import { getBalance } from '../helpers';
-import useWallets from '../useXverseWallets';
+import { BitcoinWalletContext } from '../adapter/useWallet';
+import { UnisatWallet, XverseWallet, type Provider } from '../adapter/wallet';
+import { AntDesignWeb3ConfigProvider } from './config-provider';
 
 export interface BitcoinWeb3ConfigProviderProps {
+  // 钱包显式传入
+  wallets: Wallet[];
   locale?: Locale;
 }
 
 export const BitcoinWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigProviderProps>> = ({
   children,
-  locale,
+  wallets,
 }) => {
   const [account, setAccount] = useState<Account>();
   const [balance, setBalance] = useState<Balance>();
-  const { wallets } = useWallets();
+  const [provider, setProvider] = useState<Provider>();
 
-  if (!wallets) return null;
+  const selectWallet = async (wallet?: Wallet | null) => {
+    if (!wallet) {
+      setAccount(undefined);
+      setBalance(undefined);
+      return;
+    }
+    let provider;
+    switch (wallet.name) {
+      case 'Xverse':
+        provider = new XverseWallet();
+        break;
+      case 'Unisat':
+        provider = new UnisatWallet();
+        break;
+      default:
+        break;
+    }
+    if (!provider) return;
+    await provider.connect();
+    setProvider(provider);
+    setAccount(provider.account);
+    setBalance(provider.balance);
+  };
 
   return (
-    <Web3ConfigProvider
-      locale={locale}
-      balance={balance}
-      addressPrefix={false}
-      account={account}
-      availableWallets={wallets}
-      connect={async () => {
-        const response = await Wallet.request('getAccounts', {
-          purposes: [Wallet.AddressPurpose.Ordinals, Wallet.AddressPurpose.Payment],
-        });
-        if (response.status === 'error') {
-          message.error(response.error.message);
-          return;
-        }
-        const [ordinals, payment] = response.result;
-        setAccount({ address: ordinals.address });
-        const balance = await getBalance(payment.address);
-        setBalance(balance);
-      }}
-      disconnect={async () => {
-        setAccount(undefined);
-        return;
+    <BitcoinWalletContext.Provider
+      value={{
+        selectWallet,
+        account,
+        balance,
+        signMessage: async (message) => {
+          await provider?.signMessage(message);
+        },
       }}
     >
-      {children}
-    </Web3ConfigProvider>
+      <AntDesignWeb3ConfigProvider wallets={wallets}>{children}</AntDesignWeb3ConfigProvider>
+    </BitcoinWalletContext.Provider>
   );
 };

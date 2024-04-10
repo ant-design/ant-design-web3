@@ -1,20 +1,20 @@
 import type { WalletMetadata } from '@ant-design/web3-common';
 import { ChromeCircleColorful } from '@ant-design/web3-icons';
 
-export const metadata_Xverse: WalletMetadata = {
+export const metadata_Leather: WalletMetadata = {
   // TODO: update icon
   icon: <ChromeCircleColorful />,
-  name: 'Xverse',
-  remark: 'Xverse Wallet',
+  name: 'Leather',
+  remark: 'Leather Wallet',
   app: {
-    link: 'https://www.xverse.app/',
+    link: 'https://leather.io',
   },
   extensions: [
     {
       key: 'Chrome',
       browserIcon: <ChromeCircleColorful />,
       browserName: 'Chrome',
-      link: 'https://chrome.google.com/webstore/detail/xverse-wallet/idnnbdplmphpflfnlkomgpfbpcgelopg',
+      link: 'https://chromewebstore.google.com/detail/leather/ldinpeekobnhjjdofggfgjlcehhmanlj',
       description: 'Access your wallet right from your favorite web browser.',
     },
   ],
