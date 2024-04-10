@@ -354,7 +354,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             overflow: 'auto',
             [`${componentCls}-card-item`]: {
               width: '100%',
-              height: 220,
+              height: 200,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
