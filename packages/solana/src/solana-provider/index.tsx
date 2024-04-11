@@ -39,7 +39,7 @@ export interface SolanaWeb3ConfigProviderProps {
 export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProviderProps>> = ({
   locale,
   chains,
-  wallets: walletFactorys = [],
+  wallets: walletFactories = [],
   balance,
   rpcProvider,
   connectionConfig,
@@ -60,26 +60,29 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
     return (currentChain ?? solana).rpcUrls.default;
   }, [rpcProvider, currentChain]);
 
-  const availableWallets = walletFactorys.map((factory) =>
+  const availableWallets = walletFactories.map((factory) =>
     factory.create(walletConnectProviderGetter),
   );
 
   // Only filter out the wallets that have an adapter
   const walletAdapters = useMemo(
     () =>
-      walletFactorys.filter(isAdapterWalletFactory).map((w) => {
-        if (isWalletConnectFactory(w)) {
-          w.adapter.setWalletConnectProviderGetter(walletConnectProviderGetter);
-          w.adapter.setWalletConnectConfigGetter(() => ({
-            walletConnect,
-            currentChain,
-            rpcEndpoint: endpoint,
-          }));
-        }
+      walletFactories
+        .filter(isAdapterWalletFactory)
 
-        return w.adapter;
-      }),
-    [currentChain, endpoint, walletConnect, walletConnectProviderGetter, walletFactorys],
+        .map((w) => {
+          if (isWalletConnectFactory(w)) {
+            w.adapter.setWalletConnectProviderGetter(walletConnectProviderGetter);
+            w.adapter.setWalletConnectConfigGetter(() => ({
+              walletConnect,
+              currentChain,
+              rpcEndpoint: endpoint,
+            }));
+          }
+
+          return w.adapter;
+        }),
+    [currentChain, endpoint, walletConnect, walletConnectProviderGetter, walletFactories],
   );
 
   return (

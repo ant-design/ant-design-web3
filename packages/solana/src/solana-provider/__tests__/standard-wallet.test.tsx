@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { useProvider } from '@ant-design/web3';
+import { Connector, useProvider } from '@ant-design/web3';
+import { WalletReadyState } from '@solana/wallet-adapter-base';
 import { type ConnectionContextState } from '@solana/wallet-adapter-react';
 import { fireEvent } from '@testing-library/react';
+import { Button } from 'antd';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { WalletConnectWalletAdapter } from '../../wallet-connect-adapter';
-import { WalletConnectWallet } from '../../wallets/built-in';
+import { OKXWallet, WalletConnectWallet } from '../../wallets/built-in';
 import { SolanaWeb3ConfigProvider } from '../index';
 import { xrender } from './utils';
 
@@ -14,7 +15,7 @@ type TestConnection = Partial<ConnectionContextState['connection']>;
 const mockWalletConnectConfig = vi.fn();
 const mockSelectFn = vi.fn();
 
-describe('SolanaWeb3ConfigProvider WalletConnect', () => {
+describe('SolanaWeb3ConfigProvider Standard wallet', () => {
   beforeEach(() => {
     vi.resetAllMocks();
   });
@@ -64,25 +65,6 @@ describe('SolanaWeb3ConfigProvider WalletConnect', () => {
         wallets: any[];
       }>
     > = ({ children, wallets }) => {
-      const walletConnectAdapter = useMemo(() => wallets?.[0], [wallets]);
-
-      const checkGetWalletConnectConfigGetter = useCallback(async () => {
-        const wcConfig = await walletConnectAdapter?._getWalletConnectConfigGetter();
-        if (wcConfig && wcConfig.walletConnect && wcConfig.currentChain) {
-          mockWalletConnectConfig(true);
-        } else {
-          mockWalletConnectConfig(false);
-        }
-      }, [walletConnectAdapter]);
-
-      useEffect(() => {
-        checkGetWalletConnectConfigGetter();
-      }, [
-        checkGetWalletConnectConfigGetter,
-        walletConnectAdapter,
-        walletConnectAdapter._getWalletConnectConfigGetter,
-        wallets,
-      ]);
       return <>{children}</>;
     };
 
@@ -114,7 +96,10 @@ describe('SolanaWeb3ConfigProvider WalletConnect', () => {
           wallet: currentWalletRef.value,
           wallets: [
             {
-              adapter: new WalletConnectWalletAdapter(),
+              adapter: {
+                name: 'OKX Wallet',
+                readyState: WalletReadyState.Installed,
+              },
             },
           ],
         };
@@ -129,84 +114,39 @@ describe('SolanaWeb3ConfigProvider WalletConnect', () => {
         return { connection };
       },
       ConnectionProvider,
-      WalletProvider,
+      // WalletProvider,
     };
   });
 
-  it('available walletconnect', async () => {
-    const ConnectBtn = () => {
-      const { connect, availableWallets } = useProvider();
-      return (
-        <button
-          onClick={() => {
-            connect?.(availableWallets![0], { connectType: 'qrCode' });
-          }}
-        >
-          Click to connect
-        </button>
-      );
+  it('available standard wallet ready state', async () => {
+    const WalletReady = () => {
+      const { availableWallets } = useProvider();
+      const [walletReady, setWalletReady] = useState(false);
+
+      useEffect(() => {
+        availableWallets![0]?.hasWalletReady?.().then((v) => {
+          setWalletReady(v);
+        });
+      }, [availableWallets]);
+
+      return <div className="is-ready">ready:{walletReady ? 'true' : 'false'}</div>;
     };
 
     const App = () => {
       return (
-        <SolanaWeb3ConfigProvider
-          walletConnect={{
-            projectId: 'fake_wallet_connect_project_id',
-          }}
-          wallets={[WalletConnectWallet()]}
-        >
-          <ConnectBtn />
+        <SolanaWeb3ConfigProvider wallets={[OKXWallet()]}>
+          <WalletReady />
         </SolanaWeb3ConfigProvider>
       );
     };
 
     const { selector } = xrender(App);
 
-    const btn = selector('button')!;
-    expect(btn.textContent).toBe('Click to connect');
-
-    await vi.waitFor(async () => {
-      expect(mockWalletConnectConfig).toBeCalledWith(true);
-    });
-
-    fireEvent.click(btn);
+    const readyDom = selector('.is-ready')!;
 
     // check wallet-connect config can be created
     await vi.waitFor(async () => {
-      expect(mockSelectFn).toBeCalledTimes(2);
-    });
-  });
-
-  it('wallet connect is not a plugin', async () => {
-    const Display = () => {
-      const { availableWallets } = useProvider();
-
-      return (
-        <div className="plugin-check">
-          {availableWallets![0].hasExtensionInstalled === undefined ? 'true' : 'false'}
-        </div>
-      );
-    };
-
-    const App = () => {
-      return (
-        <SolanaWeb3ConfigProvider
-          walletConnect={{
-            projectId: 'YOUR_WALLET_CONNECT_PROJECT_ID',
-          }}
-          wallets={[WalletConnectWallet()]}
-        >
-          <Display />
-        </SolanaWeb3ConfigProvider>
-      );
-    };
-
-    const { selector } = xrender(App);
-
-    const dom = selector('.plugin-check')!;
-
-    await vi.waitFor(async () => {
-      expect(dom.textContent).toBe('true');
+      expect(readyDom.textContent).toBe('ready:true');
     });
   });
 });
