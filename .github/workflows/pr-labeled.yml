@@ -34,6 +34,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            @${{ github.event.pull_request.user.login }} Instead of changing it manually, run the ```pnpm icons:generate``` command locally to generate the react component. Please refer to the operation precautions. https://web3.ant.design/guide/contribute-icons
+            @${{ github.event.pull_request.user.login }} For unified management of icons and a better development experience, we do not recommend adding icons manually. Please refer to the operation precautions. https://web3.ant.design/guide/contribute-icons
 
             @${{ github.event.pull_request.user.login }} 为了 Icon 的统一管理和更好的开发体验，我们不建议手动添加 icon, 请参考以下指引添加新的 icon：https://web3.ant.design/guide/contribute-icons-cn
