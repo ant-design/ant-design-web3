@@ -517,6 +517,9 @@ importers:
         specifier: '>=17.0.0'
         version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@ant-design/web3-bitcoin':
+        specifier: workspace:*
+        version: link:../bitcoin
       '@ant-design/web3-ethers':
         specifier: workspace:*
         version: link:../ethers

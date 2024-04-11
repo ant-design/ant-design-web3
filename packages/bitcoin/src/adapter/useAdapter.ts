@@ -8,7 +8,7 @@ export interface Adapter {
   connect: () => Promise<void>;
   disconnect: () => Promise<void>;
   signMessage: (message: string) => Promise<void>;
-  sendBitcoin?: (
+  sendBitcoin: (
     to: string,
     sats: number,
     options?: { feeRate: number },
