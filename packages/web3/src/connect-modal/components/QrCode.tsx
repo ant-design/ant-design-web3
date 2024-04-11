@@ -61,7 +61,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
           className={`${prefixCls}-qr-code`}
           value={qrCodeValue}
           status={!loading ? 'active' : 'loading'}
-          size={simple ? 332 : 400}
+          size={simple ? 332 : 350}
           iconSize={60}
           type="svg"
         />
