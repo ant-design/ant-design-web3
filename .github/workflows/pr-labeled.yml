@@ -36,4 +36,4 @@ jobs:
           body: |
             @${{ github.event.pull_request.user.login }} Instead of changing it manually, run the ```pnpm icons:generate``` command locally to generate the react component. Please refer to the operation precautions. https://web3.ant.design/guide/contribute-icons
 
-            @${{ github.event.pull_request.user.login }} 不要手动更改，请在本地运行 ```pnpm icons:generate``` 命令生成 react component , 操作注意事项参考：https://web3.ant.design/guide/contribute-icons-cn
+            @${{ github.event.pull_request.user.login }} 为了 Icon 的统一管理和更好的开发体验，我们不建议手动添加 icon, 请参考以下指引添加新的 icon：https://web3.ant.design/guide/contribute-icons-cn
