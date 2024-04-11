@@ -1,60 +1,43 @@
-import { useState, type FC, type PropsWithChildren } from 'react';
-import type { Account, Balance, Locale, Wallet } from '@ant-design/web3-common';
+import { useEffect, useState, type FC, type PropsWithChildren } from 'react';
+import type { Locale, Wallet } from '@ant-design/web3-common';
 
-import { BitcoinWalletContext } from '../adapter/useWallet';
-import { UnisatWallet, XverseWallet, type Provider } from '../adapter/wallet';
+import { type Adapter } from '../adapter';
+import { BitcoinAdapterContext } from '../adapter/useAdapter';
+import { BitcoinWallet, WalletFactory } from '../wallets/types';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 
 export interface BitcoinWeb3ConfigProviderProps {
   // 钱包显式传入
-  wallets: Wallet[];
+  wallets: WalletFactory[];
   locale?: Locale;
 }
 
 export const BitcoinWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigProviderProps>> = ({
   children,
-  wallets,
+  wallets: initWallets,
 }) => {
-  const [account, setAccount] = useState<Account>();
-  const [balance, setBalance] = useState<Balance>();
-  const [provider, setProvider] = useState<Provider>();
+  const [adapter, setAdapter] = useState<Adapter>({} as Adapter);
+  const [wallets, setWallets] = useState<BitcoinWallet[]>([]);
+
+  useEffect(() => {
+    if (!initWallets || !Array.isArray(initWallets)) return;
+    const wallets = initWallets.map((w) => w.create());
+    setWallets(wallets);
+  }, [initWallets]);
 
   const selectWallet = async (wallet?: Wallet | null) => {
-    if (!wallet) {
-      setAccount(undefined);
-      setBalance(undefined);
-      return;
-    }
-    let provider;
-    switch (wallet.name) {
-      case 'Xverse':
-        provider = new XverseWallet();
-        break;
-      case 'Unisat':
-        provider = new UnisatWallet();
-        break;
-      default:
-        break;
-    }
+    if (!wallet) return;
+    const provider = wallets.find((w) => w.name === wallet.name)?.adapter;
     if (!provider) return;
     await provider.connect();
-    setProvider(provider);
-    setAccount(provider.account);
-    setBalance(provider.balance);
+    setAdapter(provider);
   };
 
   return (
-    <BitcoinWalletContext.Provider
-      value={{
-        selectWallet,
-        account,
-        balance,
-        signMessage: async (message) => {
-          await provider?.signMessage(message);
-        },
-      }}
-    >
-      <AntDesignWeb3ConfigProvider wallets={wallets}>{children}</AntDesignWeb3ConfigProvider>
-    </BitcoinWalletContext.Provider>
+    <BitcoinAdapterContext.Provider value={adapter}>
+      <AntDesignWeb3ConfigProvider selectWallet={selectWallet} wallets={wallets}>
+        {children}
+      </AntDesignWeb3ConfigProvider>
+    </BitcoinAdapterContext.Provider>
   );
 };

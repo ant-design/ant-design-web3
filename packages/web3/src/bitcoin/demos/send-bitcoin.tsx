@@ -8,22 +8,23 @@ import {
 } from '@ant-design/web3-bitcoin';
 import { Button } from 'antd';
 
-const SignMessage: React.FC = () => {
-  const { signMessage } = useAdapter();
+const SendBitcoin: React.FC = () => {
+  const { sendBitcoin } = useAdapter();
 
   return (
     <Button
       onClick={async () => {
         try {
-          // console.log('signMessage', adapter);
-          const result = await signMessage?.('Hello World!');
-          console.log('sign message success!', result);
+          const result = await sendBitcoin(
+            'bc1plht8mve2fxz3qgwdlcsn6u67u629dnh35j6ydx0yqu5drj9mu0zs9tz2ud',
+            10000,
+          );
         } catch (error) {
           console.log('sign message error:', error);
         }
       }}
     >
-      Sign Message
+      Send Bitcoin
     </Button>
   );
 };
@@ -34,7 +35,7 @@ const App: React.FC = () => {
       <Connector>
         <ConnectButton />
       </Connector>
-      <SignMessage />
+      <SendBitcoin />
     </BitcoinWeb3ConfigProvider>
   );
 };

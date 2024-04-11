@@ -1,19 +1,21 @@
 import { type FC, type PropsWithChildren } from 'react';
 import { Web3ConfigProvider, type Locale, type Wallet } from '@ant-design/web3-common';
 
-import { useWallet } from '../adapter';
+import { useAdapter } from '../adapter';
 
 export interface BitcoinWeb3ConfigProviderProps {
   locale?: Locale;
   wallets: Wallet[];
+  selectWallet: (wallet?: Wallet | null) => void;
 }
 
 export const AntDesignWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigProviderProps>> = ({
   children,
   locale,
   wallets,
+  selectWallet,
 }) => {
-  const { selectWallet, balance, account } = useWallet();
+  const { balance, account } = useAdapter();
 
   return (
     <Web3ConfigProvider
