@@ -1,7 +1,8 @@
-import { WalletReadyState } from '@solana/wallet-adapter-base';
-
-import { hasWalletReady } from '../utils';
-import type { WalletConnectWalletFactoryBuilder, WalletFactoryBuilder } from './types';
+import type {
+  StandardWalletFactoryBuilder,
+  WalletConnectWalletFactoryBuilder,
+  WalletFactoryBuilder,
+} from './types';
 
 export const WalletFactory: WalletFactoryBuilder = (adapter, metadata) => {
   return {
@@ -12,12 +13,18 @@ export const WalletFactory: WalletFactoryBuilder = (adapter, metadata) => {
         name: adapter.name,
         remark: metadata.remark,
         adapter: adapter,
-        hasWalletReady: async () => {
-          return hasWalletReady(adapter);
-        },
-        hasExtensionInstalled: async () => {
-          return adapter.readyState === WalletReadyState.Installed;
-        },
+      };
+    },
+  };
+};
+
+// For Standard wallets
+export const StandardWalletFactory: StandardWalletFactoryBuilder = (metadata) => {
+  return {
+    create: () => {
+      return {
+        ...metadata,
+        isStandardWallet: true,
       };
     },
   };
@@ -37,9 +44,6 @@ export const WalletConnectWalletFactory: WalletConnectWalletFactoryBuilder = (
         name: adapter.name,
         remark: metadata.remark,
         adapter,
-        hasWalletReady: async () => {
-          return adapter.readyState === WalletReadyState.Loadable;
-        },
 
         getQrCode: getWalletConnectProvider
           ? async () => {

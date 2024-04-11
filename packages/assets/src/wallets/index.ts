@@ -9,3 +9,5 @@ export * from './im-token';
 export * from './xverse-wallet';
 export * from './unisat-wallet';
 export * from './leather-wallet';
+export * from './backpack';
+export * from './trust';

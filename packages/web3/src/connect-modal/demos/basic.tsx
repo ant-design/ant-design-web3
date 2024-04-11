@@ -45,6 +45,14 @@ const walletList: Wallet[] = [
       );
     },
   },
+  {
+    icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
+    name: 'Test Wallet3 Have a Long Name',
+    remark: 'remark 3',
+    app: {
+      link: 'https://test.com/xxx',
+    },
+  },
 ];
 const groupOrder = (a: string, b: string) => {
   if (a === 'Popular') return -1;

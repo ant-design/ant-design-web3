@@ -68,7 +68,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
         display: 'flex',
         justifyContent: 'space-between',
         position: 'relative',
-
+        height: 518,
         [`${componentCls}-title`]: {
           fontSize: token.fontSizeXL,
           lineHeight: '28px',
@@ -105,7 +105,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             paddingInline: token.paddingMD,
             overflow: 'auto',
             [`${componentCls}-wallet-list`]: {
-              maxHeight: 390,
               overflow: 'scroll',
               '&::-webkit-scrollbar': {
                 display: 'none',
@@ -127,9 +126,13 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     transition: 'background .3s, color .3s',
                     marginBlockEnd: 5,
                     border: 'none',
+                    width: '100%',
                     [`${componentCls}-content`]: {
                       display: 'flex',
+                      flex: 1,
                       alignItems: 'center',
+                      width: '100%',
+                      overflow: 'hidden',
                       [`${componentCls}-icon`]: {
                         borderRadius: 8,
                         overflow: 'hidden',
@@ -137,12 +140,14 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                         height: token.iconSize,
                         fontSize: token.iconSize,
                         lineHeight: `${token.iconSize}px`,
+                        flexShrink: 0,
                       },
                       [`${componentCls}-img`]: {
                         borderRadius: 8,
                         overflow: 'hidden',
                         width: token.iconSize,
                         height: token.iconSize,
+                        flexShrink: 0,
                       },
                       [`${componentCls}-name`]: {
                         fontSize: token.fontSizeLG,
@@ -150,6 +155,8 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                         marginInlineStart: token.marginSM,
                         color: token.colorText,
                         wordBreak: 'break-word',
+                        flex: 1,
+                        marginInlineEnd: token.marginXS,
                       },
                     },
                     [`${componentCls}-qr-icon-empty`]: {
@@ -240,6 +247,9 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           },
           [`${componentCls}-simple-guide-panel`]: {
             marginBlockStart: 0,
+            [`${componentCls}-guide-list`]: {
+              maxHeight: 280,
+            },
           },
           [`${componentCls}-guide-list`]: {
             marginBlock: token.marginLG,
@@ -311,7 +321,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             height: '100%',
             [`${componentCls}-list`]: {
               marginBlockStart: token.marginXL,
-              minHeight: 286,
+              height: 286,
               overflow: 'auto',
               [`${componentCls}-item`]: {
                 marginBlockEnd: token.marginLG,
@@ -362,9 +372,11 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           },
           [`${componentCls}-card-list`]: {
             marginBlockStart: 25,
+            height: '90%',
+            overflow: 'auto',
             [`${componentCls}-card-item`]: {
               width: '100%',
-              height: 220,
+              height: 200,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
