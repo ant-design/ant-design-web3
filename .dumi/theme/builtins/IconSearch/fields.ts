@@ -39,6 +39,8 @@ const tool = [
   'ImToken',
   'TrustWallet',
   'Backpack',
+  'Xverse',
+  'Unisat',
 ];
 
 const datum = [...chain, ...token, ...tool];
