@@ -114,6 +114,9 @@ importers:
       father:
         specifier: ^4.3.8
         version: 4.3.8(@types/node@20.10.5)(webpack@5.91.0)
+      github-contributors-lists:
+        specifier: ^1.0.3
+        version: 1.0.3(react@18.2.0)
       husky:
         specifier: ^9.0.11
         version: 9.0.11
@@ -17633,6 +17636,14 @@ packages:
     engines: {node: '>=0.8'}
     dependencies:
       remote-origin-url: 0.4.0
+    dev: true
+
+  /github-contributors-lists@1.0.3(react@18.2.0):
+    resolution: {integrity: sha512-6wcKgM7qgCXJ3ceBDOmqYCv6cuuTImlCc/znqC1QII0gx2a/g1eICo+aBUJX4EO8NIssgKxtmb6WsQPw5wVK+g==}
+    peerDependencies:
+      react: '>=16.0.0'
+    dependencies:
+      react: 18.2.0
     dev: true
 
   /github-slugger@1.5.0:
