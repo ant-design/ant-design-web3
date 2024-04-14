@@ -8,6 +8,7 @@ import ContributorAvatar from './ContributorAvatar';
 const useStyle = createStyles(({ token, css }) => ({
   contributorsList: css`
     margin-top: 120px !important;
+    padding-inline: 40px;
   `,
   listMobile: css`
     margin: 1em 0 !important;
