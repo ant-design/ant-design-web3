@@ -17,7 +17,7 @@ const useStyle = createStyles(({ token, css }) => ({
   title: css`
     font-size: ${token.fontSizeSM}px;
     opacity: 0.5;
-    margin-bottom: ${token.marginXS}px;
+    margin-block-end: ${token.marginXS}px;
   `,
   list: css`
     display: flex;
