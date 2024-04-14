@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Avatar, Button, List, type ListProps } from 'antd';
+import { Avatar, Button, List } from 'antd';
 
 import { connectModalContext } from '../context';
 import type { ConnectModalProps } from '../interface';

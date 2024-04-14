@@ -164,14 +164,14 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     },
                     [`${componentCls}-plugin-tag`]: {
                       '&:not(:disabled):not(.ant-btn-disabled):hover': {
-                        color: token.colorText,
-                        borderColor: token.colorText,
+                        color: token.colorPrimary,
+                        borderColor: token.colorPrimary,
                       },
                     },
                     [`${componentCls}-qr-btn`]: {
                       '&:hover': {
-                        color: token.colorText,
-                        borderColor: token.colorText,
+                        color: token.colorPrimary,
+                        borderColor: token.colorPrimary,
                       },
                     },
                     '&:last-child': {
@@ -297,11 +297,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             opacity: 0.6,
             fontSize: token.fontSizeLG,
             ['&:hover']: {
-              background: safeToken(
-                isDark,
-                token.colorPrimary,
-                new TinyColor(token.colorWhite).setAlpha(0.15).toRgbString(),
-              ),
+              background: token.colorPrimary,
               opacity: 1,
             },
           },
@@ -312,7 +308,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             marginBlockStart: token.margin,
             opacity: 0.6,
             ['&:hover']: {
-              color: token.colorText,
+              color: token.colorPrimary,
               opacity: 1,
             },
           },
@@ -342,12 +338,10 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                   color: token.listItemDescriptionColor,
                 },
                 [`${componentCls}-get-wallet-btn`]: {
-                  borderColor: safeToken(isDark, token.colorPrimary, token.colorText),
-                  color: safeToken(isDark, token.colorPrimary, token.colorText),
-                  opacity: 0.8,
+                  borderColor: token.colorPrimary,
+                  color: token.colorPrimary,
+                  opacity: 0.6,
                   '&:hover': {
-                    borderColor: safeToken(isDark, token.colorPrimary, token.colorText),
-                    color: safeToken(isDark, token.colorPrimary, token.colorText),
                     opacity: 1,
                   },
                 },
@@ -389,7 +383,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               border: `1px solid transparent`,
               transition: 'border-color .3s',
               '&:hover': {
-                borderColor: safeToken(isDark, token.colorPrimary, token.colorWhite),
+                borderColor: token.colorPrimary,
               },
               [`${componentCls}-card-icon`]: {
                 width: 64,
@@ -431,9 +425,10 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               fontSize: token.fontSizeLG,
               textAlign: 'center',
               display: 'block',
-              opacity: 0.8,
+              opacity: 0.6,
+              color: token.colorPrimary,
               '&:hover': {
-                color: token.blue,
+                color: token.colorPrimary,
                 opacity: 1,
               },
             },
@@ -496,11 +491,8 @@ export function useStyle(prefixCls: string): UseStyleResult {
       hoverBg,
       selectedBg: hoverBg,
       splitColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
-      modalTitleStartColor: safeToken(isDark, token.colorPrimary, token.colorWhite),
-      modalTitleEndColor: new TinyColor('#000')
-        .setAlpha(0.85)
-        .onBackground(token.colorWhite)
-        .toRgbString(),
+      modalTitleStartColor: token.colorPrimary,
+      modalTitleEndColor: new TinyColor(token.colorText).setAlpha(0.85).toRgbString(),
       groupTextColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
       listItemDescriptionColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
       cardBg: new TinyColor(token.colorText).setAlpha(0.1).toRgbString(),
