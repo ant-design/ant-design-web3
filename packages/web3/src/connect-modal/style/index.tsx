@@ -492,7 +492,7 @@ export function useStyle(prefixCls: string): UseStyleResult {
       selectedBg: hoverBg,
       splitColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
       modalTitleStartColor: token.colorPrimary,
-      modalTitleEndColor: token.colorText,
+      modalTitleEndColor: new TinyColor(token.colorText).setAlpha(0.85).toRgbString(),
       groupTextColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
       listItemDescriptionColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
       cardBg: new TinyColor(token.colorText).setAlpha(0.1).toRgbString(),
