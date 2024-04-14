@@ -425,9 +425,10 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               fontSize: token.fontSizeLG,
               textAlign: 'center',
               display: 'block',
-              opacity: 0.8,
+              opacity: 0.6,
+              color: token.colorPrimary,
               '&:hover': {
-                color: token.blue,
+                color: token.colorPrimary,
                 opacity: 1,
               },
             },
