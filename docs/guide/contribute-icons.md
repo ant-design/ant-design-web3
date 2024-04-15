@@ -47,12 +47,11 @@ Also, please note that do not use `id` in the `style` attribute of the svg, beca
 + <circle fill="url(#ant-web3-icon-aave-circle-colorful-3)" cx="400" cy="400" r="388"/> # good
 ```
 
-## Complete the icon react component
+## Generate the react component for the icon
 
-In the `components` directory, refer to the following template to complete the component. There are two parts that need to be changed:
+Execute the following command to automatically generate react components based on svg.
 
-1. Icon component name
-2. SVG introduction name
+<NormalCommand command="icons:generate"></NormalCommand>
 
 ```tsx | pure
 import * as React from 'react';
@@ -99,4 +98,4 @@ If you need to make a special declaration, you can change it in the `.dumi/theme
 
 ## Test and verify
 
-Export the newly added icon in `src/index.ts`, and then verify whether the icon is displayed correctly in the local debugging environment.
+Verify whether the icon is displayed correctly in the local debugging environment.

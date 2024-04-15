@@ -95,9 +95,12 @@ export const Theme: React.FC = () => {
       <ConfigProvider
         theme={{
           algorithm: isDark ? theme.darkAlgorithm : undefined,
-          token: {
-            colorPrimary: themeColor,
-          },
+          token:
+            themeColor === 'auto'
+              ? undefined
+              : {
+                  colorPrimary: themeColor,
+                },
         }}
       >
         <Card

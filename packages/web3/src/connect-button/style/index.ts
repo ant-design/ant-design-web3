@@ -31,6 +31,14 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
           marginTop: -2,
         },
       },
+      [`&${token.antCls}-btn-sm`]: {
+        [`${token.componentCls}-avatar`]: {
+          [`${token.antCls}-avatar`]: {
+            width: '80%',
+            height: '80%',
+          },
+        },
+      },
       [`${token.componentCls}-chain-select`]: {
         display: 'inline-block',
         marginRight: token.marginXS,

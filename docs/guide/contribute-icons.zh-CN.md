@@ -47,12 +47,11 @@ group:
 + <circle fill="url(#ant-web3-icon-aave-circle-colorful-3)" cx="400" cy="400" r="388"/> # good
 ```
 
-## 完成图标 react 组件
+## 生成图标 react 组件
 
-在 `components` 目录下参考如下模板完成组件，有两部分需要更改：
+执行以下命令，自动根据 svg 生成 react 组件
 
-1. 图标组件名称
-2. svg 引入地址
+<NormalCommand command="icons:generate"></NormalCommand>
 
 ```tsx | pure
 import * as React from 'react';
@@ -99,4 +98,4 @@ AAVECircleColorful.displayName = 'AAVECircleColorful';
 
 ## 验证
 
-在 `src/index.ts` 中将新添加的 icon 导出，然后可以在本地调试环境验证图标的展示是否正确。
+在本地调试环境验证图标的展示是否正确。

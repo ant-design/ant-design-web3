@@ -13,6 +13,9 @@ export enum ChainIds {
   Avalanche = 43_114,
   X1Testnet = 195,
   Sepolia = 11_155_111,
+  Holesky = 17_000,
+  Scroll = 534_352,
+  ScrollSepolia = 534_351,
 }
 
 export enum SolanaChainIds {

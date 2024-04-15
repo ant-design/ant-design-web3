@@ -65,7 +65,7 @@
   "devDependencies": {
     "@types/debug": "^4.1.12",
     "father": "^4.3.8",
-    "typescript": "^5.4.2",
+    "typescript": "^5.4.4",
     "ethers-v5": "npm:ethers@^5.7.2",
     "ethers-v6": "npm:ethers@^6.11.1"
   },

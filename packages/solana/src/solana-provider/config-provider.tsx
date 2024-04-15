@@ -2,14 +2,21 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import type { Account, Chain, Locale, Wallet } from '@ant-design/web3-common';
 import { Web3ConfigProvider } from '@ant-design/web3-common';
 import { Metaplex, PublicKey } from '@metaplex-foundation/js';
-import type { WalletName } from '@solana/wallet-adapter-base';
+import {
+  WalletReadyState,
+  type WalletConnectionError,
+  type WalletName,
+} from '@solana/wallet-adapter-base';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 
 import type { SolanaChainConfig } from '../chains';
+import { hasWalletReady } from '../utils';
+import { WalletConnectWalletAdapter } from '../wallet-connect-adapter';
 
 interface ConnectAsync {
   promise: Promise<void>;
   resolve: () => void;
+  reject: (reason: any) => void;
 }
 
 export interface AntDesignWeb3ConfigProviderProps {
@@ -19,13 +26,22 @@ export interface AntDesignWeb3ConfigProviderProps {
   balance?: boolean;
   currentChain?: SolanaChainConfig;
   availableWallets: Wallet[];
+  connectionError?: WalletConnectionError;
   onCurrentChainChange?: (chain?: SolanaChainConfig) => void;
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<
   React.PropsWithChildren<AntDesignWeb3ConfigProviderProps>
 > = (props) => {
-  const { publicKey, connected, connect, select: selectWallet, disconnect, wallet } = useWallet();
+  const {
+    publicKey,
+    connected,
+    connect,
+    select: selectWallet,
+    disconnect,
+    wallet,
+    wallets,
+  } = useWallet();
 
   const { connection } = useConnection();
 
@@ -58,6 +74,13 @@ export const AntDesignWeb3ConfigProvider: React.FC<
     }
   }, [connected]);
 
+  useEffect(() => {
+    if (props.connectionError) {
+      connectAsyncRef.current?.reject(props.connectionError);
+      connectAsyncRef.current = undefined;
+    }
+  }, [props.connectionError]);
+
   // get balance
   useEffect(() => {
     if (!(props.balance && connection && publicKey)) {
@@ -75,13 +98,19 @@ export const AntDesignWeb3ConfigProvider: React.FC<
   // connect/disconnect wallet
   useEffect(() => {
     if (wallet?.adapter?.name) {
+      // if wallet is not ready, need clear selected wallet
+      if (!hasWalletReady(wallet.adapter.readyState)) {
+        selectWallet(null);
+        return;
+      }
+
       connect();
     } else {
       if (connected) {
         disconnect();
       }
     }
-  }, [wallet, wallet?.adapter?.name, props.currentChain, connect, disconnect, connected]);
+  }, [wallet?.adapter?.name, connected]);
 
   const chainList = useMemo(() => {
     return props.availableChains
@@ -107,6 +136,27 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       .filter((item) => item !== null) as (Chain & SolanaChainConfig)[];
   }, [props.availableChains, props.chainAssets]);
 
+  const availableWallets = useMemo<Wallet[]>(() => {
+    return props.availableWallets.map((w) => {
+      const adapter = wallets?.find((item) => item.adapter.name === w.name)?.adapter;
+      const isWalletConnectAdapter = adapter instanceof WalletConnectWalletAdapter;
+
+      return {
+        ...w,
+
+        hasExtensionInstalled: isWalletConnectAdapter
+          ? undefined
+          : async () => {
+              return adapter?.readyState === WalletReadyState.Installed;
+            },
+
+        hasWalletReady: async () => {
+          return hasWalletReady(adapter?.readyState);
+        },
+      };
+    });
+  }, [props.availableWallets, wallets]);
+
   const currentChain = useMemo(() => {
     return chainList.find((c) => c.id === props.currentChain?.id);
   }, [props.currentChain, chainList]);
@@ -130,20 +180,27 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       }
       addressPrefix={false}
       availableChains={chainList}
-      availableWallets={props.availableWallets}
+      availableWallets={availableWallets}
       switchChain={async (_chain) => {
         const foundChain = chainList.find((c) => c.id === _chain.id);
         props.onCurrentChainChange?.(foundChain ?? chainList[0]);
         selectWallet(currentWalletName);
       }}
-      connect={async (_wallet) => {
+      connect={async (_wallet, options) => {
         let resolve: any;
-        const promise = new Promise<void>((res) => {
+        let reject: any;
+
+        // when use qrCode to connect, need clear selected wallet first.
+        if (options?.connectType === 'qrCode') {
+          selectWallet(null);
+        }
+
+        const promise = new Promise<void>((res, rej) => {
           resolve = res;
+          reject = rej;
         });
 
-        connectAsyncRef.current?.resolve();
-        connectAsyncRef.current = { promise, resolve };
+        connectAsyncRef.current = { promise, resolve, reject };
 
         const walletName = (_wallet?.name as WalletName) ?? null;
         selectWallet(walletName);
@@ -155,7 +212,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         disconnect();
       }}
       getNFTMetadata={async ({ address }) => {
-        // TODO: cache metadatas
+        // TODO: cache metadata
         const mx = new Metaplex(connection);
         const nftClient = mx.nfts();
         const mintAddress = new PublicKey(address);
