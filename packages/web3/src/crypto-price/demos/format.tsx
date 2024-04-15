@@ -1,7 +1,6 @@
 import { CryptoPrice } from '@ant-design/web3';
 
 function formatMoney(value: number) {
-  console.log('formatMoney', value);
   // 使用千分符分隔金额
   return value.toLocaleString();
 }
