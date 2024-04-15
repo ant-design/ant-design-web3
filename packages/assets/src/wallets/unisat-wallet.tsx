@@ -1,9 +1,8 @@
 import type { WalletMetadata } from '@ant-design/web3-common';
-import { ChromeCircleColorful } from '@ant-design/web3-icons';
+import { ChromeCircleColorful, UnisatColorful } from '@ant-design/web3-icons';
 
 export const metadata_Unisat: WalletMetadata = {
-  // TODO: update icon
-  icon: <ChromeCircleColorful />,
+  icon: <UnisatColorful />,
   name: 'Unisat',
   remark: 'Unisat Wallet',
   app: {
