@@ -1,7 +1,3 @@
-[id] {
-  scroll-margin-top: 80px;
-}
-
 #root {
   .dumi-default-header-left {
     width: 300px;
@@ -36,6 +32,17 @@
     }
     .dumi-default-header-content {
       max-width: none;
+    }
+  }
+
+  .markdown > h1,
+  .markdown > h2,
+  .markdown > h3,
+  .markdown > h4,
+  .markdown > h5,
+  .markdown > h6 {
+    &[id] {
+      scroll-margin-top: 80px;
     }
   }
 }
