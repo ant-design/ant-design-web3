@@ -24,8 +24,8 @@ export class UnisatAdapter implements Adapter {
   connect = async (): Promise<void> => {
     if (!this.provider) return;
     try {
-      let accounts = await this.provider.requestAccounts();
-      let { confirmed } = await this.provider.getBalance();
+      const accounts = await this.provider.requestAccounts();
+      const { confirmed } = await this.provider.getBalance();
       this.account = { address: accounts[0] };
       this.balance = getBalanceObject(confirmed);
     } catch (e) {

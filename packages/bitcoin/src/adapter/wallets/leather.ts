@@ -43,11 +43,11 @@ export class LeatherAdapter implements Adapter {
     this.account = undefined;
   };
 
-  signMessage = async (message: string): Promise<void> => {
+  signMessage = async (msg: string): Promise<void> => {
     if (!this.account?.address || !this.provider) return;
     const response = await this.provider.request('signMessage', {
       address: this.account.address,
-      message,
+      message: msg,
     });
     if (response.status === 'success') {
       alert('messageHash:' + response.result.messageHash);

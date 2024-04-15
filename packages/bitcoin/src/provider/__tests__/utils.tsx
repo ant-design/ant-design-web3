@@ -17,11 +17,3 @@ export const xrender: XRender = (Comp, options) => {
     selectors: (selector) => baseElement.querySelectorAll(selector),
   };
 };
-
-/**
- * Need to wrap an object to ensure that when `use*` is called multiple times,
- * the `value` returns the same value
- */
-export function remember<T>(value: T) {
-  return { value };
-}

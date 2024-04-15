@@ -11,12 +11,7 @@ describe('BitcoinWeb3ConfigProvider', () => {
     const SignMessage: React.FC = () => {
       const { signMessage } = useAdapter();
       return (
-        <Button
-          className="sign-message"
-          onClick={() =>
-            signMessage?.('bc1p3cphtuyx38ut42njdxzm4gvft3r75232lnj2ph6w5urpzum3whuquu6fam', 10000)
-          }
-        >
+        <Button className="sign-message" onClick={() => signMessage?.('hello, world!')}>
           签名
         </Button>
       );

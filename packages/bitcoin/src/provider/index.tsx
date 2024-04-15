@@ -21,8 +21,7 @@ export const BitcoinWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigPr
 
   useEffect(() => {
     if (initWallets.length === 0) return;
-    const wallets = initWallets.map((w) => w.create());
-    setWallets(wallets);
+    setWallets(initWallets.map((w) => w.create()));
   }, [initWallets]);
 
   const selectWallet = async (wallet?: Wallet | null) => {
