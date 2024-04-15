@@ -25,7 +25,7 @@ group:
 
 ## 开发适配器
 
-如上面部分所说，你可以通过 [Web3ConfigProvider](../../packages/web3/src/web3-config-provider/index.zh-CN.md) 来给 UI 组件提供和链交互的相关功能。我们目前基于 [wagmi](https://wagmi.sh/) 实现了以太坊的适配，你可以参考它的实现来帮组 Ant Design Web3 适配更多的区块链。下面的代码就是一个简单的适配器的简单实现示例：
+如上面部分所说，你可以通过 [Web3ConfigProvider](../../packages/web3/src/web3-config-provider/index.zh-CN.md) 来给 UI 组件提供和链交互的相关功能。我们目前基于 [wagmi](https://wagmi.sh/) 实现了以太坊的适配，你可以参考它的实现来帮助 Ant Design Web3 适配更多的区块链。下面的代码就是一个简单的适配器的简单实现示例：
 
 <code src="./demos/adapter.tsx"></code>
 
