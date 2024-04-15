@@ -194,8 +194,8 @@ importers:
         specifier: ^18.2.73
         version: 18.2.73
       '@types/react-dom':
-        specifier: ^18.2.22
-        version: 18.2.23
+        specifier: ^18.2.25
+        version: 18.2.25
       typescript:
         specifier: ^5.4.4
         version: 5.4.4
@@ -228,8 +228,8 @@ importers:
         specifier: ^18.2.73
         version: 18.2.73
       '@types/react-dom':
-        specifier: ^18.2.22
-        version: 18.2.23
+        specifier: ^18.2.25
+        version: 18.2.25
       typescript:
         specifier: ^5.4.4
         version: 5.4.4
@@ -247,8 +247,8 @@ importers:
         specifier: ^18.2.73
         version: 18.2.73
       '@types/react-dom':
-        specifier: ^18.2.23
-        version: 18.2.23
+        specifier: ^18.2.25
+        version: 18.2.25
       father:
         specifier: ^4.3.8
         version: 4.3.8(@types/node@20.10.5)(webpack@5.89.0)
@@ -297,8 +297,8 @@ importers:
         specifier: ^18.2.73
         version: 18.2.73
       '@types/react-dom':
-        specifier: ^18.2.23
-        version: 18.2.23
+        specifier: ^18.2.25
+        version: 18.2.25
       antd:
         specifier: ^5.16.0
         version: 5.16.0(react-dom@18.2.0)(react@18.2.0)
@@ -374,8 +374,8 @@ importers:
         specifier: ^18.2.73
         version: 18.2.73
       '@types/react-dom':
-        specifier: ^18.2.23
-        version: 18.2.23
+        specifier: ^18.2.25
+        version: 18.2.25
       antd:
         specifier: ^5.16.0
         version: 5.16.0(react-dom@18.2.0)(react@18.2.0)
@@ -536,8 +536,8 @@ importers:
         specifier: ^18.2.73
         version: 18.2.73
       '@types/react-dom':
-        specifier: ^18.2.23
-        version: 18.2.23
+        specifier: ^18.2.25
+        version: 18.2.25
       father:
         specifier: ^4.3.8
         version: 4.3.8(@types/node@20.10.5)(webpack@5.89.0)
@@ -9715,7 +9715,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.24.1
       '@testing-library/dom': 9.3.3
-      '@types/react-dom': 18.2.23
+      '@types/react-dom': 18.2.25
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true
@@ -10535,8 +10535,8 @@ packages:
       '@types/react': 18.2.73
     dev: true
 
-  /@types/react-dom@18.2.23:
-    resolution: {integrity: sha512-ZQ71wgGOTmDYpnav2knkjr3qXdAFu0vsk8Ci5w3pGAIdj7/kKAyn+VsQDhXsmzzzepAiI9leWMmubXz690AI/A==}
+  /@types/react-dom@18.2.25:
+    resolution: {integrity: sha512-o/V48vf4MQh7juIKZU2QGDfli6p1+OOi5oXx36Hffpc9adsHeXjVp8rHuPkjd8VT8sOJ2Zp05HR7CdpGTIUFUA==}
     dependencies:
       '@types/react': 18.2.73
     dev: true
