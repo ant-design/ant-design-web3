@@ -1,24 +1,15 @@
 import React from 'react';
 import { en_US, Web3ConfigProvider, zh_CN } from '@ant-design/web3-common';
-import { createStyles } from 'antd-style';
 import { useIntl, useLocation, useOutlet, usePrefersColor, useRouteMeta } from 'dumi';
 import { GlobalLayout as ThemeGlobalLayout } from 'dumi-theme-antd-web3';
 
 import SiteThemeProvider from '../SiteThemeProvider';
 
-const useStyle = createStyles(({ token, css }) => ({
-  contributorsContainer: css`
-    background: red;
-  `,
-}));
-
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
-  const meta = useRouteMeta();
   const { pathname } = useLocation();
   const [color] = usePrefersColor();
   const { locale } = useIntl();
-  const { styles } = useStyle();
 
   return (
     <ThemeGlobalLayout>
