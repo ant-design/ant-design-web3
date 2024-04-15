@@ -434,8 +434,8 @@ importers:
         specifier: workspace:*
         version: link:../common
       '@wagmi/core':
-        specifier: ^2.6.5
-        version: 2.6.5(@types/react@18.2.78)(react@18.2.0)(typescript@5.4.4)(viem@2.0.0)
+        specifier: ^2.6.16
+        version: 2.6.16(@types/react@18.2.78)(react@18.2.0)(typescript@5.4.4)(viem@2.0.0)
       debug:
         specifier: ^4.3.4
         version: 4.3.4(supports-color@5.5.0)
@@ -8727,7 +8727,7 @@ packages:
     peerDependencies:
       '@solana/web3.js': ^1.77.3
     dependencies:
-      '@noble/curves': 1.2.0
+      '@noble/curves': 1.3.0
       '@solana/wallet-adapter-base': 0.9.23(@solana/web3.js@1.89.1)
       '@solana/wallet-standard-features': 1.2.0
       '@solana/wallet-standard-util': 1.1.1
@@ -11637,6 +11637,32 @@ packages:
       - supports-color
       - utf-8-validate
       - zod
+
+  /@wagmi/core@2.6.16(@types/react@18.2.78)(react@18.2.0)(typescript@5.4.4)(viem@2.0.0):
+    resolution: {integrity: sha512-95r+2CCf4Yz4CWG7UZMALIcGSUfpr9YbZ2HOqmz6gJEBaW9Cf9xUEZj2MXOHZIP+Ri/3CZJtbBEclDot4enZWA==}
+    peerDependencies:
+      '@tanstack/query-core': '>=5.0.0'
+      typescript: '>=5.0.4'
+      viem: 2.x
+    peerDependenciesMeta:
+      '@tanstack/query-core':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      eventemitter3: 5.0.1
+      mipd: 0.0.5(typescript@5.4.4)
+      typescript: 5.4.4
+      viem: 2.0.0(typescript@5.4.4)
+      zustand: 4.4.1(@types/react@18.2.78)(react@18.2.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - bufferutil
+      - immer
+      - react
+      - utf-8-validate
+      - zod
+    dev: false
 
   /@wagmi/core@2.6.5(@types/react@18.2.78)(react@18.2.0)(typescript@5.4.4)(viem@2.0.0):
     resolution: {integrity: sha512-DLyrc0o+dx05oIhBJuxnS7ekS5e6rB5mytlqPme+Km7aLdeBdcfYB4yJyYCyWoi93OLa7M5sbflTttz3o56bKw==}
