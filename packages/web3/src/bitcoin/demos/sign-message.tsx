@@ -15,7 +15,6 @@ const SignMessage: React.FC = () => {
     <Button
       onClick={async () => {
         try {
-          // console.log('signMessage', adapter);
           const result = await signMessage?.('Hello World!');
           console.log('sign message success!', result);
         } catch (error) {

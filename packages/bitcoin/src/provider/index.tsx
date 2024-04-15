@@ -8,19 +8,19 @@ import { AntDesignWeb3ConfigProvider } from './config-provider';
 
 export interface BitcoinWeb3ConfigProviderProps {
   // 钱包显式传入
-  wallets: WalletFactory[];
+  wallets?: WalletFactory[];
   locale?: Locale;
 }
 
 export const BitcoinWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigProviderProps>> = ({
   children,
-  wallets: initWallets,
+  wallets: initWallets = [],
 }) => {
   const [adapter, setAdapter] = useState<Adapter>({} as Adapter);
   const [wallets, setWallets] = useState<BitcoinWallet[]>([]);
 
   useEffect(() => {
-    if (!initWallets || !Array.isArray(initWallets)) return;
+    if (initWallets.length === 0) return;
     const wallets = initWallets.map((w) => w.create());
     setWallets(wallets);
   }, [initWallets]);
