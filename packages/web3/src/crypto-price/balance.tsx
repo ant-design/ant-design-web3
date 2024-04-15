@@ -1,9 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import type { Balance } from '@ant-design/web3-common';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 
 import { formatBalance } from '../utils';
+
+export type CryptoPriceFormatFn = (
+  preFormatValue: string,
+  info: {
+    oriValue: number | bigint;
+    symbol: string;
+    decimals?: number;
+    fixed?: number;
+  },
+) => string;
 
 export interface CryptoPriceBalanceProps extends Balance {
   className?: string;
@@ -11,6 +21,7 @@ export interface CryptoPriceBalanceProps extends Balance {
   style?: React.CSSProperties;
   fixed?: number;
   icon?: React.ReactNode;
+  format?: CryptoPriceFormatFn;
 }
 
 export const CryptoPriceBalance: React.FC<CryptoPriceBalanceProps> = ({
@@ -22,14 +33,27 @@ export const CryptoPriceBalance: React.FC<CryptoPriceBalanceProps> = ({
   value = 0,
   fixed,
   icon,
+  format,
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-crypto-price-balance');
 
+  const displayText = useMemo(() => {
+    if (format) {
+      return format(formatBalance(value, decimals, fixed), {
+        symbol,
+        decimals,
+        fixed,
+        oriValue: value,
+      });
+    }
+    return `${formatBalance(value, decimals, fixed)} ${symbol}`;
+  }, [value, symbol, decimals, fixed, format]);
+
   return (
     <span style={style} className={classNames(className, hashId, prefixCls)}>
       {icon ? <>{icon} </> : null}
-      {formatBalance(value, decimals, fixed)} {symbol}
+      {displayText}
     </span>
   );
 };

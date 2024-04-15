@@ -20,6 +20,10 @@ You can customize the chain through the `chain` property. If you don't customize
 
 <code src="./demos/custom-chain.tsx"></code>
 
+## Custom Format
+
+<code src="./demos/format.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |
@@ -31,3 +35,4 @@ You can customize the chain through the `chain` property. If you don't customize
 | symbol | Token symbol | `string` | `ETH` | - |
 | chain | Chain | `Chain` | `Mainnet` | - |
 | fixed | Fixed number of decimal places | `number` | - | - |
+| format | Formatting function | [CryptoPriceFormatFn](https://github.com/ant-design/ant-design-web3/blob/main/packages/web3/src/crypto-price/balance.tsx) | - | - |

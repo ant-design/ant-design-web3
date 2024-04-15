@@ -15,6 +15,7 @@ export interface CryptoPriceProps {
   chain?: Chain;
   icon?: boolean | React.ReactNode;
   fixed?: number;
+  format?: CryptoPriceBalanceProps['format'];
 }
 
 export const CryptoPrice: React.FC<CryptoPriceProps> = (props) => {
@@ -41,6 +42,7 @@ export const CryptoPrice: React.FC<CryptoPriceProps> = (props) => {
     className,
     hashId,
     icon: icon === true ? chain.nativeCurrency?.icon : icon,
+    format: props.format,
   };
 
   return wrapSSR(<CryptoPriceBalance {...cryptoPriceBalanceProps} />);

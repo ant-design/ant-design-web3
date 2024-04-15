@@ -21,14 +21,19 @@ group:
 
 <code src="./demos/custom-chain.tsx"></code>
 
+## 自定义格式化展示
+
+<code src="./demos/format.tsx"></code>
+
 ## API
 
-| 属性      | 描述                   | 类型                   | 默认值    | 版本 |
-| --------- | ---------------------- | ---------------------- | --------- | ---- |
-| className | 加密货币的类名         | `string`               | -         | -    |
-| value     | 值，基于代币的最小单位 | `bigint`               | `0`       | -    |
-| icon      | 图标                   | `boolean \| ReactNode` | `true`    | -    |
-| decimals  | 小数位数               | `number`               | `18`      | -    |
-| symbol    | 代币符号               | `string`               | `ETH`     | -    |
-| chain     | 链                     | `Chain`                | `Mainnet` | -    |
-| fixed     | 小数点后固定位数       | `number`               | -         | -    |
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| className | 加密货币的类名 | `string` | - | - |
+| value | 值，基于代币的最小单位 | `bigint` | `0` | - |
+| icon | 图标 | `boolean \| ReactNode` | `true` | - |
+| decimals | 小数位数 | `number` | `18` | - |
+| symbol | 代币符号 | `string` | `ETH` | - |
+| chain | 链 | `Chain` | `Mainnet` | - |
+| fixed | 小数点后固定位数 | `number` | - | - |
+| format | 格式化函数 | [CryptoPriceFormatFn](https://github.com/ant-design/ant-design-web3/blob/main/packages/web3/src/crypto-price/balance.tsx) | - | - |
