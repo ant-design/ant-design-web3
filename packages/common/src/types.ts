@@ -215,7 +215,6 @@ export interface RequiredLocale {
     getWalletBtnText: string;
     getWalletUniversalProtocolBtnText: string;
     getWalletPanelTitle: string;
-    getWalletPanelInfoTitle: string;
     getWalletPanelInfoDesc: string;
     qrCodePanelTitleForDownload: string;
     qrCodePanelTitleForScan: string;

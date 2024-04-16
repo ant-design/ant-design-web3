@@ -89,15 +89,6 @@ const DefaultGuidePanel: React.FC<{
       {renderContent()}
       <Button
         block
-        size="large"
-        type="primary"
-        className={`${prefixCls}-get-btn`}
-        onClick={() => updatePanelRoute('getWallet')}
-      >
-        {getWalletBtnText}
-      </Button>
-      <Button
-        block
         type="link"
         className={`${prefixCls}-more`}
         href={guide?.moreLink}

@@ -23,7 +23,6 @@ const localeValues: RequiredLocale = {
     getWalletBtnText: '获取',
     getWalletUniversalProtocolBtnText: '更多',
     getWalletPanelTitle: '获取钱包',
-    getWalletPanelInfoTitle: '没有找到你想要的？',
     getWalletPanelInfoDesc: '在左侧选择钱包，以开始使用不同的钱包提供商。',
     qrCodePanelTitleForDownload: '下载 {walletName}',
     qrCodePanelTitleForScan: '使用 {walletName} 扫描',
