@@ -1,9 +1,10 @@
 import React from 'react';
 import type { ConnectOptions } from '@ant-design/web3-common';
-import { Button, ConfigProvider } from 'antd';
+import { Button, ConfigProvider, message, Spin } from 'antd';
 import classNames from 'classnames';
 
 import useIntl from '../../hooks/useIntl';
+import useProvider from '../../hooks/useProvider';
 import { ConnectModalContextProvider } from '../context';
 import useMode from '../hooks/useMode';
 import type { ConnectModalProps, PanelRoute, Wallet } from '../interface';
@@ -15,10 +16,11 @@ import WalletList from './WalletList';
 export type ModalPanelProps = ConnectModalProps;
 
 const ModalPanel: React.FC<ModalPanelProps> = (props) => {
+  const { availableWallets, connect } = useProvider();
   const {
     title,
     footer,
-    walletList,
+    walletList = availableWallets,
     guide,
     group = true,
     groupOrder,
@@ -29,7 +31,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     locale,
   } = props;
   const intl = useIntl('ConnectModal', locale);
-
+  const [spin, setSpin] = React.useState(false);
   const showQRCoodByDefault = defaultSelectedWallet?.getQrCode;
   const [panelRoute, setPanelRoute] = React.useState<PanelRoute>(
     showQRCoodByDefault ? 'qrCode' : 'init',
@@ -37,6 +39,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
   const routeStack = React.useRef<PanelRoute[]>(
     showQRCoodByDefault ? ['init', 'qrCode'] : ['init'],
   );
+  const [messageApi, contextHolder] = message.useMessage();
   const [selectedWallet, setSelectedWallet] = React.useState<Wallet | undefined>(
     defaultSelectedWallet,
   );
@@ -59,7 +62,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
   }, []);
 
   const updateSelectedWallet = React.useCallback(
-    (wallet?: Wallet, connectOptions?: ConnectOptions) => {
+    async (wallet?: Wallet, connectOptions?: ConnectOptions) => {
       setSelectedWallet(wallet);
       if (wallet && connectOptions) {
         if (connectOptions.connectType === 'qrCode') {
@@ -68,6 +71,22 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
           setPanelRoute('init');
         }
         onWalletSelected?.(wallet, connectOptions);
+      }
+      // 在点击钱包时，如果是通过扩展连接的，调用spin动画
+      if (connectOptions?.connectType === 'extension') {
+        try {
+          setSpin(true);
+          await connect?.(wallet, {
+            connectType: 'extension',
+          });
+          setSpin(false);
+          messageApi.success('connect success');
+        } catch (e: any) {
+          messageApi.error(e.message);
+          console.error(e);
+        } finally {
+          setSpin(false);
+        }
       }
     },
     [onWalletSelected],
@@ -103,48 +122,50 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
         getMessage: intl.getMessage,
       }}
     >
-      <div
-        className={classNames(
-          `${prefixCls}-body`,
-          {
-            [`${prefixCls}-body-simple`]: isSimple,
-          },
-          hashId,
-        )}
-      >
-        {(panelRoute === 'init' || !isSimple) && (
-          <div className={classNames(`${prefixCls}-list-panel`)}>
-            <div className={`${prefixCls}-header`}>{mergedTitle}</div>
-            <div className={`${prefixCls}-list-container`}>
-              <WalletList
-                ref={actionRef}
-                walletList={walletList}
-                group={group}
-                groupOrder={groupOrder}
-              />
-            </div>
-            {isSimple && (
-              <div className={`${prefixCls}-simple-guide`}>
-                {intl.getMessage(intl.messages.guideTipTitle)}
-                <Button
-                  type="link"
-                  className={`${prefixCls}-simple-guide-right`}
-                  onClick={() => {
-                    updatePanelRoute('guide');
-                  }}
-                  size="small"
-                >
-                  {intl.getMessage(intl.messages.guideTipLearnMoreLinkText)}
-                </Button>
+      <Spin spinning={spin}>
+        <div
+          className={classNames(
+            `${prefixCls}-body`,
+            {
+              [`${prefixCls}-body-simple`]: isSimple,
+            },
+            hashId,
+          )}
+        >
+          {(panelRoute === 'init' || !isSimple) && (
+            <div className={classNames(`${prefixCls}-list-panel`)}>
+              <div className={`${prefixCls}-header`}>{mergedTitle}</div>
+              <div className={`${prefixCls}-list-container`}>
+                <WalletList
+                  ref={actionRef}
+                  walletList={walletList}
+                  group={group}
+                  groupOrder={groupOrder}
+                />
               </div>
-            )}
-            {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
-          </div>
-        )}
-        {!(panelRoute === 'init' && isSimple) && (
-          <MainPanel simple={isSimple} guide={guide} walletList={walletList} />
-        )}
-      </div>
+              {isSimple && (
+                <div className={`${prefixCls}-simple-guide`}>
+                  {intl.getMessage(intl.messages.guideTipTitle)}
+                  <Button
+                    type="link"
+                    className={`${prefixCls}-simple-guide-right`}
+                    onClick={() => {
+                      updatePanelRoute('guide');
+                    }}
+                    size="small"
+                  >
+                    {intl.getMessage(intl.messages.guideTipLearnMoreLinkText)}
+                  </Button>
+                </div>
+              )}
+              {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+            </div>
+          )}
+          {!(panelRoute === 'init' && isSimple) && (
+            <MainPanel simple={isSimple} guide={guide} walletList={walletList} />
+          )}
+        </div>
+      </Spin>
     </ConnectModalContextProvider>,
   );
 };
