@@ -11,11 +11,13 @@ import {
 import { getBalanceByMempool } from '../../helpers';
 
 export class XverseAdapter {
+  name: string;
   provider: BitcoinProvider | null;
   account?: Account;
   balance?: Balance;
 
-  constructor(id = 'XverseProviders.BitcoinProvider') {
+  constructor(name: string, id = 'XverseProviders.BitcoinProvider') {
+    this.name = name;
     this.provider = getProviderById(id);
   }
 

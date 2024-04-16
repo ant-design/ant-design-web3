@@ -2,6 +2,7 @@ import React, { createContext, useContext } from 'react';
 import type { Account, Balance } from '@ant-design/web3-common';
 
 export interface Adapter {
+  name: string;
   provider: any;
   account?: Account;
   balance?: Balance;

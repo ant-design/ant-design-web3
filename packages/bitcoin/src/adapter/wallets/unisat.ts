@@ -12,11 +12,13 @@ interface UnisatWindow extends Window {
 declare const window: UnisatWindow;
 
 export class UnisatAdapter implements Adapter {
+  name: string;
   provider: UnisatWindow['unisat'];
   account?: Account;
   balance?: Balance;
 
-  constructor() {
+  constructor(name: string) {
+    this.name = name;
     this.provider = window.unisat;
     this.account = undefined;
   }

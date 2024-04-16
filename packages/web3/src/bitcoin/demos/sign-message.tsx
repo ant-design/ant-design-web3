@@ -1,17 +1,16 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   BitcoinWeb3ConfigProvider,
-  LeatherWallet,
   UnisatWallet,
   useAdapter,
   XverseWallet,
 } from '@ant-design/web3-bitcoin';
-import { Button } from 'antd';
+import { Button, Space } from 'antd';
 
 const SignMessage: React.FC = () => {
-  const { signMessage } = useAdapter();
+  const { signMessage, account } = useAdapter();
 
-  return (
+  return account ? (
     <Button
       onClick={async () => {
         try {
@@ -24,16 +23,18 @@ const SignMessage: React.FC = () => {
     >
       Sign Message
     </Button>
-  );
+  ) : null;
 };
 
 const App: React.FC = () => {
   return (
-    <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet(), LeatherWallet()]}>
-      <Connector>
-        <ConnectButton />
-      </Connector>
-      <SignMessage />
+    <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet()]}>
+      <Space>
+        <Connector>
+          <ConnectButton />
+        </Connector>
+        <SignMessage />
+      </Space>
     </BitcoinWeb3ConfigProvider>
   );
 };

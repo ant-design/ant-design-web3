@@ -1,22 +1,22 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   BitcoinWeb3ConfigProvider,
-  LeatherWallet,
   UnisatWallet,
   useAdapter,
   XverseWallet,
 } from '@ant-design/web3-bitcoin';
-import { Button } from 'antd';
+import { Button, Space } from 'antd';
 
 const SendBitcoin: React.FC = () => {
-  const { sendBitcoin } = useAdapter();
+  const { sendBitcoin, account } = useAdapter();
 
-  return (
+  return account ? (
     <Button
       onClick={async () => {
         try {
-          const result = await sendBitcoin(
-            'bc1plht8mve2fxz3qgwdlcsn6u67u629dnh35j6ydx0yqu5drj9mu0zs9tz2ud',
+          // Don't send in main network!!
+          await sendBitcoin(
+            'bc1pcdv3h6nuq705e3yk4pvdlqrcfchzvd9se9zwlhke3menvxlc58zshl0ryv',
             10000,
           );
         } catch (error) {
@@ -26,16 +26,18 @@ const SendBitcoin: React.FC = () => {
     >
       Send Bitcoin
     </Button>
-  );
+  ) : null;
 };
 
 const App: React.FC = () => {
   return (
-    <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet(), LeatherWallet()]}>
-      <Connector>
-        <ConnectButton />
-      </Connector>
-      <SendBitcoin />
+    <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet()]}>
+      <Space>
+        <Connector>
+          <ConnectButton />
+        </Connector>
+        <SendBitcoin />
+      </Space>
     </BitcoinWeb3ConfigProvider>
   );
 };

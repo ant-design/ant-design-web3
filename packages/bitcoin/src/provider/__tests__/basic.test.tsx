@@ -50,6 +50,17 @@ vi.mock('@mempool/mempool.js', async () => {
 });
 
 describe('BitcoinWeb3ConfigProvider', () => {
+  it('mount correctly', () => {
+    const App = () => (
+      <BitcoinWeb3ConfigProvider>
+        <div className="content">test</div>
+      </BitcoinWeb3ConfigProvider>
+    );
+
+    const { selector } = xrender(App);
+    expect(selector('.content')?.textContent).toBe('test');
+  });
+
   it('connect and disconnect', async () => {
     const Disconnect = () => {
       const { disconnect } = useConnection();
