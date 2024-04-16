@@ -10,7 +10,7 @@ const DefaultGuidePanel: React.FC<{
   guide?: ConnectModalProps['guide'];
   simple?: boolean;
 }> = (props) => {
-  const { localeMessage, prefixCls, updatePanelRoute } = useContext(connectModalContext);
+  const { localeMessage, prefixCls } = useContext(connectModalContext);
   const defaultGuide: ConnectModalProps['guide'] = {
     title: localeMessage.guideTitle,
     infos: [
@@ -75,10 +75,7 @@ const DefaultGuidePanel: React.FC<{
     );
   };
 
-  const {
-    getWalletBtnText = defaultGuide.getWalletBtnText,
-    moreLinkText = defaultGuide.moreLinkText,
-  } = guide;
+  const { moreLinkText = defaultGuide.moreLinkText } = guide;
 
   return (
     <div

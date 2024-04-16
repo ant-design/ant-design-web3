@@ -248,7 +248,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           [`${componentCls}-simple-guide-panel`]: {
             marginBlockStart: 0,
             [`${componentCls}-guide-list`]: {
-              maxHeight: 280,
+              maxHeight: 400,
             },
           },
           [`${componentCls}-guide-list`]: {
