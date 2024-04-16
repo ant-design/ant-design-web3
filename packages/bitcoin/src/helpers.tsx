@@ -10,7 +10,7 @@ const {
 
 export const getBalanceObject = (sats: number): Balance => {
   return {
-    value: BigInt(sats / 100000000),
+    value: BigInt(sats),
     decimals: 8,
     symbol: 'BTC',
     icon: <BitcoinCircleColorful />,

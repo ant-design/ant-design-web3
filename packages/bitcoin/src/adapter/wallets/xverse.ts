@@ -33,10 +33,6 @@ export class XverseAdapter {
     this.balance = await getBalanceByMempool(payment.address);
   };
 
-  disconnect = async (): Promise<void> => {
-    this.account = undefined;
-  };
-
   signMessage = async (msg: string): Promise<void> => {
     if (!this.account?.address || !this.provider) return;
     const response = await request('signMessage', {

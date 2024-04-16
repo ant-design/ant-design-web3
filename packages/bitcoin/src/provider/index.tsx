@@ -25,7 +25,11 @@ export const BitcoinWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigPr
   }, [initWallets]);
 
   const selectWallet = async (wallet?: Wallet | null) => {
-    if (!wallet) return;
+    if (!wallet) {
+      // disconnect
+      if (!!adapter) setAdapter({} as Adapter);
+      return;
+    }
     const provider = wallets.find((w) => w.name === wallet.name)?.adapter;
     if (!provider) return;
     await provider.connect();

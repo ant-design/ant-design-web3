@@ -6,7 +6,6 @@ export interface Adapter {
   account?: Account;
   balance?: Balance;
   connect: () => Promise<void>;
-  disconnect: () => Promise<void>;
   signMessage: (message: string) => Promise<void>;
   sendBitcoin: (
     to: string,

@@ -35,10 +35,6 @@ export class UnisatAdapter implements Adapter {
     return;
   };
 
-  disconnect = async (): Promise<void> => {
-    this.account = undefined;
-  };
-
   signMessage = async (msg: string): Promise<void> => {
     if (!this.provider) return;
     const res = await this.provider.signMessage(msg);

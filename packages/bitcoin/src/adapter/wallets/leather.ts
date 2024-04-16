@@ -39,10 +39,6 @@ export class LeatherAdapter implements Adapter {
     return;
   };
 
-  disconnect = async (): Promise<void> => {
-    this.account = undefined;
-  };
-
   signMessage = async (msg: string): Promise<void> => {
     if (!this.account?.address || !this.provider) return;
     const response = await this.provider.request('signMessage', {
