@@ -39,7 +39,6 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
   const routeStack = React.useRef<PanelRoute[]>(
     showQRCoodByDefault ? ['init', 'qrCode'] : ['init'],
   );
-  const [messageApi, contextHolder] = message.useMessage();
   const [selectedWallet, setSelectedWallet] = React.useState<Wallet | undefined>(
     defaultSelectedWallet,
   );
@@ -69,24 +68,22 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
           updatePanelRoute('qrCode', true);
         } else {
           setPanelRoute('init');
+
+          // 在点击钱包时，如果是通过扩展连接的，调用spin动画
+          try {
+            setSpin(true);
+            await connect?.(wallet, {
+              connectType: 'extension',
+            });
+            message.success(intl.getMessage(intl.messages.walletConnectSuccess));
+            setSpin(false);
+          } catch (e: any) {
+            console.error(e);
+          } finally {
+            setSpin(false);
+          }
         }
         onWalletSelected?.(wallet, connectOptions);
-      }
-      // 在点击钱包时，如果是通过扩展连接的，调用spin动画
-      if (connectOptions?.connectType === 'extension') {
-        try {
-          setSpin(true);
-          await connect?.(wallet, {
-            connectType: 'extension',
-          });
-          setSpin(false);
-          messageApi.success('connect success');
-        } catch (e: any) {
-          messageApi.error(e.message);
-          console.error(e);
-        } finally {
-          setSpin(false);
-        }
       }
     },
     [onWalletSelected],

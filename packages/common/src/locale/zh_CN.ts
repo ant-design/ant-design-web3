@@ -39,6 +39,7 @@ const localeValues: RequiredLocale = {
     guideTipTitle: '初次接触加密钱包?',
     guideTipLearnMoreLinkText: '了解更多',
     walletPanelPlugin: '插件',
+    walletConnectSuccess: '钱包已连接！',
   },
   NFTCard: {
     actionText: '立即购买',

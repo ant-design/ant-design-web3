@@ -110,6 +110,9 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         defaultSelectedWallet={defaultSelectedWallet}
         walletList={availableWallets}
         {...modalProps}
+        onWalletSelected={() => {
+          setOpen(false);
+        }}
         onCancel={(e) => {
           modalProps?.onCancel?.(e);
           setOpen(false);

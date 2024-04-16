@@ -41,6 +41,7 @@ const localeValues: RequiredLocale = {
     guideTipTitle: 'New to crypto wallets?',
     guideTipLearnMoreLinkText: 'Learn More',
     walletPanelPlugin: 'PLUGIN',
+    walletConnectSuccess: 'Wallet Connected!',
   },
   NFTCard: {
     actionText: 'Buy Now',

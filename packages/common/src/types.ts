@@ -231,6 +231,7 @@ export interface RequiredLocale {
     guideTipTitle: string;
     guideTipLearnMoreLinkText: string;
     walletPanelPlugin: string;
+    walletConnectSuccess: string;
   };
   NFTCard: {
     actionText: string;
