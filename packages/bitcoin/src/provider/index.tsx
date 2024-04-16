@@ -31,8 +31,8 @@ export const BitcoinWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigPr
       return;
     }
     const provider = wallets.find((w) => w.name === wallet.name)?.adapter;
-    if (!provider) return;
-    await provider.connect();
+    await provider?.connect();
+    // @ts-ignore provider is not undefined
     setAdapter(provider);
   };
 
