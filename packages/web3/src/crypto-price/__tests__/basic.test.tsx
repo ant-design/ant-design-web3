@@ -218,4 +218,24 @@ describe('CryptoPrice', () => {
     expect(text).toBe(' 12.3 PROP');
     expect(baseElement.querySelector('.ant-web3-icon-ethereum-circle-filled')).not.toBeNull();
   });
+  it('support custom format', () => {
+    function formatMoney(value: number) {
+      // 使用千分符分隔金额
+      return value.toLocaleString();
+    }
+
+    const App: React.FC = () => {
+      const customFormat = (
+        preFormatValue: string,
+        info: { originValue: number | bigint; symbol: string; decimals?: number; fixed?: number },
+      ) => {
+        return `${formatMoney(Number(preFormatValue))} ${info.symbol}`;
+      };
+      return <CryptoPrice format={customFormat} value={123456700000000000000000n} />;
+    };
+    const { baseElement } = render(<App />);
+
+    const text = baseElement.querySelector('span')?.textContent;
+    expect(text).toBe('123,456.7 ETH');
+  });
 });
