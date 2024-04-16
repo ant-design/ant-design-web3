@@ -220,7 +220,6 @@ describe('CryptoPrice', () => {
   });
   it('support custom format', () => {
     function formatMoney(value: number) {
-      console.log('formatMoney', value);
       // 使用千分符分隔金额
       return value.toLocaleString();
     }
@@ -228,7 +227,7 @@ describe('CryptoPrice', () => {
     const App: React.FC = () => {
       const customFormat = (
         preFormatValue: string,
-        info: { oriValue: number | bigint; symbol: string; decimals?: number; fixed?: number },
+        info: { originValue: number | bigint; symbol: string; decimals?: number; fixed?: number },
       ) => {
         return `${formatMoney(Number(preFormatValue))} ${info.symbol}`;
       };

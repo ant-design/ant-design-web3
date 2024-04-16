@@ -5,15 +5,14 @@ import classNames from 'classnames';
 
 import { formatBalance } from '../utils';
 
-export type CryptoPriceFormatFn = (
-  preFormatValue: string,
-  info: {
-    oriValue: number | bigint;
-    symbol: string;
-    decimals?: number;
-    fixed?: number;
-  },
-) => string;
+export type FormatInfo = {
+  originValue: number | bigint;
+  symbol: string;
+  decimals?: number;
+  fixed?: number;
+};
+
+export type CryptoPriceFormatFn = (preFormatValue: string, info: FormatInfo) => string;
 
 export interface CryptoPriceBalanceProps extends Balance {
   className?: string;
@@ -44,7 +43,7 @@ export const CryptoPriceBalance: React.FC<CryptoPriceBalanceProps> = ({
         symbol,
         decimals,
         fixed,
-        oriValue: value,
+        originValue: value,
       });
     }
     return `${formatBalance(value, decimals, fixed)} ${symbol}`;

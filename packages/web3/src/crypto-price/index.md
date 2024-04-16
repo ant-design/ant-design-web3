@@ -29,10 +29,25 @@ You can customize the chain through the `chain` property. If you don't customize
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | className | The className of the CryptoPrice | `string` | - | - |
-| value | Value, based on the minimum unit of the token | `bigint` | `0` | - |
+| value | Value, based on the minimum unit of the token | `number \| bigint` | `0` | - |
 | icon | Icon | `boolean` \| `ReactNode` | `true` | - |
 | decimals | Number of decimal places | `number` | `18` | - |
 | symbol | Token symbol | `string` | `ETH` | - |
 | chain | Chain | `Chain` | `Mainnet` | - |
 | fixed | Fixed number of decimal places | `number` | - | - |
-| format | Formatting function | [CryptoPriceFormatFn](https://github.com/ant-design/ant-design-web3/blob/main/packages/web3/src/crypto-price/balance.tsx) | - | - |
+| format | Formatting function | (value: string, info: [FormatInfo](#formatinfo)) => string | - | - |
+
+### FormatInfo
+
+```typescript
+type FormatInfo = {
+  /** The origin value which user pass in */
+  originValue: number | bigint;
+  /** The symbol of the token */
+  symbol: string;
+  /** The decimals of the token */
+  decimals?: number;
+  /** The fixed number of decimal places */
+  fixed?: number;
+};
+```

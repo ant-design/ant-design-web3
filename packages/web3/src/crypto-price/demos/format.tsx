@@ -8,7 +8,7 @@ function formatMoney(value: number) {
 const App: React.FC = () => {
   const customFormat = (
     preFormatValue: string,
-    info: { oriValue: number | bigint; symbol: string; decimals?: number; fixed?: number },
+    info: { originValue: number | bigint; symbol: string; decimals?: number; fixed?: number },
   ) => {
     return `${formatMoney(Number(preFormatValue))} ${info.symbol}`;
   };
