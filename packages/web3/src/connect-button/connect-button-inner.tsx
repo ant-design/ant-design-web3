@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { MoreOutlined } from '@ant-design/icons';
 import type { Wallet } from '@ant-design/web3-common';
 import type { ButtonProps, MenuProps } from 'antd';
-import { Button, ConfigProvider, Dropdown, Space } from 'antd';
+import { Button, ConfigProvider, Dropdown, Flex, Space } from 'antd';
 import classNames from 'classnames';
 
 import type { IntlType } from '../hooks/useIntl';
@@ -35,12 +35,14 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
   const [firstInstallWallet, setFirstInstallWallet] = useState<Wallet | undefined>(undefined);
   const [items, setItems] = useState<MenuProps['items']>([]);
 
-  const getWalletIcon = (icon?: string | React.ReactNode) => {
+  const getWalletIcon = (wallet: Wallet) => {
+    const icon = wallet.icon;
+
     return typeof icon === 'string' ? (
       <img
         className={classNames(__hashId__, `${prefixCls}-quick-connect-icon`)}
         src={icon}
-        alt="Wallet Icon"
+        alt={`${wallet.name} Icon`}
       />
     ) : (
       icon
@@ -78,7 +80,7 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
     const newItems = allQuickWallets.map((item) => {
       return {
         key: item.name,
-        icon: getWalletIcon(item.icon),
+        icon: getWalletIcon(item),
         label: item.name,
         onClick: () => {
           onConnectClick?.(item);
@@ -113,10 +115,10 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
           onConnectClick?.(firstInstallWallet);
         }}
       >
-        <Space>
+        <Flex align="center" gap={8}>
           {children}
-          {getWalletIcon(firstInstallWallet?.icon)}
-        </Space>
+          {getWalletIcon(firstInstallWallet)}
+        </Flex>
       </Dropdown.Button>
     ) : (
       <Button
