@@ -124,6 +124,7 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
       </Dropdown.Button>
     ) : (
       <Button
+        className={className}
         {...restProps}
         onClick={(e) => {
           onClick?.(e);
