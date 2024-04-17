@@ -115,7 +115,7 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
           onConnectClick?.(firstInstallWallet);
         }}
       >
-        <Flex align="center" gap={8}>
+        <Flex align="center" className={`${prefixCls}-quick-connect-inner`}>
           {children}
           {getWalletIcon(firstInstallWallet)}
         </Flex>
