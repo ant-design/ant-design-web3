@@ -33,3 +33,27 @@ Support for other methods like PSBT will be added in the future. Feel free to su
 ## get Ordinals Inscriptions using unisat wallet
 
 <code src="./demos/get-inscriptions.tsx"></code>
+
+## API
+
+### BitcoinWeb3ConfigProvider
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| balance | Whether to display balance | `boolean` | `false` | - |
+| wallets | Wallets | `WalletFactory[]` | - | - |
+| locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/en_US.ts) | - | - |
+
+### useAdapter
+
+#### result
+
+| Property | Description | Type |
+| --- | --- | --- |
+| name | The connected wallet's name | `string` |
+| provider | The connected wallet's provider | `any` |
+| account | Represents the web3 account address of the current user | `string` |
+| connect | Connect the wallet | `() => Promise<void>` |
+| getBalance | Get the balance of the wallet | `() => Promise<Balance \| undefined>` |
+| signMessage | Sign message | `() => Promise<string \| undefined>` |
+| sendTransfer | Transfer bticoin | `() => Promise<string \| undefined>` |
