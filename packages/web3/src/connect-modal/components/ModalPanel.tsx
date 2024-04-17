@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ConnectOptions } from '@ant-design/web3-common';
+import type { ConnectOptions, ConnectorTriggerProps } from '@ant-design/web3-common';
 import { Button, ConfigProvider, message, Spin } from 'antd';
 import classNames from 'classnames';
 
@@ -16,7 +16,7 @@ import WalletList from './WalletList';
 export type ModalPanelProps = ConnectModalProps;
 
 const ModalPanel: React.FC<ModalPanelProps> = (props) => {
-  const { availableWallets, connect } = useProvider();
+  const { availableWallets } = useProvider();
   const {
     title,
     footer,
@@ -29,9 +29,9 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     actionRef,
     defaultSelectedWallet,
     locale,
+    loading,
   } = props;
   const intl = useIntl('ConnectModal', locale);
-  const [spin, setSpin] = React.useState(false);
   const showQRCoodByDefault = defaultSelectedWallet?.getQrCode;
   const [panelRoute, setPanelRoute] = React.useState<PanelRoute>(
     showQRCoodByDefault ? 'qrCode' : 'init',
@@ -68,20 +68,6 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
           updatePanelRoute('qrCode', true);
         } else {
           setPanelRoute('init');
-
-          // 在点击钱包时，如果是通过扩展连接的，调用spin动画
-          try {
-            setSpin(true);
-            await connect?.(wallet, {
-              connectType: 'extension',
-            });
-            message.success(intl.getMessage(intl.messages.walletConnectSuccess));
-            setSpin(false);
-          } catch (e: any) {
-            console.error(e);
-          } finally {
-            setSpin(false);
-          }
         }
         onWalletSelected?.(wallet, connectOptions);
       }
@@ -119,7 +105,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
         getMessage: intl.getMessage,
       }}
     >
-      <Spin spinning={spin}>
+      <Spin spinning={!!loading}>
         <div
           className={classNames(
             `${prefixCls}-body`,

@@ -18,8 +18,6 @@ Ant Design Web3 是一个基于 [Ant Design](https://ant.design/index-cn) 的 We
 
 <code src="./demos/guide.tsx"></code>
 
-<code src="./demos/connect-modal.tsx"></code>
-
 如果你想要进一步尝试如何在自己的项目中使用 Ant Design Web3，或者想要从 0 创建一个基于 Ant Design Web3 的项目，你可以继续阅读[快速开始](quick-start.zh-CN.md)，祝你在 Web3 冲浪愉快！🌊🌊🌊
 
 ## 为什么使用？
