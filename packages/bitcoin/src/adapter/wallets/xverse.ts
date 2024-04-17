@@ -1,20 +1,14 @@
 import type { Account, Balance } from '@ant-design/web3-common';
-import { message } from 'antd';
-import {
-  AddressPurpose,
-  getProviderById,
-  request,
-  RpcErrorCode,
-  type BitcoinProvider,
-} from 'sats-connect';
+import { AddressPurpose, getProviderById, request, type BitcoinProvider } from 'sats-connect';
 
 import { getBalanceByMempool } from '../../helpers';
+import type { Adapter } from '../useAdapter';
 
-export class XverseAdapter {
+export class XverseAdapter implements Adapter {
   name: string;
   provider: BitcoinProvider | null;
   account?: Account;
-  balance?: Balance;
+  payment?: string;
 
   constructor(name: string, id = 'XverseProviders.BitcoinProvider') {
     this.name = name;
@@ -27,36 +21,33 @@ export class XverseAdapter {
       purposes: [AddressPurpose.Ordinals, AddressPurpose.Payment],
     });
     if (response.status === 'error') {
-      message.error(response.error.message);
-      return;
+      throw new Error(response.error.message);
     }
     const [ordinals, payment] = response.result;
     this.account = { address: ordinals.address };
-    this.balance = await getBalanceByMempool(payment.address);
+    this.payment = payment.address;
   };
 
-  signMessage = async (msg: string): Promise<void> => {
+  getBalance = async (): Promise<Balance | undefined> => {
+    if (!this.payment) return;
+    const balance = await getBalanceByMempool(this.payment);
+    return balance;
+  };
+
+  signMessage = async (msg: string): Promise<string | undefined> => {
     if (!this.account?.address || !this.provider) return;
     const response = await request('signMessage', {
       address: this.account.address,
       message: msg,
     });
     if (response.status === 'success') {
-      alert('messageHash:' + response.result.messageHash);
+      return response.result.signature;
     } else {
-      if (response.error.code === RpcErrorCode.USER_REJECTION) {
-        // handle user request cancelation
-      } else {
-        // handle request error
-      }
+      throw new Error(response.error.message);
     }
   };
 
-  sendBitcoin = async (
-    to: string,
-    sats: number,
-    options?: { feeRate: number },
-  ): Promise<string> => {
+  sendTransfer = async (to: string, sats: number): Promise<string> => {
     let txid = '';
     try {
       const response = await request('sendTransfer', {
@@ -70,13 +61,11 @@ export class XverseAdapter {
       if (response.status === 'success') {
         txid = response.result.txid;
       } else {
-        if (response.error.code === RpcErrorCode.USER_REJECTION) {
-          // handle user cancellation error
-        } else {
-          // handle error
-        }
+        throw new Error(response.error.message);
       }
-    } catch (err) {}
+    } catch (e) {
+      throw e;
+    }
     return txid;
   };
 }

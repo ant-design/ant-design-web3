@@ -5,10 +5,10 @@ export interface Adapter {
   name: string;
   provider: any;
   account?: Account;
-  balance?: Balance;
+  getBalance: () => Promise<Balance | undefined>;
   connect: () => Promise<void>;
-  signMessage: (message: string) => Promise<void>;
-  sendBitcoin: (
+  signMessage: (message: string) => Promise<string | undefined>;
+  sendTransfer: (
     to: string,
     sats: number,
     options?: { feeRate: number },

@@ -1,21 +1,12 @@
 import type { Account, Balance } from '@ant-design/web3-common';
-import { message } from 'antd';
 
 import { getBalanceObject } from '../../helpers';
 import type { Adapter } from '../useAdapter';
 
-interface UnisatWindow extends Window {
-  // TODO: unisat interface
-  unisat?: any;
-}
-
-declare const window: UnisatWindow;
-
 export class UnisatAdapter implements Adapter {
   name: string;
-  provider: UnisatWindow['unisat'];
+  provider: Window['unisat'];
   account?: Account;
-  balance?: Balance;
 
   constructor(name: string) {
     this.name = name;
@@ -27,23 +18,27 @@ export class UnisatAdapter implements Adapter {
     if (!this.provider) return;
     try {
       const accounts = await this.provider.requestAccounts();
-      const { confirmed } = await this.provider.getBalance();
       this.account = { address: accounts[0] };
-      this.balance = getBalanceObject(confirmed);
     } catch (e) {
-      // @ts-ignore
-      message.error(e.message);
+      throw e;
     }
     return;
   };
 
-  signMessage = async (msg: string): Promise<void> => {
+  getBalance = async (): Promise<Balance | undefined> => {
     if (!this.provider) return;
-    const res = await this.provider.signMessage(msg);
-    message.success(res);
+    const { confirmed } = await this.provider.getBalance();
+    const balance = getBalanceObject(confirmed);
+    return balance;
   };
 
-  sendBitcoin = async (
+  signMessage = async (msg: string): Promise<string | undefined> => {
+    if (!this.provider) return;
+    const signature = await this.provider.signMessage(msg);
+    return signature;
+  };
+
+  sendTransfer = async (
     to: string,
     sats: number,
     options?: { feeRate: number },
@@ -53,7 +48,7 @@ export class UnisatAdapter implements Adapter {
     try {
       txid = await this.provider.sendBitcoin(to, sats, options);
     } catch (e) {
-      console.log(e);
+      throw e;
     }
     return txid;
   };

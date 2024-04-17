@@ -16,7 +16,7 @@ jobs:
 
       - name: ci
         run: |
-          npm i pnpm@8 -g
+          npm i pnpm@8.9.0 -g
           pnpm install
           pnpm run ci
 

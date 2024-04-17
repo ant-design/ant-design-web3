@@ -1,21 +1,34 @@
-import { type FC, type PropsWithChildren } from 'react';
-import { Web3ConfigProvider, type Locale, type Wallet } from '@ant-design/web3-common';
+import { useEffect, useState, type FC, type PropsWithChildren } from 'react';
+import {
+  Web3ConfigProvider,
+  type Balance,
+  type Locale,
+  type Wallet,
+} from '@ant-design/web3-common';
 
 import { useAdapter } from '../adapter';
 
-export interface BitcoinWeb3ConfigProviderProps {
+export interface BitcoinConfigProviderProps {
   locale?: Locale;
   wallets: Wallet[];
   selectWallet: (wallet?: Wallet | null) => void;
+  balance: boolean;
 }
 
-export const AntDesignWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigProviderProps>> = ({
+export const BitcoinConfigProvider: FC<PropsWithChildren<BitcoinConfigProviderProps>> = ({
   children,
   locale,
   wallets,
   selectWallet,
+  balance: showBalance,
 }) => {
-  const { balance, account } = useAdapter();
+  const { getBalance, account } = useAdapter();
+  const [balance, setBalance] = useState<Balance>();
+
+  useEffect(() => {
+    if (!showBalance) return;
+    getBalance?.().then((b) => setBalance(b));
+  }, [showBalance, getBalance]);
 
   return (
     <Web3ConfigProvider

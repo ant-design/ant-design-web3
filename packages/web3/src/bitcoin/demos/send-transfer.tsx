@@ -8,14 +8,14 @@ import {
 import { Button, Space } from 'antd';
 
 const SendBitcoin: React.FC = () => {
-  const { sendBitcoin, account } = useAdapter();
+  const { sendTransfer, account } = useAdapter();
 
   return account ? (
     <Button
       onClick={async () => {
         try {
           // Don't send in main network!!
-          await sendBitcoin(
+          await sendTransfer(
             'bc1pcdv3h6nuq705e3yk4pvdlqrcfchzvd9se9zwlhke3menvxlc58zshl0ryv',
             10000,
           );
@@ -31,7 +31,7 @@ const SendBitcoin: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet()]}>
+    <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet()]} balance>
       <Space>
         <Connector>
           <ConnectButton />

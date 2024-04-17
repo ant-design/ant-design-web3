@@ -4,17 +4,20 @@ import type { Locale, Wallet } from '@ant-design/web3-common';
 import { type Adapter } from '../adapter';
 import { BitcoinAdapterContext } from '../adapter/useAdapter';
 import { BitcoinWallet, WalletFactory } from '../wallets/types';
-import { AntDesignWeb3ConfigProvider } from './config-provider';
+import { BitcoinConfigProvider } from './config-provider';
 
 export interface BitcoinWeb3ConfigProviderProps {
   // 钱包显式传入
   wallets?: WalletFactory[];
   locale?: Locale;
+  balance?: boolean;
 }
 
 export const BitcoinWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigProviderProps>> = ({
   children,
   wallets: initWallets = [],
+  balance = false,
+  locale,
 }) => {
   const [adapter, setAdapter] = useState<Adapter>({} as Adapter);
   const [wallets, setWallets] = useState<BitcoinWallet[]>([]);
@@ -38,9 +41,14 @@ export const BitcoinWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigPr
 
   return (
     <BitcoinAdapterContext.Provider value={adapter}>
-      <AntDesignWeb3ConfigProvider selectWallet={selectWallet} wallets={wallets}>
+      <BitcoinConfigProvider
+        selectWallet={selectWallet}
+        wallets={wallets}
+        balance={balance}
+        locale={locale}
+      >
         {children}
-      </AntDesignWeb3ConfigProvider>
+      </BitcoinConfigProvider>
     </BitcoinAdapterContext.Provider>
   );
 };

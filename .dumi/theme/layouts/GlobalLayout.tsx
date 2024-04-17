@@ -1,6 +1,6 @@
 import React from 'react';
 import { en_US, Web3ConfigProvider, zh_CN } from '@ant-design/web3-common';
-import { useIntl, useLocation, useOutlet, usePrefersColor, useRouteMeta } from 'dumi';
+import { useIntl, useLocation, useOutlet, usePrefersColor } from 'dumi';
 import { GlobalLayout as ThemeGlobalLayout } from 'dumi-theme-antd-web3';
 
 import SiteThemeProvider from '../SiteThemeProvider';

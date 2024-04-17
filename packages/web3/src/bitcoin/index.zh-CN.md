@@ -29,8 +29,32 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 
 ## 使用 sendBitcoin 发送交易
 
-<code src="./demos/send-bitcoin.tsx"></code>
+<code src="./demos/send-transfer.tsx"></code>
 
 ## 使用 unisat 查看 Ordinals 铭文
 
 <code src="./demos/get-inscriptions.tsx"></code>
+
+## API
+
+### BitcoinWeb3ConfigProvider
+
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| balance | 是否显示余额 | `boolean` | `false` | - |
+| wallets | 可用的钱包 | `WalletFactory[]` | - | - |
+| locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
+
+### useAdapter
+
+#### result
+
+| 参数         | 描述                             | 类型                                  |
+| ------------ | -------------------------------- | ------------------------------------- |
+| name         | 当前连接的钱包名称               | `string`                              |
+| provider     | 获取当前连接钱包的 provider 对象 | `any`                                 |
+| account      | 账户地址                         | `string`                              |
+| connect      | 连接钱包                         | `() => Promise<void>`                 |
+| getBalance   | 获取钱包余额                     | `() => Promise<Balance \| undefined>` |
+| signMessage  | 签名                             | `() => Promise<string \| undefined>`  |
+| sendTransfer | 发送交易                         | `() => Promise<string \| undefined>`  |

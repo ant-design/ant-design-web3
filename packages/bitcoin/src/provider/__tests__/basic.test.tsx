@@ -73,7 +73,7 @@ describe('BitcoinWeb3ConfigProvider', () => {
 
     const App = () => {
       return (
-        <BitcoinWeb3ConfigProvider wallets={[XverseWallet()]}>
+        <BitcoinWeb3ConfigProvider wallets={[XverseWallet()]} balance>
           <Connector>
             <ConnectButton className="connect" />
           </Connector>

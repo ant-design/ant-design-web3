@@ -18,7 +18,7 @@ export const getBalanceObject = (sats: number): Balance => {
 };
 
 /**
- * Xverse 钱包无法直接获取余额，需要调用 mempool API
+ * 对于不提供获取余额接口的钱包，如 Xverse，需调用 mempool API 自行获取
  * https://github.com/secretkeylabs/sats-connect/issues/12#issuecomment-2038963924
  */
 export const getBalanceByMempool = async (address: string): Promise<Balance> => {

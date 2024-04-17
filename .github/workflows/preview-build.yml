@@ -27,7 +27,7 @@ jobs:
         run: |
           export PUBLIC_PATH=/
           export BASE=/
-          npm i pnpm@8 -g
+          npm i pnpm@8.9.0 -g
           pnpm install
           pnpm run build:docs
           rm -rf dist/\~demos/:id

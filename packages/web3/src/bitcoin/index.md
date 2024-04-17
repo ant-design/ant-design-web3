@@ -26,9 +26,9 @@ Support for other methods like PSBT will be added in the future. Feel free to su
 
 <code src="./demos/sign-message.tsx"></code>
 
-## sendBitcoin
+## sendTransfer
 
-<code src="./demos/send-bitcoin.tsx"></code>
+<code src="./demos/send-transfer.tsx"></code>
 
 ## get Ordinals Inscriptions using unisat wallet
 
