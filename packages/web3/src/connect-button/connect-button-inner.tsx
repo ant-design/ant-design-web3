@@ -28,6 +28,7 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
     onConnectClick,
     intl,
     __hashId__,
+    className,
     ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -110,6 +111,7 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
         menu={{
           items,
         }}
+        className={classNames(className, `${prefixCls}-quick-connect`)}
         onClick={(e) => {
           onClick?.(e);
           onConnectClick?.(firstInstallWallet);
