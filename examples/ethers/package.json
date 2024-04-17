@@ -19,8 +19,8 @@
     "umi": "^4.1.5"
   },
   "devDependencies": {
-    "@types/react": "^18.2.73",
-    "@types/react-dom": "^18.2.22",
+    "@types/react": "^18.2.78",
+    "@types/react-dom": "^18.2.25",
     "typescript": "^5.4.4"
   }
 }
