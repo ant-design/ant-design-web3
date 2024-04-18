@@ -27,7 +27,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   currentChain?: SolanaChainConfig;
   availableWallets: Wallet[];
   connectionError?: WalletConnectionError;
-  autoAddRegistedWallets?: boolean;
+  autoAddRegisteredWallets?: boolean;
   onCurrentChainChange?: (chain?: SolanaChainConfig) => void;
 }
 
@@ -157,7 +157,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       };
     });
 
-    if (!props.autoAddRegistedWallets) {
+    if (!props.autoAddRegisteredWallets) {
       return providedWallets;
     }
 
@@ -183,7 +183,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       });
 
     return [...providedWallets, ...autoRegisteredWallets];
-  }, [props.availableWallets, wallets, props.autoAddRegistedWallets]);
+  }, [props.availableWallets, wallets, props.autoAddRegisteredWallets]);
 
   const currentChain = useMemo(() => {
     return chainList.find((c) => c.id === props.currentChain?.id);
