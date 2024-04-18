@@ -66,282 +66,274 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                 class="ant-modal-body"
               >
                 <div
-                  class="ant-spin-nested-loading css-dev-only-do-not-override-ysyo1"
+                  class="ant-web3-connect-modal-body ant-web3-connect-modal-body-simple css-dev-only-do-not-override-ysyo1"
                 >
                   <div
-                    class="ant-spin-container"
+                    class="ant-web3-connect-modal-list-panel"
                   >
                     <div
-                      class="ant-web3-connect-modal-body ant-web3-connect-modal-body-simple css-dev-only-do-not-override-ysyo1"
+                      class="ant-web3-connect-modal-header"
+                    >
+                      <h2
+                        class="ant-web3-connect-modal-title"
+                      >
+                        ConnectModal
+                      </h2>
+                    </div>
+                    <div
+                      class="ant-web3-connect-modal-list-container"
                     >
                       <div
-                        class="ant-web3-connect-modal-list-panel"
+                        class="ant-web3-connect-modal-wallet-list"
                       >
                         <div
-                          class="ant-web3-connect-modal-header"
-                        >
-                          <h2
-                            class="ant-web3-connect-modal-title"
-                          >
-                            ConnectModal
-                          </h2>
-                        </div>
-                        <div
-                          class="ant-web3-connect-modal-list-container"
+                          class="ant-web3-connect-modal-group"
                         >
                           <div
-                            class="ant-web3-connect-modal-wallet-list"
+                            class="ant-web3-connect-modal-group-title"
+                          >
+                            Popular
+                          </div>
+                          <div
+                            class="ant-web3-connect-modal-group-content"
                           >
                             <div
-                              class="ant-web3-connect-modal-group"
+                              class="ant-list ant-list-split css-dev-only-do-not-override-ysyo1"
                             >
                               <div
-                                class="ant-web3-connect-modal-group-title"
-                              >
-                                Popular
-                              </div>
-                              <div
-                                class="ant-web3-connect-modal-group-content"
+                                class="ant-spin-nested-loading css-dev-only-do-not-override-ysyo1"
                               >
                                 <div
-                                  class="ant-list ant-list-split css-dev-only-do-not-override-ysyo1"
+                                  class="ant-spin-container"
                                 >
-                                  <div
-                                    class="ant-spin-nested-loading css-dev-only-do-not-override-ysyo1"
+                                  <ul
+                                    class="ant-list-items"
                                   >
-                                    <div
-                                      class="ant-spin-container"
+                                    <li
+                                      class="ant-list-item ant-web3-connect-modal-wallet-item"
                                     >
-                                      <ul
-                                        class="ant-list-items"
+                                      <div
+                                        class="ant-web3-connect-modal-content"
                                       >
-                                        <li
-                                          class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                        <img
+                                          alt="Test Wallet"
+                                          class="ant-web3-connect-modal-img"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                        />
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
                                         >
-                                          <div
-                                            class="ant-web3-connect-modal-content"
-                                          >
-                                            <img
-                                              alt="Test Wallet"
-                                              class="ant-web3-connect-modal-img"
-                                              src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
-                                            />
-                                            <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
-                                            >
-                                              Test Wallet
-                                            </span>
-                                          </div>
-                                          <div
-                                            class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                                          >
-                                            <div
-                                              class="ant-space-item"
-                                            />
-                                          </div>
-                                        </li>
-                                        <li
-                                          class="ant-list-item ant-web3-connect-modal-wallet-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-content"
-                                          >
-                                            <img
-                                              alt="Test Wallet3"
-                                              class="ant-web3-connect-modal-img"
-                                              src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
-                                            />
-                                            <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
-                                            >
-                                              Test Wallet3
-                                            </span>
-                                          </div>
-                                          <div
-                                            class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                                          >
-                                            <div
-                                              class="ant-space-item"
-                                            />
-                                          </div>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div
-                              class="ant-web3-connect-modal-group"
-                            >
-                              <div
-                                class="ant-web3-connect-modal-group-title"
-                              >
-                                More
-                              </div>
-                              <div
-                                class="ant-web3-connect-modal-group-content"
-                              >
-                                <div
-                                  class="ant-list ant-list-split css-dev-only-do-not-override-ysyo1"
-                                >
-                                  <div
-                                    class="ant-spin-nested-loading css-dev-only-do-not-override-ysyo1"
-                                  >
-                                    <div
-                                      class="ant-spin-container"
+                                          Test Wallet
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                      >
+                                        <div
+                                          class="ant-space-item"
+                                        />
+                                      </div>
+                                    </li>
+                                    <li
+                                      class="ant-list-item ant-web3-connect-modal-wallet-item"
                                     >
-                                      <ul
-                                        class="ant-list-items"
+                                      <div
+                                        class="ant-web3-connect-modal-content"
                                       >
-                                        <li
-                                          class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                        <img
+                                          alt="Test Wallet3"
+                                          class="ant-web3-connect-modal-img"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                        />
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
                                         >
-                                          <div
-                                            class="ant-web3-connect-modal-content"
-                                          >
-                                            <img
-                                              alt="Test Wallet2"
-                                              class="ant-web3-connect-modal-img"
-                                              src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
-                                            />
-                                            <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
-                                            >
-                                              Test Wallet2
-                                            </span>
-                                          </div>
-                                          <div
-                                            class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                                          >
-                                            <div
-                                              class="ant-space-item"
-                                            />
-                                          </div>
-                                        </li>
-                                        <li
-                                          class="ant-list-item ant-web3-connect-modal-wallet-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-content"
-                                          >
-                                            <img
-                                              alt="Test Wallet4"
-                                              class="ant-web3-connect-modal-img"
-                                            />
-                                            <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
-                                            >
-                                              Test Wallet4
-                                            </span>
-                                          </div>
-                                          <div
-                                            class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                                          >
-                                            <div
-                                              class="ant-space-item"
-                                            />
-                                          </div>
-                                        </li>
-                                        <li
-                                          class="ant-list-item ant-web3-connect-modal-wallet-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-content"
-                                          >
-                                            <img
-                                              alt="Test Wallet5"
-                                              class="ant-web3-connect-modal-img"
-                                            />
-                                            <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
-                                            >
-                                              Test Wallet5
-                                            </span>
-                                          </div>
-                                          <div
-                                            class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                                          >
-                                            <div
-                                              class="ant-space-item"
-                                            />
-                                          </div>
-                                        </li>
-                                        <li
-                                          class="ant-list-item ant-web3-connect-modal-wallet-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-content"
-                                          >
-                                            <img
-                                              alt="Test Wallet6"
-                                              class="ant-web3-connect-modal-img"
-                                            />
-                                            <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
-                                            >
-                                              Test Wallet6
-                                            </span>
-                                          </div>
-                                          <div
-                                            class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                                          >
-                                            <div
-                                              class="ant-space-item"
-                                            />
-                                          </div>
-                                        </li>
-                                        <li
-                                          class="ant-list-item ant-web3-connect-modal-wallet-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-content"
-                                          >
-                                            <img
-                                              alt="Test Wallet6"
-                                              class="ant-web3-connect-modal-img"
-                                            />
-                                            <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
-                                            >
-                                              Test Wallet6
-                                            </span>
-                                          </div>
-                                          <div
-                                            class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                                          >
-                                            <div
-                                              class="ant-space-item"
-                                            />
-                                          </div>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </div>
+                                          Test Wallet3
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                      >
+                                        <div
+                                          class="ant-space-item"
+                                        />
+                                      </div>
+                                    </li>
+                                  </ul>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-web3-connect-modal-simple-guide"
+                          class="ant-web3-connect-modal-group"
                         >
-                          New to crypto wallets?
-                          <button
-                            class="ant-btn css-dev-only-do-not-override-ysyo1 ant-btn-link ant-btn-sm ant-web3-connect-modal-simple-guide-right"
-                            type="button"
+                          <div
+                            class="ant-web3-connect-modal-group-title"
                           >
-                            <span>
-                              Learn More
-                            </span>
-                          </button>
-                        </div>
-                        <div
-                          class="ant-web3-connect-modal-footer"
-                        >
-                          Powered by AntChain
+                            More
+                          </div>
+                          <div
+                            class="ant-web3-connect-modal-group-content"
+                          >
+                            <div
+                              class="ant-list ant-list-split css-dev-only-do-not-override-ysyo1"
+                            >
+                              <div
+                                class="ant-spin-nested-loading css-dev-only-do-not-override-ysyo1"
+                              >
+                                <div
+                                  class="ant-spin-container"
+                                >
+                                  <ul
+                                    class="ant-list-items"
+                                  >
+                                    <li
+                                      class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-content"
+                                      >
+                                        <img
+                                          alt="Test Wallet2"
+                                          class="ant-web3-connect-modal-img"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                        />
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
+                                        >
+                                          Test Wallet2
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                      >
+                                        <div
+                                          class="ant-space-item"
+                                        />
+                                      </div>
+                                    </li>
+                                    <li
+                                      class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-content"
+                                      >
+                                        <img
+                                          alt="Test Wallet4"
+                                          class="ant-web3-connect-modal-img"
+                                        />
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
+                                        >
+                                          Test Wallet4
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                      >
+                                        <div
+                                          class="ant-space-item"
+                                        />
+                                      </div>
+                                    </li>
+                                    <li
+                                      class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-content"
+                                      >
+                                        <img
+                                          alt="Test Wallet5"
+                                          class="ant-web3-connect-modal-img"
+                                        />
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
+                                        >
+                                          Test Wallet5
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                      >
+                                        <div
+                                          class="ant-space-item"
+                                        />
+                                      </div>
+                                    </li>
+                                    <li
+                                      class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-content"
+                                      >
+                                        <img
+                                          alt="Test Wallet6"
+                                          class="ant-web3-connect-modal-img"
+                                        />
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
+                                        >
+                                          Test Wallet6
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                      >
+                                        <div
+                                          class="ant-space-item"
+                                        />
+                                      </div>
+                                    </li>
+                                    <li
+                                      class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-content"
+                                      >
+                                        <img
+                                          alt="Test Wallet6"
+                                          class="ant-web3-connect-modal-img"
+                                        />
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-ysyo1"
+                                        >
+                                          Test Wallet6
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-space css-dev-only-do-not-override-ysyo1 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                      >
+                                        <div
+                                          class="ant-space-item"
+                                        />
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
+                    </div>
+                    <div
+                      class="ant-web3-connect-modal-simple-guide"
+                    >
+                      New to crypto wallets?
+                      <button
+                        class="ant-btn css-dev-only-do-not-override-ysyo1 ant-btn-link ant-btn-sm ant-web3-connect-modal-simple-guide-right"
+                        type="button"
+                      >
+                        <span>
+                          Learn More
+                        </span>
+                      </button>
+                    </div>
+                    <div
+                      class="ant-web3-connect-modal-footer"
+                    >
+                      Powered by AntChain
                     </div>
                   </div>
                 </div>
@@ -426,282 +418,274 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                 class="ant-modal-body"
               >
                 <div
-                  class="ant-spin-nested-loading css-dev-only-do-not-override-11xg00t"
+                  class="ant-web3-connect-modal-body ant-web3-connect-modal-body-simple css-dev-only-do-not-override-11xg00t"
                 >
                   <div
-                    class="ant-spin-container"
+                    class="ant-web3-connect-modal-list-panel"
                   >
                     <div
-                      class="ant-web3-connect-modal-body ant-web3-connect-modal-body-simple css-dev-only-do-not-override-11xg00t"
+                      class="ant-web3-connect-modal-header"
+                    >
+                      <h2
+                        class="ant-web3-connect-modal-title"
+                      >
+                        ConnectModal
+                      </h2>
+                    </div>
+                    <div
+                      class="ant-web3-connect-modal-list-container"
                     >
                       <div
-                        class="ant-web3-connect-modal-list-panel"
+                        class="ant-web3-connect-modal-wallet-list"
                       >
                         <div
-                          class="ant-web3-connect-modal-header"
-                        >
-                          <h2
-                            class="ant-web3-connect-modal-title"
-                          >
-                            ConnectModal
-                          </h2>
-                        </div>
-                        <div
-                          class="ant-web3-connect-modal-list-container"
+                          class="ant-web3-connect-modal-group"
                         >
                           <div
-                            class="ant-web3-connect-modal-wallet-list"
+                            class="ant-web3-connect-modal-group-title"
+                          >
+                            Popular
+                          </div>
+                          <div
+                            class="ant-web3-connect-modal-group-content"
                           >
                             <div
-                              class="ant-web3-connect-modal-group"
+                              class="ant-list ant-list-split css-dev-only-do-not-override-11xg00t"
                             >
                               <div
-                                class="ant-web3-connect-modal-group-title"
-                              >
-                                Popular
-                              </div>
-                              <div
-                                class="ant-web3-connect-modal-group-content"
+                                class="ant-spin-nested-loading css-dev-only-do-not-override-11xg00t"
                               >
                                 <div
-                                  class="ant-list ant-list-split css-dev-only-do-not-override-11xg00t"
+                                  class="ant-spin-container"
                                 >
-                                  <div
-                                    class="ant-spin-nested-loading css-dev-only-do-not-override-11xg00t"
+                                  <ul
+                                    class="ant-list-items"
                                   >
-                                    <div
-                                      class="ant-spin-container"
+                                    <li
+                                      class="ant-list-item ant-web3-connect-modal-wallet-item"
                                     >
-                                      <ul
-                                        class="ant-list-items"
+                                      <div
+                                        class="ant-web3-connect-modal-content"
                                       >
-                                        <li
-                                          class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                        <img
+                                          alt="Test Wallet"
+                                          class="ant-web3-connect-modal-img"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                        />
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
                                         >
-                                          <div
-                                            class="ant-web3-connect-modal-content"
-                                          >
-                                            <img
-                                              alt="Test Wallet"
-                                              class="ant-web3-connect-modal-img"
-                                              src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
-                                            />
-                                            <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
-                                            >
-                                              Test Wallet
-                                            </span>
-                                          </div>
-                                          <div
-                                            class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                                          >
-                                            <div
-                                              class="ant-space-item"
-                                            />
-                                          </div>
-                                        </li>
-                                        <li
-                                          class="ant-list-item ant-web3-connect-modal-wallet-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-content"
-                                          >
-                                            <img
-                                              alt="Test Wallet3"
-                                              class="ant-web3-connect-modal-img"
-                                              src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
-                                            />
-                                            <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
-                                            >
-                                              Test Wallet3
-                                            </span>
-                                          </div>
-                                          <div
-                                            class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                                          >
-                                            <div
-                                              class="ant-space-item"
-                                            />
-                                          </div>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div
-                              class="ant-web3-connect-modal-group"
-                            >
-                              <div
-                                class="ant-web3-connect-modal-group-title"
-                              >
-                                More
-                              </div>
-                              <div
-                                class="ant-web3-connect-modal-group-content"
-                              >
-                                <div
-                                  class="ant-list ant-list-split css-dev-only-do-not-override-11xg00t"
-                                >
-                                  <div
-                                    class="ant-spin-nested-loading css-dev-only-do-not-override-11xg00t"
-                                  >
-                                    <div
-                                      class="ant-spin-container"
+                                          Test Wallet
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                      >
+                                        <div
+                                          class="ant-space-item"
+                                        />
+                                      </div>
+                                    </li>
+                                    <li
+                                      class="ant-list-item ant-web3-connect-modal-wallet-item"
                                     >
-                                      <ul
-                                        class="ant-list-items"
+                                      <div
+                                        class="ant-web3-connect-modal-content"
                                       >
-                                        <li
-                                          class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                        <img
+                                          alt="Test Wallet3"
+                                          class="ant-web3-connect-modal-img"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                        />
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
                                         >
-                                          <div
-                                            class="ant-web3-connect-modal-content"
-                                          >
-                                            <img
-                                              alt="Test Wallet2"
-                                              class="ant-web3-connect-modal-img"
-                                              src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
-                                            />
-                                            <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
-                                            >
-                                              Test Wallet2
-                                            </span>
-                                          </div>
-                                          <div
-                                            class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                                          >
-                                            <div
-                                              class="ant-space-item"
-                                            />
-                                          </div>
-                                        </li>
-                                        <li
-                                          class="ant-list-item ant-web3-connect-modal-wallet-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-content"
-                                          >
-                                            <img
-                                              alt="Test Wallet4"
-                                              class="ant-web3-connect-modal-img"
-                                            />
-                                            <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
-                                            >
-                                              Test Wallet4
-                                            </span>
-                                          </div>
-                                          <div
-                                            class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                                          >
-                                            <div
-                                              class="ant-space-item"
-                                            />
-                                          </div>
-                                        </li>
-                                        <li
-                                          class="ant-list-item ant-web3-connect-modal-wallet-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-content"
-                                          >
-                                            <img
-                                              alt="Test Wallet5"
-                                              class="ant-web3-connect-modal-img"
-                                            />
-                                            <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
-                                            >
-                                              Test Wallet5
-                                            </span>
-                                          </div>
-                                          <div
-                                            class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                                          >
-                                            <div
-                                              class="ant-space-item"
-                                            />
-                                          </div>
-                                        </li>
-                                        <li
-                                          class="ant-list-item ant-web3-connect-modal-wallet-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-content"
-                                          >
-                                            <img
-                                              alt="Test Wallet6"
-                                              class="ant-web3-connect-modal-img"
-                                            />
-                                            <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
-                                            >
-                                              Test Wallet6
-                                            </span>
-                                          </div>
-                                          <div
-                                            class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                                          >
-                                            <div
-                                              class="ant-space-item"
-                                            />
-                                          </div>
-                                        </li>
-                                        <li
-                                          class="ant-list-item ant-web3-connect-modal-wallet-item"
-                                        >
-                                          <div
-                                            class="ant-web3-connect-modal-content"
-                                          >
-                                            <img
-                                              alt="Test Wallet6"
-                                              class="ant-web3-connect-modal-img"
-                                            />
-                                            <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
-                                            >
-                                              Test Wallet6
-                                            </span>
-                                          </div>
-                                          <div
-                                            class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                                          >
-                                            <div
-                                              class="ant-space-item"
-                                            />
-                                          </div>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </div>
+                                          Test Wallet3
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                      >
+                                        <div
+                                          class="ant-space-item"
+                                        />
+                                      </div>
+                                    </li>
+                                  </ul>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-web3-connect-modal-simple-guide"
+                          class="ant-web3-connect-modal-group"
                         >
-                          New to crypto wallets?
-                          <button
-                            class="ant-btn css-dev-only-do-not-override-11xg00t ant-btn-link ant-btn-sm ant-web3-connect-modal-simple-guide-right"
-                            type="button"
+                          <div
+                            class="ant-web3-connect-modal-group-title"
                           >
-                            <span>
-                              Learn More
-                            </span>
-                          </button>
-                        </div>
-                        <div
-                          class="ant-web3-connect-modal-footer"
-                        >
-                          Powered by AntChain
+                            More
+                          </div>
+                          <div
+                            class="ant-web3-connect-modal-group-content"
+                          >
+                            <div
+                              class="ant-list ant-list-split css-dev-only-do-not-override-11xg00t"
+                            >
+                              <div
+                                class="ant-spin-nested-loading css-dev-only-do-not-override-11xg00t"
+                              >
+                                <div
+                                  class="ant-spin-container"
+                                >
+                                  <ul
+                                    class="ant-list-items"
+                                  >
+                                    <li
+                                      class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-content"
+                                      >
+                                        <img
+                                          alt="Test Wallet2"
+                                          class="ant-web3-connect-modal-img"
+                                          src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                        />
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
+                                        >
+                                          Test Wallet2
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                      >
+                                        <div
+                                          class="ant-space-item"
+                                        />
+                                      </div>
+                                    </li>
+                                    <li
+                                      class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-content"
+                                      >
+                                        <img
+                                          alt="Test Wallet4"
+                                          class="ant-web3-connect-modal-img"
+                                        />
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
+                                        >
+                                          Test Wallet4
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                      >
+                                        <div
+                                          class="ant-space-item"
+                                        />
+                                      </div>
+                                    </li>
+                                    <li
+                                      class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-content"
+                                      >
+                                        <img
+                                          alt="Test Wallet5"
+                                          class="ant-web3-connect-modal-img"
+                                        />
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
+                                        >
+                                          Test Wallet5
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                      >
+                                        <div
+                                          class="ant-space-item"
+                                        />
+                                      </div>
+                                    </li>
+                                    <li
+                                      class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-content"
+                                      >
+                                        <img
+                                          alt="Test Wallet6"
+                                          class="ant-web3-connect-modal-img"
+                                        />
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
+                                        >
+                                          Test Wallet6
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                      >
+                                        <div
+                                          class="ant-space-item"
+                                        />
+                                      </div>
+                                    </li>
+                                    <li
+                                      class="ant-list-item ant-web3-connect-modal-wallet-item"
+                                    >
+                                      <div
+                                        class="ant-web3-connect-modal-content"
+                                      >
+                                        <img
+                                          alt="Test Wallet6"
+                                          class="ant-web3-connect-modal-img"
+                                        />
+                                        <span
+                                          class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-11xg00t"
+                                        >
+                                          Test Wallet6
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="ant-space css-dev-only-do-not-override-11xg00t ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                      >
+                                        <div
+                                          class="ant-space-item"
+                                        />
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
+                    </div>
+                    <div
+                      class="ant-web3-connect-modal-simple-guide"
+                    >
+                      New to crypto wallets?
+                      <button
+                        class="ant-btn css-dev-only-do-not-override-11xg00t ant-btn-link ant-btn-sm ant-web3-connect-modal-simple-guide-right"
+                        type="button"
+                      >
+                        <span>
+                          Learn More
+                        </span>
+                      </button>
+                    </div>
+                    <div
+                      class="ant-web3-connect-modal-footer"
+                    >
+                      Powered by AntChain
                     </div>
                   </div>
                 </div>

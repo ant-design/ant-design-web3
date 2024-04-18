@@ -57,14 +57,12 @@ describe('Connect spin', async () => {
     };
 
     const { baseElement } = render(<App />);
-    const spin = baseElement.querySelector('.ant-spin-container');
-    expect(spin?.classList.length).toBe(1);
     expect(baseElement.querySelector('.ant-web3-connect-modal-plugin-tag')).toBeTruthy();
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item') as Element);
     await vi.waitFor(() => {
-      expect(spin?.className).contain('ant-spin-blur');
+      expect(
+        baseElement.querySelector('.ant-web3-connect-modal-wallet-connecting')?.textContent,
+      ).toBe('Connecting...');
     });
-    vi.advanceTimersByTime(2000);
-    expect(baseElement.querySelector('ant-spin-blur')).toBeFalsy();
   });
 });

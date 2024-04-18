@@ -46,7 +46,7 @@ describe('ConnectModal theme', () => {
     const buttonStyle = window.getComputedStyle(
       baseElement.querySelector('.ant-web3-connect-modal-more')!,
     );
-    expect(buttonStyle.borderRadius).toBe('20px');
+    expect(buttonStyle.borderRadius).toBe('24px');
     expect(buttonStyle.backgroundColor).toBe('rgb(255, 255, 255)');
   });
 });
