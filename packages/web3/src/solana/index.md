@@ -11,7 +11,17 @@ Ant Design Web3 officially provides `@ant-design/web3-solana` to adapt to Solana
 
 ## Recommended configuration
 
+We support rich configurations of wallets, protocols, and interaction methods. For most DApps, we recommend using the following configuration:
+
 <code src="./demos/recommend.tsx"></code>
+
+The recommended configuration mainly includes:
+
+- Supports automatically adding detected plugin wallets.
+- Supports displaying balance.
+- Adds Phantom and OKX wallets by default, providing download guidance if the user has not installed a wallet.
+- Configure `quickConnect` to provide quick connection entry to simplify user operations.
+- Uses `simple` mode to simplify the interface.
 
 ## Basic Usage
 
@@ -59,6 +69,7 @@ You can use more components together. The content related to the chain in the co
 | chains | Chains | SolanaChainConfig\[\] | - | - |
 | wallets | Wallets | WalletFactory\[\] | - | - |
 | autoConnect | Whether to connect automatically | `boolean` | `false` | - |
+| autoAddRegisteredWallets | Whether to automatically add registered plugin wallets | `boolean` | `false` | - |
 | walletProviderProps | Transparent to WalletProvider | [WalletProviderProps](https://github.com/solana-labs/wallet-adapter/blob/master/packages/core/react/src/WalletProvider.tsx#L17) | - | - |
 | locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
 | walletConnect | WalletConnect configs | [UniversalProviderOpts](https://github.com/WalletConnect/walletconnect-monorepo/blob/v2.0/providers/universal-provider/src/types/misc.ts#L9) | - | - |
