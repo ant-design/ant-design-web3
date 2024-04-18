@@ -40,6 +40,10 @@ const localeValues: RequiredLocale = {
     guideTipLearnMoreLinkText: '了解更多',
     walletPanelPlugin: '插件',
     walletConnectSuccess: '钱包已连接！',
+    getWalletTipsTitle: '没有找到您想要的？',
+    getWalletTipsDesc: '在左侧选择一个新的钱包开始吧',
+    linkWallet: '连接',
+    walletConnecting: '连接中...',
   },
   NFTCard: {
     actionText: '立即购买',

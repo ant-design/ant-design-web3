@@ -1,6 +1,6 @@
 import React from 'react';
-import type { ConnectOptions, ConnectorTriggerProps } from '@ant-design/web3-common';
-import { Button, ConfigProvider, message, Spin } from 'antd';
+import type { ConnectOptions } from '@ant-design/web3-common';
+import { Button, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 
 import useIntl from '../../hooks/useIntl';
@@ -66,6 +66,8 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
       if (wallet && connectOptions) {
         if (connectOptions.connectType === 'qrCode') {
           updatePanelRoute('qrCode', true);
+        } else if (connectOptions.connectType === 'extension') {
+          updatePanelRoute('link', true);
         } else {
           setPanelRoute('init');
         }
@@ -103,52 +105,51 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
         canBack: routeStack.current.length > 1,
         localeMessage: intl.messages,
         getMessage: intl.getMessage,
+        loading,
       }}
     >
-      <Spin spinning={!!loading}>
-        <div
-          className={classNames(
-            `${prefixCls}-body`,
-            {
-              [`${prefixCls}-body-simple`]: isSimple,
-            },
-            hashId,
-          )}
-        >
-          {(panelRoute === 'init' || !isSimple) && (
-            <div className={classNames(`${prefixCls}-list-panel`)}>
-              <div className={`${prefixCls}-header`}>{mergedTitle}</div>
-              <div className={`${prefixCls}-list-container`}>
-                <WalletList
-                  ref={actionRef}
-                  walletList={walletList}
-                  group={group}
-                  groupOrder={groupOrder}
-                />
-              </div>
-              {isSimple && (
-                <div className={`${prefixCls}-simple-guide`}>
-                  {intl.getMessage(intl.messages.guideTipTitle)}
-                  <Button
-                    type="link"
-                    className={`${prefixCls}-simple-guide-right`}
-                    onClick={() => {
-                      updatePanelRoute('guide');
-                    }}
-                    size="small"
-                  >
-                    {intl.getMessage(intl.messages.guideTipLearnMoreLinkText)}
-                  </Button>
-                </div>
-              )}
-              {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+      <div
+        className={classNames(
+          `${prefixCls}-body`,
+          {
+            [`${prefixCls}-body-simple`]: isSimple,
+          },
+          hashId,
+        )}
+      >
+        {(panelRoute === 'init' || !isSimple) && (
+          <div className={classNames(`${prefixCls}-list-panel`)}>
+            <div className={`${prefixCls}-header`}>{mergedTitle}</div>
+            <div className={`${prefixCls}-list-container`}>
+              <WalletList
+                ref={actionRef}
+                walletList={walletList}
+                group={group}
+                groupOrder={groupOrder}
+              />
             </div>
-          )}
-          {!(panelRoute === 'init' && isSimple) && (
-            <MainPanel simple={isSimple} guide={guide} walletList={walletList} />
-          )}
-        </div>
-      </Spin>
+            {isSimple && (
+              <div className={`${prefixCls}-simple-guide`}>
+                {intl.getMessage(intl.messages.guideTipTitle)}
+                <Button
+                  type="link"
+                  className={`${prefixCls}-simple-guide-right`}
+                  onClick={() => {
+                    updatePanelRoute('guide');
+                  }}
+                  size="small"
+                >
+                  {intl.getMessage(intl.messages.guideTipLearnMoreLinkText)}
+                </Button>
+              </div>
+            )}
+            {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+          </div>
+        )}
+        {!(panelRoute === 'init' && isSimple) && (
+          <MainPanel simple={isSimple} guide={guide} walletList={walletList} />
+        )}
+      </div>
     </ConnectModalContextProvider>,
   );
 };

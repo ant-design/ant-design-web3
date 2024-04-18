@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { connectModalContext } from '../context';
 import type { ConnectModalProps } from '../interface';
 import DefaultGuidePanel from './DefaultGuidePanel';
+import LinkPanel from './LinkPanel';
 import QrCode from './QrCode';
 import WalletCard from './WalletCard';
 
@@ -20,6 +21,7 @@ const MainPanel: React.FC<MainPanelProps> = (props) => {
         <DefaultGuidePanel guide={guide} simple={simple} />
       ) : null}
       {panelRoute === 'wallet' && selectedWallet ? <WalletCard /> : null}
+      {panelRoute === 'link' && selectedWallet ? <LinkPanel /> : null}
       {panelRoute === 'qrCode' && selectedWallet ? (
         <QrCode wallet={selectedWallet} simple={simple} />
       ) : null}

@@ -42,6 +42,11 @@ const localeValues: RequiredLocale = {
     guideTipLearnMoreLinkText: 'Learn More',
     walletPanelPlugin: 'PLUGIN',
     walletConnectSuccess: 'Wallet Connected!',
+    getWalletTipsTitle: "Not what you're looking for?",
+    getWalletTipsDesc:
+      'Select a wallet on the left to get started with a different wallet provider.',
+    linkWallet: 'Link',
+    walletConnecting: 'Connecting...',
   },
   NFTCard: {
     actionText: 'Buy Now',

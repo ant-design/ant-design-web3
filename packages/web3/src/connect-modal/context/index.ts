@@ -15,6 +15,7 @@ export type ConnectModalContext = {
   canBack: boolean;
   localeMessage: IntlType<'ConnectModal'>['messages'];
   getMessage: IntlType<'ConnectModal'>['getMessage'];
+  loading?: boolean;
 };
 
 export const connectModalContext = React.createContext<ConnectModalContext>({
