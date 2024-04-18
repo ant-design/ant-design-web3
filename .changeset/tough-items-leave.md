@@ -2,4 +2,4 @@
 "@ant-design/web3": patch
 ---
 
-style(connect-button): Use Flex instead of Space
+style(connect-button): quick connect button icon vertical align
