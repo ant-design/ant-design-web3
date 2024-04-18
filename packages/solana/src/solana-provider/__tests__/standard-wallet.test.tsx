@@ -1,18 +1,15 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Connector, useProvider } from '@ant-design/web3';
+import React, { useEffect, useState } from 'react';
+import { useProvider } from '@ant-design/web3';
 import { WalletReadyState } from '@solana/wallet-adapter-base';
 import { type ConnectionContextState } from '@solana/wallet-adapter-react';
-import { fireEvent } from '@testing-library/react';
-import { Button } from 'antd';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { OKXWallet, WalletConnectWallet } from '../../wallets/built-in';
+import { OKXWallet, PhantomWallet } from '../../wallets/built-in';
 import { SolanaWeb3ConfigProvider } from '../index';
 import { xrender } from './utils';
 
 type TestConnection = Partial<ConnectionContextState['connection']>;
 
-const mockWalletConnectConfig = vi.fn();
 const mockSelectFn = vi.fn();
 
 describe('SolanaWeb3ConfigProvider Standard wallet', () => {
@@ -60,13 +57,6 @@ describe('SolanaWeb3ConfigProvider Standard wallet', () => {
         {children}
       </div>
     );
-    const WalletProvider: React.FC<
-      React.PropsWithChildren<{
-        wallets: any[];
-      }>
-    > = ({ children, wallets }) => {
-      return <>{children}</>;
-    };
 
     const connectedRef = remember(false);
     const currentWalletRef = remember<any>(null);
@@ -147,6 +137,66 @@ describe('SolanaWeb3ConfigProvider Standard wallet', () => {
     // check wallet-connect config can be created
     await vi.waitFor(async () => {
       expect(readyDom.textContent).toBe('ready:true');
+    });
+  });
+
+  it('available handle `autoAddRegisteredWallets`', async () => {
+    const WalletReady = () => {
+      const { availableWallets } = useProvider();
+      const [autoAddedReady, setAutoAddedReady] = useState(false);
+      const [autoAddedExtInstalled, setAddedExtInstalled] = useState(false);
+
+      // 1. Phantom
+      // 2. OKX Wallet
+      const walletNames = availableWallets?.map((v) => v.name).join(', ');
+
+      useEffect(() => {
+        if (availableWallets?.length === 2) {
+          availableWallets
+            .at(1)!
+            .hasWalletReady?.()
+            .then((v) => {
+              setAutoAddedReady(v);
+            });
+
+          availableWallets
+            .at(1)!
+            .hasExtensionInstalled?.()
+            .then((v) => {
+              setAddedExtInstalled(v);
+            });
+        }
+      }, [availableWallets]);
+
+      return (
+        <div>
+          <div className="wallet-names">{walletNames}</div>
+          <div className="added-ready">{autoAddedReady ? 'true' : 'false'}</div>
+          <div className="added-ext-installed">{autoAddedExtInstalled ? 'true' : 'false'}</div>
+        </div>
+      );
+    };
+
+    const App = () => {
+      return (
+        <SolanaWeb3ConfigProvider autoAddRegisteredWallets wallets={[PhantomWallet()]}>
+          <WalletReady />
+        </SolanaWeb3ConfigProvider>
+      );
+    };
+
+    const { selector } = xrender(App);
+
+    const namesDom = selector('.wallet-names')!;
+    const readyDom = selector('.added-ready')!;
+    const extInstalledDom = selector('.added-ext-installed')!;
+
+    // check wallet-connect config can be created
+    await vi.waitFor(async () => {
+      expect(namesDom.textContent).toBe(`Phantom, OKX Wallet`);
+
+      expect(readyDom.textContent).toBe('true');
+      expect(extInstalledDom.textContent).toBe('true');
     });
   });
 });
