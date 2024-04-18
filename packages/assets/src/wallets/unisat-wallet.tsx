@@ -3,7 +3,7 @@ import { ChromeCircleColorful, UnisatColorful } from '@ant-design/web3-icons';
 
 export const metadata_Unisat: WalletMetadata = {
   icon: <UnisatColorful />,
-  name: 'Unisat',
+  name: 'Unisat Wallet',
   remark: 'Unisat Wallet',
   app: {
     link: 'https://unisat.io/download',

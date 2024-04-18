@@ -2,9 +2,9 @@ import type { Account, Balance } from '@ant-design/web3-common';
 import { AddressPurpose, getProviderById, request, type BitcoinProvider } from 'sats-connect';
 
 import { getBalanceByMempool } from '../../helpers';
-import type { Adapter } from '../useAdapter';
+import type { BitcoinWallet } from '../useBitcoinWallet';
 
-export class XverseAdapter implements Adapter {
+export class XverseBitcoinWallet implements BitcoinWallet {
   name: string;
   provider: BitcoinProvider | null;
   account?: Account;

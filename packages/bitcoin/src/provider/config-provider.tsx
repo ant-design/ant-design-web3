@@ -6,7 +6,7 @@ import {
   type Wallet,
 } from '@ant-design/web3-common';
 
-import { useAdapter } from '../adapter';
+import { useBitcoinWallet } from '../adapter';
 
 export interface BitcoinConfigProviderProps {
   locale?: Locale;
@@ -22,7 +22,7 @@ export const BitcoinConfigProvider: FC<PropsWithChildren<BitcoinConfigProviderPr
   selectWallet,
   balance: showBalance,
 }) => {
-  const { getBalance, account } = useAdapter();
+  const { getBalance, account } = useBitcoinWallet();
   const [balance, setBalance] = useState<Balance>();
 
   useEffect(() => {

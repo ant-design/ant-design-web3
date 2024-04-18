@@ -1,9 +1,9 @@
 import { useEffect, useState, type FC, type PropsWithChildren } from 'react';
 import type { Locale, Wallet } from '@ant-design/web3-common';
 
-import { type Adapter } from '../adapter';
-import { BitcoinAdapterContext } from '../adapter/useAdapter';
-import { BitcoinWallet, WalletFactory } from '../wallets/types';
+import { type BitcoinWallet } from '../adapter';
+import { BitcoinAdapterContext } from '../adapter/useBitcoinWallet';
+import { WalletFactory, WalletWithAdapter } from '../wallets/types';
 import { BitcoinConfigProvider } from './config-provider';
 
 export interface BitcoinWeb3ConfigProviderProps {
@@ -19,8 +19,8 @@ export const BitcoinWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigPr
   balance = false,
   locale,
 }) => {
-  const [adapter, setAdapter] = useState<Adapter>({} as Adapter);
-  const [wallets, setWallets] = useState<BitcoinWallet[]>([]);
+  const [adapter, setAdapter] = useState<BitcoinWallet>({} as BitcoinWallet);
+  const [wallets, setWallets] = useState<WalletWithAdapter[]>([]);
 
   useEffect(() => {
     if (initWallets.length === 0) return;
@@ -30,7 +30,7 @@ export const BitcoinWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigPr
   const selectWallet = async (wallet?: Wallet | null) => {
     if (!wallet) {
       // disconnect
-      if (!!adapter) setAdapter({} as Adapter);
+      if (!!adapter) setAdapter({} as BitcoinWallet);
       return;
     }
     const provider = wallets.find((w) => w.name === wallet.name)?.adapter;

@@ -1,9 +1,9 @@
 import type { Account, Balance } from '@ant-design/web3-common';
 
 import { getBalanceObject } from '../../helpers';
-import type { Adapter } from '../useAdapter';
+import type { BitcoinWallet } from '../useBitcoinWallet';
 
-export class UnisatAdapter implements Adapter {
+export class UnisatBitcoinWallet implements BitcoinWallet {
   name: string;
   provider: Window['unisat'];
   account?: Account;

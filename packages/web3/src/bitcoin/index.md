@@ -14,7 +14,7 @@ Ant Design Web3 officially provides `@ant-design/web3-bitcoin` to adapt to Bitco
 
 Currently, connections to Xverse and Unisat wallets are supported. In the future, [StandardWallet protocol](https://github.com/ExodusMovement/bitcoin-wallet-standard) and more commonly used wallets will be supported.
 
-`useAdapter` exposes common methods such as signing and transaction handling, which can be called directly. Alternatively, wallet APIs can be accessed through the `provider` for customized handling of wallet logic.
+`useBitcoinWallet` exposes common methods such as signing and transaction handling, which can be called directly. Alternatively, wallet APIs can be accessed through the `provider` for customized handling of wallet logic.
 
 Support for other methods like PSBT will be added in the future. Feel free to submit a GitHub issue or a PR to support this. Currently, related logic can be implemented through the provider.
 
@@ -44,7 +44,7 @@ Support for other methods like PSBT will be added in the future. Feel free to su
 | wallets | Wallets | `WalletFactory[]` | - | - |
 | locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/en_US.ts) | - | - |
 
-### useAdapter
+### useBitcoinWallet
 
 #### result
 

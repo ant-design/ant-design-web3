@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from 'react';
 import type { Account, Balance } from '@ant-design/web3-common';
 
-export interface Adapter {
+export interface BitcoinWallet {
   name: string;
   provider: any;
   account?: Account;
@@ -15,9 +15,9 @@ export interface Adapter {
   ) => Promise<string | undefined>;
 }
 
-export const BitcoinAdapterContext = createContext<Adapter>({} as Adapter);
+export const BitcoinAdapterContext = createContext<BitcoinWallet>({} as BitcoinWallet);
 
-export const useAdapter = () => {
+export const useBitcoinWallet = () => {
   const adapter = useContext(BitcoinAdapterContext);
   return adapter;
 };

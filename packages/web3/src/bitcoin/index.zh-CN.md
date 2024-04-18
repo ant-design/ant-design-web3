@@ -15,7 +15,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 
 目前支持连接 Xverse / Unisat 钱包。未来会支持 [StandardWallet](https://github.com/ExodusMovement/bitcoin-wallet-standard) 协议及更多常用钱包。
 
-`useAdapter` 暴露出了诸如签名、交易等通用的方法, 可以直接调用；也可以通过 `provider` 直接调用钱包的 API，定制化处理各个钱包逻辑。
+`useBitcoinWallet` 暴露出了诸如签名、交易等通用的方法, 可以直接调用；也可以通过 `provider` 直接调用钱包的 API，定制化处理各个钱包逻辑。
 
 未来会支持其他如 PSBT 等方法，欢迎给我们提交 GitHub issue 或 PR 支持。当前可以通过 provider 实现相关逻辑。
 
@@ -45,7 +45,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 | wallets | 可用的钱包 | `WalletFactory[]` | - | - |
 | locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
 
-### useAdapter
+### useBitcoinWallet
 
 #### result
 

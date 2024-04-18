@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { BitcoinWeb3ConfigProvider, UnisatWallet, useAdapter } from '@ant-design/web3-bitcoin';
+import {
+  BitcoinWeb3ConfigProvider,
+  UnisatWallet,
+  useBitcoinWallet,
+} from '@ant-design/web3-bitcoin';
 import { Button, message, Space } from 'antd';
 
 const GetInscriptions: React.FC = () => {
-  const { account, name, provider } = useAdapter();
+  const { account, name, provider } = useBitcoinWallet();
   const [img, setImg] = useState<string>();
 
   return account ? (
