@@ -287,20 +287,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               },
             },
           },
-          [`${componentCls}-get-btn`]: {
-            background: safeToken(
-              isDark,
-              token.colorPrimary,
-              new TinyColor(token.colorWhite).setAlpha(0.15).toRgbString(),
-            ),
-            color: token.colorTextLightSolid,
-            opacity: 0.6,
-            fontSize: token.fontSizeLG,
-            ['&:hover']: {
-              background: token.colorPrimary,
-              opacity: 1,
-            },
-          },
           [`${componentCls}-more`]: {
             color: token.colorText,
             fontSize: token.fontSizeLG,

@@ -420,7 +420,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                             </div>
                           </div>
                           <a
-                            class="ant-btn css-dev-only-do-not-override-11xg00t ant-btn-link ant-btn-block ant-web3-connect-modal-more"
+                            class="ant-btn css-dev-only-do-not-override-11xg00t ant-btn-default ant-btn-block ant-web3-connect-modal-more"
                             href="https://ethereum.org/en/wallets/"
                             tabindex="0"
                             target="_blank"
@@ -894,7 +894,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                             </div>
                           </div>
                           <a
-                            class="ant-btn css-dev-only-do-not-override-ysyo1 ant-btn-link ant-btn-block ant-web3-connect-modal-more"
+                            class="ant-btn css-dev-only-do-not-override-ysyo1 ant-btn-default ant-btn-block ant-web3-connect-modal-more"
                             href="https://test.com/xxx"
                             tabindex="0"
                             target="_blank"
@@ -1368,7 +1368,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                             </div>
                           </div>
                           <a
-                            class="ant-btn css-dev-only-do-not-override-11xg00t ant-btn-link ant-btn-block ant-web3-connect-modal-more"
+                            class="ant-btn css-dev-only-do-not-override-11xg00t ant-btn-default ant-btn-block ant-web3-connect-modal-more"
                             href="https://test.com/xxx"
                             tabindex="0"
                             target="_blank"

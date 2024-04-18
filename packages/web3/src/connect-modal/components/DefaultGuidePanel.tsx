@@ -84,13 +84,7 @@ const DefaultGuidePanel: React.FC<{
       })}
     >
       {renderContent()}
-      <Button
-        block
-        type="link"
-        className={`${prefixCls}-more`}
-        href={guide?.moreLink}
-        target="_blank"
-      >
+      <Button block className={`${prefixCls}-more`} href={guide?.moreLink} target="_blank">
         {moreLinkText}
       </Button>
     </div>

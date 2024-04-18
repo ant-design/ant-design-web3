@@ -1,5 +1,5 @@
 import { ConnectModal } from '@ant-design/web3';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
 import { describe, expect, it } from 'vitest';
 
@@ -15,7 +15,7 @@ describe('ConnectModal theme', () => {
           },
           components: {
             Button: {
-              borderRadius: 16,
+              borderRadius: 20,
               borderRadiusLG: 24,
             },
             Modal: {
@@ -37,13 +37,16 @@ describe('ConnectModal theme', () => {
     );
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.ant-modal-content')).toBeTruthy();
-    const style = window.getComputedStyle(baseElement.querySelector('.ant-modal-content')!);
+    const style = window.getComputedStyle(
+      baseElement.querySelector('.ant-modal-content')!,
+      'ConnectModal theme',
+    );
     expect(style.borderRadius).toBe('36px');
 
     const buttonStyle = window.getComputedStyle(
-      baseElement.querySelector('.ant-web3-connect-modal-get-btn')!,
+      baseElement.querySelector('.ant-web3-connect-modal-more')!,
     );
-    expect(buttonStyle.borderRadius).toBe('24px');
-    expect(buttonStyle.backgroundColor).toBe('rgb(132, 66, 255)');
+    expect(buttonStyle.borderRadius).toBe('20px');
+    expect(buttonStyle.backgroundColor).toBe('rgb(255, 255, 255)');
   });
 });
