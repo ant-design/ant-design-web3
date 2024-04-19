@@ -4,6 +4,7 @@ import { Button, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 
 import useIntl from '../../hooks/useIntl';
+import useProvider from '../../hooks/useProvider';
 import { ConnectModalContextProvider } from '../context';
 import useMode from '../hooks/useMode';
 import type { ConnectModalProps, PanelRoute, Wallet } from '../interface';
@@ -15,10 +16,11 @@ import WalletList from './WalletList';
 export type ModalPanelProps = ConnectModalProps;
 
 const ModalPanel: React.FC<ModalPanelProps> = (props) => {
+  const { availableWallets } = useProvider();
   const {
     title,
     footer,
-    walletList,
+    walletList = availableWallets,
     guide,
     group = true,
     groupOrder,
@@ -27,9 +29,9 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     actionRef,
     defaultSelectedWallet,
     locale,
+    loading,
   } = props;
   const intl = useIntl('ConnectModal', locale);
-
   const showQRCoodByDefault = defaultSelectedWallet?.getQrCode;
   const [panelRoute, setPanelRoute] = React.useState<PanelRoute>(
     showQRCoodByDefault ? 'qrCode' : 'init',
@@ -59,11 +61,13 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
   }, []);
 
   const updateSelectedWallet = React.useCallback(
-    (wallet?: Wallet, connectOptions?: ConnectOptions) => {
+    async (wallet?: Wallet, connectOptions?: ConnectOptions) => {
       setSelectedWallet(wallet);
       if (wallet && connectOptions) {
         if (connectOptions.connectType === 'qrCode') {
           updatePanelRoute('qrCode', true);
+        } else if (connectOptions.connectType === 'extension') {
+          updatePanelRoute('link', true);
         } else {
           setPanelRoute('init');
         }
@@ -101,6 +105,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
         canBack: routeStack.current.length > 1,
         localeMessage: intl.messages,
         getMessage: intl.getMessage,
+        loading,
       }}
     >
       <div

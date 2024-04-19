@@ -179,6 +179,10 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     },
                     '&:hover': {
                       background: token.hoverBg,
+                      [`${componentCls}-plugin-tag:not(:disabled)`]: {
+                        color: token.colorPrimary,
+                        borderColor: token.colorPrimary,
+                      },
                     },
                     '&.selected': {
                       background: token.selectedBg,
@@ -248,7 +252,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           [`${componentCls}-simple-guide-panel`]: {
             marginBlockStart: 0,
             [`${componentCls}-guide-list`]: {
-              maxHeight: 280,
+              maxHeight: 400,
             },
           },
           [`${componentCls}-guide-list`]: {
@@ -287,26 +291,11 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               },
             },
           },
-          [`${componentCls}-get-btn`]: {
-            background: safeToken(
-              isDark,
-              token.colorPrimary,
-              new TinyColor(token.colorWhite).setAlpha(0.15).toRgbString(),
-            ),
-            color: token.colorTextLightSolid,
-            opacity: 0.6,
-            fontSize: token.fontSizeLG,
-            ['&:hover']: {
-              background: token.colorPrimary,
-              opacity: 1,
-            },
-          },
           [`${componentCls}-more`]: {
             color: token.colorText,
             fontSize: token.fontSizeLG,
             textAlign: 'center',
             marginBlockStart: token.margin,
-            opacity: 0.6,
             ['&:hover']: {
               color: token.colorPrimary,
               opacity: 1,
@@ -370,7 +359,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             overflow: 'auto',
             [`${componentCls}-card-item`]: {
               width: '100%',
-              height: 200,
+              height: 116,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -378,7 +367,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               boxSizing: 'border-box',
               paddingInline: token.paddingXL,
               background: token.cardBg,
-              borderRadius: 16,
+              borderRadius: token.borderRadiusSM,
               cursor: 'pointer',
               border: `1px solid transparent`,
               transition: 'border-color .3s',
@@ -386,9 +375,9 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 borderColor: token.colorPrimary,
               },
               [`${componentCls}-card-icon`]: {
-                width: 64,
-                height: 64,
-                fontSize: 64,
+                width: 56,
+                height: 56,
+                fontSize: 56,
                 lineHeight: 1,
                 flexShrink: 0,
                 img: {
@@ -410,6 +399,15 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               '&:last-child': {
                 marginBlockEnd: 0,
               },
+            },
+            [`${componentCls}-card-list-tips-title`]: {
+              fontSize: token.fontSizeLG,
+              color: token.colorText,
+              fontWeight: token.fontWeightStrong,
+            },
+            [`${componentCls}-card-list-tips-description`]: {
+              fontSize: token.fontSize,
+              color: token.listItemDescriptionColor,
             },
           },
           [`${componentCls}-qr-code-container`]: {
@@ -463,6 +461,50 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             },
           },
         },
+        [`${componentCls}-link-panel`]: {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100%',
+          flexDirection: 'column',
+
+          ['@keyframes ripple']: {
+            from: {
+              transform: 'scale(1)',
+              opacity: '1',
+            },
+            to: {
+              transform: 'scale(2)',
+              opacity: '0',
+            },
+          },
+          [`${componentCls}-ripple-container`]: {
+            position: 'relative',
+            width: '60px',
+            height: '60px',
+          },
+          [`${componentCls}-ripple`]: {
+            position: 'absolute',
+            border: `1px solid ${token.colorPrimary}`,
+            borderRadius: '50%',
+            width: '100%',
+            height: '100%',
+            animation: 'ripple 3s infinite ease-out',
+            animationDelay: '0s',
+            transformOrigin: 'center',
+          },
+
+          [`${componentCls}-ripple:nth-child(2)`]: {
+            animationDelay: '-1s',
+          },
+
+          [`${componentCls}-ripple:nth-child(3)`]: {
+            animationDelay: '-2s',
+          },
+          [`${componentCls}-wallet-connecting`]: {
+            marginTop: '30px',
+          },
+        },
       },
     },
   ];
@@ -495,7 +537,7 @@ export function useStyle(prefixCls: string): UseStyleResult {
       modalTitleEndColor: new TinyColor(token.colorText).setAlpha(0.85).toRgbString(),
       groupTextColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
       listItemDescriptionColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
-      cardBg: new TinyColor(token.colorText).setAlpha(0.1).toRgbString(),
+      cardBg: new TinyColor(token.colorText).setAlpha(0.03).toRgbString(),
       iconSize: token.sizeXL,
       web3ComponentsCls: `.${prefixCls}`,
       simpleGuideBg: new TinyColor(token.colorText).complement().setAlpha(0.06).toRgbString(),

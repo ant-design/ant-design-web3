@@ -4,7 +4,7 @@ import { Badge, Button } from 'antd';
 import { connectModalContext } from '../context';
 import type { Wallet } from '../interface';
 
-const PluginTag: React.FC<{ wallet: Wallet }> = ({ wallet }) => {
+const PluginTag: React.FC<{ wallet: Wallet; hoveredWallet?: Wallet }> = ({ wallet }) => {
   const [extensionInstalled, setExtensionInstalled] = React.useState<boolean>(false);
   const { getMessage, localeMessage, prefixCls } = React.useContext(connectModalContext);
 

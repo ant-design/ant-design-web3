@@ -87,6 +87,14 @@ const WalletCard: React.FC = () => {
             }}
           />
         )}
+        <div>
+          <div className={`${prefixCls}-card-list-tips-title`}>
+            {localeMessage.getWalletTipsTitle}
+          </div>
+          <div className={`${prefixCls}-card-list-tips-description`}>
+            {localeMessage.getWalletTipsDesc}
+          </div>
+        </div>
       </div>
     </>
   );

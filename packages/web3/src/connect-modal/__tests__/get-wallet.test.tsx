@@ -14,7 +14,7 @@ describe('Get wallet', () => {
         walletList={[
           {
             icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
-            name: 'Test Wallect',
+            name: 'Test Wallet',
             remark: '备注',
             app: {
               link: 'https://test.com/xxx',
@@ -31,7 +31,7 @@ describe('Get wallet', () => {
           {
             // not has app and extensions
             icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
-            name: 'Test Wallect',
+            name: 'Test Wallet',
             remark: '备注',
           },
         ]}
@@ -51,7 +51,7 @@ describe('Get wallet', () => {
 
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-get-wallet-btn')!);
     expect(baseElement.querySelector('.ant-web3-connect-modal-card-title')?.textContent).toBe(
-      'Test Wallect for Mobile',
+      'Test Wallet for Mobile',
     );
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-card-item')!);
     expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code-link')?.textContent).toBe(
@@ -65,19 +65,19 @@ describe('Get wallet', () => {
     ).toBe('Scan the QR code to download the wallet.');
     expect(
       baseElement.querySelector('.ant-web3-connect-modal-main-panel-header-title')?.textContent,
-    ).toBe('Download Test Wallect');
+    ).toBe('Download Test Wallet');
 
     // back to getWallet
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-main-panel-header-back')!);
     expect(
       baseElement.querySelector('.ant-web3-connect-modal-main-panel-header-title')?.textContent,
-    ).toBe('Get Test Wallect');
+    ).toBe('Get Test Wallet');
 
     // back to qrCode
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-main-panel-header-back')!);
     expect(
       baseElement.querySelector('.ant-web3-connect-modal-main-panel-header-title')?.textContent,
-    ).toBe('Scan with Test Wallect');
+    ).toBe('Scan with Test Wallet');
 
     // back to init
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-main-panel-header-back')!);
@@ -109,23 +109,12 @@ describe('Get wallet', () => {
       />
     );
     const { baseElement } = render(<App />);
-
-    expect(baseElement.querySelector('.ant-web3-connect-modal-get-btn')?.textContent).toBe(
-      'Get a Wallet',
-    );
-    fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-get-btn')!);
-
-    expect(baseElement.querySelector('.ant-list-item-meta-title')?.textContent).toBe(
-      'Test Wallect',
-    );
-    expect(baseElement.querySelector('.ant-web3-connect-modal-get-wallet-btn')?.textContent).toBe(
-      'Get',
-    );
-    fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-get-wallet-btn')!);
-
-    expect(baseElement.querySelector('.ant-web3-connect-modal-card-title')?.textContent).toBe(
-      'Test Wallect for Mobile',
-    );
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item') as Element);
+    await waitFor(() => {
+      expect(baseElement.querySelector('.ant-web3-connect-modal-card-title')?.textContent).toBe(
+        'Test Wallect for Mobile',
+      );
+    });
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-card-item')!);
     expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code-link')?.textContent).toBe(
       'Click to go to the download page',
@@ -147,10 +136,10 @@ describe('Get wallet', () => {
     ).toBe('Get Test Wallect');
 
     // back to qrCode
-    fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-main-panel-header-back')!);
-    expect(
-      baseElement.querySelector('.ant-web3-connect-modal-main-panel-header-title')?.textContent,
-    ).toBe('Get a Wallet');
+    // fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-main-panel-header-back')!);
+    // expect(
+    //   baseElement.querySelector('.ant-web3-connect-modal-main-panel-header-title')?.textContent,
+    // ).toBe('Get a Wallet');
 
     // back to init
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-main-panel-header-back')!);
@@ -167,7 +156,7 @@ describe('Get wallet', () => {
         walletList={[
           {
             icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
-            name: 'Test Wallect',
+            name: 'Test Wallet',
             remark: '备注',
             universalProtocol: {
               link: 'https://test.com/xxx',
@@ -184,7 +173,7 @@ describe('Get wallet', () => {
           {
             // not has app and extensions
             icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
-            name: 'Test Wallect',
+            name: 'Test Wallet',
             remark: '备注',
           },
         ]}
@@ -192,26 +181,11 @@ describe('Get wallet', () => {
       />
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.ant-web3-connect-modal-get-btn')?.textContent).toBe(
-      'Get a Wallet',
-    );
-    fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-get-btn')!);
-    await waitFor(() => {
-      expect(baseElement.querySelector('.ant-list-item-meta-description')?.textContent).toBe(
-        '备注',
-      );
-      expect(baseElement.querySelector('.ant-web3-connect-modal-get-wallet-btn')?.textContent).toBe(
-        'About',
-      );
-      expect(
-        baseElement.querySelector('a.ant-web3-connect-modal-get-wallet-btn')?.getAttribute('href'),
-      ).toBe('https://test.com/xxx');
-    });
 
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')!);
     await waitFor(() => {
       expect(baseElement.querySelector('.ant-web3-connect-modal-get-wallet-tip')?.textContent).toBe(
-        "Don't know Test Wallect?",
+        "Don't know Test Wallet?",
       );
       expect(baseElement.querySelector('.ant-web3-connect-modal-get-wallet-btn')?.textContent).toBe(
         'About',

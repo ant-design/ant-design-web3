@@ -16,7 +16,7 @@ You can use Ant Design Web3 in any of the following ways:
 
 ## Try it out
 
-Here is an example of using Ant Design Web3 through `@ant-design/web3-wagmi`:
+Here are examples of using Ant Design Web3 through `@ant-design/web3-wagmi`:
 
 <code src="./demos/guide.tsx"></code>
 

@@ -14,7 +14,7 @@ Ant Design Web3 是一个基于 [Ant Design](https://ant.design/index-cn) 的 We
 
 ## 试试看
 
-下面是通过 `@ant-design/web3-wagmi` 的方式使用 Ant Design Web3 的一个例子：
+下面是通过 `@ant-design/web3-wagmi` 的方式使用 Ant Design Web3 的例子：
 
 <code src="./demos/guide.tsx"></code>
 

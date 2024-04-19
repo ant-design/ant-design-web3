@@ -215,7 +215,6 @@ export interface RequiredLocale {
     getWalletBtnText: string;
     getWalletUniversalProtocolBtnText: string;
     getWalletPanelTitle: string;
-    getWalletPanelInfoTitle: string;
     getWalletPanelInfoDesc: string;
     qrCodePanelTitleForDownload: string;
     qrCodePanelTitleForScan: string;
@@ -232,6 +231,11 @@ export interface RequiredLocale {
     guideTipTitle: string;
     guideTipLearnMoreLinkText: string;
     walletPanelPlugin: string;
+    walletConnectSuccess: string;
+    getWalletTipsTitle: string;
+    getWalletTipsDesc: string;
+    linkWallet: string;
+    walletConnecting: string;
   };
   NFTCard: {
     actionText: string;
