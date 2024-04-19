@@ -102,7 +102,7 @@ describe('ConnectModal with guide', () => {
     );
     const { baseElement } = render(<App />);
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item') as Element);
-    vi.waitFor(() => {
+    await vi.waitFor(() => {
       // fireEvent.click(baseElement.querySelectorAll('.ant-web3-connect-modal-get-wallet-btn')[0]);
       expect(baseElement.querySelector('.ant-web3-connect-modal-card-list')).toBeTruthy();
       expect(baseElement.querySelectorAll('.ant-web3-connect-modal-card-item').length).toBe(2);

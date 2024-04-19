@@ -12,6 +12,7 @@ const GlobalLayout: React.FC = () => {
   const { locale } = useIntl();
 
   return (
+    // @ts-ignore ts props error in dumi theme
     <ThemeGlobalLayout>
       <Web3ConfigProvider locale={locale === 'zh-CN' ? zh_CN : en_US}>
         <SiteThemeProvider themeMode={color || 'auto'}>
