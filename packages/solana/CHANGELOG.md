@@ -1,5 +1,27 @@
 # @ant-design/web3-solana
 
+## 1.1.0
+
+### Minor Changes
+
+- 71d281a: feat: Add Trust and Backpack wallet metadata
+- 84181a8: feat(solana): Support WalletConnect and handle connect error
+- af35e85: feat(solana): Support auto add installed wallets
+- b85eeb3: feat(solana): Support standard wallet and add OKX Wallet
+
+### Patch Changes
+
+- 7ed8b31: fix: update typo from `isWalletConnnectFactory` to `isWalletConnectFactory`
+- f4f80a7: chore: Optimize if-else statements
+- Updated dependencies [7fb2d02]
+- Updated dependencies [dfef374]
+- Updated dependencies [71d281a]
+- Updated dependencies [b1b8a46]
+- Updated dependencies [ab3eac4]
+- Updated dependencies [b950d50]
+  - @ant-design/web3-common@1.8.0
+  - @ant-design/web3-assets@1.6.0
+
 ## 1.0.1
 
 ### Patch Changes

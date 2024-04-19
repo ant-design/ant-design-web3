@@ -1,5 +1,22 @@
 # @ant-design/web3-wagmi
 
+## 2.4.2
+
+### Patch Changes
+
+- b1b8a46: feat: supoort ethers adapter
+- 6ac3c69: fix: Correct typos for connect
+- f4f80a7: chore: Optimize if-else statements
+- 176299c: fix: move @tanstack/react-query to peerDependencies for fix react-query context error
+- Updated dependencies [7fb2d02]
+- Updated dependencies [dfef374]
+- Updated dependencies [71d281a]
+- Updated dependencies [b1b8a46]
+- Updated dependencies [ab3eac4]
+- Updated dependencies [b950d50]
+  - @ant-design/web3-common@1.8.0
+  - @ant-design/web3-assets@1.6.0
+
 ## 2.4.1
 
 ### Patch Changes
