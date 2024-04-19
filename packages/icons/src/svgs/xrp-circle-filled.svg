@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>xrp-xrp-logo_Circle Filled</title>
+    <g id="xrp-xrp-logo_Circle-Filled" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-3" transform="translate(112, 112)">
+            <circle id="椭圆形" stroke="#979797" stroke-width="0.78125" fill="#555555" cx="400" cy="400" r="399.609375"></circle>
+            <g id="编组-2" transform="translate(161, 203)" fill="#FFFFFF" fill-rule="nonzero">
+                <path d="M408.833984,0 L478.064453,0 L333.990234,142.404393 C281.814785,193.947536 197.222637,193.947536 145.009766,142.404393 L0.879414063,0 L70.1660156,0 L179.625,108.17616 C212.809427,140.825317 266.106374,140.825317 299.290801,108.17616 L408.833984,0 Z" id="路径"></path>
+                <path d="M69.2772461,395 L0,395 L145.009766,251.717721 C197.185215,200.174577 281.777363,200.174577 333.990234,251.717721 L479,395 L409.769531,395 L299.375,285.945954 C266.190573,253.296796 212.893626,253.296796 179.709199,285.945954 L69.2772461,395 Z" id="路径"></path>
+            </g>
+        </g>
+    </g>
+</svg>
