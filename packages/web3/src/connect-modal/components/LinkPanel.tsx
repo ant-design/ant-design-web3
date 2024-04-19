@@ -4,7 +4,7 @@ import { Avatar } from 'antd';
 import { connectModalContext } from '../context';
 import MainPanelHeader from './MainPanelHeader';
 
-const LinkPanel = () => {
+const LinkPanel: React.FC = () => {
   const { loading, updatePanelRoute, localeMessage, prefixCls, selectedWallet } =
     useContext(connectModalContext);
 
