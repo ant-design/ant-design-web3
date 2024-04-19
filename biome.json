@@ -2,10 +2,16 @@
   "$schema": "https://biomejs.dev/schemas/1.6.2/schema.json",
   "formatter": {
     "enabled": true,
-    "ignore": ["./dist/*", "./es/**/*", "./lib/**/*", "_site/**/*"],
+    "ignore": [
+      "./dist/*",
+      "./es/**/*",
+      "./lib/**/*",
+      "_site/**/*",
+      "./packages/icons/src/components/*"
+    ],
     "indentStyle": "space",
     "lineWidth": 100,
-    "indentSize": 2
+    "indentWidth": 2
   },
   "javascript": {
     "formatter": {
