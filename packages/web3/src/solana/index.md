@@ -2,7 +2,7 @@
 nav: Components
 group:
   title: Adapter
-  order: 2
+  order: 3
 ---
 
 # Solana

@@ -1,8 +1,7 @@
 {
-  "name": "@ant-design/web3",
-  "version": "1.9.0",
-  "type": "module",
-  "main": "dist/esm/index.js",
+  "name": "@ant-design/web3-bitcoin",
+  "version": "0.0.1",
+  "main": "dist/lib/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
   "exports": {
@@ -25,9 +24,10 @@
     "react",
     "react-component",
     "ui",
-    "web3"
+    "web3",
+    "bitcoin"
   ],
-  "homepage": "https://we3.ant.design",
+  "homepage": "https://web3.ant.design",
   "bugs": {
     "url": "https://github.com/ant-design/ant-design-web3/issues"
   },
@@ -40,34 +40,23 @@
     "build": "father build"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "^1.18.5",
-    "@ant-design/icons": "^5.3.6",
-    "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
-    "@ctrl/tinycolor": "^4.0.3",
-    "@inline-svg-unique-id/react": "^1.2.3",
-    "antd": "^5.16.0",
-    "bs58": "^5.0.0",
-    "classnames": "^2.3.2"
+    "@mempool/mempool.js": "^2.3.0",
+    "sats-connect": "^2.1.0"
   },
   "devDependencies": {
-    "@ant-design/web3-solana": "workspace:*",
-    "@ant-design/web3-bitcoin": "workspace:*",
-    "@ant-design/web3-wagmi": "workspace:*",
-    "@ant-design/web3-ethers": "workspace:*",
-    "@types/react": "^18.2.78",
-    "@types/react-dom": "^18.2.25",
     "father": "^4.3.8",
-    "typescript": "^5.4.4"
-  },
-  "peerDependencies": {
-    "antd": ">=5.0.0",
-    "react": ">=17.0.0",
-    "react-dom": ">=17.0.0"
+    "typescript": "^5.4.2"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
 }
