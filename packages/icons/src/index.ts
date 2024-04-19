@@ -555,6 +555,7 @@ export * from './components/uma-colorful';
 export * from './components/uni-circle-colorful';
 export * from './components/uni-circle-filled';
 export * from './components/uni-colorful';
+export * from './components/uni-filled';
 export * from './components/unisat-circle-filled';
 export * from './components/unisat-colorful';
 export * from './components/unisat-filled';
