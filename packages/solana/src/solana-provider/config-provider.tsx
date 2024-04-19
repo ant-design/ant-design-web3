@@ -27,6 +27,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   currentChain?: SolanaChainConfig;
   availableWallets: Wallet[];
   connectionError?: WalletConnectionError;
+  autoAddRegisteredWallets?: boolean;
   onCurrentChainChange?: (chain?: SolanaChainConfig) => void;
 }
 
@@ -137,7 +138,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
   }, [props.availableChains, props.chainAssets]);
 
   const availableWallets = useMemo<Wallet[]>(() => {
-    return props.availableWallets.map((w) => {
+    const providedWallets = props.availableWallets.map<Wallet>((w) => {
       const adapter = wallets?.find((item) => item.adapter.name === w.name)?.adapter;
       const isWalletConnectAdapter = adapter instanceof WalletConnectWalletAdapter;
 
@@ -155,7 +156,34 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         },
       };
     });
-  }, [props.availableWallets, wallets]);
+
+    if (!props.autoAddRegisteredWallets) {
+      return providedWallets;
+    }
+
+    const providedWalletNames = providedWallets.map((w) => w.name);
+
+    const autoRegisteredWallets = wallets
+      .filter((w) => !providedWalletNames.includes(w.adapter.name))
+      .map<Wallet>((w) => {
+        const adapter = w.adapter;
+
+        return {
+          name: adapter.name,
+          icon: adapter.icon,
+          remark: adapter.name,
+
+          hasExtensionInstalled: async () => {
+            return adapter.readyState === WalletReadyState.Installed;
+          },
+          hasWalletReady: async () => {
+            return hasWalletReady(adapter.readyState);
+          },
+        };
+      });
+
+    return [...providedWallets, ...autoRegisteredWallets];
+  }, [props.availableWallets, wallets, props.autoAddRegisteredWallets]);
 
   const currentChain = useMemo(() => {
     return chainList.find((c) => c.id === props.currentChain?.id);

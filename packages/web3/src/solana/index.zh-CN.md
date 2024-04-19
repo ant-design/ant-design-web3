@@ -10,6 +10,20 @@ group:
 
 Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它是一个基于 [Solana Web3.js](https://solana-labs.github.io/solana-web3.js/) 的 Ant Design Web3 Solana 适配器。它为 `@ant-design/web3` 的组件提供了连接 Solana 的能力。
 
+## 推荐配置
+
+我们支持配置丰富的钱包、协议和交互方式，对于大部分 DApp 来说，我们基于对 DApp 用户的习惯分析，推荐使用如下配置：
+
+<code src="./demos/recommend.tsx"></code>
+
+该推荐配置主要包括：
+
+- 支持自动添加检测到的插件钱包。
+- 支持显示余额。
+- 默认添加 Phantom、OKX 钱包，在用户未安装钱包情况下提供下载引导。
+- 配置 `quickConnect`，提供快速连接入口，简化用户操作。
+- 使用 `simple` 模式，简化界面。
+
 ## 基本使用
 
 <code src="./demos/basic.tsx"></code>
@@ -56,6 +70,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它
 | chains | 可用的链 | SolanaChainConfig\[\] | - | - |
 | wallets | 可用的钱包 | WalletFactory\[\] | - | - |
 | autoConnect | 是否自动连接 | `boolean` | `false` | - |
+| autoAddRegisteredWallets | 是否自动添加已注册的插件钱包 | `boolean` | `false` | - |
 | walletProviderProps | WalletProvider 的属性 | [WalletProviderProps](https://github.com/solana-labs/wallet-adapter/blob/master/packages/core/react/src/WalletProvider.tsx#L17) | - | - |
 | locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
 | walletConnect | WalletConnect 配置 | [UniversalProviderOpts](https://github.com/WalletConnect/walletconnect-monorepo/blob/v2.0/providers/universal-provider/src/types/misc.ts#L9) | - | - |

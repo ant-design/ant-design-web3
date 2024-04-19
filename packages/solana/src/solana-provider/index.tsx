@@ -22,6 +22,8 @@ export interface SolanaWeb3ConfigProviderProps {
   wallets?: WalletFactory[];
   balance?: boolean;
 
+  autoAddRegisteredWallets?: boolean;
+
   rpcProvider?: (chain?: SolanaChainConfig) => string;
 
   //#region Solana ConnectionProvider specific
@@ -45,6 +47,7 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
   connectionConfig,
   autoConnect,
   walletConnect,
+  autoAddRegisteredWallets,
   children,
   walletProviderProps,
 }) => {
@@ -108,6 +111,7 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
           onCurrentChainChange={(chain) => setCurrentChain(chain)}
           availableChains={chains || [solana]}
           connectionError={connectionError}
+          autoAddRegisteredWallets={autoAddRegisteredWallets}
         >
           {children}
         </AntDesignWeb3ConfigProvider>
