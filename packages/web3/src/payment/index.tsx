@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { type Chain } from '@ant-design/web3-common';
-import { Input, QRCode, Radio, type RadioChangeEvent } from 'antd';
 
 interface PaymentProps {
   toAddress: string;
