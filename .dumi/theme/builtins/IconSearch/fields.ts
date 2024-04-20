@@ -20,6 +20,7 @@ const chain = [
   'Cronos',
   'Moonbeam',
   'Solana',
+  'XLayer',
 ];
 
 const token = ['DAI', 'WBTC', 'AAVE', 'USDT'];
