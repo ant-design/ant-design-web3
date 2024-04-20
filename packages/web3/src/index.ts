@@ -2,6 +2,7 @@ export * from './connector';
 export * from './connect-button';
 export * from './connect-modal';
 export * from './address';
+export * from './payment';
 export * from './browser-link';
 export * from './nft-image';
 export * from './nft-card';
