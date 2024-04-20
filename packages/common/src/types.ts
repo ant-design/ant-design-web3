@@ -175,6 +175,15 @@ export type WalletMetadata = {
   universalProtocol?: {
     link: string;
   };
+  /**
+   * @desc 快捷扫码的参数是否支持
+   * @descEn Whether the parameters of fast scan code are supported
+   */
+  paramsFormat?: {
+    isSupport?: boolean;
+    tokenFormatStr?: string;
+    coinFormatStr?: string;
+  };
 };
 
 export type Balance = BalanceMetadata & {
