@@ -48,7 +48,7 @@
     "@solana/wallet-adapter-wallets": "^0.19.31",
     "@walletconnect/core": "^2.12.1",
     "@walletconnect/universal-provider": "^2.11.2",
-    "@walletconnect/utils": "^2.11.2",
+    "@walletconnect/utils": "^2.12.2",
     "@walletconnect/web3wallet": "^1.11.2",
     "bs58": "^5.0.0",
     "debug": "^4.3.4"
