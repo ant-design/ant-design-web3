@@ -43,7 +43,7 @@
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
     "debug": "^4.3.4",
-    "@wagmi/core": "^2.6.5"
+    "@wagmi/core": "^2.6.17"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
