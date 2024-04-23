@@ -43,7 +43,6 @@ export interface Chain {
   nativeCurrency?: BalanceMetadata & {
     name: string;
   };
-  token?: { address: string; symbol: string; decimals: number };
 }
 
 export interface NFTMetadata {
