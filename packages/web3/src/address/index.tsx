@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import React, { isValidElement, useContext, useEffect, useMemo, useRef } from 'react';
+import React, { isValidElement, useContext, useMemo } from 'react';
 import { type Locale } from '@ant-design/web3-common';
 import type { TooltipProps } from 'antd';
 import { ConfigProvider, Space, Tooltip, Typography } from 'antd';
@@ -40,7 +40,6 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
   const { addressPrefix: addressPrefixContext } = useProvider();
   const prefixCls = getPrefixCls('web3-address');
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
   const { messages } = useIntl('Address', locale);
 
   const mergedFormat = useMemo(() => {
@@ -61,14 +60,6 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
           tailClip: 4,
         }
       : ellipsis;
-
-  useEffect(() => {
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-    };
-  }, []);
 
   if (!address) {
     return null;
