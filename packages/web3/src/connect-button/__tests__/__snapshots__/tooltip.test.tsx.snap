@@ -23,9 +23,11 @@ exports[`ConnectButton > should display formatted by custom formatter when pass 
                 class="ant-space-item"
               >
                 <span
-                  class="ant-web3-address-text"
+                  class="ant-typography css-dev-only-do-not-override-11xg00t"
                 >
-                  0x3ea2...7c18
+                  <span>
+                    0x3ea2...7c18
+                  </span>
                 </span>
               </div>
             </div>

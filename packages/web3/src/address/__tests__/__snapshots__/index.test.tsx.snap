@@ -8,9 +8,11 @@ exports[`Address > display address with default format 1`] = `
     class="ant-space-item"
   >
     <span
-      class="ant-web3-address-text"
+      class="ant-typography css-dev-only-do-not-override-11xg00t"
     >
-      0x 21CD f097 4d53 a6e9 6eF0 5d7B 324a 9803 735f Fd3B
+      <span>
+        0x 21CD f097 4d53 a6e9 6eF0 5d7B 324a 9803 735f Fd3B
+      </span>
     </span>
   </div>
 </div>

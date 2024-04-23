@@ -1,22 +1,13 @@
 import { Polygon } from '@ant-design/web3-assets';
 import { fireEvent, render } from '@testing-library/react';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { ConnectButton } from '..';
 import useIntl from '../../hooks/useIntl';
-import { readCopyText } from '../../utils';
-import { mockClipboard } from '../../utils/test-utils';
+import { readCopyText } from '../../utils/test-utils';
 import { ProfileModal } from '../profile-modal';
 
 describe('ProfileModal', () => {
-  let resetMockClipboard: () => void;
-  beforeEach(() => {
-    resetMockClipboard = mockClipboard();
-  });
-  afterEach(() => {
-    resetMockClipboard();
-  });
-
   it('match snapshot', () => {
     const App = () => {
       const intl = useIntl('ConnectButton');
