@@ -176,13 +176,18 @@ export type WalletMetadata = {
     link: string;
   };
   /**
+   * @desc 支持的链列表
+   * @descEn Supported chain list
+   */
+  supportedChains?: Chain[]; // 添加支持的链数组
+
+  /**
    * @desc 快捷扫码的参数是否支持
    * @descEn Whether the parameters of fast scan code are supported
    */
   paramsFormat?: {
-    isSupport?: boolean;
-    tokenFormatStr?: string;
-    coinFormatStr?: string;
+    nativeFormatStr?: string;
+    otherFormatStr?: string;
   };
 };
 

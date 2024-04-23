@@ -1,5 +1,6 @@
 import type { WalletMetadata } from '@ant-design/web3-common';
 import { ChromeCircleColorful, MetaMaskColorful } from '@ant-design/web3-icons';
+import { BSC, Mainnet, Polygon } from '@ant-design/web3-wagmi';
 
 export const metadata_MetaMask: WalletMetadata = {
   icon: <MetaMaskColorful />,
@@ -19,9 +20,9 @@ export const metadata_MetaMask: WalletMetadata = {
   ],
   group: 'Popular',
   paramsFormat: {
-    isSupport: true,
-    tokenFormatStr:
+    nativeFormatStr: 'ethereum:{toAddress}@{chainId}?value={amount}',
+    otherFormatStr:
       'ethereum:{tokenAddress}@{chainId}/transfer?address={toAddress}&uint256={amount}',
-    coinFormatStr: 'ethereum:{toAddress}@{chainId}?value={amount}',
   },
+  supportedChains: [Mainnet, Polygon, BSC],
 };

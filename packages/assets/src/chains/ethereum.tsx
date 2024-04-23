@@ -21,7 +21,6 @@ export const Mainnet: Chain = {
     getBrowserLink: createGetBrowserLink('https://etherscan.io'),
   },
   nativeCurrency: { icon: <EthereumFilled />, name: 'Ether', symbol: 'ETH', decimals: 18 },
-  token: { address: '0xdac17f958d2ee523a2206206994597c13d831ec7', symbol: 'USDT', decimals: 6 },
 };
 
 /**
@@ -69,7 +68,6 @@ export const Polygon: Chain = {
     getBrowserLink: createGetBrowserLink('https://polygonscan.com'),
   },
   nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },
-  token: { address: '0xc2132d05d31c914a87c6611c10748aeb04b58e8f', symbol: 'USDT', decimals: 6 },
 };
 
 export const BSC: Chain = {
@@ -81,7 +79,6 @@ export const BSC: Chain = {
     getBrowserLink: createGetBrowserLink('https://bscscan.com'),
   },
   nativeCurrency: { decimals: 18, name: 'BNB', symbol: 'BNB' },
-  token: { address: '0x55d398326f99059ff775485246999027b3197955', symbol: 'USDT', decimals: 6 },
 };
 
 export const Arbitrum: Chain = {
