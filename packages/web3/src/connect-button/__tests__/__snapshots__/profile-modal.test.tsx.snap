@@ -99,9 +99,11 @@ exports[`ProfileModal > match snapshot 1`] = `
                         class="ant-space-item"
                       >
                         <span
-                          class="ant-web3-address-text"
+                          class="ant-typography css-dev-only-do-not-override-11xg00t"
                         >
-                          0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B
+                          <span>
+                            0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B
+                          </span>
                         </span>
                       </div>
                     </div>
