@@ -31042,6 +31042,80 @@ exports[`Test Icons > should render all icons 403`] = `
 
 exports[`Test Icons > should render all icons 404`] = `
 <span
+  class="anticon ant-web3-icon-hardhat-colorful"
+  role="img"
+>
+  <svg
+    aria-hidden="true"
+    class=""
+    fill="currentColor"
+    focusable="false"
+    height="1em"
+    preserveAspectRatio="xMidYMid"
+    viewBox="0 0 256 177"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+  >
+    <title>
+      Hardhat
+    </title>
+    <g>
+      <path
+        d="M256,148.406607 C256,148.406607 217.007253,142.629903 196.402559,140.973019 C176.615112,139.383307 153.166846,138.465303 128.011319,138.465303 C102.855792,138.465303 79.4075265,139.383307 59.6256766,140.973019 C39.0153847,142.652294 0.0282356755,150.668029 0.0282356755,150.668029 L0.0282356755,160.743674 C0.0282356755,169.699803 57.3306685,176.976658 128.011319,176.976658 C198.69197,176.976658 255.994402,169.699803 255.994402,160.743674 L256,148.406607 Z"
+        fill="#F0D50C"
+      />
+      <path
+        d="M88.6603273,14.7643691 C41.9255225,31.4163803 10.7166742,75.664588 10.7140171,125.277403 L10.7140171,141.891023 C27.3914169,137.906683 44.3954335,135.441138 61.5176588,134.524607 C61.4019755,131.337717 61.342268,128.126572 61.3385362,124.89117 C61.355329,81.2972124 71.8787806,42.0693674 88.6603273,14.7643691 Z"
+        fill="#F0D50C"
+      />
+      <path
+        d="M245.30315,125.277403 C245.343126,98.0545432 235.873361,71.6726454 218.529795,50.6896416 C226.048491,74.7037573 229.794938,99.7392358 229.635395,124.902365 C229.635395,129.481186 229.517846,134.007763 229.282748,138.482096 C234.620105,139.303585 239.906987,140.424875 245.118303,141.840644 L245.30315,125.277403 Z"
+        fill="#FFF04D"
+      />
+      <path
+        d="M245.30315,125.277403 C245.343126,98.0545432 235.873361,71.6726454 218.529795,50.6896416 C226.048491,74.7037573 229.794938,99.7392358 229.635395,124.902365 C229.635395,129.481186 229.517846,134.007763 229.282748,138.482096 C234.620105,139.303585 239.906987,140.424875 245.118303,141.840644 L245.30315,125.277403 Z"
+        fill="#FFEA00"
+      />
+      <path
+        d="M218.529795,50.684044 C187.104313,12.5902868 135.200193,-1.76612429 88.6659248,14.7643691 C71.873183,42.0693674 61.355329,81.2972124 61.355329,124.896768 C61.355329,128.132169 61.4150365,131.343315 61.5344516,134.530204 C78.9989031,133.181187 99.2173643,132.347148 120.868806,132.196013 C120.868806,132.196013 125.78908,132.196013 128.022514,132.196013 C161.889262,131.789594 195.739449,133.898215 229.293943,138.504486 C229.521578,134.026422 229.639127,129.499845 229.64659,124.924756 C229.8055,99.7516578 226.055239,74.7064879 218.529795,50.684044 L218.529795,50.684044 Z"
+        fill="#FFF04D"
+      />
+      <g
+        fill="#FFF04D"
+        transform="translate(81.394668, 0.000000)"
+      >
+        <path
+          d="M93.7986585,58.4422907 L86.3650714,11.9823716 C85.8370184,8.56415712 83.3879084,5.75552474 80.0733908,4.76709013 C58.4140349,-1.58903004 35.3846237,-1.58903004 13.7252677,4.76709013 C10.4129329,5.75734065 7.96632131,8.56560629 7.43918465,11.9823716 L0,58.4422907"
+        />
+      </g>
+      <path
+        d="M128.022514,131.210839 C125.783482,131.210839 123.561242,131.210839 121.355796,131.210839 L121.109502,131.210839 L120.863209,131.210839 C53.507521,131.681036 0.0338332561,138.756378 0.0338332561,147.415835 L0.0338332561,159.96561 C-0.075292123,160.701057 0.0815069892,161.451311 0.476042125,162.081496 C3.8969084,159.512263 7.8289966,157.706557 12.0070582,156.786185 C22.6478093,154.197131 33.4629332,152.386191 44.3666718,151.367727 C50.5593216,150.688461 56.7447402,152.70744 61.3441338,156.909331 C69.765567,164.618976 80.76931,168.894659 92.1868031,168.893752 L163.835835,168.893752 C175.253226,168.893752 186.256779,164.618506 194.678504,156.909331 L194.678504,156.909331 C199.277546,152.702584 205.466059,150.68122 211.661564,151.362129 C222.56347,152.380489 233.376741,154.191432 244.01558,156.780587 C247.972386,157.541461 251.709264,159.176584 254.953252,161.566519 C255.137973,161.751239 255.350681,161.913569 255.51301,162.081496 C255.91028,161.448201 256.069033,160.694128 255.960817,159.954415 L255.960817,147.40464 C256,138.476498 198.697567,131.210839 128.022514,131.210839 Z"
+        fill="#FFF04D"
+      />
+      <polygon
+        fill="#6E6F70"
+        points="154.980462 93.942147 127.988929 110.555766 127.988929 132.13444"
+      />
+      <polygon
+        fill="#0A0A0A"
+        points="128.016917 132.13444 128.016917 110.555766 101.025383 93.942147"
+      />
+      <polygon
+        fill="#0A0A0A"
+        points="101.025383 84.0848076 101.025383 84.0848076 128.016917 99.6908623 128.016917 40.4292763"
+      />
+      <polygon
+        fill="#6E6F70"
+        points="154.980462 84.0848076 127.988929 40.4236787 127.988929 40.4236787 127.988929 68.4731552 127.988929 68.4731552 127.988929 99.6852648 154.980462 84.07921 154.980462 84.07921"
+      />
+    </g>
+  </svg>
+</span>
+`;
+
+exports[`Test Icons > should render all icons 405`] = `
+<span
   class="anticon ant-web3-icon-hakka-colorful"
   role="img"
 >
@@ -31068,7 +31142,7 @@ exports[`Test Icons > should render all icons 404`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 405`] = `
+exports[`Test Icons > should render all icons 406`] = `
 <span
   class="anticon ant-web3-icon-hai-colorful"
   role="img"
@@ -31124,7 +31198,7 @@ exports[`Test Icons > should render all icons 405`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 406`] = `
+exports[`Test Icons > should render all icons 407`] = `
 <span
   class="anticon ant-web3-icon-gxc-circle-colorful"
   role="img"
@@ -31179,7 +31253,7 @@ exports[`Test Icons > should render all icons 406`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 407`] = `
+exports[`Test Icons > should render all icons 408`] = `
 <span
   class="anticon ant-web3-icon-gusd-circle-colorful"
   role="img"
@@ -31212,7 +31286,7 @@ exports[`Test Icons > should render all icons 407`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 408`] = `
+exports[`Test Icons > should render all icons 409`] = `
 <span
   class="anticon ant-web3-icon-gtc-circle-colorful"
   role="img"
@@ -31250,7 +31324,7 @@ exports[`Test Icons > should render all icons 408`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 409`] = `
+exports[`Test Icons > should render all icons 410`] = `
 <span
   class="anticon ant-web3-icon-gsc-circle-colorful"
   role="img"
@@ -31283,7 +31357,7 @@ exports[`Test Icons > should render all icons 409`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 410`] = `
+exports[`Test Icons > should render all icons 411`] = `
 <span
   class="anticon ant-web3-icon-grt-circle-colorful"
   role="img"
@@ -31326,7 +31400,7 @@ exports[`Test Icons > should render all icons 410`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 411`] = `
+exports[`Test Icons > should render all icons 412`] = `
 <span
   class="anticon ant-web3-icon-grs-circle-colorful"
   role="img"
@@ -31359,7 +31433,7 @@ exports[`Test Icons > should render all icons 411`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 412`] = `
+exports[`Test Icons > should render all icons 413`] = `
 <span
   class="anticon ant-web3-icon-grin-circle-colorful"
   role="img"
@@ -31397,7 +31471,7 @@ exports[`Test Icons > should render all icons 412`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 413`] = `
+exports[`Test Icons > should render all icons 414`] = `
 <span
   class="anticon ant-web3-icon-grc-circle-colorful"
   role="img"
@@ -31431,7 +31505,7 @@ exports[`Test Icons > should render all icons 413`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 414`] = `
+exports[`Test Icons > should render all icons 415`] = `
 <span
   class="anticon ant-web3-icon-gno-circle-colorful"
   role="img"
@@ -31471,7 +31545,7 @@ exports[`Test Icons > should render all icons 414`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 415`] = `
+exports[`Test Icons > should render all icons 416`] = `
 <span
   class="anticon ant-web3-icon-gls-colorful"
   role="img"
@@ -31509,7 +31583,7 @@ exports[`Test Icons > should render all icons 415`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 416`] = `
+exports[`Test Icons > should render all icons 417`] = `
 <span
   class="anticon ant-web3-icon-glmr-colorful"
   role="img"
@@ -31589,7 +31663,7 @@ exports[`Test Icons > should render all icons 416`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 417`] = `
+exports[`Test Icons > should render all icons 418`] = `
 <span
   class="anticon ant-web3-icon-glm-circle-colorful"
   role="img"
@@ -31617,7 +31691,7 @@ exports[`Test Icons > should render all icons 417`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 418`] = `
+exports[`Test Icons > should render all icons 419`] = `
 <span
   class="anticon ant-web3-icon-gbyte-circle-colorful"
   role="img"
@@ -31653,7 +31727,7 @@ exports[`Test Icons > should render all icons 418`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 419`] = `
+exports[`Test Icons > should render all icons 420`] = `
 <span
   class="anticon ant-web3-icon-gas-colorful"
   role="img"
@@ -31696,7 +31770,7 @@ exports[`Test Icons > should render all icons 419`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 420`] = `
+exports[`Test Icons > should render all icons 421`] = `
 <span
   class="anticon ant-web3-icon-gamma-circle-colorful"
   role="img"
@@ -31730,7 +31804,7 @@ exports[`Test Icons > should render all icons 420`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 421`] = `
+exports[`Test Icons > should render all icons 422`] = `
 <span
   class="anticon ant-web3-icon-game-circle-colorful"
   role="img"
@@ -31765,7 +31839,7 @@ exports[`Test Icons > should render all icons 421`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 422`] = `
+exports[`Test Icons > should render all icons 423`] = `
 <span
   class="anticon ant-web3-icon-gala-colorful"
   role="img"
@@ -31801,7 +31875,7 @@ exports[`Test Icons > should render all icons 422`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 423`] = `
+exports[`Test Icons > should render all icons 424`] = `
 <span
   class="anticon ant-web3-icon-fxs-circle-colorful"
   role="img"
@@ -31844,7 +31918,7 @@ exports[`Test Icons > should render all icons 423`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 424`] = `
+exports[`Test Icons > should render all icons 425`] = `
 <span
   class="anticon ant-web3-icon-fx-colorful"
   role="img"
@@ -31888,7 +31962,7 @@ exports[`Test Icons > should render all icons 424`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 425`] = `
+exports[`Test Icons > should render all icons 426`] = `
 <span
   class="anticon ant-web3-icon-fuel-circle-colorful"
   role="img"
@@ -31921,7 +31995,7 @@ exports[`Test Icons > should render all icons 425`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 426`] = `
+exports[`Test Icons > should render all icons 427`] = `
 <span
   class="anticon ant-web3-icon-ftt-colorful"
   role="img"
@@ -31968,7 +32042,7 @@ exports[`Test Icons > should render all icons 426`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 427`] = `
+exports[`Test Icons > should render all icons 428`] = `
 <span
   class="anticon ant-web3-icon-ftm-circle-colorful"
   role="img"
@@ -32032,7 +32106,7 @@ exports[`Test Icons > should render all icons 427`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 428`] = `
+exports[`Test Icons > should render all icons 429`] = `
 <span
   class="anticon ant-web3-icon-ftc-circle-colorful"
   role="img"
@@ -32082,7 +32156,7 @@ exports[`Test Icons > should render all icons 428`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 429`] = `
+exports[`Test Icons > should render all icons 430`] = `
 <span
   class="anticon ant-web3-icon-fsn-circle-colorful"
   role="img"
@@ -32115,7 +32189,7 @@ exports[`Test Icons > should render all icons 429`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 430`] = `
+exports[`Test Icons > should render all icons 431`] = `
 <span
   class="anticon ant-web3-icon-frxeth-circle-colorful"
   role="img"
@@ -32180,7 +32254,7 @@ exports[`Test Icons > should render all icons 430`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 431`] = `
+exports[`Test Icons > should render all icons 432`] = `
 <span
   class="anticon ant-web3-icon-frax-circle-colorful"
   role="img"
@@ -32223,7 +32297,7 @@ exports[`Test Icons > should render all icons 431`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 432`] = `
+exports[`Test Icons > should render all icons 433`] = `
 <span
   class="anticon ant-web3-icon-fpis-circle-colorful"
   role="img"
@@ -32266,7 +32340,7 @@ exports[`Test Icons > should render all icons 432`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 433`] = `
+exports[`Test Icons > should render all icons 434`] = `
 <span
   class="anticon ant-web3-icon-fpi-circle-colorful"
   role="img"
@@ -32309,7 +32383,7 @@ exports[`Test Icons > should render all icons 433`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 434`] = `
+exports[`Test Icons > should render all icons 435`] = `
 <span
   class="anticon ant-web3-icon-fox-colorful"
   role="img"
@@ -32365,7 +32439,7 @@ exports[`Test Icons > should render all icons 434`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 435`] = `
+exports[`Test Icons > should render all icons 436`] = `
 <span
   class="anticon ant-web3-icon-flux-circle-colorful"
   role="img"
@@ -32424,7 +32498,7 @@ exports[`Test Icons > should render all icons 435`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 436`] = `
+exports[`Test Icons > should render all icons 437`] = `
 <span
   class="anticon ant-web3-icon-flr-colorful"
   role="img"
@@ -32465,7 +32539,7 @@ exports[`Test Icons > should render all icons 436`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 437`] = `
+exports[`Test Icons > should render all icons 438`] = `
 <span
   class="anticon ant-web3-icon-flow-circle-colorful"
   role="img"
@@ -32538,7 +32612,7 @@ exports[`Test Icons > should render all icons 437`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 438`] = `
+exports[`Test Icons > should render all icons 439`] = `
 <span
   class="anticon ant-web3-icon-floki-colorful"
   role="img"
@@ -32721,7 +32795,7 @@ exports[`Test Icons > should render all icons 438`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 439`] = `
+exports[`Test Icons > should render all icons 440`] = `
 <span
   class="anticon ant-web3-icon-fil-circle-colorful"
   role="img"
@@ -32786,7 +32860,7 @@ exports[`Test Icons > should render all icons 439`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 440`] = `
+exports[`Test Icons > should render all icons 441`] = `
 <span
   class="anticon ant-web3-icon-fet-colorful"
   role="img"
@@ -32813,7 +32887,7 @@ exports[`Test Icons > should render all icons 440`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 441`] = `
+exports[`Test Icons > should render all icons 442`] = `
 <span
   class="anticon ant-web3-icon-fei-circle-colorful"
   role="img"
@@ -32851,7 +32925,7 @@ exports[`Test Icons > should render all icons 441`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 442`] = `
+exports[`Test Icons > should render all icons 443`] = `
 <span
   class="anticon ant-web3-icon-fantom-circle-colorful"
   role="img"
@@ -32918,7 +32992,7 @@ exports[`Test Icons > should render all icons 442`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 443`] = `
+exports[`Test Icons > should render all icons 444`] = `
 <span
   class="anticon ant-web3-icon-exp-circle-colorful"
   role="img"
@@ -32952,7 +33026,7 @@ exports[`Test Icons > should render all icons 443`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 444`] = `
+exports[`Test Icons > should render all icons 445`] = `
 <span
   class="anticon ant-web3-icon-ewt-circle-colorful"
   role="img"
@@ -32983,7 +33057,7 @@ exports[`Test Icons > should render all icons 444`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 445`] = `
+exports[`Test Icons > should render all icons 446`] = `
 <span
   class="anticon ant-web3-icon-evx-circle-colorful"
   role="img"
@@ -33016,7 +33090,7 @@ exports[`Test Icons > should render all icons 445`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 446`] = `
+exports[`Test Icons > should render all icons 447`] = `
 <span
   class="anticon ant-web3-icon-ever-colorful"
   role="img"
@@ -33044,7 +33118,7 @@ exports[`Test Icons > should render all icons 446`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 447`] = `
+exports[`Test Icons > should render all icons 448`] = `
 <span
   class="anticon ant-web3-icon-eurs-circle-colorful"
   role="img"
@@ -33110,7 +33184,7 @@ exports[`Test Icons > should render all icons 447`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 448`] = `
+exports[`Test Icons > should render all icons 449`] = `
 <span
   class="anticon ant-web3-icon-eul-circle-colorful"
   role="img"
@@ -33167,7 +33241,7 @@ exports[`Test Icons > should render all icons 448`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 449`] = `
+exports[`Test Icons > should render all icons 450`] = `
 <span
   class="anticon ant-web3-icon-etp-colorful"
   role="img"
@@ -33321,7 +33395,7 @@ exports[`Test Icons > should render all icons 449`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 450`] = `
+exports[`Test Icons > should render all icons 451`] = `
 <span
   class="anticon ant-web3-icon-etn-colorful"
   role="img"
@@ -33393,7 +33467,7 @@ exports[`Test Icons > should render all icons 450`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 451`] = `
+exports[`Test Icons > should render all icons 452`] = `
 <span
   class="anticon ant-web3-icon-ethw-colorful"
   role="img"
@@ -34109,7 +34183,7 @@ exports[`Test Icons > should render all icons 451`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 452`] = `
+exports[`Test Icons > should render all icons 453`] = `
 <span
   class="anticon ant-web3-icon-ethix-colorful"
   role="img"
@@ -34183,7 +34257,7 @@ exports[`Test Icons > should render all icons 452`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 453`] = `
+exports[`Test Icons > should render all icons 454`] = `
 <span
   class="anticon ant-web3-icon-etherscan-circle-colorful"
   role="img"
@@ -34210,7 +34284,7 @@ exports[`Test Icons > should render all icons 453`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 454`] = `
+exports[`Test Icons > should render all icons 455`] = `
 <span
   class="anticon ant-web3-icon-ethereum-filled"
   role="img"
@@ -34235,7 +34309,7 @@ exports[`Test Icons > should render all icons 454`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 455`] = `
+exports[`Test Icons > should render all icons 456`] = `
 <span
   class="anticon ant-web3-icon-ethereum-colorful"
   role="img"
@@ -34278,7 +34352,7 @@ exports[`Test Icons > should render all icons 455`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 456`] = `
+exports[`Test Icons > should render all icons 457`] = `
 <span
   class="anticon ant-web3-icon-ethereum-circle-filled"
   role="img"
@@ -34331,7 +34405,7 @@ exports[`Test Icons > should render all icons 456`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 457`] = `
+exports[`Test Icons > should render all icons 458`] = `
 <span
   class="anticon ant-web3-icon-ethereum-circle-colorful"
   role="img"
@@ -34420,7 +34494,7 @@ exports[`Test Icons > should render all icons 457`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 458`] = `
+exports[`Test Icons > should render all icons 459`] = `
 <span
   class="anticon ant-web3-icon-etc-colorful"
   role="img"
@@ -34479,7 +34553,7 @@ exports[`Test Icons > should render all icons 458`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 459`] = `
+exports[`Test Icons > should render all icons 460`] = `
 <span
   class="anticon ant-web3-icon-erg-colorful"
   role="img"
@@ -34537,7 +34611,7 @@ exports[`Test Icons > should render all icons 459`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 460`] = `
+exports[`Test Icons > should render all icons 461`] = `
 <span
   class="anticon ant-web3-icon-eos-colorful"
   role="img"
@@ -34570,7 +34644,7 @@ exports[`Test Icons > should render all icons 460`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 461`] = `
+exports[`Test Icons > should render all icons 462`] = `
 <span
   class="anticon ant-web3-icon-ens-colorful"
   role="img"
@@ -34690,7 +34764,7 @@ exports[`Test Icons > should render all icons 461`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 462`] = `
+exports[`Test Icons > should render all icons 463`] = `
 <span
   class="anticon ant-web3-icon-enj-circle-colorful"
   role="img"
@@ -34730,7 +34804,7 @@ exports[`Test Icons > should render all icons 462`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 463`] = `
+exports[`Test Icons > should render all icons 464`] = `
 <span
   class="anticon ant-web3-icon-eng-colorful"
   role="img"
@@ -34771,7 +34845,7 @@ exports[`Test Icons > should render all icons 463`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 464`] = `
+exports[`Test Icons > should render all icons 465`] = `
 <span
   class="anticon ant-web3-icon-emc2-colorful"
   role="img"
@@ -34802,7 +34876,7 @@ exports[`Test Icons > should render all icons 464`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 465`] = `
+exports[`Test Icons > should render all icons 466`] = `
 <span
   class="anticon ant-web3-icon-emc-circle-colorful"
   role="img"
@@ -34835,7 +34909,7 @@ exports[`Test Icons > should render all icons 465`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 466`] = `
+exports[`Test Icons > should render all icons 467`] = `
 <span
   class="anticon ant-web3-icon-elf-colorful"
   role="img"
@@ -34877,7 +34951,7 @@ exports[`Test Icons > should render all icons 466`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 467`] = `
+exports[`Test Icons > should render all icons 468`] = `
 <span
   class="anticon ant-web3-icon-ela-colorful"
   role="img"
@@ -34947,7 +35021,7 @@ exports[`Test Icons > should render all icons 467`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 468`] = `
+exports[`Test Icons > should render all icons 469`] = `
 <span
   class="anticon ant-web3-icon-ekt-colorful"
   role="img"
@@ -35115,7 +35189,7 @@ exports[`Test Icons > should render all icons 468`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 469`] = `
+exports[`Test Icons > should render all icons 470`] = `
 <span
   class="anticon ant-web3-icon-egt-circle-colorful"
   role="img"
@@ -35156,7 +35230,7 @@ exports[`Test Icons > should render all icons 469`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 470`] = `
+exports[`Test Icons > should render all icons 471`] = `
 <span
   class="anticon ant-web3-icon-egld-colorful"
   role="img"
@@ -35201,7 +35275,7 @@ exports[`Test Icons > should render all icons 470`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 471`] = `
+exports[`Test Icons > should render all icons 472`] = `
 <span
   class="anticon ant-web3-icon-edu-circle-colorful"
   role="img"
@@ -35274,7 +35348,7 @@ exports[`Test Icons > should render all icons 471`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 472`] = `
+exports[`Test Icons > should render all icons 473`] = `
 <span
   class="anticon ant-web3-icon-edg-circle-colorful"
   role="img"
@@ -35308,7 +35382,7 @@ exports[`Test Icons > should render all icons 472`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 473`] = `
+exports[`Test Icons > should render all icons 474`] = `
 <span
   class="anticon ant-web3-icon-dydx-colorful"
   role="img"
@@ -35418,7 +35492,7 @@ exports[`Test Icons > should render all icons 473`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 474`] = `
+exports[`Test Icons > should render all icons 475`] = `
 <span
   class="anticon ant-web3-icon-dusd-circle-colorful"
   role="img"
@@ -35450,7 +35524,7 @@ exports[`Test Icons > should render all icons 474`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 475`] = `
+exports[`Test Icons > should render all icons 476`] = `
 <span
   class="anticon ant-web3-icon-drt-circle-colorful"
   role="img"
@@ -35497,7 +35571,7 @@ exports[`Test Icons > should render all icons 475`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 476`] = `
+exports[`Test Icons > should render all icons 477`] = `
 <span
   class="anticon ant-web3-icon-drgn-colorful"
   role="img"
@@ -36427,7 +36501,7 @@ exports[`Test Icons > should render all icons 476`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 477`] = `
+exports[`Test Icons > should render all icons 478`] = `
 <span
   class="anticon ant-web3-icon-drc-colorful"
   role="img"
@@ -36463,7 +36537,7 @@ exports[`Test Icons > should render all icons 477`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 478`] = `
+exports[`Test Icons > should render all icons 479`] = `
 <span
   class="anticon ant-web3-icon-dot-filled"
   role="img"
@@ -36547,7 +36621,7 @@ exports[`Test Icons > should render all icons 478`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 479`] = `
+exports[`Test Icons > should render all icons 480`] = `
 <span
   class="anticon ant-web3-icon-dot-colorful"
   role="img"
@@ -36617,7 +36691,7 @@ exports[`Test Icons > should render all icons 479`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 480`] = `
+exports[`Test Icons > should render all icons 481`] = `
 <span
   class="anticon ant-web3-icon-dot-circle-filled"
   role="img"
@@ -36713,7 +36787,7 @@ exports[`Test Icons > should render all icons 480`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 481`] = `
+exports[`Test Icons > should render all icons 482`] = `
 <span
   class="anticon ant-web3-icon-dot-circle-colorful"
   role="img"
@@ -36797,7 +36871,7 @@ exports[`Test Icons > should render all icons 481`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 482`] = `
+exports[`Test Icons > should render all icons 483`] = `
 <span
   class="anticon ant-web3-icon-doge-circle-colorful"
   role="img"
@@ -37340,7 +37414,7 @@ exports[`Test Icons > should render all icons 482`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 483`] = `
+exports[`Test Icons > should render all icons 484`] = `
 <span
   class="anticon ant-web3-icon-dock-circle-colorful"
   role="img"
@@ -37373,7 +37447,7 @@ exports[`Test Icons > should render all icons 483`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 484`] = `
+exports[`Test Icons > should render all icons 485`] = `
 <span
   class="anticon ant-web3-icon-dobo-circle-colorful"
   role="img"
@@ -37669,7 +37743,7 @@ exports[`Test Icons > should render all icons 484`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 485`] = `
+exports[`Test Icons > should render all icons 486`] = `
 <span
   class="anticon ant-web3-icon-dnt-colorful"
   role="img"
@@ -37716,7 +37790,7 @@ exports[`Test Icons > should render all icons 485`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 486`] = `
+exports[`Test Icons > should render all icons 487`] = `
 <span
   class="anticon ant-web3-icon-dmt-colorful"
   role="img"
@@ -37844,7 +37918,7 @@ exports[`Test Icons > should render all icons 486`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 487`] = `
+exports[`Test Icons > should render all icons 488`] = `
 <span
   class="anticon ant-web3-icon-dmd-circle-colorful"
   role="img"
@@ -37872,7 +37946,7 @@ exports[`Test Icons > should render all icons 487`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 488`] = `
+exports[`Test Icons > should render all icons 489`] = `
 <span
   class="anticon ant-web3-icon-dlt-colorful"
   role="img"
@@ -37905,7 +37979,7 @@ exports[`Test Icons > should render all icons 488`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 489`] = `
+exports[`Test Icons > should render all icons 490`] = `
 <span
   class="anticon ant-web3-icon-divi-circle-colorful"
   role="img"
@@ -37969,7 +38043,7 @@ exports[`Test Icons > should render all icons 489`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 490`] = `
+exports[`Test Icons > should render all icons 491`] = `
 <span
   class="anticon ant-web3-icon-dgd-circle-colorful"
   role="img"
@@ -38002,7 +38076,7 @@ exports[`Test Icons > should render all icons 490`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 491`] = `
+exports[`Test Icons > should render all icons 492`] = `
 <span
   class="anticon ant-web3-icon-dgb-circle-colorful"
   role="img"
@@ -38034,7 +38108,7 @@ exports[`Test Icons > should render all icons 491`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 492`] = `
+exports[`Test Icons > should render all icons 493`] = `
 <span
   class="anticon ant-web3-icon-dg-circle-colorful"
   role="img"
@@ -38080,7 +38154,7 @@ exports[`Test Icons > should render all icons 492`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 493`] = `
+exports[`Test Icons > should render all icons 494`] = `
 <span
   class="anticon ant-web3-icon-dfi-colorful"
   role="img"
@@ -38108,7 +38182,7 @@ exports[`Test Icons > should render all icons 493`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 494`] = `
+exports[`Test Icons > should render all icons 495`] = `
 <span
   class="anticon ant-web3-icon-deso-colorful"
   role="img"
@@ -38199,7 +38273,7 @@ exports[`Test Icons > should render all icons 494`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 495`] = `
+exports[`Test Icons > should render all icons 496`] = `
 <span
   class="anticon ant-web3-icon-dent-circle-colorful"
   role="img"
@@ -38232,7 +38306,7 @@ exports[`Test Icons > should render all icons 495`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 496`] = `
+exports[`Test Icons > should render all icons 497`] = `
 <span
   class="anticon ant-web3-icon-ddx-colorful"
   role="img"
@@ -38284,7 +38358,7 @@ exports[`Test Icons > should render all icons 496`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 497`] = `
+exports[`Test Icons > should render all icons 498`] = `
 <span
   class="anticon ant-web3-icon-dcr-colorful"
   role="img"
@@ -38370,7 +38444,7 @@ exports[`Test Icons > should render all icons 497`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 498`] = `
+exports[`Test Icons > should render all icons 499`] = `
 <span
   class="anticon ant-web3-icon-dcn-circle-colorful"
   role="img"
@@ -38404,7 +38478,7 @@ exports[`Test Icons > should render all icons 498`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 499`] = `
+exports[`Test Icons > should render all icons 500`] = `
 <span
   class="anticon ant-web3-icon-dbc-circle-colorful"
   role="img"
@@ -38437,7 +38511,7 @@ exports[`Test Icons > should render all icons 499`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 500`] = `
+exports[`Test Icons > should render all icons 501`] = `
 <span
   class="anticon ant-web3-icon-data-colorful"
   role="img"
@@ -38472,7 +38546,7 @@ exports[`Test Icons > should render all icons 500`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 501`] = `
+exports[`Test Icons > should render all icons 502`] = `
 <span
   class="anticon ant-web3-icon-dash-colorful"
   role="img"
@@ -38511,7 +38585,7 @@ exports[`Test Icons > should render all icons 501`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 502`] = `
+exports[`Test Icons > should render all icons 503`] = `
 <span
   class="anticon ant-web3-icon-dai-circle-colorful"
   role="img"
@@ -38555,7 +38629,7 @@ exports[`Test Icons > should render all icons 502`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 503`] = `
+exports[`Test Icons > should render all icons 504`] = `
 <span
   class="anticon ant-web3-icon-cvx-colorful"
   role="img"
@@ -38650,7 +38724,7 @@ exports[`Test Icons > should render all icons 503`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 504`] = `
+exports[`Test Icons > should render all icons 505`] = `
 <span
   class="anticon ant-web3-icon-cvt-circle-colorful"
   role="img"
@@ -38793,7 +38867,7 @@ exports[`Test Icons > should render all icons 504`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 505`] = `
+exports[`Test Icons > should render all icons 506`] = `
 <span
   class="anticon ant-web3-icon-cvc-circle-colorful"
   role="img"
@@ -38816,7 +38890,7 @@ exports[`Test Icons > should render all icons 505`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 506`] = `
+exports[`Test Icons > should render all icons 507`] = `
 <span
   class="anticon ant-web3-icon-cusdt-circle-colorful"
   role="img"
@@ -38880,7 +38954,7 @@ exports[`Test Icons > should render all icons 506`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 507`] = `
+exports[`Test Icons > should render all icons 508`] = `
 <span
   class="anticon ant-web3-icon-cusdc-circle-colorful"
   role="img"
@@ -38954,7 +39028,7 @@ exports[`Test Icons > should render all icons 507`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 508`] = `
+exports[`Test Icons > should render all icons 509`] = `
 <span
   class="anticon ant-web3-icon-ctxc-circle-colorful"
   role="img"
@@ -38996,7 +39070,7 @@ exports[`Test Icons > should render all icons 508`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 509`] = `
+exports[`Test Icons > should render all icons 510`] = `
 <span
   class="anticon ant-web3-icon-ctsi-colorful"
   role="img"
@@ -39040,7 +39114,7 @@ exports[`Test Icons > should render all icons 509`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 510`] = `
+exports[`Test Icons > should render all icons 511`] = `
 <span
   class="anticon ant-web3-icon-cspr-colorful"
   role="img"
@@ -39073,7 +39147,7 @@ exports[`Test Icons > should render all icons 510`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 511`] = `
+exports[`Test Icons > should render all icons 512`] = `
 <span
   class="anticon ant-web3-icon-cs-circle-colorful"
   role="img"
@@ -39116,7 +39190,7 @@ exports[`Test Icons > should render all icons 511`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 512`] = `
+exports[`Test Icons > should render all icons 513`] = `
 <span
   class="anticon ant-web3-icon-crw-circle-colorful"
   role="img"
@@ -39150,7 +39224,7 @@ exports[`Test Icons > should render all icons 512`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 513`] = `
+exports[`Test Icons > should render all icons 514`] = `
 <span
   class="anticon ant-web3-icon-crv-colorful"
   role="img"
@@ -51360,7 +51434,7 @@ exports[`Test Icons > should render all icons 513`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 514`] = `
+exports[`Test Icons > should render all icons 515`] = `
 <span
   class="anticon ant-web3-icon-crpt-colorful"
   role="img"
@@ -51391,7 +51465,7 @@ exports[`Test Icons > should render all icons 514`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 515`] = `
+exports[`Test Icons > should render all icons 516`] = `
 <span
   class="anticon ant-web3-icon-cronos-colorful"
   role="img"
@@ -51471,7 +51545,7 @@ exports[`Test Icons > should render all icons 515`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 516`] = `
+exports[`Test Icons > should render all icons 517`] = `
 <span
   class="anticon ant-web3-icon-cream-circle-colorful"
   role="img"
@@ -51523,7 +51597,7 @@ exports[`Test Icons > should render all icons 516`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 517`] = `
+exports[`Test Icons > should render all icons 518`] = `
 <span
   class="anticon ant-web3-icon-cqt-circle-colorful"
   role="img"
@@ -51572,7 +51646,7 @@ exports[`Test Icons > should render all icons 517`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 518`] = `
+exports[`Test Icons > should render all icons 519`] = `
 <span
   class="anticon ant-web3-icon-cow-circle-colorful"
   role="img"
@@ -51657,7 +51731,7 @@ exports[`Test Icons > should render all icons 518`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 519`] = `
+exports[`Test Icons > should render all icons 520`] = `
 <span
   class="anticon ant-web3-icon-coti-circle-colorful"
   role="img"
@@ -51750,7 +51824,7 @@ exports[`Test Icons > should render all icons 519`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 520`] = `
+exports[`Test Icons > should render all icons 521`] = `
 <span
   class="anticon ant-web3-icon-comp-circle-colorful"
   role="img"
@@ -51782,7 +51856,7 @@ exports[`Test Icons > should render all icons 520`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 521`] = `
+exports[`Test Icons > should render all icons 522`] = `
 <span
   class="anticon ant-web3-icon-colx-circle-colorful"
   role="img"
@@ -51815,7 +51889,7 @@ exports[`Test Icons > should render all icons 521`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 522`] = `
+exports[`Test Icons > should render all icons 523`] = `
 <span
   class="anticon ant-web3-icon-coinbase-wallet-circle-colorful"
   role="img"
@@ -51861,7 +51935,7 @@ exports[`Test Icons > should render all icons 522`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 523`] = `
+exports[`Test Icons > should render all icons 524`] = `
 <span
   class="anticon ant-web3-icon-cob-circle-colorful"
   role="img"
@@ -51896,7 +51970,7 @@ exports[`Test Icons > should render all icons 523`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 524`] = `
+exports[`Test Icons > should render all icons 525`] = `
 <span
   class="anticon ant-web3-icon-cnd-circle-colorful"
   role="img"
@@ -51933,7 +52007,7 @@ exports[`Test Icons > should render all icons 524`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 525`] = `
+exports[`Test Icons > should render all icons 526`] = `
 <span
   class="anticon ant-web3-icon-cmt-circle-colorful"
   role="img"
@@ -51967,7 +52041,7 @@ exports[`Test Icons > should render all icons 525`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 526`] = `
+exports[`Test Icons > should render all icons 527`] = `
 <span
   class="anticon ant-web3-icon-clt-colorful"
   role="img"
@@ -52005,7 +52079,7 @@ exports[`Test Icons > should render all icons 526`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 527`] = `
+exports[`Test Icons > should render all icons 528`] = `
 <span
   class="anticon ant-web3-icon-cloak-circle-colorful"
   role="img"
@@ -52039,7 +52113,7 @@ exports[`Test Icons > should render all icons 527`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 528`] = `
+exports[`Test Icons > should render all icons 529`] = `
 <span
   class="anticon ant-web3-icon-clam-colorful"
   role="img"
@@ -52109,7 +52183,7 @@ exports[`Test Icons > should render all icons 528`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 529`] = `
+exports[`Test Icons > should render all icons 530`] = `
 <span
   class="anticon ant-web3-icon-ckb-colorful"
   role="img"
@@ -52145,7 +52219,7 @@ exports[`Test Icons > should render all icons 529`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 530`] = `
+exports[`Test Icons > should render all icons 531`] = `
 <span
   class="anticon ant-web3-icon-chrome-circle-colorful"
   role="img"
@@ -52251,7 +52325,7 @@ exports[`Test Icons > should render all icons 530`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 531`] = `
+exports[`Test Icons > should render all icons 532`] = `
 <span
   class="anticon ant-web3-icon-chat-circle-colorful"
   role="img"
@@ -52285,7 +52359,7 @@ exports[`Test Icons > should render all icons 531`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 532`] = `
+exports[`Test Icons > should render all icons 533`] = `
 <span
   class="anticon ant-web3-icon-chainlink-filled"
   role="img"
@@ -52327,7 +52401,7 @@ exports[`Test Icons > should render all icons 532`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 533`] = `
+exports[`Test Icons > should render all icons 534`] = `
 <span
   class="anticon ant-web3-icon-chainlink-circle-filled"
   role="img"
@@ -52381,7 +52455,7 @@ exports[`Test Icons > should render all icons 533`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 534`] = `
+exports[`Test Icons > should render all icons 535`] = `
 <span
   class="anticon ant-web3-icon-chainlink-circle-colorful"
   role="img"
@@ -52435,7 +52509,7 @@ exports[`Test Icons > should render all icons 534`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 535`] = `
+exports[`Test Icons > should render all icons 536`] = `
 <span
   class="anticon ant-web3-icon-cfg-circle-colorful"
   role="img"
@@ -52478,7 +52552,7 @@ exports[`Test Icons > should render all icons 535`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 536`] = `
+exports[`Test Icons > should render all icons 537`] = `
 <span
   class="anticon ant-web3-icon-cennz-colorful"
   role="img"
@@ -52509,7 +52583,7 @@ exports[`Test Icons > should render all icons 536`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 537`] = `
+exports[`Test Icons > should render all icons 538`] = `
 <span
   class="anticon ant-web3-icon-celo-colorful"
   role="img"
@@ -52551,7 +52625,7 @@ exports[`Test Icons > should render all icons 537`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 538`] = `
+exports[`Test Icons > should render all icons 539`] = `
 <span
   class="anticon ant-web3-icon-cel-circle-colorful"
   role="img"
@@ -52598,7 +52672,7 @@ exports[`Test Icons > should render all icons 538`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 539`] = `
+exports[`Test Icons > should render all icons 540`] = `
 <span
   class="anticon ant-web3-icon-cdai-circle-colorful"
   role="img"
@@ -52681,7 +52755,7 @@ exports[`Test Icons > should render all icons 539`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 540`] = `
+exports[`Test Icons > should render all icons 541`] = `
 <span
   class="anticon ant-web3-icon-cats-colorful"
   role="img"
@@ -53368,7 +53442,7 @@ exports[`Test Icons > should render all icons 540`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 541`] = `
+exports[`Test Icons > should render all icons 542`] = `
 <span
   class="anticon ant-web3-icon-cake-colorful"
   role="img"
@@ -53412,7 +53486,7 @@ exports[`Test Icons > should render all icons 541`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 542`] = `
+exports[`Test Icons > should render all icons 543`] = `
 <span
   class="anticon ant-web3-icon-c98-colorful"
   role="img"
@@ -53440,7 +53514,7 @@ exports[`Test Icons > should render all icons 542`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 543`] = `
+exports[`Test Icons > should render all icons 544`] = `
 <span
   class="anticon ant-web3-icon-bzrx-colorful"
   role="img"
@@ -53495,7 +53569,7 @@ exports[`Test Icons > should render all icons 543`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 544`] = `
+exports[`Test Icons > should render all icons 545`] = `
 <span
   class="anticon ant-web3-icon-busd-colorful"
   role="img"
@@ -53542,7 +53616,7 @@ exports[`Test Icons > should render all icons 544`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 545`] = `
+exports[`Test Icons > should render all icons 546`] = `
 <span
   class="anticon ant-web3-icon-btx-circle-colorful"
   role="img"
@@ -53576,7 +53650,7 @@ exports[`Test Icons > should render all icons 545`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 546`] = `
+exports[`Test Icons > should render all icons 547`] = `
 <span
   class="anticon ant-web3-icon-bttold-circle-colorful"
   role="img"
@@ -53621,7 +53695,7 @@ exports[`Test Icons > should render all icons 546`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 547`] = `
+exports[`Test Icons > should render all icons 548`] = `
 <span
   class="anticon ant-web3-icon-bts-colorful"
   role="img"
@@ -53649,7 +53723,7 @@ exports[`Test Icons > should render all icons 547`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 548`] = `
+exports[`Test Icons > should render all icons 549`] = `
 <span
   class="anticon ant-web3-icon-btrst-colorful"
   role="img"
@@ -53705,7 +53779,7 @@ exports[`Test Icons > should render all icons 548`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 549`] = `
+exports[`Test Icons > should render all icons 550`] = `
 <span
   class="anticon ant-web3-icon-bto-colorful"
   role="img"
@@ -54821,7 +54895,7 @@ exports[`Test Icons > should render all icons 549`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 550`] = `
+exports[`Test Icons > should render all icons 551`] = `
 <span
   class="anticon ant-web3-icon-btm-colorful"
   role="img"
@@ -54880,7 +54954,7 @@ exports[`Test Icons > should render all icons 550`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 551`] = `
+exports[`Test Icons > should render all icons 552`] = `
 <span
   class="anticon ant-web3-icon-btg-circle-colorful"
   role="img"
@@ -54912,7 +54986,7 @@ exports[`Test Icons > should render all icons 551`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 552`] = `
+exports[`Test Icons > should render all icons 553`] = `
 <span
   class="anticon ant-web3-icon-btcz-circle-colorful"
   role="img"
@@ -54958,7 +55032,7 @@ exports[`Test Icons > should render all icons 552`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 553`] = `
+exports[`Test Icons > should render all icons 554`] = `
 <span
   class="anticon ant-web3-icon-btc-circle-colorful"
   role="img"
@@ -55006,7 +55080,7 @@ exports[`Test Icons > should render all icons 553`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 554`] = `
+exports[`Test Icons > should render all icons 555`] = `
 <span
   class="anticon ant-web3-icon-bsw-circle-colorful"
   role="img"
@@ -55079,7 +55153,7 @@ exports[`Test Icons > should render all icons 554`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 555`] = `
+exports[`Test Icons > should render all icons 556`] = `
 <span
   class="anticon ant-web3-icon-bsv-circle-colorful"
   role="img"
@@ -55113,7 +55187,7 @@ exports[`Test Icons > should render all icons 555`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 556`] = `
+exports[`Test Icons > should render all icons 557`] = `
 <span
   class="anticon ant-web3-icon-bsd-circle-colorful"
   role="img"
@@ -55146,7 +55220,7 @@ exports[`Test Icons > should render all icons 556`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 557`] = `
+exports[`Test Icons > should render all icons 558`] = `
 <span
   class="anticon ant-web3-icon-bsc-circle-colorful"
   role="img"
@@ -55185,7 +55259,7 @@ exports[`Test Icons > should render all icons 557`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 558`] = `
+exports[`Test Icons > should render all icons 559`] = `
 <span
   class="anticon ant-web3-icon-brd-circle-colorful"
   role="img"
@@ -55220,7 +55294,7 @@ exports[`Test Icons > should render all icons 558`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 559`] = `
+exports[`Test Icons > should render all icons 560`] = `
 <span
   class="anticon ant-web3-icon-bone-circle-colorful"
   role="img"
@@ -55323,7 +55397,7 @@ exports[`Test Icons > should render all icons 559`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 560`] = `
+exports[`Test Icons > should render all icons 561`] = `
 <span
   class="anticon ant-web3-icon-bond-colorful"
   role="img"
@@ -55355,7 +55429,7 @@ exports[`Test Icons > should render all icons 560`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 561`] = `
+exports[`Test Icons > should render all icons 562`] = `
 <span
   class="anticon ant-web3-icon-bnty-circle-colorful"
   role="img"
@@ -55388,7 +55462,7 @@ exports[`Test Icons > should render all icons 561`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 562`] = `
+exports[`Test Icons > should render all icons 563`] = `
 <span
   class="anticon ant-web3-icon-bnt-circle-colorful"
   role="img"
@@ -55420,7 +55494,7 @@ exports[`Test Icons > should render all icons 562`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 563`] = `
+exports[`Test Icons > should render all icons 564`] = `
 <span
   class="anticon ant-web3-icon-bnb-colorful"
   role="img"
@@ -55474,7 +55548,7 @@ exports[`Test Icons > should render all icons 563`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 564`] = `
+exports[`Test Icons > should render all icons 565`] = `
 <span
   class="anticon ant-web3-icon-bnb-circle-colorful"
   role="img"
@@ -55520,7 +55594,7 @@ exports[`Test Icons > should render all icons 564`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 565`] = `
+exports[`Test Icons > should render all icons 566`] = `
 <span
   class="anticon ant-web3-icon-bnana-colorful"
   role="img"
@@ -55589,7 +55663,7 @@ exports[`Test Icons > should render all icons 565`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 566`] = `
+exports[`Test Icons > should render all icons 567`] = `
 <span
   class="anticon ant-web3-icon-blz-colorful"
   role="img"
@@ -55680,7 +55754,7 @@ exports[`Test Icons > should render all icons 566`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 567`] = `
+exports[`Test Icons > should render all icons 568`] = `
 <span
   class="anticon ant-web3-icon-block-circle-colorful"
   role="img"
@@ -55721,7 +55795,7 @@ exports[`Test Icons > should render all icons 567`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 568`] = `
+exports[`Test Icons > should render all icons 569`] = `
 <span
   class="anticon ant-web3-icon-blk-circle-colorful"
   role="img"
@@ -55770,7 +55844,7 @@ exports[`Test Icons > should render all icons 568`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 569`] = `
+exports[`Test Icons > should render all icons 570`] = `
 <span
   class="anticon ant-web3-icon-bix-circle-colorful"
   role="img"
@@ -55805,7 +55879,7 @@ exports[`Test Icons > should render all icons 569`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 570`] = `
+exports[`Test Icons > should render all icons 571`] = `
 <span
   class="anticon ant-web3-icon-bitcoin-filled"
   role="img"
@@ -55827,7 +55901,7 @@ exports[`Test Icons > should render all icons 570`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 571`] = `
+exports[`Test Icons > should render all icons 572`] = `
 <span
   class="anticon ant-web3-icon-bitcoin-colorful"
   role="img"
@@ -55869,7 +55943,7 @@ exports[`Test Icons > should render all icons 571`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 572`] = `
+exports[`Test Icons > should render all icons 573`] = `
 <span
   class="anticon ant-web3-icon-bitcoin-circle-filled"
   role="img"
@@ -55916,7 +55990,7 @@ exports[`Test Icons > should render all icons 572`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 573`] = `
+exports[`Test Icons > should render all icons 574`] = `
 <span
   class="anticon ant-web3-icon-bitcoin-circle-colorful"
   role="img"
@@ -55943,7 +56017,7 @@ exports[`Test Icons > should render all icons 573`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 574`] = `
+exports[`Test Icons > should render all icons 575`] = `
 <span
   class="anticon ant-web3-icon-bitb-colorful"
   role="img"
@@ -56292,7 +56366,7 @@ exports[`Test Icons > should render all icons 574`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 575`] = `
+exports[`Test Icons > should render all icons 576`] = `
 <span
   class="anticon ant-web3-icon-bit-circle-colorful"
   role="img"
@@ -56335,7 +56409,7 @@ exports[`Test Icons > should render all icons 575`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 576`] = `
+exports[`Test Icons > should render all icons 577`] = `
 <span
   class="anticon ant-web3-icon-bifi-colorful"
   role="img"
@@ -56425,7 +56499,7 @@ exports[`Test Icons > should render all icons 576`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 577`] = `
+exports[`Test Icons > should render all icons 578`] = `
 <span
   class="anticon ant-web3-icon-bico-colorful"
   role="img"
@@ -56486,7 +56560,7 @@ exports[`Test Icons > should render all icons 577`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 578`] = `
+exports[`Test Icons > should render all icons 579`] = `
 <span
   class="anticon ant-web3-icon-bgb-colorful"
   role="img"
@@ -56529,7 +56603,7 @@ exports[`Test Icons > should render all icons 578`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 579`] = `
+exports[`Test Icons > should render all icons 580`] = `
 <span
   class="anticon ant-web3-icon-bf-colorful"
   role="img"
@@ -56562,7 +56636,7 @@ exports[`Test Icons > should render all icons 579`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 580`] = `
+exports[`Test Icons > should render all icons 581`] = `
 <span
   class="anticon ant-web3-icon-bela-circle-colorful"
   role="img"
@@ -56595,7 +56669,7 @@ exports[`Test Icons > should render all icons 580`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 581`] = `
+exports[`Test Icons > should render all icons 582`] = `
 <span
   class="anticon ant-web3-icon-beam-circle-colorful"
   role="img"
@@ -56737,7 +56811,7 @@ exports[`Test Icons > should render all icons 581`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 582`] = `
+exports[`Test Icons > should render all icons 583`] = `
 <span
   class="anticon ant-web3-icon-bcn-circle-colorful"
   role="img"
@@ -56769,7 +56843,7 @@ exports[`Test Icons > should render all icons 582`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 583`] = `
+exports[`Test Icons > should render all icons 584`] = `
 <span
   class="anticon ant-web3-icon-bch-circle-colorful"
   role="img"
@@ -56804,7 +56878,7 @@ exports[`Test Icons > should render all icons 583`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 584`] = `
+exports[`Test Icons > should render all icons 585`] = `
 <span
   class="anticon ant-web3-icon-bcd-colorful"
   role="img"
@@ -56830,7 +56904,7 @@ exports[`Test Icons > should render all icons 584`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 585`] = `
+exports[`Test Icons > should render all icons 586`] = `
 <span
   class="anticon ant-web3-icon-bat-colorful"
   role="img"
@@ -56868,7 +56942,7 @@ exports[`Test Icons > should render all icons 585`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 586`] = `
+exports[`Test Icons > should render all icons 587`] = `
 <span
   class="anticon ant-web3-icon-base-circle-colorful"
   role="img"
@@ -56903,7 +56977,7 @@ exports[`Test Icons > should render all icons 586`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 587`] = `
+exports[`Test Icons > should render all icons 588`] = `
 <span
   class="anticon ant-web3-icon-band-circle-colorful"
   role="img"
@@ -56968,7 +57042,7 @@ exports[`Test Icons > should render all icons 587`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 588`] = `
+exports[`Test Icons > should render all icons 589`] = `
 <span
   class="anticon ant-web3-icon-ban-circle-colorful"
   role="img"
@@ -57135,7 +57209,7 @@ exports[`Test Icons > should render all icons 588`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 589`] = `
+exports[`Test Icons > should render all icons 590`] = `
 <span
   class="anticon ant-web3-icon-bal-circle-colorful"
   role="img"
@@ -57185,7 +57259,7 @@ exports[`Test Icons > should render all icons 589`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 590`] = `
+exports[`Test Icons > should render all icons 591`] = `
 <span
   class="anticon ant-web3-icon-bake-colorful"
   role="img"
@@ -57264,7 +57338,7 @@ exports[`Test Icons > should render all icons 590`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 591`] = `
+exports[`Test Icons > should render all icons 592`] = `
 <span
   class="anticon ant-web3-icon-backpack-filled"
   role="img"
@@ -57288,7 +57362,7 @@ exports[`Test Icons > should render all icons 591`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 592`] = `
+exports[`Test Icons > should render all icons 593`] = `
 <span
   class="anticon ant-web3-icon-backpack-colorful"
   role="img"
@@ -57312,7 +57386,7 @@ exports[`Test Icons > should render all icons 592`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 593`] = `
+exports[`Test Icons > should render all icons 594`] = `
 <span
   class="anticon ant-web3-icon-backpack-circle-filled"
   role="img"
@@ -57342,7 +57416,7 @@ exports[`Test Icons > should render all icons 593`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 594`] = `
+exports[`Test Icons > should render all icons 595`] = `
 <span
   class="anticon ant-web3-icon-backpack-circle-colorful"
   role="img"
@@ -57372,7 +57446,7 @@ exports[`Test Icons > should render all icons 594`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 595`] = `
+exports[`Test Icons > should render all icons 596`] = `
 <span
   class="anticon ant-web3-icon-babydoge-colorful"
   role="img"
@@ -57638,7 +57712,7 @@ exports[`Test Icons > should render all icons 595`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 596`] = `
+exports[`Test Icons > should render all icons 597`] = `
 <span
   class="anticon ant-web3-icon-axs-circle-colorful"
   role="img"
@@ -57682,7 +57756,7 @@ exports[`Test Icons > should render all icons 596`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 597`] = `
+exports[`Test Icons > should render all icons 598`] = `
 <span
   class="anticon ant-web3-icon-avax-filled"
   role="img"
@@ -57727,7 +57801,7 @@ exports[`Test Icons > should render all icons 597`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 598`] = `
+exports[`Test Icons > should render all icons 599`] = `
 <span
   class="anticon ant-web3-icon-avax-colorful"
   role="img"
@@ -57772,7 +57846,7 @@ exports[`Test Icons > should render all icons 598`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 599`] = `
+exports[`Test Icons > should render all icons 600`] = `
 <span
   class="anticon ant-web3-icon-avax-circle-filled"
   role="img"
@@ -57821,7 +57895,7 @@ exports[`Test Icons > should render all icons 599`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 600`] = `
+exports[`Test Icons > should render all icons 601`] = `
 <span
   class="anticon ant-web3-icon-avax-circle-colorful"
   role="img"
@@ -57870,7 +57944,7 @@ exports[`Test Icons > should render all icons 600`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 601`] = `
+exports[`Test Icons > should render all icons 602`] = `
 <span
   class="anticon ant-web3-icon-avalanche-circle-colorful"
   role="img"
@@ -57913,7 +57987,7 @@ exports[`Test Icons > should render all icons 601`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 602`] = `
+exports[`Test Icons > should render all icons 603`] = `
 <span
   class="anticon ant-web3-icon-atom-circle-colorful"
   role="img"
@@ -57987,7 +58061,7 @@ exports[`Test Icons > should render all icons 602`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 603`] = `
+exports[`Test Icons > should render all icons 604`] = `
 <span
   class="anticon ant-web3-icon-astr-circle-colorful"
   role="img"
@@ -58580,7 +58654,7 @@ exports[`Test Icons > should render all icons 603`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 604`] = `
+exports[`Test Icons > should render all icons 605`] = `
 <span
   class="anticon ant-web3-icon-ast-colorful"
   role="img"
@@ -58603,7 +58677,7 @@ exports[`Test Icons > should render all icons 604`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 605`] = `
+exports[`Test Icons > should render all icons 606`] = `
 <span
   class="anticon ant-web3-icon-asafe-circle-colorful"
   role="img"
@@ -58642,7 +58716,7 @@ exports[`Test Icons > should render all icons 605`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 606`] = `
+exports[`Test Icons > should render all icons 607`] = `
 <span
   class="anticon ant-web3-icon-arrr-circle-colorful"
   role="img"
@@ -58689,7 +58763,7 @@ exports[`Test Icons > should render all icons 606`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 607`] = `
+exports[`Test Icons > should render all icons 608`] = `
 <span
   class="anticon ant-web3-icon-arpa-circle-colorful"
   role="img"
@@ -58751,7 +58825,7 @@ exports[`Test Icons > should render all icons 607`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 608`] = `
+exports[`Test Icons > should render all icons 609`] = `
 <span
   class="anticon ant-web3-icon-arnx-circle-colorful"
   role="img"
@@ -58784,7 +58858,7 @@ exports[`Test Icons > should render all icons 608`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 609`] = `
+exports[`Test Icons > should render all icons 610`] = `
 <span
   class="anticon ant-web3-icon-ark-colorful"
   role="img"
@@ -58813,7 +58887,7 @@ exports[`Test Icons > should render all icons 609`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 610`] = `
+exports[`Test Icons > should render all icons 611`] = `
 <span
   class="anticon ant-web3-icon-ardr-colorful"
   role="img"
@@ -58852,7 +58926,7 @@ exports[`Test Icons > should render all icons 610`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 611`] = `
+exports[`Test Icons > should render all icons 612`] = `
 <span
   class="anticon ant-web3-icon-arbitrum-colorful"
   role="img"
@@ -58891,7 +58965,7 @@ exports[`Test Icons > should render all icons 611`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 612`] = `
+exports[`Test Icons > should render all icons 613`] = `
 <span
   class="anticon ant-web3-icon-arbitrum-circle-colorful"
   role="img"
@@ -58975,7 +59049,7 @@ exports[`Test Icons > should render all icons 612`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 613`] = `
+exports[`Test Icons > should render all icons 614`] = `
 <span
   class="anticon ant-web3-icon-ar-circle-colorful"
   role="img"
@@ -59009,7 +59083,7 @@ exports[`Test Icons > should render all icons 613`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 614`] = `
+exports[`Test Icons > should render all icons 615`] = `
 <span
   class="anticon ant-web3-icon-apt-circle-colorful"
   role="img"
@@ -59045,7 +59119,7 @@ exports[`Test Icons > should render all icons 614`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 615`] = `
+exports[`Test Icons > should render all icons 616`] = `
 <span
   class="anticon ant-web3-icon-appc-circle-colorful"
   role="img"
@@ -59109,7 +59183,7 @@ exports[`Test Icons > should render all icons 615`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 616`] = `
+exports[`Test Icons > should render all icons 617`] = `
 <span
   class="anticon ant-web3-icon-apl-colorful"
   role="img"
@@ -59133,7 +59207,7 @@ exports[`Test Icons > should render all icons 616`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 617`] = `
+exports[`Test Icons > should render all icons 618`] = `
 <span
   class="anticon ant-web3-icon-api3-colorful"
   role="img"
@@ -60153,7 +60227,7 @@ exports[`Test Icons > should render all icons 617`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 618`] = `
+exports[`Test Icons > should render all icons 619`] = `
 <span
   class="anticon ant-web3-icon-ape-circle-colorful"
   role="img"
@@ -60508,7 +60582,7 @@ exports[`Test Icons > should render all icons 618`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 619`] = `
+exports[`Test Icons > should render all icons 620`] = `
 <span
   class="anticon ant-web3-icon-aoa-colorful"
   role="img"
@@ -60624,7 +60698,7 @@ exports[`Test Icons > should render all icons 619`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 620`] = `
+exports[`Test Icons > should render all icons 621`] = `
 <span
   class="anticon ant-web3-icon-any-colorful"
   role="img"
@@ -60677,7 +60751,7 @@ exports[`Test Icons > should render all icons 620`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 621`] = `
+exports[`Test Icons > should render all icons 622`] = `
 <span
   class="anticon ant-web3-icon-ant-colorful"
   role="img"
@@ -60722,7 +60796,7 @@ exports[`Test Icons > should render all icons 621`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 622`] = `
+exports[`Test Icons > should render all icons 623`] = `
 <span
   class="anticon ant-web3-icon-ankr-colorful"
   role="img"
@@ -60750,7 +60824,7 @@ exports[`Test Icons > should render all icons 622`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 623`] = `
+exports[`Test Icons > should render all icons 624`] = `
 <span
   class="anticon ant-web3-icon-ampl-colorful"
   role="img"
@@ -60780,7 +60854,7 @@ exports[`Test Icons > should render all icons 623`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 624`] = `
+exports[`Test Icons > should render all icons 625`] = `
 <span
   class="anticon ant-web3-icon-amp-circle-colorful"
   role="img"
@@ -60820,7 +60894,7 @@ exports[`Test Icons > should render all icons 624`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 625`] = `
+exports[`Test Icons > should render all icons 626`] = `
 <span
   class="anticon ant-web3-icon-alpha-circle-colorful"
   role="img"
@@ -60915,7 +60989,7 @@ exports[`Test Icons > should render all icons 625`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 626`] = `
+exports[`Test Icons > should render all icons 627`] = `
 <span
   class="anticon ant-web3-icon-algo-colorful"
   role="img"
@@ -60941,7 +61015,7 @@ exports[`Test Icons > should render all icons 626`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 627`] = `
+exports[`Test Icons > should render all icons 628`] = `
 <span
   class="anticon ant-web3-icon-akt-colorful"
   role="img"
@@ -61009,7 +61083,7 @@ exports[`Test Icons > should render all icons 627`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 628`] = `
+exports[`Test Icons > should render all icons 629`] = `
 <span
   class="anticon ant-web3-icon-akro-colorful"
   role="img"
@@ -61059,7 +61133,7 @@ exports[`Test Icons > should render all icons 628`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 629`] = `
+exports[`Test Icons > should render all icons 630`] = `
 <span
   class="anticon ant-web3-icon-aion-colorful"
   role="img"
@@ -61090,7 +61164,7 @@ exports[`Test Icons > should render all icons 629`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 630`] = `
+exports[`Test Icons > should render all icons 631`] = `
 <span
   class="anticon ant-web3-icon-agrs-circle-colorful"
   role="img"
@@ -61125,7 +61199,7 @@ exports[`Test Icons > should render all icons 630`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 631`] = `
+exports[`Test Icons > should render all icons 632`] = `
 <span
   class="anticon ant-web3-icon-agix-circle-colorful"
   role="img"
@@ -61165,7 +61239,7 @@ exports[`Test Icons > should render all icons 631`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 632`] = `
+exports[`Test Icons > should render all icons 633`] = `
 <span
   class="anticon ant-web3-icon-aeon-colorful"
   role="img"
@@ -61212,7 +61286,7 @@ exports[`Test Icons > should render all icons 632`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 633`] = `
+exports[`Test Icons > should render all icons 634`] = `
 <span
   class="anticon ant-web3-icon-ae-colorful"
   role="img"
@@ -61241,7 +61315,7 @@ exports[`Test Icons > should render all icons 633`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 634`] = `
+exports[`Test Icons > should render all icons 635`] = `
 <span
   class="anticon ant-web3-icon-adx-circle-colorful"
   role="img"
@@ -61274,7 +61348,7 @@ exports[`Test Icons > should render all icons 634`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 635`] = `
+exports[`Test Icons > should render all icons 636`] = `
 <span
   class="anticon ant-web3-icon-adk-circle-colorful"
   role="img"
@@ -61361,7 +61435,7 @@ exports[`Test Icons > should render all icons 635`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 636`] = `
+exports[`Test Icons > should render all icons 637`] = `
 <span
   class="anticon ant-web3-icon-ada-filled"
   role="img"
@@ -61519,7 +61593,7 @@ exports[`Test Icons > should render all icons 636`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 637`] = `
+exports[`Test Icons > should render all icons 638`] = `
 <span
   class="anticon ant-web3-icon-ada-colorful"
   role="img"
@@ -61671,7 +61745,7 @@ exports[`Test Icons > should render all icons 637`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 638`] = `
+exports[`Test Icons > should render all icons 639`] = `
 <span
   class="anticon ant-web3-icon-ada-circle-filled"
   role="img"
@@ -61843,7 +61917,7 @@ exports[`Test Icons > should render all icons 638`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 639`] = `
+exports[`Test Icons > should render all icons 640`] = `
 <span
   class="anticon ant-web3-icon-ada-circle-colorful"
   role="img"
@@ -62019,7 +62093,7 @@ exports[`Test Icons > should render all icons 639`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 640`] = `
+exports[`Test Icons > should render all icons 641`] = `
 <span
   class="anticon ant-web3-icon-act-circle-colorful"
   role="img"
@@ -62053,7 +62127,7 @@ exports[`Test Icons > should render all icons 640`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 641`] = `
+exports[`Test Icons > should render all icons 642`] = `
 <span
   class="anticon ant-web3-icon-ach-colorful"
   role="img"
@@ -62095,7 +62169,7 @@ exports[`Test Icons > should render all icons 641`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 642`] = `
+exports[`Test Icons > should render all icons 643`] = `
 <span
   class="anticon ant-web3-icon-abt-circle-colorful"
   role="img"
@@ -62130,7 +62204,7 @@ exports[`Test Icons > should render all icons 642`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 643`] = `
+exports[`Test Icons > should render all icons 644`] = `
 <span
   class="anticon ant-web3-icon-abbc-circle-colorful"
   role="img"
@@ -62173,7 +62247,7 @@ exports[`Test Icons > should render all icons 643`] = `
 </span>
 `;
 
-exports[`Test Icons > should render all icons 644`] = `
+exports[`Test Icons > should render all icons 645`] = `
 <span
   class="anticon ant-web3-icon-aave-circle-colorful"
   role="img"
