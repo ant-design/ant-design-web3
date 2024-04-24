@@ -39,6 +39,7 @@ Components used to display NFTCard.
 | showAction | Whether to show the action button of the card | `boolean` | `true` | - |
 | type | The type of the card | `'default' \| 'pithy'` | `'default'` | - |
 | onActionClick | The callback when the action button of the card is clicked | `() => void` | - | - |
+| errorRender | The method to render when an error occurs | `(error: Error) => React.ReactNode` | - | - |
 | locale | Multilingual settings | `Locale["NFTCard"]` | - | - |
 
 The definition of `NFTMetadata` refers to the Ethereum ERC721 standard, see [NFTMetadata document](../types/index.md#nftmetadata) for details.
