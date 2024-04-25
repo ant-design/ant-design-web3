@@ -259,7 +259,7 @@ describe('NFTCard', () => {
         getNFTMetadata={async () => {
           throw new Error('This is an error');
         }}
-        errorRender={(e) => <div className="custom-error">Custom Error {e.message}</div>}
+        errorRender={(e: Error) => <div className="custom-error">Custom Error {e.message}</div>}
         address="0x79fcdef22feed20eddacbb2587640e45491b757f"
         tokenId={42n}
       />,
