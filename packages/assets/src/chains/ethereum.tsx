@@ -4,8 +4,10 @@ import {
   AvalancheCircleColorful,
   BSCCircleColorful,
   EthereumCircleColorful,
+  EthereumColorful,
   EthereumFilled,
   EtherscanCircleColorful,
+  HardhatColorful,
   OkxWalletColorful,
   OptimismCircleColorful,
   PolygonCircleColorful,
@@ -146,4 +148,18 @@ export const ScrollSepolia: Chain = {
     getBrowserLink: createGetBrowserLink('https://sepolia.scrollscan.com/'),
   },
   nativeCurrency: { name: 'Scroll ETH', symbol: 'ETH', decimals: 18 },
+};
+
+export const Hardhat: Chain = {
+  id: ChainIds.Hardhat,
+  name: 'Hardhat',
+  icon: <HardhatColorful />,
+  nativeCurrency: { icon: <EthereumFilled />, name: 'Ether', symbol: 'ETH', decimals: 18 },
+};
+
+export const Localhost: Chain = {
+  id: ChainIds.Localhost,
+  name: 'Localhost',
+  icon: <EthereumColorful />,
+  nativeCurrency: { icon: <EthereumFilled />, name: 'Ether', symbol: 'ETH', decimals: 18 },
 };

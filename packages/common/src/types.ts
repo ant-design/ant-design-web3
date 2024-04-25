@@ -16,6 +16,8 @@ export enum ChainIds {
   Holesky = 17_000,
   Scroll = 534_352,
   ScrollSepolia = 534_351,
+  Hardhat = 31_337,
+  Localhost = 1_337,
 }
 
 export enum SolanaChainIds {
