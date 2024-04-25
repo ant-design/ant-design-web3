@@ -44,7 +44,7 @@ group: 展示
 | showAction | 是否显示卡片的操作按钮 | `boolean` | `true` | - |
 | type | 卡片的类型 | `'default' \| 'pithy'` | `'default'` | - |
 | onActionClick | 点击卡片的操作按钮时的回调 | `() => void` | - | - |
-| errorRender | 错误时的渲染方法 | `(error: Error) => React.ReactNode` | - | - |
+| errorRender | NFT 获取异常时展示异常信息的渲染方法 | `(error: Error) => React.ReactNode` | - | - |
 | locale | 多语言设置 | `Locale["NFTCard"]` | - | - |
 
 `NFTMetadata` 的定义参考以太坊 ERC721 的标准，具体见 [NFTMetadata 文档](../types/index.zh-CN.md#nftmetadata)。
