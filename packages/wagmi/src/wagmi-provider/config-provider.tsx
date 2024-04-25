@@ -184,6 +184,12 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
 
   const currency = currentChain?.nativeCurrency;
 
+  const getNFTMetadataFunc = React.useCallback(
+    async ({ address: contractAddress, tokenId }: { address: string; tokenId: bigint }) =>
+      getNFTMetadata(config, contractAddress, tokenId, chain?.id),
+    [chain?.id],
+  );
+
   return (
     <Web3ConfigProvider
       locale={locale}
@@ -228,9 +234,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           chainId: c.id,
         });
       }}
-      getNFTMetadata={async ({ address: contractAddress, tokenId }) =>
-        getNFTMetadata(config, contractAddress, tokenId, chain?.id)
-      }
+      getNFTMetadata={getNFTMetadataFunc}
     >
       {children}
     </Web3ConfigProvider>
