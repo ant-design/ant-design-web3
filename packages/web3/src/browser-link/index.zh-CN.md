@@ -1,7 +1,7 @@
 ---
 nav: 组件
 subtitle: 浏览器链接
-group: 展示
+group: UI 组件
 ---
 
 # BrowerLink

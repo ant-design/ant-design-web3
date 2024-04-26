@@ -1,7 +1,7 @@
 ---
 nav: 组件
 subtitle: NFT 图片
-group: 展示
+group: UI 组件
 ---
 
 # NFTImage

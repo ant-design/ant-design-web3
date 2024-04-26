@@ -2,7 +2,7 @@
 nav: 组件
 subtitle: 以太坊
 group:
-  title: 适配器
+  title: 连接链
   order: 2
 tag:
   title: 更新
@@ -35,10 +35,6 @@ Ant Design Web3 官方提供了 `wagmi`、`ethers` 等多个框架的适配器�
 - 使用 `simple` 模式，简化界面。
 - 手动配置 `queryClient`，方便后续自定义相关配置。
 
-## 基本使用
-
-<code src="./demos/basic.tsx"></code>
-
 ## EIP6963
 
 基于 EIP6963 自动添加钱包，在 [EIP6963](https://eips.ethereum.org/EIPS/eip-6963) 协议下，可以避免用户安装多个钱包导致的冲突，以及可以自动识别到用户已经安装的钱包。
@@ -53,12 +49,6 @@ Ant Design Web3 官方提供了 `wagmi`、`ethers` 等多个框架的适配器�
 
 <code src="./demos/more-wallets.tsx"></code>
 
-## 使用 TokenPocket
-
-Ant Design Web3 内置了对 [TokenPocket](https://www.tokenpocket.pro/) 的支持，通过 wagmi 的 `InjectedConnector` 和 `WalletConnectConnector` 同时支持通过浏览器插件和手机 APP 扫码连接。
-
-<code src="./demos/token-pocket"></code>
-
 ## 自定义钱包信息
 
 <code src="./demos/custom-wallet"></code>
@@ -69,29 +59,11 @@ Ant Design Web3 内置了对 [TokenPocket](https://www.tokenpocket.pro/) 的支�
 
 <code src="./demos/chains.tsx"></code>
 
-## 显示 ENS
+## 显示 ENS 和余额
 
-> 你需要连接包含 ENS 的地址才能看到示例效果
+> 你需要连接包含 ENS 和余额 的地址才能看到示例效果
 
 <code src="./demos/name.tsx"></code>
-
-## 显示余额
-
-> 你需要连接账号后才能看到示例效果
-
-<code src="./demos/balance.tsx"></code>
-
-## 配置更多 UI
-
-大部分和链无关的 UI 属性你都可以直接在组件上配置，适配器通常只用于配置和链相关的内容。下面是一个配置示例，更多的配置你可以具体参考 [ConnectButton](../connect-button/index.zh-CN.md)、[ConnectModal](../connect-modal/index.zh-CN.md) 等组件文档查看更多细节。
-
-<code src="./demos/uiconfig.tsx"></code>
-
-## 更多组件
-
-你可以配合更多组件使用，组件中涉及到链部分的内容都会从适配器中获取。当然，在组件上直接配置的属性优先级更高。
-
-<code src="./demos/more-components.tsx"></code>
 
 ## 使用 web3modal 连接 WalletConnect
 
@@ -170,12 +142,6 @@ const App = () => {
   );
 };
 ```
-
-### 更多组件
-
-你可以配合更多组件使用，组件中涉及到链部分的内容都会从适配器中获取。当然，在组件上直接配置的属性优先级更高。
-
-<code src="./demos/ethers-more-components.tsx"></code>
 
 ### EthersWeb3ConfigProviderProps
 

@@ -1,7 +1,7 @@
 ---
 nav: Components
 group:
-  title: Adapter
+  title: Connect Blockchains
   order: 2
 tag:
   title: Update
@@ -34,10 +34,6 @@ The recommended configuration mainly includes:
 - Use the `simple` mode to simplify the interface.
 - Manually configure `queryClient` for easy subsequent customization of related configurations.
 
-## Basic Usage
-
-<code src="./demos/basic.tsx"></code>
-
 ## EIP6963
 
 Automatically add wallets based on EIP6963. Under the [EIP6963](https://eips.ethereum.org/EIPS/eip-6963) protocol, it can avoid conflicts caused by users installing multiple wallets, and can automatically identify the wallets that users have installed.
@@ -52,12 +48,6 @@ In addition, we recommend setting `eip6963` to `true` to avoid conflicts when us
 
 <code src="./demos/more-wallets.tsx"></code>
 
-## Use TokenPocket
-
-Ant Design Web3 has built-in support for [TokenPocket](https://www.tokenpocket.pro/), which supports connecting through browser plug-ins and mobile APP scanning at the same time through the `InjectedConnector` and `WalletConnectConnector` of wagmi.
-
-<code src="./demos/token-pocket"></code>
-
 ## Customize wallet information
 
 <code src="./demos/custom-wallet"></code>
@@ -68,29 +58,11 @@ We have built-in `Mainnet`, and the remaining chains need to configure `chains` 
 
 <code src="./demos/chains.tsx"></code>
 
-## Display ENS
+## Display ENS and Balance
 
-> You need to connect to an address containing ENS to see the example effect.
+> You need to connect to an address containing ENS and balance to see the example effect.
 
 <code src="./demos/name.tsx"></code>
-
-## Display Balance
-
-> You need to connect your account in order to see the example effect.
-
-<code src="./demos/balance.tsx"></code>
-
-## Configure more UI
-
-Most of the UI attributes that are not related to the chain can be configured directly on the component. The adapter is usually only used to configure content related to the chain. Here is a configuration example. You can refer to the [ConnectButton](../connect-button/index.md), [ConnectModal](../connect-modal/index.md) and other component documents for more details.
-
-<code src="./demos/uiconfig.tsx"></code>
-
-## More components
-
-You can use more components together. The content related to the chain in the component will be obtained from the adapter. Of course, the properties configured directly on the component have a higher priority.
-
-<code src="./demos/more-components.tsx"></code>
 
 ## Use web3modal for WalletConnect
 
@@ -163,12 +135,6 @@ const App = () => {
   );
 };
 ```
-
-### More components
-
-You can use more components together. The content related to the chain in the component will be obtained from the adapter. Of course, the properties configured directly on the component have a higher priority.
-
-<code src="./demos/ethers-more-components.tsx"></code>
 
 ### EthersWeb3ConfigProviderProps
 

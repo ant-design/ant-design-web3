@@ -1,7 +1,7 @@
 ---
 nav: Components
 group:
-  title: Display
+  title: UI Components
   order: 3
 ---
 

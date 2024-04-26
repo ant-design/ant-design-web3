@@ -1,7 +1,7 @@
 ---
 nav: 组件
 subtitle: NFT 卡片
-group: 展示
+group: UI 组件
 ---
 
 # NFTCard

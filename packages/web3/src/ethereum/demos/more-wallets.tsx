@@ -34,7 +34,9 @@ const config = createConfig({
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
-      eip6963
+      eip6963={{
+        autoAddInjectedWallets: true,
+      }}
       wallets={[
         MetaMask(),
         WalletConnect(),
