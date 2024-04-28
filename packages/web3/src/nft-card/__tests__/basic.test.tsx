@@ -1,5 +1,5 @@
 import { NFTCard } from '@ant-design/web3';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 describe('NFTCard', () => {
@@ -60,13 +60,16 @@ describe('NFTCard', () => {
     const tokenId = 123;
 
     const { baseElement } = render(
-      <NFTCard address={address} tokenId={tokenId} footer={<div>Additional information</div>} />,
+      <NFTCard
+        image="https://ipfs.io/ipfs/QmXVH2TsfCXJ5pDM3cabHKW1Z7M6fAtu5yV6LuifVWPsoP"
+        footer={<div>Additional information</div>}
+      />,
     );
 
     expect(baseElement.querySelector('.ant-web3-nft-card-footer')).toBeTruthy();
   });
 
-  it('render tokenId when `type` is default', () => {
+  it('render tokenId when `type` is default', async () => {
     const address = '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B';
     const tokenId = 123;
     const likeConfig = {
@@ -81,19 +84,28 @@ describe('NFTCard', () => {
         price={{
           value: 139999n,
         }}
+        getNFTMetadata={async () => {
+          return {
+            name: 'NFT Name',
+            description: 'NFT Description',
+            image: 'ipfs://QmXVH2TsfCXJ5pDM3cabHKW1Z7M6fAtu5yV6LuifVWPsoP',
+          };
+        }}
       />,
     );
 
-    expect(
-      baseElement.querySelector('.ant-web3-nft-card-content .ant-web3-nft-card-serial-number'),
-    ).toBeTruthy();
-    expect(
-      baseElement.querySelector('.ant-web3-nft-card-content .ant-web3-nft-card-serial-number')
-        ?.textContent,
-    ).toBe('#123');
+    await vi.waitFor(() => {
+      expect(
+        baseElement.querySelector('.ant-web3-nft-card-content .ant-web3-nft-card-serial-number'),
+      ).toBeTruthy();
+      expect(
+        baseElement.querySelector('.ant-web3-nft-card-content .ant-web3-nft-card-serial-number')
+          ?.textContent,
+      ).toBe('#123');
+    });
   });
 
-  it('render tokenId when `type` is pithy', () => {
+  it('render tokenId when `type` is pithy', async () => {
     const address = '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B';
     const tokenId = 123;
     const likeConfig = {
@@ -102,6 +114,11 @@ describe('NFTCard', () => {
 
     const { baseElement } = render(
       <NFTCard
+        getNFTMetadata={async () => {
+          return {
+            image: 'https://ipfs.io/ipfs/QmXVH2TsfCXJ5pDM3cabHKW1Z7M6fAtu5yV6LuifVWPsoP',
+          };
+        }}
         address={address}
         tokenId={tokenId}
         like={likeConfig}
@@ -111,14 +128,15 @@ describe('NFTCard', () => {
         }}
       />,
     );
-
-    expect(
-      baseElement.querySelector('.ant-web3-nft-card-body .ant-web3-nft-card-serial-number'),
-    ).toBeTruthy();
-    expect(
-      baseElement.querySelector('.ant-web3-nft-card-body .ant-web3-nft-card-serial-number')
-        ?.textContent,
-    ).toBe('No:123');
+    await vi.waitFor(() => {
+      expect(
+        baseElement.querySelector('.ant-web3-nft-card-body .ant-web3-nft-card-serial-number'),
+      ).toBeTruthy();
+      expect(
+        baseElement.querySelector('.ant-web3-nft-card-body .ant-web3-nft-card-serial-number')
+          ?.textContent,
+      ).toBe('No:123');
+    });
   });
 
   it('`tokenId` can not pass', () => {
@@ -200,6 +218,7 @@ describe('NFTCard', () => {
     expect(imgEle?.src).toBe(imageUrl);
     expect(imgEle?.alt).toBe('test');
   });
+
   it('render image when error image', async () => {
     const { baseElement } = render(<NFTCard image="" />);
 
@@ -214,6 +233,41 @@ describe('NFTCard', () => {
       expect(
         baseElement.querySelector('.ant-web3-nft-card-content .ant-image-img')?.getAttribute('src'),
       ).toBe('');
+    });
+  });
+
+  it('render warning result when request error', async () => {
+    const { baseElement } = render(
+      <NFTCard
+        getNFTMetadata={async () => {
+          throw new Error('This is an error');
+        }}
+        address="0x79fcdef22feed20eddacbb2587640e45491b757f"
+        tokenId={42n}
+      />,
+    );
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-result-subtitle')?.textContent).toBe(
+        'This is an error',
+      );
+    });
+  });
+
+  it('errorRender', async () => {
+    const { baseElement } = render(
+      <NFTCard
+        getNFTMetadata={async () => {
+          throw new Error('This is an error');
+        }}
+        errorRender={(e: Error) => <div className="custom-error">Custom Error {e.message}</div>}
+        address="0x79fcdef22feed20eddacbb2587640e45491b757f"
+        tokenId={42n}
+      />,
+    );
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.custom-error')?.textContent).toBe(
+        'Custom Error This is an error',
+      );
     });
   });
 
