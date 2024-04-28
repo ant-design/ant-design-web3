@@ -2,7 +2,7 @@
 nav: 组件
 subtitle: 索拉纳
 group:
-  title: 适配器
+  title: 连接链
   order: 2
 ---
 

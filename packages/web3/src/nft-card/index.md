@@ -1,6 +1,6 @@
 ---
 nav: Components
-group: Display
+group: UI Components
 ---
 
 # NFTCard

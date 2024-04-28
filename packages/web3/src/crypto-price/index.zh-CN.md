@@ -2,7 +2,7 @@
 nav: 组件
 subtitle: 加密价格
 group:
-  title: 展示
+  title: UI 组件
 ---
 
 # CryptoPrice
