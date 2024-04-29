@@ -85,12 +85,6 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     setPanelRoute(route);
   }, [updateSelectedWallet]);
 
-  React.useEffect(() => {
-    if (panelRoute === 'getWallet') {
-      updateSelectedWallet(undefined);
-    }
-  }, [panelRoute, updateSelectedWallet]);
-
   const { isSimple } = useMode(mode);
 
   return wrapSSR(
