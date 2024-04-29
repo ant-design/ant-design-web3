@@ -1,7 +1,7 @@
 ---
 nav: Components
 group:
-  title: Adapter
+  title: Connect Blockchains
   order: 3
 ---
 

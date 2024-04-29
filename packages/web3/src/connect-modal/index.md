@@ -1,6 +1,6 @@
 ---
 nav: Components
-group: Connect
+group: UI Components
 order: 2
 ---
 

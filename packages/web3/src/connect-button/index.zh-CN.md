@@ -1,7 +1,7 @@
 ---
 nav: 组件
 subtitle: 连接钱包按钮
-group: 连接
+group: UI 组件
 order: 1
 ---
 

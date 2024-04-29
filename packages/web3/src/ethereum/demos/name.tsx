@@ -18,7 +18,15 @@ const config = createConfig({
 
 const App: React.FC = () => {
   return (
-    <WagmiWeb3ConfigProvider ens config={config} wallets={[MetaMask()]}>
+    <WagmiWeb3ConfigProvider
+      eip6963={{
+        autoAddInjectedWallets: true,
+      }}
+      ens
+      balance
+      config={config}
+      wallets={[MetaMask()]}
+    >
       <Connector>
         <ConnectButton />
       </Connector>

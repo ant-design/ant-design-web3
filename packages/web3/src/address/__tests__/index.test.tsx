@@ -1,22 +1,9 @@
 import { fireEvent, render } from '@testing-library/react';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { Address } from '..';
-import { readCopyText } from '../../utils';
-import { mockClipboard } from '../../utils/test-utils';
 
 describe('Address', () => {
-  let resetMockClipboard: () => void;
-  beforeEach(() => {
-    resetMockClipboard = mockClipboard();
-    vi.useFakeTimers({ shouldAdvanceTime: true });
-  });
-  afterEach(() => {
-    resetMockClipboard();
-    vi.runOnlyPendingTimers();
-    vi.useRealTimers();
-  });
-
   it('mount correctly', () => {
     expect(() => render(<Address />)).not.toThrow();
   });
@@ -56,7 +43,7 @@ describe('Address', () => {
     );
 
     expect(baseElement.querySelector('.ant-web3-address')?.textContent).toBe('0x21CD...Fd3B');
-    fireEvent.mouseEnter(baseElement.querySelector('.ant-web3-address-text')!);
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-web3-address .ant-typography span')!);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-tooltip-inner')?.textContent).toBe(
         '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
@@ -87,6 +74,8 @@ describe('Address', () => {
   });
 
   it('display address with copyable', async () => {
+    const promptMock = vi.fn();
+    vi.spyOn(window, 'prompt').mockImplementation(promptMock);
     const { baseElement } = render(
       <Address address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" ellipsis copyable />,
     );
@@ -95,10 +84,14 @@ describe('Address', () => {
     await vi.waitFor(async () => {
       expect(baseElement.querySelector('.anticon-check')).not.toBeNull();
       expect(baseElement.querySelector('.anticon-copy')).toBeNull();
-      expect(baseElement.querySelector('.anticon-check')?.getAttribute('title')).toBe(
+      expect(baseElement.querySelector('.ant-typography-copy')?.getAttribute('aria-label')).toBe(
         'Address Copied!',
       );
-      expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
+      // copy-to-clipboard in antd can not mock with vitest, so test with prompt
+      expect(promptMock).toBeCalledWith(
+        'Copy to clipboard: Ctrl+C, Enter',
+        '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+      );
     });
   });
 
@@ -115,7 +108,7 @@ describe('Address', () => {
     const { baseElement } = render(
       <Address tooltip={false} address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,
     );
-    fireEvent.mouseEnter(baseElement.querySelector('.ant-web3-address-text')!);
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-web3-address .ant-typography span')!);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-tooltip-inner')).toBeNull();
     });
@@ -138,19 +131,23 @@ describe('Address', () => {
         tooltip={<span>hello</span>}
       />,
     );
-    fireEvent.mouseEnter(baseElement.querySelector('.ant-web3-address-text')!);
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-web3-address .ant-typography span')!);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-tooltip-inner')?.textContent).toBe('hello');
     });
   });
 
-  it('should show copy icon after 2s', async () => {
+  it('should show copy icon after 3s', async () => {
     const { baseElement } = render(
       <Address address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" copyable />,
     );
-    fireEvent.click(baseElement.querySelector('.anticon-copy')!);
-    vi.advanceTimersByTime(2000);
     expect(baseElement.querySelector('.anticon-check')).toBeNull();
-    expect(baseElement.querySelector('.anticon-copy')).not.toBeNull();
+    fireEvent.click(baseElement.querySelector('.anticon-copy')!);
+    expect(baseElement.querySelector('.anticon-check')).not.toBeNull();
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.anticon-check')).toBeNull();
+      expect(baseElement.querySelector('.anticon-copy')).not.toBeNull();
+    });
   });
 });

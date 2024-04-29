@@ -3,7 +3,7 @@ import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 describe('NFTCard like', () => {
-  it('renders correctly with likeConfig and onLikeChange work', () => {
+  it('renders correctly with likeConfig and onLikeChange work', async () => {
     const likeFn = vi.fn();
     const address = '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B';
     const tokenId = 123;
@@ -15,6 +15,11 @@ describe('NFTCard like', () => {
 
     const { baseElement } = render(
       <NFTCard
+        getNFTMetadata={async () => {
+          return {
+            image: 'https://ipfs.io/ipfs/QmXVH2TsfCXJ5pDM3cabHKW1Z7M6fAtu5yV6LuifVWPsoP',
+          };
+        }}
         address={address}
         tokenId={tokenId}
         like={likeConfig}
@@ -23,14 +28,17 @@ describe('NFTCard like', () => {
         }}
       />,
     );
-    // Ensure the like and price elements are rendered
-    expect(baseElement.querySelector('.ant-web3-nft-card-like-value')).toBeTruthy();
-    expect(baseElement.querySelector('.ant-web3-crypto-price-balance')).toBeTruthy();
-    fireEvent.click(baseElement.querySelector('.ant-web3-nft-card-like-icon')!);
-    expect(likeFn).toHaveBeenCalled();
+
+    await vi.waitFor(() => {
+      // Ensure the like and price elements are rendered
+      expect(baseElement.querySelector('.ant-web3-nft-card-like-value')).toBeTruthy();
+      expect(baseElement.querySelector('.ant-web3-crypto-price-balance')).toBeTruthy();
+      fireEvent.click(baseElement.querySelector('.ant-web3-nft-card-like-icon')!);
+      expect(likeFn).toHaveBeenCalled();
+    });
   });
 
-  it('should controlled by user when not pass likeConfig.liked', () => {
+  it('should controlled by user when not pass likeConfig.liked', async () => {
     const likeFn = vi.fn();
     const address = '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B';
     const tokenId = 123;
@@ -41,6 +49,11 @@ describe('NFTCard like', () => {
 
     const { baseElement } = render(
       <NFTCard
+        getNFTMetadata={async () => {
+          return {
+            image: 'https://ipfs.io/ipfs/QmXVH2TsfCXJ5pDM3cabHKW1Z7M6fAtu5yV6LuifVWPsoP',
+          };
+        }}
         address={address}
         tokenId={tokenId}
         like={likeConfig}
@@ -49,10 +62,12 @@ describe('NFTCard like', () => {
         }}
       />,
     );
-    // Ensure the like and price elements are rendered
-    expect(baseElement.querySelector('.ant-web3-nft-card-like-value')).toBeTruthy();
-    expect(baseElement.querySelector('.ant-web3-crypto-price-balance')).toBeTruthy();
-    fireEvent.click(baseElement.querySelector('.ant-web3-nft-card-like-icon')!);
-    expect(likeFn).toHaveBeenCalled();
+    await vi.waitFor(() => {
+      // Ensure the like and price elements are rendered
+      expect(baseElement.querySelector('.ant-web3-nft-card-like-value')).toBeTruthy();
+      expect(baseElement.querySelector('.ant-web3-crypto-price-balance')).toBeTruthy();
+      fireEvent.click(baseElement.querySelector('.ant-web3-nft-card-like-icon')!);
+      expect(likeFn).toHaveBeenCalled();
+    });
   });
 });

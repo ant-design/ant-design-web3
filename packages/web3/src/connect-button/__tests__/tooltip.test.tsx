@@ -2,18 +2,14 @@ import { fireEvent, render } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { ConnectButton } from '..';
-import { readCopyText } from '../../utils';
-import { mockClipboard } from '../../utils/test-utils';
+import { readCopyText } from '../../utils/test-utils';
 
 describe('ConnectButton', () => {
-  let resetMockClipboard: () => void;
   beforeEach(() => {
     vi.useFakeTimers();
-    resetMockClipboard = mockClipboard();
   });
   afterEach(() => {
     vi.useRealTimers();
-    resetMockClipboard();
   });
 
   it('when tooltip is boolean, ant-tooltip not toBeNull', async () => {
@@ -26,7 +22,7 @@ describe('ConnectButton', () => {
       );
     };
     const { baseElement, rerender } = render(<App />);
-    const btn = baseElement.querySelector('.ant-web3-address-text')!;
+    const btn = baseElement.querySelector('.ant-web3-address .ant-typography span')!;
     fireEvent.mouseEnter(btn);
     rerender(<App />);
     // When the tooltip's title is string, baseElement.outerHTML does not contain '.ant-tooltip'.

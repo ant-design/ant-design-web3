@@ -242,6 +242,7 @@ export * from './components/gusd-circle-colorful';
 export * from './components/gxc-circle-colorful';
 export * from './components/hai-colorful';
 export * from './components/hakka-colorful';
+export * from './components/hardhat-colorful';
 export * from './components/hbar-circle-colorful';
 export * from './components/hc-colorful';
 export * from './components/hedg-colorful';

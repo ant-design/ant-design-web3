@@ -3,8 +3,7 @@ import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { ConnectButton } from '..';
-import { readCopyText } from '../../utils';
-import { mockClipboard } from '../../utils/test-utils';
+import { readCopyText } from '../../utils/test-utils';
 
 const menuItems: MenuItemType[] = [
   {
@@ -24,13 +23,10 @@ const menuItems: MenuItemType[] = [
 ];
 
 describe('ConnectButton', () => {
-  let resetMockClipboard: () => void;
   beforeEach(() => {
-    resetMockClipboard = mockClipboard();
     vi.useFakeTimers();
   });
   afterEach(() => {
-    resetMockClipboard();
     vi.useRealTimers();
   });
   it('Should show menu when hover button', async () => {

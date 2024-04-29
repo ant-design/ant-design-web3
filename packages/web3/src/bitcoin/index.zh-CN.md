@@ -2,7 +2,7 @@
 nav: 组件
 subtitle: 比特币
 group:
-  title: 适配器
+  title: 连接链
   order: 1
 tag:
   title: 新

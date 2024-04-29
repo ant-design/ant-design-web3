@@ -2,7 +2,7 @@
 nav: 组件
 subtitle: 连接器
 group:
-  title: 连接
+  title: UI 组件
   order: 2
 order: 0
 ---

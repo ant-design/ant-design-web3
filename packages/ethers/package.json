@@ -59,12 +59,12 @@
     "@ant-design/web3-wagmi": "workspace:*",
     "@tanstack/react-query": "^5.28.4",
     "debug": "^4.3.4",
-    "viem": ">=2.0.0",
+    "viem": ">=2.9.25",
     "wagmi": "^2.5.7"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
-    "father": "^4.3.8",
+    "father": "^4.4.0",
     "typescript": "^5.4.4",
     "ethers-v5": "npm:ethers@^5.7.2",
     "ethers-v6": "npm:ethers@^6.11.1"

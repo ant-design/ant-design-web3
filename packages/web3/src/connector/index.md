@@ -1,7 +1,7 @@
 ---
 nav: Components
 group:
-  title: Connect
+  title: UI Components
   order: 2
 order: 0
 ---
