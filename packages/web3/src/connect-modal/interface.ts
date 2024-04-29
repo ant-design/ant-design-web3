@@ -141,7 +141,6 @@ export type ConnectModalProps = ModalProps &
 export type PanelRoute =
   | 'init'
   | 'guide'
-  | 'getWallet'
   | 'wallet'
   | 'qrCode'
   | 'downloadQrCode'
