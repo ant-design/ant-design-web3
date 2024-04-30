@@ -9,6 +9,7 @@ export interface ConnectorProps {
   onConnected?: () => void;
   onDisconnected?: () => void;
   onChainSwitched?: (chain?: Chain) => void;
+  onConnectError?: (error?: Error) => void;
 
   account?: Account;
   chain?: Chain;

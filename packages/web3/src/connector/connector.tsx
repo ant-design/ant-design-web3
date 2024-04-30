@@ -15,6 +15,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     onDisconnect,
     onDisconnected,
     onChainSwitched,
+    onConnectError,
   } = props;
   const {
     availableWallets,
@@ -41,8 +42,12 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       onConnected?.();
       setOpen(false);
     } catch (e: any) {
-      messageApi.error(e.message);
-      console.error(e);
+      if (typeof onConnectError === 'function') {
+        onConnectError(e);
+      } else {
+        messageApi.error(e.message);
+        console.error(e);
+      }
     } finally {
       setLoading(false);
     }
