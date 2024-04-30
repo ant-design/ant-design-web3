@@ -15,7 +15,7 @@ const App: React.FC = () => {
       wallets={[PhantomWallet(), OKXWallet(), WalletConnectWallet()]}
       walletConnect={{ projectId: YOUR_WALLET_CONNECT_PROJECT_ID }}
     >
-      <Connector modalProps={{ mode: 'simple' }}>
+      <Connector modalProps={{ mode: 'simple', group: false }}>
         <ConnectButton quickConnect />
       </Connector>
     </SolanaWeb3ConfigProvider>

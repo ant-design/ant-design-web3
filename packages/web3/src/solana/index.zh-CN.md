@@ -22,7 +22,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它
 - 支持显示余额。
 - 默认添加 Phantom、OKX 钱包，在用户未安装钱包情况下提供下载引导。
 - 配置 `quickConnect`，提供快速连接入口，简化用户操作。
-- 使用 `simple` 模式，简化界面。
+- 使用 `simple` 模式，去掉钱包分组，简化界面。
 
 ## 基本使用
 

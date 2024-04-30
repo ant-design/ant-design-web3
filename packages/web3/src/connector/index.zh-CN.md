@@ -1,10 +1,7 @@
 ---
 nav: 组件
 subtitle: 连接器
-group:
-  title: UI 组件
-  order: 2
-order: 0
+group: UI 组件
 ---
 
 # Connector

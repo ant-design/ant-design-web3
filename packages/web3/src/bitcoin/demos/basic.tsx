@@ -4,7 +4,12 @@ import { BitcoinWeb3ConfigProvider, UnisatWallet, XverseWallet } from '@ant-desi
 const App: React.FC = () => {
   return (
     <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet()]}>
-      <Connector>
+      <Connector
+        modalProps={{
+          group: false,
+          mode: 'simple',
+        }}
+      >
         <ConnectButton />
       </Connector>
     </BitcoinWeb3ConfigProvider>
