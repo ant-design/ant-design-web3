@@ -8,15 +8,19 @@ export interface StandardWallet extends Wallet {
   isStandardWallet: boolean;
 }
 
-export interface WalletFactory {
-  create: (getWalletConnect?: () => Promise<IUniversalProvider | undefined>) => Wallet;
+export interface AdapterWallet extends Wallet {
+  isMetaMaskSnap?: boolean;
+}
+
+export interface WalletFactory<W extends Wallet = Wallet> {
+  create: (getWalletConnect?: () => Promise<IUniversalProvider | undefined>) => W;
 }
 
 export interface StandardWalletFactory extends WalletFactory {
   create: () => StandardWallet;
 }
 
-export interface AdapterWalletFactory extends WalletFactory {
+export interface AdapterWalletFactory extends WalletFactory<AdapterWallet> {
   // Only need when use `@solana/wallet-adapter-*`
   adapter: Adapter;
 }

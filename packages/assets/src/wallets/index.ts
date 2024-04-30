@@ -10,3 +10,4 @@ export * from './xverse';
 export * from './unisat-wallet';
 export * from './backpack';
 export * from './trust';
+export * from './solflare';
