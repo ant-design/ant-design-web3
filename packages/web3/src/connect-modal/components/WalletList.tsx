@@ -1,5 +1,6 @@
 import React, { forwardRef, useContext, useImperativeHandle, useMemo } from 'react';
 import { QrcodeOutlined } from '@ant-design/icons';
+import { MetaMaskColorful } from '@ant-design/web3-icons';
 import { Button, List, Space, Typography } from 'antd';
 import classNames from 'classnames';
 
@@ -91,7 +92,12 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
               {typeof item.icon === 'string' || item.icon === undefined ? (
                 <img className={`${prefixCls}-img`} src={item.icon} alt={item.name} />
               ) : (
-                <div className={`${prefixCls}-icon`}>{item.icon}</div>
+                <div className={`${prefixCls}-icon`}>
+                  {item.icon}
+                  {(item as any).isMetaMaskSnap && (
+                    <MetaMaskColorful className={`${prefixCls}-icon-metamask-snap`} />
+                  )}
+                </div>
               )}
               <Typography.Text ellipsis={{ tooltip: true }} className={`${prefixCls}-name`}>
                 {item.name}

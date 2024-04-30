@@ -129,6 +129,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                       width: '100%',
                       overflow: 'hidden',
                       [`${componentCls}-icon`]: {
+                        position: 'relative',
                         borderRadius: 8,
                         overflow: 'hidden',
                         width: token.iconSize,
@@ -136,6 +137,12 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                         fontSize: token.iconSize,
                         lineHeight: `${token.iconSize}px`,
                         flexShrink: 0,
+                        [`${componentCls}-icon-metamask-snap`]: {
+                          position: 'absolute',
+                          right: 2,
+                          bottom: 2,
+                          fontSize: 12,
+                        },
                       },
                       [`${componentCls}-img`]: {
                         borderRadius: 8,
