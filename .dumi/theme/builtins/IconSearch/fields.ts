@@ -4,7 +4,7 @@ const all = Object.keys(AntdWeb3Icons)
   .map((n) => n.replace(/(CircleColorful|Colorful|Filled|CircleFilled)$/, ''))
   .filter((n, i, arr) => arr.indexOf(n) === i);
 
-const hots = [
+const commons = [
   'Bitcoin',
   'Ethereum',
   'USDT',
@@ -19,10 +19,10 @@ const hots = [
   'Avax',
 ];
 
-const other = all.filter((n) => !hots.includes(n));
+const other = all.filter((n) => !commons.includes(n));
 
 export const categories = {
-  hots,
+  commons,
   other,
 };
 
