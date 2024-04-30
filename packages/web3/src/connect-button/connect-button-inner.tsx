@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { MoreOutlined } from '@ant-design/icons';
 import type { Wallet } from '@ant-design/web3-common';
-import type { ButtonProps, MenuProps } from 'antd';
 import { Button, ConfigProvider, Dropdown, Space } from 'antd';
+import type { ButtonProps, MenuProps } from 'antd';
 import classNames from 'classnames';
 
 import type { IntlType } from '../hooks/useIntl';

@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+// eslint-disable-next-line import/order
 import util from 'util';
 import { cleanup } from '@testing-library/react';
 import { afterEach, vi } from 'vitest';

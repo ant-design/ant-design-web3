@@ -1,7 +1,8 @@
 import type React from 'react';
+// eslint-disable-next-line import/order
 import { useContext } from 'react';
-import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import { ConfigProvider as AntdConfigProvider, theme as AntTheme } from 'antd';
 import type { GlobalToken } from 'antd';

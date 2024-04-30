@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/order
 import type React from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { GlobalToken } from 'antd';

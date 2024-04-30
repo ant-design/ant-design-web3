@@ -56,7 +56,6 @@ describe('NFTCard', () => {
   });
 
   it('renders footer content when footer prop is provided', () => {
-
     const { baseElement } = render(
       <NFTCard
         image="https://ipfs.io/ipfs/QmXVH2TsfCXJ5pDM3cabHKW1Z7M6fAtu5yV6LuifVWPsoP"

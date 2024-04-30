@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import React, { isValidElement, useContext, useMemo } from 'react';
 import { type Locale } from '@ant-design/web3-common';
-import type { TooltipProps } from 'antd';
 import { ConfigProvider, Space, Tooltip, Typography } from 'antd';
+import type { TooltipProps } from 'antd';
 import classNames from 'classnames';
 
 import { useProvider } from '../hooks';

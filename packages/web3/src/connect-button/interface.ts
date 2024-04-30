@@ -2,6 +2,7 @@ import type { ConnectorTriggerProps, Locale } from '@ant-design/web3-common';
 import type { AvatarProps, ButtonProps, MenuProps, TooltipProps } from 'antd';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 
+// eslint-disable-next-line import/order
 import type { AddressProps } from '../address';
 import type { ProfileModalProps } from './profile-modal';
 

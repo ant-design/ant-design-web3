@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/order
 import { useEffect, useState } from 'react';
 import type { NFTMetadata, Web3ConfigProviderProps } from '@ant-design/web3-common';
 
