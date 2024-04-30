@@ -189,7 +189,6 @@ describe('WagmiWeb3ConfigProvider', () => {
   });
 
   it('empty connectors', () => {
-    const chains = [polygon, mainnet];
     const config = createConfig({
       chains: [polygon, mainnet],
       transports: {
