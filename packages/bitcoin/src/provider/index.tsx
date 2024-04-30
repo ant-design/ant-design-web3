@@ -3,7 +3,7 @@ import type { Locale, Wallet } from '@ant-design/web3-common';
 
 import { type BitcoinWallet } from '../adapter';
 import { BitcoinAdapterContext } from '../adapter/useBitcoinWallet';
-import { WalletFactory, WalletWithAdapter } from '../wallets/types';
+import type { WalletFactory, WalletWithAdapter } from '../wallets/types';
 import { BitcoinConfigProvider } from './config-provider';
 
 export interface BitcoinWeb3ConfigProviderProps {

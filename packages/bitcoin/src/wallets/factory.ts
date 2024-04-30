@@ -1,4 +1,4 @@
-import { WalletFactoryBuilder } from './types';
+import type { WalletFactoryBuilder } from './types';
 
 export const WalletFactory: WalletFactoryBuilder = (adapter, metadata) => {
   return {
