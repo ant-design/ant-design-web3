@@ -71,7 +71,12 @@ import { BitcoinWeb3ConfigProvider, UnisatWallet, XverseWallet } from '@ant-desi
 const App: React.FC = () => {
   return (
     <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet()]}>
-      <Connector>
+      <Connector
+        modalProps={{
+          group: false,
+          mode: 'simple',
+        }}
+      >
         <ConnectButton />
       </Connector>
     </BitcoinWeb3ConfigProvider>
@@ -2062,7 +2067,7 @@ const App: React.FC = () => {
       wallets={[PhantomWallet(), OKXWallet(), WalletConnectWallet()]}
       walletConnect={{ projectId: YOUR_WALLET_CONNECT_PROJECT_ID }}
     >
-      <Connector modalProps={{ mode: 'simple' }}>
+      <Connector modalProps={{ mode: 'simple', group: false }}>
         <ConnectButton quickConnect />
       </Connector>
     </SolanaWeb3ConfigProvider>
