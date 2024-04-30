@@ -137,7 +137,7 @@ describe('SolanaWeb3ConfigProvider', () => {
     consoleErrorSpy.mockRestore();
   });
 
-  it('available repect chains config', () => {
+  it('current chain need repect `chains` config', () => {
     const Display = () => {
       const { availableChains, chain } = useProvider();
 
