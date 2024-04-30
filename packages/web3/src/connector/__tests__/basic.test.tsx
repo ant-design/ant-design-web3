@@ -319,4 +319,52 @@ describe('Connector', () => {
       expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
     });
   });
+
+  it('Custom handle connect error', async () => {
+    const customHandleConnectError = vi.fn();
+    const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
+      const { account, onConnectClick, children } = props;
+      return <Button onClick={() => onConnectClick?.()}>{account?.address ?? children}</Button>;
+    };
+
+    const App = () => {
+      const [account] = React.useState<Account | undefined>();
+      return (
+        <Connector
+          account={account}
+          availableWallets={[
+            {
+              ...metadata_MetaMask,
+              hasWalletReady: async () => {
+                return true;
+              },
+            },
+          ]}
+          connect={async () => {
+            return new Promise((resove, reject) => {
+              reject();
+            });
+          }}
+          onConnectError={(error) => {
+            customHandleConnectError(error);
+          }}
+        >
+          <CustomButton>children</CustomButton>
+        </Connector>
+      );
+    };
+    const { baseElement } = render(<App />);
+
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
+
+    fireEvent.click(baseElement.querySelector('.ant-btn')!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')).toBeTruthy();
+    });
+
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')!);
+    await vi.waitFor(() => {
+      expect(customHandleConnectError).toBeCalledWith(undefined);
+    });
+  });
 });
