@@ -1,5 +1,5 @@
 import { ConnectModal } from '@ant-design/web3';
-import { render, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
 import { describe, expect, it } from 'vitest';
 

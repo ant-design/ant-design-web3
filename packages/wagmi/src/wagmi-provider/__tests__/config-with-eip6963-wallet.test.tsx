@@ -1,6 +1,5 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { ChromeCircleColorful } from '@ant-design/web3-icons';
-import { UniversalWallet, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { createConfig, http } from 'wagmi';

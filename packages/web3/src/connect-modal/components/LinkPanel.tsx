@@ -19,10 +19,10 @@ const LinkPanel: React.FC = () => {
       <MainPanelHeader title={`${localeMessage.linkWallet} ${selectedWallet?.name}`} />
       <div className={`${prefixCls}-link-panel`}>
         <div className={`${prefixCls}-ripple-container`}>
-          <div className={`${prefixCls}-ripple`}></div>
-          <div className={`${prefixCls}-ripple`}></div>
-          <div className={`${prefixCls}-ripple`}></div>
-          <Avatar size={62} icon={selectedWallet?.icon}></Avatar>
+          <div className={`${prefixCls}-ripple`} />
+          <div className={`${prefixCls}-ripple`} />
+          <div className={`${prefixCls}-ripple`} />
+          <Avatar size={62} icon={selectedWallet?.icon} />
         </div>
         <div className={`${prefixCls}-wallet-connecting`}>{localeMessage.walletConnecting}</div>
       </div>

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import util from 'util';
 import { cleanup } from '@testing-library/react';
-import { afterEach, beforeEach, vi } from 'vitest';
+import { afterEach, vi } from 'vitest';
 
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {

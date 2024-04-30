@@ -1,4 +1,3 @@
-import { connect } from 'http2';
 import { ConnectModal } from '@ant-design/web3';
 import { metadata_MetaMask } from '@ant-design/web3-assets';
 import { fireEvent, render, waitFor } from '@testing-library/react';

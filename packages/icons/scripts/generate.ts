@@ -8,15 +8,13 @@ const { template } = pkg;
 
 const writeFile = promisify(fs.writeFile);
 
-interface IconDefinition {
-  [key: string]: any;
-}
+type IconDefinition = Record<string, any>;
 interface IconDefinitionWithIdentifier extends IconDefinition {
   svgIdentifier: string;
   svgBase64: string | null;
 }
 
-const IdentifierMap: { [key: string]: string } = {
+const IdentifierMap: Record<string, string> = {
   'imtoken-circle-colorful': 'ImTokenCircleColorful',
   'imtoken-colorful': 'ImTokenColorful',
   'metamask-colorful': 'MetaMaskColorful',

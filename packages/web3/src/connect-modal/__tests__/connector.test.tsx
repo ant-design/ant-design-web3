@@ -1,5 +1,6 @@
 import React from 'react';
-import { Connector, ConnectorTriggerProps } from '@ant-design/web3';
+import type { ConnectorTriggerProps } from '@ant-design/web3';
+import { Connector } from '@ant-design/web3';
 import { metadata_MetaMask } from '@ant-design/web3-assets';
 import { fireEvent, render } from '@testing-library/react';
 import { Button } from 'antd';
