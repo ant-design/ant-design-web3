@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { FireFilled } from '@ant-design/icons';
 import { message } from 'antd';
 import { useIntl } from 'dumi';
 
@@ -44,10 +43,7 @@ const Category: React.FC<CategoryProps> = (props) => {
   return (
     <div>
       {contextHolder}
-      <h3>
-        {title === 'hots' && <FireFilled style={{ color: 'orangered' }} />}{' '}
-        {intl.formatMessage({ id: `app.docs.components.icon.category.${title}` })}
-      </h3>
+      <h3>{intl.formatMessage({ id: `app.docs.components.icon.category.${title}` })}</h3>
       <ul className="anticons-list">
         {icons.map((name) => (
           <CopyableIcon
