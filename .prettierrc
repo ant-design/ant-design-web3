@@ -6,6 +6,7 @@
   "proseWrap": "never",
   "importOrder": ["^(react|react-dom)$", "^([a-z]|@[a-z])", "", ".*"],
   "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+  "organizeImportsSkipDestructiveCodeActions": true,
   "overrides": [
     {
       "files": ".prettierrc",
