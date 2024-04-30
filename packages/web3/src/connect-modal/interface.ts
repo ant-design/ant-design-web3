@@ -138,10 +138,4 @@ export type ConnectModalProps = ModalProps &
     addressPrefix?: string | false;
   };
 
-export type PanelRoute =
-  | 'init'
-  | 'guide'
-  | 'wallet'
-  | 'qrCode'
-  | 'downloadQrCode'
-  | 'link';
+export type PanelRoute = 'init' | 'guide' | 'wallet' | 'qrCode' | 'downloadQrCode' | 'link';
