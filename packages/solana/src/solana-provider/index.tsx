@@ -40,7 +40,7 @@ export interface SolanaWeb3ConfigProviderProps {
 
 export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProviderProps>> = ({
   locale,
-  chains,
+  chains = [solana],
   wallets: walletFactories = [],
   balance,
   rpcProvider,
@@ -51,7 +51,7 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
   children,
   walletProviderProps,
 }) => {
-  const [currentChain, setCurrentChain] = useState<SolanaChainConfig | undefined>(solana);
+  const [currentChain, setCurrentChain] = useState<SolanaChainConfig | undefined>(chains[0]);
   const [connectionError, setConnectionError] = useState<WalletConnectionError>();
   const walletConnectProviderGetter = useWalletConnectProvider(walletConnect);
 
@@ -109,7 +109,7 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
           balance={balance}
           currentChain={currentChain}
           onCurrentChainChange={(chain) => setCurrentChain(chain)}
-          availableChains={chains || [solana]}
+          availableChains={chains}
           connectionError={connectionError}
           autoAddRegisteredWallets={autoAddRegisteredWallets}
         >
