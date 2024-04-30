@@ -4,7 +4,7 @@ import type { ConnectionContextState } from '@solana/wallet-adapter-react';
 import { fireEvent, render } from '@testing-library/react';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { solana } from '../../chains';
+import { solana, solanaDevnet, solanaTestnet } from '../../chains';
 import { SolanaWeb3ConfigProvider } from '../index';
 import { xrender } from './utils';
 
@@ -135,6 +135,33 @@ describe('SolanaWeb3ConfigProvider', () => {
     );
 
     consoleErrorSpy.mockRestore();
+  });
+
+  it('available repect chains config', () => {
+    const Display = () => {
+      const { availableChains, chain } = useProvider();
+
+      return (
+        <div>
+          <div className="default-chain">{chain?.name}</div>
+          <div className="available-chains">{availableChains?.map((v) => v.name).join(',')}</div>
+        </div>
+      );
+    };
+    const App = () => (
+      <SolanaWeb3ConfigProvider chains={[solanaDevnet, solanaTestnet]}>
+        <Display />
+      </SolanaWeb3ConfigProvider>
+    );
+
+    const { selector } = xrender(App);
+    const defaultChainDom = selector('.default-chain')!;
+    const availableChainsDom = selector('.available-chains')!;
+
+    expect(defaultChainDom.textContent).toBe(solanaDevnet.name);
+    expect(availableChainsDom.textContent).toBe(
+      [solanaDevnet, solanaTestnet].map((v) => v.name).join(','),
+    );
   });
 
   it('available custom trigger', () => {
