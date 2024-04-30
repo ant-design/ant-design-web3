@@ -342,6 +342,7 @@ describe('Connector', () => {
           ]}
           connect={async () => {
             return new Promise((resove, reject) => {
+              // throw an error but not reason
               reject();
             });
           }}
