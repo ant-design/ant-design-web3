@@ -2,7 +2,7 @@
 
 import { ConnectButton, Connector, useProvider } from '@ant-design/web3';
 import { metadata_CoinbaseWallet } from '@ant-design/web3-assets';
-import { Solana, SolanaDevnet, SolanaTestnet } from '@ant-design/web3-assets/solana';
+import { SolanaDevnet } from '@ant-design/web3-assets/solana';
 import type { ConnectionContextState } from '@solana/wallet-adapter-react';
 import { CoinbaseWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { fireEvent } from '@testing-library/react';
@@ -65,6 +65,58 @@ vi.mock('@solana/wallet-adapter-react', async () => {
 describe('Switch network', () => {
   afterEach(() => {
     vi.resetModules();
+  });
+
+  it('default is mainnet if chains not set', () => {
+    const Display = () => {
+      const { availableChains, chain } = useProvider();
+
+      return (
+        <div>
+          <div className="default-chain">{chain?.name}</div>
+          <div className="available-chains">{availableChains?.map((v) => v.name).join(',')}</div>
+        </div>
+      );
+    };
+    const App = () => (
+      <SolanaWeb3ConfigProvider>
+        <Display />
+      </SolanaWeb3ConfigProvider>
+    );
+
+    const { selector } = xrender(App);
+    const defaultChainDom = selector('.default-chain')!;
+    const availableChainsDom = selector('.available-chains')!;
+
+    expect(defaultChainDom.textContent).toBe(solana.name);
+    expect(availableChainsDom.textContent).toBe(solana.name);
+  });
+
+  it('current chain need repect `chains` config', () => {
+    const Display = () => {
+      const { availableChains, chain } = useProvider();
+
+      return (
+        <div>
+          <div className="default-chain">{chain?.name}</div>
+          <div className="available-chains">{availableChains?.map((v) => v.name).join(',')}</div>
+        </div>
+      );
+    };
+    const App = () => (
+      <SolanaWeb3ConfigProvider chains={[solanaDevnet, solanaTestnet]}>
+        <Display />
+      </SolanaWeb3ConfigProvider>
+    );
+
+    const { selector } = xrender(App);
+    const defaultChainDom = selector('.default-chain')!;
+    const availableChainsDom = selector('.available-chains')!;
+
+    expect(defaultChainDom.textContent).toBe(solanaDevnet.name);
+    expect(availableChainsDom.textContent).toBe(
+      [solanaDevnet, solanaTestnet].map((v) => v.name).join(','),
+    );
   });
 
   it('switch network when connected', async () => {
