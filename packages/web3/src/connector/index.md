@@ -1,9 +1,6 @@
 ---
 nav: Components
-group:
-  title: UI Components
-  order: 2
-order: 0
+group: UI Components
 ---
 
 # Connector
