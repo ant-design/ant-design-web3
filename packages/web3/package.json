@@ -40,14 +40,14 @@
     "build": "father build"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "^1.18.5",
+    "@ant-design/cssinjs": "^1.20.0",
     "@ant-design/icons": "^5.3.6",
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
     "@ctrl/tinycolor": "^4.1.0",
     "@inline-svg-unique-id/react": "^1.2.3",
-    "antd": "^5.16.5",
+    "antd": "^5.17.0",
     "bs58": "^5.0.0",
     "classnames": "^2.3.2",
     "copy-to-clipboard": "^3.3.3"
