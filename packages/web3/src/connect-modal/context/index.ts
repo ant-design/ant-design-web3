@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ConnectOptions} from '@ant-design/web3-common';
+import type { ConnectOptions } from '@ant-design/web3-common';
 import { defaultLocale } from '@ant-design/web3-common';
 
 import type { IntlType } from '../../hooks/useIntl';

@@ -369,9 +369,10 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                           style="background-color: transparent; width: 350px; height: 350px;"
                         >
                           <svg
-                            height="350"
+                            height="160"
+                            style="width: 350px; height: 350px;"
                             viewBox="0 0 25 25"
-                            width="350"
+                            width="160"
                           >
                             <path
                               d="M0,0 h25v25H0z"
@@ -823,9 +824,10 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                           style="background-color: transparent; width: 350px; height: 350px;"
                         >
                           <svg
-                            height="350"
+                            height="160"
+                            style="width: 350px; height: 350px;"
                             viewBox="0 0 25 25"
-                            width="350"
+                            width="160"
                           >
                             <path
                               d="M0,0 h25v25H0z"
