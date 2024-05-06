@@ -112,8 +112,8 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0(eslint@8.57.0)
       ethers:
-        specifier: ^6.11.1
-        version: 6.11.1
+        specifier: ^6.12.1
+        version: 6.12.1
       father:
         specifier: ^4.4.0
         version: 4.4.0(@babel/core@7.24.3)(@types/node@20.10.5)(styled-components@5.3.11)(webpack@5.91.0)
@@ -187,8 +187,8 @@ importers:
         specifier: ^5.16.5
         version: 5.16.5(react-dom@18.2.0)(react@18.2.0)
       ethers:
-        specifier: ^6.11.1
-        version: 6.11.1
+        specifier: ^6.12.1
+        version: 6.12.1
       umi:
         specifier: ^4.1.5
         version: 4.1.5(@babel/core@7.24.3)(@types/node@20.10.5)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)(stylelint@14.16.1)(typescript@5.4.4)(webpack@5.91.0)
@@ -221,8 +221,8 @@ importers:
         specifier: ^5.16.5
         version: 5.16.5(react-dom@18.2.0)(react@18.2.0)
       ethers:
-        specifier: ^5.7.2
-        version: 5.7.2
+        specifier: ^6.12.1
+        version: 6.12.1
       umi:
         specifier: ^4.1.5
         version: 4.1.5(@babel/core@7.24.3)(@types/node@20.10.5)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)(stylelint@14.16.1)(typescript@5.4.4)(webpack@5.91.0)
@@ -16361,6 +16361,22 @@ packages:
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
+    dev: true
+
+  /ethers@6.12.1:
+    resolution: {integrity: sha512-j6wcVoZf06nqEcBbDWkKg8Fp895SS96dSnTCjiXT+8vt2o02raTn4Lo9ERUuIVU5bAjoPYeA+7ytQFexFmLuVw==}
+    engines: {node: '>=14.0.0'}
+    dependencies:
+      '@adraffy/ens-normalize': 1.10.1
+      '@noble/curves': 1.2.0
+      '@noble/hashes': 1.3.2
+      '@types/node': 18.15.13
+      aes-js: 4.0.0-beta.5
+      tslib: 2.4.0
+      ws: 8.5.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
 
   /ethjs-unit@0.1.6:
     resolution: {integrity: sha512-/Sn9Y0oKl0uqQuvgFk/zQgR7aw1g36qX/jzSQ5lSwlO0GigPymk4eGQfeNTD03w1dPOqfz8V77Cy43jH56pagw==}
@@ -19444,7 +19460,6 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -19462,7 +19477,6 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -19480,7 +19494,6 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -19498,7 +19511,6 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     optional: true
 
