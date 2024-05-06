@@ -99,7 +99,7 @@
     "typescript": "^5.4.4",
     "viem": ">=2.9.25",
     "vite-plugin-svgr": "^4.2.0",
-    "vitest": "~1.4.0",
+    "vitest": "~1.6.0",
     "wagmi": "^2.5.7"
   },
   "ci": {
