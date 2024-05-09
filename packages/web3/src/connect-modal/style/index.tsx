@@ -174,10 +174,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     },
                     '&:hover': {
                       background: token.hoverBg,
-                      [`${componentCls}-plugin-tag:not(:disabled)`]: {
-                        color: token.colorPrimary,
-                        borderColor: token.colorPrimary,
-                      },
                     },
                     '&.selected': {
                       background: token.selectedBg,
