@@ -174,6 +174,24 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     },
                     '&:hover': {
                       background: token.hoverBg,
+                      [`&:has(${componentCls}-qr-btn:not(:hover))`]: {
+                        [`${componentCls}-plugin-tag:not(:disabled)`]: {
+                          color: token.colorPrimary,
+                          borderColor: token.colorPrimary,
+                        },
+                      },
+                      [`&:not(:has(${componentCls}-plugin-tag))`]: {
+                        [`${componentCls}-qr-btn`]: {
+                          color: token.colorPrimary,
+                          borderColor: token.colorPrimary,
+                        },
+                      },
+                      [`&:has(${componentCls}-plugin-tag:disabled)`]: {
+                        [`${componentCls}-qr-btn`]: {
+                          color: token.colorPrimary,
+                          borderColor: token.colorPrimary,
+                        },
+                      },
                     },
                     '&.selected': {
                       background: token.selectedBg,
