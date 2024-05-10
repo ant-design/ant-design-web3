@@ -166,7 +166,7 @@ importers:
         specifier: ~1.6.0
         version: 1.6.0(@types/node@20.12.11)(jsdom@24.0.0)
       wagmi:
-        specifier: ^2.5.7
+        specifier: ^2.8.3
         version: 2.8.3(@tanstack/react-query@5.35.1)(@types/react@18.3.1)(react-dom@18.3.1)(react-i18next@13.5.0)(react-native@0.74.1)(react@18.3.1)(typescript@5.4.5)(viem@2.10.3)
 
   examples/ethers:
@@ -339,7 +339,7 @@ importers:
         specifier: '>=2.9.25'
         version: 2.10.3(typescript@5.4.5)
       wagmi:
-        specifier: ^2.5.7
+        specifier: ^2.8.3
         version: 2.8.3(@tanstack/react-query@5.35.1)(@types/react@18.3.1)(react-dom@18.3.1)(react-i18next@13.5.0)(react-native@0.74.1)(react@18.3.1)(typescript@5.4.5)(viem@2.10.3)
     devDependencies:
       '@types/debug':
@@ -379,7 +379,7 @@ importers:
         specifier: '>=2.9.25'
         version: 2.10.3(typescript@5.4.5)
       wagmi:
-        specifier: ^2.5.7
+        specifier: ^2.8.3
         version: 2.8.3(@tanstack/react-query@5.35.1)(@types/react@18.3.1)(react-dom@18.3.1)(react-i18next@13.5.0)(react-native@0.74.1)(react@18.3.1)(typescript@5.4.5)(viem@2.10.3)
     devDependencies:
       '@types/debug':
@@ -492,9 +492,6 @@ importers:
       '@ant-design/web3-common':
         specifier: workspace:*
         version: link:../common
-      '@wagmi/core':
-        specifier: ^2.6.5
-        version: 2.9.4(@types/react@18.3.1)(react@18.3.1)(typescript@5.4.5)(viem@2.10.3)
       debug:
         specifier: ^4.3.4
         version: 4.3.4(supports-color@5.5.0)
@@ -505,6 +502,9 @@ importers:
       '@types/debug':
         specifier: ^4.1.12
         version: 4.1.12
+      '@wagmi/core':
+        specifier: ^2.9.3
+        version: 2.9.4(@types/react@18.3.1)(react@18.3.1)(typescript@5.4.5)(viem@2.10.3)
       father:
         specifier: ^4.4.0
         version: 4.4.1(@babel/core@7.24.5)(@types/node@20.12.11)(styled-components@6.1.10)(webpack@5.91.0)
@@ -515,7 +515,7 @@ importers:
         specifier: '>=2.9.25'
         version: 2.10.3(typescript@5.4.5)
       wagmi:
-        specifier: ^2.5.7
+        specifier: ^2.8.3
         version: 2.8.3(@tanstack/react-query@5.35.1)(@types/react@18.3.1)(react-dom@18.3.1)(react-i18next@13.5.0)(react-native@0.74.1)(react@18.3.1)(typescript@5.4.5)(viem@2.10.3)
 
   packages/web3:
@@ -9871,7 +9871,7 @@ packages:
       - react
       - utf-8-validate
       - zod
-    dev: false
+    dev: true
 
   /@wallet-standard/app@1.0.1:
     resolution: {integrity: sha512-LnLYq2Vy2guTZ8GQKKSXQK3+FRGPil75XEdkZqE6fiLixJhZJoJa5hT7lXxwe0ykVTt9LEThdTbOpT7KadS26Q==}
@@ -10353,7 +10353,7 @@ packages:
   /@walletconnect/window-metadata@1.0.0:
     resolution: {integrity: sha512-9eFvmJxIKCC3YWOL97SgRkKhlyGXkrHwamfechmqszbypFspaSk+t2jQXAEU7YClHF6Qjw5eYOmy1//zFi9/GA==}
     dependencies:
-      '@walletconnect/window-getters': 1.0.0
+      '@walletconnect/window-getters': 1.0.1
 
   /@walletconnect/window-metadata@1.0.1:
     resolution: {integrity: sha512-9koTqyGrM2cqFRW517BPY/iEtUDx2r1+Pwwu5m7sJ7ka79wi3EyqhqcICk/yDmv6jAS1rjKgTKXlEhanYjijcA==}
@@ -14855,7 +14855,7 @@ packages:
     resolution: {integrity: sha512-an2S5quJMiy5bnZKEf6AkfH/7r8CzHvhchU40gxN+OM6HPhe7Z9T1FUychcf2M9PpPOO0Hf7BAEfJkw2TDIBDw==}
     engines: {node: '>=12.0.0'}
     dependencies:
-      readable-stream: 3.6.2
+      readable-stream: 4.5.2
       webextension-polyfill: 0.10.0
 
   /external-editor@3.1.0:

@@ -1,12 +1,13 @@
 import type { Account } from '@ant-design/web3-common';
-import { getEnsName, type Config } from '@wagmi/core';
+import { getEnsName } from '@wagmi/core';
+import type { Config } from 'wagmi';
 
 export async function addNameToAccount(
   config: Config,
   account: Account,
   chainId?: number,
 ): Promise<Account> {
-  const name = await getEnsName(config, {
+  const name = await getEnsName(config as any, {
     address: account.address as `0x${string}`,
     chainId,
   });
