@@ -1,5 +1,5 @@
 {
-  "name": "@ant-design/web3-ethers",
+  "name": "@ant-design/web3-ethers-v5",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/esm/index.js",
@@ -10,16 +10,6 @@
       "import": "./dist/esm/index.js",
       "require": "./dist/lib/index.js",
       "types": "./dist/esm/index.d.ts"
-    },
-    "./provider": {
-      "import": "./dist/esm/ethers-provider/index.js",
-      "require": "./dist/lib/ethers-provider/index.js",
-      "types": "./dist/esm/ethers-provider/index.d.ts"
-    },
-    "./wallets": {
-      "import": "./dist/esm/wallets/index.js",
-      "require": "./dist/lib/wallets/index.js",
-      "types": "./dist/esm/wallets/index.d.ts"
     },
     "./wagmi": {
       "import": "./dist/esm/wagmi.js",
@@ -43,7 +33,7 @@
     "react-component",
     "ui",
     "web3",
-    "ethers",
+    "ethers-v5",
     "ethersjs"
   ],
   "homepage": "https://we3.ant.design",
@@ -62,6 +52,7 @@
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
+    "@ant-design/web3-ethers": "workspace:*",
     "@tanstack/react-query": "^5.28.4",
     "debug": "^4.3.4",
     "viem": ">=2.9.25",
@@ -71,10 +62,10 @@
     "@types/debug": "^4.1.12",
     "father": "^4.4.0",
     "typescript": "^5.4.4",
-    "ethers": "^6.11.1"
+    "ethers": "^5.7.2"
   },
   "peerDependencies": {
-    "ethers": "^6.11.1"
+    "ethers": "^5.7.2"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",

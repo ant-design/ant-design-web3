@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
 
-import { EthersWeb3ConfigProvider } from '../ethers-provider';
-import { useEthersSigner } from './use-ethers-signer-v5';
+import { EthersWeb3ConfigProvider } from '../provider';
+import { useEthersSigner } from './use-ethers-signer';
 
 describe('useEthersSigner(v5)', async () => {
   test('basic usage', async () => {
