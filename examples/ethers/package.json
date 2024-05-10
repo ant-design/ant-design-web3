@@ -22,6 +22,5 @@
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
     "typescript": "^5.4.4"
-  },
-  "version": null
+  }
 }

@@ -214,9 +214,9 @@ importers:
       '@ant-design/web3-common':
         specifier: workspace:*
         version: link:../../packages/common
-      '@ant-design/web3-ethers':
+      '@ant-design/web3-ethers-v5':
         specifier: workspace:*
-        version: link:../../packages/ethers
+        version: link:../../packages/ethers-v5
       antd:
         specifier: ^5.16.5
         version: 5.17.0(react-dom@18.3.1)(react@18.3.1)
