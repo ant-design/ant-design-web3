@@ -1,5 +1,15 @@
 # @ant-design/web3-solana
 
+## 1.1.1
+
+### Patch Changes
+
+- 2cb3d52: feat(solana): Get default chain from `chains`
+- a90c674: refactor: remove unused code
+- Updated dependencies [994ead5]
+  - @ant-design/web3-assets@1.7.0
+  - @ant-design/web3-common@1.9.0
+
 ## 1.1.0
 
 ### Minor Changes

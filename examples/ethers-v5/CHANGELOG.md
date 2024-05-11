@@ -4,6 +4,24 @@
 
 ### Patch Changes
 
+- Updated dependencies [1716c5f]
+- Updated dependencies [da09f06]
+- Updated dependencies [5f9b8fb]
+- Updated dependencies [6f90f69]
+- Updated dependencies [8249d98]
+- Updated dependencies [a90c674]
+- Updated dependencies [45fd7de]
+- Updated dependencies [f91e2c4]
+- Updated dependencies [994ead5]
+- Updated dependencies [e72ea2b]
+  - @ant-design/web3@1.11.0
+  - @ant-design/web3-assets@1.7.0
+  - @ant-design/web3-common@1.9.0
+  - @ant-design/web3-ethers@1.0.1
+
+
+### Patch Changes
+
 - Updated dependencies [62f1def]
 - Updated dependencies [b1b8a46]
 - Updated dependencies [b2599aa]
