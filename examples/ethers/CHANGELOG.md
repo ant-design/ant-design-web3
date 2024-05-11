@@ -19,7 +19,6 @@
   - @ant-design/web3-common@1.9.0
   - @ant-design/web3-ethers@1.0.1
 
-## null
 
 ### Patch Changes
 
