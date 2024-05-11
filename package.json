@@ -97,10 +97,10 @@
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.4",
-    "viem": ">=2.9.25",
+    "viem": "^2.10.3",
     "vite-plugin-svgr": "^4.2.0",
     "vitest": "~1.6.0",
-    "wagmi": "^2.5.7"
+    "wagmi": "^2.8.6"
   },
   "ci": {
     "type": "aci",
