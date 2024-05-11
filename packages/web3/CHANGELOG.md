@@ -1,5 +1,30 @@
 # @ant-design/web3
 
+## 1.11.0
+
+### Minor Changes
+
+- 5f9b8fb: feat: NFTCard add new prop errorRender
+- f91e2c4: feat: Connector support onConnectError
+
+### Patch Changes
+
+- 1716c5f: fix: use copy-to-clipboard and antd Typography.text for fix Address copy bug
+- da09f06: fix: ConnectModal PluginTag hover error
+- 6f90f69: fix: ConnectModal animation warning
+- 8249d98: chore: upgrade antd to 5.17.0 & cssinjs to 1.20.0
+- a90c674: refactor: remove unused code
+- 45fd7de: refactor: remove unused code
+- e72ea2b: fix: ConnectModal QRCode overflow
+- Updated dependencies [fc31d17]
+- Updated dependencies [a90c674]
+- Updated dependencies [4a9f3e2]
+- Updated dependencies [5736ad9]
+- Updated dependencies [994ead5]
+  - @ant-design/web3-icons@1.6.0
+  - @ant-design/web3-assets@1.7.0
+  - @ant-design/web3-common@1.9.0
+
 ## 1.10.0
 
 ### Minor Changes
