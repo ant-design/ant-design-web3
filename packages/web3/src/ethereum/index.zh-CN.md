@@ -4,9 +4,6 @@ subtitle: 以太坊
 group:
   title: 连接链
   order: 2
-tag:
-  title: 更新
-  color: success
 ---
 
 # Ethereum

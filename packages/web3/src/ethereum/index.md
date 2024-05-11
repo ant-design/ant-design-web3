@@ -3,9 +3,6 @@ nav: Components
 group:
   title: Connect Blockchains
   order: 2
-tag:
-  title: Update
-  color: success
 ---
 
 # Ethereum
