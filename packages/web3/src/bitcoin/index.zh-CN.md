@@ -1,11 +1,12 @@
 ---
 nav: 组件
 subtitle: 比特币
+order: 1
 group:
   title: 连接链
-  order: 1
+  order: 2
 tag:
-  title: 新
+  title: 新增
   color: success
 ---
 

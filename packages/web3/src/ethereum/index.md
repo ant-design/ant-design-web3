@@ -1,5 +1,6 @@
 ---
 nav: Components
+order: 2
 group:
   title: Connect Blockchains
   order: 2
@@ -12,6 +13,8 @@ Ant Design Web3 officially provides adapters for multiple frameworks such as `wa
 If you are using wagmi 1.x, you can check [@ant-design/web3-wagmi@1.2.0 documentation](https://github.com/ant-design/ant-design-web3/blob/f7c9d51086f82b13a9cf94353b999348e17001de/packages/web3/src/wagmi/index.md).
 
 Through it, you don't need to handle the connection status of the component, chain data request and other logic by yourself. It will provide relevant global status and interfaces for the components through [Web3ConfigProvider](../web3-config-provider/index.md).
+
+If you want to use `ethers` in your project, we provide the `@ant-design/web3-ethers` adapter, which is compatible with the latest `v6` and `v5` versions. You can [view the documentation](../ethereum-ethersjs/index.md) to use it.
 
 Currently, we officially provide the adapter of Ethereum, and you can also develop your own adapter to support other chains. You can read the [adapter documentation](../../../../docs/guide/adapter.md) to learn more about the adapter.
 
@@ -94,53 +97,3 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 ### UniversalWallet
 
 A Class for creating your own wallet, it meets the interface requirements of WalletFactory. For specific use, please refer to the example in [Customize Wallet Information](#customize-wallet-information).
-
-## Ethers Adapter
-
-Developers who are familiar with `ethers` can install `@ant-design/web3-ethers` to use with the component library, most of which are consistent with the `wagmi` adapter.
-
-<NormalInstallDependencies packageNames="@ant-design/web3 @ant-design/web3-ethers ethers" save="true"></NormalInstallDependencies>
-
-### Basic usage
-
-This example shows basic usage using the `ethers` adapter. We provide two react hooks to obtain `provider` and `signer`, which you can use in components to perform on-chain operations.
-
-- `useEthersProvider`: Get the `Provider` instance of `ethers`.
-- `useEthersSigner`: Get the `Signer` instance of `ethers`.
-
-<code src="./demos/ethers-basic.tsx"></code>
-
-### Compatible with ethers legacy versions
-
-If you are a user of `ethers@5.x`, you can manually install the v5 version of ethers and modify the adapter introduction method. Versions prior to v5 are no longer supported. It is recommended to use after upgrading to the latest version:
-
-<NormalInstallDependencies packageNames="@ant-design/web3 @ant-design/web3-ethers ethers@legacy-v5" save="true"></NormalInstallDependencies>
-
-```tsx | pure
-import { EthersWeb3ConfigProvider, useEthersProvider } from '@ant-design/web3-ethers/legacy-v5'; // importing the adapter for ethers@5.x
-
-const Component = () => {
-  const provider = useEthersProvider();
-  // do something with provider
-};
-
-const App = () => {
-  return (
-    <EthersWeb3ConfigProvider>
-      <Component />
-    </EthersWeb3ConfigProvider>
-  );
-};
-```
-
-### EthersWeb3ConfigProviderProps
-
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| wallets | Wallets | [WalletFactory](#walletfactory)[] | - | - |
-| chains | Chains | [Chain](./types#chain)[] | - | - |
-| ens | Whether to display ENS | `boolean` | - | - |
-| balance | Whether to display balance | `boolean` | - | - |
-| locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/en_US.ts) | - | - |
-| eip6963 | Whether to use EIP6963 protocol wallet and related configurations | `boolean` \| `EIP6963Config` | `false` |  |
-| walletConnect | Whether to use the Wallet Connect protocol | `false` \| [WalletConnectOptions](https://wagmi.sh/core/api/connectors/walletConnect#parameters) | `false` |  |
