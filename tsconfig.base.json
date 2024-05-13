@@ -22,10 +22,10 @@
       "@ant-design/web3-assets/solana": ["./packages/assets/src/solana/"],
       "@ant-design/web3-wagmi": ["./packages/wagmi/src/"],
       "@ant-design/web3-ethers": ["./packages/ethers/src/"],
-      "@ant-design/web3-ethers/provider": ["./packages/ethers/src/ethers-provider/index.ts"],
-      "@ant-design/web3-ethers/wallets": ["./packages/ethers/src/wallets/index.ts"],
+      "@ant-design/web3-ethers/provider": ["./packages/ethers/src/ethers-provider/"],
+      "@ant-design/web3-ethers/wallets": ["./packages/ethers/src/wallets/"],
       "@ant-design/web3-ethers/wagmi": ["./packages/ethers/src/wagmi.ts"],
-      "@ant-design/web3-ethers-v5": ["./packages/ethers-v5/src/index.ts"],
+      "@ant-design/web3-ethers-v5": ["./packages/ethers-v5/src/"],
       "@ant-design/web3-ethers-v5/wagmi": ["./packages/ethers-v5/src/wagmi.ts"],
       "@ant-design/web3-solana": ["./packages/solana/src/"]
     }

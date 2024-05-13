@@ -1,8 +1,8 @@
+import { EthersWeb3ConfigProvider } from '@ant-design/web3-ethers';
 import { render } from '@testing-library/react';
 import { providers } from 'ethers';
 import { describe, expect, test } from 'vitest';
 
-import { EthersWeb3ConfigProvider } from '../provider';
 import { useEthersProvider } from './use-ethers-provider';
 
 describe('useEthersProvider(v5)', async () => {
