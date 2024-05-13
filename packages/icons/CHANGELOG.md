@@ -1,5 +1,17 @@
 # @ant-design/web3-icons
 
+## 1.6.0
+
+### Minor Changes
+
+- fc31d17: chore: add XLayer icon
+- 5736ad9: feat: Add new icon hardhat-colorful
+
+### Patch Changes
+
+- a90c674: refactor: remove unused code
+- 4a9f3e2: perf(icons): add 'sideEffects' for Tree shaking
+
 ## 1.5.0
 
 ### Minor Changes

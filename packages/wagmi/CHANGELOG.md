@@ -1,5 +1,15 @@
 # @ant-design/web3-wagmi
 
+## 2.4.3
+
+### Patch Changes
+
+- a90c674: refactor: remove unused code
+- b9977a2: fix: useCallback for getNFTMetadata for avoid `Error: Maximum update depth exceeded`
+- Updated dependencies [994ead5]
+  - @ant-design/web3-assets@1.7.0
+  - @ant-design/web3-common@1.9.0
+
 ## 2.4.2
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # @ant-design/web3-assets
 
+## 1.7.0
+
+### Minor Changes
+
+- 994ead5: feat: Add test chain hardhat and localhost
+
+### Patch Changes
+
+- Updated dependencies [fc31d17]
+- Updated dependencies [a90c674]
+- Updated dependencies [4a9f3e2]
+- Updated dependencies [5736ad9]
+- Updated dependencies [994ead5]
+  - @ant-design/web3-icons@1.6.0
+  - @ant-design/web3-common@1.9.0
+
 ## 1.6.0
 
 ### Minor Changes

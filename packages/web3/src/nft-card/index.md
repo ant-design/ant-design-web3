@@ -19,6 +19,10 @@ Components used to display NFTCard.
 
 <code src="./demos/wagmi.tsx"></code>
 
+## Error Handling
+
+<code src="./demos/error.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |

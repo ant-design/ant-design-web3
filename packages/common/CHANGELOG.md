@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.9.0
+
+### Minor Changes
+
+- 994ead5: feat: Add test chain hardhat and localhost
+
 ## 1.8.0
 
 ### Minor Changes

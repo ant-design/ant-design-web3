@@ -1,5 +1,19 @@
 # @ant-design/web3-bitcoin
 
+## 1.0.1
+
+### Patch Changes
+
+- ae6bd8a: refactor: import for bitcoin adapter
+- a90c674: refactor: remove unused code
+- Updated dependencies [fc31d17]
+- Updated dependencies [a90c674]
+- Updated dependencies [4a9f3e2]
+- Updated dependencies [5736ad9]
+- Updated dependencies [994ead5]
+  - @ant-design/web3-icons@1.6.0
+  - @ant-design/web3-common@1.9.0
+
 ## 1.0.0
 
 ### Major Changes
