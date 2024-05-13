@@ -1,7 +1,14 @@
 import type { Account, Balance } from '@ant-design/web3-common';
-import { AddressPurpose, getProviderById, request, type BitcoinProvider } from 'sats-connect';
+import {
+  AddressPurpose,
+  getProviderById,
+  request,
+  type BitcoinProvider,
+  type SignPsbtResult,
+} from 'sats-connect';
 
 import { getBalanceByMempool } from '../../helpers';
+import * as Types from '../../types';
 import type { BitcoinWallet } from '../useBitcoinWallet';
 
 export class XverseBitcoinWallet implements BitcoinWallet {
@@ -67,5 +74,23 @@ export class XverseBitcoinWallet implements BitcoinWallet {
       throw e;
     }
     return txid;
+  };
+
+  signPsbt = async ({
+    psbt,
+    options,
+  }: Types.SignPsbtParams): Promise<SignPsbtResult | undefined> => {
+    if (!this.provider) return;
+    const response = await request('signPsbt', {
+      psbt,
+      signInputs: options?.signInputs ?? {},
+      broadcast: !!options?.broadcast,
+      allowedSignHash: options?.signHash,
+    });
+    if (response.status === 'success') {
+      return response.result as SignPsbtResult;
+    } else {
+      throw new Error(response.error.message);
+    }
   };
 }

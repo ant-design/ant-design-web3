@@ -17,17 +17,17 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 
 `useBitcoinWallet` 暴露出了诸如签名、交易等通用的方法, 可以直接调用；也可以通过 `provider` 直接调用钱包的 API，定制化处理各个钱包逻辑。
 
-未来会支持其他如 PSBT 等方法，欢迎给我们提交 GitHub issue 或 PR 支持。当前可以通过 provider 实现相关逻辑。
+未来会支持其他方法，欢迎给我们提交 GitHub issue 或 PR 支持。当前可以通过 provider 实现相关逻辑。
 
 ## 连接钱包
 
 <code src="./demos/basic.tsx"></code>
 
-## 使用 signMessage 签名
+## 签名 / PSBT
 
-<code src="./demos/sign-message.tsx"></code>
+<code src="./demos/sign.tsx"></code>
 
-## 使用 sendBitcoin 发送交易
+## 发送交易
 
 <code src="./demos/send-transfer.tsx"></code>
 
@@ -49,12 +49,13 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 
 #### result
 
-| 参数         | 描述                             | 类型                                  |
-| ------------ | -------------------------------- | ------------------------------------- |
-| name         | 当前连接的钱包名称               | `string`                              |
-| provider     | 获取当前连接钱包的 provider 对象 | `any`                                 |
-| account      | 账户地址                         | `string`                              |
-| connect      | 连接钱包                         | `() => Promise<void>`                 |
-| getBalance   | 获取钱包余额                     | `() => Promise<Balance \| undefined>` |
-| signMessage  | 签名                             | `() => Promise<string \| undefined>`  |
-| sendTransfer | 发送交易                         | `() => Promise<string \| undefined>`  |
+| 参数         | 描述                             | 类型                                         |
+| ------------ | -------------------------------- | -------------------------------------------- |
+| name         | 当前连接的钱包名称               | `string`                                     |
+| provider     | 获取当前连接钱包的 provider 对象 | `any`                                        |
+| account      | 账户地址                         | `string`                                     |
+| connect      | 连接钱包                         | `() => Promise<void>`                        |
+| getBalance   | 获取钱包余额                     | `() => Promise<Balance \| undefined>`        |
+| signMessage  | 签名                             | `() => Promise<string \| undefined>`         |
+| sendTransfer | 发送交易                         | `() => Promise<string \| undefined>`         |
+| signPsbt     | 签名 PSBT                        | `() => Promise<SignPsbtResult \| undefined>` |

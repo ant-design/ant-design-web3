@@ -16,15 +16,15 @@ Currently, connections to Xverse and Unisat wallets are supported. In the future
 
 `useBitcoinWallet` exposes common methods such as signing and transaction handling, which can be called directly. Alternatively, wallet APIs can be accessed through the `provider` for customized handling of wallet logic.
 
-Support for other methods like PSBT will be added in the future. Feel free to submit a GitHub issue or a PR to support this. Currently, related logic can be implemented through the provider.
+Support for other methods will be added in the future. Feel free to submit a GitHub issue or a PR to support this. Currently, related logic can be implemented through the provider.
 
 ## WalletConnect
 
 <code src="./demos/basic.tsx"></code>
 
-## signMessage
+## signMessage / signPsbt
 
-<code src="./demos/sign-message.tsx"></code>
+<code src="./demos/sign.tsx"></code>
 
 ## sendTransfer
 
@@ -57,3 +57,4 @@ Support for other methods like PSBT will be added in the future. Feel free to su
 | getBalance | Get the balance of the wallet | `() => Promise<Balance \| undefined>` |
 | signMessage | Sign message | `() => Promise<string \| undefined>` |
 | sendTransfer | Transfer bticoin | `() => Promise<string \| undefined>` |
+| signPsbt | Sign PSBT | `() => Promise<SignPsbtResult \| undefined>` |

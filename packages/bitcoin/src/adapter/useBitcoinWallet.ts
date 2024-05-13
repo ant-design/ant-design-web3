@@ -1,6 +1,8 @@
 import React from 'react';
 import type { Account, Balance } from '@ant-design/web3-common';
 
+import * as Types from '../types';
+
 export interface BitcoinWallet {
   name: string;
   provider: any;
@@ -13,6 +15,7 @@ export interface BitcoinWallet {
     sats: number,
     options?: { feeRate: number },
   ) => Promise<string | undefined>;
+  signPsbt: (params: Types.SignPsbtParams) => Promise<Types.SignPsbtResult | undefined>;
 }
 
 export const BitcoinAdapterContext = React.createContext<BitcoinWallet>({} as BitcoinWallet);

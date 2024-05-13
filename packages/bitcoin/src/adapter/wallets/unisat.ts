@@ -1,6 +1,7 @@
 import type { Account, Balance } from '@ant-design/web3-common';
 
 import { getBalanceObject } from '../../helpers';
+import * as Types from '../../types';
 import type { BitcoinWallet } from '../useBitcoinWallet';
 
 export class UnisatBitcoinWallet implements BitcoinWallet {
@@ -51,5 +52,32 @@ export class UnisatBitcoinWallet implements BitcoinWallet {
       throw e;
     }
     return txid;
+  };
+
+  signPsbt = async ({
+    psbt,
+    options = {},
+  }: Types.SignPsbtParams): Promise<Types.SignPsbtResult | undefined> => {
+    if (!this.provider) return;
+    const { broadcast = false, signInputs = {}, signHash } = options;
+    const toSignInputs = [];
+
+    // Convert xverse-compatible signInputs to unisat-compatible toSignInputs
+    for (let address in signInputs) {
+      for (let input of signInputs[address]) {
+        toSignInputs.push({
+          address,
+          index: input,
+          sighashTypes: [signHash],
+        });
+      }
+    }
+    const signedPsbt = await this.provider.signPsbt(psbt, {
+      autoFinalized: broadcast,
+      toSignInputs: toSignInputs.length === 0 ? undefined : toSignInputs,
+    });
+    return {
+      psbt: signedPsbt,
+    };
   };
 }
