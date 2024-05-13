@@ -8,7 +8,7 @@ import {
 } from 'sats-connect';
 
 import { getBalanceByMempool } from '../../helpers';
-import * as Types from '../../types';
+import type * as Types from '../../types';
 import type { BitcoinWallet } from '../useBitcoinWallet';
 
 export class XverseBitcoinWallet implements BitcoinWallet {

@@ -1,7 +1,7 @@
 import type { Account, Balance } from '@ant-design/web3-common';
 
 import { getBalanceObject } from '../../helpers';
-import * as Types from '../../types';
+import type * as Types from '../../types';
 import type { BitcoinWallet } from '../useBitcoinWallet';
 
 export class UnisatBitcoinWallet implements BitcoinWallet {
@@ -63,8 +63,8 @@ export class UnisatBitcoinWallet implements BitcoinWallet {
     const toSignInputs = [];
 
     // Convert xverse-compatible signInputs to unisat-compatible toSignInputs
-    for (let address in signInputs) {
-      for (let input of signInputs[address]) {
+    for (const address in signInputs) {
+      for (const input of signInputs[address]) {
         toSignInputs.push({
           address,
           index: input,

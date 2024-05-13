@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Account, Balance } from '@ant-design/web3-common';
 
-import * as Types from '../types';
+import type * as Types from '../types';
 
 export interface BitcoinWallet {
   name: string;
