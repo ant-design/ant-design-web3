@@ -55,6 +55,6 @@ Support for other methods will be added in the future. Feel free to submit a Git
 | account | Represents the web3 account address of the current user | `string` |
 | connect | Connect the wallet | `() => Promise<void>` |
 | getBalance | Get the balance of the wallet | `() => Promise<Balance \| undefined>` |
-| signMessage | Sign message | `() => Promise<string \| undefined>` |
-| sendTransfer | Transfer bticoin | `() => Promise<string \| undefined>` |
-| signPsbt | Sign PSBT | `() => Promise<SignPsbtResult \| undefined>` |
+| signMessage | Sign message | `(message: string) => Promise<string \| undefined>` |
+| sendTransfer | Transfer bticoin | `(prams: Types.TransferParams) => Promise<string \| undefined>` |
+| signPsbt | Sign PSBT | `(params: Types.SignPsbtParams) => Promise<SignPsbtResult \| undefined>` |

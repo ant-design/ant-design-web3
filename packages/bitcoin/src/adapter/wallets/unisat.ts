@@ -39,11 +39,11 @@ export class UnisatBitcoinWallet implements BitcoinWallet {
     return signature;
   };
 
-  sendTransfer = async (
-    to: string,
-    sats: number,
-    options?: { feeRate: number },
-  ): Promise<string | undefined> => {
+  sendTransfer = async ({
+    to,
+    sats,
+    options,
+  }: Types.TransferParams): Promise<string | undefined> => {
     if (!this.provider) return;
     let txid = '';
     try {

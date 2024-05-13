@@ -10,11 +10,7 @@ export interface BitcoinWallet {
   getBalance: () => Promise<Balance | undefined>;
   connect: () => Promise<void>;
   signMessage: (message: string) => Promise<string | undefined>;
-  sendTransfer: (
-    to: string,
-    sats: number,
-    options?: { feeRate: number },
-  ) => Promise<string | undefined>;
+  sendTransfer: (prams: Types.TransferParams) => Promise<string | undefined>;
   signPsbt: (params: Types.SignPsbtParams) => Promise<Types.SignPsbtResult | undefined>;
 }
 

@@ -15,10 +15,10 @@ const SendBitcoin: React.FC = () => {
       onClick={async () => {
         try {
           // Don't send in main network!!
-          await sendTransfer(
-            'bc1pcdv3h6nuq705e3yk4pvdlqrcfchzvd9se9zwlhke3menvxlc58zshl0ryv',
-            10000,
-          );
+          await sendTransfer({
+            to: 'bc1pcdv3h6nuq705e3yk4pvdlqrcfchzvd9se9zwlhke3menvxlc58zshl0ryv',
+            sats: 10000,
+          });
         } catch (error) {
           console.log('sign message error:', error);
         }

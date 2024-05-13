@@ -54,7 +54,7 @@ export class XverseBitcoinWallet implements BitcoinWallet {
     }
   };
 
-  sendTransfer = async (to: string, sats: number): Promise<string> => {
+  sendTransfer = async ({ to, sats }: Types.TransferParams): Promise<string> => {
     let txid = '';
     try {
       const response = await request('sendTransfer', {
