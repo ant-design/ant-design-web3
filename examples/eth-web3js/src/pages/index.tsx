@@ -5,20 +5,14 @@ import {
   MetaMask,
   OkxWallet,
   TokenPocket,
-  // useWeb3js,
+  useWeb3js,
 } from '@ant-design/web3-eth-web3js';
-import { useConfig as useConfig2 } from '@ant-design/web3-eth-web3js/wagmi';
 import { Button, message } from 'antd';
-import { useConfig } from 'wagmi';
 
 const App = () => {
   const [messageApi, contextHolder] = message.useMessage();
 
-  const config = useConfig2();
-  console.log(11, config);
-
-  // const web3 = useWeb3js();
-  // const account = useAccount();
+  const web3 = useWeb3js();
 
   return (
     <div>
@@ -28,16 +22,15 @@ const App = () => {
       </Connector>
       <Button
         onClick={async () => {
-          // console.log(web3);
-          // const account = web3!.eth.
-          // if (!account?.account) {
-          //   messageApi.error('Please connect wallet first!');
-          //   return;
-          // }
-          // // const user = web3!.eth.accounts.sign('hi antd web3!');
-          // const signature = await signer!.signMessage('hi antd web3!');
-          // const blockNum = await web3!.eth.getBlockNumber();
-          // messageApi.success(`Sig: ${signature}, current block number: ${blockNum}`);
+          const [address] = await web3!.eth.getAccounts();
+          if (!address || !web3) {
+            messageApi.error('Please connect wallet first!');
+            return;
+          }
+
+          const signature = await web3.eth.personal.sign(web3.utils.utf8ToHex('hi'), address, '');
+          const blockNum = await web3.eth.getBlockNumber();
+          messageApi.success(`Sig: ${signature}, current block number: ${blockNum}`);
         }}
       >
         Sign Message
