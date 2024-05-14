@@ -8,7 +8,7 @@ import {
 } from 'sats-connect';
 
 import { getBalanceByMempool } from '../../helpers';
-import type * as Types from '../../types';
+import type { SignPsbtParams, TransferParams } from '../../types';
 import type { BitcoinWallet } from '../useBitcoinWallet';
 
 export class XverseBitcoinWallet implements BitcoinWallet {
@@ -54,7 +54,7 @@ export class XverseBitcoinWallet implements BitcoinWallet {
     }
   };
 
-  sendTransfer = async ({ to, sats }: Types.TransferParams): Promise<string> => {
+  sendTransfer = async ({ to, sats }: TransferParams): Promise<string> => {
     let txid = '';
     try {
       const response = await request('sendTransfer', {
@@ -76,10 +76,7 @@ export class XverseBitcoinWallet implements BitcoinWallet {
     return txid;
   };
 
-  signPsbt = async ({
-    psbt,
-    options,
-  }: Types.SignPsbtParams): Promise<SignPsbtResult | undefined> => {
+  signPsbt = async ({ psbt, options }: SignPsbtParams): Promise<SignPsbtResult | undefined> => {
     if (!this.provider) return;
     const response = await request('signPsbt', {
       psbt,

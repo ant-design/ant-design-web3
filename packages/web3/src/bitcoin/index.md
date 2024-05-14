@@ -56,5 +56,5 @@ Support for other methods will be added in the future. Feel free to submit a Git
 | connect | Connect the wallet | `() => Promise<void>` |
 | getBalance | Get the balance of the wallet | `() => Promise<Balance \| undefined>` |
 | signMessage | Sign message | `(message: string) => Promise<string \| undefined>` |
-| sendTransfer | Transfer bticoin | `(prams: Types.TransferParams) => Promise<string \| undefined>` |
-| signPsbt | Sign PSBT | `(params: Types.SignPsbtParams) => Promise<SignPsbtResult \| undefined>` |
+| sendTransfer | Transfer bticoin | `(prams: TransferParams) => Promise<string \| undefined>` |
+| signPsbt | Sign PSBT | `(params: SignPsbtParams) => Promise<SignPsbtResult \| undefined>` |

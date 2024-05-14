@@ -1,7 +1,7 @@
 import type { Account, Balance } from '@ant-design/web3-common';
 
 import { getBalanceObject } from '../../helpers';
-import type * as Types from '../../types';
+import type { SignPsbtParams, SignPsbtResult, TransferParams } from '../../types';
 import type { BitcoinWallet } from '../useBitcoinWallet';
 
 export class UnisatBitcoinWallet implements BitcoinWallet {
@@ -39,11 +39,7 @@ export class UnisatBitcoinWallet implements BitcoinWallet {
     return signature;
   };
 
-  sendTransfer = async ({
-    to,
-    sats,
-    options,
-  }: Types.TransferParams): Promise<string | undefined> => {
+  sendTransfer = async ({ to, sats, options }: TransferParams): Promise<string | undefined> => {
     if (!this.provider) return;
     let txid = '';
     try {
@@ -57,7 +53,7 @@ export class UnisatBitcoinWallet implements BitcoinWallet {
   signPsbt = async ({
     psbt,
     options = {},
-  }: Types.SignPsbtParams): Promise<Types.SignPsbtResult | undefined> => {
+  }: SignPsbtParams): Promise<SignPsbtResult | undefined> => {
     if (!this.provider) return;
     const { broadcast = false, signInputs = {}, signHash } = options;
     const toSignInputs = [];

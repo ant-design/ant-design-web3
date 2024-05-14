@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Account, Balance } from '@ant-design/web3-common';
 
-import type * as Types from '../types';
+import type { SignPsbtParams, SignPsbtResult, TransferParams } from '../types';
 
 export interface BitcoinWallet {
   name: string;
@@ -10,8 +10,8 @@ export interface BitcoinWallet {
   getBalance: () => Promise<Balance | undefined>;
   connect: () => Promise<void>;
   signMessage: (message: string) => Promise<string | undefined>;
-  sendTransfer: (prams: Types.TransferParams) => Promise<string | undefined>;
-  signPsbt: (params: Types.SignPsbtParams) => Promise<Types.SignPsbtResult | undefined>;
+  sendTransfer: (prams: TransferParams) => Promise<string | undefined>;
+  signPsbt: (params: SignPsbtParams) => Promise<SignPsbtResult | undefined>;
 }
 
 export const BitcoinAdapterContext = React.createContext<BitcoinWallet>({} as BitcoinWallet);
