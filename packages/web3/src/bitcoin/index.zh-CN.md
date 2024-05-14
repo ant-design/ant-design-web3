@@ -51,11 +51,11 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 
 | 参数 | 描述 | 类型 |
 | --- | --- | --- |
-| name | 当前连接的钱包名称 | `string` |
-| provider | 获取当前连接钱包的 provider 对象 | `any` |
-| account | 账户地址 | `string` |
-| connect | 连接钱包 | `() => Promise<void>` |
-| getBalance | 获取钱包余额 | `() => Promise<Balance \| undefined>` |
-| signMessage | 签名 | `(message: string) => Promise<string \| undefined>` |
-| sendTransfer | 发送交易 | `(prams: TransferParams) => Promise<string \| undefined>` |
-| signPsbt | 签名 PSBT | `(params: SignPsbtParams) => Promise<SignPsbtResult \| undefined>` |
+| name | 当前连接的钱包名称 | string |
+| provider | 获取当前连接钱包的 provider 对象 | any |
+| account | 账户地址 | string |
+| connect | 连接钱包 | () => Promise<void> |
+| getBalance | 获取钱包余额 | () => Promise<[Balance](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/types.ts#L181) \| undefined> |
+| signMessage | 签名 | (message: string) => Promise<string \| undefined> |
+| sendTransfer | 发送交易 | (prams: [TransferParams](https://github.com/ant-design/ant-design-web3/blob/main/packages/bitcoin/src/types.tsx#L14)) => Promise<string \| undefined> |
+| signPsbt | 签名 PSBT | (params: [SignPsbtParams](https://github.com/ant-design/ant-design-web3/blob/main/packages/bitcoin/src/types.tsx#L9)) => Promise<SignPsbtResult \| undefined> |

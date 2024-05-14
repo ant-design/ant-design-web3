@@ -50,11 +50,11 @@ Support for other methods will be added in the future. Feel free to submit a Git
 
 | Property | Description | Type |
 | --- | --- | --- |
-| name | The connected wallet's name | `string` |
-| provider | The connected wallet's provider | `any` |
-| account | Represents the web3 account address of the current user | `string` |
-| connect | Connect the wallet | `() => Promise<void>` |
-| getBalance | Get the balance of the wallet | `() => Promise<Balance \| undefined>` |
-| signMessage | Sign message | `(message: string) => Promise<string \| undefined>` |
-| sendTransfer | Transfer bticoin | `(prams: TransferParams) => Promise<string \| undefined>` |
-| signPsbt | Sign PSBT | `(params: SignPsbtParams) => Promise<SignPsbtResult \| undefined>` |
+| name | The connected wallet's name | string |
+| provider | The connected wallet's provider | any |
+| account | Represents the web3 account address of the current user | string |
+| connect | Connect the wallet | () => Promise<void> |
+| getBalance | Get the balance of the wallet | () => Promise<[Balance](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/types.ts#181) \| undefined> |
+| signMessage | Sign message | (message: string) => Promise<string \| undefined> |
+| sendTransfer | Transfer bticoin | (prams: [TransferParams](https://github.com/ant-design/ant-design-web3/blob/main/packages/bitcoin/src/types.tsx#L14)) => Promise<string \| undefined> |
+| signPsbt | Sign PSBT | (params: [SignPsbtParams](https://github.com/ant-design/ant-design-web3/blob/main/packages/bitcoin/src/types.tsx#L9)) => Promise<SignPsbtResult \| undefined> |
