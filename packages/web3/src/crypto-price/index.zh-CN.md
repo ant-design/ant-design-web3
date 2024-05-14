@@ -2,7 +2,7 @@
 nav: 组件
 subtitle: 加密价格
 group:
-  title: 展示
+  title: UI 组件
 ---
 
 # CryptoPrice
@@ -21,14 +21,34 @@ group:
 
 <code src="./demos/custom-chain.tsx"></code>
 
+## 自定义格式化展示
+
+<code src="./demos/format.tsx"></code>
+
 ## API
 
-| 属性      | 描述                   | 类型                   | 默认值    | 版本 |
-| --------- | ---------------------- | ---------------------- | --------- | ---- |
-| className | 加密货币的类名         | `string`               | -         | -    |
-| value     | 值，基于代币的最小单位 | `bigint`               | `0`       | -    |
-| icon      | 图标                   | `boolean \| ReactNode` | `true`    | -    |
-| decimals  | 小数位数               | `number`               | `18`      | -    |
-| symbol    | 代币符号               | `string`               | `ETH`     | -    |
-| chain     | 链                     | `Chain`                | `Mainnet` | -    |
-| fixed     | 小数点后固定位数       | `number`               | -         | -    |
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| className | 加密货币的类名 | `string` | - | - |
+| value | 值，基于代币的最小单位 | `number \| bigint` | `0` | - |
+| icon | 图标 | `boolean \| ReactNode` | `true` | - |
+| decimals | 小数位数 | `number` | `18` | - |
+| symbol | 代币符号 | `string` | `ETH` | - |
+| chain | 链 | `Chain` | `Mainnet` | - |
+| fixed | 小数点后固定位数 | `number` | - | - |
+| format | 格式化函数 | (value: string, info: [FormatInfo](#formatinfo)) => string | - | - |
+
+### FormatInfo
+
+```typescript
+type FormatInfo = {
+  /** 用户传入的原始 value */
+  originValue: number | bigint;
+  /** token 的代币符号 */
+  symbol: string;
+  /** token 小数位数 */
+  decimals?: number;
+  /** 小数点后固定位数 */
+  fixed?: number;
+};
+```

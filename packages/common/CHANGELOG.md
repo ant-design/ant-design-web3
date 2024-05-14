@@ -1,5 +1,23 @@
 # @ant-design/web3-common
 
+## 1.9.0
+
+### Minor Changes
+
+- 994ead5: feat: Add test chain hardhat and localhost
+
+## 1.8.0
+
+### Minor Changes
+
+- 7fb2d02: feat: update ConnectModal connecting status and remove wallet button
+
+### Patch Changes
+
+- dfef374: feat: add scoll icons and chains
+- b1b8a46: feat: supoort ethers adapter
+- ab3eac4: feat: support for bitcoin
+
 ## 1.7.0
 
 ### Minor Changes

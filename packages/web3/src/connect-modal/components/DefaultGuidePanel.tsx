@@ -10,7 +10,7 @@ const DefaultGuidePanel: React.FC<{
   guide?: ConnectModalProps['guide'];
   simple?: boolean;
 }> = (props) => {
-  const { localeMessage, prefixCls, updatePanelRoute } = useContext(connectModalContext);
+  const { localeMessage, prefixCls } = useContext(connectModalContext);
   const defaultGuide: ConnectModalProps['guide'] = {
     title: localeMessage.guideTitle,
     infos: [
@@ -75,10 +75,7 @@ const DefaultGuidePanel: React.FC<{
     );
   };
 
-  const {
-    getWalletBtnText = defaultGuide.getWalletBtnText,
-    moreLinkText = defaultGuide.moreLinkText,
-  } = guide;
+  const { moreLinkText = defaultGuide.moreLinkText } = guide;
 
   return (
     <div
@@ -89,19 +86,10 @@ const DefaultGuidePanel: React.FC<{
       {renderContent()}
       <Button
         block
-        size="large"
-        type="primary"
-        className={`${prefixCls}-get-btn`}
-        onClick={() => updatePanelRoute('getWallet')}
-      >
-        {getWalletBtnText}
-      </Button>
-      <Button
-        block
-        type="link"
         className={`${prefixCls}-more`}
         href={guide?.moreLink}
         target="_blank"
+        size="large"
       >
         {moreLinkText}
       </Button>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Chainlink</title>
+    <g id="Chainlink" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组" transform="translate(112, 112)">
+            <circle id="椭圆形" fill="#555555" cx="400" cy="400" r="400"></circle>
+            <g id="chainlink-link-logo" transform="translate(140, 100)" fill="#FFFFFF" fill-rule="nonzero">
+                <path d="M260,0 L204.973545,31.6513761 L55.026455,118.348624 L0,150 L0,450 L55.026455,481.651376 L206.349206,568.348624 L261.375661,600 L316.402116,568.348624 L464.973545,481.651376 L520,450 L520,150 L464.973545,118.348624 L315.026455,31.6513761 L260,0 Z M110.05291,386.697248 L110.05291,213.302752 L260,126.605505 L409.94709,213.302752 L409.94709,386.697248 L260,473.394495 L110.05291,386.697248 Z" id="形状"></path>
+            </g>
+        </g>
+    </g>
+</svg>

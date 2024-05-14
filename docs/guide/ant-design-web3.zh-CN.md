@@ -14,7 +14,7 @@ Ant Design Web3 是一个基于 [Ant Design](https://ant.design/index-cn) 的 We
 
 ## 试试看
 
-下面是通过 `@ant-design/web3-wagmi` 的方式使用 Ant Design Web3 的一个例子：
+下面是通过 `@ant-design/web3-wagmi` 的方式使用 Ant Design Web3 的例子：
 
 <code src="./demos/guide.tsx"></code>
 
@@ -30,27 +30,28 @@ Ant Design Web3 是一个基于 [Ant Design](https://ant.design/index-cn) 的 We
 
 还有更多特性：
 
-| 特性                                                              | 是否支持 |
-| ----------------------------------------------------------------- | -------- |
-| [主题定制](https://web3.ant.design/guide/theme-cn)                | ✅       |
-| [国际化](https://web3.ant.design/guide/intl-cn)                   | ✅       |
-| 测试覆盖率 100%                                                   | ✅       |
-| TypeScript 支持                                                   | ✅       |
-| 响应式设计                                                        | ✅       |
-| 快速简单的连接钱包组件                                            | ✅       |
-| [NFT 组件](https://web3.ant.design/components/nft-card-cn)        | ✅       |
-| Address 等更多实用组件                                            | ✅       |
-| [丰富的图标库](https://web3.ant.design/components/icons-cn)       | ✅       |
-| 支持 EIP6963                                                      | ✅       |
-| 支持 WalletConnect                                                | ✅       |
-| [支持以太坊及其 L2](https://web3.ant.design/components/wagmi-cn)  | ✅       |
-| [支持 Solana](https://web3.ant.design/components/solana-cn)       | ✅       |
-| [适配比特币等非 EVM 链](https://web3.ant.design/guide/adapter-cn) | ✅       |
-| [课程](https://web3.ant.design/course/introduction-cn)            | ✅       |
-| 和 wagmi 一起使用                                                 | ✅       |
-| 和 ethers 一起使用                                                | ✅       |
-| 和 web3.js 一起使用                                               | ✅       |
-| 和 umi 一起使用                                                   | ✅       |
-| 和 Next.js 一起使用                                               | ✅       |
-| 和 Remix 一起使用                                                 | ✅       |
-| 和 Tailwind CSS 一起使用                                          | ✅       |
+| 特性                                                             | 是否支持 |
+| ---------------------------------------------------------------- | -------- |
+| [主题定制](https://web3.ant.design/guide/theme-cn)               | ✅       |
+| [国际化](https://web3.ant.design/guide/intl-cn)                  | ✅       |
+| 测试覆盖率 100%                                                  | ✅       |
+| TypeScript 支持                                                  | ✅       |
+| 响应式设计                                                       | ✅       |
+| 快速简单的连接钱包组件                                           | ✅       |
+| [NFT 组件](https://web3.ant.design/components/nft-card-cn)       | ✅       |
+| Address 等更多实用组件                                           | ✅       |
+| [丰富的图标库](https://web3.ant.design/components/icons-cn)      | ✅       |
+| 支持 EIP6963                                                     | ✅       |
+| 支持 WalletConnect                                               | ✅       |
+| [支持以太坊及其 L2](https://web3.ant.design/components/wagmi-cn) | ✅       |
+| [支持比特币](https://web3.ant.design/components/bitcoin-cn)      | ✅       |
+| [支持 Solana](https://web3.ant.design/components/solana-cn)      | ✅       |
+| [适配更多非 EVM 链](https://web3.ant.design/guide/adapter-cn)    | ✅       |
+| [课程](https://web3.ant.design/course/introduction-cn)           | ✅       |
+| 和 wagmi 一起使用                                                | ✅       |
+| 和 ethers 一起使用                                               | ✅       |
+| 和 web3.js 一起使用                                              | ✅       |
+| 和 umi 一起使用                                                  | ✅       |
+| 和 Next.js 一起使用                                              | ✅       |
+| 和 Remix 一起使用                                                | ✅       |
+| 和 Tailwind CSS 一起使用                                         | ✅       |

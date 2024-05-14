@@ -1,6 +1,6 @@
 import { ConnectModal } from '@ant-design/web3';
 import { fireEvent, render } from '@testing-library/react';
-import { theme as antTheme, ConfigProvider, Grid } from 'antd';
+import { theme as antTheme, ConfigProvider } from 'antd';
 import { describe, expect, it, vi } from 'vitest';
 
 import { groupOrder, walletList } from './mock';

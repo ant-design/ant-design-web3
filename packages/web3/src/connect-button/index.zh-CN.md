@@ -1,8 +1,7 @@
 ---
 nav: 组件
 subtitle: 连接钱包按钮
-group: 连接
-order: 1
+group: UI 组件
 ---
 
 # ConnectButton
@@ -69,7 +68,7 @@ order: 1
 | onMenuItemClick | 菜单项点击事件 | `(e: NonNullable<MenuProps['items']>[number]) => void` | - | - |
 | balance | 余额 | [Balance](#balance) | - | - |
 | availableChains | 可以连接的链列表 | [Chain](../types/index.zh-CN.md#chain)\[] | - | - |
-| awailableWallets | 可用的钱包列表 | [Wallet](../types/index.zh-CN.md#wallet)\[] | - | - |
+| availableWallets | 可用的钱包列表 | [Wallet](../types/index.zh-CN.md#wallet)\[] | - | - |
 | quickConnect | 快速连接钱包 | `boolean` | `false` | - |
 | locale | 多语言设置 | `Locale["ConnectButton"]` | - | - |
 

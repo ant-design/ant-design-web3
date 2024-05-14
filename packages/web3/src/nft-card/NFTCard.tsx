@@ -8,7 +8,7 @@ import {
   type Web3ConfigProviderProps,
 } from '@ant-design/web3-common';
 import type { ImageProps } from 'antd';
-import { Button, ConfigProvider, Divider, Image, Skeleton, Space, theme } from 'antd';
+import { Button, ConfigProvider, Divider, Image, Result, Skeleton, Space, theme } from 'antd';
 import classNames from 'classnames';
 
 import { CryptoPrice, type CryptoPriceProps } from '../crypto-price';
@@ -45,6 +45,7 @@ interface NFTCardProps {
   type?: 'default' | 'pithy';
   onActionClick?: () => void;
   locale?: Locale['NFTCard'];
+  errorRender?: (e: Error) => ReactNode;
 }
 
 const CardSkeleton: React.FC<PropsWithChildren<{ loading: boolean; prefixCls: string }>> = ({
@@ -82,11 +83,16 @@ const NFTCard: React.FC<NFTCardProps> = (props) => {
     onActionClick,
     getNFTMetadata,
     locale,
+    errorRender,
     ...metadataProps
   } = props;
   const { liked = false, totalLikes = 0, onLikeChange } = likeConfig || {};
   const { token } = useToken();
-  const { metadata, loading } = useNFT(address, parseNumberToBigint(tokenId), getNFTMetadata);
+  const { metadata, loading, error } = useNFT(
+    address,
+    parseNumberToBigint(tokenId),
+    getNFTMetadata,
+  );
   const {
     name = metadata?.name,
     image = metadata?.image,
@@ -207,11 +213,18 @@ const NFTCard: React.FC<NFTCardProps> = (props) => {
     </>
   );
 
+  const renderContent = () => {
+    if (error) {
+      return errorRender?.(error) || <Result status="warning" subTitle={error.message} />;
+    }
+    return content;
+  };
+
   return wrapSSR(
     <div className={mergeCls} style={style}>
       <div className={`${prefixCls}-inner`}>
         <CardSkeleton prefixCls={`${prefixCls}-skeleton`} loading={loading}>
-          {content}
+          {renderContent()}
         </CardSkeleton>
       </div>
     </div>,

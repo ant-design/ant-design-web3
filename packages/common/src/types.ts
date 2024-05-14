@@ -13,6 +13,11 @@ export enum ChainIds {
   Avalanche = 43_114,
   X1Testnet = 195,
   Sepolia = 11_155_111,
+  Holesky = 17_000,
+  Scroll = 534_352,
+  ScrollSepolia = 534_351,
+  Hardhat = 31_337,
+  Localhost = 1_337,
 }
 
 export enum SolanaChainIds {
@@ -212,7 +217,6 @@ export interface RequiredLocale {
     getWalletBtnText: string;
     getWalletUniversalProtocolBtnText: string;
     getWalletPanelTitle: string;
-    getWalletPanelInfoTitle: string;
     getWalletPanelInfoDesc: string;
     qrCodePanelTitleForDownload: string;
     qrCodePanelTitleForScan: string;
@@ -229,6 +233,11 @@ export interface RequiredLocale {
     guideTipTitle: string;
     guideTipLearnMoreLinkText: string;
     walletPanelPlugin: string;
+    walletConnectSuccess: string;
+    getWalletTipsTitle: string;
+    getWalletTipsDesc: string;
+    linkWallet: string;
+    walletConnecting: string;
   };
   NFTCard: {
     actionText: string;

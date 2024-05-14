@@ -1,5 +1,73 @@
 # @ant-design/web3
 
+## 1.11.0
+
+### Minor Changes
+
+- 5f9b8fb: feat: NFTCard add new prop errorRender
+- f91e2c4: feat: Connector support onConnectError
+
+### Patch Changes
+
+- 1716c5f: fix: use copy-to-clipboard and antd Typography.text for fix Address copy bug
+- da09f06: fix: ConnectModal PluginTag hover error
+- 6f90f69: fix: ConnectModal animation warning
+- 8249d98: chore: upgrade antd to 5.17.0 & cssinjs to 1.20.0
+- a90c674: refactor: remove unused code
+- 45fd7de: refactor: remove unused code
+- e72ea2b: fix: ConnectModal QRCode overflow
+- Updated dependencies [fc31d17]
+- Updated dependencies [a90c674]
+- Updated dependencies [4a9f3e2]
+- Updated dependencies [5736ad9]
+- Updated dependencies [994ead5]
+  - @ant-design/web3-icons@1.6.0
+  - @ant-design/web3-assets@1.7.0
+  - @ant-design/web3-common@1.9.0
+
+## 1.10.0
+
+### Minor Changes
+
+- b1d8b37: feat: crypto-price support custom format
+- 7fb2d02: feat: update ConnectModal connecting status and remove wallet button
+- b7668e3: feat: optimize connect modal ui
+
+### Patch Changes
+
+- 62f1def: refactor: optimize connect-modal's token
+- b2599aa: refactor: optimize nft-card conditinal render
+- 00b54cc: feat: optimize plugin tag token in ConnectModal
+- be48645: chore(card): use `styles.body` instead of `bodyStyle`
+- 8ced644: fix: optimize import type
+- 7be0842: chore: upgrade @ant-design/icons to 5.3.6
+- 7ac35e6: - fix: fix lint error
+  - feat: BrowerLink props extend anchor element
+- bb5ca37: fix: add default alt attribute to img
+- 96e17e0: fix: fix ConnectModal style issue in dark mode
+- e209199: fix: optimize connect-button's avatar size
+- b1b8a46: feat: supoort ethers adapter
+- 967859d: fix: add default alt attribute to img
+- df17585: chore: optimize code
+- ab3eac4: feat: support for bitcoin
+- 6ac3c69: fix: Correct typos for connect
+- f4f80a7: chore: Optimize if-else statements
+- 1c05b0c: style(connect-button): quick connect button icon vertical align
+- Updated dependencies [ac9240c]
+- Updated dependencies [7fb2d02]
+- Updated dependencies [dfef374]
+- Updated dependencies [7be0842]
+- Updated dependencies [ce5ad76]
+- Updated dependencies [71d281a]
+- Updated dependencies [b1b8a46]
+- Updated dependencies [ab3eac4]
+- Updated dependencies [b950d50]
+- Updated dependencies [c4c52a6]
+- Updated dependencies [7fbf83a]
+  - @ant-design/web3-icons@1.5.0
+  - @ant-design/web3-common@1.8.0
+  - @ant-design/web3-assets@1.6.0
+
 ## 1.9.0
 
 ### Minor Changes

@@ -11,7 +11,7 @@ import {
 import { type UniversalProviderOpts } from '@walletconnect/universal-provider';
 
 import { solana, type SolanaChainConfig } from '../chains';
-import { isAdapterWalletFactory, isWalletConnnectFactory } from '../utils';
+import { isAdapterWalletFactory, isWalletConnectFactory } from '../utils';
 import { type WalletFactory } from '../wallets/types';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 import { useWalletConnectProvider } from './useWalletConnectProvider';
@@ -21,6 +21,8 @@ export interface SolanaWeb3ConfigProviderProps {
   chains?: SolanaChainConfig[];
   wallets?: WalletFactory[];
   balance?: boolean;
+
+  autoAddRegisteredWallets?: boolean;
 
   rpcProvider?: (chain?: SolanaChainConfig) => string;
 
@@ -38,17 +40,18 @@ export interface SolanaWeb3ConfigProviderProps {
 
 export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProviderProps>> = ({
   locale,
-  chains,
-  wallets: walletFactorys = [],
+  chains = [solana],
+  wallets: walletFactories = [],
   balance,
   rpcProvider,
   connectionConfig,
   autoConnect,
   walletConnect,
+  autoAddRegisteredWallets,
   children,
   walletProviderProps,
 }) => {
-  const [currentChain, setCurrentChain] = useState<SolanaChainConfig | undefined>(solana);
+  const [currentChain, setCurrentChain] = useState<SolanaChainConfig | undefined>(chains[0]);
   const [connectionError, setConnectionError] = useState<WalletConnectionError>();
   const walletConnectProviderGetter = useWalletConnectProvider(walletConnect);
 
@@ -60,26 +63,29 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
     return (currentChain ?? solana).rpcUrls.default;
   }, [rpcProvider, currentChain]);
 
-  const availableWallets = walletFactorys.map((factory) =>
+  const availableWallets = walletFactories.map((factory) =>
     factory.create(walletConnectProviderGetter),
   );
 
   // Only filter out the wallets that have an adapter
   const walletAdapters = useMemo(
     () =>
-      walletFactorys.filter(isAdapterWalletFactory).map((w) => {
-        if (isWalletConnnectFactory(w)) {
-          w.adapter.setWalletConnectProviderGetter(walletConnectProviderGetter);
-          w.adapter.setWalletConnectConfigGetter(() => ({
-            walletConnect,
-            currentChain,
-            rpcEndpoint: endpoint,
-          }));
-        }
+      walletFactories
+        .filter(isAdapterWalletFactory)
 
-        return w.adapter;
-      }),
-    [currentChain, endpoint, walletConnect, walletConnectProviderGetter, walletFactorys],
+        .map((w) => {
+          if (isWalletConnectFactory(w)) {
+            w.adapter.setWalletConnectProviderGetter(walletConnectProviderGetter);
+            w.adapter.setWalletConnectConfigGetter(() => ({
+              walletConnect,
+              currentChain,
+              rpcEndpoint: endpoint,
+            }));
+          }
+
+          return w.adapter;
+        }),
+    [currentChain, endpoint, walletConnect, walletConnectProviderGetter, walletFactories],
   );
 
   return (
@@ -103,8 +109,9 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
           balance={balance}
           currentChain={currentChain}
           onCurrentChainChange={(chain) => setCurrentChain(chain)}
-          availableChains={chains || [solana]}
+          availableChains={chains}
           connectionError={connectionError}
+          autoAddRegisteredWallets={autoAddRegisteredWallets}
         >
           {children}
         </AntDesignWeb3ConfigProvider>

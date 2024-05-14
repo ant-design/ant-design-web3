@@ -1,5 +1,33 @@
 # @ant-design/web3-icons
 
+## 1.6.0
+
+### Minor Changes
+
+- fc31d17: chore: add XLayer icon
+- 5736ad9: feat: Add new icon hardhat-colorful
+
+### Patch Changes
+
+- a90c674: refactor: remove unused code
+- 4a9f3e2: perf(icons): add 'sideEffects' for Tree shaking
+
+## 1.5.0
+
+### Minor Changes
+
+- ce5ad76: feat(icon): support jsdoc preview
+- 71d281a: feat: Add Trust and Backpack wallet metadata
+- c4c52a6: feat(icons): Add Xverse and Unisat icons
+- 7fbf83a: feat: support more icons
+
+### Patch Changes
+
+- ac9240c: fix: remove unused copy file
+- dfef374: feat: add scoll icons and chains
+- 7be0842: chore: upgrade @ant-design/icons to 5.3.6
+- ab3eac4: feat: support for bitcoin
+
 ## 1.4.2
 
 ### Patch Changes

@@ -1,3 +1,5 @@
+import copy from 'copy-to-clipboard';
+
 export const getPlatform = () => {
   const userAgent = navigator.userAgent.toLowerCase();
   if (userAgent.includes('chrome')) {
@@ -13,10 +15,6 @@ export const getPlatform = () => {
   }
 };
 
-export const writeCopyText = (text: string): Promise<void> => {
-  return navigator.clipboard.writeText(text);
-};
-
-export const readCopyText = (): Promise<string> => {
-  return navigator.clipboard.readText();
+export const writeCopyText = async (text: string): Promise<boolean> => {
+  return copy(text);
 };

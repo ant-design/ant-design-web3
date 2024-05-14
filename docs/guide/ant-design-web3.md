@@ -16,7 +16,7 @@ You can use Ant Design Web3 in any of the following ways:
 
 ## Try it out
 
-Here is an example of using Ant Design Web3 through `@ant-design/web3-wagmi`:
+Here are examples of using Ant Design Web3 through `@ant-design/web3-wagmi`:
 
 <code src="./demos/guide.tsx"></code>
 
@@ -32,27 +32,28 @@ Why use Ant Design Web3?
 
 There are more features:
 
-| Feature                                                                          | Supported |
-| -------------------------------------------------------------------------------- | --------- |
-| [Theme customization](https://web3.ant.design/guide/theme)                       | ✅        |
-| [Internationalization](https://web3.ant.design/guide/intl)                       | ✅        |
-| 100% test coverage                                                               | ✅        |
-| TypeScript support                                                               | ✅        |
-| Responsive design                                                                | ✅        |
-| Quick and easy wallet connection component                                       | ✅        |
-| [NFT component](https://web3.ant.design/components/nft-card)                     | ✅        |
-| More practical components such as Address                                        | ✅        |
-| [Rich icon library](https://web3.ant.design/components/icons)                    | ✅        |
-| Support EIP6963                                                                  | ✅        |
-| Support WalletConnect                                                            | ✅        |
-| [Support Ethereum and its L2](https://web3.ant.design/components/wagmi)          | ✅        |
-| [Support Solana](https://web3.ant.design/components/solana)                      | ✅        |
-| [Adapt to non-EVM chains such as Bitcoin](https://web3.ant.design/guide/adapter) | ✅        |
-| [Course](https://web3.ant.design/course/introduction)                            | ✅        |
-| Use with wagmi                                                                   | ✅        |
-| Use with ethers                                                                  | ✅        |
-| Use with web3.js                                                                 | ✅        |
-| Use with umi                                                                     | ✅        |
-| Use with Next.js                                                                 | ✅        |
-| Use with Remix                                                                   | ✅        |
-| Use with Tailwind CSS                                                            | ✅        |
+| Feature                                                                 | Supported |
+| ----------------------------------------------------------------------- | --------- |
+| [Theme customization](https://web3.ant.design/guide/theme)              | ✅        |
+| [Internationalization](https://web3.ant.design/guide/intl)              | ✅        |
+| 100% test coverage                                                      | ✅        |
+| TypeScript support                                                      | ✅        |
+| Responsive design                                                       | ✅        |
+| Quick and easy wallet connection component                              | ✅        |
+| [NFT component](https://web3.ant.design/components/nft-card)            | ✅        |
+| More practical components such as Address                               | ✅        |
+| [Rich icon library](https://web3.ant.design/components/icons)           | ✅        |
+| Support EIP6963                                                         | ✅        |
+| Support WalletConnect                                                   | ✅        |
+| [Support Ethereum and its L2](https://web3.ant.design/components/wagmi) | ✅        |
+| [Support Bitcoin](https://web3.ant.design/components/bitcoin)           | ✅        |
+| [Support Solana](https://web3.ant.design/components/solana)             | ✅        |
+| [Adapt to more non-EVM chains](https://web3.ant.design/guide/adapter)   | ✅        |
+| [Course](https://web3.ant.design/course/introduction)                   | ✅        |
+| Use with wagmi                                                          | ✅        |
+| Use with ethers                                                         | ✅        |
+| Use with web3.js                                                        | ✅        |
+| Use with umi                                                            | ✅        |
+| Use with Next.js                                                        | ✅        |
+| Use with Remix                                                          | ✅        |
+| Use with Tailwind CSS                                                   | ✅        |

@@ -6,3 +6,7 @@ export * from './safeheron';
 export * from './okx-wallet';
 export * from './phantom';
 export * from './im-token';
+export * from './xverse';
+export * from './unisat-wallet';
+export * from './backpack';
+export * from './trust';

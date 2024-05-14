@@ -24,7 +24,6 @@ const localeValues: RequiredLocale = {
     getWalletBtnText: 'Get',
     getWalletUniversalProtocolBtnText: 'About',
     getWalletPanelTitle: 'Get a Wallet',
-    getWalletPanelInfoTitle: "Not what you're looking for?",
     getWalletPanelInfoDesc:
       'Select a wallet on the left to get started with a different wallet provider.',
     qrCodePanelTitleForDownload: 'Download {walletName}',
@@ -42,6 +41,12 @@ const localeValues: RequiredLocale = {
     guideTipTitle: 'New to crypto wallets?',
     guideTipLearnMoreLinkText: 'Learn More',
     walletPanelPlugin: 'PLUGIN',
+    walletConnectSuccess: 'Wallet Connected!',
+    getWalletTipsTitle: "Not what you're looking for?",
+    getWalletTipsDesc:
+      'Select a wallet on the left to get started with a different wallet provider.',
+    linkWallet: 'Link',
+    walletConnecting: 'Connecting...',
   },
   NFTCard: {
     actionText: 'Buy Now',

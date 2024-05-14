@@ -101,25 +101,21 @@ describe('ConnectModal with guide', () => {
       />
     );
     const { baseElement } = render(<App />);
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item') as Element);
+    await vi.waitFor(() => {
+      // fireEvent.click(baseElement.querySelectorAll('.ant-web3-connect-modal-get-wallet-btn')[0]);
+      expect(baseElement.querySelector('.ant-web3-connect-modal-card-list')).toBeTruthy();
+      expect(baseElement.querySelectorAll('.ant-web3-connect-modal-card-item').length).toBe(2);
 
-    fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-get-btn')!);
-    expect(baseElement.querySelector('.ant-web3-connect-modal-get-wallet-panel')).toBeTruthy();
-    expect(baseElement.querySelectorAll('.ant-web3-connect-modal-item').length).toBe(
-      walletList.length,
-    );
+      fireEvent.click(baseElement.querySelectorAll('.ant-web3-connect-modal-card-item')[1]!);
+      expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code-container')).toBeTruthy();
 
-    fireEvent.click(baseElement.querySelectorAll('.ant-web3-connect-modal-get-wallet-btn')[0]);
-    expect(baseElement.querySelector('.ant-web3-connect-modal-card-list')).toBeTruthy();
-    expect(baseElement.querySelectorAll('.ant-web3-connect-modal-card-item').length).toBe(2);
+      fireEvent.click(baseElement.querySelectorAll('.ant-web3-connect-modal-wallet-item')[2]!);
+      expect(baseElement).toMatchSnapshot();
 
-    fireEvent.click(baseElement.querySelectorAll('.ant-web3-connect-modal-card-item')[1]!);
-    expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code-container')).toBeTruthy();
-
-    fireEvent.click(baseElement.querySelectorAll('.ant-web3-connect-modal-wallet-item')[2]!);
-    expect(baseElement).toMatchSnapshot();
-
-    fireEvent.click(baseElement.querySelectorAll('.ant-web3-connect-modal-wallet-item')[6]!);
-    expect(baseElement).toMatchSnapshot();
+      fireEvent.click(baseElement.querySelectorAll('.ant-web3-connect-modal-wallet-item')[6]!);
+      expect(baseElement).toMatchSnapshot();
+    });
   });
 
   it('should ctrl by open', async () => {

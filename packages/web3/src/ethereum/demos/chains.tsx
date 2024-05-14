@@ -1,5 +1,7 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
+  Hardhat,
+  Localhost,
   MetaMask,
   Polygon,
   WagmiWeb3ConfigProvider,
@@ -7,7 +9,7 @@ import {
   X1Testnet,
 } from '@ant-design/web3-wagmi';
 import { createConfig, http } from 'wagmi';
-import { mainnet, polygon, type Chain } from 'wagmi/chains';
+import { hardhat, localhost, mainnet, polygon, type Chain } from 'wagmi/chains';
 import { injected, walletConnect } from 'wagmi/connectors';
 
 export const x1Testnet: Chain = {
@@ -28,11 +30,13 @@ export const x1Testnet: Chain = {
 };
 
 const config = createConfig({
-  chains: [mainnet, polygon, x1Testnet],
+  chains: [mainnet, polygon, x1Testnet, localhost, hardhat],
   transports: {
     [mainnet.id]: http(),
     [polygon.id]: http(),
     [x1Testnet.id]: http(),
+    [hardhat.id]: http(),
+    [localhost.id]: http(),
   },
   connectors: [
     injected({
@@ -49,7 +53,7 @@ const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
       wallets={[MetaMask(), WalletConnect()]}
-      chains={[Polygon, X1Testnet]}
+      chains={[Polygon, X1Testnet, Hardhat, Localhost]}
       config={config}
     >
       <Connector>

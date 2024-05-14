@@ -1,14 +1,13 @@
 import type { ReactNode } from 'react';
-import React, { isValidElement, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
+import React, { isValidElement, useContext, useMemo } from 'react';
 import { type Locale } from '@ant-design/web3-common';
 import type { TooltipProps } from 'antd';
-import { ConfigProvider, Space, Tooltip } from 'antd';
+import { ConfigProvider, Space, Tooltip, Typography } from 'antd';
 import classNames from 'classnames';
 
 import { useProvider } from '../hooks';
 import useIntl from '../hooks/useIntl';
-import { fillWithPrefix, formatAddress, writeCopyText } from '../utils';
+import { fillWithPrefix, formatAddress } from '../utils';
 import { useStyle } from './style';
 
 export interface AddressProps {
@@ -41,8 +40,6 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
   const { addressPrefix: addressPrefixContext } = useProvider();
   const prefixCls = getPrefixCls('web3-address');
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  const [copied, setCopied] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
   const { messages } = useIntl('Address', locale);
 
   const mergedFormat = useMemo(() => {
@@ -64,14 +61,6 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
         }
       : ellipsis;
 
-  useEffect(() => {
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-    };
-  }, []);
-
   if (!address) {
     return null;
   }
@@ -90,34 +79,25 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
 
   const formattedAddress = mergedFormat(filledAddress);
 
-  const handleOutlinedChange = () => {
-    writeCopyText(filledAddress).then(() => {
-      setCopied(true);
-      timerRef.current = setTimeout(() => {
-        setCopied(false);
-      }, 2000);
-    });
-  };
-
   return wrapSSR(
     <Space className={classNames(prefixCls, hashId)}>
-      <Tooltip title={mergedTooltip()}>
-        <span className={`${prefixCls}-text`}>
+      <Typography.Text
+        copyable={
+          copyable
+            ? {
+                text: filledAddress,
+                tooltips: [messages.copyTips, messages.copiedTips],
+              }
+            : false
+        }
+      >
+        <Tooltip title={mergedTooltip()}>
           {children ??
             (isEllipsis
               ? `${filledAddress.slice(0, headClip)}...${filledAddress.slice(-tailClip)}`
               : formattedAddress)}
-        </span>
-      </Tooltip>
-      {copyable && (
-        <>
-          {copied ? (
-            <CheckOutlined title={messages.copiedTips} />
-          ) : (
-            <CopyOutlined title={messages.copyTips} onClick={handleOutlinedChange} />
-          )}
-        </>
-      )}
+        </Tooltip>
+      </Typography.Text>
     </Space>,
   );
 };

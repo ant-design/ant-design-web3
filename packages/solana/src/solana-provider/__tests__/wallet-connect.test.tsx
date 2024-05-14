@@ -4,6 +4,7 @@ import { type ConnectionContextState } from '@solana/wallet-adapter-react';
 import { fireEvent } from '@testing-library/react';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { WalletConnectWalletAdapter } from '../../wallet-connect-adapter';
 import { WalletConnectWallet } from '../../wallets/built-in';
 import { SolanaWeb3ConfigProvider } from '../index';
 import { xrender } from './utils';
@@ -111,6 +112,11 @@ describe('SolanaWeb3ConfigProvider WalletConnect', () => {
             mockedData.mockedDisconnect();
           },
           wallet: currentWalletRef.value,
+          wallets: [
+            {
+              adapter: new WalletConnectWalletAdapter(),
+            },
+          ],
         };
       },
       useConnection: () => {
@@ -168,6 +174,39 @@ describe('SolanaWeb3ConfigProvider WalletConnect', () => {
     // check wallet-connect config can be created
     await vi.waitFor(async () => {
       expect(mockSelectFn).toBeCalledTimes(2);
+    });
+  });
+
+  it('wallet connect is not a plugin', async () => {
+    const Display = () => {
+      const { availableWallets } = useProvider();
+
+      return (
+        <div className="plugin-check">
+          {availableWallets![0].hasExtensionInstalled === undefined ? 'true' : 'false'}
+        </div>
+      );
+    };
+
+    const App = () => {
+      return (
+        <SolanaWeb3ConfigProvider
+          walletConnect={{
+            projectId: 'YOUR_WALLET_CONNECT_PROJECT_ID',
+          }}
+          wallets={[WalletConnectWallet()]}
+        >
+          <Display />
+        </SolanaWeb3ConfigProvider>
+      );
+    };
+
+    const { selector } = xrender(App);
+
+    const dom = selector('.plugin-check')!;
+
+    await vi.waitFor(async () => {
+      expect(dom.textContent).toBe('true');
     });
   });
 });

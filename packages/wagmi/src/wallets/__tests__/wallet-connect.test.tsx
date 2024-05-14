@@ -1,6 +1,7 @@
 import { WalletConnect } from '@ant-design/web3-wagmi';
 import { describe, expect, it } from 'vitest';
-import { Connector, createConfig, http } from 'wagmi';
+import type { Connector } from 'wagmi';
+import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { walletConnect } from 'wagmi/connectors';
 

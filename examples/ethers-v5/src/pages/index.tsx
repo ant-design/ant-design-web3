@@ -7,7 +7,7 @@ import {
   TokenPocket,
   useEthersProvider,
   useEthersSigner,
-} from '@ant-design/web3-ethers/legacy-v5';
+} from '@ant-design/web3-ethers-v5';
 import { Button, message } from 'antd';
 
 const App = () => {

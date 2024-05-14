@@ -2,7 +2,7 @@
 nav: 组件
 subtitle: 地址
 group:
-  title: 展示
+  title: UI 组件
   order: 3
 ---
 

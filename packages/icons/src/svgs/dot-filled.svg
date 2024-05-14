@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Polkadot DOT</title>
+    <g id="Polkadot-DOT" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="polkadot-new-dot-logo" transform="translate(112, 130)" fill="#555555" fill-rule="nonzero">
+            <ellipse id="椭圆形" cx="400.013524" cy="80.1273578" rx="137.873868" ry="80.1273578"></ellipse>
+            <ellipse id="椭圆形" cx="400.013524" cy="683.872642" rx="137.873868" ry="80.1273578"></ellipse>
+            <ellipse id="椭圆形" transform="translate(138.3881, 231.0792) rotate(-59.9993) translate(-138.3881, -231.0792)" cx="138.388128" cy="231.079173" rx="137.793974" ry="80.2245166"></ellipse>
+            <ellipse id="椭圆形" transform="translate(661.6263, 532.9429) rotate(-59.9993) translate(-661.6263, -532.9429)" cx="661.626342" cy="532.942876" rx="137.793974" ry="80.1703108"></ellipse>
+            <ellipse id="椭圆形" transform="translate(138.4073, 532.9245) rotate(-30.0007) translate(-138.4073, -532.9245)" cx="138.407321" cy="532.924511" rx="80.2245166" ry="137.793974"></ellipse>
+            <ellipse id="椭圆形" transform="translate(661.6588, 231.0967) rotate(-30.0007) translate(-661.6588, -231.0967)" cx="661.658818" cy="231.096727" rx="80.1703108" ry="137.793974"></ellipse>
+        </g>
+    </g>
+</svg>

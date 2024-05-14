@@ -50,7 +50,6 @@ const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
 
 const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
   const { web3ComponentsCls: componentCls } = token;
-  const isDark = isDarkTheme(token);
   return [
     {
       [`${componentCls}`]: {
@@ -64,7 +63,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
         display: 'flex',
         justifyContent: 'space-between',
         position: 'relative',
-
+        height: 518,
         [`${componentCls}-title`]: {
           fontSize: token.fontSizeXL,
           lineHeight: '28px',
@@ -101,7 +100,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             paddingInline: token.paddingMD,
             overflow: 'auto',
             [`${componentCls}-wallet-list`]: {
-              maxHeight: 390,
               overflow: 'scroll',
               '&::-webkit-scrollbar': {
                 display: 'none',
@@ -123,9 +121,13 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     transition: 'background .3s, color .3s',
                     marginBlockEnd: 5,
                     border: 'none',
+                    width: '100%',
                     [`${componentCls}-content`]: {
                       display: 'flex',
+                      flex: 1,
                       alignItems: 'center',
+                      width: '100%',
+                      overflow: 'hidden',
                       [`${componentCls}-icon`]: {
                         borderRadius: 8,
                         overflow: 'hidden',
@@ -133,12 +135,14 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                         height: token.iconSize,
                         fontSize: token.iconSize,
                         lineHeight: `${token.iconSize}px`,
+                        flexShrink: 0,
                       },
                       [`${componentCls}-img`]: {
                         borderRadius: 8,
                         overflow: 'hidden',
                         width: token.iconSize,
                         height: token.iconSize,
+                        flexShrink: 0,
                       },
                       [`${componentCls}-name`]: {
                         fontSize: token.fontSizeLG,
@@ -146,6 +150,8 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                         marginInlineStart: token.marginSM,
                         color: token.colorText,
                         wordBreak: 'break-word',
+                        flex: 1,
+                        marginInlineEnd: token.marginXS,
                       },
                     },
                     [`${componentCls}-qr-icon-empty`]: {
@@ -153,14 +159,14 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     },
                     [`${componentCls}-plugin-tag`]: {
                       '&:not(:disabled):not(.ant-btn-disabled):hover': {
-                        color: token.colorText,
-                        borderColor: token.colorText,
+                        color: token.colorPrimary,
+                        borderColor: token.colorPrimary,
                       },
                     },
                     [`${componentCls}-qr-btn`]: {
                       '&:hover': {
-                        color: token.colorText,
-                        borderColor: token.colorText,
+                        color: token.colorPrimary,
+                        borderColor: token.colorPrimary,
                       },
                     },
                     '&:last-child': {
@@ -168,6 +174,24 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     },
                     '&:hover': {
                       background: token.hoverBg,
+                      [`&:has(${componentCls}-qr-btn:not(:hover))`]: {
+                        [`${componentCls}-plugin-tag:not(:disabled)`]: {
+                          color: token.colorPrimary,
+                          borderColor: token.colorPrimary,
+                        },
+                      },
+                      [`&:not(:has(${componentCls}-plugin-tag))`]: {
+                        [`${componentCls}-qr-btn`]: {
+                          color: token.colorPrimary,
+                          borderColor: token.colorPrimary,
+                        },
+                      },
+                      [`&:has(${componentCls}-plugin-tag:disabled)`]: {
+                        [`${componentCls}-qr-btn`]: {
+                          color: token.colorPrimary,
+                          borderColor: token.colorPrimary,
+                        },
+                      },
                     },
                     '&.selected': {
                       background: token.selectedBg,
@@ -236,6 +260,9 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           },
           [`${componentCls}-simple-guide-panel`]: {
             marginBlockStart: 0,
+            [`${componentCls}-guide-list`]: {
+              maxHeight: 400,
+            },
           },
           [`${componentCls}-guide-list`]: {
             marginBlock: token.marginLG,
@@ -273,24 +300,13 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               },
             },
           },
-          [`${componentCls}-get-btn`]: {
-            background: isDark
-              ? new TinyColor(token.colorWhite).setAlpha(0.15).toRgbString()
-              : token.colorPrimary,
-            color: token.colorTextLightSolid,
-            opacity: 0.8,
-            fontSize: token.fontSizeLG,
-            ['&:hover']: {
-              opacity: 1,
-            },
-          },
           [`${componentCls}-more`]: {
             color: token.colorText,
             fontSize: token.fontSizeLG,
             textAlign: 'center',
             marginBlockStart: token.margin,
-            opacity: 0.8,
             ['&:hover']: {
+              color: token.colorPrimary,
               opacity: 1,
             },
           },
@@ -299,7 +315,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             height: '100%',
             [`${componentCls}-list`]: {
               marginBlockStart: token.marginXL,
-              minHeight: 286,
+              height: 286,
               overflow: 'auto',
               [`${componentCls}-item`]: {
                 marginBlockEnd: token.marginLG,
@@ -318,6 +334,14 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 },
                 '.ant-list-item-meta-description': {
                   color: token.listItemDescriptionColor,
+                },
+                [`${componentCls}-get-wallet-btn`]: {
+                  borderColor: token.colorPrimary,
+                  color: token.colorPrimary,
+                  opacity: 0.6,
+                  '&:hover': {
+                    opacity: 1,
+                  },
                 },
               },
             },
@@ -340,9 +364,11 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           },
           [`${componentCls}-card-list`]: {
             marginBlockStart: 25,
+            height: '90%',
+            overflow: 'auto',
             [`${componentCls}-card-item`]: {
               width: '100%',
-              height: 220,
+              height: 116,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -350,17 +376,17 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               boxSizing: 'border-box',
               paddingInline: token.paddingXL,
               background: token.cardBg,
-              borderRadius: 16,
+              borderRadius: token.borderRadiusSM,
               cursor: 'pointer',
               border: `1px solid transparent`,
               transition: 'border-color .3s',
               '&:hover': {
-                borderColor: isDark ? token.colorWhite : token.colorPrimary,
+                borderColor: token.colorPrimary,
               },
               [`${componentCls}-card-icon`]: {
-                width: 64,
-                height: 64,
-                fontSize: 64,
+                width: 56,
+                height: 56,
+                fontSize: 56,
                 lineHeight: 1,
                 flexShrink: 0,
                 img: {
@@ -383,6 +409,15 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 marginBlockEnd: 0,
               },
             },
+            [`${componentCls}-card-list-tips-title`]: {
+              fontSize: token.fontSizeLG,
+              color: token.colorText,
+              fontWeight: token.fontWeightStrong,
+            },
+            [`${componentCls}-card-list-tips-description`]: {
+              fontSize: token.fontSize,
+              color: token.listItemDescriptionColor,
+            },
           },
           [`${componentCls}-qr-code-container`]: {
             [`${componentCls}-qr-code-box`]: {
@@ -397,6 +432,12 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               fontSize: token.fontSizeLG,
               textAlign: 'center',
               display: 'block',
+              opacity: 0.6,
+              color: token.colorPrimary,
+              '&:hover': {
+                color: token.colorPrimary,
+                opacity: 1,
+              },
             },
             [`${componentCls}-qr-code-link-loading`]: {
               cursor: 'not-allowed',
@@ -429,6 +470,53 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             },
           },
         },
+        [`${componentCls}-link-panel`]: {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100%',
+          flexDirection: 'column',
+
+          ['@keyframes ripple']: {
+            from: {
+              transform: 'scale(1)',
+              opacity: '1',
+            },
+            to: {
+              transform: 'scale(2)',
+              opacity: '0',
+            },
+          },
+          [`${componentCls}-ripple-container`]: {
+            position: 'relative',
+            width: '60px',
+            height: '60px',
+          },
+          [`${componentCls}-ripple`]: {
+            position: 'absolute',
+            border: `1px solid ${token.colorPrimary}`,
+            borderRadius: '50%',
+            width: '100%',
+            height: '100%',
+            animationName: 'ripple',
+            animationDuration: '3s',
+            animationIterationCount: 'infinite',
+            animationTimingFunction: 'ease-out',
+            animationDelay: '0s',
+            transformOrigin: 'center',
+          },
+
+          [`${componentCls}-ripple:nth-child(2)`]: {
+            animationDelay: '-1s',
+          },
+
+          [`${componentCls}-ripple:nth-child(3)`]: {
+            animationDelay: '-2s',
+          },
+          [`${componentCls}-wallet-connecting`]: {
+            marginTop: '30px',
+          },
+        },
       },
     },
   ];
@@ -457,14 +545,11 @@ export function useStyle(prefixCls: string): UseStyleResult {
       hoverBg,
       selectedBg: hoverBg,
       splitColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
-      modalTitleStartColor: isDark ? token.colorWhite : token.colorPrimary,
-      modalTitleEndColor: new TinyColor('#000')
-        .setAlpha(0.85)
-        .onBackground(token.colorWhite)
-        .toRgbString(),
+      modalTitleStartColor: token.colorPrimary,
+      modalTitleEndColor: new TinyColor(token.colorText).setAlpha(0.85).toRgbString(),
       groupTextColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
       listItemDescriptionColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
-      cardBg: new TinyColor(token.colorText).setAlpha(0.1).toRgbString(),
+      cardBg: new TinyColor(token.colorText).setAlpha(0.03).toRgbString(),
       iconSize: token.sizeXL,
       web3ComponentsCls: `.${prefixCls}`,
       simpleGuideBg: new TinyColor(token.colorText).complement().setAlpha(0.06).toRgbString(),

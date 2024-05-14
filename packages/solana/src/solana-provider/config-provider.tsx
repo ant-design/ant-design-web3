@@ -2,11 +2,16 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import type { Account, Chain, Locale, Wallet } from '@ant-design/web3-common';
 import { Web3ConfigProvider } from '@ant-design/web3-common';
 import { Metaplex, PublicKey } from '@metaplex-foundation/js';
-import { type WalletConnectionError, type WalletName } from '@solana/wallet-adapter-base';
+import {
+  WalletReadyState,
+  type WalletConnectionError,
+  type WalletName,
+} from '@solana/wallet-adapter-base';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 
 import type { SolanaChainConfig } from '../chains';
 import { hasWalletReady } from '../utils';
+import { WalletConnectWalletAdapter } from '../wallet-connect-adapter';
 
 interface ConnectAsync {
   promise: Promise<void>;
@@ -22,13 +27,22 @@ export interface AntDesignWeb3ConfigProviderProps {
   currentChain?: SolanaChainConfig;
   availableWallets: Wallet[];
   connectionError?: WalletConnectionError;
+  autoAddRegisteredWallets?: boolean;
   onCurrentChainChange?: (chain?: SolanaChainConfig) => void;
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<
   React.PropsWithChildren<AntDesignWeb3ConfigProviderProps>
 > = (props) => {
-  const { publicKey, connected, connect, select: selectWallet, disconnect, wallet } = useWallet();
+  const {
+    publicKey,
+    connected,
+    connect,
+    select: selectWallet,
+    disconnect,
+    wallet,
+    wallets,
+  } = useWallet();
 
   const { connection } = useConnection();
 
@@ -86,8 +100,9 @@ export const AntDesignWeb3ConfigProvider: React.FC<
   useEffect(() => {
     if (wallet?.adapter?.name) {
       // if wallet is not ready, need clear selected wallet
-      if (!hasWalletReady(wallet.adapter)) {
+      if (!hasWalletReady(wallet.adapter.readyState)) {
         selectWallet(null);
+        return;
       }
 
       connect();
@@ -122,6 +137,54 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       .filter((item) => item !== null) as (Chain & SolanaChainConfig)[];
   }, [props.availableChains, props.chainAssets]);
 
+  const availableWallets = useMemo<Wallet[]>(() => {
+    const providedWallets = props.availableWallets.map<Wallet>((w) => {
+      const adapter = wallets?.find((item) => item.adapter.name === w.name)?.adapter;
+      const isWalletConnectAdapter = adapter instanceof WalletConnectWalletAdapter;
+
+      return {
+        ...w,
+
+        hasExtensionInstalled: isWalletConnectAdapter
+          ? undefined
+          : async () => {
+              return adapter?.readyState === WalletReadyState.Installed;
+            },
+
+        hasWalletReady: async () => {
+          return hasWalletReady(adapter?.readyState);
+        },
+      };
+    });
+
+    if (!props.autoAddRegisteredWallets) {
+      return providedWallets;
+    }
+
+    const providedWalletNames = providedWallets.map((w) => w.name);
+
+    const autoRegisteredWallets = wallets
+      .filter((w) => !providedWalletNames.includes(w.adapter.name))
+      .map<Wallet>((w) => {
+        const adapter = w.adapter;
+
+        return {
+          name: adapter.name,
+          icon: adapter.icon,
+          remark: adapter.name,
+
+          hasExtensionInstalled: async () => {
+            return adapter.readyState === WalletReadyState.Installed;
+          },
+          hasWalletReady: async () => {
+            return hasWalletReady(adapter.readyState);
+          },
+        };
+      });
+
+    return [...providedWallets, ...autoRegisteredWallets];
+  }, [props.availableWallets, wallets, props.autoAddRegisteredWallets]);
+
   const currentChain = useMemo(() => {
     return chainList.find((c) => c.id === props.currentChain?.id);
   }, [props.currentChain, chainList]);
@@ -145,7 +208,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       }
       addressPrefix={false}
       availableChains={chainList}
-      availableWallets={props.availableWallets}
+      availableWallets={availableWallets}
       switchChain={async (_chain) => {
         const foundChain = chainList.find((c) => c.id === _chain.id);
         props.onCurrentChainChange?.(foundChain ?? chainList[0]);
@@ -177,7 +240,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         disconnect();
       }}
       getNFTMetadata={async ({ address }) => {
-        // TODO: cache metadatas
+        // TODO: cache metadata
         const mx = new Metaplex(connection);
         const nftClient = mx.nfts();
         const mintAddress = new PublicKey(address);

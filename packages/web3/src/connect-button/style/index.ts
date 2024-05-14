@@ -31,6 +31,14 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
           marginTop: -2,
         },
       },
+      [`&${token.antCls}-btn-sm`]: {
+        [`${token.componentCls}-avatar`]: {
+          [`${token.antCls}-avatar`]: {
+            width: '80%',
+            height: '80%',
+          },
+        },
+      },
       [`${token.componentCls}-chain-select`]: {
         display: 'inline-block',
         marginRight: token.marginXS,
@@ -48,9 +56,22 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
       padding: `4px 15px`,
     },
 
+    [`${token.componentCls}-quick-connect`]: {
+      [`${token.componentCls}-quick-connect-icon`]: {
+        marginLeft: token.marginXS,
+      },
+    },
+
     [`${token.componentCls}-quick-connect-icon`]: {
-      height: token.fontSize,
-      width: token.fontSize,
+      [`> ${token.antCls}icon`]: {
+        height: token.fontSize,
+        width: token.fontSize,
+      },
+
+      '> img': {
+        height: token.fontSize,
+        width: token.fontSize,
+      },
     },
 
     [`${token.componentCls}-profile-modal`]: {

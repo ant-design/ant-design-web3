@@ -1,4 +1,3 @@
-import type { Adapter } from '@solana/wallet-adapter-base';
 import { WalletReadyState } from '@solana/wallet-adapter-base';
 
 import type {
@@ -7,11 +6,10 @@ import type {
   WalletFactory as WalletFactoryType,
 } from './wallets/types';
 
-export const hasWalletReady = (adapter: Adapter) =>
-  adapter.readyState === WalletReadyState.Installed ||
-  adapter.readyState === WalletReadyState.Loadable;
+export const hasWalletReady = (readyState?: WalletReadyState) =>
+  readyState === WalletReadyState.Installed || readyState === WalletReadyState.Loadable;
 
-export const isWalletConnnectFactory = (
+export const isWalletConnectFactory = (
   factory: WalletFactoryType,
 ): factory is WalletConnectWalletFactoryType =>
   !!(factory as WalletConnectWalletFactoryType).isWalletConnect;

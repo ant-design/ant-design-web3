@@ -1,10 +1,7 @@
 ---
 nav: 组件
 subtitle: 连接器
-group:
-  title: 连接
-  order: 2
-order: 0
+group: UI 组件
 ---
 
 # Connector
@@ -38,7 +35,7 @@ order: 0
 | onConnected | 连接成功时的回调 | `() => Promise<void>` | - | - |
 | onDisconnected | 断开连接时的回调 | `() => Promise<void>` | - | - |
 | onChainSwitched | 切换网络时的回调 | `(chain: Chain) => Promise<void>` | - | - |
-| wavailableWallets | 钱包列表 | `Wallet[]` | - | - |
+| availableWallets | 钱包列表 | `Wallet[]` | - | - |
 | account | 当前连接账号 | `Account[]` | - | - |
 | availableChains | 可以连接的链列表 | `Chain[]` | - | - |
 | requestAccounts | 请求账户列表的方法 | `() => Promise<Account[]>` | - | - |

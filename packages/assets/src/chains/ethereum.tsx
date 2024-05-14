@@ -4,11 +4,14 @@ import {
   AvalancheCircleColorful,
   BSCCircleColorful,
   EthereumCircleColorful,
+  EthereumColorful,
   EthereumFilled,
   EtherscanCircleColorful,
+  HardhatColorful,
   OkxWalletColorful,
   OptimismCircleColorful,
   PolygonCircleColorful,
+  ScrollColorful,
 } from '@ant-design/web3-icons';
 
 export const Mainnet: Chain = {
@@ -22,6 +25,9 @@ export const Mainnet: Chain = {
   nativeCurrency: { icon: <EthereumFilled />, name: 'Ether', symbol: 'ETH', decimals: 18 },
 };
 
+/**
+ * @deprecated use sepolia or holesky instead
+ */
 export const Goerli: Chain = {
   id: ChainIds.Goerli,
   name: 'Goerli',
@@ -42,6 +48,17 @@ export const Sepolia: Chain = {
     getBrowserLink: createGetBrowserLink('https://sepolia.etherscan.io'),
   },
   nativeCurrency: { name: 'Sepolia Ether', symbol: 'ETH', decimals: 18 },
+};
+
+export const Holesky: Chain = {
+  id: ChainIds.Holesky,
+  name: 'Holesky',
+  icon: <EthereumCircleColorful />,
+  browser: {
+    icon: <EthereumCircleColorful />,
+    getBrowserLink: createGetBrowserLink('https://holesky.etherscan.io'),
+  },
+  nativeCurrency: { name: 'Holesky Ether', symbol: 'ETH', decimals: 18 },
 };
 
 export const Polygon: Chain = {
@@ -109,4 +126,40 @@ export const X1Testnet: Chain = {
     getBrowserLink: createGetBrowserLink('https://www.okx.com/explorer/x1-test'),
   },
   nativeCurrency: { name: 'OKB', symbol: 'OKB', decimals: 18 },
+};
+
+export const Scroll: Chain = {
+  id: ChainIds.Scroll,
+  name: 'Scroll',
+  icon: <ScrollColorful />,
+  browser: {
+    icon: <ScrollColorful />,
+    getBrowserLink: createGetBrowserLink('https://scrollscan.com/'),
+  },
+  nativeCurrency: { name: 'Scroll ETH', symbol: 'ETH', decimals: 18 },
+};
+
+export const ScrollSepolia: Chain = {
+  id: ChainIds.ScrollSepolia,
+  name: 'Scroll Sepolia Testnet',
+  icon: <ScrollColorful />,
+  browser: {
+    icon: <ScrollColorful />,
+    getBrowserLink: createGetBrowserLink('https://sepolia.scrollscan.com/'),
+  },
+  nativeCurrency: { name: 'Scroll ETH', symbol: 'ETH', decimals: 18 },
+};
+
+export const Hardhat: Chain = {
+  id: ChainIds.Hardhat,
+  name: 'Hardhat',
+  icon: <HardhatColorful />,
+  nativeCurrency: { icon: <EthereumFilled />, name: 'Ether', symbol: 'ETH', decimals: 18 },
+};
+
+export const Localhost: Chain = {
+  id: ChainIds.Localhost,
+  name: 'Localhost',
+  icon: <EthereumColorful />,
+  nativeCurrency: { icon: <EthereumFilled />, name: 'Ether', symbol: 'ETH', decimals: 18 },
 };

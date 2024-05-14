@@ -4,9 +4,7 @@
   "app.docs.components.icon.circle-colorful": "圆形彩色",
   "app.docs.components.icon.filled": "单色风格",
   "app.docs.components.icon.circle-filled": "圆底单色",
-  "app.docs.components.icon.category.chain": "链图标",
-  "app.docs.components.icon.category.token": "代币图标",
-  "app.docs.components.icon.category.tool": "工具图标",
+  "app.docs.components.icon.category.common": "常用图标",
   "app.docs.components.icon.category.other": "其他图标",
 
   "app.docs.site.index.banner.slogan": "高效的 React 组件库，更轻松地构建去中心化应用",

@@ -28,6 +28,7 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
     onConnectClick,
     intl,
     __hashId__,
+    className,
     ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -35,15 +36,13 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
   const [firstInstallWallet, setFirstInstallWallet] = useState<Wallet | undefined>(undefined);
   const [items, setItems] = useState<MenuProps['items']>([]);
 
-  const getWalletIcon = (icon?: string | React.ReactNode) => {
-    return typeof icon === 'string' ? (
-      <img
-        className={classNames(__hashId__, `${prefixCls}-quick-connect-icon`)}
-        src={icon}
-        alt="Wallet Icon"
-      />
-    ) : (
-      icon
+  const getWalletIcon = (wallet: Wallet) => {
+    const icon = wallet.icon;
+
+    return (
+      <span className={classNames(__hashId__, `${prefixCls}-quick-connect-icon`)}>
+        {typeof icon === 'string' ? <img src={icon} alt={`${wallet.name} Icon`} /> : icon}
+      </span>
     );
   };
 
@@ -78,7 +77,7 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
     const newItems = allQuickWallets.map((item) => {
       return {
         key: item.name,
-        icon: getWalletIcon(item.icon),
+        icon: getWalletIcon(item),
         label: item.name,
         onClick: () => {
           onConnectClick?.(item);
@@ -108,19 +107,19 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
         menu={{
           items,
         }}
+        className={classNames(className, `${prefixCls}-quick-connect`)}
         onClick={(e) => {
           onClick?.(e);
           onConnectClick?.(firstInstallWallet);
         }}
       >
-        <Space>
-          {children}
-          {getWalletIcon(firstInstallWallet?.icon)}
-        </Space>
+        {children}
+        {getWalletIcon(firstInstallWallet)}
       </Dropdown.Button>
     ) : (
       <Button
         {...restProps}
+        className={className}
         onClick={(e) => {
           onClick?.(e);
           onConnectClick?.();

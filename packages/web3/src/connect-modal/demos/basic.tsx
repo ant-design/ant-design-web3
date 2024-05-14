@@ -2,7 +2,6 @@ import React from 'react';
 import { ConnectModal } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import { Button } from 'antd';
-import { useIntl } from 'dumi';
 
 import type { Wallet } from '../interface';
 
@@ -45,6 +44,14 @@ const walletList: Wallet[] = [
       );
     },
   },
+  {
+    icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
+    name: 'Test Wallet3 Have a Long Name',
+    remark: 'remark 3',
+    app: {
+      link: 'https://test.com/xxx',
+    },
+  },
 ];
 const groupOrder = (a: string, b: string) => {
   if (a === 'Popular') return -1;
@@ -54,7 +61,6 @@ const groupOrder = (a: string, b: string) => {
 
 const App: React.FC = () => {
   const [open, setOpen] = React.useState(false);
-  const { locale } = useIntl();
   return (
     <>
       <Button type="primary" onClick={() => setOpen(true)}>
@@ -62,7 +68,7 @@ const App: React.FC = () => {
       </Button>
       <ConnectModal
         open={open}
-        footer={locale === 'zh-CN' ? '蚂蚁链提供技术支持' : 'Powered by AntChain'}
+        footer={'Powered by AntChain'}
         group={{
           groupOrder,
         }}

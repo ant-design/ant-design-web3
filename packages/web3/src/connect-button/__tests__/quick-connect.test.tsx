@@ -260,14 +260,18 @@ describe('ConnectButton with quickConnect', async () => {
     fireEvent.mouseOver(baseElement.querySelector('.ant-btn.ant-dropdown-trigger')!);
     await vi.waitFor(() => {
       expect(baseElement.querySelectorAll('.ant-dropdown-menu-item').length).toBe(3);
+
+      // check icon in menu items
       expect(
         baseElement.querySelectorAll(
           '.ant-dropdown-menu-item .ant-web3-connect-button-quick-connect-icon',
         ).length,
-      ).toBe(1);
+      ).toBe(2);
+
+      // check icon in menu items and quick connect button
       expect(
         baseElement.querySelectorAll('.ant-web3-connect-button-quick-connect-icon').length,
-      ).toBe(2);
+      ).toBe(3);
     });
   });
 

@@ -77,7 +77,7 @@ vi.mock('@solana/wallet-adapter-react', async () => {
         mockThrowWalletConnectionError();
         onError?.(new WalletConnectionError('mock error'));
       }
-    }, [mockThrowError]);
+    }, [mockThrowError, onError]);
     return <>{children}</>;
   };
 
