@@ -11,10 +11,15 @@
       "require": "./dist/lib/index.js",
       "types": "./dist/esm/index.d.ts"
     },
-    "./legacy-v5": {
-      "import": "./dist/esm/index-v5.js",
-      "require": "./dist/lib/index-v5.js",
-      "types": "./dist/esm/index-v5.d.ts"
+    "./provider": {
+      "import": "./dist/esm/ethers-provider/index.js",
+      "require": "./dist/lib/ethers-provider/index.js",
+      "types": "./dist/esm/ethers-provider/index.d.ts"
+    },
+    "./wallets": {
+      "import": "./dist/esm/wallets/index.js",
+      "require": "./dist/lib/wallets/index.js",
+      "types": "./dist/esm/wallets/index.d.ts"
     },
     "./wagmi": {
       "import": "./dist/esm/wagmi.js",
@@ -66,11 +71,10 @@
     "@types/debug": "^4.1.12",
     "father": "^4.4.0",
     "typescript": "^5.4.4",
-    "ethers-v5": "npm:ethers@^5.7.2",
-    "ethers-v6": "npm:ethers@^6.11.1"
+    "ethers": "^6.11.1"
   },
   "peerDependencies": {
-    "ethers": "^5.7.2 || ^6.11.1"
+    "ethers": "^6.11.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",

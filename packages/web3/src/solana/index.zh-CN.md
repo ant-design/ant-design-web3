@@ -1,6 +1,7 @@
 ---
 nav: 组件
 subtitle: 索拉纳
+order: 4
 group:
   title: 连接链
   order: 2

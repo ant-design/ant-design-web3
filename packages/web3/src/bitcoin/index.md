@@ -1,8 +1,9 @@
 ---
 nav: Components
+order: 1
 group:
   title: Connect Blockchains
-  order: 1
+  order: 2
 tag:
   title: New
   color: success

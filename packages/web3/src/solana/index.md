@@ -1,8 +1,9 @@
 ---
 nav: Components
+order: 4
 group:
   title: Connect Blockchains
-  order: 3
+  order: 2
 ---
 
 # Solana

@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { BrowserProvider, JsonRpcSigner } from 'ethers-v6';
+import { BrowserProvider, JsonRpcSigner } from 'ethers';
 import type { Account, Chain, Client, Transport } from 'viem';
 import { useConnectorClient, type Config } from 'wagmi';
 
