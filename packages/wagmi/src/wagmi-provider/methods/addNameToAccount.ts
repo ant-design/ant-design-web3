@@ -7,7 +7,7 @@ export async function addNameToAccount(
   account: Account,
   chainId?: number,
 ): Promise<Account> {
-  const name = await getEnsName(config as any, {
+  const name = await getEnsName(config, {
     address: account.address as `0x${string}`,
     chainId,
   });
