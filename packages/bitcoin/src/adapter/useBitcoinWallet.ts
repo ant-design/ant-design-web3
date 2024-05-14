@@ -7,11 +7,11 @@ export interface BitcoinWallet {
   name: string;
   provider: any;
   account?: Account;
-  getBalance: () => Promise<Balance | undefined>;
+  getBalance: () => Promise<Balance>;
   connect: () => Promise<void>;
-  signMessage: (message: string) => Promise<string | undefined>;
-  sendTransfer: (prams: TransferParams) => Promise<string | undefined>;
-  signPsbt: (params: SignPsbtParams) => Promise<SignPsbtResult | undefined>;
+  signMessage: (message: string) => Promise<string>;
+  sendTransfer: (prams: TransferParams) => Promise<string>;
+  signPsbt: (params: SignPsbtParams) => Promise<SignPsbtResult>;
 }
 
 export const BitcoinAdapterContext = React.createContext<BitcoinWallet>({} as BitcoinWallet);

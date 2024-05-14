@@ -1,4 +1,4 @@
-export type { SignPsbtResult } from 'sats-connect';
+export type { SignPsbtResult, BitcoinProvider } from 'sats-connect';
 
 export interface SignPsbtOptions {
   signInputs?: Record<string, number[]>;
