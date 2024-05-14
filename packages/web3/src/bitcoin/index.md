@@ -51,11 +51,41 @@ Support for other methods will be added in the future. Feel free to submit a Git
 
 | Property | Description | Type |
 | --- | --- | --- |
-| name | The connected wallet's name | string |
-| provider | The connected wallet's provider | any |
-| account | Represents the web3 account address of the current user | string |
-| connect | Connect the wallet | () => Promise<void> |
-| getBalance | Get the balance of the wallet | () => Promise<[Balance](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/types.ts#181) \| undefined> |
-| signMessage | Sign message | (message: string) => Promise<string \| undefined> |
-| sendTransfer | Transfer bticoin | (prams: [TransferParams](https://github.com/ant-design/ant-design-web3/blob/main/packages/bitcoin/src/types.tsx#L14)) => Promise<string \| undefined> |
-| signPsbt | Sign PSBT | (params: [SignPsbtParams](https://github.com/ant-design/ant-design-web3/blob/main/packages/bitcoin/src/types.tsx#L9)) => Promise<SignPsbtResult \| undefined> |
+| name | The connected wallet's name | `string` |
+| provider | The connected wallet's provider | `any` |
+| account | Represents the web3 account address of the current user | `string` |
+| connect | Connect the wallet | `() => Promise<void>` |
+| getBalance | Get the balance of the wallet | `() => Promise<Balance>` |
+| signMessage | Sign message | `(message: string) => Promise<string>` |
+| sendTransfer | Transfer bticoin | `(prams: TranssferParams) => Promise<string>` |
+| signPsbt | Sign PSBT | `(params: SignPsbtParams) => Promise<SignPsbtResult>` |
+
+##### TransferParams
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| to | The recipient's address | `string` | - | - |
+| sats | The amount to send to the recipient in satoshis（1BTC = 100000000sats） | `number` | - | - |
+| options | Options, transaction fee rate | `{ feeRate: number }` | - | - |
+
+##### SignPsbtParams
+
+| Property | Description                     | Type              | Default | Version |
+| -------- | ------------------------------- | ----------------- | ------- | ------- |
+| psbt     | The base64 encoded PSBT to sign | `string`          | -       | -       |
+| options  | Psbt options                    | `SignPsbtOptions` | -       | -       |
+
+##### SignPsbtOptions
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| signInputs | The inputs to sign. The key is the address and the value is an array of indexes of the inputs to sign | `Record<string, number[]>` | - | - |
+| broadcast | Whether to broadcast the transaction after signing | `boolean` | false | - |
+| signHash | The [sigHash type](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/src/transaction.d.ts#L21) to use for signing. Will default to the sighash type of the input if not provided. | `number` | - | - |
+
+##### SignPsbtResult
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| psbt | The base64 encoded PSBT after signing | `string` | - | - |
+| txid | The transaction hash, only returned if `broadcast` equals true | `string` | - | - |
