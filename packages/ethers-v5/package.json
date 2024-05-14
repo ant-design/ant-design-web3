@@ -1,14 +1,21 @@
 {
-  "name": "@ant-design/web3-wagmi",
-  "version": "2.4.3",
+  "name": "@ant-design/web3-ethers-v5",
+  "version": "0.1.0",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
   "exports": {
-    "import": "./dist/esm/index.js",
-    "require": "./dist/lib/index.js",
-    "types": "./dist/esm/index.d.ts"
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/esm/index.d.ts"
+    },
+    "./wagmi": {
+      "import": "./dist/esm/wagmi.js",
+      "require": "./dist/lib/wagmi.js",
+      "types": "./dist/esm/wagmi.d.ts"
+    }
   },
   "files": [
     "dist",
@@ -25,7 +32,9 @@
     "react",
     "react-component",
     "ui",
-    "web3"
+    "web3",
+    "ethers-v5",
+    "ethersjs"
   ],
   "homepage": "https://we3.ant.design",
   "bugs": {
@@ -42,22 +51,21 @@
   "dependencies": {
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
+    "@ant-design/web3-wagmi": "workspace:*",
+    "@ant-design/web3-ethers": "workspace:*",
+    "@tanstack/react-query": "^5.28.4",
     "debug": "^4.3.4",
-    "@wagmi/core": "^2.9.6"
+    "viem": ">=2.9.25",
+    "wagmi": "^2.8.3"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
-    "@wagmi/core": "^2.9.3",
     "father": "^4.4.0",
     "typescript": "^5.4.4",
-    "wagmi": "^2.8.6",
-    "@tanstack/react-query": "^5.28.4",
-    "viem": "^2.10.3"
+    "ethers": "^5.7.2"
   },
   "peerDependencies": {
-    "wagmi": "^2.8.6",
-    "@tanstack/react-query": "^5.28.4",
-    "viem": ">=2.0.0"
+    "ethers": "^5.7.2"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",

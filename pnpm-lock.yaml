@@ -214,9 +214,9 @@ importers:
       '@ant-design/web3-common':
         specifier: workspace:*
         version: link:../../packages/common
-      '@ant-design/web3-ethers':
+      '@ant-design/web3-ethers-v5':
         specifier: workspace:*
-        version: link:../../packages/ethers
+        version: link:../../packages/ethers-v5
       antd:
         specifier: ^5.16.5
         version: 5.16.5(react-dom@18.2.0)(react@18.2.0)
@@ -335,9 +335,6 @@ importers:
       debug:
         specifier: ^4.3.4
         version: 4.3.4(supports-color@5.5.0)
-      ethers:
-        specifier: ^5.7.2 || ^6.11.1
-        version: 5.7.2
       viem:
         specifier: ^2.10.3
         version: 2.10.3(typescript@5.4.4)
@@ -348,12 +345,49 @@ importers:
       '@types/debug':
         specifier: ^4.1.12
         version: 4.1.12
-      ethers-v5:
-        specifier: npm:ethers@^5.7.2
-        version: /ethers@5.7.2
-      ethers-v6:
-        specifier: npm:ethers@^6.11.1
-        version: /ethers@6.11.1
+      ethers:
+        specifier: ^6.11.1
+        version: 6.11.1
+      father:
+        specifier: ^4.4.0
+        version: 4.4.0(@babel/core@7.24.3)(@types/node@20.10.5)(styled-components@5.3.11)(webpack@5.91.0)
+      typescript:
+        specifier: ^5.4.4
+        version: 5.4.4
+
+  packages/ethers-v5:
+    dependencies:
+      '@ant-design/web3-assets':
+        specifier: workspace:*
+        version: link:../assets
+      '@ant-design/web3-common':
+        specifier: workspace:*
+        version: link:../common
+      '@ant-design/web3-ethers':
+        specifier: workspace:*
+        version: link:../ethers
+      '@ant-design/web3-wagmi':
+        specifier: workspace:*
+        version: link:../wagmi
+      '@tanstack/react-query':
+        specifier: ^5.28.4
+        version: 5.28.4(react@18.2.0)
+      debug:
+        specifier: ^4.3.4
+        version: 4.3.4(supports-color@5.5.0)
+      viem:
+        specifier: '>=2.9.25'
+        version: 2.10.3(typescript@5.4.4)
+      wagmi:
+        specifier: ^2.8.3
+        version: 2.8.6(@tanstack/react-query@5.28.4)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.4)(viem@2.10.3)
+    devDependencies:
+      '@types/debug':
+        specifier: ^4.1.12
+        version: 4.1.12
+      ethers:
+        specifier: ^5.7.2
+        version: 5.7.2
       father:
         specifier: ^4.4.0
         version: 4.4.0(@babel/core@7.24.3)(@types/node@20.10.5)(styled-components@5.3.11)(webpack@5.91.0)

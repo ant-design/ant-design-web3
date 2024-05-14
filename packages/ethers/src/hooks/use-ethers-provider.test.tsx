@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { JsonRpcProvider } from 'ethers-v6';
+import { JsonRpcProvider } from 'ethers';
 import { describe, expect, test } from 'vitest';
 
 import { EthersWeb3ConfigProvider } from '../ethers-provider';

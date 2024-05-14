@@ -1,5 +1,6 @@
 import type { Account } from '@ant-design/web3-common';
-import { getEnsName, type Config } from '@wagmi/core';
+import { getEnsName } from '@wagmi/core';
+import type { Config } from 'wagmi';
 
 export async function addNameToAccount(
   config: Config,
