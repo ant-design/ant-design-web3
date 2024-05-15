@@ -1,12 +1,12 @@
 import type { WalletFactoryBuilder } from './types';
 
-export const WalletFactory: WalletFactoryBuilder = (adapter, metadata) => {
+export const WalletFactory: WalletFactoryBuilder = (adapterConstructor, metadata) => {
   return {
-    adapter,
     create: () => {
+      const adapter = new adapterConstructor(metadata.name);
       return {
         ...metadata,
-        adapter: adapter,
+        adapter,
         hasWalletReady: () => Promise.resolve(!!adapter.provider),
         hasExtensionInstalled: () => Promise.resolve(!!adapter.provider),
       };

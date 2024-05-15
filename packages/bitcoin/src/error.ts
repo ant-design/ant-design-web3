@@ -16,3 +16,12 @@ export class NoAddressError extends Error {
     this.name = this.constructor.name;
   }
 }
+
+export class NoBalanceError extends Error {
+  name: string;
+
+  constructor(message = "Can't fetch the balance") {
+    super(message);
+    this.name = this.constructor.name;
+  }
+}
