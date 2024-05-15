@@ -25,7 +25,7 @@
 
 ### Patch Changes
 
-- dfef374: feat: add scoll icons and chains
+- dfef374: feat: add scroll icons and chains
 - ab3eac4: feat: support for bitcoin
 - Updated dependencies [ac9240c]
 - Updated dependencies [7fb2d02]
