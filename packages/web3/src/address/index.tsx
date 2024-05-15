@@ -30,7 +30,7 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
     ellipsis,
     addressPrefix: addressPrefixProp,
     address,
-    copyable,
+    copyable = false,
     tooltip = true,
     format = false,
     children,
