@@ -14,7 +14,7 @@
 
 ### Patch Changes
 
-- dfef374: feat: add scoll icons and chains
+- dfef374: feat: add scroll icons and chains
 - b1b8a46: feat: supoort ethers adapter
 - ab3eac4: feat: support for bitcoin
 
