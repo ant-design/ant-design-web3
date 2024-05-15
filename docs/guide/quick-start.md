@@ -45,7 +45,7 @@ Of course, compared with `NFTImage`, we may use more components of the connectio
 
 ## Use in Next.js
 
-- `createContext` only works in Client Components. So add the `"use client"` directive at the top of the file to use Provider.
+- If you're using recommended App Router, add the `"use client"` directive at the top of the file to use Provider such as `WagmiWeb3ConfigProvider`, considering that `createContext` only works in Client Components.
 
 - In [Next.js](https://nextjs.org/), based on its build mechanism, you may encounter the following errors when introducing packages such as `@ant-design/web3`:
 
