@@ -1,0 +1,26 @@
+{
+  "name": "@example/eth-web3js",
+  "private": true,
+  "author": "Jeason <me@cowpoke.cc>",
+  "type": "module",
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi setup",
+    "setup": "umi setup"
+  },
+  "dependencies": {
+    "@ant-design/web3": "workspace:*",
+    "@ant-design/web3-assets": "workspace:*",
+    "@ant-design/web3-common": "workspace:*",
+    "@ant-design/web3-eth-web3js": "workspace:*",
+    "antd": "^5.15.4",
+    "web3": "^4.7.0",
+    "umi": "^4.1.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.22",
+    "typescript": "^5.4.3"
+  }
+}

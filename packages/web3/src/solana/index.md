@@ -1,6 +1,6 @@
 ---
 nav: Components
-order: 4
+order: 5
 group:
   title: Connect Blockchains
   order: 2
