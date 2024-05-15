@@ -10,6 +10,7 @@
     "require": "./dist/lib/index.js",
     "types": "./dist/esm/index.d.ts"
   },
+  "sideEffects": false,
   "files": [
     "dist",
     "CHANGELOG.md",

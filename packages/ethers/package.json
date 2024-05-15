@@ -27,6 +27,7 @@
       "types": "./dist/esm/wagmi.d.ts"
     }
   },
+  "sideEffects": false,
   "files": [
     "dist",
     "CHANGELOG.md",

@@ -22,6 +22,7 @@
       "types": "./dist/esm/solana/index.d.ts"
     }
   },
+  "sideEffects": false,
   "typesVersions": {
     "*": {
       "solana": [
