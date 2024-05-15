@@ -1,7 +1,9 @@
 import type { Account, Balance } from '@ant-design/web3-common';
-import { AddressPurpose, getProviderById, request, type BitcoinProvider } from 'sats-connect';
+import { AddressPurpose, getProviderById, request } from 'sats-connect';
 
+import { NoAddressError, NoProviderError } from '../../error';
 import { getBalanceByMempool } from '../../helpers';
+import type { BitcoinProvider, SignPsbtParams, SignPsbtResult, TransferParams } from '../../types';
 import type { BitcoinWallet } from '../useBitcoinWallet';
 
 export class XverseBitcoinWallet implements BitcoinWallet {
@@ -16,7 +18,9 @@ export class XverseBitcoinWallet implements BitcoinWallet {
   }
 
   connect = async (): Promise<void> => {
-    if (!this.provider) return;
+    if (!this.provider) {
+      throw new NoProviderError();
+    }
     const response = await request('getAccounts', {
       purposes: [AddressPurpose.Ordinals, AddressPurpose.Payment],
     });
@@ -28,14 +32,21 @@ export class XverseBitcoinWallet implements BitcoinWallet {
     this.payment = payment.address;
   };
 
-  getBalance = async (): Promise<Balance | undefined> => {
-    if (!this.payment) return;
+  getBalance = async (): Promise<Balance> => {
+    if (!this.payment) {
+      throw new NoAddressError();
+    }
     const balance = await getBalanceByMempool(this.payment);
     return balance;
   };
 
-  signMessage = async (msg: string): Promise<string | undefined> => {
-    if (!this.account?.address || !this.provider) return;
+  signMessage = async (msg: string): Promise<string> => {
+    if (!this.provider) {
+      throw new NoProviderError();
+    }
+    if (!this.account?.address) {
+      throw new NoAddressError();
+    }
     const response = await request('signMessage', {
       address: this.account.address,
       message: msg,
@@ -47,25 +58,38 @@ export class XverseBitcoinWallet implements BitcoinWallet {
     }
   };
 
-  sendTransfer = async (to: string, sats: number): Promise<string> => {
+  sendTransfer = async ({ to, sats }: TransferParams): Promise<string> => {
     let txid = '';
-    try {
-      const response = await request('sendTransfer', {
-        recipients: [
-          {
-            address: to,
-            amount: sats,
-          },
-        ],
-      });
-      if (response.status === 'success') {
-        txid = response.result.txid;
-      } else {
-        throw new Error(response.error.message);
-      }
-    } catch (e) {
-      throw e;
+    const response = await request('sendTransfer', {
+      recipients: [
+        {
+          address: to,
+          amount: sats,
+        },
+      ],
+    });
+    if (response.status === 'success') {
+      txid = response.result.txid;
+    } else {
+      throw new Error(response.error.message);
     }
     return txid;
+  };
+
+  signPsbt = async ({ psbt, options }: SignPsbtParams): Promise<SignPsbtResult> => {
+    if (!this.provider) {
+      throw new NoProviderError();
+    }
+    const response = await request('signPsbt', {
+      psbt,
+      signInputs: options?.signInputs ?? {},
+      broadcast: !!options?.broadcast,
+      allowedSignHash: options?.signHash,
+    });
+    if (response.status === 'success') {
+      return response.result as SignPsbtResult;
+    } else {
+      throw new Error(response.error.message);
+    }
   };
 }
