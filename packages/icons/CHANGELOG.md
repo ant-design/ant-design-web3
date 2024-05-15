@@ -24,7 +24,7 @@
 ### Patch Changes
 
 - ac9240c: fix: remove unused copy file
-- dfef374: feat: add scoll icons and chains
+- dfef374: feat: add scroll icons and chains
 - 7be0842: chore: upgrade @ant-design/icons to 5.3.6
 - ab3eac4: feat: support for bitcoin
 
