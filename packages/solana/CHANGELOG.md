@@ -1,5 +1,14 @@
 # @ant-design/web3-solana
 
+## 1.1.2
+
+### Patch Changes
+
+- 02e74aa: fix: set sideEffects false for enable treeshaking
+- Updated dependencies [02e74aa]
+  - @ant-design/web3-assets@1.7.1
+  - @ant-design/web3-common@1.9.1
+
 ## 1.1.1
 
 ### Patch Changes

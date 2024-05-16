@@ -1,5 +1,18 @@
 # @ant-design/web3-bitcoin
 
+## 1.1.0
+
+### Minor Changes
+
+- 5b76861: feat: support signPsbt api
+
+### Patch Changes
+
+- 02e74aa: fix: set sideEffects false for enable treeshaking
+- 036e20f: fix: adapt to next.js
+- Updated dependencies [02e74aa]
+  - @ant-design/web3-common@1.9.1
+
 ## 1.0.1
 
 ### Patch Changes
