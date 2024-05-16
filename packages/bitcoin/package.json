@@ -43,7 +43,6 @@
   "dependencies": {
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
-    "@mempool/mempool.js": "^2.3.0",
     "sats-connect": "^2.3.1"
   },
   "devDependencies": {

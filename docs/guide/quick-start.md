@@ -45,7 +45,9 @@ Of course, compared with `NFTImage`, we may use more components of the connectio
 
 ## Use in Next.js
 
-In [Next.js](https://nextjs.org/), based on its build mechanism, you may encounter the following errors when introducing packages such as `@ant-design/web3`:
+- If you're using recommended App Router, add the `"use client"` directive at the top of the file to use Provider such as `WagmiWeb3ConfigProvider`, considering that `createContext` only works in Client Components.
+
+- In [Next.js](https://nextjs.org/), based on its build mechanism, you may encounter the following errors when introducing packages such as `@ant-design/web3`:
 
 1. `Error: require() of ES Module ... from ... not supported.`
 2. `SyntaxError: Cannot use import statement outside a module`

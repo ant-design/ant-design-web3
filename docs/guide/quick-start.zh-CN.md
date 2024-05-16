@@ -45,7 +45,9 @@ export default () => {
 
 ## 在 Next.js 中使用
 
-在 [Next.js](https://nextjs.org/) 中，基于它的构建机制，你可能在引入 `@ant-design/web3` 等包时会遇到类型下面的错误：
+- 若使用默认的 App Router，由于 `createContext` 仅可使用在客户端组件中，因此使用诸如 `WagmiWeb3ConfigProvider` 等 Provider 时，均应在组件代码顶部增加`"use client"`指令。
+
+- 在 [Next.js](https://nextjs.org/) 中，基于它的构建机制，你可能在引入 `@ant-design/web3` 等包时会遇到类型下面的错误：
 
 1. `Error: require() of ES Module ... from ... not supported.`
 2. `SyntaxError: Cannot use import statement outside a module`

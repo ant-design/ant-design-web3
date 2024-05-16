@@ -1,12 +1,9 @@
 import type { Balance } from '@ant-design/web3-common';
 import { BitcoinCircleColorful } from '@ant-design/web3-icons';
-import mempoolJS from '@mempool/mempool.js';
 
-const {
-  bitcoin: { addresses },
-} = mempoolJS({
-  hostname: 'mempool.space',
-});
+import { NoBalanceError } from './error';
+
+const MEMPOOL_URL = 'https://mempool.space/api';
 
 export const getBalanceObject = (sats: number): Balance => {
   return {
@@ -22,8 +19,13 @@ export const getBalanceObject = (sats: number): Balance => {
  * https://github.com/secretkeylabs/sats-connect/issues/12#issuecomment-2038963924
  */
 export const getBalanceByMempool = async (address: string): Promise<Balance> => {
-  const addr = await addresses.getAddress({ address });
-  const { funded_txo_sum, spent_txo_count } = addr.chain_stats;
-  // mempool not included
-  return getBalanceObject(funded_txo_sum - spent_txo_count);
+  const res = await fetch(`${MEMPOOL_URL}/address/${address}`);
+  if (res.ok) {
+    const data = await res.json();
+    const { chain_stats } = data;
+    const { funded_txo_sum, spent_txo_sum } = chain_stats;
+    return getBalanceObject(funded_txo_sum - spent_txo_sum);
+  } else {
+    throw new NoBalanceError();
+  }
 };
