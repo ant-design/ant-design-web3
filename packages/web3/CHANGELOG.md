@@ -1,5 +1,17 @@
 # @ant-design/web3
 
+## 1.11.1
+
+### Patch Changes
+
+- 8c59ee1: refactor(address): copyable prop default is false
+- 17c450f: chore(web3js): add doc and demo for web3js
+- 1270c95: chore(ethers): adjusted the compatibility form of the old version of etherjs
+- 02e74aa: fix: set sideEffects false for enable treeshaking
+- Updated dependencies [02e74aa]
+  - @ant-design/web3-assets@1.7.1
+  - @ant-design/web3-common@1.9.1
+
 ## 1.11.0
 
 ### Minor Changes

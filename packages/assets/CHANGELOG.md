@@ -1,5 +1,13 @@
 # @ant-design/web3-assets
 
+## 1.7.1
+
+### Patch Changes
+
+- 02e74aa: fix: set sideEffects false for enable treeshaking
+- Updated dependencies [02e74aa]
+  - @ant-design/web3-common@1.9.1
+
 ## 1.7.0
 
 ### Minor Changes

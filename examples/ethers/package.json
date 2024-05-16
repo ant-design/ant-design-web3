@@ -1,6 +1,7 @@
 {
   "name": "@example/ethers",
   "private": true,
+  "version": "0.0.0",
   "author": "Jeason <me@cowpoke.cc>",
   "type": "module",
   "scripts": {
@@ -22,5 +23,6 @@
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
     "typescript": "^5.4.4"
-  }
+  },
+  "version": null
 }

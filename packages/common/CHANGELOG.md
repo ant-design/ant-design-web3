@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.9.1
+
+### Patch Changes
+
+- 02e74aa: fix: set sideEffects false for enable treeshaking
+
 ## 1.9.0
 
 ### Minor Changes
