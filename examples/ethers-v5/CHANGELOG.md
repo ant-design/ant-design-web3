@@ -1,7 +1,5 @@
 # @example/ethers-v5
 
-## null
-
 ### Patch Changes
 
 - Updated dependencies [8c59ee1]
@@ -13,8 +11,6 @@
   - @ant-design/web3-assets@1.7.1
   - @ant-design/web3-common@1.9.1
   - @ant-design/web3-ethers-v5@1.0.0
-
-## null
 
 ### Patch Changes
 

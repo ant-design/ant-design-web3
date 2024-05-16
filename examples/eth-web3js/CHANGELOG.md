@@ -1,7 +1,5 @@
 # @example/eth-web3js
 
-## null
-
 ### Patch Changes
 
 - Updated dependencies [8c59ee1]
