@@ -101,7 +101,7 @@
     "viem": "^2.10.3",
     "vite-plugin-svgr": "^4.2.0",
     "vitest": "~1.6.0",
-    "wagmi": "^2.8.6"
+    "wagmi": "^2.9.2"
   },
   "ci": {
     "type": "aci",
@@ -118,7 +118,7 @@
   },
   "pnpm": {
     "overrides": {
-      "wagmi": "^2.5.7"
+      "wagmi": "^2.9.2"
     }
   }
 }

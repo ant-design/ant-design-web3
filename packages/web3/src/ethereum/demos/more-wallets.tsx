@@ -27,6 +27,7 @@ const config = createConfig({
     coinbaseWallet({
       appName: 'ant.design.web3',
       jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${YOUR_ZAN_API_KEY}`,
+      preference: 'smartWalletOnly',
     }),
   ],
 });

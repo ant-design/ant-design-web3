@@ -44,19 +44,19 @@
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
     "debug": "^4.3.4",
-    "@wagmi/core": "^2.9.6"
+    "@wagmi/core": "2.10.2"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
-    "@wagmi/core": "^2.9.3",
+    "@wagmi/core": "2.10.2",
     "father": "^4.4.0",
     "typescript": "^5.4.4",
-    "wagmi": "^2.8.6",
+    "wagmi": "^2.9.2",
     "@tanstack/react-query": "^5.28.4",
     "viem": "^2.10.3"
   },
   "peerDependencies": {
-    "wagmi": "^2.8.6",
+    "wagmi": "^2.9.2",
     "@tanstack/react-query": "^5.28.4",
     "viem": ">=2.0.0"
   },
