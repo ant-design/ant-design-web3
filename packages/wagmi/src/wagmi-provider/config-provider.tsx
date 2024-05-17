@@ -163,16 +163,16 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
 
   const chainId = chain?.id || availableChains?.[0]?.id;
   const [currentChain, setCurrentChain] = React.useState<Chain | undefined>(
-    chainAssets?.find((item) => item.id === chainId),
+    chainAssets?.find((item) => item?.id === chainId),
   );
   React.useEffect(() => {
     setCurrentChain((prevChain) => {
       // not connected any chain, keep current chain
       if (chainId === prevChain?.id && prevChain?.id) return prevChain;
 
-      let newChain = chainAssets?.find((item) => item.id === chainId);
-      if (!newChain) {
-        newChain = { id: chain!.id, name: chain!.name };
+      let newChain = chainAssets?.find((item) => item?.id === chainId);
+      if (!newChain && chain) {
+        newChain = { id: chain.id, name: chain.name };
       }
       return newChain;
     });
