@@ -11,8 +11,6 @@ import type { Chain as WagmiChain } from 'viem';
 import {
   useAccount,
   useBalance,
-  useChainId,
-  useChains,
   useConfig,
   useConnect,
   useDisconnect,
@@ -49,13 +47,11 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     locale,
     eip6963,
   } = props;
-  const { address, isDisconnected } = useAccount();
+  const { address, isDisconnected, chain } = useAccount();
   const config = useConfig();
   const [account, setAccount] = React.useState<Account | undefined>();
   const { connectAsync } = useConnect();
   const { switchChain } = useSwitchChain();
-  const chainId = useChainId();
-  const chains = useChains();
   const { disconnectAsync } = useDisconnect();
   const { data: balanceData } = useBalance({
     address: balance && account ? fillAddressWith0x(account.address) : undefined,
@@ -76,7 +72,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       }
     };
     updateAccounts();
-  }, [address, isDisconnected, ens]);
+  }, [address, isDisconnected, chain, ens, config]);
 
   const findConnectorByName = (name: string): WagmiConnector | undefined => {
     const commonConnector = availableConnectors.find(
@@ -165,26 +161,36 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       .filter((item) => item !== null) as Chain[];
   }, [availableChains, chainAssets]);
 
-  const chain = React.useMemo<Chain | undefined>(() => {
-    if (!chainId || chains.findIndex((item) => item.id === chainId) < 0) {
-      return availableChains?.[0];
-    }
-    return availableChains.find((chainItem) => chainItem.id === chainId);
-  }, [chainId, chains, availableChains]);
+  const chainId = chain?.id || availableChains?.[0]?.id;
+  const [currentChain, setCurrentChain] = React.useState<Chain | undefined>(
+    chainAssets?.find((item) => item.id === chainId),
+  );
+  React.useEffect(() => {
+    setCurrentChain((prevChain) => {
+      // not connected any chain, keep current chain
+      if (chainId === prevChain?.id && prevChain?.id) return prevChain;
 
-  const currency = chain?.nativeCurrency;
+      let newChain = chainAssets?.find((item) => item.id === chainId);
+      if (!newChain) {
+        newChain = { id: chain!.id, name: chain!.name };
+      }
+      return newChain;
+    });
+  }, [chain, chainAssets, availableChains]);
+
+  const currency = currentChain?.nativeCurrency;
 
   const getNFTMetadataFunc = React.useCallback(
     async ({ address: contractAddress, tokenId }: { address: string; tokenId: bigint }) =>
       getNFTMetadata(config, contractAddress, tokenId, chain?.id),
-    [chain?.id],
+    [chain?.id, config],
   );
 
   return (
     <Web3ConfigProvider
       locale={locale}
       availableChains={chainList}
-      chain={chain}
+      chain={currentChain}
       account={account}
       balance={
         balance
@@ -208,14 +214,19 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         }
         await connectAsync({
           connector,
-          chainId: chain?.id,
+          chainId: currentChain?.id,
         });
       }}
       disconnect={async () => {
         await disconnectAsync();
       }}
       switchChain={async (newChain: Chain) => {
-        if (chainId) switchChain?.({ chainId: newChain.id });
+        if (!chain) {
+          // hava not connected any chain
+          setCurrentChain(newChain);
+        } else {
+          switchChain?.({ chainId: newChain.id });
+        }
       }}
       getNFTMetadata={getNFTMetadataFunc}
     >
