@@ -91,6 +91,10 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     onSwitchChain,
     currentChain: chain,
     chains: availableChains as Chain[],
+    buttonProps: {
+      size: props.size,
+      type: props.type,
+    },
   };
 
   const profileModalProps: ProfileModalProps = {

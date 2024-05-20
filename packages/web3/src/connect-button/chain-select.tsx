@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import type { Chain } from '@ant-design/web3-common';
-import { Button, ConfigProvider, Dropdown, Space } from 'antd';
+import { Button, ButtonProps, ConfigProvider, Dropdown, Space } from 'antd';
 import classNames from 'classnames';
 
 export interface ChainSelectProps {
@@ -11,6 +11,7 @@ export interface ChainSelectProps {
   onSwitchChain?: (chain: Chain) => void;
   currentChain?: Chain;
   style?: React.CSSProperties;
+  buttonProps?: ButtonProps;
 }
 
 export const ChainSelect: React.FC<ChainSelectProps> = ({
@@ -20,11 +21,12 @@ export const ChainSelect: React.FC<ChainSelectProps> = ({
   chains,
   hashId,
   currentChain,
+  buttonProps,
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-button-chain-select');
   return (
-    <Button className={`${prefixCls}-button`}>
+    <Button className={`${prefixCls}-button`} {...buttonProps}>
       <Dropdown
         className={classNames(className, hashId, prefixCls)}
         overlayClassName={`${prefixCls}-dropdown`}
