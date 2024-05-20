@@ -77,7 +77,7 @@ const Token = ({ queryTokenList }: TokenProps) => {
         <InputNumber
           stringMode
           controls={false}
-          placeholder="Please Enter Amount"
+          placeholder="Please enter amount"
           className={getClsName('token-amount')}
         />
         <Dropdown
@@ -85,7 +85,7 @@ const Token = ({ queryTokenList }: TokenProps) => {
           dropdownRender={() => {
             return (
               <div className={getClsName('token-select')}>
-                <Input addonBefore={<SearchOutlined />} placeholder="Please Enter" />
+                <Input addonBefore={<SearchOutlined />} placeholder="Please enter" />
               </div>
             );
           }}

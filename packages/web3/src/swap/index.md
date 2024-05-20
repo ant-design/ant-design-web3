@@ -7,6 +7,10 @@ group:
 
 # Swap
 
-## Basic Usage
+## Single Token Select
 
 <code src="./demos/basic.tsx"></code>
+
+## Full Swap
+
+<code src="./demos/swap.tsx"></code>
