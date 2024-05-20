@@ -46,7 +46,8 @@
     "@metaplex-foundation/js": "^0.20.1",
     "@solana/wallet-adapter-base": "^0.9.23",
     "@solana/wallet-adapter-react": "^0.15.35",
-    "@solana/wallet-adapter-wallets": "^0.19.32",
+    "@solana/wallet-adapter-coinbase": "^0.1.19",
+    "@solana/wallet-adapter-trust": "^0.1.13",
     "@walletconnect/core": "^2.12.1",
     "@walletconnect/universal-provider": "^2.13.0",
     "@walletconnect/utils": "^2.13.0",
@@ -56,6 +57,7 @@
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
+    "@solana/wallet-adapter-phantom": "^0.9.24",
     "father": "^4.4.0",
     "typescript": "^5.4.4"
   },
