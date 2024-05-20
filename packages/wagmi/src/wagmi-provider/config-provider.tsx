@@ -168,7 +168,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   React.useEffect(() => {
     setCurrentChain((prevChain) => {
       // not connected any chain, keep current chain
-      if (chainId === prevChain?.id && prevChain?.id) return prevChain;
       let newChain = chainAssets?.find((item) => item?.id === chainId);
       if (!newChain && chainId) {
         newChain = { id: chainId, name: chainName };
