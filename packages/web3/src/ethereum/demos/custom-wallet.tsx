@@ -36,6 +36,7 @@ const config = createConfig({
       },
     }),
   ],
+  storage: null,
 });
 
 const App: React.FC = () => {

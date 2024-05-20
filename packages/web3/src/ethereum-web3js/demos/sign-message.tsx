@@ -43,7 +43,12 @@ const SignerButton = () => {
 
 const App: React.FC = () => {
   return (
-    <EthWeb3jsConfigProvider ens eip6963={{ autoAddInjectedWallets: true }} chains={[Mainnet]}>
+    <EthWeb3jsConfigProvider
+      ens
+      eip6963={{ autoAddInjectedWallets: true }}
+      chains={[Mainnet]}
+      storage={false}
+    >
       <Space direction="vertical">
         <Connector modalProps={{ mode: 'simple' }}>
           <ConnectButton quickConnect style={{ minWidth: 120 }} />

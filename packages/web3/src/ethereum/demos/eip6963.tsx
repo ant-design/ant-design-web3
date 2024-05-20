@@ -8,6 +8,7 @@ const config = createConfig({
   transports: {
     [mainnet.id]: http(),
   },
+  storage: null,
 });
 
 const App: React.FC = () => {

@@ -26,6 +26,7 @@ const App: React.FC = () => {
     <EthersWeb3ConfigProvider
       walletConnect={{ projectId: YOUR_WALLET_CONNECT_PROJECT_ID }}
       wallets={[MetaMask(), OkxWallet()]}
+      storage={false}
     >
       <Connector>
         <ConnectButton />
