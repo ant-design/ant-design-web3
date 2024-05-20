@@ -87,6 +87,7 @@ vi.mock('@solana/wallet-adapter-react', async () => {
         mockSelectWalletFnNotWalletName(walletName);
         const mockWalletAdapter = {
           adapter: { name: walletName, readyState: WalletReadyState.Installed },
+          readyState: WalletReadyState.Installed,
         };
         currentWalletRef.value = mockWalletAdapter;
         setCurrentWallet(mockWalletAdapter);
@@ -100,18 +101,21 @@ vi.mock('@solana/wallet-adapter-react', async () => {
             name: 'Coinbase Wallet',
             readyState: WalletReadyState.Installed,
           },
+          readyState: WalletReadyState.Installed,
         },
         {
           adapter: {
             name: 'Phantom Wallet',
             readyState: WalletReadyState.Installed,
           },
+          readyState: WalletReadyState.Installed,
         },
         {
           adapter: {
             name: 'OKX Wallet',
             readyState: WalletReadyState.NotDetected,
           },
+          readyState: WalletReadyState.NotDetected,
         },
       ],
     };
@@ -208,11 +212,9 @@ describe('Solana Connect', () => {
     expect(shownConnectRunDone.textContent).toBe('false');
 
     fireEvent.click(switchWalletBtn);
-    await vi.waitFor(() => {
-      expect(switchWalletRunned).toBeCalled();
-    });
 
     await vi.waitFor(() => {
+      expect(switchWalletRunned).toBeCalled();
       expect(mockWalletChanged).toBeCalled();
     });
 
@@ -224,24 +226,24 @@ describe('Solana Connect', () => {
       expect(mockSelectWalletFn).toBeCalledTimes(3);
     });
 
-    await vi.waitFor(
-      () => {
-        expect(connectRunned).toBeCalled();
-        expect(shownConnectRunDone.textContent).toBe('true');
-      },
-      {
-        timeout: 5000,
-      },
-    );
+    await vi.waitFor(() => {
+      expect(connectRunned).toBeCalled();
+      expect(shownConnectRunDone.textContent).toBe('true');
+    });
   });
 
   it('call connect but not provide wallet', async () => {
     const { useWallet } = await import('@solana/wallet-adapter-react');
     const connectRunned = vi.fn();
+    const availableWalletFound = vi.fn();
 
     const CustomConnectBtn: React.FC = () => {
-      const { connect } = useProvider();
+      const { connect, availableWallets } = useProvider();
       const { connect: connectWallet } = useWallet();
+
+      useEffect(() => {
+        availableWalletFound(availableWallets?.length || 0);
+      }, [availableWallets]);
 
       return (
         <div className="custom-connectbtn">
@@ -255,13 +257,14 @@ describe('Solana Connect', () => {
           >
             Connect
           </button>
+          <div className="availableWallets">{availableWallets?.length || 0}</div>
         </div>
       );
     };
 
     const App = () => {
       return (
-        <SolanaWeb3ConfigProvider>
+        <SolanaWeb3ConfigProvider wallets={[]}>
           <div>
             <div className="content">test</div>
             <CustomConnectBtn />
@@ -272,11 +275,15 @@ describe('Solana Connect', () => {
 
     const { selector } = xrender(App);
     expect(selector('.content')?.textContent).toBe('test');
+    expect(selector('.availableWallets')?.textContent).toBe('0');
 
     const connectBtn = selector('.btn-connect')!;
     expect(connectBtn).not.toBeNull();
 
     fireEvent.click(connectBtn);
+    await vi.waitFor(() => {
+      expect(availableWalletFound).toBeCalledWith(0);
+    });
     await vi.waitFor(() => {
       expect(connectRunned).toBeCalled();
       expect(mockSelectWalletFnNotWalletName).toBeCalledWith(null);
@@ -289,7 +296,7 @@ describe('Solana Connect', () => {
       const [hasExtensionInstalled, setHasExtensionInstalled] = useState(false);
 
       useEffect(() => {
-        availableWallets![0]?.hasExtensionInstalled?.().then((v) => {
+        availableWallets?.[0]?.hasExtensionInstalled?.().then((v) => {
           setHasExtensionInstalled(v);
         });
       }, [availableWallets]);

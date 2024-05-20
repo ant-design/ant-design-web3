@@ -74,7 +74,7 @@ describe('SolanaWeb3ConfigProvider balance', () => {
     };
   });
 
-  it('availabel show balance', async () => {
+  it('available show balance', async () => {
     const BalanceDisplay: FC = () => {
       const { balance } = useProvider();
 
@@ -82,7 +82,7 @@ describe('SolanaWeb3ConfigProvider balance', () => {
     };
 
     const App: FC = () => (
-      <SolanaWeb3ConfigProvider balance>
+      <SolanaWeb3ConfigProvider balance wallets={[]}>
         <div className="content">test</div>
         <BalanceDisplay />
       </SolanaWeb3ConfigProvider>

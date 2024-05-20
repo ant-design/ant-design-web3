@@ -91,7 +91,7 @@ describe('GetNFTMetadata', () => {
     const App: React.FC = () => {
       return (
         <SolanaWeb3ConfigProvider
-          wallets={[WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet)]}
+          wallets={[WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet)()]}
         >
           <NFTMetadata />
         </SolanaWeb3ConfigProvider>

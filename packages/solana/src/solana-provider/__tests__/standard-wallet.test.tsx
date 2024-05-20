@@ -114,7 +114,7 @@ describe('SolanaWeb3ConfigProvider Standard wallet', () => {
       const [walletReady, setWalletReady] = useState(false);
 
       useEffect(() => {
-        availableWallets![0]?.hasWalletReady?.().then((v) => {
+        availableWallets?.[0]?.hasWalletReady?.().then((v) => {
           setWalletReady(v);
         });
       }, [availableWallets]);

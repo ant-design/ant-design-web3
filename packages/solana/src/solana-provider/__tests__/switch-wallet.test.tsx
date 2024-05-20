@@ -127,8 +127,8 @@ describe('AntDesignWeb3ConfigProvider wallet', () => {
             availableChains={[solana, solanaDevnet]}
             chainAssets={[Solana, SolanaDevnet]}
             availableWallets={[
-              WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet).create(),
-              WalletFactory(new PhantomWalletAdapter(), metadata_Phantom).create(),
+              WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet)().create(),
+              WalletFactory(new PhantomWalletAdapter(), metadata_Phantom)().create(),
             ]}
           >
             <CustomConnector />

@@ -98,7 +98,7 @@ describe('SolanaWeb3ConfigProvider rpcProvider', () => {
     const mockRpcProvider = vi.fn(() => mockRpcEndpoint);
 
     const App = () => (
-      <SolanaWeb3ConfigProvider rpcProvider={mockRpcProvider}>
+      <SolanaWeb3ConfigProvider wallets={[]} rpcProvider={mockRpcProvider}>
         <div className="content">test</div>
       </SolanaWeb3ConfigProvider>
     );
@@ -111,7 +111,7 @@ describe('SolanaWeb3ConfigProvider rpcProvider', () => {
 
   it('use default solana rpcProvider if not chain connected', async () => {
     const App = () => (
-      <SolanaWeb3ConfigProvider>
+      <SolanaWeb3ConfigProvider wallets={[]}>
         <div className="content">test</div>
       </SolanaWeb3ConfigProvider>
     );

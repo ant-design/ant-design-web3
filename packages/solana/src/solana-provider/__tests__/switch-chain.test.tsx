@@ -79,7 +79,7 @@ describe('Switch network', () => {
       );
     };
     const App = () => (
-      <SolanaWeb3ConfigProvider>
+      <SolanaWeb3ConfigProvider wallets={[]}>
         <Display />
       </SolanaWeb3ConfigProvider>
     );
@@ -104,7 +104,7 @@ describe('Switch network', () => {
       );
     };
     const App = () => (
-      <SolanaWeb3ConfigProvider chains={[solanaDevnet, solanaTestnet]}>
+      <SolanaWeb3ConfigProvider wallets={[]} chains={[solanaDevnet, solanaTestnet]}>
         <Display />
       </SolanaWeb3ConfigProvider>
     );
@@ -126,7 +126,7 @@ describe('Switch network', () => {
           balance={false}
           autoConnect
           chains={[solana, solanaDevnet, solanaTestnet]}
-          wallets={[WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet)]}
+          wallets={[WalletFactory(() => new CoinbaseWalletAdapter(), metadata_CoinbaseWallet)()]}
         >
           <Connector>
             <ConnectButton />
@@ -180,7 +180,7 @@ describe('Switch network', () => {
           availableChains={[solanaDevnet]}
           balance={false}
           availableWallets={[
-            WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet).create(),
+            WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet)().create(),
           ]}
           onCurrentChainChange={(chain) => {
             mockSwitchChain(chain?.id);

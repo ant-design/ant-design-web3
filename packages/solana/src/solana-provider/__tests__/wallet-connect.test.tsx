@@ -139,7 +139,7 @@ describe('SolanaWeb3ConfigProvider WalletConnect', () => {
       return (
         <button
           onClick={() => {
-            connect?.(availableWallets![0], { connectType: 'qrCode' });
+            connect?.(availableWallets?.[0], { connectType: 'qrCode' });
           }}
         >
           Click to connect
@@ -183,7 +183,7 @@ describe('SolanaWeb3ConfigProvider WalletConnect', () => {
 
       return (
         <div className="plugin-check">
-          {availableWallets![0].hasExtensionInstalled === undefined ? 'true' : 'false'}
+          {availableWallets?.[0].hasExtensionInstalled === undefined ? 'true' : 'false'}
         </div>
       );
     };

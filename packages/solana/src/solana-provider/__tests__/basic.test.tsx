@@ -100,7 +100,7 @@ describe('SolanaWeb3ConfigProvider', () => {
 
   it('mount correctly', () => {
     const App = () => (
-      <SolanaWeb3ConfigProvider>
+      <SolanaWeb3ConfigProvider wallets={[]}>
         <div className="content">test</div>
       </SolanaWeb3ConfigProvider>
     );
@@ -120,7 +120,7 @@ describe('SolanaWeb3ConfigProvider', () => {
     };
 
     const App = () => (
-      <SolanaWeb3ConfigProvider chains={[fakeChain]}>
+      <SolanaWeb3ConfigProvider wallets={[]} chains={[fakeChain]}>
         <div>test</div>
       </SolanaWeb3ConfigProvider>
     );
@@ -156,7 +156,7 @@ describe('SolanaWeb3ConfigProvider', () => {
     const switchChain = vi.fn();
 
     const App = () => (
-      <SolanaWeb3ConfigProvider>
+      <SolanaWeb3ConfigProvider wallets={[]}>
         <Connector switchChain={switchChain}>
           <CustomButton />
         </Connector>
@@ -172,7 +172,7 @@ describe('SolanaWeb3ConfigProvider', () => {
     const mockRpcProvider = vi.fn(() => mockRpcEndpoint);
 
     const App = () => (
-      <SolanaWeb3ConfigProvider rpcProvider={mockRpcProvider}>
+      <SolanaWeb3ConfigProvider wallets={[]} rpcProvider={mockRpcProvider}>
         <div className="content">test</div>
       </SolanaWeb3ConfigProvider>
     );
@@ -185,7 +185,10 @@ describe('SolanaWeb3ConfigProvider', () => {
 
   it('ConnectionProvider', () => {
     const App = () => (
-      <SolanaWeb3ConfigProvider rpcProvider={() => `https://main-beta.fake-domain.com/`}>
+      <SolanaWeb3ConfigProvider
+        wallets={[]}
+        rpcProvider={() => `https://main-beta.fake-domain.com/`}
+      >
         <div className="content">test</div>
       </SolanaWeb3ConfigProvider>
     );
@@ -206,7 +209,7 @@ describe('SolanaWeb3ConfigProvider', () => {
     const App = () => {
       const { connect } = useWallet();
       return (
-        <SolanaWeb3ConfigProvider>
+        <SolanaWeb3ConfigProvider wallets={[]}>
           <div>
             <div className="content">test</div>
             <button
@@ -255,7 +258,7 @@ describe('SolanaWeb3ConfigProvider', () => {
 
     const App: FC = () => {
       return (
-        <SolanaWeb3ConfigProvider>
+        <SolanaWeb3ConfigProvider wallets={[]}>
           <CustomConnector />
         </SolanaWeb3ConfigProvider>
       );
