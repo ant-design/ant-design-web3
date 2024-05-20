@@ -72,7 +72,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       }
     };
     updateAccounts();
-  }, [address, isDisconnected, chain, ens, config]);
+  }, [address, isDisconnected, chain, ens]);
 
   const findConnectorByName = (name: string): WagmiConnector | undefined => {
     const commonConnector = availableConnectors.find(
@@ -162,28 +162,27 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   }, [availableChains, chainAssets]);
 
   const chainId = chain?.id || availableChains?.[0]?.id;
-  const [currentChain, setCurrentChain] = React.useState<Chain | undefined>(
-    chainAssets?.find((item) => item?.id === chainId),
-  );
+  const chainName = chain?.name || availableChains?.[0]?.name;
+  const [currentChain, setCurrentChain] = React.useState<Chain | undefined>(undefined);
+
   React.useEffect(() => {
     setCurrentChain((prevChain) => {
       // not connected any chain, keep current chain
       if (chainId === prevChain?.id && prevChain?.id) return prevChain;
-
       let newChain = chainAssets?.find((item) => item?.id === chainId);
-      if (!newChain && chain) {
-        newChain = { id: chain.id, name: chain.name };
+      if (!newChain && chainId) {
+        newChain = { id: chainId, name: chainName };
       }
-      return newChain;
+      return newChain || prevChain;
     });
-  }, [chain, chainAssets, availableChains]);
+  }, [chainAssets, availableChains, chainId, chainName]);
 
   const currency = currentChain?.nativeCurrency;
 
   const getNFTMetadataFunc = React.useCallback(
     async ({ address: contractAddress, tokenId }: { address: string; tokenId: bigint }) =>
       getNFTMetadata(config, contractAddress, tokenId, chain?.id),
-    [chain?.id, config],
+    [chain?.id],
   );
 
   return (
