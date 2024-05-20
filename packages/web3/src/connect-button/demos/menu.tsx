@@ -1,6 +1,7 @@
 import { ConnectButton } from '@ant-design/web3';
 import { Space } from 'antd';
-import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
+
+import type { MenuItemType } from '../interface';
 
 const App: React.FC = () => {
   const menuItems: MenuItemType[] = [
