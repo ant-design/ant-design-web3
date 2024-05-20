@@ -2,13 +2,13 @@
 
 exports[`Address > display address with default format 1`] = `
 <div
-  class="ant-space css-dev-only-do-not-override-1okl62o ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-web3-address css-dev-only-do-not-override-1okl62o"
+  class="ant-space css-dev-only-do-not-override-17seli4 ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-web3-address css-dev-only-do-not-override-17seli4"
 >
   <div
     class="ant-space-item"
   >
     <span
-      class="ant-typography css-dev-only-do-not-override-1okl62o"
+      class="ant-typography css-dev-only-do-not-override-17seli4"
     >
       <span>
         0x 21CD f097 4d53 a6e9 6eF0 5d7B 324a 9803 735f Fd3B
