@@ -3,8 +3,8 @@
 import React from 'react';
 import { useProvider } from '@ant-design/web3';
 import { metadata_CoinbaseWallet } from '@ant-design/web3-assets';
+import { CoinbaseWalletAdapter } from '@solana/wallet-adapter-coinbase';
 import type { ConnectionContextState } from '@solana/wallet-adapter-react';
-import { CoinbaseWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { fireEvent } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
