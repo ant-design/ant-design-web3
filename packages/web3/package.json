@@ -48,7 +48,7 @@
     "@ant-design/web3-icons": "workspace:*",
     "@ctrl/tinycolor": "^4.1.0",
     "@inline-svg-unique-id/react": "^1.2.3",
-    "antd": "^5.17.0",
+    "antd": "^5.17.3",
     "bs58": "^5.0.0",
     "classnames": "^2.3.2",
     "copy-to-clipboard": "^3.3.3"

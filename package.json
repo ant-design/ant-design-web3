@@ -73,7 +73,7 @@
     "@types/react-copy-to-clipboard": "^5.0.7",
     "@umijs/fabric": "^4.0.1",
     "@vitest/coverage-v8": "^1.6.0",
-    "antd": "^5.17.0",
+    "antd": "^5.17.3",
     "antd-style": "^3.6.2",
     "antd-token-previewer-web3": "^2.0.8",
     "babel-plugin-add-import-extension": "^1.6.0",
