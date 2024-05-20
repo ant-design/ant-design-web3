@@ -61,8 +61,8 @@ importers:
         specifier: ^0.1.13
         version: 0.1.13(@solana/web3.js@1.91.0)
       '@tanstack/react-query':
-        specifier: ^5.28.4
-        version: 5.28.4(react@18.2.0)
+        specifier: ^5.37.1
+        version: 5.37.1(react@18.2.0)
       '@testing-library/react':
         specifier: ^14.2.2
         version: 14.2.2(react-dom@18.2.0)(react@18.2.0)
@@ -173,7 +173,7 @@ importers:
         version: 1.6.0(@types/node@20.10.5)(jsdom@24.0.0)
       wagmi:
         specifier: ^2.5.7
-        version: 2.8.6(@tanstack/react-query@5.28.4)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.4)(viem@2.10.3)
+        version: 2.8.6(@tanstack/react-query@5.37.1)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.4)(viem@2.10.3)
 
   examples/eth-web3js:
     dependencies:
@@ -367,8 +367,8 @@ importers:
         specifier: workspace:*
         version: link:../wagmi
       '@tanstack/react-query':
-        specifier: ^5.28.4
-        version: 5.28.4(react@18.2.0)
+        specifier: ^5.37.1
+        version: 5.37.1(react@18.2.0)
       debug:
         specifier: ^4.3.4
         version: 4.3.4(supports-color@5.5.0)
@@ -377,7 +377,7 @@ importers:
         version: 2.10.3(typescript@5.4.4)
       wagmi:
         specifier: ^2.5.7
-        version: 2.8.6(@tanstack/react-query@5.28.4)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.4)(viem@2.10.3)
+        version: 2.8.6(@tanstack/react-query@5.37.1)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.4)(viem@2.10.3)
     devDependencies:
       '@types/debug':
         specifier: ^4.1.12
@@ -404,8 +404,8 @@ importers:
         specifier: workspace:*
         version: link:../wagmi
       '@tanstack/react-query':
-        specifier: ^5.28.4
-        version: 5.28.4(react@18.2.0)
+        specifier: ^5.37.1
+        version: 5.37.1(react@18.2.0)
       debug:
         specifier: ^4.3.4
         version: 4.3.4(supports-color@5.5.0)
@@ -414,7 +414,7 @@ importers:
         version: 2.10.3(typescript@5.4.4)
       wagmi:
         specifier: ^2.5.7
-        version: 2.8.6(@tanstack/react-query@5.28.4)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.4)(viem@2.10.3)
+        version: 2.8.6(@tanstack/react-query@5.37.1)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.4)(viem@2.10.3)
     devDependencies:
       '@types/debug':
         specifier: ^4.1.12
@@ -444,8 +444,8 @@ importers:
         specifier: workspace:*
         version: link:../wagmi
       '@tanstack/react-query':
-        specifier: ^5.28.4
-        version: 5.28.4(react@18.2.0)
+        specifier: ^5.37.1
+        version: 5.37.1(react@18.2.0)
       debug:
         specifier: ^4.3.4
         version: 4.3.4(supports-color@5.5.0)
@@ -454,7 +454,7 @@ importers:
         version: 2.10.3(typescript@5.4.4)
       wagmi:
         specifier: ^2.5.7
-        version: 2.8.6(@tanstack/react-query@5.28.4)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.4)(viem@2.10.3)
+        version: 2.8.6(@tanstack/react-query@5.37.1)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.4)(viem@2.10.3)
     devDependencies:
       '@types/debug':
         specifier: ^4.1.12
@@ -580,8 +580,8 @@ importers:
         version: 4.3.4(supports-color@5.5.0)
     devDependencies:
       '@tanstack/react-query':
-        specifier: ^5.28.4
-        version: 5.28.4(react@18.2.0)
+        specifier: ^5.37.1
+        version: 5.37.1(react@18.2.0)
       '@types/debug':
         specifier: ^4.1.12
         version: 4.1.12
@@ -596,7 +596,7 @@ importers:
         version: 2.10.3(typescript@5.4.4)
       wagmi:
         specifier: ^2.5.7
-        version: 2.8.6(@tanstack/react-query@5.28.4)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.4)(viem@2.10.3)
+        version: 2.8.6(@tanstack/react-query@5.37.1)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.4)(viem@2.10.3)
 
   packages/web3:
     dependencies:
@@ -7938,15 +7938,15 @@ packages:
       '@swc/core-win32-x64-msvc': 1.3.72
     dev: true
 
-  /@tanstack/query-core@5.28.4:
-    resolution: {integrity: sha512-uQZqOFqLWUvXNIQZ63XdKzg22NtHzgCBUfDmjDHi3BoF+nUYeBNvMi/xFPtFrMhqRzG2Ir4mYaGsWZzmiEjXpA==}
+  /@tanstack/query-core@5.36.1:
+    resolution: {integrity: sha512-BteWYEPUcucEu3NBcDAgKuI4U25R9aPrHSP6YSf2NvaD2pSlIQTdqOfLRsxH9WdRYg7k0Uom35Uacb6nvbIMJg==}
 
-  /@tanstack/react-query@5.28.4(react@18.2.0):
-    resolution: {integrity: sha512-BErcoB/QQG6YwLSUKnaGxF+lSc270RH2w3kMBpG0i4YzDCsFs2pdxPX1WVknQvFk9bNgukMb158hc2Zb4SdwSA==}
+  /@tanstack/react-query@5.37.1(react@18.2.0):
+    resolution: {integrity: sha512-EhtBNA8GL3XFeSx6VYUjXQ96n44xe3JGKZCzBINrCYlxbZP6UwBafv7ti4eSRWc2Fy+fybQre0w17gR6lMzULA==}
     peerDependencies:
       react: ^18.0.0
     dependencies:
-      '@tanstack/query-core': 5.28.4
+      '@tanstack/query-core': 5.36.1
       react: 18.2.0
 
   /@testing-library/dom@9.3.3:
@@ -23408,7 +23408,7 @@ packages:
       xml-name-validator: 5.0.0
     dev: true
 
-  /wagmi@2.8.6(@tanstack/react-query@5.28.4)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.4)(viem@2.10.3):
+  /wagmi@2.8.6(@tanstack/react-query@5.37.1)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.4)(viem@2.10.3):
     resolution: {integrity: sha512-DqYKllsgaTtbGgiVmECmDW2wQaV457nMB1yjkM7lNhS5+kVPj4g8gYqerVSRW9yHyred946VcAALSxENM4zZ3A==}
     peerDependencies:
       '@tanstack/react-query': '>=5.0.0'
@@ -23419,7 +23419,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@tanstack/react-query': 5.28.4(react@18.2.0)
+      '@tanstack/react-query': 5.37.1(react@18.2.0)
       '@wagmi/connectors': 4.3.8(@types/react@18.2.78)(@wagmi/core@2.9.6)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.4)(viem@2.10.3)
       '@wagmi/core': 2.9.6(@types/react@18.2.78)(react@18.2.0)(typescript@5.4.4)(viem@2.10.3)
       react: 18.2.0
