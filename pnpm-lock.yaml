@@ -526,6 +526,9 @@ importers:
       '@solana/wallet-adapter-react':
         specifier: ^0.15.35
         version: 0.15.35(@solana/web3.js@1.89.1)(bs58@5.0.0)(react-native@0.73.6)(react@18.2.0)
+      '@solana/wallet-adapter-solflare':
+        specifier: ^0.6.28
+        version: 0.6.28(@solana/web3.js@1.89.1)
       '@solana/wallet-adapter-trust':
         specifier: ^0.1.13
         version: 0.1.13(@solana/web3.js@1.89.1)
@@ -7314,6 +7317,20 @@ packages:
       - react-native
     dev: false
 
+  /@solana/wallet-adapter-solflare@0.6.28(@solana/web3.js@1.89.1):
+    resolution: {integrity: sha512-iiUQtuXp8p4OdruDawsm1dRRnzUCcsu+lKo8OezESskHtbmZw2Ifej0P99AbJbBAcBw7q4GPI6987Vh05Si5rw==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      '@solana/web3.js': ^1.77.3
+    dependencies:
+      '@solana/wallet-adapter-base': 0.9.23(@solana/web3.js@1.89.1)
+      '@solana/wallet-standard-chains': 1.1.0
+      '@solana/web3.js': 1.89.1
+      '@solflare-wallet/metamask-sdk': 1.0.3(@solana/web3.js@1.89.1)
+      '@solflare-wallet/sdk': 1.4.2(@solana/web3.js@1.89.1)
+      '@wallet-standard/wallet': 1.0.1
+    dev: false
+
   /@solana/wallet-adapter-trust@0.1.13(@solana/web3.js@1.89.1):
     resolution: {integrity: sha512-lkmPfNdyRgx+z0K7i2cDa3a6SOKXpi3FiaYSo8Zozoxkp+Ga/NXVWxlXtMca4GAc/MnJMVp7yF/31kyFIee+3A==}
     engines: {node: '>=16'}
@@ -7473,6 +7490,30 @@ packages:
       - bufferutil
       - encoding
       - utf-8-validate
+
+  /@solflare-wallet/metamask-sdk@1.0.3(@solana/web3.js@1.89.1):
+    resolution: {integrity: sha512-os5Px5PTMYKGS5tzOoyjDxtOtj0jZKnbI1Uwt8+Jsw1HHIA+Ib2UACCGNhQ/un2f8sIbTfLD1WuucNMOy8KZpQ==}
+    peerDependencies:
+      '@solana/web3.js': '*'
+    dependencies:
+      '@solana/wallet-standard-features': 1.2.0
+      '@solana/web3.js': 1.89.1
+      '@wallet-standard/base': 1.0.1
+      bs58: 5.0.0
+      eventemitter3: 5.0.1
+      uuid: 9.0.1
+    dev: false
+
+  /@solflare-wallet/sdk@1.4.2(@solana/web3.js@1.89.1):
+    resolution: {integrity: sha512-jrseNWipwl9xXZgrzwZF3hhL0eIVxuEtoZOSLmuPuef7FgHjstuTtNJAeT4icA7pzdDV4hZvu54pI2r2f7SmrQ==}
+    peerDependencies:
+      '@solana/web3.js': '*'
+    dependencies:
+      '@solana/web3.js': 1.89.1
+      bs58: 5.0.0
+      eventemitter3: 5.0.1
+      uuid: 9.0.1
+    dev: false
 
   /@stablelib/aead@1.0.1:
     resolution: {integrity: sha512-q39ik6sxGHewqtO0nP4BuSe3db5G1fEJE8ukvngS2gLkBXyy6E7pLubhbYgnkDFv6V8cWaxcE4Xn0t6LWcJkyg==}
