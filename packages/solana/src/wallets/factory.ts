@@ -4,29 +4,35 @@ import type {
   WalletFactoryBuilder,
 } from './types';
 
-export const WalletFactory: WalletFactoryBuilder = (adapter, metadata) => {
-  return {
-    adapter,
-    create: () => {
-      return {
-        ...metadata,
-        name: adapter.name,
-        remark: metadata.remark,
-        adapter: adapter,
-      };
-    },
+export const WalletFactory: WalletFactoryBuilder = (adapterBuilder, metadata) => {
+  return () => {
+    return {
+      // adapter,
+      create: () => {
+        const adapter = typeof adapterBuilder === 'function' ? adapterBuilder() : adapterBuilder;
+
+        return {
+          ...metadata,
+          name: adapter.name,
+          remark: metadata.remark,
+          adapter: adapter,
+        };
+      },
+    };
   };
 };
 
 // For Standard wallets
 export const StandardWalletFactory: StandardWalletFactoryBuilder = (metadata) => {
-  return {
-    create: () => {
-      return {
-        ...metadata,
-        isStandardWallet: true,
-      };
-    },
+  return () => {
+    return {
+      create: () => {
+        return {
+          ...metadata,
+          isStandardWallet: true,
+        };
+      },
+    };
   };
 };
 
@@ -35,32 +41,34 @@ export const WalletConnectWalletFactory: WalletConnectWalletFactoryBuilder = (
   adapter,
   metadata,
 ) => {
-  return {
-    isWalletConnect: true,
-    adapter,
-    create: (getWalletConnectProvider) => {
-      return {
-        ...metadata,
-        name: adapter.name,
-        remark: metadata.remark,
-        adapter,
+  return () => {
+    return {
+      create: (getWalletConnectProvider) => {
+        return {
+          ...metadata,
+          name: adapter.name,
+          remark: metadata.remark,
 
-        getQrCode: getWalletConnectProvider
-          ? async () => {
-              const walletConnectProvider = await getWalletConnectProvider();
+          adapter,
+          isWalletConnect: true,
 
-              if (!walletConnectProvider) {
-                return Promise.reject(new Error('WalletConnect is not available'));
-              }
+          getQrCode: getWalletConnectProvider
+            ? async () => {
+                const walletConnectProvider = await getWalletConnectProvider();
 
-              return new Promise((resolve) => {
-                walletConnectProvider.on('display_uri', (uri: string) => {
-                  resolve({ uri });
+                if (!walletConnectProvider) {
+                  return Promise.reject(new Error('WalletConnect is not available'));
+                }
+
+                return new Promise((resolve) => {
+                  walletConnectProvider.on('display_uri', (uri: string) => {
+                    resolve({ uri });
+                  });
                 });
-              });
-            }
-          : undefined,
-      };
-    },
+              }
+            : undefined,
+        };
+      },
+    };
   };
 };

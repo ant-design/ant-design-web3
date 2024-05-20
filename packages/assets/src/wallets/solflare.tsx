@@ -18,8 +18,3 @@ export const metadata_Solflare: WalletMetadata = {
     },
   ],
 };
-
-export const metadata_SolflareMetaMaskSnap: WalletMetadata & { isMetaMaskSnap: true } = {
-  ...metadata_Solflare,
-  isMetaMaskSnap: true,
-};

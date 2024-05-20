@@ -4,7 +4,6 @@ import {
   metadata_OkxWallet,
   metadata_Phantom,
   metadata_Solflare,
-  metadata_SolflareMetaMaskSnap,
   metadata_Trust,
   metadata_WalletConnect,
 } from '@ant-design/web3-assets';
@@ -15,16 +14,18 @@ import { SolflareWalletAdapter } from '@solana/wallet-adapter-solflare';
 import { WalletConnectWalletAdapter } from '../wallet-connect-adapter';
 import { StandardWalletFactory, WalletConnectWalletFactory, WalletFactory } from './factory';
 
-export const CoinbaseWallet = () =>
-  WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet);
-export const TrustWallet = () => WalletFactory(new TrustWalletAdapter(), metadata_Trust);
-export const SolflareMetaMaskSnapWallet = () =>
-  WalletFactory(new SolflareWalletAdapter(), metadata_SolflareMetaMaskSnap);
+export const CoinbaseWallet = WalletFactory(
+  () => new CoinbaseWalletAdapter(),
+  metadata_CoinbaseWallet,
+);
+export const TrustWallet = WalletFactory(() => new TrustWalletAdapter(), metadata_Trust);
 
-export const PhantomWallet = () => StandardWalletFactory(metadata_Phantom);
-export const OKXWallet = () => StandardWalletFactory(metadata_OkxWallet);
-export const BackpackWallet = () => StandardWalletFactory(metadata_Backpack);
-export const SolflareWallet = () => StandardWalletFactory(metadata_Solflare);
+export const PhantomWallet = StandardWalletFactory(metadata_Phantom);
+export const OKXWallet = StandardWalletFactory(metadata_OkxWallet);
+export const BackpackWallet = StandardWalletFactory(metadata_Backpack);
+export const SolflareWallet = StandardWalletFactory(metadata_Solflare);
 
-export const WalletConnectWallet = () =>
-  WalletConnectWalletFactory(new WalletConnectWalletAdapter(), metadata_WalletConnect);
+export const WalletConnectWallet = WalletConnectWalletFactory(
+  new WalletConnectWalletAdapter(),
+  metadata_WalletConnect,
+);

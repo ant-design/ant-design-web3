@@ -25,7 +25,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   availableChains: SolanaChainConfig[];
   balance?: boolean;
   currentChain?: SolanaChainConfig;
-  availableWallets: Wallet[];
+  availableWallets?: Wallet[];
   connectionError?: WalletConnectionError;
   autoAddRegisteredWallets?: boolean;
   onCurrentChainChange?: (chain?: SolanaChainConfig) => void;
@@ -137,8 +137,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       .filter((item) => item !== null) as (Chain & SolanaChainConfig)[];
   }, [props.availableChains, props.chainAssets]);
 
-  const availableWallets = useMemo<Wallet[]>(() => {
-    const providedWallets = props.availableWallets.map<Wallet>((w) => {
+  const availableWallets = useMemo<Wallet[] | undefined>(() => {
+    const providedWallets = props.availableWallets?.map<Wallet>((w) => {
       const adapter = wallets?.find((item) => item.adapter.name === w.name)?.adapter;
       const isWalletConnectAdapter = adapter instanceof WalletConnectWalletAdapter;
 
@@ -161,10 +161,10 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       return providedWallets;
     }
 
-    const providedWalletNames = providedWallets.map((w) => w.name);
+    const providedWalletNames = providedWallets?.map((w) => w.name);
 
     const autoRegisteredWallets = wallets
-      .filter((w) => !providedWalletNames.includes(w.adapter.name))
+      .filter((w) => !providedWalletNames?.includes(w.adapter.name))
       .map<Wallet>((w) => {
         const adapter = w.adapter;
 
@@ -182,7 +182,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         };
       });
 
-    return [...providedWallets, ...autoRegisteredWallets];
+    return [...(providedWallets || []), ...(autoRegisteredWallets || [])];
   }, [props.availableWallets, wallets, props.autoAddRegisteredWallets]);
 
   const currentChain = useMemo(() => {

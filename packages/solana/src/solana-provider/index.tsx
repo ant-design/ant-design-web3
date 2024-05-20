@@ -1,6 +1,6 @@
-import { useMemo, useState, type FC, type PropsWithChildren } from 'react';
+import { useEffect, useMemo, useState, type FC, type PropsWithChildren } from 'react';
 import { Solana, SolanaDevnet, SolanaTestnet } from '@ant-design/web3-assets/solana';
-import type { Locale } from '@ant-design/web3-common';
+import type { Locale, Wallet } from '@ant-design/web3-common';
 import { WalletConnectionError } from '@solana/wallet-adapter-base';
 import {
   ConnectionProvider,
@@ -11,7 +11,7 @@ import {
 import { type UniversalProviderOpts } from '@walletconnect/universal-provider';
 
 import { solana, type SolanaChainConfig } from '../chains';
-import { isAdapterWalletFactory, isWalletConnectFactory } from '../utils';
+import { isAdapterWallet, isWalletConnectWallet } from '../utils';
 import { type WalletFactory } from '../wallets/types';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 import { useWalletConnectProvider } from './useWalletConnectProvider';
@@ -19,7 +19,7 @@ import { useWalletConnectProvider } from './useWalletConnectProvider';
 export interface SolanaWeb3ConfigProviderProps {
   locale?: Locale;
   chains?: SolanaChainConfig[];
-  wallets?: WalletFactory[];
+  wallets: WalletFactory[];
   balance?: boolean;
 
   autoAddRegisteredWallets?: boolean;
@@ -41,7 +41,7 @@ export interface SolanaWeb3ConfigProviderProps {
 export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProviderProps>> = ({
   locale,
   chains = [solana],
-  wallets: walletFactories = [],
+  wallets: walletFactories,
   balance,
   rpcProvider,
   connectionConfig,
@@ -55,6 +55,8 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
   const [connectionError, setConnectionError] = useState<WalletConnectionError>();
   const walletConnectProviderGetter = useWalletConnectProvider(walletConnect);
 
+  const [walletInstances, setWalletInstances] = useState<Wallet[]>();
+
   const endpoint = useMemo(() => {
     if (typeof rpcProvider === 'function') {
       return rpcProvider(currentChain);
@@ -63,59 +65,57 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
     return (currentChain ?? solana).rpcUrls.default;
   }, [rpcProvider, currentChain]);
 
-  const availableWallets = walletFactories.map((factory) =>
-    factory.create(walletConnectProviderGetter),
-  );
+  useEffect(() => {
+    const allWallets = walletFactories.map((factory) => factory.create());
 
-  // Only filter out the wallets that have an adapter
-  const walletAdapters = useMemo(
-    () =>
-      walletFactories
-        .filter(isAdapterWalletFactory)
+    setWalletInstances(allWallets);
+  }, [walletFactories]);
 
-        .map((w) => {
-          if (isWalletConnectFactory(w)) {
-            w.adapter.setWalletConnectProviderGetter(walletConnectProviderGetter);
-            w.adapter.setWalletConnectConfigGetter(() => ({
-              walletConnect,
-              currentChain,
-              rpcEndpoint: endpoint,
-            }));
-          }
+  const availableWalletAdapters = useMemo(() => {
+    return walletInstances?.filter(isAdapterWallet).map((w) => {
+      if (isWalletConnectWallet(w)) {
+        w.adapter.setWalletConnectProviderGetter(walletConnectProviderGetter);
+        w.adapter.setWalletConnectConfigGetter(() => ({
+          walletConnect,
+          currentChain,
+          rpcEndpoint: endpoint,
+        }));
+      }
 
-          return w.adapter;
-        }),
-    [currentChain, endpoint, walletConnect, walletConnectProviderGetter, walletFactories],
-  );
+      return w.adapter!;
+    });
+  }, [currentChain, endpoint, walletConnect, walletConnectProviderGetter, walletInstances]);
 
   return (
     <ConnectionProvider endpoint={endpoint} config={connectionConfig}>
-      <WalletProvider
-        wallets={walletAdapters}
-        autoConnect={autoConnect}
-        {...walletProviderProps}
-        onError={(error, adapter) => {
-          if (error instanceof WalletConnectionError) {
-            setConnectionError(error);
-          }
+      {!!availableWalletAdapters && (
+        <WalletProvider
+          wallets={availableWalletAdapters}
+          autoConnect={autoConnect}
+          {...walletProviderProps}
+          onError={(error, adapter) => {
+            if (error instanceof WalletConnectionError) {
+              setConnectionError(error);
+            }
 
-          walletProviderProps?.onError?.(error, adapter);
-        }}
-      >
-        <AntDesignWeb3ConfigProvider
-          locale={locale}
-          chainAssets={[Solana, SolanaDevnet, SolanaTestnet]}
-          availableWallets={availableWallets}
-          balance={balance}
-          currentChain={currentChain}
-          onCurrentChainChange={(chain) => setCurrentChain(chain)}
-          availableChains={chains}
-          connectionError={connectionError}
-          autoAddRegisteredWallets={autoAddRegisteredWallets}
+            walletProviderProps?.onError?.(error, adapter);
+          }}
         >
-          {children}
-        </AntDesignWeb3ConfigProvider>
-      </WalletProvider>
+          <AntDesignWeb3ConfigProvider
+            locale={locale}
+            chainAssets={[Solana, SolanaDevnet, SolanaTestnet]}
+            availableWallets={walletInstances}
+            balance={balance}
+            currentChain={currentChain}
+            onCurrentChainChange={(chain) => setCurrentChain(chain)}
+            availableChains={chains}
+            connectionError={connectionError}
+            autoAddRegisteredWallets={autoAddRegisteredWallets}
+          >
+            {children}
+          </AntDesignWeb3ConfigProvider>
+        </WalletProvider>
+      )}
     </ConnectionProvider>
   );
 };

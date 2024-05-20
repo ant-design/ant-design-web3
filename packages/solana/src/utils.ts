@@ -1,21 +1,31 @@
+import type { Wallet } from '@ant-design/web3-common';
 import { WalletReadyState } from '@solana/wallet-adapter-base';
 
 import type {
-  AdapterWalletFactory as AdapterWalletFactoryType,
-  WalletConnectWalletFactory as WalletConnectWalletFactoryType,
+  AdapterWallet,
+  MetaMaskSnapWalletFactory as MetaMaskSnapWalletFactoryType,
+  StandardWallet,
+  WalletConnectWallet,
   WalletFactory as WalletFactoryType,
 } from './wallets/types';
 
 export const hasWalletReady = (readyState?: WalletReadyState) =>
   readyState === WalletReadyState.Installed || readyState === WalletReadyState.Loadable;
 
-export const isWalletConnectFactory = (
+export const isMetaMaskSnapWalletFactory = (
   factory: WalletFactoryType,
-): factory is WalletConnectWalletFactoryType =>
-  !!(factory as WalletConnectWalletFactoryType).isWalletConnect;
+): factory is MetaMaskSnapWalletFactoryType => {
+  return (factory as MetaMaskSnapWalletFactoryType).isMetaMaskSnap === true;
+};
 
-export const isAdapterWalletFactory = (
-  factory: WalletFactoryType,
-): factory is AdapterWalletFactoryType => {
-  return (factory as AdapterWalletFactoryType).adapter !== undefined;
+export const isStandardWallet = (wallet: Wallet): wallet is StandardWallet => {
+  return (wallet as StandardWallet).isStandardWallet === true;
+};
+
+export const isAdapterWallet = (wallet: Wallet): wallet is AdapterWallet => {
+  return (wallet as AdapterWallet).adapter !== undefined;
+};
+
+export const isWalletConnectWallet = (wallet: Wallet): wallet is WalletConnectWallet => {
+  return (wallet as WalletConnectWallet).isWalletConnect !== undefined;
 };
