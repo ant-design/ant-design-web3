@@ -4,6 +4,7 @@ import {
   OKXWallet,
   PhantomWallet,
   SolanaWeb3ConfigProvider,
+  SolflareSnapWallet,
   WalletConnectWallet,
 } from '@ant-design/web3-solana';
 
@@ -12,7 +13,7 @@ const App: React.FC = () => {
     <SolanaWeb3ConfigProvider
       autoAddRegisteredWallets
       balance
-      wallets={[PhantomWallet(), OKXWallet(), WalletConnectWallet()]}
+      wallets={[PhantomWallet(), OKXWallet(), WalletConnectWallet(), SolflareSnapWallet()]}
       walletConnect={{ projectId: YOUR_WALLET_CONNECT_PROJECT_ID }}
     >
       <Connector modalProps={{ mode: 'simple', group: false }}>

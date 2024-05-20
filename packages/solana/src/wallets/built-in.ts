@@ -19,10 +19,16 @@ export const CoinbaseWallet = WalletFactory(
   metadata_CoinbaseWallet,
 );
 export const TrustWallet = WalletFactory(() => new TrustWalletAdapter(), metadata_Trust);
+/** Solflare with MetaMask Snap */
+export const SolflareSnapWallet = WalletFactory(
+  () => new SolflareWalletAdapter(),
+  metadata_Solflare,
+);
 
 export const PhantomWallet = StandardWalletFactory(metadata_Phantom);
 export const OKXWallet = StandardWalletFactory(metadata_OkxWallet);
 export const BackpackWallet = StandardWalletFactory(metadata_Backpack);
+/** Solflare Wallet (Standard Wallet) */
 export const SolflareWallet = StandardWalletFactory(metadata_Solflare);
 
 export const WalletConnectWallet = WalletConnectWalletFactory(
