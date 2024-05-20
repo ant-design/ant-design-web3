@@ -6,7 +6,7 @@ import {
   type WagmiWeb3ConfigProviderProps,
 } from '@ant-design/web3-wagmi';
 import type { Chain } from 'viem';
-import { createConfig, http, type CreateConfigParameters } from 'wagmi';
+import { createConfig, http, type CreateConfigParameters, type Storage } from 'wagmi';
 import * as wagmiChains from 'wagmi/chains';
 import * as wagmiConnectors from 'wagmi/connectors';
 import type { WalletConnectParameters } from 'wagmi/connectors';
@@ -27,11 +27,12 @@ export interface WalletConnectOptions
 
 export interface EthWeb3jsConfigProviderProps extends Omit<WagmiWeb3ConfigProviderProps, 'config'> {
   walletConnect?: false | WalletConnectOptions;
+  storage?: Storage | false;
 }
 
 export const EthWeb3jsConfigProvider: React.FC<
   React.PropsWithChildren<EthWeb3jsConfigProviderProps>
-> = ({ children, walletConnect, ...props }) => {
+> = ({ children, walletConnect, storage, ...props }) => {
   const chains = React.useMemo(
     () =>
       (props.chains ?? [Mainnet])
@@ -71,8 +72,13 @@ export const EthWeb3jsConfigProvider: React.FC<
         }),
       );
     }
-    return createConfig({ chains, transports, connectors });
-  }, [chains, walletConnect, props.wallets]);
+    return createConfig({
+      chains,
+      transports,
+      connectors,
+      storage: storage === false ? null : storage,
+    });
+  }, [chains, walletConnect, props.wallets, storage]);
 
   return (
     <WagmiWeb3ConfigProvider {...props} config={wagmiConfig} wallets={wallets}>
