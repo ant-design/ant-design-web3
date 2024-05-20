@@ -61,7 +61,7 @@
     "@ant-design/web3-wagmi": "workspace:*",
     "@biomejs/biome": "^1.6.4",
     "@changesets/changelog-git": "^0.2.0",
-    "@changesets/cli": "^2.27.1",
+    "@changesets/cli": "^2.27.2",
     "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
     "@solana/wallet-adapter-coinbase": "^0.1.19",
     "@solana/wallet-adapter-trust": "^0.1.13",
