@@ -23,7 +23,7 @@ const LinkPanel: React.FC = () => {
           <div className={`${prefixCls}-ripple`} />
           <div className={`${prefixCls}-ripple`} />
           <Avatar
-            size={62}
+            size={56}
             icon={
               typeof selectedWallet?.icon === 'string' ? (
                 <img src={selectedWallet.icon} alt={selectedWallet.name} />
