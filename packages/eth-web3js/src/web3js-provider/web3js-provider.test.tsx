@@ -3,6 +3,7 @@ import { useProvider } from '@ant-design/web3';
 import { Mainnet, Optimism } from '@ant-design/web3-assets';
 import { render } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
+import { createStorage } from 'wagmi';
 
 import { MetaMask, TokenPocket } from '../wallets';
 import { EthWeb3jsConfigProvider } from './web3js-provider';
@@ -101,5 +102,28 @@ describe('web3js-provider', async () => {
 
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.wallets-name')?.textContent).toBe('MetaMask,WalletConnect');
+  });
+
+  test('storage', async () => {
+    const CustomConnector: React.FC = () => {
+      const { availableChains } = useProvider();
+      return (
+        <div className="chains-name">{availableChains?.map((item) => item.name).join(',')}</div>
+      );
+    };
+
+    const App = ({ storage }: any) => (
+      <EthWeb3jsConfigProvider storage={storage}>
+        <CustomConnector />
+      </EthWeb3jsConfigProvider>
+    );
+    expect(
+      render(<App storage={false} />).baseElement.querySelector('.chains-name')?.textContent,
+    ).toBe('Ethereum');
+    expect(
+      render(<App storage={createStorage({ storage: localStorage })} />).baseElement.querySelector(
+        '.chains-name',
+      )?.textContent,
+    ).toBe('Ethereum');
   });
 });

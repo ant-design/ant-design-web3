@@ -7,13 +7,13 @@ import {
   type Locale,
   type Wallet,
 } from '@ant-design/web3-common';
+import { disconnect, getAccount } from '@wagmi/core';
 import type { Chain as WagmiChain } from 'viem';
 import {
   useAccount,
   useBalance,
   useConfig,
   useConnect,
-  useDisconnect,
   useSwitchChain,
   type Connector as WagmiConnector,
 } from 'wagmi';
@@ -52,8 +52,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   const [account, setAccount] = React.useState<Account | undefined>();
   const { connectAsync } = useConnect();
   const { switchChain } = useSwitchChain();
-  const { disconnectAsync } = useDisconnect();
-  const [currentChain, setCurrentChain] = React.useState<Chain | undefined>(undefined);
   const { data: balanceData } = useBalance({
     address: balance && account ? fillAddressWith0x(account.address) : undefined,
   });
@@ -61,18 +59,18 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   React.useEffect(() => {
     if (!address || isDisconnected) {
       setAccount(undefined);
-      return;
-    }
-    const updateAccounts = async () => {
-      const a = {
-        address,
+    } else {
+      const updateAccounts = async () => {
+        const a = {
+          address,
+        };
+        setAccount(a);
+        if (ens) {
+          setAccount(await addNameToAccount(config, a));
+        }
       };
-      setAccount(a);
-      if (ens) {
-        setAccount(await addNameToAccount(config, a));
-      }
-    };
-    updateAccounts();
+      updateAccounts();
+    }
   }, [address, isDisconnected, chain, ens]);
 
   const findConnectorByName = (name: string): WagmiConnector | undefined => {
@@ -162,25 +160,20 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       .filter((item) => item !== null) as Chain[];
   }, [availableChains, chainAssets]);
 
+  const chainId = chain?.id || availableChains?.[0]?.id;
+  const chainName = chain?.name || availableChains?.[0]?.name;
+  const [currentChain, setCurrentChain] = React.useState<Chain | undefined>(undefined);
+
   React.useEffect(() => {
-    if (!chain && currentChain) {
+    setCurrentChain((prevChain) => {
       // not connected any chain, keep current chain
-      return;
-    }
-    const currentWagmiChain = chain ?? availableChains[0];
-    if (!currentWagmiChain) {
-      return;
-    }
-    let c = chainAssets?.find((item) => (item as Chain).id === currentWagmiChain?.id) as Chain;
-    if (!c?.id) {
-      c = {
-        id: currentWagmiChain.id,
-        name: currentWagmiChain.name,
-      };
-    }
-    setCurrentChain(c);
-    return;
-  }, [chain, chainAssets, availableChains, currentChain]);
+      let newChain = chainAssets?.find((item) => item?.id === chainId);
+      if (!newChain && chainId) {
+        newChain = { id: chainId, name: chainName };
+      }
+      return newChain || prevChain;
+    });
+  }, [chainAssets, availableChains, chainId, chainName]);
 
   const currency = currentChain?.nativeCurrency;
 
@@ -222,17 +215,19 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         });
       }}
       disconnect={async () => {
-        await disconnectAsync();
+        // await disconnectAsync();
+        // TODO@jeasonstudio: wagmi useDisconnect hook 在处理多实例（config）共存时，
+        // 存在一些状态处理的 bug，暂时用更低阶 API 代替。
+        const { connector } = getAccount(config);
+        await disconnect(config, { connector });
       }}
-      switchChain={async (c: Chain) => {
+      switchChain={async (newChain: Chain) => {
         if (!chain) {
           // hava not connected any chain
-          setCurrentChain(c);
-          return;
+          setCurrentChain(newChain);
+        } else {
+          switchChain?.({ chainId: newChain.id });
         }
-        switchChain?.({
-          chainId: c.id,
-        });
       }}
       getNFTMetadata={getNFTMetadataFunc}
     >
