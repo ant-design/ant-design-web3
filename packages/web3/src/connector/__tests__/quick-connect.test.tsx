@@ -100,7 +100,7 @@ describe('Connector quick connect', () => {
     const { baseElement } = render(<App />);
 
     await vi.waitFor(() => {
-      expect(baseElement.querySelector('.ant-web3-icon-wallet-connect-colorful')).toBeTruthy();
+      expect(baseElement.querySelector('.ant-web3-icon-scan-colorful')).toBeTruthy();
     });
 
     fireEvent.click(baseElement.querySelector('.ant-btn')!);
@@ -110,7 +110,7 @@ describe('Connector quick connect', () => {
       expect(baseElement.querySelector('.ant-modal-body')).toBeTruthy();
       expect(baseElement.querySelector('.ant-web3-connect-modal-qr-code')).toBeTruthy();
       expect(baseElement.querySelector('.ant-web3-connect-modal-get-wallet-tip')?.textContent).toBe(
-        "Don't know WalletConnect?",
+        "Don't know Scan Code?",
       );
       expect(
         baseElement.querySelector('.ant-web3-connect-modal-main-panel-header-title')?.textContent,
@@ -162,7 +162,7 @@ describe('Connector quick connect', () => {
     const { baseElement } = render(<App />);
 
     await vi.waitFor(() => {
-      expect(baseElement.querySelector('.ant-web3-icon-wallet-connect-colorful')).toBeTruthy();
+      expect(baseElement.querySelector('.ant-web3-icon-scan-colorful')).toBeTruthy();
     });
 
     fireEvent.mouseOver(baseElement.querySelector('.ant-dropdown-trigger')!);

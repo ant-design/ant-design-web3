@@ -114,10 +114,10 @@ describe('ConnectButton with quickConnect', async () => {
     fireEvent.mouseOver(baseElement.querySelector('.ant-btn.ant-dropdown-trigger')!);
     await vi.waitFor(() => {
       expect(baseElement.querySelectorAll('.ant-dropdown-menu-item').length).toBe(2);
-      fireEvent.click(baseElement.querySelector('.ant-web3-icon-wallet-connect-colorful')!);
+      fireEvent.click(baseElement.querySelector('.ant-web3-icon-scan-colorful')!);
       expect(onClickCallFn).toBeCalledWith(
         expect.objectContaining({
-          name: 'WalletConnect',
+          name: 'Scan Code',
         }),
       );
     });
@@ -179,7 +179,7 @@ describe('ConnectButton with quickConnect', async () => {
 
     await vi.waitFor(() => {
       // show wallet connect quick connect
-      expect(baseElement.querySelector('.ant-web3-icon-wallet-connect-colorful')).toBeTruthy();
+      expect(baseElement.querySelector('.ant-web3-icon-scan-colorful')).toBeTruthy();
     });
 
     // connect
@@ -187,7 +187,7 @@ describe('ConnectButton with quickConnect', async () => {
     await vi.waitFor(() => {
       expect(onClickCallFn).toBeCalledWith(
         expect.objectContaining({
-          name: 'WalletConnect',
+          name: 'Scan Code',
         }),
       );
     });

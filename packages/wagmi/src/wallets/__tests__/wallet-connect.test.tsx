@@ -21,8 +21,10 @@ describe('WalletConnect', async () => {
     });
     const wagmiWallet = config.connectors[0];
     const wallet = WalletConnect().create();
-    expect(wallet.name).toBe('WalletConnect');
-    expect(wallet.name).toBe(wagmiWallet.name);
+    console.log(wagmiWallet.name);
+
+    expect(wallet.name).toBe('Scan Code');
+    expect(wallet.remark).toBe(wagmiWallet.name);
     expect(wallet.getQrCode).toBeTruthy();
   });
 

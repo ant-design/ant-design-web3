@@ -100,6 +100,6 @@ describe('web3js-provider', async () => {
     );
 
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.wallets-name')?.textContent).toBe('MetaMask,WalletConnect');
+    expect(baseElement.querySelector('.wallets-name')?.textContent).toBe('MetaMask,Scan Code');
   });
 });
