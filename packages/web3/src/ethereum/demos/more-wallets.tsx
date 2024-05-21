@@ -29,7 +29,6 @@ const config = createConfig({
       jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${YOUR_ZAN_API_KEY}`,
     }),
   ],
-  storage: null,
 });
 
 const App: React.FC = () => {

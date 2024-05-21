@@ -14,7 +14,6 @@ const config = createConfig({
       target: 'metaMask',
     }),
   ],
-  storage: null,
 });
 
 const App: React.FC = () => {

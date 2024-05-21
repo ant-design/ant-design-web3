@@ -13,7 +13,6 @@ import {
   useBalance,
   useConfig,
   useConnect,
-  useDisconnect,
   useSwitchChain,
   type Connector as WagmiConnector,
 } from 'wagmi';
@@ -22,6 +21,7 @@ import type { EIP6963Config, WalletFactory, WalletUseInWagmiAdapter } from '../i
 import { isEIP6963Connector } from '../utils';
 import { EIP6963Wallet } from '../wallets/eip6963';
 import { addNameToAccount, getNFTMetadata } from './methods';
+import { useDisconnect } from './use-disconnect';
 
 export interface AntDesignWeb3ConfigProviderProps {
   chainAssets: Chain[];
@@ -52,7 +52,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   const [account, setAccount] = React.useState<Account | undefined>();
   const { connectAsync } = useConnect();
   const { switchChain } = useSwitchChain();
-  const { disconnectAsync } = useDisconnect();
+  const { disconnectAsync } = useDisconnect({ config });
   const { data: balanceData } = useBalance({
     address: balance && account ? fillAddressWith0x(account.address) : undefined,
   });
@@ -60,18 +60,18 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   React.useEffect(() => {
     if (!address || isDisconnected) {
       setAccount(undefined);
-      return;
-    }
-    const updateAccounts = async () => {
-      const a = {
-        address,
+    } else {
+      const updateAccounts = async () => {
+        const a = {
+          address,
+        };
+        setAccount(a);
+        if (ens) {
+          setAccount(await addNameToAccount(config, a));
+        }
       };
-      setAccount(a);
-      if (ens) {
-        setAccount(await addNameToAccount(config, a));
-      }
-    };
-    updateAccounts();
+      updateAccounts();
+    }
   }, [address, isDisconnected, chain, ens]);
 
   const findConnectorByName = (name: string): WagmiConnector | undefined => {
