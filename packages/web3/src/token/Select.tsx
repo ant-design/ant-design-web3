@@ -66,9 +66,11 @@ export interface TokenSelectProps {
 const SingleToken = ({
   token,
   onSelect,
+  className,
 }: {
   token?: TokenType;
   onSelect?: TokenSelectProps['onSelect'];
+  className?: string;
 }) => {
   const { getClsName } = useTokenStyle();
 
@@ -80,7 +82,7 @@ const SingleToken = ({
     <Flex
       gap={12}
       key={token.contract}
-      className={getClsName('token-wrapper')}
+      className={getClsName('profile', className)}
       onClick={() => onSelect?.(token)}
     >
       <span className="icon">{token.icon}</span>
@@ -128,21 +130,30 @@ const TokenSelect = ({
     <Dropdown
       trigger={['click']}
       onOpenChange={(open) => {
-        console.log('open', open);
+        if (open) {
+          handleQueryTokenList();
+        }
       }}
       dropdownRender={() => {
         return (
-          <div className={getClsName('token-select')}>
+          <div className={getClsName('select')}>
             <Input addonBefore={<SearchOutlined />} placeholder="Please enter" />
             {selfTokenList?.map((token) => {
-              return <SingleToken token={token} onSelect={onSelect} key={token.contract} />;
+              return (
+                <SingleToken
+                  className="selection"
+                  token={token}
+                  onSelect={onSelect}
+                  key={token.contract}
+                />
+              );
             })}
           </div>
         );
       }}
     >
-      <Flex className={getClsName('token-selected')} align="center">
-        <SingleToken token={selectedToken} />
+      <Flex className={getClsName('selected')} align="center">
+        <SingleToken token={selectedToken} className="selected" />
         <DownOutlined className="icon" />
       </Flex>
     </Dropdown>,

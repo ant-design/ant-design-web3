@@ -16,7 +16,7 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
     /**
      * single token select style
      */
-    [`${token.componentCls}-token-select`]: {
+    [`${token.componentCls}-select`]: {
       background: '#fff',
       width: 196,
       borderRadius: 8,
@@ -43,44 +43,57 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
         },
       },
     },
-    [`${token.componentCls}-token-wrapper`]: {
-      paddingBlock: 12,
-      paddingInline: 16,
+    [`${token.componentCls}-profile`]: {
       fontSize: 16,
       color: '#000000e0',
       lineHeight: 1.5,
       transition: 'all linear 0.2s',
 
-      '&:hover': {
-        background: '#00000008',
+      '&.selection': {
+        paddingBlock: 12,
+        paddingInline: 16,
+
+        '&:hover': {
+          background: '#00000008',
+        },
+      },
+
+      '&.selected': {
+        borderRadius: 20,
+        color: '#000',
       },
 
       '.icon': {
         width: 24,
         height: 24,
+        position: 'relative',
+
+        '.anticon': {
+          fontSize: 24,
+        },
+
+        img: {
+          width: '100%',
+          height: '100%',
+        },
       },
     },
-    [`${token.componentCls}-token-selected`]: {
+    [`${token.componentCls}-selected`]: {
       width: 'fit-content',
       paddingBlock: 5,
       paddingInline: 8,
-      lineHeight: 1.5,
-      fontSize: 16,
       borderRadius: 20,
       background: '#00000008',
+      fontSize: 16,
+      lineHeight: 1.5,
 
-      '.icon': {
+      '.anticon-down': {
         fontSize: 12,
         marginInlineStart: 8,
         marginBlockStart: 3,
       },
     },
-
-    [token.componentCls]: {
-      paddingInline: 24,
-      paddingBlock: '60px 24px',
-    },
-    [`${token.componentCls}-token-profile`]: {
+    [`${token.componentCls}-output`]: {
       '.ant-input-number': {
         boxShadow: 'none !important',
 
@@ -98,14 +111,9 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
       },
     },
 
-    [`${token.componentCls}-token-amount`]: {
+    [`${token.componentCls}-output-amount`]: {
       flex: 1,
       border: 'none',
-    },
-
-    [`${token.componentCls}-submit`]: {
-      marginBlockStart: 12,
-      width: '100%',
     },
   };
 };
@@ -126,7 +134,8 @@ export function useTokenStyle() {
 
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
-  const getClsName = (cls: string) => classNames(`${prefixCls}-${cls}`, hashId);
+  const getClsName = (cls: string, ...extraCls: (string | undefined)[]) =>
+    classNames(`${prefixCls}-${cls}`, hashId, ...extraCls);
 
   return {
     wrapSSR,
