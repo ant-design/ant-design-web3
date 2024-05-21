@@ -19,6 +19,8 @@ vi.mock('@wagmi/core', () => {
       }
       return null;
     },
+    getAccount: () => ({}),
+    disconnect: () => {},
   };
 });
 

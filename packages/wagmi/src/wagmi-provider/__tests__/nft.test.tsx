@@ -7,13 +7,13 @@ import { mainnet } from 'wagmi/chains';
 import { MetaMask } from '../../wallets';
 import { AntDesignWeb3ConfigProvider } from '../config-provider';
 
-vi.mock('@wagmi/core', () => {
-  return {
-    readContract: async () => {
-      return 'http://nft-metadata.com';
-    },
-  };
-});
+vi.mock('@wagmi/core', () => ({
+  readContract: async () => {
+    return 'http://nft-metadata.com';
+  },
+  getAccount: () => ({}),
+  disconnect: () => {},
+}));
 
 vi.mock('wagmi', () => {
   return {

@@ -7,6 +7,7 @@ import {
   type Locale,
   type Wallet,
 } from '@ant-design/web3-common';
+import { disconnect, getAccount } from '@wagmi/core';
 import type { Chain as WagmiChain } from 'viem';
 import {
   useAccount,
@@ -21,7 +22,6 @@ import type { EIP6963Config, WalletFactory, WalletUseInWagmiAdapter } from '../i
 import { isEIP6963Connector } from '../utils';
 import { EIP6963Wallet } from '../wallets/eip6963';
 import { addNameToAccount, getNFTMetadata } from './methods';
-import { useDisconnect } from './use-disconnect';
 
 export interface AntDesignWeb3ConfigProviderProps {
   chainAssets: Chain[];
@@ -52,7 +52,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   const [account, setAccount] = React.useState<Account | undefined>();
   const { connectAsync } = useConnect();
   const { switchChain } = useSwitchChain();
-  const { disconnectAsync } = useDisconnect({ config });
+  // const { disconnectAsync } = useDisconnect();
   const { data: balanceData } = useBalance({
     address: balance && account ? fillAddressWith0x(account.address) : undefined,
   });
@@ -216,7 +216,11 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         });
       }}
       disconnect={async () => {
-        await disconnectAsync();
+        // await disconnectAsync();
+        // TODO@jeasonstudio: wagmi useDisconnect hook 在处理多实例（config）共存时，
+        // 存在一些状态处理的 bug，暂时用更低阶 API 代替。
+        const { connector } = getAccount(config);
+        await disconnect(config, { connector });
       }}
       switchChain={async (newChain: Chain) => {
         if (!chain) {
