@@ -1,0 +1,42 @@
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="1000" fill="url(#ant-web3-icon-xlayer-colorful-5)"/>
+  <mask id="ant-web3-icon-xlayer-colorful-1" mask-type="alpha" maskUnits="userSpaceOnUse" x="690" y="576" width="54" height="155">
+   <rect width="52.0902" height="153.356" transform="matrix(-1 0 0 1 743.064 576.844)" fill="black"/>
+  </mask>
+  <g mask="url(#ant-web3-icon-xlayer-colorful-1)">
+    <path d="M732.822 576.844H599.919C594.272 576.844 589.695 581.421 589.695 587.067V719.975C589.695 725.621 594.272 730.198 599.919 730.198H732.822C738.468 730.198 743.045 725.621 743.045 719.975V587.067C743.045 581.421 738.468 576.844 732.822 576.844Z" fill="white" fill-opacity="0.5"/>
+  </g>
+  <mask id="ant-web3-icon-xlayer-colorful-2" mask-type="alpha" maskUnits="userSpaceOnUse" x="690" y="269" width="54" height="155">
+    <rect width="52.0902" height="153.356" transform="matrix(-1 0 0 1 743.064 269.811)" fill="url(#ant-web3-icon-xlayer-colorful-6)"/>
+  </mask>
+  <g mask="url(#ant-web3-icon-xlayer-colorful-2)">
+    <path d="M732.822 269.811H599.919C594.272 269.811 589.695 274.388 589.695 280.034V412.941C589.695 418.588 594.272 423.165 599.919 423.165H732.822C738.468 423.165 743.045 418.588 743.045 412.941V280.034C743.045 274.388 738.468 269.811 732.822 269.811Z" fill="white" fill-opacity="0.5"/>
+  </g>
+  <mask id="ant-web3-icon-xlayer-colorful-3" mask-type="alpha" maskUnits="userSpaceOnUse" x="769" y="269" width="27" height="155">
+    <rect width="25.913" height="153.356" transform="matrix(-1 0 0 1 795.289 269.811)" fill="black"/>
+  </mask>
+  <g mask="url(#ant-web3-icon-xlayer-colorful-3)">
+    <path d="M785.031 269.811H652.128C646.481 269.811 641.904 274.388 641.904 280.034V412.941C641.904 418.588 646.481 423.165 652.128 423.165H785.031C790.677 423.165 795.254 418.588 795.254 412.941V280.034C795.254 274.388 790.677 269.811 785.031 269.811Z" fill="white" fill-opacity="0.3"/>
+  </g>
+    <mask id="ant-web3-icon-xlayer-colorful-4" mask-type="alpha" maskUnits="userSpaceOnUse" x="769" y="576" width="27" height="155">
+  <rect width="25.913" height="153.356" transform="matrix(-1 0 0 1 795.383 576.844)" fill="black"/>
+  </mask>
+  <g mask="url(#ant-web3-icon-xlayer-colorful-4)">
+    <path d="M785.125 576.844H652.221C646.575 576.844 641.998 581.421 641.998 587.067V719.975C641.998 725.621 646.575 730.198 652.221 730.198H785.125C790.771 730.198 795.348 725.621 795.348 719.975V587.067C795.348 581.421 790.771 576.844 785.125 576.844Z" fill="white" fill-opacity="0.3"/>
+  </g>
+  <path d="M500.845 423.527H368.571C362.952 423.527 358.396 428.05 358.396 433.63V564.963C358.396 570.542 362.952 575.065 368.571 575.065H500.845C506.465 575.065 511.02 570.542 511.02 564.963V433.63C511.02 428.05 506.465 423.527 500.845 423.527Z" fill="white"/>
+  <path d="M347.746 269.811H214.842C209.196 269.811 204.619 274.388 204.619 280.034V412.941C204.619 418.588 209.196 423.165 214.842 423.165H347.746C353.392 423.165 357.969 418.588 357.969 412.941V280.034C357.969 274.388 353.392 269.811 347.746 269.811Z" fill="white"/>
+  <path d="M654.387 269.811H521.483C515.837 269.811 511.26 274.388 511.26 280.034V412.941C511.26 418.588 515.837 423.165 521.483 423.165H654.387C660.033 423.165 664.61 418.588 664.61 412.941V280.034C664.61 274.388 660.033 269.811 654.387 269.811Z" fill="white"/>
+  <path d="M347.746 576.512H214.842C209.196 576.512 204.619 581.089 204.619 586.735V719.643C204.619 725.289 209.196 729.866 214.842 729.866H347.746C353.392 729.866 357.969 725.289 357.969 719.643V586.735C357.969 581.089 353.392 576.512 347.746 576.512Z" fill="white"/>
+  <path d="M654.387 576.512H521.483C515.837 576.512 511.26 581.089 511.26 586.735V719.643C511.26 725.289 515.837 729.866 521.483 729.866H654.387C660.033 729.866 664.61 725.289 664.61 719.643V586.735C664.61 581.089 660.033 576.512 654.387 576.512Z" fill="white"/>
+  <defs>
+  <linearGradient id="ant-web3-icon-xlayer-colorful-5" x1="1000" y1="1561.62" x2="202.005" y2="-143.254" gradientUnits="userSpaceOnUse">
+  <stop/>
+  <stop offset="1" stop-color="#444444"/>
+  </linearGradient>
+  <linearGradient id="ant-web3-icon-xlayer-colorful-6" x1="56.5422" y1="85.5315" x2="0.52555" y2="74.19" gradientUnits="userSpaceOnUse">
+  <stop/>
+  <stop offset="1" stop-color="white"/>
+  </linearGradient>
+  </defs>
+</svg>

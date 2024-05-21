@@ -46,7 +46,7 @@ const walletList: Wallet[] = [
   },
   {
     icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
-    name: 'Test Wallet3 Have a Long Name',
+    name: 'Test Wallet3 Has a Long Name',
     remark: 'remark 3',
     app: {
       link: 'https://test.com/xxx',
