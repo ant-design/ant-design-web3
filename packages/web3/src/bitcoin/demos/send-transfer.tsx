@@ -1,6 +1,7 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   BitcoinWeb3ConfigProvider,
+  OkxWallet,
   UnisatWallet,
   useBitcoinWallet,
   XverseWallet,
@@ -31,7 +32,7 @@ const SendBitcoin: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet()]} balance>
+    <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet(), OkxWallet()]} balance>
       <Space>
         <Connector>
           <ConnectButton />
