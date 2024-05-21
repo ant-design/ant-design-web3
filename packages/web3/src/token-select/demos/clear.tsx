@@ -7,6 +7,7 @@ const App: React.FC = () => {
 
   return (
     <TokenSelect
+      allowClear
       value={token}
       onChange={setToken}
       tokenList={[

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { DownOutlined, SearchOutlined } from '@ant-design/icons';
-import { Dropdown, Flex, Input } from 'antd';
+import React, { Suspense, useCallback, useDeferredValue, useEffect, useRef, useState } from 'react';
+import { CloseCircleOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
+import { Dropdown, Flex, Input, InputRef, Spin } from 'antd';
+import { debounce } from 'lodash';
 
 import { useTokenSelectStyle } from './style';
 
@@ -38,13 +39,13 @@ export interface TokenSelectProps {
   /**
    * selected token
    */
-  token?: TokenType;
+  value?: TokenType;
   /**
    * change selected token callback
    * @param token
    * @returns
    */
-  onSelect?: (token: TokenType) => void;
+  onChange?: (token?: TokenType) => void;
   /**
    * controlled token list
    */
@@ -58,6 +59,10 @@ export interface TokenSelectProps {
    * @returns token list
    */
   queryTokenList?: () => Promise<TokenType[] | undefined>;
+  /**
+   * allow clear
+   */
+  allowClear?: boolean;
 }
 
 /**
@@ -69,7 +74,7 @@ const SingleToken = ({
   className,
 }: {
   token?: TokenType;
-  onSelect?: TokenSelectProps['onSelect'];
+  onSelect?: TokenSelectProps['onChange'];
   className?: string;
 }) => {
   const { getClsName } = useTokenSelectStyle();
@@ -92,20 +97,45 @@ const SingleToken = ({
 };
 
 export const TokenSelect = ({
-  token: selectedToken,
-  onSelect,
+  value: selectedToken,
+  onChange,
   tokenList,
   defaultTokenList,
   queryTokenList,
+  allowClear,
 }: TokenSelectProps) => {
   const { wrapSSR, getClsName } = useTokenSelectStyle();
 
-  // Token List
-  const [selfTokenList, setSelfTokenList] = useState<TokenType[] | undefined>(defaultTokenList);
+  // full Token List
+  const [fullTokenList, setFullTokenList] = useState<TokenType[] | undefined>(defaultTokenList);
 
+  // filter token keyword
+  const [keyword, setKeyword] = useState<string>();
+
+  // dropdown open status
+  const [open, setOpen] = useState<boolean>();
+
+  // when controlled tokenList change, update fullTokenList
   useEffect(() => {
-    setSelfTokenList(tokenList);
+    setFullTokenList(tokenList);
   }, [tokenList]);
+
+  // deferred calculate show token list
+  const showTokenList = useDeferredValue(
+    keyword
+      ? fullTokenList?.filter(({ name, symbol, contract }) => {
+          const nameLower = name.toLowerCase();
+
+          const symbolLower = symbol.toLowerCase();
+
+          const keywordLower = keyword.toLowerCase();
+
+          return [nameLower, symbolLower, contract].some((content) =>
+            content.includes(keywordLower),
+          );
+        })
+      : fullTokenList,
+  );
 
   const handleQueryTokenList = async () => {
     /**
@@ -118,7 +148,7 @@ export const TokenSelect = ({
     }
 
     try {
-      setSelfTokenList(await queryTokenList?.());
+      setFullTokenList(await queryTokenList?.());
 
       console.log('tokenList', tokenList);
     } catch (error) {
@@ -128,8 +158,11 @@ export const TokenSelect = ({
 
   return wrapSSR(
     <Dropdown
+      open={open}
       trigger={['click']}
       onOpenChange={(open) => {
+        setOpen(open);
+
         if (open) {
           handleQueryTokenList();
         }
@@ -137,13 +170,22 @@ export const TokenSelect = ({
       dropdownRender={() => {
         return (
           <div className={getClsName('wrapper')}>
-            <Input addonBefore={<SearchOutlined />} placeholder="Please enter" />
-            {selfTokenList?.map((token) => {
+            <Input
+              value={keyword}
+              onChange={(event) => setKeyword(event.target.value)}
+              addonBefore={<SearchOutlined />}
+              placeholder="Enter name / address"
+            />
+            {showTokenList?.map((token) => {
               return (
                 <SingleToken
                   className="selection"
                   token={token}
-                  onSelect={onSelect}
+                  onSelect={(token) => {
+                    onChange?.(token);
+
+                    setOpen(false);
+                  }}
                   key={token.contract}
                 />
               );
@@ -154,7 +196,17 @@ export const TokenSelect = ({
     >
       <Flex className={getClsName('token-selected')} align="center">
         <SingleToken token={selectedToken} className="selected" />
-        <DownOutlined className="icon" />
+        {allowClear && (
+          <CloseCircleOutlined
+            className="inner-icon"
+            onClick={(event) => {
+              event.stopPropagation();
+
+              onChange?.(undefined);
+            }}
+          />
+        )}
+        <DownOutlined className="inner-icon" />
       </Flex>
     </Dropdown>,
   );

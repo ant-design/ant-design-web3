@@ -41,6 +41,9 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
           border: 'none !important',
           boxShadow: 'none',
         },
+        '.ant-input-outlined': {
+          paddingInlineStart: 0,
+        },
       },
     },
     [`${token.componentCls}-token-profile`]: {
@@ -48,6 +51,7 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
       color: '#000000e0',
       lineHeight: 1.5,
       transition: 'all linear 0.2s',
+      cursor: 'pointer',
 
       '&.selection': {
         paddingBlock: 12,
@@ -81,16 +85,40 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
     [`${token.componentCls}-token-selected`]: {
       width: 'fit-content',
       paddingBlock: 5,
-      paddingInline: 8,
+      paddingInlineStart: 8,
+      paddingInlineEnd: 32,
+      position: 'relative',
       borderRadius: 20,
       background: '#00000008',
       fontSize: 16,
       lineHeight: 1.5,
+      cursor: 'pointer',
+      transition: 'all linear 0.2s',
 
-      '.anticon-down': {
+      '.inner-icon': {
         fontSize: 12,
         marginInlineStart: 8,
         marginBlockStart: 3,
+        position: 'absolute',
+        right: 12,
+        transition: 'all linear 0.2s',
+      },
+
+      '.anticon-close-circle': {
+        opacity: 0,
+      },
+
+      '&:hover': {
+        background: '#0000000f',
+
+        '.anticon-close-circle': {
+          opacity: 1,
+
+          '& + .anticon-down': {
+            pointerEvents: 'none',
+            opacity: 0,
+          },
+        },
       },
     },
   };

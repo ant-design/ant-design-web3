@@ -10,3 +10,7 @@ group:
 ## Basic Usage
 
 <code src="./demos/basic.tsx"></code>
+
+## Support Clear
+
+<code src="./demos/clear.tsx"></code>
