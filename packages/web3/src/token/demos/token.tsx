@@ -6,10 +6,15 @@ const App: React.FC = () => {
   // 选中 token
   const [token, setToken] = useState<any>();
 
+  // 金额
+  const [amount, setAmount] = useState<string | number>();
+
   return (
     <Token.Output
+      amount={amount}
       token={token}
       onSelect={setToken}
+      onAmountChange={setAmount}
       tokenList={[
         {
           name: 'Ethereum',

@@ -1,10 +1,19 @@
 import React from 'react';
 import { Flex, InputNumber } from 'antd';
+import { isNull } from 'lodash';
 
 import TokenSelect, { type TokenSelectProps } from './Select';
 import { useTokenStyle } from './style';
 
 export interface TokenOutputProps extends TokenSelectProps {
+  /**
+   * token amount
+   */
+  amount?: string | number;
+  /**
+   * token amount change callback
+   */
+  onAmountChange?: (amount?: TokenOutputProps['amount']) => void;
   /**
    * query selected TokenOutput
    * @returns selected TokenOutput
@@ -15,7 +24,12 @@ export interface TokenOutputProps extends TokenSelectProps {
   }>;
 }
 
-const TokenOutput = ({ querySelectedTokenOutput, ...props }: TokenOutputProps) => {
+const TokenOutput = ({
+  amount,
+  onAmountChange,
+  querySelectedTokenOutput,
+  ...selectProps
+}: TokenOutputProps) => {
   const { wrapSSR, getClsName } = useTokenStyle();
 
   return wrapSSR(
@@ -23,10 +37,15 @@ const TokenOutput = ({ querySelectedTokenOutput, ...props }: TokenOutputProps) =
       <InputNumber
         stringMode
         controls={false}
+        value={amount}
+        precision={selectProps?.token?.decimal}
+        onChange={(amt) => {
+          onAmountChange?.(isNull(amt) ? undefined : amt);
+        }}
         placeholder="Please enter amount"
         className={getClsName('output-amount')}
       />
-      <TokenSelect {...props} />
+      <TokenSelect {...selectProps} />
     </Flex>,
   );
 };
