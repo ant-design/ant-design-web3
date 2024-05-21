@@ -5,12 +5,8 @@ group:
   order: 3
 ---
 
-# Token
+# CryptoInput
 
-## Single Token Select
+## BasicUsage
 
 <code src="./demos/basic.tsx"></code>
-
-## Token Output
-
-<code src="./demos/token.tsx"></code>

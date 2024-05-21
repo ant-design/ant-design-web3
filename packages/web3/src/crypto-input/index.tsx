@@ -2,8 +2,8 @@ import React from 'react';
 import { Flex, InputNumber } from 'antd';
 import { isNull } from 'lodash';
 
-import TokenSelect, { type TokenSelectProps } from './Select';
-import { useTokenStyle } from './style';
+import { TokenSelect, type TokenSelectProps } from '../token-select';
+import { useCryptoInputStyle } from './style';
 
 export interface TokenOutputProps extends TokenSelectProps {
   /**
@@ -24,13 +24,13 @@ export interface TokenOutputProps extends TokenSelectProps {
   }>;
 }
 
-const TokenOutput = ({
+export const CryptoInput = ({
   amount,
   onAmountChange,
   querySelectedTokenOutput,
   ...selectProps
 }: TokenOutputProps) => {
-  const { wrapSSR, getClsName } = useTokenStyle();
+  const { wrapSSR, getClsName } = useCryptoInputStyle();
 
   return wrapSSR(
     <Flex gap={16} className={getClsName('output')}>
@@ -49,5 +49,3 @@ const TokenOutput = ({
     </Flex>,
   );
 };
-
-export default TokenOutput;

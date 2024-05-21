@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Token } from '@ant-design/web3';
+import { TokenSelect } from '@ant-design/web3';
 import { EthereumColorful } from '@ant-design/web3-icons';
 
 const App: React.FC = () => {
   const [token, setToken] = useState<any>(undefined);
 
   return (
-    <Token.Select
+    <TokenSelect
       token={token}
       onSelect={setToken}
       tokenList={[

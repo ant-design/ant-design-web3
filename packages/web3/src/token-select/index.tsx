@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { DownOutlined, SearchOutlined } from '@ant-design/icons';
 import { Dropdown, Flex, Input } from 'antd';
 
-import { useTokenStyle } from './style';
+import { useTokenSelectStyle } from './style';
 
 export type TokenType = {
   /**
@@ -72,7 +72,7 @@ const SingleToken = ({
   onSelect?: TokenSelectProps['onSelect'];
   className?: string;
 }) => {
-  const { getClsName } = useTokenStyle();
+  const { getClsName } = useTokenSelectStyle();
 
   if (!token) {
     return 'Please select';
@@ -82,7 +82,7 @@ const SingleToken = ({
     <Flex
       gap={12}
       key={token.contract}
-      className={getClsName('profile', className)}
+      className={getClsName('token-profile', className)}
       onClick={() => onSelect?.(token)}
     >
       <span className="icon">{token.icon}</span>
@@ -91,14 +91,14 @@ const SingleToken = ({
   );
 };
 
-const TokenSelect = ({
+export const TokenSelect = ({
   token: selectedToken,
   onSelect,
   tokenList,
   defaultTokenList,
   queryTokenList,
 }: TokenSelectProps) => {
-  const { wrapSSR, getClsName } = useTokenStyle();
+  const { wrapSSR, getClsName } = useTokenSelectStyle();
 
   // Token List
   const [selfTokenList, setSelfTokenList] = useState<TokenType[] | undefined>(defaultTokenList);
@@ -136,7 +136,7 @@ const TokenSelect = ({
       }}
       dropdownRender={() => {
         return (
-          <div className={getClsName('select')}>
+          <div className={getClsName('wrapper')}>
             <Input addonBefore={<SearchOutlined />} placeholder="Please enter" />
             {selfTokenList?.map((token) => {
               return (
@@ -152,12 +152,10 @@ const TokenSelect = ({
         );
       }}
     >
-      <Flex className={getClsName('selected')} align="center">
+      <Flex className={getClsName('token-selected')} align="center">
         <SingleToken token={selectedToken} className="selected" />
         <DownOutlined className="icon" />
       </Flex>
     </Dropdown>,
   );
 };
-
-export default TokenSelect;

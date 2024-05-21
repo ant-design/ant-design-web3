@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Token } from '@ant-design/web3';
+import { CryptoInput } from '@ant-design/web3';
 import { EthereumColorful } from '@ant-design/web3-icons';
 
 const App: React.FC = () => {
@@ -10,7 +10,7 @@ const App: React.FC = () => {
   const [amount, setAmount] = useState<string | number>();
 
   return (
-    <Token.Output
+    <CryptoInput
       amount={amount}
       token={token}
       onSelect={setToken}

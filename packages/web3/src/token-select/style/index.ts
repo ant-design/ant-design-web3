@@ -16,7 +16,7 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
     /**
      * single token select style
      */
-    [`${token.componentCls}-select`]: {
+    [`${token.componentCls}-wrapper`]: {
       background: '#fff',
       width: 196,
       borderRadius: 8,
@@ -43,7 +43,7 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
         },
       },
     },
-    [`${token.componentCls}-profile`]: {
+    [`${token.componentCls}-token-profile`]: {
       fontSize: 16,
       color: '#000000e0',
       lineHeight: 1.5,
@@ -78,7 +78,7 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
         },
       },
     },
-    [`${token.componentCls}-selected`]: {
+    [`${token.componentCls}-token-selected`]: {
       width: 'fit-content',
       paddingBlock: 5,
       paddingInline: 8,
@@ -93,33 +93,11 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
         marginBlockStart: 3,
       },
     },
-    [`${token.componentCls}-output`]: {
-      '.ant-input-number': {
-        boxShadow: 'none !important',
-
-        input: {
-          padding: 0,
-          fontSize: 24,
-          lineHeight: 1.5,
-          fontWeight: 600,
-          color: '#000000db',
-
-          '&::placeholder': {
-            fontWeight: 'normal',
-          },
-        },
-      },
-    },
-
-    [`${token.componentCls}-output-amount`]: {
-      flex: 1,
-      border: 'none',
-    },
   };
 };
 
 export function useStyle(prefixCls: string): UseStyleResult {
-  return useAntdStyle('token', (token) => {
+  return useAntdStyle('token-select', (token) => {
     const proListToken: TokenStyle = {
       ...token,
       componentCls: `.${prefixCls}`,
@@ -129,8 +107,8 @@ export function useStyle(prefixCls: string): UseStyleResult {
   });
 }
 
-export function useTokenStyle() {
-  const prefixCls = 'web3-token';
+export function useTokenSelectStyle() {
+  const prefixCls = 'web3-token-select';
 
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
