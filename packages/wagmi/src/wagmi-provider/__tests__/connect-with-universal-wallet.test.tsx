@@ -24,6 +24,14 @@ const event = new EventEmitter();
 const connectAsync = vi.fn();
 const disconnectAsync = vi.fn();
 
+vi.mock('@wagmi/core', () => ({
+  getAccount: () => ({}),
+  disconnect: () => {
+    disconnectAsync();
+    event.emit('connectChanged', false);
+  },
+}));
+
 vi.mock('wagmi', () => {
   return {
     useConfig: () => {

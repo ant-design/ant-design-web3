@@ -11,6 +11,11 @@ const mockConnector = {
   name: 'MetaMask',
 };
 
+vi.mock('@wagmi/core', () => ({
+  getAccount: () => ({}),
+  disconnect: () => {},
+}));
+
 vi.mock('wagmi', () => {
   return {
     useConfig: () => {

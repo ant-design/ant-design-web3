@@ -1,5 +1,11 @@
 # @ant-design/web3-solana
 
+## 1.1.3
+
+### Patch Changes
+
+- 5312696: refactor: Remove '@solana/wallet-adapter-wallets' dep
+
 ## 1.1.2
 
 ### Patch Changes

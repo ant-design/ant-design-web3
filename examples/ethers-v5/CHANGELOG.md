@@ -2,6 +2,11 @@
 
 ### Patch Changes
 
+- Updated dependencies [5b576a3]
+  - @ant-design/web3@1.11.2
+
+### Patch Changes
+
 - Updated dependencies [8c59ee1]
 - Updated dependencies [17c450f]
 - Updated dependencies [1270c95]
