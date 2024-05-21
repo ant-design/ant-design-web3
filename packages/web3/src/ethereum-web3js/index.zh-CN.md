@@ -36,3 +36,4 @@ group:
 | locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
 | eip6963 | 是否采用 EIP6963 协议钱包以及相关配置 | `boolean` \| `EIP6963Config` | `false` |  |
 | walletConnect | 是否采用 Wallet Connect 协议 | `false` \| [WalletConnectOptions](https://wagmi.sh/core/api/connectors/walletConnect#parameters) | `false` |  |
+| storage | 在 session 之间同步状态的存储配置 | `false` \| [WagmiStorage](https://wagmi.sh/core/api/createStorage) | - | `next` |

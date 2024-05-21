@@ -18,12 +18,7 @@ const App: React.FC = () => {
 
 export default () => {
   return (
-    <EthWeb3jsConfigProvider
-      ens
-      eip6963={{ autoAddInjectedWallets: true }}
-      chains={[Mainnet]}
-      storage={false}
-    >
+    <EthWeb3jsConfigProvider ens eip6963={{ autoAddInjectedWallets: true }} chains={[Mainnet]}>
       <Connector modalProps={{ mode: 'simple' }}>
         <ConnectButton quickConnect style={{ minWidth: 120 }} />
       </Connector>

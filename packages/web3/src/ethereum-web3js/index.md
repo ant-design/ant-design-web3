@@ -35,3 +35,4 @@ This example shows how to use the `web3js` adapter to sign messages. For more ex
 | locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/en_US.ts) | - | - |
 | eip6963 | Whether to use EIP6963 protocol wallet and related configurations | `boolean` \| `EIP6963Config` | `false` |  |
 | walletConnect | Whether to use the Wallet Connect protocol | `false` \| [WalletConnectOptions](https://wagmi.sh/core/api/connectors/walletConnect#parameters) | `false` |  |
+| storage | Persists config's state between sessions. | `false` \| [WagmiStorage](https://wagmi.sh/core/api/createStorage) | - | `next` |
