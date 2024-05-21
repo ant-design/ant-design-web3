@@ -1,7 +1,7 @@
 import React, { useDeferredValue, useEffect, useState } from 'react';
 import { CloseCircleOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
-import { Token } from '@ant-design/web3-common';
-import { Dropdown, Flex, Input, InputRef, Spin } from 'antd';
+import type { Token } from '@ant-design/web3-common';
+import { Dropdown, Flex, Input } from 'antd';
 
 import { useTokenSelectStyle } from './style';
 
