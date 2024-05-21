@@ -26,7 +26,7 @@ const LinkPanel: React.FC = () => {
             size={62}
             icon={
               typeof selectedWallet?.icon === 'string' ? (
-                <img src={selectedWallet.icon} alt={`${selectedWallet.name} icon`} />
+                <img src={selectedWallet.icon} alt={selectedWallet.name} />
               ) : (
                 selectedWallet?.icon
               )
