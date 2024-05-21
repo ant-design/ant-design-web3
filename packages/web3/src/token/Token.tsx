@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import { SearchOutlined } from '@ant-design/icons';
-import { ConfigProvider, Dropdown, Flex, Input, InputNumber } from 'antd';
+import { ConfigProvider, Flex, InputNumber } from 'antd';
 import classNames from 'classnames';
 
+import type { TokenSelectProps } from './Select';
+import TokenSelect from './Select';
 import { useStyle } from './style';
 
 export type TokenType = {
@@ -36,22 +37,7 @@ export type TokenType = {
   contract: string;
 };
 
-export interface TokenProps {
-  /**
-   * selected token
-   */
-  token?: TokenType;
-  /**
-   * change selected token callback
-   * @param token
-   * @returns
-   */
-  onSelect?: (token: TokenType) => void;
-  /**
-   * query allow select token list
-   * @returns token list
-   */
-  queryTokenList?: () => Promise<TokenType[] | undefined>;
+export interface TokenProps extends TokenSelectProps {
   /**
    * query selected token
    * @returns selected token
@@ -62,7 +48,7 @@ export interface TokenProps {
   }>;
 }
 
-const Token = ({ queryTokenList }: TokenProps) => {
+const Token = ({ querySelectedToken, ...props }: TokenProps) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const prefixCls = getPrefixCls('web3-swap');
@@ -80,23 +66,12 @@ const Token = ({ queryTokenList }: TokenProps) => {
           placeholder="Please enter amount"
           className={getClsName('token-amount')}
         />
-        <Dropdown
-          trigger={['click']}
-          dropdownRender={() => {
-            return (
-              <div className={getClsName('token-select')}>
-                <Input addonBefore={<SearchOutlined />} placeholder="Please enter" />
-              </div>
-            );
-          }}
-        >
-          <Flex className={getClsName('token-selected')}>
-            <span>selected</span>
-          </Flex>
-        </Dropdown>
+        <TokenSelect {...props} />
       </Flex>
     </div>,
   );
 };
+
+Token.Select = TokenSelect;
 
 export default Token;

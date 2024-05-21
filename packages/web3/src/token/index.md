@@ -5,12 +5,12 @@ group:
   order: 3
 ---
 
-# Swap
+# Token
 
 ## Single Token Select
 
 <code src="./demos/basic.tsx"></code>
 
-## Full Swap
+## Token Output
 
-<code src="./demos/swap.tsx"></code>
+<code src="./demos/token.tsx"></code>
