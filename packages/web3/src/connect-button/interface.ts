@@ -1,9 +1,10 @@
 import type { ConnectorTriggerProps, Locale } from '@ant-design/web3-common';
-import type { AvatarProps, ButtonProps, MenuProps, TooltipProps } from 'antd';
-import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
+import type { AvatarProps, ButtonProps, GetProp, MenuProps, TooltipProps } from 'antd';
 
 import type { AddressProps } from '../address';
 import type { ProfileModalProps } from './profile-modal';
+
+export type MenuItemType = Extract<GetProp<MenuProps, 'items'>[number], { type?: 'item' }>;
 
 export type ConnectButtonTooltipProps = TooltipProps & {
   __hashId__?: string;

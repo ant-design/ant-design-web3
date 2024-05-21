@@ -43,9 +43,9 @@
   "devDependencies": {
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
-    "antd": "^5.16.5",
+    "antd": "^5.17.3",
     "father": "^4.4.0",
-    "glob": "^10.3.12",
+    "glob": "^10.3.15",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.4.4"

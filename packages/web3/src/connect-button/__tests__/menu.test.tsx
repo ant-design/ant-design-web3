@@ -1,9 +1,9 @@
 import { fireEvent, render } from '@testing-library/react';
-import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { ConnectButton } from '..';
 import { readCopyText } from '../../utils/test-utils';
+import type { MenuItemType } from '../interface';
 
 const menuItems: MenuItemType[] = [
   {

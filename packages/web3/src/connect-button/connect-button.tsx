@@ -3,7 +3,6 @@ import { CopyOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
 import type { Chain, Wallet } from '@ant-design/web3-common';
 import type { ButtonProps } from 'antd';
 import { Avatar, ConfigProvider, Divider, Dropdown, message } from 'antd';
-import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 
 import { Address } from '../address';
@@ -14,7 +13,7 @@ import { fillWithPrefix, writeCopyText } from '../utils';
 import { ChainSelect } from './chain-select';
 import type { ChainSelectProps } from './chain-select';
 import { ConnectButtonInner } from './connect-button-inner';
-import type { ConnectButtonProps, ConnectButtonTooltipProps } from './interface';
+import type { ConnectButtonProps, ConnectButtonTooltipProps, MenuItemType } from './interface';
 import type { ProfileModalProps } from './profile-modal';
 import { ProfileModal } from './profile-modal';
 import { useStyle } from './style';
@@ -91,6 +90,10 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     onSwitchChain,
     currentChain: chain,
     chains: availableChains as Chain[],
+    buttonProps: {
+      size: props.size,
+      type: props.type,
+    },
   };
 
   const profileModalProps: ProfileModalProps = {

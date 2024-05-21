@@ -30,7 +30,11 @@ The recommended configuration mainly includes:
 
 ## Add more wallets
 
-To reduce the size of the package you're including, you need to manually configure the `wallets` to import the relevant wallets. You can export the necessary resources from `@ant-design/web3-assets` and `@solana/wallet-adapter-wallets`. If you don't find the resources you need, you can let us know by submitting a [GitHub issue](https://github.com/ant-design/ant-design-web3/issues). You can also configure it yourself or submit a Pull Request to us for support.
+To reduce the size of the package you're including, you need to manually configure the `wallets` to import the relevant wallets. You can export the necessary resources from `@ant-design/web3-assets` and `@solana/wallet-adapter-ADAPTER_YOUR_NEED`. If you don't find the resources you need, you can let us know by submitting a [GitHub issue](https://github.com/ant-design/ant-design-web3/issues). You can also configure it yourself or submit a Pull Request to us for support.
+
+`@solana/wallet-adapter-ADAPTER_YOUR_NEED`:
+
+Available adapters can be found here: [wallet-adapters](https://github.com/anza-xyz/wallet-adapter/blob/master/packages/wallets/wallets/src/index.ts)
 
 <code src="./demos/more-wallets.tsx"></code>
 

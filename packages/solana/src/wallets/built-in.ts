@@ -6,7 +6,8 @@ import {
   metadata_Trust,
   metadata_WalletConnect,
 } from '@ant-design/web3-assets';
-import { CoinbaseWalletAdapter, TrustWalletAdapter } from '@solana/wallet-adapter-wallets';
+import { CoinbaseWalletAdapter } from '@solana/wallet-adapter-coinbase';
+import { TrustWalletAdapter } from '@solana/wallet-adapter-trust';
 
 import { WalletConnectWalletAdapter } from '../wallet-connect-adapter';
 import { StandardWalletFactory, WalletConnectWalletFactory, WalletFactory } from './factory';

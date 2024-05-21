@@ -4,8 +4,9 @@ import { useProvider } from '@ant-design/web3';
 import { metadata_CoinbaseWallet, metadata_Phantom } from '@ant-design/web3-assets';
 import { Solana, SolanaDevnet } from '@ant-design/web3-assets/solana';
 import { WalletReadyState, type Adapter } from '@solana/wallet-adapter-base';
+import { CoinbaseWalletAdapter } from '@solana/wallet-adapter-coinbase';
+import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
 import type { Wallet } from '@solana/wallet-adapter-react';
-import { CoinbaseWalletAdapter, PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { fireEvent } from '@testing-library/react';
 import { afterAll, describe, expect, it, vi } from 'vitest';
 

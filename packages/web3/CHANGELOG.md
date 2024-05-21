@@ -1,5 +1,11 @@
 # @ant-design/web3
 
+## 1.11.2
+
+### Patch Changes
+
+- 5b576a3: fix: chain select style bug when ConnectButton set type or size
+
 ## 1.11.1
 
 ### Patch Changes
