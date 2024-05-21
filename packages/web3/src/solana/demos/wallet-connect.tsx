@@ -8,7 +8,6 @@ import {
 const App: React.FC = () => {
   return (
     <SolanaWeb3ConfigProvider
-      autoConnect
       wallets={[PhantomWallet(), WalletConnectWallet()]}
       walletConnect={{
         projectId: YOUR_WALLET_CONNECT_PROJECT_ID,

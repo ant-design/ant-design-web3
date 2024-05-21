@@ -11,7 +11,6 @@ const App: React.FC = () => {
   return (
     <SolanaWeb3ConfigProvider
       balance={false}
-      autoConnect
       chains={[solana, solanaTestnet, solanaDevnet]}
       wallets={[CoinbaseWallet()]}
     >

@@ -38,7 +38,6 @@ const App: React.FC = () => {
   return (
     <SolanaWeb3ConfigProvider
       balance={false}
-      autoConnect
       chains={[solana, solanaDevnet]}
       rpcProvider={() => `https://mainnet.helius-rpc.com/?api-key=${YOUR_HELIUS_API_KEY}`}
       wallets={[PhantomWallet()]}

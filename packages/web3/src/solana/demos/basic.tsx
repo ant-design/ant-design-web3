@@ -3,7 +3,7 @@ import { CoinbaseWallet, PhantomWallet, SolanaWeb3ConfigProvider } from '@ant-de
 
 const App: React.FC = () => {
   return (
-    <SolanaWeb3ConfigProvider autoConnect wallets={[CoinbaseWallet(), PhantomWallet()]}>
+    <SolanaWeb3ConfigProvider wallets={[CoinbaseWallet(), PhantomWallet()]}>
       <Connector>
         <ConnectButton />
       </Connector>
