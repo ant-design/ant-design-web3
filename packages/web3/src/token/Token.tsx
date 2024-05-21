@@ -1,41 +1,8 @@
-import React, { useContext } from 'react';
-import { ConfigProvider, Flex, InputNumber } from 'antd';
-import classNames from 'classnames';
+import React from 'react';
+import { Flex, InputNumber } from 'antd';
 
-import type { TokenSelectProps } from './Select';
-import TokenSelect from './Select';
-import { useStyle } from './style';
-
-export type TokenType = {
-  /**
-   * token fullname
-   */
-  name: string;
-  /**
-   * token symbol
-   */
-  symbol: string;
-  /**
-   * token icon
-   */
-  icon: React.ReactNode;
-  /**
-   * token decimal
-   */
-  decimal?: number;
-  /**
-   * chain name
-   */
-  chain: string;
-  /**
-   * chain icon
-   */
-  chainIcon: React.ReactNode;
-  /**
-   * contract address
-   */
-  contract: string;
-};
+import TokenSelect, { type TokenSelectProps } from './Select';
+import { useTokenStyle } from './style';
 
 export interface TokenProps extends TokenSelectProps {
   /**
@@ -49,13 +16,7 @@ export interface TokenProps extends TokenSelectProps {
 }
 
 const Token = ({ querySelectedToken, ...props }: TokenProps) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-
-  const prefixCls = getPrefixCls('web3-swap');
-
-  const { wrapSSR, hashId } = useStyle(prefixCls);
-
-  const getClsName = (cls: string) => classNames(`${prefixCls}-${cls}`, hashId);
+  const { wrapSSR, getClsName } = useTokenStyle();
 
   return wrapSSR(
     <div className={getClsName('token-wrapper')}>
