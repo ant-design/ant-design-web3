@@ -17,4 +17,5 @@ export const metadata_TokenPocket: WalletMetadata = {
       description: 'Access your wallet right from your favorite web browser.',
     },
   ],
+  supportChainTypes: ['EVM'],
 };

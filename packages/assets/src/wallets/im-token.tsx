@@ -8,4 +8,13 @@ export const metadata_imToken: WalletMetadata = {
   app: {
     link: 'https://token.im/download',
   },
+  payQRCodeFormatterFunc: (params) => {
+    const { toAddress, chainId, amount, tokenAddress = '', decimal } = params;
+    if (tokenAddress) {
+      return `ethereum:${toAddress}@${chainId}?contractAddress=${tokenAddress}&decimal=${decimal}&value=${amount}`;
+    } else {
+      return `ethereum:${toAddress}@${chainId}?decimal=18&value=${amount}`;
+    }
+  },
+  supportChainTypes: ['EVM'],
 };

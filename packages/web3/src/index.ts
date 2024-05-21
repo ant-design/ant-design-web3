@@ -11,3 +11,4 @@ export * from './token-select';
 export * from './hooks';
 export * from './web3-config-provider';
 export * from '@ant-design/web3-common';
+export * from './pay-panel';
