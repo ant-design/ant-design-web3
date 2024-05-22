@@ -1,18 +1,18 @@
 import type { Account, Balance } from '@ant-design/web3-common';
 
-import { NoProviderError } from '../../error';
+import { NoAddressError, NoProviderError } from '../../error';
 import { getBalanceObject } from '../../helpers';
 import type { SignPsbtParams, TransferParams } from '../../types';
 import type { BitcoinWallet } from '../useBitcoinWallet';
 
 export class OkxBitcoinWallet implements BitcoinWallet {
   name: string;
-  provider: Window['okxwallet'];
+  provider?: Unisat.Provider;
   account?: Account;
 
   constructor(name: string) {
     this.name = name;
-    this.provider = window.okxwallet;
+    this.provider = window.okxwallet?.bitcoin;
     this.account = undefined;
   }
 
@@ -22,7 +22,7 @@ export class OkxBitcoinWallet implements BitcoinWallet {
     }
 
     try {
-      const accounts = await this.provider.bitcoin.requestAccounts();
+      const accounts = await this.provider.requestAccounts();
       this.account = { address: accounts[0] };
     } catch (error) {
       throw error;
@@ -34,7 +34,7 @@ export class OkxBitcoinWallet implements BitcoinWallet {
       throw new NoProviderError();
     }
 
-    const { confirmed } = await this.provider.bitcoin.getBalance();
+    const { confirmed } = await this.provider.getBalance();
     return getBalanceObject(confirmed);
   };
 
@@ -43,7 +43,7 @@ export class OkxBitcoinWallet implements BitcoinWallet {
       throw new NoProviderError();
     }
 
-    return await this.provider.bitcoin.signMessage(msg);
+    return await this.provider.signMessage(msg);
   };
 
   sendTransfer = async ({ to, sats, options }: TransferParams): Promise<string> => {
@@ -53,7 +53,7 @@ export class OkxBitcoinWallet implements BitcoinWallet {
 
     let txid = '';
     try {
-      txid = await this.provider.bitcoin.sendBitcoin(to, sats, options);
+      txid = await this.provider.sendBitcoin(to, sats, options);
     } catch (error) {
       throw error;
     }
@@ -64,6 +64,9 @@ export class OkxBitcoinWallet implements BitcoinWallet {
     if (!this.provider) {
       throw new NoProviderError();
     }
+    if (!this.account?.address) {
+      throw new NoAddressError();
+    }
 
     const { broadcast = false, signInputs = {}, signHash } = options;
     const toSignInputs = [];
@@ -73,12 +76,13 @@ export class OkxBitcoinWallet implements BitcoinWallet {
         toSignInputs.push({
           address,
           index: input,
-          sighashTypes: [signHash],
+          sighashTypes: signHash ? [signHash] : undefined,
+          publicKey: this.account?.address,
         });
       }
     }
 
-    const signedPsbt = await this.provider.bitcoin.signPsbt(psbt, {
+    const signedPsbt = await this.provider.signPsbt(psbt, {
       autoFinalized: broadcast,
       toSignInputs: toSignInputs.length === 0 ? undefined : toSignInputs,
     });
@@ -86,5 +90,13 @@ export class OkxBitcoinWallet implements BitcoinWallet {
     return {
       psbt: signedPsbt,
     };
+  };
+
+  getInscriptions = async (offset = 0, size = 20) => {
+    if (!this.provider) {
+      throw new NoProviderError();
+    }
+    const inscriptions = await this.provider.getInscriptions(offset, size);
+    return inscriptions;
   };
 }

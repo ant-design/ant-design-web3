@@ -12,11 +12,16 @@ npm install @ant-design/web3 @ant-design/web3-bitcoin
 
 ```tsx
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { BitcoinWeb3ConfigProvider, UnisatWallet, XverseWallet } from '@ant-design/web3-bitcoin';
+import {
+  BitcoinWeb3ConfigProvider,
+  OkxWallet,
+  UnisatWallet,
+  XverseWallet,
+} from '@ant-design/web3-bitcoin';
 
 const App: React.FC = () => {
   return (
-    <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet()]}>
+    <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet(), OkxWallet()]}>
       <Connector>
         <ConnectButton />
       </Connector>
@@ -32,5 +37,3 @@ For more examples, refer to [Bitcoin - Ant Design Web3](https://web3.ant.design/
 ## Documentation
 
 - For more information, visit [Ant Design Web3](https://web3.ant.design).
-- For an introduction to UniSat wallet, visit [UniSat Wallet](https://docs.unisat.io/dev/unisat-developer-service/unisat-wallet).
-- For an introduction to Xverse wallet, visit [Sats Connect](https://docs.xverse.app/sats-connect).

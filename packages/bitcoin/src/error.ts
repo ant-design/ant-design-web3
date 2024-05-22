@@ -25,3 +25,12 @@ export class NoBalanceError extends Error {
     this.name = this.constructor.name;
   }
 }
+
+export class NoInscriptionError extends Error {
+  name: string;
+
+  constructor(message = 'Failed to get inscriptions') {
+    super(message);
+    this.name = this.constructor.name;
+  }
+}

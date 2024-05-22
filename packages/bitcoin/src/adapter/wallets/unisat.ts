@@ -1,13 +1,13 @@
 import type { Account, Balance } from '@ant-design/web3-common';
 
-import { NoProviderError } from '../../error';
+import { NoAddressError, NoProviderError } from '../../error';
 import { getBalanceObject } from '../../helpers';
 import type { SignPsbtParams, SignPsbtResult, TransferParams } from '../../types';
 import type { BitcoinWallet } from '../useBitcoinWallet';
 
 export class UnisatBitcoinWallet implements BitcoinWallet {
   name: string;
-  provider: Window['unisat'];
+  provider?: Unisat.Provider;
   account?: Account;
 
   constructor(name: string) {
@@ -62,6 +62,9 @@ export class UnisatBitcoinWallet implements BitcoinWallet {
     if (!this.provider) {
       throw new NoProviderError();
     }
+    if (!this.account?.address) {
+      throw new NoAddressError();
+    }
     const { broadcast = false, signInputs = {}, signHash } = options;
     const toSignInputs = [];
 
@@ -71,7 +74,8 @@ export class UnisatBitcoinWallet implements BitcoinWallet {
         toSignInputs.push({
           address,
           index: input,
-          sighashTypes: [signHash],
+          sighashTypes: signHash ? [signHash] : undefined,
+          publicKey: this.account?.address,
         });
       }
     }
@@ -82,5 +86,13 @@ export class UnisatBitcoinWallet implements BitcoinWallet {
     return {
       psbt: signedPsbt,
     };
+  };
+
+  getInscriptions = async (offset = 0, size = 20) => {
+    if (!this.provider) {
+      throw new NoProviderError();
+    }
+    const inscriptions = await this.provider.getInscriptions(offset, size);
+    return inscriptions;
   };
 }

@@ -1,29 +1,31 @@
 import { useState } from 'react';
-import { ConnectButton, Connector } from '@ant-design/web3';
+import { ConnectButton, Connector, NFTImage } from '@ant-design/web3';
 import {
   BitcoinWeb3ConfigProvider,
+  OkxWallet,
   UnisatWallet,
   useBitcoinWallet,
+  XverseWallet,
+  type Inscription,
 } from '@ant-design/web3-bitcoin';
 import { Button, message, Space } from 'antd';
 
 const GetInscriptions: React.FC = () => {
-  const { account, name, provider } = useBitcoinWallet();
-  const [img, setImg] = useState<string>();
+  const { account, getInscriptions } = useBitcoinWallet();
+  const [inscription, setInscription] = useState<Inscription>();
 
   return account ? (
     <Space direction="vertical">
       <Button
         onClick={async () => {
           try {
-            if (name !== 'Unisat') return;
-            const res = await provider.getInscriptions(0, 10);
+            const res = await getInscriptions();
             const { total, list } = res;
             if (total === 0) {
               message.info('no inscription');
               return;
             }
-            setImg(list[0].content);
+            setInscription(list[0]);
           } catch (error) {
             console.log('sign message error:', error);
           }
@@ -31,14 +33,18 @@ const GetInscriptions: React.FC = () => {
       >
         show the first inscription
       </Button>
-      {img ? <iframe src={img} width={200} height={200} /> : null}
+      {!inscription ? null : inscription.contentType.includes('image') ? (
+        <NFTImage src={inscription.content} width={200} />
+      ) : (
+        <iframe src={inscription.content} width={200} height={200} />
+      )}
     </Space>
   ) : null;
 };
 
 const App: React.FC = () => {
   return (
-    <BitcoinWeb3ConfigProvider wallets={[UnisatWallet()]}>
+    <BitcoinWeb3ConfigProvider wallets={[UnisatWallet(), XverseWallet(), OkxWallet()]}>
       <Space direction="vertical">
         <Connector>
           <ConnectButton />

@@ -1,6 +1,6 @@
 import type { Wallet, WalletMetadata } from '@ant-design/web3-common';
 
-import { BitcoinWallet, XverseBitcoinWallet } from '../adapter';
+import { BitcoinWallet } from '../adapter';
 
 export interface WalletWithAdapter extends Wallet {
   adapter: BitcoinWallet;
@@ -11,6 +11,7 @@ export interface WalletFactory {
 }
 
 export type WalletFactoryBuilder = (
-  adapter: typeof XverseBitcoinWallet,
+  // wallets have different adapter
+  adapterConstructor: any,
   metadata: WalletMetadata,
 ) => WalletFactory;

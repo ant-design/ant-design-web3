@@ -4,20 +4,17 @@ order: 1
 group:
   title: Connect Blockchains
   order: 2
-tag:
-  title: New
-  color: success
 ---
 
 # Bitcoin
 
-Ant Design Web3 officially provides `@ant-design/web3-bitcoin` to adapt to Bitcoin. It provides the ability to connect to Bitcoin for the components of `@ant-design/web3`.
+Ant Design Web3 officially provides `@ant-design/web3-bitcoin` to adapt to Bitcoin, which provides the ability for `@ant-design/web3` components to connect to Bitcoin. You don't need to handle the connection status of the components yourself. It will provide relevant global states and interfaces for the components through `Web3ConfigProvider`. At the same time, you don't need to customize the handling of wallets. `useBitcoinWallet` exposes common methods such as signing and transactions, which can be directly called. Of course, you can still call the unique APIs of different wallets through `provider`.
 
-Currently, connections to Xverse, OKX and Unisat wallets are supported. In the future, [StandardWallet protocol](https://github.com/ExodusMovement/bitcoin-wallet-standard) and more commonly used wallets will be supported.
+The wallets currently supported are as follows, and we also welcome you to submit GitHub issues or PRs to support other wallets.
 
-`useBitcoinWallet` exposes common methods such as signing and transaction handling, which can be called directly. Alternatively, wallet APIs can be accessed through the `provider` for customized handling of wallet logic.
-
-Support for other methods will be added in the future. Feel free to submit a GitHub issue or a PR to support this. Currently, related logic can be implemented through the provider.
+- [Xverse](https://docs.xverse.app/sats-connect)
+- [OKX](https://www.okx.com/web3/build/docs/sdks/chains/bitcoin/provider)
+- [Unisat](https://docs.unisat.io/dev/unisat-developer-service/unisat-wallet)
 
 ## WalletConnect
 
@@ -31,7 +28,7 @@ Support for other methods will be added in the future. Feel free to submit a Git
 
 <code src="./demos/send-transfer.tsx"></code>
 
-## get Ordinals Inscriptions using unisat wallet
+## use NFTImage to show inscriptions
 
 <code src="./demos/get-inscriptions.tsx"></code>
 
@@ -59,6 +56,7 @@ Support for other methods will be added in the future. Feel free to submit a Git
 | signMessage | Sign message | `(message: string) => Promise<string>` |
 | sendTransfer | Transfer bticoin | `(prams: TranssferParams) => Promise<string>` |
 | signPsbt | Sign PSBT | `(params: SignPsbtParams) => Promise<SignPsbtResult>` |
+| getInscriptions | Get Inscriptions | `(offset?: number, size?: number) => Promise<{ total: number; list: Inscription[] }>` |
 
 ##### TransferParams
 
@@ -89,3 +87,19 @@ Support for other methods will be added in the future. Feel free to submit a Git
 | --- | --- | --- | --- | --- |
 | psbt | The base64 encoded PSBT after signing | `string` | - | - |
 | txid | The transaction hash, only returned if `broadcast` equals true | `string` | - | - |
+
+##### Inscription
+
+| 属性               | 描述                                  | 类型     | 默认值 | 版本 |
+| ------------------ | ------------------------------------- | -------- | ------ | ---- |
+| inscriptionId      | Inscription id                        | `string` | -      | -    |
+| address            | Inscription number                    | `string` | -      | -    |
+| outputValue        | The output value of inscription       | `string` | -      | -    |
+| content            | The content url of inscription        | `string` | -      | -    |
+| contentLength      | The content length of inscription     | `string` | -      | -    |
+| contentType        | The content type of inscription       | `string` | -      | -    |
+| preview            | The preview link                      | `string` | -      | -    |
+| timestamp          | The blocktime of inscription          | `number` | -      | -    |
+| offset             | The offset of inscription             | `number` | -      | -    |
+| genesisTransaction | The txid of genesis transaction       | `string` | -      | -    |
+| location           | The txid and vout of current location | `string` | -      | -    |

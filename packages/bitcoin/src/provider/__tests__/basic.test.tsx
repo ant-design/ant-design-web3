@@ -3,7 +3,7 @@ import { fireEvent } from '@testing-library/react';
 import { Button } from 'antd';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { getBalanceByMempool } from '../../helpers';
+import { getBalanceByMempool, getInscriptionsByAddress } from '../../helpers';
 import { XverseWallet } from '../../wallets';
 import { BitcoinWeb3ConfigProvider } from '../index';
 import { xrender } from './utils';
@@ -65,6 +65,16 @@ describe('BitcoinWeb3ConfigProvider', () => {
     }
   });
 
+  it("can't get inscriptions", async () => {
+    // @ts-ignore: vi.fn().mockResolvedValue
+    fetch.mockResolvedValue(() => Promise.resolve({ ok: false }));
+    try {
+      await getInscriptionsByAddress({ address: 'bc1p', size: 10, offset: 0 });
+    } catch (e: any) {
+      console.log(e.message);
+    }
+  });
+
   it('connect and disconnect', async () => {
     const addressResponse = {
       chain_stats: {
@@ -88,6 +98,68 @@ describe('BitcoinWeb3ConfigProvider', () => {
     const App = () => {
       return (
         <BitcoinWeb3ConfigProvider wallets={[XverseWallet()]} balance>
+          <Connector>
+            <ConnectButton className="connect" />
+          </Connector>
+          <Disconnect />
+        </BitcoinWeb3ConfigProvider>
+      );
+    };
+
+    const { selector } = xrender(App);
+    const modalBtn = selector('.connect')!;
+    fireEvent.click(modalBtn);
+    // select wallet
+    const connectBtn = selector('.ant-list-item')!;
+    expect(connectBtn.textContent).not.toBeNull();
+    fireEvent.click(connectBtn);
+    // disconnect
+    const disconnectBtn = selector('.disconnect')!;
+    fireEvent.click(disconnectBtn);
+  });
+
+  it('get inscriptions', async () => {
+    const inscriptionResponse = {
+      results: [
+        {
+          id: '5002c2871b6258a1dfe6548e4e38cf4304dac81cf3731a76e27e86517d4d52e4i0',
+          number: 70532078,
+          address: 'bc1pz7wkcn4h3dgdrxfzrkuj73gp7wk6dume2falkn636uzptcpjcyusekzz6u',
+          genesis_tx_id: '5002c2871b6258a1dfe6548e4e38cf4304dac81cf3731a76e27e86517d4d52e4',
+          tx_id: '5002c2871b6258a1dfe6548e4e38cf4304dac81cf3731a76e27e86517d4d52e4',
+          location: '5002c2871b6258a1dfe6548e4e38cf4304dac81cf3731a76e27e86517d4d52e4:0:0',
+          output: '5002c2871b6258a1dfe6548e4e38cf4304dac81cf3731a76e27e86517d4d52e4:0',
+          value: '546',
+          offset: '0',
+          content_type: 'image/png',
+          content_length: 529,
+          timestamp: 1714413742000,
+        },
+      ],
+      total: 1,
+    };
+
+    // @ts-ignore: vi.fn().mockResolvedValue
+    fetch.mockResolvedValue(createFetchResponse(inscriptionResponse));
+
+    try {
+      await getInscriptionsByAddress({ address: 'bc1p', size: 10, offset: 0 });
+    } catch (e: any) {
+      console.log(e.message);
+    }
+
+    const Disconnect = () => {
+      const { disconnect } = useConnection();
+      return (
+        <Button className="disconnect" onClick={() => disconnect?.()}>
+          disconnect
+        </Button>
+      );
+    };
+
+    const App = () => {
+      return (
+        <BitcoinWeb3ConfigProvider wallets={[XverseWallet()]}>
           <Connector>
             <ConnectButton className="connect" />
           </Connector>
