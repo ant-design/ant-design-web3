@@ -2,4 +2,4 @@
 "@ant-design/web3": patch
 ---
 
-fix: Connecting logo need to adapt base64 img
+fix(web3): connecting icon supports base64 format
