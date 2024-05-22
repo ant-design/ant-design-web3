@@ -7,6 +7,7 @@ import { connectModalContext } from '../context';
 import type { ConnectModalActionType, ConnectModalProps, Wallet } from '../interface';
 import { defaultGroupOrder } from '../utils';
 import PluginTag from './PluginTag';
+import WalletIcon from './WalletIcon';
 
 export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'group' | 'groupOrder'>;
 
@@ -88,11 +89,7 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
             }}
           >
             <div className={`${prefixCls}-content`}>
-              {typeof item.icon === 'string' || item.icon === undefined ? (
-                <img className={`${prefixCls}-img`} src={item.icon} alt={item.name} />
-              ) : (
-                <div className={`${prefixCls}-icon`}>{item.icon}</div>
-              )}
+              <WalletIcon wallet={item} />
               <Typography.Text ellipsis={{ tooltip: true }} className={`${prefixCls}-name`}>
                 {item.name}
               </Typography.Text>
