@@ -1,9 +1,7 @@
 declare interface Window {
   unisat?: Unisat.Provider;
-  // okx is the same as unisat
-  okxwallet?: {
-    bitcoin: Unisat.Provider;
-  };
+  // TODO: 与其他 okx 冲突
+  okxwallet?: any;
 }
 
 declare namespace Unisat {
@@ -24,13 +22,13 @@ declare namespace Unisat {
       psbtHex: string,
       options?: {
         autoFinalized: boolean;
-        toSignInputs?: Array<{
+        toSignInputs?: {
           index: number;
           address: string;
           publicKey: string;
           sighashTypes?: number[];
           disableTweakSigner?: boolean;
-        }>;
+        }[];
       },
     ) => Promise<string>;
   }
