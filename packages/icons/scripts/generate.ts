@@ -30,6 +30,7 @@ const IdentifierMap: Record<string, string> = {
   'bsc-circle-colorful': 'BSCCircleColorful',
   'wbtc-circle-colorful': 'WBTCCircleColorful',
   'dai-circle-colorful': 'DAICircleColorful',
+  'xlayer-colorful': 'XLayerColorful',
 };
 
 function getAllFilesInDirectory(dirPath: string) {
