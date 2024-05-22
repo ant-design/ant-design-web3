@@ -615,7 +615,6 @@ export * from './components/xem-colorful';
 export * from './components/xht-colorful';
 export * from './components/xhv-colorful';
 export * from './components/xin-circle-colorful';
-export * from './components/xlayer-colorful';
 export * from './components/xlm-colorful';
 export * from './components/xmr-circle-colorful';
 export * from './components/xmx-colorful';
