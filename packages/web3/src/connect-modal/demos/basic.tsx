@@ -1,12 +1,17 @@
 import React from 'react';
 import { ConnectModal } from '@ant-design/web3';
-import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
+import {
+  metadata_MetaMask,
+  metadata_WalletConnect,
+  mobile_WalletConnect,
+} from '@ant-design/web3-assets';
 import { Button } from 'antd';
 
 import type { Wallet } from '../interface';
 
 const walletList: Wallet[] = [
   metadata_MetaMask,
+  mobile_WalletConnect,
   {
     ...metadata_WalletConnect,
     getQrCode: () => {
