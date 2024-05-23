@@ -14,7 +14,16 @@ const App: React.FC = () => {
           name: 'Ethereum',
           symbol: 'ETH',
           icon: <EthereumColorful />,
-          contract: '0x',
+          decimal: 18,
+          availableChains: [
+            {
+              chain: {
+                name: 'Ethereum',
+                id: 1,
+              },
+              contract: '0x',
+            },
+          ],
         },
       ]}
     />

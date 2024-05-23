@@ -1,64 +1,34 @@
-import React, { Suspense, useCallback, useDeferredValue, useEffect, useRef, useState } from 'react';
+import React, { useDeferredValue, useEffect, useState } from 'react';
 import { CloseCircleOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
+import { Token } from '@ant-design/web3-common';
 import { Dropdown, Flex, Input, InputRef, Spin } from 'antd';
-import { debounce } from 'lodash';
 
 import { useTokenSelectStyle } from './style';
-
-export type TokenType = {
-  /**
-   * token fullname
-   */
-  name: string;
-  /**
-   * token symbol
-   */
-  symbol: string;
-  /**
-   * token icon
-   */
-  icon: React.ReactNode;
-  /**
-   * token decimal
-   */
-  decimal?: number;
-  /**
-   * contract address
-   */
-  contract: string;
-  /**
-   * chain
-   */
-  chain?: {
-    name: string;
-    icon: React.ReactNode;
-  };
-};
 
 export interface TokenSelectProps {
   /**
    * selected token
    */
-  value?: TokenType;
+  value?: Token;
   /**
    * change selected token callback
    * @param token
    * @returns
    */
-  onChange?: (token?: TokenType) => void;
+  onChange?: (token?: Token) => void;
   /**
    * controlled token list
    */
-  tokenList?: TokenType[];
+  tokenList?: Token[];
   /**
    * default token list
    */
-  defaultTokenList?: TokenType[];
+  defaultTokenList?: Token[];
   /**
    * query allow select token list
    * @returns token list
    */
-  queryTokenList?: () => Promise<TokenType[] | undefined>;
+  queryTokenList?: () => Promise<Token[] | undefined>;
   /**
    * allow clear
    */
@@ -73,7 +43,7 @@ const SingleToken = ({
   onSelect,
   className,
 }: {
-  token?: TokenType;
+  token?: Token;
   onSelect?: TokenSelectProps['onChange'];
   className?: string;
 }) => {
@@ -86,7 +56,6 @@ const SingleToken = ({
   return (
     <Flex
       gap={12}
-      key={token.contract}
       className={getClsName('token-profile', className)}
       onClick={() => onSelect?.(token)}
     >
@@ -107,7 +76,7 @@ export const TokenSelect = ({
   const { wrapSSR, getClsName } = useTokenSelectStyle();
 
   // full Token List
-  const [fullTokenList, setFullTokenList] = useState<TokenType[] | undefined>(defaultTokenList);
+  const [fullTokenList, setFullTokenList] = useState<Token[] | undefined>(defaultTokenList);
 
   // filter token keyword
   const [keyword, setKeyword] = useState<string>();
@@ -123,14 +92,14 @@ export const TokenSelect = ({
   // deferred calculate show token list
   const showTokenList = useDeferredValue(
     keyword
-      ? fullTokenList?.filter(({ name, symbol, contract }) => {
+      ? fullTokenList?.filter(({ name, symbol, availableChains }) => {
           const nameLower = name.toLowerCase();
 
           const symbolLower = symbol.toLowerCase();
 
           const keywordLower = keyword.toLowerCase();
 
-          return [nameLower, symbolLower, contract].some((content) =>
+          return [nameLower, symbolLower, availableChains[0]?.contract].some((content) =>
             content.includes(keywordLower),
           );
         })
@@ -186,7 +155,7 @@ export const TokenSelect = ({
 
                     setOpen(false);
                   }}
-                  key={token.contract}
+                  key={token.availableChains?.[0]?.contract}
                 />
               );
             })}
