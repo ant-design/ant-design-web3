@@ -34,9 +34,27 @@ export type BalanceMetadata = {
   symbol?: string;
 };
 
+export enum ChainType {
+  /**
+   * Ethereum virtual machine and EVM compatible chains
+   */
+  EVM = 'EVM',
+
+  /**
+   * Solana virtual machine
+   */
+  SVM = 'SVM',
+
+  /**
+   * Bitcoin chain
+   */
+  Bitcoin = 'Bitcoin',
+}
+
 export interface Chain {
   id: ChainIds | number;
   name: string;
+  type?: ChainType;
   icon?: React.ReactNode;
   browser?: {
     icon?: React.ReactNode;
@@ -258,3 +276,14 @@ export interface Locale {
 export interface UniversalEIP6963Config {
   autoAddInjectedWallets?: boolean;
 }
+
+export type Token = {
+  name: string;
+  symbol: string;
+  icon: React.ReactNode;
+  decimal: number;
+  availableChains: {
+    chain: Chain;
+    contract: string;
+  }[];
+};
