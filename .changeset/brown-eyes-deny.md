@@ -2,4 +2,4 @@
 '@ant-design/web3-common': patch
 ---
 
-feat: add MultiChainToken and ChainToken type
+feat: add coomon token type, add chain vm type
