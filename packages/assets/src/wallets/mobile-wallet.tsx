@@ -3,7 +3,7 @@ import { ScanColorful } from '@ant-design/web3-icons';
 
 export const mobile_WalletConnect: WalletMetadata = {
   icon: <ScanColorful />,
-  name: 'Scan Code',
+  name: 'Scan QR Code',
   remark: 'Connect with mobile APP',
   universalProtocol: {
     link: 'https://walletconnect.com/',
