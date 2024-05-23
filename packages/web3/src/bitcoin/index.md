@@ -90,16 +90,16 @@ The wallets currently supported are as follows, and we also welcome you to submi
 
 ##### Inscription
 
-| 属性               | 描述                                  | 类型     | 默认值 | 版本 |
-| ------------------ | ------------------------------------- | -------- | ------ | ---- |
-| inscriptionId      | Inscription id                        | `string` | -      | -    |
-| address            | Inscription number                    | `string` | -      | -    |
-| outputValue        | The output value of inscription       | `string` | -      | -    |
-| content            | The content url of inscription        | `string` | -      | -    |
-| contentLength      | The content length of inscription     | `string` | -      | -    |
-| contentType        | The content type of inscription       | `string` | -      | -    |
-| preview            | The preview link                      | `string` | -      | -    |
-| timestamp          | The blocktime of inscription          | `number` | -      | -    |
-| offset             | The offset of inscription             | `number` | -      | -    |
-| genesisTransaction | The txid of genesis transaction       | `string` | -      | -    |
-| location           | The txid and vout of current location | `string` | -      | -    |
+| Property           | Description                           | Type     | Default | Version |
+| ------------------ | ------------------------------------- | -------- | ------- | ------- |
+| inscriptionId      | Inscription id                        | `string` | -       | -       |
+| address            | Inscription number                    | `string` | -       | -       |
+| outputValue        | The output value of inscription       | `string` | -       | -       |
+| content            | The content url of inscription        | `string` | -       | -       |
+| contentLength      | The content length of inscription     | `string` | -       | -       |
+| contentType        | The content type of inscription       | `string` | -       | -       |
+| preview            | The preview link                      | `string` | -       | -       |
+| timestamp          | The blocktime of inscription          | `number` | -       | -       |
+| offset             | The offset of inscription             | `number` | -       | -       |
+| genesisTransaction | The txid of genesis transaction       | `string` | -       | -       |
+| location           | The txid and vout of current location | `string` | -       | -       |
