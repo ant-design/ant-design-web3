@@ -37,6 +37,7 @@ export type BalanceMetadata = {
 export interface Chain {
   id: ChainIds | number;
   name: string;
+  type?: 'EVM' | 'JVM' | 'SVM' | 'WASM';
   icon?: React.ReactNode;
   browser?: {
     icon?: React.ReactNode;
@@ -258,3 +259,14 @@ export interface Locale {
 export interface UniversalEIP6963Config {
   autoAddInjectedWallets?: boolean;
 }
+
+export type Token = {
+  name: string;
+  symbol: string;
+  icon: React.ReactNode;
+  decimal: number;
+  availableChains: {
+    chain: Chain;
+    contract: string;
+  }[];
+};
