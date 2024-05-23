@@ -34,10 +34,27 @@ export type BalanceMetadata = {
   symbol?: string;
 };
 
+export enum ChainType {
+  /**
+   * ethereum virtual machine
+   */
+  EVM = 'EVM',
+
+  /**
+   * Solana virtual machine
+   */
+  SVM = 'SVM',
+
+  /**
+   * Bitcoin chain
+   */
+  Bitcoin = 'Bitcoin',
+}
+
 export interface Chain {
   id: ChainIds | number;
   name: string;
-  type?: 'EVM' | 'JVM' | 'SVM' | 'WASM';
+  type?: ChainType;
   icon?: React.ReactNode;
   browser?: {
     icon?: React.ReactNode;
