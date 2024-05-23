@@ -36,7 +36,7 @@ export type BalanceMetadata = {
 
 export enum ChainType {
   /**
-   * ethereum virtual machine
+   * Ethereum virtual machine and EVM compatible chains
    */
   EVM = 'EVM',
 
