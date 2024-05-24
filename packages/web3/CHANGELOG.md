@@ -1,5 +1,18 @@
 # @ant-design/web3
 
+## 1.12.0
+
+### Minor Changes
+
+- 827024c: feat: add bitcoin okx wallet connect
+
+### Patch Changes
+
+- 518fd83: chore: add storage props to config
+- Updated dependencies [dd6366c]
+  - @ant-design/web3-common@1.10.0
+  - @ant-design/web3-assets@1.7.2
+
 ## 1.11.2
 
 ### Patch Changes
