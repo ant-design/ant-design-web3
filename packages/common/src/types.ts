@@ -176,6 +176,12 @@ export type WalletMetadata = {
   universalProtocol?: {
     link: string;
   };
+
+  /**
+   * @desc 代理连接使用的名称
+   * @descEn The name used for proxy connection
+   */
+  proxyConnectorName?: string;
 };
 
 export type Balance = BalanceMetadata & {
