@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.10.0
+
+### Minor Changes
+
+- dd6366c: feat: add coomon token type, add chain vm type
+
 ## 1.9.1
 
 ### Patch Changes

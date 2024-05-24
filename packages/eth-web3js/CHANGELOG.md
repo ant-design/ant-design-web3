@@ -1,5 +1,20 @@
 # @ant-design/web3-eth-web3js
 
+## 1.1.0
+
+### Minor Changes
+
+- 518fd83: chore: add storage props to config
+
+### Patch Changes
+
+- Updated dependencies [518fd83]
+- Updated dependencies [dd6366c]
+- Updated dependencies [518fd83]
+  - @ant-design/web3-wagmi@2.4.5
+  - @ant-design/web3-common@1.10.0
+  - @ant-design/web3-assets@1.7.2
+
 ## 1.0.0
 
 ### Major Changes
