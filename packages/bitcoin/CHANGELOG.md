@@ -1,5 +1,16 @@
 # @ant-design/web3-bitcoin
 
+## 1.2.0
+
+### Minor Changes
+
+- 827024c: feat: add bitcoin okx wallet connect
+
+### Patch Changes
+
+- Updated dependencies [dd6366c]
+  - @ant-design/web3-common@1.10.0
+
 ## 1.1.0
 
 ### Minor Changes

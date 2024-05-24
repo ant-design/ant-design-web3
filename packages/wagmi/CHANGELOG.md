@@ -1,5 +1,15 @@
 # @ant-design/web3-wagmi
 
+## 2.4.5
+
+### Patch Changes
+
+- 518fd83: fix(wagmi): react max depth update exceeded
+- 518fd83: chore: add storage props to config
+- Updated dependencies [dd6366c]
+  - @ant-design/web3-common@1.10.0
+  - @ant-design/web3-assets@1.7.2
+
 ## 2.4.4
 
 ### Patch Changes
