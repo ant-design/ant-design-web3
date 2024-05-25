@@ -1,10 +1,10 @@
 import React from 'react';
-import { Chain, type TokenConfig, type WalletMetadata } from '@ant-design/web3-common';
+import { Chain, type Token, type WalletMetadata } from '@ant-design/web3-common';
 
 export type PayPanelProps = {
   amount: number | bigint;
   target: { [chainId: string]: { address: string; chain: Chain } };
-  token: TokenConfig;
+  token: Token;
   wallets: WalletMetadata[];
   onFinish: () => void;
 };
@@ -17,7 +17,7 @@ export const PayPanelContext = React.createContext<PayPanelProps>({
     symbol: '',
     icon: '',
     decimal: 0,
-    channels: [],
+    availableChains: [],
   },
   wallets: [],
   onFinish: () => {},

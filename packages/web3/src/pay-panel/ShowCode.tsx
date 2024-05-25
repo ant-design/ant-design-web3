@@ -26,7 +26,7 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
   }, [selectedChainId]);
 
   const tokenChannel = useMemo(() => {
-    const tokenChannelInfo = token.channels.find(
+    const tokenChannelInfo = token.availableChains.find(
       (channel) => channel.chain.id === Number(selectedChainId),
     );
     setPaymentLink(tokenChannelInfo?.contract || '');
