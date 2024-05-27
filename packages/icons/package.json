@@ -68,6 +68,6 @@
   "dependencies": {
     "@ant-design/icons": "^5.3.7",
     "@inline-svg-unique-id/react": "^1.2.3",
-    "classnames": "^2.3.2"
+    "classnames": "^2.5.1"
   }
 }
