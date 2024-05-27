@@ -20,15 +20,15 @@ The wallets currently supported are as follows, and we also welcome you to submi
 
 <code src="./demos/basic.tsx"></code>
 
-## signMessage / signPsbt
+## SignMessage / SignPsbt
 
 <code src="./demos/sign.tsx"></code>
 
-## sendTransfer
+## SendTransfer
 
 <code src="./demos/send-transfer.tsx"></code>
 
-## use NFTImage to show inscriptions
+## Use NFTImage to show inscriptions
 
 <code src="./demos/get-inscriptions.tsx"></code>
 
@@ -44,19 +44,19 @@ The wallets currently supported are as follows, and we also welcome you to submi
 
 ### useBitcoinWallet
 
-#### result
+#### Result
 
-| Property | Description | Type |
-| --- | --- | --- |
-| name | The connected wallet's name | `string` |
-| provider | The connected wallet's provider | `any` |
-| account | Represents the web3 account address of the current user | `string` |
-| connect | Connect the wallet | `() => Promise<void>` |
-| getBalance | Get the balance of the wallet | `() => Promise<Balance>` |
-| signMessage | Sign message | `(message: string) => Promise<string>` |
-| sendTransfer | Transfer bticoin | `(prams: TranssferParams) => Promise<string>` |
-| signPsbt | Sign PSBT | `(params: SignPsbtParams) => Promise<SignPsbtResult>` |
-| getInscriptions | Get Inscriptions | `(offset?: number, size?: number) => Promise<{ total: number; list: Inscription[] }>` |
+| Property | Description | Type | Version |
+| --- | --- | --- | --- |
+| name | The connected wallet's name | `string` | 1.0.0 |
+| provider | The connected wallet's provider | `any` | 1.0.0 |
+| account | Represents the web3 account address of the current user | `string` | 1.0.0 |
+| connect | Connect the wallet | `() => Promise<void>` | 1.0.0 |
+| getBalance | Get the balance of the wallet | `() => Promise<Balance>` | 1.0.0 |
+| signMessage | Sign message | `(message: string) => Promise<string>` | 1.0.0 |
+| sendTransfer | Transfer bticoin | `(prams: TranssferParams) => Promise<string>` | 1.0.0 |
+| signPsbt | Sign PSBT | `(params: SignPsbtParams) => Promise<SignPsbtResult>` | 1.1.0 |
+| getInscriptions | Get Inscriptions | `(offset?: number, size?: number) => Promise<{ total: number; list: Inscription[] }>` | 1.3.0 |
 
 ##### TransferParams
 

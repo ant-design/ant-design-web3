@@ -45,19 +45,19 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 
 ### useBitcoinWallet
 
-#### result
+#### Result
 
-| 参数 | 描述 | 类型 |
-| --- | --- | --- |
-| name | 当前连接的钱包名称 | `string` |
-| provider | 获取当前连接钱包的 provider 对象 | `any` |
-| account | 账户地址 | `string` |
-| connect | 连接钱包 | `() => Promise<void>` |
-| getBalance | 获取钱包余额 | `() => Promise<Balance>` |
-| signMessage | 签名 | `(message: string) => Promise<string>` |
-| sendTransfer | 发送交易 | `(prams: TransferParams) => Promise<string>` |
-| signPsbt | 签名 PSBT | `(params: SignPsbtParams) => Promise<SignPsbtResult>` |
-| getInscriptions | 获取铭文（分页） | `(offset?: number, size?: number) => Promise<{ total: number; list: Inscription[] }>` |
+| 参数 | 描述 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| name | 当前连接的钱包名称 | `string` | 1.0.0 |
+| provider | 获取当前连接钱包的 provider 对象 | `any` | 1.0.0 |
+| account | 账户地址 | `string` | 1.0.0 |
+| connect | 连接钱包 | `() => Promise<void>` | 1.0.0 |
+| getBalance | 获取钱包余额 | `() => Promise<Balance>` | 1.0.0 |
+| signMessage | 签名 | `(message: string) => Promise<string>` | 1.0.0 |
+| sendTransfer | 发送交易 | `(prams: TransferParams) => Promise<string>` | 1.0.0 |
+| signPsbt | 签名 PSBT | `(params: SignPsbtParams) => Promise<SignPsbtResult>` | 1.1.0 |
+| getInscriptions | 获取铭文（分页） | `(offset?: number, size?: number) => Promise<{ total: number; list: Inscription[] }>` | 1.3.0 |
 
 ##### TransferParams
 
