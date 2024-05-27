@@ -51,7 +51,7 @@
     "*.{json,less,md}": "prettier --ignore-unknown --write"
   },
   "devDependencies": {
-    "@ant-design/icons": "^5.3.6",
+    "@ant-design/icons": "^5.3.7",
     "@ant-design/web3": "workspace:*",
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
