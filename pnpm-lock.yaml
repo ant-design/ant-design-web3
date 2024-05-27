@@ -103,8 +103,8 @@ importers:
         specifier: ^1.4.0
         version: 1.4.0(@babel/core@7.24.3)
       classnames:
-        specifier: ^2.3.2
-        version: 2.3.2
+        specifier: ^2.5.1
+        version: 2.5.1
       dumi:
         specifier: 2.2.17
         version: 2.2.17(@babel/core@7.24.3)(@types/node@20.10.5)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0)
@@ -478,8 +478,8 @@ importers:
         specifier: ^1.2.3
         version: 1.2.3(react@18.2.0)
       classnames:
-        specifier: ^2.3.2
-        version: 2.3.2
+        specifier: ^2.5.1
+        version: 2.5.1
     devDependencies:
       '@types/react':
         specifier: ^18.2.78
@@ -628,8 +628,8 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0
       classnames:
-        specifier: ^2.3.2
-        version: 2.3.2
+        specifier: ^2.5.1
+        version: 2.5.1
       copy-to-clipboard:
         specifier: ^3.3.3
         version: 3.3.3
@@ -11516,6 +11516,7 @@ packages:
 
   /classnames@2.3.2:
     resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: true
 
   /classnames@2.5.1:
     resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
