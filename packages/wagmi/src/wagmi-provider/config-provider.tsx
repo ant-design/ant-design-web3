@@ -22,7 +22,7 @@ import {
 import type { EIP6963Config, WalletFactory, WalletUseInWagmiAdapter } from '../interface';
 import { isEIP6963Connector } from '../utils';
 import { EIP6963Wallet } from '../wallets/eip6963';
-import { addNameToAccount, getNFTMetadata } from './methods';
+import { getNFTMetadata } from './methods';
 
 export interface AntDesignWeb3ConfigProviderProps {
   chainAssets: Chain[];
