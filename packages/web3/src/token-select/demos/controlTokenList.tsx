@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { ChainIds, CryptoInput } from '@ant-design/web3';
+import { TokenSelect } from '@ant-design/web3';
 import { EthereumColorful } from '@ant-design/web3-icons';
 
 const App: React.FC = () => {
-  const [crypto, setCrypto] = useState<any>();
+  const [token, setToken] = useState<any>(undefined);
 
   return (
-    <CryptoInput
-      value={crypto}
-      onChange={setCrypto}
+    <TokenSelect
+      value={token}
+      onChange={setToken}
       tokenList={[
         {
           name: 'Ethereum',
@@ -18,8 +18,8 @@ const App: React.FC = () => {
           availableChains: [
             {
               chain: {
-                id: ChainIds.Mainnet,
                 name: 'Ethereum',
+                id: 1,
               },
               contract: '0x',
             },

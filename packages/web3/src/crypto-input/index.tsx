@@ -1,51 +1,74 @@
 import React from 'react';
-import { Flex, InputNumber } from 'antd';
+import type { Token } from '@ant-design/web3-common';
+import { Flex, InputNumber, Space } from 'antd';
 import { isNull } from 'lodash';
 
 import { TokenSelect, type TokenSelectProps } from '../token-select';
 import { useCryptoInputStyle } from './style';
 
-export interface TokenOutputProps extends TokenSelectProps {
+export interface CryptoInputProps extends Omit<TokenSelectProps, 'value' | 'onChange'> {
   /**
    * token amount
    */
-  amount?: string | number;
+  value?: {
+    amount?: string;
+    token?: Token;
+  };
   /**
    * token amount change callback
+   * @param value token and amount
    */
-  onAmountChange?: (amount?: TokenOutputProps['amount']) => void;
+  onChange?: (value?: CryptoInputProps['value']) => void;
   /**
-   * query selected TokenOutput
-   * @returns selected TokenOutput
+   * custom render for header
    */
-  querySelectedTokenOutput?: () => Promise<{
-    amount: string;
-    price: string;
-  }>;
+  header?: React.ReactNode;
+  /**
+   * custom render for footer
+   */
+  footer?: React.ReactNode;
 }
 
 export const CryptoInput = ({
-  amount,
-  onAmountChange,
-  querySelectedTokenOutput,
+  value,
+  onChange,
+  header,
+  footer,
   ...selectProps
-}: TokenOutputProps) => {
+}: CryptoInputProps) => {
   const { wrapSSR, getClsName } = useCryptoInputStyle();
 
   return wrapSSR(
-    <Flex gap={16} className={getClsName('output')}>
-      <InputNumber
-        stringMode
-        controls={false}
-        value={amount}
-        precision={selectProps?.token?.decimal}
-        onChange={(amt) => {
-          onAmountChange?.(isNull(amt) ? undefined : amt);
-        }}
-        placeholder="Please enter amount"
-        className={getClsName('output-amount')}
-      />
-      <TokenSelect {...selectProps} />
-    </Flex>,
+    <Space direction="vertical" className={getClsName('wrapper')}>
+      {header}
+      <Flex gap={16}>
+        <InputNumber
+          stringMode
+          controls={false}
+          value={value?.amount}
+          precision={value?.token?.decimal}
+          formatter={(amount) => amount || ''}
+          onChange={(amt) => {
+            onChange?.({
+              ...value,
+              amount: isNull(amt) ? undefined : amt,
+            });
+          }}
+          placeholder="Please enter amount"
+          className={getClsName('amount')}
+        />
+        <TokenSelect
+          {...selectProps}
+          value={value?.token}
+          onChange={(token) =>
+            onChange?.({
+              ...value,
+              token,
+            })
+          }
+        />
+      </Flex>
+      {footer}
+    </Space>,
   );
 };

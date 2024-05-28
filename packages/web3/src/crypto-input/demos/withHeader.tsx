@@ -9,6 +9,7 @@ const App: React.FC = () => {
     <CryptoInput
       value={crypto}
       onChange={setCrypto}
+      header="Crypto Input Header"
       tokenList={[
         {
           name: 'Ethereum',

@@ -9,7 +9,7 @@ const App: React.FC = () => {
     <TokenSelect
       value={token}
       onChange={setToken}
-      tokenList={[
+      defaultTokenList={[
         {
           name: 'Ethereum',
           symbol: 'ETH',

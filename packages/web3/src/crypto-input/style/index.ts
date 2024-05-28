@@ -13,7 +13,13 @@ export interface TokenStyle extends Web3AliasToken {
 
 const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
   return {
-    [`${token.componentCls}-output`]: {
+    [`${token.componentCls}-wrapper`]: {
+      padding: '8px 16px',
+      border: '1px solid #d9d9d9',
+      borderRadius: '8px',
+      boxSizing: 'border-box',
+      width: '100%',
+
       '.ant-input-number': {
         boxShadow: 'none !important',
 
@@ -31,7 +37,7 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
       },
     },
 
-    [`${token.componentCls}-output-amount`]: {
+    [`${token.componentCls}-amount`]: {
       flex: 1,
       border: 'none',
     },

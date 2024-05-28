@@ -1,7 +1,7 @@
 import React, { useDeferredValue, useEffect, useState } from 'react';
 import { CloseCircleOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
 import type { Token } from '@ant-design/web3-common';
-import { Dropdown, Flex, Input } from 'antd';
+import { Dropdown, Flex, Input, Spin } from 'antd';
 
 import { useTokenSelectStyle } from './style';
 
@@ -84,8 +84,16 @@ export const TokenSelect = ({
   // dropdown open status
   const [open, setOpen] = useState<boolean>();
 
+  // query token list loading
+  const [loading, setLoading] = useState<boolean>();
+
   // when controlled tokenList change, update fullTokenList
   useEffect(() => {
+    // if use defaultTokenList and tokenList is undefined, don't update
+    if (defaultTokenList && !tokenList) {
+      return;
+    }
+
     setFullTokenList(tokenList);
   }, [tokenList]);
 
@@ -116,12 +124,18 @@ export const TokenSelect = ({
       return;
     }
 
+    setLoading(true);
+
+    setFullTokenList(undefined);
+
     try {
       setFullTokenList(await queryTokenList?.());
 
       console.log('tokenList', tokenList);
     } catch (error) {
       console.error('queryTokenList error', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -129,10 +143,10 @@ export const TokenSelect = ({
     <Dropdown
       open={open}
       trigger={['click']}
-      onOpenChange={(open) => {
-        setOpen(open);
+      onOpenChange={(nextOpen) => {
+        setOpen(nextOpen);
 
-        if (open) {
+        if (nextOpen) {
           handleQueryTokenList();
         }
       }}
@@ -145,12 +159,13 @@ export const TokenSelect = ({
               addonBefore={<SearchOutlined />}
               placeholder="Enter name / address"
             />
+            {loading && <Spin spinning size="small" style={{ marginInlineStart: 91 }} />}
             {showTokenList?.map((token) => {
               return (
                 <SingleToken
                   className="selection"
                   token={token}
-                  onSelect={(token) => {
+                  onSelect={() => {
                     onChange?.(token);
 
                     setOpen(false);
