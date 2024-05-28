@@ -59,7 +59,6 @@ describe('WagmiWeb3ConfigProvider ens', () => {
   it('connect', async () => {
     const CustomConnector = () => {
       const { account } = useProvider();
-      console.log(account);
       return (
         <div>
           <div className="custom-text">
