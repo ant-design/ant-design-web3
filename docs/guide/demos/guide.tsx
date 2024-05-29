@@ -1,4 +1,5 @@
-import { ConnectButton, Connector } from '@ant-design/web3';
+import React from 'react';
+import { ConnectButton, ConnectModalProps, Connector } from '@ant-design/web3';
 import {
   MetaMask,
   OkxWallet,
@@ -6,6 +7,7 @@ import {
   WagmiWeb3ConfigProvider,
   WalletConnect,
 } from '@ant-design/web3-wagmi';
+import { Checkbox, Divider, Radio, Space } from 'antd';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { walletConnect } from 'wagmi/connectors';
@@ -24,6 +26,8 @@ const config = createConfig({
 });
 
 const App: React.FC = () => {
+  const [mode, setMode] = React.useState<ConnectModalProps['mode']>('simple');
+  const [quickConnect, setQuickConnect] = React.useState<boolean>(false);
   return (
     <WagmiWeb3ConfigProvider
       eip6963={{
@@ -40,8 +44,32 @@ const App: React.FC = () => {
       ]}
       config={config}
     >
-      <Connector>
-        <ConnectButton quickConnect />
+      <Space direction="vertical">
+        <Radio.Group
+          onChange={(e) => {
+            setMode(e.target.value);
+          }}
+          value={mode}
+        >
+          <Radio value="simple">simple mode</Radio>
+          <Radio value="auto">auto mode</Radio>
+        </Radio.Group>
+        <Checkbox
+          checked={quickConnect}
+          onChange={(e) => {
+            setQuickConnect(e.target.checked);
+          }}
+        >
+          Quick Connect
+        </Checkbox>
+      </Space>
+      <Divider />
+      <Connector
+        modalProps={{
+          mode,
+        }}
+      >
+        <ConnectButton quickConnect={quickConnect} />
       </Connector>
     </WagmiWeb3ConfigProvider>
   );
