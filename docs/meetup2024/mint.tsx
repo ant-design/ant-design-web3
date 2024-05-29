@@ -8,6 +8,7 @@ const contractAddress = '0x8fab440bf0279695100c944e498c64fe612b2338';
 const Mint = () => {
   const { account } = useAccount();
   const [mintSuccess, setMintSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const result = useReadContract({
     abi: [
       {
@@ -32,6 +33,7 @@ const Mint = () => {
           display: 'block',
           margin: '24px auto',
         }}
+        loading={loading}
         type="primary"
         size="large"
         onClick={() => {
@@ -42,6 +44,7 @@ const Mint = () => {
             );
             return;
           }
+          setLoading(true);
           writeContract(
             {
               abi: [
@@ -59,9 +62,11 @@ const Mint = () => {
               onSuccess: () => {
                 message.success('Mint Success');
                 setMintSuccess(true);
+                setLoading(false);
               },
               onError: (err) => {
                 message.error(err.message);
+                setLoading(false);
               },
             },
           );
@@ -76,12 +81,25 @@ const Mint = () => {
           marginBottom: 24,
         }}
       >
-        <a href="https://basescan.org/address/0x8fab440bf0279695100c944e498c64fe612b2338">
+        <a
+          target="_blank"
+          href="https://basescan.org/address/0x8fab440bf0279695100c944e498c64fe612b2338"
+        >
           Contract
         </a>
         <Divider type="vertical" />
-        <a href="https://magiceden.io/collections/base/0x8fab440bf0279695100c944e498c64fe612b2338">
+        <a
+          target="_blank"
+          href="https://magiceden.io/collections/base/0x8fab440bf0279695100c944e498c64fe612b2338"
+        >
           View SBT
+        </a>
+        <Divider type="vertical" />
+        <a
+          target="_blank"
+          href="https://github.com/ant-design/ant-design-web3/tree/main/docs/meetup2024"
+        >
+          Source Code
         </a>
       </div>
     </div>
