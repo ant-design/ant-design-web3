@@ -1,10 +1,10 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { Typography } from 'antd';
+import { Divider, Typography } from 'antd';
 import { useAccount } from 'wagmi';
 
 import MintBtn from './mint';
 
-const { Title, Paragraph, Text, Link } = Typography;
+const { Title, Paragraph } = Typography;
 
 const SBT: React.FC = () => {
   const { address } = useAccount();
@@ -52,6 +52,37 @@ const SBT: React.FC = () => {
         </Connector>
       </div>
       {address ? <MintBtn /> : null}
+
+      <div
+        style={{
+          textAlign: 'center',
+          margin: 24,
+        }}
+      >
+        <a
+          target="_blank"
+          rel="noopener"
+          href="https://basescan.org/address/0x8fab440bf0279695100c944e498c64fe612b2338"
+        >
+          Contract
+        </a>
+        <Divider type="vertical" />
+        <a
+          target="_blank"
+          rel="noopener"
+          href="https://magiceden.io/collections/base/0x8fab440bf0279695100c944e498c64fe612b2338"
+        >
+          View SBT
+        </a>
+        <Divider type="vertical" />
+        <a
+          target="_blank"
+          rel="noopener"
+          href="https://github.com/ant-design/ant-design-web3/tree/main/docs/meetup2024"
+        >
+          Source Code
+        </a>
+      </div>
     </div>
   );
 };
