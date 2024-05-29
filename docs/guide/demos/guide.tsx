@@ -51,8 +51,8 @@ const App: React.FC = () => {
           }}
           value={mode}
         >
-          <Radio value={'simple'}>simple mode</Radio>
-          <Radio value={'auto'}>auto mode</Radio>
+          <Radio value="simple">simple mode</Radio>
+          <Radio value="auto">auto mode</Radio>
         </Radio.Group>
         <Checkbox
           checked={quickConnect}
