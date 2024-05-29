@@ -61,7 +61,7 @@ const SBT: React.FC = () => {
       >
         <a
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           href="https://basescan.org/address/0x8fab440bf0279695100c944e498c64fe612b2338"
         >
           Contract
