@@ -77,7 +77,7 @@ const SBT: React.FC = () => {
         <Divider type="vertical" />
         <a
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           href="https://github.com/ant-design/ant-design-web3/tree/main/docs/meetup2024"
         >
           Source Code
