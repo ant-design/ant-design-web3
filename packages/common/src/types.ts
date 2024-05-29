@@ -285,6 +285,6 @@ export type Token = {
   decimal: number;
   availableChains: {
     chain: Chain;
-    contract: string;
+    contract?: string;
   }[];
 };
