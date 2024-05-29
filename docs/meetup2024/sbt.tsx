@@ -70,7 +70,7 @@ const SBT: React.FC = () => {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://magiceden.io/collections/base/0x8fab440bf0279695100c944e498c64fe612b2338"
+          href="https://opensea.io/collection/antdesignmeetup2024"
         >
           View SBT
         </a>
