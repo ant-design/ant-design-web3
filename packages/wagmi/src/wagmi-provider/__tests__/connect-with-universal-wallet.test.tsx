@@ -77,6 +77,7 @@ vi.mock('wagmi', () => {
     useBalance: () => {
       return {};
     },
+    useEnsName: () => ({}),
   };
 });
 

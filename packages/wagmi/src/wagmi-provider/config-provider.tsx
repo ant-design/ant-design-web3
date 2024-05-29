@@ -14,6 +14,7 @@ import {
   useBalance,
   useConfig,
   useConnect,
+  useEnsName,
   useSwitchChain,
   type Connector as WagmiConnector,
 } from 'wagmi';
@@ -21,7 +22,7 @@ import {
 import type { EIP6963Config, WalletFactory, WalletUseInWagmiAdapter } from '../interface';
 import { isEIP6963Connector } from '../utils';
 import { EIP6963Wallet } from '../wallets/eip6963';
-import { addNameToAccount, getNFTMetadata } from './methods';
+import { getNFTMetadata } from './methods';
 
 export interface AntDesignWeb3ConfigProviderProps {
   chainAssets: Chain[];
@@ -55,23 +56,22 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   const { data: balanceData } = useBalance({
     address: balance && account ? fillAddressWith0x(account.address) : undefined,
   });
+  const { data: ensName } = useEnsName({ address });
 
   React.useEffect(() => {
     if (!address || isDisconnected) {
       setAccount(undefined);
+    } else if (ens && ensName) {
+      setAccount({
+        address: fillAddressWith0x(address),
+        name: ensName as string,
+      });
     } else {
-      const updateAccounts = async () => {
-        const a = {
-          address,
-        };
-        setAccount(a);
-        if (ens) {
-          setAccount(await addNameToAccount(config, a));
-        }
-      };
-      updateAccounts();
+      setAccount({
+        address: fillAddressWith0x(address),
+      });
     }
-  }, [address, isDisconnected, chain, ens]);
+  }, [address, isDisconnected, ens, ensName]);
 
   const findConnectorByName = (name: string): WagmiConnector | undefined => {
     const commonConnector = availableConnectors.find(

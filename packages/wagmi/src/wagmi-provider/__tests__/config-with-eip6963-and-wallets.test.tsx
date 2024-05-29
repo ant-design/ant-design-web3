@@ -20,6 +20,7 @@ vi.mock('wagmi', async () => {
         },
       };
     },
+    useEnsName: () => ({}),
   };
 });
 

@@ -53,6 +53,7 @@ vi.mock('wagmi', () => {
         },
       };
     },
+    useEnsName: () => ({}),
   };
 });
 

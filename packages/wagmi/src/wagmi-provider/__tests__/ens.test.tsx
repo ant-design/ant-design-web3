@@ -9,16 +9,6 @@ import { AntDesignWeb3ConfigProvider } from '../config-provider';
 
 vi.mock('@wagmi/core', () => {
   return {
-    getEnsName: (_: any, { address }: { address: string }) => {
-      if (address === '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B') {
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve('wanderingearth.eth');
-          }, 0);
-        });
-      }
-      return null;
-    },
     getAccount: () => ({}),
     disconnect: () => {},
   };
@@ -56,6 +46,12 @@ vi.mock('wagmi', () => {
     useBalance: () => {
       return {};
     },
+    useEnsName: ({ address }: { address: string }) => {
+      if (address === '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B') {
+        return { data: 'wanderingearth.eth' };
+      }
+      return {};
+    },
   };
 });
 
@@ -84,11 +80,7 @@ describe('WagmiWeb3ConfigProvider ens', () => {
       </AntDesignWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
-    await waitFor(() => {
-      expect(baseElement.querySelector('.custom-text')?.textContent).toBe(
-        '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
-      );
-    });
+
     await waitFor(() => {
       expect(baseElement.querySelector('.custom-text')?.textContent).toBe('wanderingearth.eth');
     });
