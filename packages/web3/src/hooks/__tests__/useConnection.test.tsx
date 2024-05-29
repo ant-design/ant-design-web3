@@ -18,7 +18,6 @@ describe('ConnectButton', () => {
             if (account) {
               disconnect?.();
             } else {
-              console.log('connect');
               connect?.();
             }
           }}

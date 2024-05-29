@@ -489,8 +489,8 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           },
           [`${componentCls}-ripple-container`]: {
             position: 'relative',
-            width: '60px',
-            height: '60px',
+            width: 56,
+            height: 56,
           },
           [`${componentCls}-ripple`]: {
             position: 'absolute',
@@ -504,6 +504,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             animationTimingFunction: 'ease-out',
             animationDelay: '0s',
             transformOrigin: 'center',
+            boxSizing: 'border-box',
           },
 
           [`${componentCls}-ripple:nth-child(2)`]: {
@@ -514,7 +515,8 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             animationDelay: '-2s',
           },
           [`${componentCls}-wallet-connecting`]: {
-            marginTop: '30px',
+            // icon size / 2 + 8px
+            marginTop: 36,
           },
         },
       },
