@@ -69,7 +69,7 @@ const SBT: React.FC = () => {
         <Divider type="vertical" />
         <a
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           href="https://magiceden.io/collections/base/0x8fab440bf0279695100c944e498c64fe612b2338"
         >
           View SBT
