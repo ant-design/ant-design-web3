@@ -52,22 +52,34 @@ export const getInscriptionsByAddress = async ({
         offset: inscriptionOffset,
         genesis_tx_id,
         location,
+        output,
       }) => ({
         content: `${ORDINALS_URL}/content/${id}`,
         preview: `${ORDINALS_URL}/preview/${id}`,
         inscriptionId: id,
-        inscriptionNumber: `${number}`,
+        inscriptionNumber: number,
         address: addr,
-        outputValue: value,
-        contentLength: `${content_length}`,
+        outputValue: Number(value),
+        contentLength: content_length,
         contentType: content_type,
         timestamp,
-        offset: inscriptionOffset,
+        offset: Number(inscriptionOffset),
         genesisTransaction: genesis_tx_id,
         location,
+        output,
       }),
     );
     return { list, total };
+  } else {
+    throw new NoInscriptionError();
+  }
+};
+
+export const getInscriptionContentById = async (inscriptionId: string): Promise<string> => {
+  const res = await fetch(`${HIRO_API}/ordinals/v1/inscriptions/${inscriptionId}`);
+  if (res.ok) {
+    const { id } = await res.json();
+    return `${ORDINALS_URL}/content/${id}`;
   } else {
     throw new NoInscriptionError();
   }

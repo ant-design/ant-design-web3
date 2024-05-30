@@ -91,7 +91,7 @@ order: 3
 | connect | 连接钱包 | `(wallet: Wallet, options?: ConnectOptions) => Promise<void>` | - | - |
 | disconnect | 断开钱包连接 | `() => Promise<void>` | - | - |
 | switchChain | 切换链 | `(chain: Chain) => Promise<void>` | - | - |
-| getNFTMetadata | 获取 NFT 的元数据 | `(params: { address: string; tokenId: bigint \| number }) => Promise<NFTMetadata>` | - | - |
+| getNFTMetadata | 获取 NFT 的元数据 | `(params: { address: string; tokenId?: bigint \| number }) => Promise<NFTMetadata>` | - | - |
 
 ## Locale
 

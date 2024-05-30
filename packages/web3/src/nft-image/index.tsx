@@ -19,5 +19,12 @@ export const NFTImage: React.FC<NFTCardProps> = ({
   ...rest
 }) => {
   const { metadata } = useNFT(address, parseNumberToBigint(tokenId), getNFTMetadata);
-  return <Image src={getWeb3AssetUrl(metadata.image)} alt={alt ?? metadata.name} {...rest} />;
+  return (
+    <Image
+      style={{ imageRendering: 'pixelated' }}
+      src={getWeb3AssetUrl(metadata.image)}
+      alt={alt ?? metadata.name}
+      {...rest}
+    />
+  );
 };

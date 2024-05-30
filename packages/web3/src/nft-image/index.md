@@ -15,6 +15,10 @@ Components used to display NFT images more conveniently and simply.
 
 <code src="./demos/wagmi.tsx"></code>
 
+## BTC Ordinals NFT
+
+<code src="./demos/ordinals.tsx"></code>
+
 ## Custom getNFTMetadata
 
 <code src="./demos/customGetNFTMetadata.tsx"></code>
@@ -23,8 +27,8 @@ Components used to display NFT images more conveniently and simply.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| address | NFT contract address. | `string` | - | - |
+| address | NFT contract address. For Bitcoin, it is the inscription id or inscription number. | `string` | - | - |
 | tokenId | NFT token ID, which can be of type bigint or number. | `bigint \| number` | - | - |
-| getNFTMetadata | Custom method to get NFT metadata. | `(address: string, tokenId: bigint \| number) => Promise<NFTMetadata>` | - | - |
+| getNFTMetadata | Custom method to get NFT metadata. | `(address: string, tokenId?: bigint \| number) => Promise<NFTMetadata>` | - | - |
 
 Other properties inherited from the [Ant Design Image](https://ant-design.antgroup.com/components/image) component.

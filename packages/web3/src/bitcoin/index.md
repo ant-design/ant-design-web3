@@ -28,7 +28,7 @@ The wallets currently supported are as follows, and we also welcome you to submi
 
 <code src="./demos/send-transfer.tsx"></code>
 
-## Use NFTImage to show inscriptions
+## GetInscriptions
 
 <code src="./demos/get-inscriptions.tsx"></code>
 

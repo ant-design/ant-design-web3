@@ -29,7 +29,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 
 <code src="./demos/send-transfer.tsx"></code>
 
-## 使用 NFTImage 展示铭文
+## 获取铭文信息展示
 
 <code src="./demos/get-inscriptions.tsx"></code>
 

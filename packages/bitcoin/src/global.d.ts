@@ -34,17 +34,18 @@ declare namespace Unisat {
   }
 
   interface Inscription {
-    inscriptionId: string;
-    inscriptionNumber: string;
     address: string;
-    outputValue: string;
     content: string;
-    contentLength: string;
+    contentLength: number;
     contentType: string;
+    genesisTransaction: string;
+    inscriptionId: string;
+    inscriptionNumber: number;
+    location: string;
+    offset: number;
+    output: string;
+    outputValue: number;
     preview: string;
     timestamp: number;
-    offset: number;
-    genesisTransaction: string;
-    location: string;
   }
 }

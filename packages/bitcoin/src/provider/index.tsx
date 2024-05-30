@@ -7,7 +7,6 @@ import type { WalletFactory, WalletWithAdapter } from '../wallets/types';
 import { BitcoinConfigProvider } from './config-provider';
 
 export interface BitcoinWeb3ConfigProviderProps {
-  // 钱包显式传入
   wallets?: WalletFactory[];
   locale?: Locale;
   balance?: boolean;

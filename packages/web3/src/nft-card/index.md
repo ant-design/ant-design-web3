@@ -19,6 +19,10 @@ Components used to display NFTCard.
 
 <code src="./demos/wagmi.tsx"></code>
 
+## BTC Ordinals NFT
+
+<code src="./demos/ordinals.tsx"></code>
+
 ## Error Handling
 
 <code src="./demos/error.tsx"></code>
@@ -27,9 +31,9 @@ Components used to display NFTCard.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| address | The address of the NFT | `string` | - | - |
+| address | The address of the NFT. For Bitcoin, it is the inscription id or inscription number. | `string` | - | - |
 | tokenId | The tokenId of the NFT | `number \| bigint` | - | - |
-| getNFTMetadata | The method to get the metadata of the NFT | `(address: string, tokenId: number \| bigint) => Promise<NFTMetadata>` | - | - |
+| getNFTMetadata | The method to get the metadata of the NFT | `(address: string, tokenId?: number \| bigint) => Promise<NFTMetadata>` | - | - |
 | actionText | The text of the main button in the card | `React.ReactNode` | 'Buy Now' | - |
 | antdImageProps | The props of antd Image component | [ImageProps](https://ant-design.antgroup.com/components/image#api) | - | - |
 | className | The className of the card | `string` | - | - |

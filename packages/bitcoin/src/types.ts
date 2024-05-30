@@ -25,10 +25,11 @@ export interface HiroInscription {
   number: number;
   address: string;
   genesis_tx_id: string;
+  location: string;
+  output: string;
   value: string;
-  offset: number;
+  offset: string;
   content_type: string;
   content_length: number;
   timestamp: number;
-  location: string;
 }

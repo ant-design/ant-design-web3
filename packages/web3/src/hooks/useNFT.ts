@@ -16,14 +16,12 @@ export default function useNFT(
   });
 
   useEffect(() => {
-    if (!address || !tokenId) {
-      return;
-    }
+    if (!address) return;
     if (getNFTMetadataFunc) {
       setLoading(true);
       getNFTMetadataFunc({
         address,
-        tokenId: BigInt(tokenId),
+        tokenId: tokenId ? BigInt(tokenId) : undefined,
       })
         .then((data) => {
           setMetadata(data);
