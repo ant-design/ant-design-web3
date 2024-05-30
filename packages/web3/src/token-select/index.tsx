@@ -5,7 +5,15 @@ import { Flex, Select } from 'antd';
 
 import { useStyle } from './style';
 
-export interface TokenSelectProps extends SelectProps {
+export interface TokenSelectProps extends Omit<SelectProps, 'value' | 'onChange'> {
+  /**
+   * selected value
+   */
+  value?: Token;
+  /**
+   * selected value change handler
+   */
+  onChange?: (value: Token) => void;
   /**
    * controlled token list
    */
@@ -24,25 +32,25 @@ const SingleToken = ({ token }: { token: Token }) => {
   );
 };
 
-export const TokenSelect = ({ tokenList, ...selectProps }: TokenSelectProps) => {
+export const TokenSelect = ({ value, onChange, tokenList, ...selectProps }: TokenSelectProps) => {
   const { wrapSSR } = useStyle('web3-token-select');
 
   return wrapSSR(
-    <Select<Token>
+    <Select
       placeholder="Please Select"
       {...selectProps}
       options={tokenList}
+      value={value?.symbol}
+      onChange={(_, token) => onChange?.(token as Token)}
       fieldNames={{
         value: 'symbol',
       }}
-      labelRender={({ value }) => {
-        const selectedToken = tokenList?.find(({ symbol }) => symbol === value);
-
-        if (!selectedToken) {
+      labelRender={() => {
+        if (!value) {
           return;
         }
 
-        return <SingleToken token={selectedToken} />;
+        return <SingleToken token={value} />;
       }}
       filterOption={(input, option) => {
         const { name, symbol, availableChains } = option as Token;
@@ -57,8 +65,8 @@ export const TokenSelect = ({ tokenList, ...selectProps }: TokenSelectProps) => 
           (content) => content?.includes(keywordLower),
         );
       }}
-      optionRender={({ data: token }) => {
-        return <SingleToken token={token as Token} />;
+      optionRender={({ data }) => {
+        return <SingleToken token={data as Token} />;
       }}
     />,
   );

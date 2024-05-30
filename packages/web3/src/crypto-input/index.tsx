@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useDeferredValue } from 'react';
 import type { Token } from '@ant-design/web3-common';
 import { Flex, InputNumber, Space } from 'antd';
 import { isNull } from 'lodash';
@@ -20,13 +20,20 @@ export interface CryptoInputProps extends Omit<TokenSelectProps, 'value' | 'onCh
    */
   onChange?: (value?: CryptoInputProps['value']) => void;
   /**
+   * token balance
+   */
+  balance?: {
+    amount: string;
+    unitPrice: string;
+  };
+  /**
    * custom render for header
    */
-  header?: React.ReactNode;
+  header?: false | ((value?: CryptoInputProps['value']) => React.ReactNode);
   /**
    * custom render for footer
    */
-  footer?: React.ReactNode;
+  footer?: CryptoInputProps['header'];
 }
 
 export const CryptoInput = ({
@@ -34,16 +41,25 @@ export const CryptoInput = ({
   onChange,
   header,
   footer,
+  balance,
   ...selectProps
 }: CryptoInputProps) => {
   const { wrapSSR, getClsName } = useCryptoInputStyle();
 
+  // calculate token total price
+  const tokenTotalPrice = useDeferredValue(
+    value?.amount && balance
+      ? (parseFloat(value.amount) * parseFloat(balance?.unitPrice || '0')).toString()
+      : undefined,
+  );
+
   return wrapSSR(
     <Space direction="vertical" className={getClsName('wrapper')}>
-      {header}
+      {!!header && <div>{typeof header === 'function' ? header() : header}</div>}
       <Flex gap={16} align="center">
         <InputNumber
           stringMode
+          variant="borderless"
           controls={false}
           value={value?.amount}
           precision={value?.token?.decimal}
@@ -70,7 +86,33 @@ export const CryptoInput = ({
           }
         />
       </Flex>
-      {footer}
+      {footer !== false && (
+        <div className={getClsName('footer')}>
+          {footer ? (
+            footer()
+          ) : (
+            <Flex className="default" justify="space-between">
+              <span>{tokenTotalPrice || '-'}</span>
+              <span>
+                Balance: {balance?.amount || '-'}
+                {!!balance?.amount && (
+                  <a
+                    className="max-button"
+                    onClick={() => {
+                      onChange?.({
+                        ...value,
+                        amount: balance.amount,
+                      });
+                    }}
+                  >
+                    Max
+                  </a>
+                )}
+              </span>
+            </Flex>
+          )}
+        </div>
+      )}
     </Space>,
   );
 };

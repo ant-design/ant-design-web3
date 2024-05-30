@@ -8,9 +8,7 @@ group:
 
 # TokenSelect
 
-代币下拉选择器组件，是 `AntDesign Select` 组件的二次封装，基础 props 请参照 `AntDesign Select`
-
-支持 `受控` 以及 `调用接口查询` 两类方式实现代币列表的传递，API 的设计也可快速接入 `AntDesign Form`。
+代币下拉选择器组件，是 `AntDesign Select` 组件的二次封装，基础 props 请参照 `AntDesign Select`，API 的设计兼容 `AntDesign Form` 可实现快速接入。
 
 ## 代码演示
 
@@ -26,5 +24,7 @@ group:
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| tokenList | 可选择的代币列表 | [Token](/components/types-cn#Token)[] | - | - |
+| value | 当前选择的代币 | [Token](/components/types-cn#token) | - | - |
+| onChange | 选中代币发生变动时的回调 | (token?: [Token](/components/types-cn#token)) => void | - | - |
+| tokenList | 可选择的代币列表 | [Token](/components/types-cn#token)[] | - | - |
 | ...props | 请参照 AntDesign `Select` 组件 | [Select Props](https://ant-design.antgroup.com/components/select-cn#select-props) | - | - |

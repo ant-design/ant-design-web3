@@ -9,7 +9,7 @@ group:
 
 Token dropdown selector component
 
-Supports two types of token list transmission: `controlled` and `interface call`.The API design also allows quick integration with `AntDesign Form`.
+For basic props, please refer to `AntDesign Select`. The API design is compatible with `AntDesign Form` to enable quick integration.
 
 ## Demo
 
@@ -25,5 +25,7 @@ Supports two types of token list transmission: `controlled` and `interface call`
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| tokenList | selectable token list | [Token](/components/types-cn#Token)[] | - | - |
-| ...props | Please Reference AntDesign `Select` 组件 | [Select Props](https://ant-design.antgroup.com/components/select-cn#select-props) | - | - |
+| value | selected token | [Token](/components/types-cn#token) | - | - |
+| onChange | selected token change callback | (token?: [Token](/components/types-cn#token)) => void | - | - |
+| tokenList | selectable token list | [Token](/components/types-cn#token)[] | - | - |
+| ...props | Please ref AntDesign `Select` 组件 | [Select Props](https://ant-design.antgroup.com/components/select-cn#select-props) | - | - |

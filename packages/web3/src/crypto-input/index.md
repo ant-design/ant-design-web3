@@ -7,18 +7,20 @@ group:
 
 # CryptoInput
 
-## BasicUsage
+## Demo
+
+### Basic usage
 
 <code src="./demos/basic.tsx"></code>
 
-## WithHeader
+### No default footer
 
-<code src="./demos/withHeader.tsx"></code>
+<code src="./demos/noFooter.tsx"></code>
 
-## WithFooter
+### Custom footer
 
-<code src="./demos/withFooter.tsx"></code>
+<code src="./demos/customFooter.tsx"></code>
 
-## UniswapMode
+### Custom header
 
-<code src="./demos/uniswapMode.tsx"></code>
+<code src="./demos/customHeader.tsx"></code>

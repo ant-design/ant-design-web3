@@ -14,21 +14,20 @@ export interface TokenStyle extends Web3AliasToken {
 const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
   return {
     [`${token.componentCls}-wrapper`]: {
-      padding: '8px 16px',
-      border: '1px solid #d9d9d9',
-      borderRadius: '8px',
+      paddingBlock: token.paddingXS,
+      paddingInline: token.padding,
+      border: `1px solid ${token.colorBorder}`,
+      borderRadius: token.borderRadiusLG,
       boxSizing: 'border-box',
       width: '100%',
 
       '.ant-input-number': {
-        boxShadow: 'none !important',
-
         input: {
           padding: 0,
-          fontSize: 24,
-          lineHeight: 1.5,
-          fontWeight: 600,
-          color: '#000000db',
+          fontSize: token.fontSizeHeading3,
+          lineHeight: token.lineHeightLG,
+          fontWeight: token.fontWeightStrong,
+          color: token.colorBgSpotlight,
 
           '&::placeholder': {
             fontWeight: 'normal',
@@ -40,6 +39,18 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
     [`${token.componentCls}-amount`]: {
       flex: 1,
       border: 'none',
+    },
+
+    [`${token.componentCls}-footer`]: {
+      '.default': {
+        color: token.colorTextTertiary,
+        fontWeight: token.fontWeightStrong,
+
+        '.max-button': {
+          marginInlineStart: token.marginXS,
+          color: token.colorInfoText,
+        },
+      },
     },
   };
 };

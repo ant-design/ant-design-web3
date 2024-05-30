@@ -8,18 +8,20 @@ group:
 
 # CryptoInput
 
-## BasicUsage
+## 代码演示
+
+### 基本使用
 
 <code src="./demos/basic.tsx"></code>
 
-## WithHeader
+### 关闭默认底部
 
-<code src="./demos/withHeader.tsx"></code>
+<code src="./demos/noFooter.tsx"></code>
 
-## WithFooter
+### 自定义底部
 
-<code src="./demos/withFooter.tsx"></code>
+<code src="./demos/customFooter.tsx"></code>
 
-## UniswapMode
+### 自定义头部
 
-<code src="./demos/uniswapMode.tsx"></code>
+<code src="./demos/customHeader.tsx"></code>
