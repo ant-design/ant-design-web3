@@ -28,16 +28,15 @@ export const getBalanceByMempool = async (address: string): Promise<Balance> => 
 
 export const getInscriptionsByAddress = async ({
   address,
-  size,
+  limit,
   offset,
 }: {
   address: string;
-  size: number;
+  limit: number;
   offset: number;
 }): Promise<{ total: number; list: Inscription[] }> => {
-  const params = new URLSearchParams({ address, limit: `${size}`, offset: `${offset}` });
-
-  const res = await fetch(`${HIRO_API}/ordinals/v1/inscriptions?${params.toString()}`);
+  const params = { address, limit: `${limit}`, offset: `${offset}` };
+  const res = await fetch(`${HIRO_API}/ordinals/v1/inscriptions?${new URLSearchParams(params)}`);
   if (res.ok) {
     const { results, total } = await res.json();
     const list = (results as HiroInscription[]).map(

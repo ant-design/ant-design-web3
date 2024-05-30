@@ -93,14 +93,14 @@ export class XverseBitcoinWallet implements BitcoinWallet {
     }
   };
 
-  getInscriptions = async (offset = 0, size = 20) => {
+  getInscriptions = async (offset = 0, limit = 20) => {
     if (!this.account?.address) {
       throw new NoAddressError();
     }
     const inscriptions = await getInscriptionsByAddress({
       address: this.account?.address,
       offset,
-      size,
+      limit,
     });
     return inscriptions;
   };

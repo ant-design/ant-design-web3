@@ -69,7 +69,7 @@ describe('BitcoinWeb3ConfigProvider', () => {
     // @ts-ignore: vi.fn().mockResolvedValue
     fetch.mockResolvedValue(() => Promise.resolve({ ok: false }));
     try {
-      await getInscriptionsByAddress({ address: 'bc1p', size: 10, offset: 0 });
+      await getInscriptionsByAddress({ address: 'bc1p', limit: 10, offset: 0 });
     } catch (e: any) {
       console.log(e.message);
     }
@@ -143,7 +143,7 @@ describe('BitcoinWeb3ConfigProvider', () => {
     fetch.mockResolvedValue(createFetchResponse(inscriptionResponse));
 
     try {
-      await getInscriptionsByAddress({ address: 'bc1p', size: 10, offset: 0 });
+      await getInscriptionsByAddress({ address: 'bc1p', limit: 10, offset: 0 });
     } catch (e: any) {
       console.log(e.message);
     }

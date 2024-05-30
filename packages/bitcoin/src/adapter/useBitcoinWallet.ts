@@ -10,7 +10,7 @@ export interface BitcoinWallet<Provider = any> {
   getBalance: () => Promise<Balance>;
   connect: () => Promise<void>;
   signMessage: (message: string) => Promise<string>;
-  sendTransfer: (prams: TransferParams) => Promise<string>;
+  sendTransfer: (params: TransferParams) => Promise<string>;
   signPsbt: (params: SignPsbtParams) => Promise<SignPsbtResult>;
   getInscriptions: (
     offset?: number,

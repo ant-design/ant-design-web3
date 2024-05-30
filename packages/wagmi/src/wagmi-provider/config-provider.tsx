@@ -179,7 +179,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
 
   const getNFTMetadataFunc = React.useCallback(
     async ({ address: contractAddress, tokenId }: { address: string; tokenId?: bigint }) =>
-      getNFTMetadata(config, contractAddress, tokenId ?? 0n, chain?.id),
+      getNFTMetadata(config, contractAddress, tokenId!, chain?.id),
     [chain?.id],
   );
 
