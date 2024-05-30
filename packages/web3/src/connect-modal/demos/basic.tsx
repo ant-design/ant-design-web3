@@ -1,12 +1,17 @@
 import React from 'react';
 import { ConnectModal } from '@ant-design/web3';
-import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
+import {
+  metadata_MetaMask,
+  metadata_MobileConnect,
+  metadata_WalletConnect,
+} from '@ant-design/web3-assets';
 import { Button } from 'antd';
 
 import type { Wallet } from '../interface';
 
 const walletList: Wallet[] = [
   metadata_MetaMask,
+  metadata_MobileConnect,
   {
     ...metadata_WalletConnect,
     getQrCode: () => {
@@ -46,7 +51,7 @@ const walletList: Wallet[] = [
   },
   {
     icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
-    name: 'Test Wallet3 Have a Long Name',
+    name: 'Test Wallet3 Has a Long Name',
     remark: 'remark 3',
     app: {
       link: 'https://test.com/xxx',

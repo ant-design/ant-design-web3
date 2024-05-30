@@ -4,7 +4,7 @@ import type { Connector } from 'wagmi';
 
 import type { WalletFactory } from '../interface';
 
-type EthereumWalletConnect = (
+export type EthereumWalletConnect = (
   metadata?: Partial<WalletMetadata> & {
     useWalletConnectOfficialModal?: boolean;
   },

@@ -3,6 +3,7 @@ import {
   CoinbaseWallet,
   ImToken,
   MetaMask,
+  MobileWallet,
   OkxWallet,
   SafeheronWallet,
   TokenPocket,
@@ -47,6 +48,7 @@ const App: React.FC = () => {
         SafeheronWallet(),
         OkxWallet(),
         ImToken(),
+        MobileWallet(),
       ]}
       config={config}
     >
