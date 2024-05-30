@@ -61,7 +61,7 @@ const App: React.FC = () => {
             },
           }}
         >
-          <ConnectModal.ModalPanel walletList={walletList} />
+          <ConnectModal.ModalPanel walletList={walletList} mode="simple" />
         </Card>
       </Space>
     </ConfigProvider>

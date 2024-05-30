@@ -89,7 +89,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
             {localeMessage.qrCodePanelDownloadTipForReady}
           </div>
         ) : (
-          <Flex justify="space-between">
+          <Flex justify="space-between" align="center" gap="small">
             <div className={`${prefixCls}-get-wallet-tip`}>
               {wallet.universalProtocol
                 ? localeMessage.qrCodePanelUniversalProtocolTipForNotReady
