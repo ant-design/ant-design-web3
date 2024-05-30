@@ -55,7 +55,10 @@ export function useStyle(prefixCls: string): UseStyleResult {
   });
 }
 
-export function useCryptoInputStyle() {
+export function useCryptoInputStyle(): {
+  wrapSSR: UseStyleResult['wrapSSR'];
+  getClsName: (name: string) => string;
+} {
   const prefixCls = 'web3-crypto-input';
 
   const { wrapSSR, hashId } = useStyle(prefixCls);

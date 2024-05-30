@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import type { Token } from '@ant-design/web3-common';
 import type { SelectProps } from 'antd';
-import { Flex, Select, Spin } from 'antd';
+import { Flex, Select } from 'antd';
 
-import { useTokenSelectStyle } from './style';
+import { useStyle } from './style';
 
 export interface TokenSelectProps extends SelectProps {
   /**
    * controlled token list
    */
   tokenList?: Token[];
-  /**
-   * query allow select token list
-   * @returns token list
-   */
-  queryTokenList?: () => Promise<Token[] | undefined>;
-  /**
-   * allow clear
-   */
-  allowClear?: boolean;
 }
 
 /**
@@ -33,60 +24,19 @@ const SingleToken = ({ token }: { token: Token }) => {
   );
 };
 
-export const TokenSelect = ({ tokenList, queryTokenList, ...selectProps }: TokenSelectProps) => {
-  const { wrapSSR } = useTokenSelectStyle();
-
-  // full Token List
-  const [fullTokenList, setFullTokenList] = useState<Token[] | undefined>(tokenList);
-
-  // query token list loading
-  const [loading, setLoading] = useState<boolean>();
-
-  // when controlled tokenList change, update fullTokenList
-  useEffect(() => {
-    setFullTokenList(tokenList);
-  }, [tokenList]);
-
-  // when trigger select open, query dynamic token list
-  const handleQueryTokenList = async () => {
-    /**
-     * query token list condition:
-     * 1. controlled tokenList is highest priority, if tokenList has value, queryTokenList will not be executed
-     * 2. queryTokenList is exist
-     */
-    if (!queryTokenList || tokenList?.length) {
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      setFullTokenList(await queryTokenList?.());
-
-      console.log('tokenList', tokenList);
-    } catch (error) {
-      console.error('queryTokenList error', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+export const TokenSelect = ({ tokenList, ...selectProps }: TokenSelectProps) => {
+  const { wrapSSR } = useStyle('web3-token-select');
 
   return wrapSSR(
     <Select<Token>
+      placeholder="Please Select"
       {...selectProps}
-      showSearch
-      onDropdownVisibleChange={(nextOpen) => {
-        if (nextOpen) {
-          handleQueryTokenList();
-        }
-      }}
-      placeholder={'Enter name / contract'}
-      options={fullTokenList}
+      options={tokenList}
       fieldNames={{
         value: 'symbol',
       }}
       labelRender={({ value }) => {
-        const selectedToken = fullTokenList?.find(({ symbol }) => symbol === value);
+        const selectedToken = tokenList?.find(({ symbol }) => symbol === value);
 
         if (!selectedToken) {
           return;
@@ -103,16 +53,13 @@ export const TokenSelect = ({ tokenList, queryTokenList, ...selectProps }: Token
 
         const keywordLower = input.toLowerCase();
 
-        return [nameLower, symbolLower, availableChains[0]?.contract].some((content) =>
-          content?.includes(keywordLower),
+        return [nameLower, symbolLower, ...availableChains?.map(({ contract }) => contract)].some(
+          (content) => content?.includes(keywordLower),
         );
       }}
       optionRender={({ data: token }) => {
         return <SingleToken token={token as Token} />;
       }}
-      dropdownRender={
-        loading ? () => <Spin spinning size="small" style={{ padding: 4 }} /> : undefined
-      }
     />,
   );
 };

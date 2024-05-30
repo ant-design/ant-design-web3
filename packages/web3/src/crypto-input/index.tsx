@@ -41,7 +41,7 @@ export const CryptoInput = ({
   return wrapSSR(
     <Space direction="vertical" className={getClsName('wrapper')}>
       {header}
-      <Flex gap={16}>
+      <Flex gap={16} align="center">
         <InputNumber
           stringMode
           controls={false}
@@ -58,6 +58,8 @@ export const CryptoInput = ({
           className={getClsName('amount')}
         />
         <TokenSelect
+          variant="borderless"
+          placeholder="Please select token"
           {...selectProps}
           value={value?.token}
           onChange={(token) =>

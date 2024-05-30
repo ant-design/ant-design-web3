@@ -1,5 +1,3 @@
-import classNames from 'classnames';
-
 import {
   useStyle as useAntdStyle,
   type GenerateStyle,
@@ -24,18 +22,4 @@ export function useStyle(prefixCls: string): UseStyleResult {
 
     return [getTokenStyle(proListToken)];
   });
-}
-
-export function useTokenSelectStyle() {
-  const prefixCls = 'web3-token-select';
-
-  const { wrapSSR, hashId } = useStyle(prefixCls);
-
-  const getClsName = (cls: string, ...extraCls: (string | undefined)[]) =>
-    classNames(`${prefixCls}-${cls}`, hashId, ...extraCls);
-
-  return {
-    wrapSSR,
-    getClsName,
-  };
 }

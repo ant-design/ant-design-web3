@@ -18,14 +18,13 @@ group:
 
 <code src="./demos/basic.tsx"></code>
 
-### 通过接口查询代币列表
+### 带搜索功能
 
-<code src="./demos/dynamicTokenList.tsx"></code>
+<code src="./demos/withSearch.tsx"></code>
 
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| queryTokenList | 查询代币列表接口，在每次打开选择器时触发 | () => Promise<[Token](/components/types-cn#Token)[]> | - | - |
-| tokenList | 代币列表（受控），优先级高于 `defaultTokenList` 与 `queryTokenList` | [Token](/components/types-cn#Token)[] | - | - |
+| tokenList | 可选择的代币列表 | [Token](/components/types-cn#Token)[] | - | - |
 | ...props | 请参照 AntDesign `Select` 组件 | [Select Props](https://ant-design.antgroup.com/components/select-cn#select-props) | - | - |
