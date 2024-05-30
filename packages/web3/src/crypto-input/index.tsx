@@ -3,6 +3,7 @@ import type { Token } from '@ant-design/web3-common';
 import { Flex, InputNumber, Space } from 'antd';
 import { isNull } from 'lodash';
 
+import useIntl from '../hooks/useIntl';
 import { TokenSelect, type TokenSelectProps } from '../token-select';
 import { useCryptoInputStyle } from './style';
 
@@ -44,6 +45,8 @@ export const CryptoInput = ({
   balance,
   ...selectProps
 }: CryptoInputProps) => {
+  const { messages } = useIntl('CryptoInput');
+
   const { wrapSSR, getClsName } = useCryptoInputStyle();
 
   // calculate token total price
@@ -70,12 +73,11 @@ export const CryptoInput = ({
               amount: isNull(amt) ? undefined : amt,
             });
           }}
-          placeholder="Please enter amount"
+          placeholder={messages.placeholder}
           className={getClsName('amount')}
         />
         <TokenSelect
           variant="borderless"
-          placeholder="Please select token"
           {...selectProps}
           value={value?.token}
           onChange={(token) =>
@@ -91,9 +93,9 @@ export const CryptoInput = ({
           {footer ? (
             footer()
           ) : (
-            <Flex className="default" justify="space-between">
-              <span>{tokenTotalPrice || '-'}</span>
-              <span>
+            <Flex className="default-footer" justify="space-between">
+              <span className="total-price">{tokenTotalPrice || '-'}</span>
+              <span className="token-balance">
                 Balance: {balance?.amount || '-'}
                 {!!balance?.amount && (
                   <a

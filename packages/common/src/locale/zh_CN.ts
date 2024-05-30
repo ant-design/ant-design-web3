@@ -52,6 +52,12 @@ const localeValues: RequiredLocale = {
     copyTips: '复制地址',
     copiedTips: '地址复制成功！',
   },
+  TokenSelect: {
+    placeholder: '请选择代币',
+  },
+  CryptoInput: {
+    placeholder: '请输入代币数量',
+  },
 };
 
 export default localeValues;

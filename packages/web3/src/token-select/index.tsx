@@ -1,8 +1,9 @@
 import React from 'react';
-import type { Token } from '@ant-design/web3-common';
+import { type Token } from '@ant-design/web3-common';
 import type { SelectProps } from 'antd';
 import { Flex, Select } from 'antd';
 
+import useIntl from '../hooks/useIntl';
 import { useStyle } from './style';
 
 export interface TokenSelectProps extends Omit<SelectProps, 'value' | 'onChange'> {
@@ -33,11 +34,13 @@ const SingleToken = ({ token }: { token: Token }) => {
 };
 
 export const TokenSelect = ({ value, onChange, tokenList, ...selectProps }: TokenSelectProps) => {
+  const { messages } = useIntl('TokenSelect');
+
   const { wrapSSR } = useStyle('web3-token-select');
 
   return wrapSSR(
     <Select
-      placeholder="Please Select"
+      placeholder={messages.placeholder}
       {...selectProps}
       options={tokenList}
       value={value?.symbol}

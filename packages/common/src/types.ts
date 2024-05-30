@@ -265,6 +265,12 @@ export interface RequiredLocale {
     copyTips: string;
     copiedTips: string;
   };
+  TokenSelect: {
+    placeholder: string;
+  };
+  CryptoInput: {
+    placeholder: string;
+  };
 }
 
 export interface Locale {
@@ -272,6 +278,8 @@ export interface Locale {
   ConnectModal?: Partial<RequiredLocale['ConnectModal']>;
   NFTCard?: Partial<RequiredLocale['NFTCard']>;
   Address?: Partial<RequiredLocale['Address']>;
+  TokenSelect?: Partial<RequiredLocale['TokenSelect']>;
+  CryptoInput?: Partial<RequiredLocale['CryptoInput']>;
 }
 
 export interface UniversalEIP6963Config {
