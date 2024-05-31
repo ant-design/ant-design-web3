@@ -99,6 +99,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             marginBlock: token.marginSM,
             paddingInline: token.paddingMD,
             overflow: 'auto',
+            maxHeight: 425,
             [`${componentCls}-wallet-list`]: {
               overflow: 'scroll',
               '&::-webkit-scrollbar': {
