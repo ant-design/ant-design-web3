@@ -23,7 +23,7 @@ For basic props, please refer to `AntDesign Select`. The API design is compatibl
 
 ## API
 
-| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | value | selected token | [Token](/components/types-cn#token) | - | - |
 | onChange | selected token change callback | (token?: [Token](/components/types-cn#token)) => void | - | - |

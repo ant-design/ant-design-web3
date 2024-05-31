@@ -25,3 +25,22 @@ group:
 ### 自定义头部
 
 <code src="./demos/customHeader.tsx"></code>
+
+## API
+
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| value | 加密输入框组件的值 | [CryptoInputValue](#cryptoInputValue) | - | - |
+| onChange | 加密输入框组件值变动的回调 | (value?: [CryptoInputValue](#cryptoInputValue)) => void | - | - |
+| tokenList | 可选择的代币列表 | [Token](/components/types-cn#token)[] | - | - |
+| balance | 代币的余额相关信息，包含数量和单价 | `{ amount: string; unitPrice: string }` | - | - |
+| header | 自定义渲染的头部 | (value?: [CryptoInputValue](#cryptoInputValue)) => React.ReactNode | - | - |
+| footer | 自定义渲染的底部，不传递时使用默认底部 | (value?: [CryptoInputValue](#cryptoInputValue)) => React.ReactNode | - | - |
+| ...props | 其它参数请参照 Ant Design `Select` 组件 | [Select Props](https://ant-design.antgroup.com/components/select-cn#select-props) | - | - |
+
+### CryptoInputValue
+
+| 属性   | 描述           | 类型                                | 默认值 | 版本 |
+| ------ | -------------- | ----------------------------------- | ------ | ---- |
+| token  | 当前选择的代币 | [Token](/components/types-cn#token) | -      | -    |
+| amount | 输入的代币数量 | `string`                            | -      | -    |

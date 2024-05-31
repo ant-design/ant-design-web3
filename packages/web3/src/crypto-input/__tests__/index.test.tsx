@@ -140,11 +140,25 @@ describe('CryptoInput component', () => {
 
     const { baseElement } = render(<TestComponent />);
 
+    // set token amount to 10
     fireEvent.change(baseElement.querySelector('.ant-input-number-input') as Element, {
       target: { value: '10' },
     });
 
     expect(baseElement.querySelector('.total-price')?.textContent).toBe('1000');
     expect(baseElement.querySelector('.token-balance')?.textContent).includes('100');
+
+    // change token amount to max
+    fireEvent.click(baseElement.querySelector('.max-button') as Element);
+
+    expect(baseElement.querySelector('.ant-input-number-input')?.getAttribute('value')).toBe('100');
+    expect(baseElement.querySelector('.total-price')?.textContent).toBe('10000');
+
+    // set token amount to null
+    fireEvent.change(baseElement.querySelector('.ant-input-number-input') as Element, {
+      target: { value: null },
+    });
+
+    expect(baseElement.querySelector('.total-price')?.textContent).toBe('-');
   });
 });

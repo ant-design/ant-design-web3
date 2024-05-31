@@ -24,3 +24,22 @@ group:
 ### Custom header
 
 <code src="./demos/customHeader.tsx"></code>
+
+## API
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| value | Crypto input value | [CryptoInputValue](#cryptoInputValue) | - | - |
+| onChange | Crypto input value change callback | (value?: [CryptoInputValue](#cryptoInputValue)) => void | - | - |
+| tokenList | selectable token list | [Token](/components/types-cn#token)[] | - | - |
+| balance | selected token balance, includes amount and unit price | `{ amount: string; unitPrice: string }` | - | - |
+| header | custom render for header | (value?: [CryptoInputValue](#cryptoInputValue)) => React.ReactNode | - | - |
+| footer | custom render for footer | (value?: [CryptoInputValue](#cryptoInputValue)) => React.ReactNode | - | - |
+| ...props | Other props please ref Ant Design `Select` 组件 | [Select Props](https://ant-design.antgroup.com/components/select-cn#select-props) | - | - |
+
+### CryptoInputValue
+
+| Property | Description        | Type                                | Default | Version |
+| -------- | ------------------ | ----------------------------------- | ------- | ------- |
+| token    | selected token     | [Token](/components/types-cn#token) | -       | -       |
+| amount   | token amount input | `string`                            | -       | -       |

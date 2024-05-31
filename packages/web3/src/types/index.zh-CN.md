@@ -104,13 +104,13 @@ order: 3
 
 ## Token
 
-| Property        | Description      | Type                         | Default | Version |
-| --------------- | ---------------- | ---------------------------- | ------- | ------- |
-| name            | 代币名称         | `string`                     | -       | -       |
-| symbol          | 代币符号         | `string`                     | -       | -       |
-| icon            | 代币图标         | `React.ReactNode`            | -       | -       |
-| decimal         | 代币金额精度     | `number`                     | -       | -       |
-| availableChains | 代币可用的链列表 | [TokenChain](#tokenChain)\[] | -       | -       |
+| 属性            | 描述             | 类型                         | 默认值 | 版本 |
+| --------------- | ---------------- | ---------------------------- | ------ | ---- |
+| name            | 代币名称         | `string`                     | -      | -    |
+| symbol          | 代币符号         | `string`                     | -      | -    |
+| icon            | 代币图标         | `React.ReactNode`            | -      | -    |
+| decimal         | 代币金额精度     | `number`                     | -      | -    |
+| availableChains | 代币可用的链列表 | [TokenChain](#tokenChain)\[] | -      | -    |
 
 ### TokenChain
 
