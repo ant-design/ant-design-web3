@@ -2,13 +2,13 @@ import type { Account, Balance } from '@ant-design/web3-common';
 import { AddressPurpose, getProviderById, request } from 'sats-connect';
 
 import { NoAddressError, NoProviderError } from '../../error';
-import { getBalanceByMempool } from '../../helpers';
+import { getBalanceByMempool, getInscriptionsByAddress } from '../../helpers';
 import type { BitcoinProvider, SignPsbtParams, SignPsbtResult, TransferParams } from '../../types';
 import type { BitcoinWallet } from '../useBitcoinWallet';
 
 export class XverseBitcoinWallet implements BitcoinWallet {
   name: string;
-  provider: BitcoinProvider | null;
+  provider?: BitcoinProvider;
   account?: Account;
   payment?: string;
 
@@ -91,5 +91,17 @@ export class XverseBitcoinWallet implements BitcoinWallet {
     } else {
       throw new Error(response.error.message);
     }
+  };
+
+  getInscriptions = async (offset = 0, limit = 20) => {
+    if (!this.account?.address) {
+      throw new NoAddressError();
+    }
+    const inscriptions = await getInscriptionsByAddress({
+      address: this.account?.address,
+      offset,
+      limit,
+    });
+    return inscriptions;
   };
 }

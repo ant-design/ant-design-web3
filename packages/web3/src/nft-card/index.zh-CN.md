@@ -28,9 +28,9 @@ group: UI 组件
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| address | NFT 的地址 | `string` | - | - |
+| address | NFT 的地址。对于比特币，传入铭文 ID 或者铭文编号 | `string` | - | - |
 | tokenId | NFT 的 tokenId | `number \| bigint` | - | - |
-| getNFTMetadata | 获取 NFT 元数据的方法 | `(address: string, tokenId: number \| bigint) => Promise<NFTMetadata>` | - | - |
+| getNFTMetadata | 获取 NFT 元数据的方法 | `(address: string, tokenId?: number \| bigint) => Promise<NFTMetadata>` | - | - |
 | actionText | 卡片中主要按钮文案 | `React.ReactNode` | 'Buy Now' | - |
 | antdImageProps | antd Image 组件的 props | [ImageProps](https://ant-design.antgroup.com/components/image#api) | - | - |
 | className | 卡片的类名 | `string` | - | - |

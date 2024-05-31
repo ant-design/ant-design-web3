@@ -90,7 +90,7 @@ This is an enum type that contains the IDs of some commonly used chains. Its val
 | connect | Connect to the wallet | `(wallet: Wallet, options?: ConnectOptions) => Promise<void>` | - | - |
 | disconnect | Disconnect from the chain | `() => Promise<void>` | - | - |
 | switchChain | Switch to another chain | `(chainId: ChainIds) => Promise<void>` | - | - |
-| getNFTMetadata | Get the metadata of the NFT | `(contractAddress: string, tokenId: string) => Promise<NFTMetadata>` | - | - |
+| getNFTMetadata | Get the metadata of the NFT | `(contractAddress: string, tokenId?: string) => Promise<NFTMetadata>` | - | - |
 
 ## Locale
 

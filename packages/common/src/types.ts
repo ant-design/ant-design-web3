@@ -103,7 +103,8 @@ export interface UniversalWeb3ProviderInterface {
   disconnect?: () => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;
 
-  getNFTMetadata?: (params: { address: string; tokenId: bigint }) => Promise<NFTMetadata>;
+  // For Bitcoin, tokenId is undefined.
+  getNFTMetadata?: (params: { address: string; tokenId?: bigint }) => Promise<NFTMetadata>;
 }
 
 export interface Wallet extends WalletMetadata {

@@ -4,36 +4,37 @@ order: 1
 group:
   title: Connect Blockchains
   order: 2
-tag:
-  title: New
-  color: success
 ---
 
 # Bitcoin
 
-Ant Design Web3 officially provides `@ant-design/web3-bitcoin` to adapt to Bitcoin. It provides the ability to connect to Bitcoin for the components of `@ant-design/web3`.
+Ant Design Web3 officially provides `@ant-design/web3-bitcoin` to adapt to Bitcoin, which provides the ability for `@ant-design/web3` components to connect to Bitcoin. You don't need to handle the connection status of the components yourself. It will provide relevant global states and interfaces for the components through `Web3ConfigProvider`. At the same time, you don't need to customize the handling of wallets. `useBitcoinWallet` exposes common methods such as signing and transactions, which can be directly called. Of course, you can still call the unique APIs of different wallets through `provider`.
 
-Currently, connections to Xverse, OKX and Unisat wallets are supported. In the future, [StandardWallet protocol](https://github.com/ExodusMovement/bitcoin-wallet-standard) and more commonly used wallets will be supported.
+The wallets currently supported are as follows, and we also welcome you to submit GitHub issues or PRs to support other wallets.
 
-`useBitcoinWallet` exposes common methods such as signing and transaction handling, which can be called directly. Alternatively, wallet APIs can be accessed through the `provider` for customized handling of wallet logic.
-
-Support for other methods will be added in the future. Feel free to submit a GitHub issue or a PR to support this. Currently, related logic can be implemented through the provider.
+- [Xverse](https://docs.xverse.app/sats-connect)
+- [OKX](https://www.okx.com/web3/build/docs/sdks/chains/bitcoin/provider)
+- [Unisat](https://docs.unisat.io/dev/unisat-developer-service/unisat-wallet)
 
 ## WalletConnect
 
 <code src="./demos/basic.tsx"></code>
 
-## signMessage / signPsbt
+## SignMessage / SignPsbt
 
 <code src="./demos/sign.tsx"></code>
 
-## sendTransfer
+## SendTransfer
 
 <code src="./demos/send-transfer.tsx"></code>
 
-## get Ordinals Inscriptions using unisat wallet
+## GetInscriptions
 
 <code src="./demos/get-inscriptions.tsx"></code>
+
+## Use NFTCard to show Ordinals NFT
+
+<code src="./demos/ordinals.tsx"></code>
 
 ## API
 
@@ -47,18 +48,19 @@ Support for other methods will be added in the future. Feel free to submit a Git
 
 ### useBitcoinWallet
 
-#### result
+#### Result
 
-| Property | Description | Type |
-| --- | --- | --- |
-| name | The connected wallet's name | `string` |
-| provider | The connected wallet's provider | `any` |
-| account | Represents the web3 account address of the current user | `string` |
-| connect | Connect the wallet | `() => Promise<void>` |
-| getBalance | Get the balance of the wallet | `() => Promise<Balance>` |
-| signMessage | Sign message | `(message: string) => Promise<string>` |
-| sendTransfer | Transfer bticoin | `(prams: TranssferParams) => Promise<string>` |
-| signPsbt | Sign PSBT | `(params: SignPsbtParams) => Promise<SignPsbtResult>` |
+| Property | Description | Type | Version |
+| --- | --- | --- | --- |
+| name | The connected wallet's name | `string` | 1.0.0 |
+| provider | The connected wallet's provider | `any` | 1.0.0 |
+| account | Represents the web3 account address of the current user | `string` | 1.0.0 |
+| connect | Connect the wallet | `() => Promise<void>` | 1.0.0 |
+| getBalance | Get the balance of the wallet | `() => Promise<Balance>` | 1.0.0 |
+| signMessage | Sign message | `(message: string) => Promise<string>` | 1.0.0 |
+| sendTransfer | Transfer bticoin | `(prams: TranssferParams) => Promise<string>` | 1.0.0 |
+| signPsbt | Sign PSBT | `(params: SignPsbtParams) => Promise<SignPsbtResult>` | 1.1.0 |
+| getInscriptions | Get Inscriptions | `(offset?: number, size?: number) => Promise<{ total: number; list: Inscription[] }>` | 1.3.0 |
 
 ##### TransferParams
 
@@ -89,3 +91,19 @@ Support for other methods will be added in the future. Feel free to submit a Git
 | --- | --- | --- | --- | --- |
 | psbt | The base64 encoded PSBT after signing | `string` | - | - |
 | txid | The transaction hash, only returned if `broadcast` equals true | `string` | - | - |
+
+##### Inscription
+
+| Property           | Description                           | Type     | Default | Version |
+| ------------------ | ------------------------------------- | -------- | ------- | ------- |
+| inscriptionId      | Inscription id                        | `string` | -       | -       |
+| address            | Inscription number                    | `string` | -       | -       |
+| outputValue        | The output value of inscription       | `string` | -       | -       |
+| content            | The content url of inscription        | `string` | -       | -       |
+| contentLength      | The content length of inscription     | `string` | -       | -       |
+| contentType        | The content type of inscription       | `string` | -       | -       |
+| preview            | The preview link                      | `string` | -       | -       |
+| timestamp          | The blocktime of inscription          | `number` | -       | -       |
+| offset             | The offset of inscription             | `number` | -       | -       |
+| genesisTransaction | The txid of genesis transaction       | `string` | -       | -       |
+| location           | The txid and vout of current location | `string` | -       | -       |

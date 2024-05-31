@@ -1,18 +1,14 @@
 import { useEffect, useState, type FC, type PropsWithChildren } from 'react';
-import {
-  Web3ConfigProvider,
-  type Balance,
-  type Locale,
-  type Wallet,
-} from '@ant-design/web3-common';
+import { Web3ConfigProvider, type Balance, type Wallet } from '@ant-design/web3-common';
 
 import { useBitcoinWallet } from '../adapter';
+import { getInscriptionContentById } from '../helpers';
+import type { BitcoinWeb3ConfigProviderProps } from '../index';
 
-export interface BitcoinConfigProviderProps {
-  locale?: Locale;
+export interface BitcoinConfigProviderProps
+  extends Omit<BitcoinWeb3ConfigProviderProps, 'wallets'> {
   wallets: Wallet[];
   selectWallet: (wallet?: Wallet | null) => void;
-  balance: boolean;
 }
 
 export const BitcoinConfigProvider: FC<PropsWithChildren<BitcoinConfigProviderProps>> = ({
@@ -42,6 +38,12 @@ export const BitcoinConfigProvider: FC<PropsWithChildren<BitcoinConfigProviderPr
       }}
       disconnect={async () => {
         selectWallet(null);
+      }}
+      getNFTMetadata={async ({ address }) => {
+        const image = await getInscriptionContentById(address);
+        return {
+          image,
+        };
       }}
     >
       {children}

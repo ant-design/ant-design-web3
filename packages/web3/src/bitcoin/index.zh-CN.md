@@ -5,20 +5,17 @@ order: 1
 group:
   title: 连接链
   order: 2
-tag:
-  title: 新增
-  color: success
 ---
 
 # Bitcoin
 
-Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，它为 `@ant-design/web3` 的组件提供了连接比特币链的能力。通过它，你不需要自己处理组件的连接状态，链数据请求等逻辑。它会通过 [Web3ConfigProvider](../web3-config-provider/index.zh-CN.md) 为组件提供相关全局状态和接口。
+Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，它为 `@ant-design/web3` 的组件提供了连接比特币链的能力。你不需要自己处理组件的连接状态，它会通过 [Web3ConfigProvider](../web3-config-provider/index.zh-CN.md) 为组件提供相关全局状态和接口。同时，也不需要定制化处理钱包，`useBitcoinWallet` 暴露出了诸如签名、交易等通用的方法, 可以直接调用。当然了，你依然可以通过 `provider` 调用不同钱包独有的 API。
 
-目前支持连接 Xverse、OKX 和 Unisat 钱包。未来会支持 [StandardWallet](https://github.com/ExodusMovement/bitcoin-wallet-standard) 协议及更多常用钱包。
+目前支持的钱包如下，也欢迎给我们提交 GitHub issue 或 PR 支持其他钱包。
 
-`useBitcoinWallet` 暴露出了诸如签名、交易等通用的方法, 可以直接调用；也可以通过 `provider` 直接调用钱包的 API，定制化处理各个钱包逻辑。
-
-未来会支持其他方法，欢迎给我们提交 GitHub issue 或 PR 支持。当前可以通过 provider 实现相关逻辑。
+- [Xverse](https://docs.xverse.app/sats-connect)
+- [OKX](https://www.okx.com/web3/build/docs/sdks/chains/bitcoin/provider)
+- [Unisat](https://docs.unisat.io/dev/unisat-developer-service/unisat-wallet)
 
 ## 连接钱包
 
@@ -32,9 +29,13 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 
 <code src="./demos/send-transfer.tsx"></code>
 
-## 使用 unisat 查看 Ordinals 铭文
+## 获取铭文信息展示
 
 <code src="./demos/get-inscriptions.tsx"></code>
+
+## 结合 NFTCard 展示 Ordinals NFT
+
+<code src="./demos/ordinals.tsx"></code>
 
 ## API
 
@@ -48,18 +49,19 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 
 ### useBitcoinWallet
 
-#### result
+#### Result
 
-| 参数 | 描述 | 类型 |
-| --- | --- | --- |
-| name | 当前连接的钱包名称 | `string` |
-| provider | 获取当前连接钱包的 provider 对象 | `any` |
-| account | 账户地址 | `string` |
-| connect | 连接钱包 | `() => Promise<void>` |
-| getBalance | 获取钱包余额 | `() => Promise<Balance>` |
-| signMessage | 签名 | `(message: string) => Promise<string>` |
-| sendTransfer | 发送交易 | `(prams: TransferParams) => Promise<string>` |
-| signPsbt | 签名 PSBT | `(params: SignPsbtParams) => Promise<SignPsbtResult>` |
+| 参数 | 描述 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| name | 当前连接的钱包名称 | `string` | 1.0.0 |
+| provider | 获取当前连接钱包的 provider 对象 | `any` | 1.0.0 |
+| account | 账户地址 | `string` | 1.0.0 |
+| connect | 连接钱包 | `() => Promise<void>` | 1.0.0 |
+| getBalance | 获取钱包余额 | `() => Promise<Balance>` | 1.0.0 |
+| signMessage | 签名 | `(message: string) => Promise<string>` | 1.0.0 |
+| sendTransfer | 发送交易 | `(prams: TransferParams) => Promise<string>` | 1.0.0 |
+| signPsbt | 签名 PSBT | `(params: SignPsbtParams) => Promise<SignPsbtResult>` | 1.1.0 |
+| getInscriptions | 获取铭文（分页） | `(offset?: number, size?: number) => Promise<{ total: number; list: Inscription[] }>` | 1.3.0 |
 
 ##### TransferParams
 
@@ -90,3 +92,19 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 | ---- | ----------------------------------------------- | -------- | ------ | ---- |
 | psbt | 签名后 base64 编码的 PSBT 数据                  | `string` | -      | -    |
 | txid | 广播后的交易哈希。仅 `broadcast` 为 true 时返回 | `string` | -      | -    |
+
+##### Inscription
+
+| 属性               | 描述                      | 类型     | 默认值 | 版本 |
+| ------------------ | ------------------------- | -------- | ------ | ---- |
+| inscriptionId      | 铭文ID                    | `string` | -      | -    |
+| address            | 铭文所属地址              | `string` | -      | -    |
+| outputValue        | 铭文所在 UTXO 的大小      | `string` | -      | -    |
+| content            | 铭文内容 URL              | `string` | -      | -    |
+| contentLength      | 铭文内容长度              | `string` | -      | -    |
+| contentType        | 铭文内容类型              | `string` | -      | -    |
+| preview            | 铭文预览 URL              | `string` | -      | -    |
+| timestamp          | 铭文所在交易确认的时间戳  | `number` | -      | -    |
+| offset             | 铭文所在聪的 UTXO 偏移    | `number` | -      | -    |
+| genesisTransaction | 产生铭文的原始交易哈希    | `string` | -      | -    |
+| location           | 铭文索引位置（交易+输出） | `string` | -      | -    |
