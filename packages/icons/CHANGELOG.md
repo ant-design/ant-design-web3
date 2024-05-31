@@ -1,5 +1,11 @@
 # @ant-design/web3-icons
 
+## 1.7.0
+
+### Minor Changes
+
+- 8a6d1c7: feat: add mobile wallet
+
 ## 1.6.0
 
 ### Minor Changes

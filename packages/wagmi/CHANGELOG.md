@@ -1,5 +1,20 @@
 # @ant-design/web3-wagmi
 
+## 2.5.0
+
+### Minor Changes
+
+- 8a6d1c7: feat: add mobile wallet
+
+### Patch Changes
+
+- 752dddd: refactor(wagmi): use ens hook instead of low-level api
+- 6511134: refactor: remove useless proxyConnectorName
+- Updated dependencies [6511134]
+- Updated dependencies [8a6d1c7]
+  - @ant-design/web3-assets@1.8.0
+  - @ant-design/web3-common@1.10.1
+
 ## 2.4.5
 
 ### Patch Changes

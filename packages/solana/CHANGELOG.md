@@ -1,5 +1,14 @@
 # @ant-design/web3-solana
 
+## 1.1.5
+
+### Patch Changes
+
+- Updated dependencies [6511134]
+- Updated dependencies [8a6d1c7]
+  - @ant-design/web3-assets@1.8.0
+  - @ant-design/web3-common@1.10.1
+
 ## 1.1.4
 
 ### Patch Changes

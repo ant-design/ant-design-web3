@@ -1,5 +1,23 @@
 # @ant-design/web3
 
+## 1.13.0
+
+### Minor Changes
+
+- 8a6d1c7: feat: add mobile wallet
+
+### Patch Changes
+
+- d3034bd: fix: modal connect wallet vertical align & overflow
+- fd01924: feat(NFTCard): support BTC Ordinals
+- 6511134: refactor: remove useless proxyConnectorName
+- 8478fbd: fix(web3): connecting icon supports base64 format
+- Updated dependencies [6511134]
+- Updated dependencies [8a6d1c7]
+  - @ant-design/web3-assets@1.8.0
+  - @ant-design/web3-common@1.10.1
+  - @ant-design/web3-icons@1.7.0
+
 ## 1.12.0
 
 ### Minor Changes

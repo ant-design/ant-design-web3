@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.10.1
+
+### Patch Changes
+
+- 6511134: refactor: remove useless proxyConnectorName
+
 ## 1.10.0
 
 ### Minor Changes
