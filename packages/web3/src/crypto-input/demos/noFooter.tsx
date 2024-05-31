@@ -5,7 +5,11 @@ import { ETH, USDT } from '@ant-design/web3-assets';
 const App: React.FC = () => {
   const [crypto, setCrypto] = useState<CryptoInputProps['value']>();
 
-  return <CryptoInput value={crypto} footer={false} onChange={setCrypto} tokenList={[ETH, USDT]} />;
+  return (
+    <div style={{ width: 456 }}>
+      <CryptoInput value={crypto} footer={false} onChange={setCrypto} tokenList={[ETH, USDT]} />
+    </div>
+  );
 };
 
 export default App;

@@ -7,12 +7,14 @@ const App: React.FC = () => {
   const [crypto, setCrypto] = useState<CryptoInputProps['value']>();
 
   return (
-    <CryptoInput
-      footer={() => 'Custom Footer'}
-      value={crypto}
-      onChange={setCrypto}
-      tokenList={[ETH, USDT]}
-    />
+    <div style={{ width: 456 }}>
+      <CryptoInput
+        footer={() => 'Custom Footer'}
+        value={crypto}
+        onChange={setCrypto}
+        tokenList={[ETH, USDT]}
+      />
+    </div>
   );
 };
 

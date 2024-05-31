@@ -15,7 +15,7 @@ group:
 
 ### With Search
 
-<code src="./demos/basic.tsx"></code>
+<code src="./demos/withSearch.tsx"></code>
 
 ### No default footer
 

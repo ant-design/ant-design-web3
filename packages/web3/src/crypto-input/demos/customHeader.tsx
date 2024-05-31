@@ -6,12 +6,14 @@ const App: React.FC = () => {
   const [crypto, setCrypto] = useState<CryptoInputProps['value']>();
 
   return (
-    <CryptoInput
-      value={crypto}
-      onChange={setCrypto}
-      header={() => 'Crypto Input Header'}
-      tokenList={[ETH, USDT]}
-    />
+    <div style={{ width: 456 }}>
+      <CryptoInput
+        value={crypto}
+        onChange={setCrypto}
+        header={() => 'Crypto Input Header'}
+        tokenList={[ETH, USDT]}
+      />
+    </div>
   );
 };
 

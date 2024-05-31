@@ -25,18 +25,20 @@ const App: React.FC = () => {
   };
 
   return (
-    <CryptoInput
-      value={crypto}
-      balance={tokenBalance}
-      onChange={(value) => {
-        setCrypto(value);
+    <div style={{ width: 456 }}>
+      <CryptoInput
+        value={crypto}
+        balance={tokenBalance}
+        onChange={(value) => {
+          setCrypto(value);
 
-        if (value?.token?.symbol !== crypto?.token?.symbol) {
-          handleQueryCrypto(value?.token);
-        }
-      }}
-      tokenList={[ETH, USDT]}
-    />
+          if (value?.token?.symbol !== crypto?.token?.symbol) {
+            handleQueryCrypto(value?.token);
+          }
+        }}
+        tokenList={[ETH, USDT]}
+      />
+    </div>
   );
 };
 
