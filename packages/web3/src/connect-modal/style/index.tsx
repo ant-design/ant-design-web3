@@ -82,7 +82,9 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           boxSizing: 'border-box',
         },
         [`${componentCls}-list-panel`]: {
-          paddingBlock: '24px 16px',
+          position: 'relative',
+          paddingTop: token.paddingLG,
+          paddingBottom: token.paddingContentVerticalLG,
           width: 328,
           flexShrink: 0,
           borderRight: `1px solid ${token.splitColor}`,
@@ -90,6 +92,17 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           flexDirection: 'column',
           justifyContent: 'space-between',
           boxSizing: 'border-box',
+          [`&::after`]: {
+            content: '""',
+            position: 'absolute',
+            bottom: token.paddingContentVerticalLG + token.marginSM,
+            width: '100%',
+            height: token.controlHeightLG,
+            backgroundImage: `linear-gradient(to bottom, ${new TinyColor(token.colorBgBase)
+              .setAlpha(0)
+              .toRgbString()}, ${new TinyColor(token.colorBgBase).setAlpha(1).toRgbString()})`,
+            pointerEvents: 'none',
+          },
           [`${componentCls}-header`]: {
             paddingInline: token.paddingMD,
             height: 30,
