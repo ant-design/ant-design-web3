@@ -1,8 +1,8 @@
 import { metadata_WalletConnect } from '@ant-design/web3-assets';
-import type { Wallet, WalletMetadata } from '@ant-design/web3-common';
+import type { WalletMetadata } from '@ant-design/web3-common';
 import type { Connector } from 'wagmi';
 
-import type { WalletFactory } from '../interface';
+import type { WalletFactory, WalletUseInWagmiAdapter } from '../interface';
 
 export type EthereumWalletConnect = (
   metadata?: Partial<WalletMetadata> & {
@@ -14,7 +14,7 @@ export const WalletConnect: EthereumWalletConnect = (metadata) => {
   const { useWalletConnectOfficialModal = false, ...rest } = metadata || {};
   return {
     connectors: ['WalletConnect'],
-    create: (connectors?: readonly Connector[]): Wallet => {
+    create: (connectors?: readonly Connector[]): WalletUseInWagmiAdapter => {
       let qrCodeUri: string | undefined = undefined;
       const getQrCode = async () => {
         const provider = await connectors?.[0]?.getProvider();
@@ -35,6 +35,9 @@ export const WalletConnect: EthereumWalletConnect = (metadata) => {
       };
       return {
         ...metadata_WalletConnect,
+        getWagmiConnector: async () => {
+          return connectors?.[0];
+        },
         hasWalletReady: async () => {
           return true;
         },
