@@ -32,6 +32,10 @@ The wallets currently supported are as follows, and we also welcome you to submi
 
 <code src="./demos/get-inscriptions.tsx"></code>
 
+## Use NFTCard to show Ordinals NFT
+
+<code src="./demos/ordinals.tsx"></code>
+
 ## API
 
 ### BitcoinWeb3ConfigProvider

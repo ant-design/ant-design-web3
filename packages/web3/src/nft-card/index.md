@@ -19,10 +19,6 @@ Components used to display NFTCard.
 
 <code src="./demos/wagmi.tsx"></code>
 
-## BTC Ordinals NFT
-
-<code src="./demos/ordinals.tsx"></code>
-
 ## Error Handling
 
 <code src="./demos/error.tsx"></code>

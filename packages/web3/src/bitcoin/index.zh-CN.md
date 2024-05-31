@@ -33,6 +33,10 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 
 <code src="./demos/get-inscriptions.tsx"></code>
 
+## 结合 NFTCard 展示 Ordinals NFT
+
+<code src="./demos/ordinals.tsx"></code>
+
 ## API
 
 ### BitcoinWeb3ConfigProvider

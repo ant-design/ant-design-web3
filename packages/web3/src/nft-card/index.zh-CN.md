@@ -20,10 +20,6 @@ group: UI 组件
 
 <code src="./demos/wagmi.tsx"></code>
 
-## 展示 BTC Ordinals NFT
-
-<code src="./demos/ordinals.tsx"></code>
-
 ## 错误处理
 
 <code src="./demos/error.tsx"></code>
