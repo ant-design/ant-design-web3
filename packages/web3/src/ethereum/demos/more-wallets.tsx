@@ -40,15 +40,17 @@ const App: React.FC = () => {
       }}
       wallets={[
         MetaMask(),
-        WalletConnect(),
         TokenPocket({
           group: 'Popular',
         }),
+        MobileWallet({
+          group: 'Popular',
+        }),
+        WalletConnect(),
         CoinbaseWallet(),
         SafeheronWallet(),
         OkxWallet(),
         ImToken(),
-        MobileWallet(),
       ]}
       config={config}
     >

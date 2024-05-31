@@ -8,5 +8,4 @@ export const metadata_MobileConnect: WalletMetadata = {
   universalProtocol: {
     link: 'https://walletconnect.com/',
   },
-  proxyConnectorName: 'WalletConnect',
 };
