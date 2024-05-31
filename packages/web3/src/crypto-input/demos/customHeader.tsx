@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import type { CryptoInputProps } from '@ant-design/web3';
-import { ChainIds, CryptoInput } from '@ant-design/web3';
-import { EthereumColorful } from '@ant-design/web3-icons';
+import { CryptoInput, type CryptoInputProps } from '@ant-design/web3';
+import { ETH, USDT } from '@ant-design/web3-assets';
 
 const App: React.FC = () => {
   const [crypto, setCrypto] = useState<CryptoInputProps['value']>();
@@ -11,22 +10,7 @@ const App: React.FC = () => {
       value={crypto}
       onChange={setCrypto}
       header={() => 'Crypto Input Header'}
-      tokenList={[
-        {
-          name: 'Ethereum',
-          symbol: 'ETH',
-          icon: <EthereumColorful />,
-          decimal: 18,
-          availableChains: [
-            {
-              chain: {
-                id: ChainIds.Mainnet,
-                name: 'Ethereum',
-              },
-            },
-          ],
-        },
-      ]}
+      tokenList={[ETH, USDT]}
     />
   );
 };

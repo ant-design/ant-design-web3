@@ -14,6 +14,10 @@ group:
 
 <code src="./demos/basic.tsx"></code>
 
+### 支持搜索
+
+<code src="./demos/basic.tsx"></code>
+
 ### 关闭默认底部
 
 <code src="./demos/noFooter.tsx"></code>
@@ -36,7 +40,7 @@ group:
 | balance | 代币的余额相关信息，包含数量和单价 | `{ amount: string; unitPrice: string }` | - | - |
 | header | 自定义渲染的头部 | (value?: [CryptoInputValue](#cryptoInputValue)) => React.ReactNode | - | - |
 | footer | 自定义渲染的底部，不传递时使用默认底部 | (value?: [CryptoInputValue](#cryptoInputValue)) => React.ReactNode | - | - |
-| ...props | 其它参数请参照 Ant Design `Select` 组件 | [Select Props](https://ant-design.antgroup.com/components/select-cn#select-props) | - | - |
+| ...props | 其它参数请参照 `TokenSelect` 组件 | [TokenSelect](/components/token-select#api) | - | - |
 
 ### CryptoInputValue
 

@@ -42,7 +42,7 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
     },
 
     [`${token.componentCls}-footer`]: {
-      '.default': {
+      '.default-footer': {
         color: token.colorTextTertiary,
         fontWeight: token.fontWeightStrong,
 

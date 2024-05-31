@@ -1,28 +1,13 @@
 import React, { useState } from 'react';
+import { ETH, USDT } from '@ant-design/web3-assets';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 import type { CryptoInputProps } from '..';
 import { CryptoInput } from '..';
-import { type Token } from '../..';
 
 // Mock tokens
-const mockTokens = [
-  {
-    symbol: 'ETH',
-    name: 'Ethereum',
-    icon: '🟢',
-    decimal: 18,
-    availableChains: [{ contract: '0x123' }],
-  },
-  {
-    symbol: 'BTC',
-    name: 'Bitcoin',
-    icon: '🟡',
-    decimal: 18,
-    availableChains: [{ contract: '0x456' }],
-  },
-] as Token[];
+const mockTokens = [ETH, USDT];
 
 describe('CryptoInput component', () => {
   it('should render the component with placeholder text', () => {
@@ -48,8 +33,8 @@ describe('CryptoInput component', () => {
     );
 
     expect(baseElement.querySelectorAll('.ant-space-item').length).toBe(3);
-    expect(baseElement.querySelector('.custom-header')).not.toBeNull();
-    expect(baseElement.querySelector('.custom-header')?.textContent).toBe('Custom header');
+    expect(baseElement.querySelector('header')).not.toBeNull();
+    expect(baseElement.querySelector('header')?.textContent).toBe('Custom header');
   });
 
   it('should display correct footer', () => {
@@ -84,8 +69,8 @@ describe('CryptoInput component', () => {
 
     expect(selectOptions.length).toBe(2);
 
-    expect(selectOptions[0].textContent).toBe('🟢Ethereum');
-    expect(selectOptions[1].textContent).toBe('🟡Bitcoin');
+    expect(selectOptions[0].textContent).includes('Ethereum');
+    expect(selectOptions[1].textContent).includes('Tether USD');
   });
 
   it('should call onChange with selected token and amount input', () => {
@@ -125,7 +110,7 @@ describe('CryptoInput component', () => {
   });
 
   it('should calculate correct total price', () => {
-    const TestComponent = () => {
+    const TestComponent = (props: CryptoInputProps) => {
       const [crypto, setCrypto] = useState<CryptoInputProps['value']>();
 
       return (
@@ -134,6 +119,7 @@ describe('CryptoInput component', () => {
           value={crypto}
           onChange={setCrypto}
           balance={{ amount: '100', unitPrice: '100' }}
+          {...props}
         />
       );
     };
@@ -159,6 +145,10 @@ describe('CryptoInput component', () => {
       target: { value: null },
     });
 
+    expect(baseElement.querySelector('.total-price')?.textContent).toBe('-');
+
+    // change token unit price to undefined
+    render(<TestComponent balance={{ amount: '100', unitPrice: undefined }} />);
     expect(baseElement.querySelector('.total-price')?.textContent).toBe('-');
   });
 });

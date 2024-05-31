@@ -41,6 +41,7 @@ export const TokenSelect = ({ value, onChange, tokenList, ...selectProps }: Toke
   return wrapSSR(
     <Select
       placeholder={messages.placeholder}
+      popupMatchSelectWidth={false}
       {...selectProps}
       options={tokenList}
       value={value?.symbol}
@@ -64,9 +65,11 @@ export const TokenSelect = ({ value, onChange, tokenList, ...selectProps }: Toke
 
         const keywordLower = input.toLowerCase();
 
-        return [nameLower, symbolLower, ...availableChains?.map(({ contract }) => contract)].some(
-          (content) => content?.includes(keywordLower),
-        );
+        return [
+          nameLower,
+          symbolLower,
+          ...availableChains?.map(({ contract }) => contract?.toLowerCase()),
+        ].some((content) => content?.includes(keywordLower));
       }}
       optionRender={({ data }) => {
         return <SingleToken token={data as Token} />;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TokenSelect, type Token } from '@ant-design/web3';
-import { EthereumColorful } from '@ant-design/web3-icons';
+import { ETH, USDT } from '@ant-design/web3-assets';
 
 const App: React.FC = () => {
   const [token, setToken] = useState<Token>();
@@ -11,23 +11,7 @@ const App: React.FC = () => {
       value={token}
       onChange={setToken}
       placeholder={'Enter name / contract'}
-      tokenList={[
-        {
-          name: 'Ethereum',
-          symbol: 'ETH',
-          icon: <EthereumColorful />,
-          decimal: 18,
-          availableChains: [
-            {
-              chain: {
-                name: 'Ethereum',
-                id: 1,
-              },
-              contract: '0x',
-            },
-          ],
-        },
-      ]}
+      tokenList={[ETH, USDT]}
     />
   );
 };

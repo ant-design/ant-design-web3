@@ -13,6 +13,10 @@ group:
 
 <code src="./demos/basic.tsx"></code>
 
+### With Search
+
+<code src="./demos/basic.tsx"></code>
+
 ### No default footer
 
 <code src="./demos/noFooter.tsx"></code>
@@ -35,7 +39,7 @@ group:
 | balance | selected token balance, includes amount and unit price | `{ amount: string; unitPrice: string }` | - | - |
 | header | custom render for header | (value?: [CryptoInputValue](#cryptoInputValue)) => React.ReactNode | - | - |
 | footer | custom render for footer | (value?: [CryptoInputValue](#cryptoInputValue)) => React.ReactNode | - | - |
-| ...props | Other props please ref Ant Design `Select` 组件 | [Select Props](https://ant-design.antgroup.com/components/select-cn#select-props) | - | - |
+| ...props | Others please ref `TokenSelect` | [TokenSelect](/components/token-select#api) | - | - |
 
 ### CryptoInputValue
 

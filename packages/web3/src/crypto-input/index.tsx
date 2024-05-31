@@ -24,8 +24,8 @@ export interface CryptoInputProps extends Omit<TokenSelectProps, 'value' | 'onCh
    * token balance
    */
   balance?: {
-    amount: string;
-    unitPrice: string;
+    amount?: string;
+    unitPrice?: string;
   };
   /**
    * custom render for header
@@ -51,14 +51,14 @@ export const CryptoInput = ({
 
   // calculate token total price
   const tokenTotalPrice = useDeferredValue(
-    value?.amount && balance
-      ? (parseFloat(value.amount) * parseFloat(balance?.unitPrice || '0')).toString()
+    value?.amount && balance?.unitPrice
+      ? (parseFloat(value.amount) * parseFloat(balance.unitPrice)).toString()
       : undefined,
   );
 
   return wrapSSR(
     <Space direction="vertical" className={getClsName('wrapper')}>
-      {!!header && <div>{typeof header === 'function' ? header() : header}</div>}
+      {!!header && <header>{header()}</header>}
       <Flex gap={16} align="center">
         <InputNumber
           stringMode
