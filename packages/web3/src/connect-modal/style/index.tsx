@@ -82,7 +82,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           boxSizing: 'border-box',
         },
         [`${componentCls}-list-panel`]: {
-          position: 'relative',
           paddingTop: token.paddingLG,
           paddingBottom: token.paddingContentVerticalLG,
           width: 328,
@@ -92,27 +91,31 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           flexDirection: 'column',
           justifyContent: 'space-between',
           boxSizing: 'border-box',
-          [`&::after`]: {
-            content: '""',
-            position: 'absolute',
-            bottom: token.paddingContentVerticalLG + token.marginSM,
-            width: '100%',
-            height: token.controlHeightLG,
-            backgroundImage: `linear-gradient(to bottom, ${new TinyColor(token.colorBgBase)
-              .setAlpha(0)
-              .toRgbString()}, ${new TinyColor(token.colorBgBase).setAlpha(1).toRgbString()})`,
-            pointerEvents: 'none',
-          },
           [`${componentCls}-header`]: {
             paddingInline: token.paddingMD,
             height: 30,
           },
-          [`${componentCls}-list-container`]: {
-            flexGrow: 1,
+          [`${componentCls}-list`]: {
+            position: 'relative',
             marginBlock: token.marginSM,
+            flexGrow: 1,
+            [`&::after`]: {
+              content: '""',
+              position: 'absolute',
+              bottom: 0,
+              width: '100%',
+              height: token.controlHeightLG,
+              backgroundImage: `linear-gradient(to bottom, ${new TinyColor(token.colorBgBase)
+                .setAlpha(0)
+                .toRgbString()}, ${new TinyColor(token.colorBgBase).setAlpha(1).toRgbString()})`,
+              pointerEvents: 'none',
+            },
+          },
+          [`${componentCls}-list-container`]: {
             paddingInline: token.paddingMD,
-            overflow: 'auto',
-            maxHeight: 425,
+            maxHeight: 424,
+            overflowY: 'auto',
+            height: '100%',
             [`${componentCls}-wallet-list`]: {
               overflow: 'scroll',
               '&::-webkit-scrollbar': {
@@ -474,6 +477,9 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           [`${componentCls}-list-panel`]: {
             borderRight: 'none',
             width: '100%',
+            [`${componentCls}-list-container`]: {
+              maxHeight: 372,
+            },
           },
           [`${componentCls}-main-panel`]: {
             paddingInline: token.paddingLG,

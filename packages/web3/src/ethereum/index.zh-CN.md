@@ -45,7 +45,9 @@ Ant Design Web3 官方提供了 `wagmi`、`ethers` 等多个框架的适配器�
 
 另外，我们推荐设置 `eip6963` 为 `true`，避免用户安装多个钱包情况下出现冲突。配置了 `eip6963` 的情况下，你不再需要配置 wagmi 的 `injected` Connector, wagmi 的 [multiInjectedProviderDiscovery](https://wagmi.sh/core/api/createConfig#multiinjectedproviderdiscovery) 配置默认为 `true`，会自动添加检测到的钱包。
 
-<code src="./demos/more-wallets.tsx"></code>
+<code src="./demos/more-wallets.tsx">Normal Mode</code>
+
+<code src="./demos/more-wallets-in-simple.tsx">Simple Mode</code>
 
 ## 自定义钱包信息
 
