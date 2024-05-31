@@ -1,5 +1,18 @@
 # @ant-design/web3-bitcoin
 
+## 1.3.0
+
+### Minor Changes
+
+- fd01924: feat(bitcoin): add getInscriptions API and enhance types
+
+### Patch Changes
+
+- Updated dependencies [6511134]
+- Updated dependencies [8a6d1c7]
+  - @ant-design/web3-common@1.10.1
+  - @ant-design/web3-icons@1.7.0
+
 ## 1.2.0
 
 ### Minor Changes
