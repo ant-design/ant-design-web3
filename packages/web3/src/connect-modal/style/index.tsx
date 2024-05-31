@@ -63,7 +63,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
         display: 'flex',
         justifyContent: 'space-between',
         position: 'relative',
-        height: 518,
+        minHeight: 518,
         [`${componentCls}-title`]: {
           fontSize: token.fontSizeXL,
           lineHeight: '28px',
