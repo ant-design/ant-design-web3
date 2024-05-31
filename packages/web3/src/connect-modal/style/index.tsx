@@ -393,6 +393,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 img: {
                   width: '100%',
                   height: '100%',
+                  verticalAlign: 'initial',
                 },
               },
               [`${componentCls}-card-content`]: {
