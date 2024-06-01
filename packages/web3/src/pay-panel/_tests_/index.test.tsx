@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   BSC,
   Mainnet,
@@ -6,14 +7,31 @@ import {
   metadata_TokenPocket,
   USDT,
 } from '@ant-design/web3-assets';
-import { render, screen, waitFor } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { ConfigProvider } from 'antd';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { PayPanel } from '../index';
 import { type PayPanelProps } from '../PayPanelContext';
 
+// Mock ChainList and ShowCode components for simplicity
+vi.mock('../ChainList', () => ({
+  ChainList: ({ onChainSelected }: any) => (
+    <button onClick={() => onChainSelected(BSC.id)}>Select Chain</button>
+  ),
+}));
+
+vi.mock('../ShowCode', () => ({
+  ShowCode: ({ selectedChainId, onReturn }: any) => (
+    <div>
+      <span>Selected Chain ID: {selectedChainId}</span>
+      <button onClick={onReturn}>Return</button>
+    </div>
+  ),
+}));
+
 const mockProps: PayPanelProps = {
-  amount: 1000000, // 示例数值
+  amount: 1000000,
   target: {
     [Mainnet.id]: {
       address: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
@@ -30,7 +48,41 @@ const mockProps: PayPanelProps = {
 };
 
 describe('PayPanel', () => {
-  it('initially renders', () => {
-    expect(() => render(<PayPanel {...mockProps} />)).toBeTruthy();
+  const renderWithProviders = (ui: React.ReactElement) => {
+    return render(<ConfigProvider>{ui}</ConfigProvider>);
+  };
+
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('initially renders ChainList component', () => {
+    renderWithProviders(<PayPanel {...mockProps} />);
+    expect(screen.getByText(/select chain/i)).toBeTruthy();
+  });
+
+  it('renders ShowCode component after chain is selected', async () => {
+    renderWithProviders(<PayPanel {...mockProps} />);
+    fireEvent.click(screen.getByText(/select chain/i));
+    await waitFor(() => {
+      expect(screen.getByText(/selected chain ID: 56/i)).toBeTruthy();
+    });
+  });
+
+  it('returns to ChainList component when return button is clicked in ShowCode', async () => {
+    renderWithProviders(<PayPanel {...mockProps} />);
+    fireEvent.click(screen.getByText(/select chain/i));
+    await waitFor(() => {
+      expect(screen.getByText(/selected chain ID: 56/i)).toBeTruthy();
+    });
+    fireEvent.click(screen.getByText(/return/i));
+    await waitFor(() => {
+      expect(screen.getByText(/select chain/i)).toBeTruthy();
+    });
+  });
+
+  it('calls onFinish function when appropriate (mock test)', () => {
+    renderWithProviders(<PayPanel {...mockProps} />);
+    expect(mockProps.onFinish).not.toHaveBeenCalled();
   });
 });
