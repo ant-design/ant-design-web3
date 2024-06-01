@@ -28,7 +28,6 @@ export const HomePage: React.FC = () => {
       <div className={styles.centerbg}>
         <Features />
         <Theme />
-        <div className={styles.rightTopImage} />
         <div className={styles.leftBottomImage} />
       </div>
       <ShowCase />

@@ -1,33 +1,48 @@
 .container {
-  width: 1200px;
+  width: 1320px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  gap: 24px;
+  box-sizing: border-box;
+  padding: 24px;
+  background: #fff;
+  border-radius: 24px;
+  position: relative;
+  z-index: 2;
   .item {
-    width: 350px;
+    background: #fbfafc;
+    border-radius: 24px;
     word-break: break-word;
+    flex: 1;
+    box-sizing: border-box;
+    padding: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
     font-family:
       Hevlvetica Neue,
       Helvetica,
       Arial,
       sans-serif;
-    .icon {
-      width: 72px;
-      height: 72px;
-    }
     .title {
       color: rgba(0, 0, 0, 0.85);
-      font-size: 20px;
+      font-size: 24px;
+      font-style: italic;
       font-weight: 400;
-      line-height: 28px;
-      margin-block: 8px;
+      margin-block: 16px;
+      word-break: keep-all;
+      white-space: nowrap;
     }
     .desc {
       color: rgba(0, 0, 0, 0.45);
-      font-size: 14px;
+      font-size: 16px;
       font-style: normal;
       font-weight: 400;
-      line-height: 22px;
+      line-height: 24px;
+      height: 96px;
+    }
+    .preview {
+      width: 360px;
+      margin-block-start: 24px;
     }
   }
 }
