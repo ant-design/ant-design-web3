@@ -1,18 +1,24 @@
 import React, { useDeferredValue } from 'react';
 import type { Token } from '@ant-design/web3-common';
-import { Flex, InputNumber, Space } from 'antd';
+import { Flex, InputNumber, Space, Typography } from 'antd';
+import Decimal from 'decimal.js';
 import { isNull } from 'lodash';
 
+import { CryptoPrice } from '../crypto-price';
 import useIntl from '../hooks/useIntl';
 import { TokenSelect, type TokenSelectProps } from '../token-select';
 import { useCryptoInputStyle } from './style';
+
+// config decimal.js max precision
+Decimal.set({ precision: 100 });
 
 export interface CryptoInputProps extends Omit<TokenSelectProps, 'value' | 'onChange'> {
   /**
    * token amount
    */
   value?: {
-    amount?: string;
+    amount?: bigint;
+    amountString?: string;
     token?: Token;
   };
   /**
@@ -24,8 +30,9 @@ export interface CryptoInputProps extends Omit<TokenSelectProps, 'value' | 'onCh
    * token balance
    */
   balance?: {
-    amount?: string;
-    unitPrice?: string;
+    amount: bigint;
+    unit: string;
+    price: number | string;
   };
   /**
    * custom render for header
@@ -47,12 +54,27 @@ export const CryptoInput = ({
 }: CryptoInputProps) => {
   const { messages } = useIntl('CryptoInput');
 
+  const { token, amountString } = value || {};
+
   const { wrapSSR, getClsName } = useCryptoInputStyle();
+
+  /**
+   * calculate token amount
+   * when amount input change, the value will multiply by 10 ** token decimal
+   * so when we need restore the value, we need to divide it by 10 ** token decimal
+   */
+  const tokenAmount =
+    token && amountString
+      ? new Decimal(amountString)
+          .div(Decimal.pow(10, token.decimal))
+          .toDecimalPlaces(token.decimal, Decimal.ROUND_DOWN)
+          .toString()
+      : undefined;
 
   // calculate token total price
   const tokenTotalPrice = useDeferredValue(
-    value?.amount && balance?.unitPrice
-      ? (parseFloat(value.amount) * parseFloat(balance.unitPrice)).toString()
+    tokenAmount && balance
+      ? `${balance.unit} ${new Decimal(tokenAmount).times(balance.price).toFixed()}`
       : undefined,
   );
 
@@ -64,13 +86,38 @@ export const CryptoInput = ({
           stringMode
           variant="borderless"
           controls={false}
-          value={value?.amount}
-          precision={value?.token?.decimal}
-          formatter={(amount) => amount || ''}
+          value={tokenAmount}
+          // remove unnecessary 0 at the end of the number
           onChange={(amt) => {
+            // if amount is null or token is not selected, clean the value
+            if (isNull(amt) || !token) {
+              onChange?.({
+                token,
+              });
+              return;
+            }
+
+            const [integers, decimals] = String(amt).split('.');
+
+            let calcAmt = amt;
+
+            // if precision is more than token decimal, cut it
+            if (decimals?.length > token.decimal) {
+              calcAmt = `${integers}.${decimals.slice(0, token.decimal)}`;
+            }
+
+            // covert string amt to bigint
+
+            const newAmt = BigInt(
+              new Decimal(calcAmt)
+                .times(Decimal.pow(10, token.decimal))
+                .toFixed(0, Decimal.ROUND_DOWN),
+            );
+
             onChange?.({
               ...value,
-              amount: isNull(amt) ? undefined : amt,
+              amount: newAmt,
+              amountString: newAmt.toString(),
             });
           }}
           placeholder={messages.placeholder}
@@ -80,10 +127,9 @@ export const CryptoInput = ({
           variant="borderless"
           {...selectProps}
           value={value?.token}
-          onChange={(token) =>
+          onChange={(newToken) =>
             onChange?.({
-              ...value,
-              token,
+              token: newToken,
             })
           }
         />
@@ -94,9 +140,11 @@ export const CryptoInput = ({
             footer()
           ) : (
             <Flex className="default-footer" justify="space-between">
-              <span className="total-price">{tokenTotalPrice || '-'}</span>
+              <Typography.Text ellipsis={{ tooltip: tokenTotalPrice }} className="total-price">
+                {tokenTotalPrice || '-'}
+              </Typography.Text>
               <span className="token-balance">
-                Balance: {balance?.amount || '-'}
+                {!!token && <CryptoPrice {...token} value={balance?.amount} />}
                 {!!balance?.amount && (
                   <a
                     className="max-button"
@@ -104,6 +152,7 @@ export const CryptoInput = ({
                       onChange?.({
                         ...value,
                         amount: balance.amount,
+                        amountString: balance.amount.toString(),
                       });
                     }}
                   >

@@ -28,4 +28,4 @@ For basic props, please refer to `AntDesign Select`. The API design is compatibl
 | value | selected token | [Token](/components/types-cn#token) | - | - |
 | onChange | selected token change callback | (token?: [Token](/components/types-cn#token)) => void | - | - |
 | tokenList | selectable token list | [Token](/components/types-cn#token)[] | - | - |
-| ...props | Please ref AntDesign `Select` 组件 | [Select Props](https://ant-design.antgroup.com/components/select-cn#select-props) | - | - |
+| ...props | Please ref AntDesign `Select` component | [Select Props](https://ant-design.antgroup.com/components/select-cn#select-props) | - | - |

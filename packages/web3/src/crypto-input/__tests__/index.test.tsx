@@ -106,10 +106,14 @@ describe('CryptoInput component', () => {
       target: { value: '10' },
     });
 
-    expect(handleChange).toHaveBeenCalledWith({ token: mockTokens[0], amount: '10' });
+    expect(handleChange).toHaveBeenCalledWith({
+      token: mockTokens[0],
+      amount: 10000000000000000000n,
+      amountString: '10000000000000000000',
+    });
   });
 
-  it('should calculate correct total price', () => {
+  it('should correct handle token decimals', () => {
     const TestComponent = (props: CryptoInputProps) => {
       const [crypto, setCrypto] = useState<CryptoInputProps['value']>();
 
@@ -117,8 +121,71 @@ describe('CryptoInput component', () => {
         <CryptoInput
           tokenList={mockTokens}
           value={crypto}
+          onChange={(newCrypto) => {
+            setCrypto(newCrypto);
+
+            props.onChange?.(newCrypto);
+          }}
+        />
+      );
+    };
+
+    const handleChange = vi.fn();
+
+    const { baseElement } = render(<TestComponent onChange={handleChange} />);
+
+    fireEvent.mouseDown(baseElement.querySelector('.ant-select-selector') as Element);
+
+    const selectOptions = baseElement.querySelectorAll('.ant-select-item');
+
+    fireEvent.click(selectOptions[0]);
+
+    const inputEle = baseElement.querySelector('.ant-input-number-input') as Element;
+
+    /**
+     * check token amount value
+     * first input some value and the input element should display the same value
+     * then check onChange callback is called with correct amount
+     * then blur the input element, when input value decimals is over token decimals, it should cut correctly
+     */
+    function checkValue(orginInputValue: string, expectInputValue: string, expectAmount: bigint) {
+      fireEvent.change(inputEle, {
+        target: { value: orginInputValue },
+      });
+
+      expect(inputEle.getAttribute('value')).toBe(orginInputValue);
+
+      expect(handleChange).toHaveBeenCalledWith({
+        token: mockTokens[0],
+        amount: expectAmount,
+        amountString: expectAmount.toString(),
+      });
+
+      fireEvent.blur(inputEle);
+
+      expect(inputEle.getAttribute('value')).toBe(expectInputValue);
+    }
+
+    // smaller than token decimals
+    checkValue('0.012345678', '0.012345678', 12345678000000000n);
+
+    // equal to token decimals
+    checkValue('0.012345678901234567', '0.012345678901234567', 12345678901234567n);
+
+    // over token decimals and cut correctly
+    checkValue('0.01234567890123456789', '0.012345678901234567', 12345678901234567n);
+  });
+
+  it('should calculate correct total price', () => {
+    const TestComponent = (props: CryptoInputProps) => {
+      const [crypto, setCrypto] = useState<CryptoInputProps['value']>({ token: mockTokens[0] });
+
+      return (
+        <CryptoInput
+          tokenList={mockTokens}
+          value={crypto}
           onChange={setCrypto}
-          balance={{ amount: '100', unitPrice: '100' }}
+          balance={{ amount: 100000000000000000000n, unit: '$', price: 3894.57 }}
           {...props}
         />
       );
@@ -128,17 +195,17 @@ describe('CryptoInput component', () => {
 
     // set token amount to 10
     fireEvent.change(baseElement.querySelector('.ant-input-number-input') as Element, {
-      target: { value: '10' },
+      target: { value: '10.012345678' },
     });
 
-    expect(baseElement.querySelector('.total-price')?.textContent).toBe('1000');
+    expect(baseElement.querySelector('.total-price')?.textContent).toBe('$ 38993.78110716846');
     expect(baseElement.querySelector('.token-balance')?.textContent).includes('100');
 
     // change token amount to max
     fireEvent.click(baseElement.querySelector('.max-button') as Element);
 
     expect(baseElement.querySelector('.ant-input-number-input')?.getAttribute('value')).toBe('100');
-    expect(baseElement.querySelector('.total-price')?.textContent).toBe('10000');
+    expect(baseElement.querySelector('.total-price')?.textContent).toBe('$ 389457');
 
     // set token amount to null
     fireEvent.change(baseElement.querySelector('.ant-input-number-input') as Element, {
@@ -147,8 +214,8 @@ describe('CryptoInput component', () => {
 
     expect(baseElement.querySelector('.total-price')?.textContent).toBe('-');
 
-    // change token unit price to undefined
-    render(<TestComponent balance={{ amount: '100', unitPrice: undefined }} />);
+    // change token balance to undefined
+    render(<TestComponent balance={undefined} />);
     expect(baseElement.querySelector('.total-price')?.textContent).toBe('-');
   });
 });

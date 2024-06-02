@@ -5,10 +5,7 @@ import { ETH, USDT } from '@ant-design/web3-assets';
 const App: React.FC = () => {
   const [crypto, setCrypto] = useState<CryptoInputProps['value']>();
 
-  const [tokenBalance, setTokenBalance] = useState<{
-    amount: string;
-    unitPrice: string;
-  }>();
+  const [tokenBalance, setTokenBalance] = useState<CryptoInputProps['balance']>();
 
   const handleQueryCrypto = async (token?: Token) => {
     if (!token) {
@@ -18,8 +15,9 @@ const App: React.FC = () => {
     // mock query token balance
     setTimeout(() => {
       setTokenBalance({
-        amount: '100',
-        unitPrice: '100',
+        amount: 10000000000000000000000n,
+        unit: '$',
+        price: 3984.57,
       });
     }, 500);
   };

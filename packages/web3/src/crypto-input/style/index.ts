@@ -43,8 +43,18 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
 
     [`${token.componentCls}-footer`]: {
       '.default-footer': {
-        color: token.colorTextTertiary,
         fontWeight: token.fontWeightStrong,
+
+        '.total-price': {
+          flex: 1,
+          color: token.colorTextTertiary,
+          marginInlineEnd: token.marginSM,
+        },
+
+        '.token-balance': {
+          color: token.colorTextTertiary,
+          flex: '0 0 auto',
+        },
 
         '.max-button': {
           marginInlineStart: token.marginXS,

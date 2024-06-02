@@ -14,10 +14,6 @@ group:
 
 <code src="./demos/basic.tsx"></code>
 
-### 支持搜索
-
-<code src="./demos/basic.tsx"></code>
-
 ### 关闭默认底部
 
 <code src="./demos/noFooter.tsx"></code>

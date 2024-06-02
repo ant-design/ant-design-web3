@@ -13,10 +13,6 @@ group:
 
 <code src="./demos/basic.tsx"></code>
 
-### With Search
-
-<code src="./demos/withSearch.tsx"></code>
-
 ### No default footer
 
 <code src="./demos/noFooter.tsx"></code>
