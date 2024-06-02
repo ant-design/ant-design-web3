@@ -63,13 +63,19 @@ export const CryptoInput = ({
    * when amount input change, the value will multiply by 10 ** token decimal
    * so when we need restore the value, we need to divide it by 10 ** token decimal
    */
-  const tokenAmount =
-    token && amountString
+  const tokenAmount = token
+    ? /**
+       * exist two situation:
+       * 1. token already selected, then we need to calculate the amount, use passed amountString
+       * 2. select token right now, the select callback will clean the amount, so we need to return empty string to reset the input
+       */
+      amountString
       ? new Decimal(amountString)
           .div(Decimal.pow(10, token.decimal))
           .toDecimalPlaces(token.decimal, Decimal.ROUND_DOWN)
           .toString()
-      : undefined;
+      : ''
+    : undefined;
 
   // calculate token total price
   const tokenTotalPrice = useDeferredValue(
@@ -144,7 +150,9 @@ export const CryptoInput = ({
                 {tokenTotalPrice || '-'}
               </Typography.Text>
               <span className="token-balance">
-                {!!token && <CryptoPrice {...token} value={balance?.amount} />}
+                {!!token && (
+                  <CryptoPrice {...token} decimals={token.decimal} value={balance?.amount} />
+                )}
                 {!!balance?.amount && (
                   <a
                     className="max-button"

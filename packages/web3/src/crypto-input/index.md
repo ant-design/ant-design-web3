@@ -25,21 +25,34 @@ group:
 
 <code src="./demos/customHeader.tsx"></code>
 
+### Swap Mode
+
+<code src="./demos/swapMode.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| value | Crypto input value | [CryptoInputValue](#cryptoInputValue) | - | - |
-| onChange | Crypto input value change callback | (value?: [CryptoInputValue](#cryptoInputValue)) => void | - | - |
+| value | Crypto input value | [CryptoInputValue](#cryptoinputvalue) | - | - |
+| onChange | Crypto input value change callback | (value?: [CryptoInputValue](#cryptoinputvalue)) => void | - | - |
 | tokenList | selectable token list | [Token](/components/types-cn#token)[] | - | - |
-| balance | selected token balance, includes amount and unit price | `{ amount: string; unitPrice: string }` | - | - |
-| header | custom render for header | (value?: [CryptoInputValue](#cryptoInputValue)) => React.ReactNode | - | - |
-| footer | custom render for footer | (value?: [CryptoInputValue](#cryptoInputValue)) => React.ReactNode | - | - |
+| balance | selected token balance, includes amount and unit price | [TokenBalance](#tokenbalance) | - | - |
+| header | custom render for header | (value?: [CryptoInputValue](#cryptoinputvalue)) => React.ReactNode | - | - |
+| footer | custom render for footer | (value?: [CryptoInputValue](#cryptoinputvalue)) => React.ReactNode | - | - |
 | ...props | Others please ref `TokenSelect` | [TokenSelect](/components/token-select#api) | - | - |
 
 ### CryptoInputValue
 
-| Property | Description        | Type                                | Default | Version |
-| -------- | ------------------ | ----------------------------------- | ------- | ------- |
-| token    | selected token     | [Token](/components/types-cn#token) | -       | -       |
-| amount   | token amount input | `string`                            | -       | -       |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| token | selected token | [Token](/components/types-cn#token) | - | - |
+| amount | token amount, from input string mutiples token decimal, value like `123456789012345678901n` | `bigint` | - | - |
+| amountString | string token amount, from `amount.toString()`, value like `123456789012345678901` | `string` | - | - |
+
+### TokenBalance
+
+| Property | Description                        | Type               | Default | Version |
+| -------- | ---------------------------------- | ------------------ | ------- | ------- |
+| amount   | user had token amount              | `bigint`           | -       | -       |
+| price    | token price                        | `string \| number` | -       | -       |
+| unit     | token price display unit, like "$" | `bigint`           | -       | -       |
