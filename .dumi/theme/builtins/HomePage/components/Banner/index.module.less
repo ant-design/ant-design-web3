@@ -92,24 +92,25 @@
       object-position: left center;
     }
     .wrap {
-      inset: 0 20px;
       width: calc(100% - 40px);
-      row-gap: 30px;
-
+      row-gap: 12px;
+      margin-block-start: -30px;
+      .titleImg {
+        width: 634px;
+      }
       .slogan {
         font-size: 14px;
         text-align: center;
         padding-inline-start: 0;
+        white-space: nowrap;
       }
 
       .btn {
         column-gap: 14px;
-      }
-
-      .btn {
         justify-content: center;
         align-items: center;
         padding-inline-start: 0;
+        margin-block-start: 15px;
       }
     }
   }
