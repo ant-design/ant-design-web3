@@ -15,9 +15,14 @@
   }
 
   .componentList {
-    display: flex;
     justify-content: center;
     margin-top: 67px;
+    &.pc {
+      display: flex;
+    }
+    &.mobile {
+      display: none;
+    }
     .cardBg {
       position: relative;
       background: #f7f5ff;
@@ -52,13 +57,34 @@
 @media screen and (max-width: 767px) {
   .container {
     .componentList {
-      flex-direction: column;
-      align-items: center;
+      &.pc {
+        display: none;
+      }
+      &.mobile {
+        display: block;
+      }
       width: 100%;
       padding-top: 40px;
+      .carouselDot {
+        text-align: center;
+        top: -20px;
+        button {
+          width: 6px;
+          height: 6px;
+          border-radius: 6px;
+          background: #1677ff;
+        }
+        :global(.slick-active),
+        :global(li) {
+          width: 6px;
+          height: 6px;
+        }
+        :global(.slick-active button) {
+          background: #1677ff;
+        }
+      }
       .cardBg {
-        max-width: 400px;
-        width: calc(100% - 40px);
+        width: 95%;
         box-sizing: border-box;
         margin-bottom: 32px;
       }
