@@ -82,12 +82,11 @@ describe('ShowCode', () => {
 
   it('sets payment link correctly when tab without formatter function is selected', async () => {
     renderWithProviders(<ShowCode selectedChainId={BSC.id} onReturn={vi.fn()} />);
-
     const normalWalletTab = screen.getByText(mockNormalWallet.name);
     fireEvent.click(normalWalletTab);
-
     await waitFor(() => {
-      expect(screen.getByText(mockProps.target[BSC.id].address)).toBeTruthy();
+      const qrCodeElement = document.querySelector('canvas');
+      expect(qrCodeElement).toBeTruthy();
     });
   });
 

@@ -13,10 +13,10 @@ interface ShowCodeProps {
 export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-pay-panel');
-
-  const [paymentLink, setPaymentLink] = useState('');
   const { token, amount, target, wallets, onFinish } = useContext(PayPanelContext);
   const toAddress = target[selectedChainId].address;
+
+  const [paymentLink, setPaymentLink] = useState<string>(toAddress);
 
   const availableWallets = useMemo(() => {
     const selectedChain = target[selectedChainId].chain;
@@ -29,7 +29,6 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
     const tokenChannelInfo = token.availableChains.find(
       (channel) => channel.chain.id === Number(selectedChainId),
     );
-    setPaymentLink(tokenChannelInfo?.contract || '');
     return tokenChannelInfo;
   }, [selectedChainId]);
 
