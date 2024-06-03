@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { CryptoInputProps } from '@ant-design/web3';
 import { CryptoInput } from '@ant-design/web3';
-import { ETH, USDT } from '@ant-design/web3-assets';
+import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 
 const App: React.FC = () => {
   const [crypto, setCrypto] = useState<CryptoInputProps['value']>();

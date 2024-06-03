@@ -33,7 +33,12 @@ const SingleToken = ({ token }: { token: Token }) => {
   );
 };
 
-export const TokenSelect = ({ value, onChange, tokenList, ...selectProps }: TokenSelectProps) => {
+export const TokenSelect: React.FC<TokenSelectProps> = ({
+  value,
+  onChange,
+  tokenList,
+  ...selectProps
+}) => {
   const { messages } = useIntl('TokenSelect');
 
   const { wrapSSR } = useStyle('web3-token-select');

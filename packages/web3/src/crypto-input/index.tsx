@@ -9,8 +9,8 @@ import useIntl from '../hooks/useIntl';
 import { TokenSelect, type TokenSelectProps } from '../token-select';
 import { useCryptoInputStyle } from './style';
 
-// config decimal.js max precision
-Decimal.set({ precision: 100 });
+// get CryptoInput self decimal instance with precision 100
+const Decimal100 = Decimal.clone({ precision: 100 });
 
 export interface CryptoInputProps extends Omit<TokenSelectProps, 'value' | 'onChange'> {
   /**
@@ -44,14 +44,14 @@ export interface CryptoInputProps extends Omit<TokenSelectProps, 'value' | 'onCh
   footer?: CryptoInputProps['header'];
 }
 
-export const CryptoInput = ({
+export const CryptoInput: React.FC<CryptoInputProps> = ({
   value,
   onChange,
   header,
   footer,
   balance,
   ...selectProps
-}: CryptoInputProps) => {
+}) => {
   const { messages } = useIntl('CryptoInput');
 
   const { token, amountString } = value || {};
@@ -70,9 +70,9 @@ export const CryptoInput = ({
        * 2. select token right now, the select callback will clean the amount, so we need to return empty string to reset the input
        */
       amountString
-      ? new Decimal(amountString)
-          .div(Decimal.pow(10, token.decimal))
-          .toDecimalPlaces(token.decimal, Decimal.ROUND_DOWN)
+      ? new Decimal100(amountString)
+          .div(Decimal100.pow(10, token.decimal))
+          .toDecimalPlaces(token.decimal, Decimal100.ROUND_DOWN)
           .toString()
       : ''
     : undefined;
@@ -80,66 +80,67 @@ export const CryptoInput = ({
   // calculate token total price
   const tokenTotalPrice = useDeferredValue(
     tokenAmount && balance
-      ? `${balance.unit} ${new Decimal(tokenAmount).times(balance.price).toFixed()}`
+      ? `${balance.unit} ${new Decimal100(tokenAmount).times(balance.price).toFixed()}`
       : undefined,
   );
 
   return wrapSSR(
     <Space direction="vertical" className={getClsName('wrapper')}>
-      {!!header && <header>{header()}</header>}
-      <Flex gap={16} align="center">
-        <InputNumber
-          stringMode
-          variant="borderless"
-          controls={false}
-          value={tokenAmount}
-          // remove unnecessary 0 at the end of the number
-          onChange={(amt) => {
-            // if amount is null or token is not selected, clean the value
-            if (isNull(amt) || !token) {
-              onChange?.({
-                token,
-              });
-              return;
-            }
-
-            const [integers, decimals] = String(amt).split('.');
-
-            let calcAmt = amt;
-
-            // if precision is more than token decimal, cut it
-            if (decimals?.length > token.decimal) {
-              calcAmt = `${integers}.${decimals.slice(0, token.decimal)}`;
-            }
-
-            // covert string amt to bigint
-
-            const newAmt = BigInt(
-              new Decimal(calcAmt)
-                .times(Decimal.pow(10, token.decimal))
-                .toFixed(0, Decimal.ROUND_DOWN),
-            );
-
+      {!!header && header()}
+      <InputNumber
+        stringMode
+        size="large"
+        variant="borderless"
+        controls={false}
+        value={tokenAmount}
+        // remove unnecessary 0 at the end of the number
+        onChange={(amt) => {
+          // if amount is null or token is not selected, clean the value
+          if (isNull(amt) || !token) {
             onChange?.({
-              ...value,
-              amount: newAmt,
-              amountString: newAmt.toString(),
+              token,
             });
-          }}
-          placeholder={messages.placeholder}
-          className={getClsName('amount')}
-        />
-        <TokenSelect
-          variant="borderless"
-          {...selectProps}
-          value={value?.token}
-          onChange={(newToken) =>
-            onChange?.({
-              token: newToken,
-            })
+            return;
           }
-        />
-      </Flex>
+
+          const [integers, decimals] = String(amt).split('.');
+
+          let calcAmt = amt;
+
+          // if precision is more than token decimal, cut it
+          if (decimals?.length > token.decimal) {
+            calcAmt = `${integers}.${decimals.slice(0, token.decimal)}`;
+          }
+
+          // covert string amt to bigint
+
+          const newAmt = BigInt(
+            new Decimal100(calcAmt)
+              .times(Decimal100.pow(10, token.decimal))
+              .toFixed(0, Decimal100.ROUND_DOWN),
+          );
+
+          onChange?.({
+            ...value,
+            amount: newAmt,
+            amountString: newAmt.toString(),
+          });
+        }}
+        placeholder={messages.placeholder}
+        className={getClsName('amount')}
+        addonAfter={
+          <TokenSelect
+            variant="borderless"
+            {...selectProps}
+            value={value?.token}
+            onChange={(newToken) =>
+              onChange?.({
+                token: newToken,
+              })
+            }
+          />
+        }
+      />
       {footer !== false && (
         <div className={getClsName('footer')}>
           {footer ? (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ETH, USDT } from '@ant-design/web3-assets';
+import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
