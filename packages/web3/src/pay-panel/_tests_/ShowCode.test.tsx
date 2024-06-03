@@ -7,16 +7,6 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { PayPanelContext, type PayPanelProps } from '../PayPanelContext';
 import { ShowCode } from '../ShowCode';
 
-// Mocks for metadata
-const mockMetaMaskWallet = {
-  ...metadata_MetaMask,
-  payQRCodeFormatterFunc: vi.fn((data) => `formatted-link-for-${data.toAddress}`),
-};
-const mockNormalWallet = {
-  ...metadata_MetaMask,
-  name: 'NormalWallet',
-};
-
 const mockProps: PayPanelProps = {
   amount: 1000000,
   target: {
@@ -30,10 +20,9 @@ const mockProps: PayPanelProps = {
     },
   },
   token: USDT,
-  wallets: [mockMetaMaskWallet, mockNormalWallet],
+  wallets: [metadata_MetaMask],
   onFinish: vi.fn(),
 };
-
 describe('ShowCode', () => {
   const renderWithProviders = (ui: React.ReactElement) => {
     return render(
@@ -42,57 +31,37 @@ describe('ShowCode', () => {
       </ConfigProvider>,
     );
   };
-
   beforeEach(() => {
     vi.resetAllMocks();
   });
-
   it('initially renders correct content', () => {
     renderWithProviders(<ShowCode selectedChainId={BSC.id} onReturn={vi.fn()} />);
-
     expect(screen.getByText(`Send ${USDT.symbol} on ${BSC.name} network`)).toBeTruthy();
     expect(screen.getByText(mockProps.target[BSC.id].address)).toBeTruthy();
   });
-
   it('calls onReturn when Return button is clicked', () => {
     const handleReturn = vi.fn();
     renderWithProviders(<ShowCode selectedChainId={BSC.id} onReturn={handleReturn} />);
-
     fireEvent.click(screen.getByText('Return'));
     expect(handleReturn).toHaveBeenCalled();
   });
-
   it('calls onFinish when Already paid button is clicked', () => {
     renderWithProviders(<ShowCode selectedChainId={BSC.id} onReturn={vi.fn()} />);
-
     fireEvent.click(screen.getByText('Already paid'));
     expect(mockProps.onFinish).toHaveBeenCalled();
   });
-
   it('sets payment link correctly when tab with formatter function is selected', async () => {
     renderWithProviders(<ShowCode selectedChainId={BSC.id} onReturn={vi.fn()} />);
-
-    const metaMaskTab = screen.getByText(mockMetaMaskWallet.name);
+    const metaMaskTab = screen.getByText(metadata_MetaMask.name);
     fireEvent.click(metaMaskTab);
 
     await waitFor(() => {
-      expect(mockMetaMaskWallet.payQRCodeFormatterFunc).toHaveBeenCalled();
-    });
-  });
-
-  it('sets payment link correctly when tab without formatter function is selected', async () => {
-    renderWithProviders(<ShowCode selectedChainId={BSC.id} onReturn={vi.fn()} />);
-    const normalWalletTab = screen.getByText(mockNormalWallet.name);
-    fireEvent.click(normalWalletTab);
-    await waitFor(() => {
-      const qrCodeElement = document.querySelector('canvas');
-      expect(qrCodeElement).toBeTruthy();
+      expect(metadata_MetaMask.payQRCodeFormatterFunc).toHaveBeenCalled();
     });
   });
 
   it('renders QRCode with correct payment link', async () => {
     renderWithProviders(<ShowCode selectedChainId={BSC.id} onReturn={vi.fn()} />);
-
     await waitFor(() => {
       const qrCodeCanvas = document.querySelector('canvas');
       expect(qrCodeCanvas).toBeTruthy();

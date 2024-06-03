@@ -1,6 +1,5 @@
 import React, { useContext, useMemo, useState } from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
-import { type WalletMetadata } from '@ant-design/web3-common';
 import { Button, ConfigProvider, Flex, QRCode, Statistic, Tabs, Typography } from 'antd';
 
 import { PayPanelContext } from './PayPanelContext';
@@ -32,9 +31,8 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
     return tokenChannelInfo;
   }, [selectedChainId]);
 
-  const returnLinks = (walletInfo: WalletMetadata) => {
-    if (!walletInfo.payQRCodeFormatterFunc) return toAddress;
-    const formattedLink = walletInfo.payQRCodeFormatterFunc({
+  const returnLinks = (payQRCodeFormatterFunc: (params: Record<string, any>) => string) => {
+    const formattedLink = payQRCodeFormatterFunc({
       toAddress,
       amount,
       chainId: selectedChainId,
@@ -59,11 +57,10 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
     }),
   );
   const onWalletSelect = (activeKey: string) => {
-    const selectWalletInfo =
-      availableWallets.find((wallet) => wallet.name === activeKey) || undefined;
+    const selectWalletInfo = availableWallets.find((wallet) => wallet.name === activeKey);
     let links = toAddress;
     if (selectWalletInfo && selectWalletInfo.payQRCodeFormatterFunc) {
-      links = returnLinks(selectWalletInfo);
+      links = returnLinks(selectWalletInfo.payQRCodeFormatterFunc);
     }
     setPaymentLink(links);
   };
