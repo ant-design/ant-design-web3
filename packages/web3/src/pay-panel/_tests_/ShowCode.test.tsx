@@ -76,11 +76,7 @@ describe('ShowCode', () => {
     fireEvent.click(metaMaskTab);
 
     await waitFor(() => {
-      if (mockMetaMaskWallet.payQRCodeFormatterFunc) {
-        expect(mockMetaMaskWallet.payQRCodeFormatterFunc).toHaveBeenCalled();
-      } else {
-        expect(screen.getByText(mockProps.target[BSC.id].address)).toBeTruthy();
-      }
+      expect(mockMetaMaskWallet.payQRCodeFormatterFunc).toHaveBeenCalled();
     });
   });
 
