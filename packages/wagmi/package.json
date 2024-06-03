@@ -44,11 +44,11 @@
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
     "debug": "^4.3.4",
-    "@wagmi/core": "^2.9.6"
+    "@wagmi/core": "^2.10.5"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
-    "@wagmi/core": "^2.9.3",
+    "@wagmi/core": "^2.10.5",
     "father": "^4.4.0",
     "typescript": "^5.4.5",
     "wagmi": "^2.8.6",

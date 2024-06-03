@@ -573,8 +573,8 @@ importers:
         specifier: workspace:*
         version: link:../common
       '@wagmi/core':
-        specifier: ^2.9.6
-        version: 2.9.6(@types/react@18.2.78)(react@18.2.0)(typescript@5.4.5)(viem@2.10.3)
+        specifier: ^2.10.5
+        version: 2.10.5(@types/react@18.2.78)(react@18.2.0)(typescript@5.4.5)(viem@2.10.3)
       debug:
         specifier: ^4.3.4
         version: 4.3.4(supports-color@5.5.0)
@@ -9221,6 +9221,32 @@ packages:
       - supports-color
       - utf-8-validate
       - zod
+
+  /@wagmi/core@2.10.5(@types/react@18.2.78)(react@18.2.0)(typescript@5.4.5)(viem@2.10.3):
+    resolution: {integrity: sha512-BvqFEdJTTepOKtPnacq7oE8gUZ4llzdxmPSBEYePArd1dvP/e5gwwfS5/8VBcvDvGcoX4N0lw5A4NNOJKL0Q+A==}
+    peerDependencies:
+      '@tanstack/query-core': '>=5.0.0'
+      typescript: '>=5.0.4'
+      viem: 2.x
+    peerDependenciesMeta:
+      '@tanstack/query-core':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      eventemitter3: 5.0.1
+      mipd: 0.0.5(typescript@5.4.5)
+      typescript: 5.4.5
+      viem: 2.10.3(typescript@5.4.5)
+      zustand: 4.4.1(@types/react@18.2.78)(react@18.2.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - bufferutil
+      - immer
+      - react
+      - utf-8-validate
+      - zod
+    dev: false
 
   /@wagmi/core@2.9.6(@types/react@18.2.78)(react@18.2.0)(typescript@5.4.5)(viem@2.10.3):
     resolution: {integrity: sha512-0zqFl8L1RIqZF3F5RehsCiBzNUJjAkCvoC/O1AhMR5aWi6XCx/Ghp2O/1tTfITI7hu/8IKHBZqSjlFBSrrjVZw==}
