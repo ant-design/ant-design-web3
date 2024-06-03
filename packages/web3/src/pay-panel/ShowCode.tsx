@@ -34,18 +34,15 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
   }, [selectedChainId]);
 
   const returnLinks = (walletInfo: WalletMetadata) => {
-    if (walletInfo.payQRCodeFormatterFunc) {
-      const formattedLink = walletInfo.payQRCodeFormatterFunc({
-        toAddress,
-        amount,
-        chainId: selectedChainId,
-        tokenAddress: tokenChannel?.contract,
-        decimal: token.decimal,
-      });
-      return formattedLink;
-    } else {
-      return toAddress;
-    }
+    if (!walletInfo.payQRCodeFormatterFunc) return toAddress;
+    const formattedLink = walletInfo.payQRCodeFormatterFunc({
+      toAddress,
+      amount,
+      chainId: selectedChainId,
+      tokenAddress: tokenChannel?.contract,
+      decimal: token.decimal,
+    });
+    return formattedLink;
   };
   const normalAddress = [
     {
