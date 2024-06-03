@@ -15,8 +15,7 @@ export const ChainList: React.FC<ChainListProps> = ({ onChainSelected }) => {
   const { target } = useContext(PayPanelContext);
   return (
     <>
-      <div className={`${prefixCls}-title`}>Connect a Wallet</div>
-      <div className={`${prefixCls}-desc`}>Select network</div>
+      <div className={`${prefixCls}-title`}>Select network</div>
       {Object.entries(target).map(([chainId, { chain }]) => {
         return (
           <div

@@ -6,6 +6,32 @@ group: UI 组件
 
 # PayPanel
 
+用于收款的组件，支持了不同的链通道和一些钱包的快速扫码。
+
 ## 基本使用
 
 <code src="./demos/basic.tsx"></code>
+
+## 和对话框一起使用
+
+<code src="./demos/modal.tsx"></code>
+
+## API
+
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| target | 支持的链及对应的接收地址 | `{ [chainId: string]: { address: string; chain: Chain } }` | - | - |
+| token | Token 的信息 | `Token` | - | - |
+| amount | 指定的数量 | `number \| bigint` | - | - |
+| wallets | 支持的钱包列表 | `WalletMetadata[]` | - | - |
+| onFinish | 点击完成的回调 | `() => void` | - | - |
+
+### Token
+
+| 属性            | 描述         | 类型                                  | 默认值 | 版本 |
+| --------------- | ------------ | ------------------------------------- | ------ | ---- |
+| name            | 名字         | `string`                              | -      | -    |
+| symbol          | 符号         | `string`                              | -      | -    |
+| decimal         | 小数位数     | `number`                              | -      | -    |
+| icon            | Logo         | `React.ReactNode`                     | -      | -    |
+| availableChains | 可以使用的链 | `{chain: Chain; contract: string;}[]` | -      | -    |

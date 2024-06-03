@@ -13,8 +13,6 @@ const genPaypanelStyle: GenerateStyle<PayPanelToken> = (token) => {
   return {
     [token.componentCls]: {
       [`${token.componentCls}-content`]: {
-        maxWidth: 400,
-        paddingInline: token.paddingContentHorizontalLG,
         [`${token.componentCls}-title`]: {
           fontSize: token.fontSizeHeading4,
           lineHeight: token.lineHeightHeading4,

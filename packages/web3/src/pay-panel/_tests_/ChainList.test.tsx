@@ -39,7 +39,6 @@ describe('ChainList', () => {
 
   it('initially renders', () => {
     renderWithProviders(<ChainList onChainSelected={vi.fn()} />);
-    expect(screen.getByText(/connect a wallet/i)).toBeTruthy();
     expect(screen.getByText(/select network/i)).toBeTruthy();
   });
 

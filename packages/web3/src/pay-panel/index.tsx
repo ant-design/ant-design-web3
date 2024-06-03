@@ -13,17 +13,19 @@ export const PayPanel: React.FC<React.PropsWithChildren<PayPanelProps>> = (props
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [selectedChainId, setSelectedChainId] = useState<number | string>();
 
+  const { amount, target, token, wallets, onFinish } = props;
+
   return wrapSSR(
     <PayPanelContext.Provider
       value={{
-        amount: props.amount,
-        target: props.target,
-        token: props.token,
-        wallets: props.wallets,
-        onFinish: props.onFinish,
+        amount,
+        target,
+        token,
+        wallets,
+        onFinish,
       }}
     >
-      <Space className={classNames(prefixCls, hashId)}>
+      <div className={classNames(prefixCls, hashId)}>
         <div className={`${prefixCls}-content`}>
           {!selectedChainId && (
             <ChainList
@@ -41,7 +43,7 @@ export const PayPanel: React.FC<React.PropsWithChildren<PayPanelProps>> = (props
             />
           )}
         </div>
-      </Space>
+      </div>
     </PayPanelContext.Provider>,
   );
 };

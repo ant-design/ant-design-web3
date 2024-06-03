@@ -49,7 +49,7 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
   };
   const normalAddress = [
     {
-      label: '通用地址',
+      label: 'Address',
       key: 'general',
     },
   ];
@@ -87,7 +87,7 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
       <div className={`${prefixCls}-code-content`}>
         <div className={`${prefixCls}-code-tips`}>
           <InfoCircleOutlined />
-          <span>请扫描二维码付款,或复制地址付款</span>
+          <span>Please scan the QR code or copy the address</span>
         </div>
 
         {paymentLink && <QRCode value={paymentLink} />}
