@@ -4,4 +4,4 @@
 '@ant-design/web3': minor
 ---
 
-add common Token assets(ETH/USDT);add TokenSelect and CryptoInput component;improve types document
+feat: new components TokenSelect and CryptoInput
