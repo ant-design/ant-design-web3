@@ -40,27 +40,21 @@ const App: React.FC = () => {
       }}
       wallets={[
         MetaMask(),
+        WalletConnect(),
         TokenPocket({
           group: 'Popular',
         }),
-        MobileWallet({
-          group: 'Popular',
-        }),
-        WalletConnect(),
         CoinbaseWallet(),
         SafeheronWallet(),
         OkxWallet(),
         ImToken(),
+        MobileWallet(),
       ]}
       config={config}
     >
       <Connector
         modalProps={{
-          footer: (
-            <div>
-              Powered By <a href="https://web3.ant.design">Ant Design Web3</a>
-            </div>
-          ),
+          mode: 'simple',
         }}
       >
         <ConnectButton />

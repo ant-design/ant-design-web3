@@ -114,13 +114,15 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
         {(panelRoute === 'init' || !isSimple) && (
           <div className={classNames(`${prefixCls}-list-panel`)}>
             <div className={`${prefixCls}-header`}>{mergedTitle}</div>
-            <div className={`${prefixCls}-list-container`}>
-              <WalletList
-                ref={actionRef}
-                walletList={walletList}
-                group={group}
-                groupOrder={groupOrder}
-              />
+            <div className={`${prefixCls}-list`}>
+              <div className={`${prefixCls}-list-container`}>
+                <WalletList
+                  ref={actionRef}
+                  walletList={walletList}
+                  group={group}
+                  groupOrder={groupOrder}
+                />
+              </div>
             </div>
             {isSimple && (
               <div className={`${prefixCls}-simple-guide`}>

@@ -46,7 +46,9 @@ In order to reduce the size of the package, you need to configure `wallets` to i
 
 In addition, we recommend setting `eip6963` to `true` to avoid conflicts when users install multiple wallets. When the `eip6963` is configured, you no longer need to configure the wagmi `injected` Connector. wagmi's [multiInjectedProviderDiscovery](https://wagmi.sh/core/api/createConfig#multiinjectedproviderdiscovery) configuration defaults to `true` and will automatically add detected wallets.
 
-<code src="./demos/more-wallets.tsx"></code>
+<code src="./demos/more-wallets.tsx">Auto Mode</code>
+
+<code src="./demos/more-wallets-in-simple.tsx">Simple Mode</code>
 
 ## Customize wallet information
 
