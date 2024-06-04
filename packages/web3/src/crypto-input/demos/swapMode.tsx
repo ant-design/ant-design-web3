@@ -35,7 +35,7 @@ const App: React.FC = () => {
   return (
     <Flex vertical align="center" style={{ width: 456 }} gap={16}>
       <CryptoInput
-        header={() => 'Sell'}
+        header={'Sell'}
         value={cryptoPair[0]}
         balance={tokenBalances[0]}
         onChange={(crypto) => {
@@ -75,7 +75,7 @@ const App: React.FC = () => {
         />
       </span>
       <CryptoInput
-        header={() => 'Buy'}
+        header={'Buy'}
         value={cryptoPair[1]}
         balance={tokenBalances[1]}
         onChange={(crypto) => {
@@ -89,6 +89,7 @@ const App: React.FC = () => {
       />
       <Button
         type="primary"
+        size="large"
         style={{ width: '100%' }}
         onClick={() => {
           console.log('current crypto pair:', cryptoPair);

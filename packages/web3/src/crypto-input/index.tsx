@@ -18,7 +18,7 @@ export interface CryptoInputProps extends Omit<TokenSelectProps, 'value' | 'onCh
    */
   value?: {
     amount?: bigint;
-    amountString?: string;
+    inputString?: string;
     token?: Token;
   };
   /**
@@ -37,11 +37,11 @@ export interface CryptoInputProps extends Omit<TokenSelectProps, 'value' | 'onCh
   /**
    * custom render for header
    */
-  header?: false | ((value?: CryptoInputProps['value']) => React.ReactNode);
+  header?: React.ReactNode;
   /**
    * custom render for footer
    */
-  footer?: CryptoInputProps['header'];
+  footer?: false | React.ReactNode;
 }
 
 export const CryptoInput: React.FC<CryptoInputProps> = ({
@@ -54,45 +54,26 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
 }) => {
   const { messages } = useIntl('CryptoInput');
 
-  const { token, amountString } = value || {};
+  const { token, inputString } = value || {};
 
   const { wrapSSR, getClsName } = useCryptoInputStyle();
 
-  /**
-   * calculate token amount
-   * when amount input change, the value will multiply by 10 ** token decimal
-   * so when we need restore the value, we need to divide it by 10 ** token decimal
-   */
-  const tokenAmount = token
-    ? /**
-       * exist two situation:
-       * 1. token already selected, then we need to calculate the amount, use passed amountString
-       * 2. select token right now, the select callback will clean the amount, so we need to return empty string to reset the input
-       */
-      amountString
-      ? new Decimal100(amountString)
-          .div(Decimal100.pow(10, token.decimal))
-          .toDecimalPlaces(token.decimal, Decimal100.ROUND_DOWN)
-          .toString()
-      : ''
-    : undefined;
-
   // calculate token total price
   const tokenTotalPrice = useDeferredValue(
-    tokenAmount && balance
-      ? `${balance.unit} ${new Decimal100(tokenAmount).times(balance.price).toFixed()}`
+    inputString && balance
+      ? `${balance.unit} ${new Decimal100(inputString).times(balance.price).toFixed()}`
       : undefined,
   );
 
   return wrapSSR(
     <Space direction="vertical" className={getClsName('wrapper')}>
-      {!!header && header()}
+      {header && <div className={getClsName('header')}>{header}</div>}
       <InputNumber
         stringMode
         size="large"
         variant="borderless"
         controls={false}
-        value={tokenAmount}
+        value={inputString}
         // remove unnecessary 0 at the end of the number
         onChange={(amt) => {
           // if amount is null or token is not selected, clean the value
@@ -105,17 +86,17 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
 
           const [integers, decimals] = String(amt).split('.');
 
-          let calcAmt = amt;
+          let inputAmt = amt;
 
           // if precision is more than token decimal, cut it
           if (decimals?.length > token.decimal) {
-            calcAmt = `${integers}.${decimals.slice(0, token.decimal)}`;
+            inputAmt = `${integers}.${decimals.slice(0, token.decimal)}`;
           }
 
           // covert string amt to bigint
 
           const newAmt = BigInt(
-            new Decimal100(calcAmt)
+            new Decimal100(inputAmt)
               .times(Decimal100.pow(10, token.decimal))
               .toFixed(0, Decimal100.ROUND_DOWN),
           );
@@ -123,7 +104,7 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
           onChange?.({
             ...value,
             amount: newAmt,
-            amountString: newAmt.toString(),
+            inputString: inputAmt,
           });
         }}
         placeholder={messages.placeholder}
@@ -143,16 +124,19 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
       />
       {footer !== false && (
         <div className={getClsName('footer')}>
-          {footer ? (
-            footer()
-          ) : (
+          {footer || (
             <Flex className="default-footer" justify="space-between">
               <Typography.Text ellipsis={{ tooltip: tokenTotalPrice }} className="total-price">
                 {tokenTotalPrice || '-'}
               </Typography.Text>
               <span className="token-balance">
                 {!!token && (
-                  <CryptoPrice {...token} decimals={token.decimal} value={balance?.amount} />
+                  <CryptoPrice
+                    {...token}
+                    decimals={token.decimal}
+                    icon={false}
+                    value={balance?.amount}
+                  />
                 )}
                 {!!balance?.amount && (
                   <a
@@ -161,7 +145,9 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
                       onChange?.({
                         ...value,
                         amount: balance.amount,
-                        amountString: balance.amount.toString(),
+                        inputString: new Decimal100(balance.amount.toString())
+                          .div(Decimal100.pow(10, token!.decimal))
+                          .toFixed(token!.decimal, Decimal100.ROUND_DOWN),
                       });
                     }}
                   >

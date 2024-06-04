@@ -21,17 +21,21 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
       boxSizing: 'border-box',
       width: '100%',
 
+      '.ant-input-number-group-wrapper': {
+        width: '100%',
+      },
+
       '.ant-input-number': {
         input: {
           padding: 0,
-          fontSize: token.fontSizeHeading3,
-          lineHeight: token.lineHeightLG,
-          fontWeight: token.fontWeightStrong,
-          color: token.colorBgSpotlight,
+          fontSize: token.fontSizeLG,
+          // lineHeight: token.lineHeightLG,
+          // fontWeight: token.fontWeightStrong,
+          // color: token.colorBgSpotlight,
 
-          '&::placeholder': {
-            fontWeight: 'normal',
-          },
+          // '&::placeholder': {
+          //   fontWeight: 'normal',
+          // },
         },
       },
     },

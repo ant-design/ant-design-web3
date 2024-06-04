@@ -9,7 +9,7 @@ const App: React.FC = () => {
   return (
     <div style={{ width: 456 }}>
       <CryptoInput
-        footer={() => 'Custom Footer'}
+        footer={'Custom Footer'}
         value={crypto}
         onChange={setCrypto}
         tokenList={[ETH, USDT]}

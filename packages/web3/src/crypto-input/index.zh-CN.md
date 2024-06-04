@@ -48,7 +48,7 @@ group:
 | --- | --- | --- | --- | --- |
 | token | 当前选择的代币 | [Token](/components/types-cn#token) | - | - |
 | amount | 代币数量, 值为用户输入的原始数字乘上代币的精度, 比如 `123456789012345678901n` | `bigint` | - | - |
-| amountString | 代币数量的字符串化，使用 `amount.toString()` 进行转换, 比如 `123456789012345678901` | `string` | - | - |
+| amountString | 用户输入的原始数字，比如 `1.123456789` | `string` | - | - |
 
 ### TokenBalance
 

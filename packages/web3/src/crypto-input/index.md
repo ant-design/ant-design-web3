@@ -46,8 +46,8 @@ group:
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | token | selected token | [Token](/components/types-cn#token) | - | - |
-| amount | token amount, from input string mutiples token decimal, value like `123456789012345678901n` | `bigint` | - | - |
-| amountString | string token amount, from `amount.toString()`, value like `123456789012345678901` | `string` | - | - |
+| amount | token amount, from input string mutiples token decimal, like `123456789012345678901n` | `bigint` | - | - |
+| inputString | the origin number entered by user, like `1.123456789` | `string` | - | - |
 
 ### TokenBalance
 
