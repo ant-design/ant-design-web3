@@ -96,15 +96,16 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             height: 30,
           },
           [`${componentCls}-list`]: {
-            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
             marginBlockStart: token.marginSM,
-            flexGrow: 1,
+            height: 436,
           },
           [`${componentCls}-list-container`]: {
             paddingInline: token.paddingMD,
-            maxHeight: 436,
             overflowY: 'auto',
             height: '100%',
+            flexGrow: 1,
             [`${componentCls}-wallet-list`]: {
               overflow: 'scroll',
               '&::-webkit-scrollbar': {
@@ -208,11 +209,8 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             },
           },
           [`${componentCls}-footer-container`]: {
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
             backgroundColor: token.colorBgBase,
+            position: 'relative',
             [`&::before`]: {
               content: '""',
               position: 'absolute',

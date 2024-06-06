@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConfigProvider, Space, theme } from 'antd';
+import { Space } from 'antd';
 
 import BasiceDemo from './basic';
 import SimpleDemo from './simple';
