@@ -473,7 +473,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               fontSize: token.fontSizeLG,
               position: 'relative',
               width: '100%',
-              marginBlockStart: token.marginSM,
+              marginBlockStart: token.margin,
               [`${componentCls}-qr-code-tips-download`]: {
                 textAlign: 'center',
               },
@@ -494,7 +494,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               marginBlockStart: token.marginLG,
             },
             [`${componentCls}-qr-code-tips`]: {
-              marginBlockStart: token.marginXL,
+              marginBlockStart: token.margin,
             },
           },
         },
