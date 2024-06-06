@@ -1,5 +1,6 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { message } from 'antd';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 
@@ -19,7 +20,11 @@ const App: React.FC = () => {
       }}
       wallets={[MetaMask()]}
     >
-      <Connector>
+      <Connector
+        onConnected={(account) => {
+          message.success(`Connected to ${account?.address}`);
+        }}
+      >
         <ConnectButton />
       </Connector>
     </WagmiWeb3ConfigProvider>

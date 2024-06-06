@@ -136,6 +136,9 @@ describe('Connector', () => {
             setAccount({
               address: '0x1234567890',
             });
+            return {
+              address: '0x1234567890',
+            };
           }}
           disconnect={async () => {
             setAccount(undefined);
@@ -161,7 +164,7 @@ describe('Connector', () => {
 
     await vi.waitFor(() => {
       expect(onConnectCallTest).toBeCalled();
-      expect(onConnected).toBeCalled();
+      expect(onConnected).toBeCalledWith({ address: '0x1234567890' });
     });
 
     fireEvent.click(baseElement.querySelector('.ant-modal-close')!);

@@ -17,6 +17,7 @@ vi.mock('wagmi', async () => {
       return {
         connectAsync: async (...args: any[]) => {
           mockConnectAsync(...args);
+          return {};
         },
       };
     },

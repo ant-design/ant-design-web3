@@ -99,7 +99,7 @@ export interface UniversalWeb3ProviderInterface {
   /** Such as `0x` */
   addressPrefix?: string | false;
 
-  connect?: (wallet?: Wallet, options?: ConnectOptions) => Promise<void>;
+  connect?: (wallet?: Wallet, options?: ConnectOptions) => Promise<void | Account>;
   disconnect?: () => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;
 

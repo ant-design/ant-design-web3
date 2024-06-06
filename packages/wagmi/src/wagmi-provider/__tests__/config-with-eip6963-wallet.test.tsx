@@ -83,6 +83,7 @@ describe('WagmiWeb3ConfigProvider with EIP6963 Wallet', () => {
           return {
             connectAsync: async (...args: any[]) => {
               mockConnectAsync(...args);
+              return {};
             },
           };
         },

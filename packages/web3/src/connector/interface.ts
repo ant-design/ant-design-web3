@@ -6,7 +6,7 @@ export interface ConnectorProps {
   modalProps?: ConnectModalProps;
   onConnect?: () => void;
   onDisconnect?: () => void;
-  onConnected?: () => void;
+  onConnected?: (account?: Account) => void;
   onDisconnected?: () => void;
   onChainSwitched?: (chain?: Chain) => void;
   onConnectError?: (error?: Error) => void;
@@ -17,7 +17,7 @@ export interface ConnectorProps {
   availableChains?: Chain[];
   availableWallets?: Wallet[];
 
-  connect?: (wallet?: Wallet) => Promise<void>;
+  connect?: (wallet?: Wallet) => Promise<void | Account>;
   disconnect?: () => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;
 }

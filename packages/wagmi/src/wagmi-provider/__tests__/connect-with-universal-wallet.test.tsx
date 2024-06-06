@@ -58,6 +58,7 @@ vi.mock('wagmi', () => {
         connectAsync: (options: any) => {
           connectAsync(options);
           event.emit('connectChanged', true);
+          return {};
         },
       };
     },
