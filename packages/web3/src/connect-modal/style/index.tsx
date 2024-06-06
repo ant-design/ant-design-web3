@@ -104,6 +104,8 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           [`${componentCls}-list-container`]: {
             paddingInline: token.paddingMD,
             overflowY: 'auto',
+            scrollbarWidth: 'thin',
+            scrollbarColor: 'unset',
             height: '100%',
             flexGrow: 1,
             [`${componentCls}-wallet-list`]: {
