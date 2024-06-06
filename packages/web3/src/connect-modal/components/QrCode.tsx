@@ -28,6 +28,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
         } else {
           console.error(`wallet ${wallet.name} app is undefined, please check your config.`);
         }
+        setLoading(false);
         return;
       }
       setLoading(true);
