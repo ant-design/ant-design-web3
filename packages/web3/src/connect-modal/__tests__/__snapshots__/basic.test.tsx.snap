@@ -320,11 +320,15 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div
-                      class="ant-web3-connect-modal-footer"
-                    >
-                      Powered by AntChain
+                      <div
+                        class="ant-web3-connect-modal-footer-container"
+                      >
+                        <div
+                          class="ant-web3-connect-modal-footer"
+                        >
+                          Powered by AntChain
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div
@@ -779,11 +783,15 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div
-                      class="ant-web3-connect-modal-footer"
-                    >
-                      Powered by AntChain
+                      <div
+                        class="ant-web3-connect-modal-footer-container"
+                      >
+                        <div
+                          class="ant-web3-connect-modal-footer"
+                        >
+                          Powered by AntChain
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1238,11 +1246,15 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div
-                      class="ant-web3-connect-modal-footer"
-                    >
-                      Powered by AntChain
+                      <div
+                        class="ant-web3-connect-modal-footer-container"
+                      >
+                        <div
+                          class="ant-web3-connect-modal-footer"
+                        >
+                          Powered by AntChain
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1683,11 +1695,15 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div
-                      class="ant-web3-connect-modal-footer"
-                    >
-                      Powered by AntChain
+                      <div
+                        class="ant-web3-connect-modal-footer-container"
+                      >
+                        <div
+                          class="ant-web3-connect-modal-footer"
+                        >
+                          Powered by AntChain
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div
@@ -2153,11 +2169,15 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div
-                      class="ant-web3-connect-modal-footer"
-                    >
-                      Powered by AntChain
+                      <div
+                        class="ant-web3-connect-modal-footer-container"
+                      >
+                        <div
+                          class="ant-web3-connect-modal-footer"
+                        >
+                          Powered by AntChain
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div
