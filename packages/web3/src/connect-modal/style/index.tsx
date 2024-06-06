@@ -209,7 +209,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             },
           },
           [`${componentCls}-footer-container`]: {
-            backgroundColor: token.colorBgBase,
             position: 'relative',
             [`&::before`]: {
               content: '""',
