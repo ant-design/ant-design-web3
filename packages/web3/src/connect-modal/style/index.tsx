@@ -27,6 +27,7 @@ export interface ConnectModalToken extends Web3AliasToken {
   cardBg: string;
   iconSize: number;
   simpleGuideBg: string;
+  walletListWidth: number;
 }
 
 const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
@@ -68,7 +69,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           fontSize: token.fontSizeXL,
           lineHeight: '28px',
           fontWeight: 600,
-          // color: token.colorText,
           backgroundImage: `linear-gradient(90deg, ${token.modalTitleStartColor} 0%, ${token.modalTitleEndColor} 16%, ${token.modalTitleStartColor} 48%, ${token.modalTitleEndColor} 67%, ${token.modalTitleStartColor} 85%, ${token.modalTitleEndColor} 96%, ${token.modalTitleStartColor} 100%)`,
           display: 'inline-block',
           backgroundClip: 'text',
@@ -84,7 +84,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
         [`${componentCls}-list-panel`]: {
           paddingTop: token.paddingLG,
           paddingBottom: token.paddingContentVerticalLG,
-          width: 328,
+          width: token.walletListWidth,
           flexShrink: 0,
           borderRight: `1px solid ${token.splitColor}`,
           display: 'flex',
@@ -216,7 +216,8 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               content: '""',
               position: 'absolute',
               bottom: '100%',
-              width: '100%',
+              width: token.walletListWidth - token.paddingMD * 2,
+              left: token.paddingMD,
               height: token.controlHeightLG,
               backgroundImage: `linear-gradient(to bottom, ${new TinyColor(token.colorBgBase)
                 .setAlpha(0)
@@ -582,6 +583,7 @@ export function useStyle(prefixCls: string): UseStyleResult {
       iconSize: token.sizeXL,
       web3ComponentsCls: `.${prefixCls}`,
       simpleGuideBg: new TinyColor(token.colorText).complement().setAlpha(0.06).toRgbString(),
+      walletListWidth: 328,
     };
     return [genModalStyle(connectModalToken)];
   });
