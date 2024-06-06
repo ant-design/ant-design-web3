@@ -28,6 +28,7 @@ export interface ConnectModalToken extends Web3AliasToken {
   iconSize: number;
   simpleGuideBg: string;
   walletListWidth: number;
+  modalMinHeight: number;
 }
 
 const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
@@ -64,7 +65,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
         display: 'flex',
         justifyContent: 'space-between',
         position: 'relative',
-        minHeight: 518,
+        minHeight: token.modalMinHeight,
         [`${componentCls}-title`]: {
           fontSize: token.fontSizeXL,
           lineHeight: '28px',
@@ -584,6 +585,7 @@ export function useStyle(prefixCls: string): UseStyleResult {
       web3ComponentsCls: `.${prefixCls}`,
       simpleGuideBg: new TinyColor(token.colorText).complement().setAlpha(0.06).toRgbString(),
       walletListWidth: 328,
+      modalMinHeight: 518,
     };
     return [genModalStyle(connectModalToken)];
   });
