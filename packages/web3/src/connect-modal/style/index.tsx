@@ -97,23 +97,12 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           },
           [`${componentCls}-list`]: {
             position: 'relative',
-            marginBlock: token.marginSM,
+            marginBlockStart: token.marginSM,
             flexGrow: 1,
-            [`&::after`]: {
-              content: '""',
-              position: 'absolute',
-              bottom: 0,
-              width: '100%',
-              height: token.controlHeightLG,
-              backgroundImage: `linear-gradient(to bottom, ${new TinyColor(token.colorBgBase)
-                .setAlpha(0)
-                .toRgbString()}, ${new TinyColor(token.colorBgBase).setAlpha(1).toRgbString()})`,
-              pointerEvents: 'none',
-            },
           },
           [`${componentCls}-list-container`]: {
             paddingInline: token.paddingMD,
-            maxHeight: 424,
+            maxHeight: 436,
             overflowY: 'auto',
             height: '100%',
             [`${componentCls}-wallet-list`]: {
@@ -218,6 +207,24 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               },
             },
           },
+          [`${componentCls}-footer-container`]: {
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            backgroundColor: token.colorBgBase,
+            [`&::before`]: {
+              content: '""',
+              position: 'absolute',
+              bottom: '100%',
+              width: '100%',
+              height: token.controlHeightLG,
+              backgroundImage: `linear-gradient(to bottom, ${new TinyColor(token.colorBgBase)
+                .setAlpha(0)
+                .toRgbString()}, ${new TinyColor(token.colorBgBase).setAlpha(1).toRgbString()})`,
+              pointerEvents: 'none',
+            },
+          },
           [`${componentCls}-footer`]: {
             color: token.listItemDescriptionColor,
             borderBlockStart: `1px solid ${token.splitColor}`,
@@ -229,7 +236,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             justifyContent: 'space-between',
             alignItems: 'center',
             color: token.listItemDescriptionColor,
-            margin: `0 ${token.marginMD}px ${token.marginSM}px ${token.marginMD}px`,
+            margin: `${token.marginSM}px ${token.marginMD}px`,
             padding: `${token.paddingXS}px ${token.paddingMD}px`,
             borderRadius: 18,
             background: token.simpleGuideBg,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConnectModal } from '@ant-design/web3';
+import { ConnectModal, ConnectModalProps } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import { Button } from 'antd';
 
@@ -51,7 +51,7 @@ const groupOrder = (a: string, b: string) => {
   return a.localeCompare(b);
 };
 
-const App: React.FC = () => {
+const App: React.FC<ConnectModalProps> = (props) => {
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -67,6 +67,7 @@ const App: React.FC = () => {
         walletList={walletList}
         onCancel={() => setOpen(false)}
         mode="simple"
+        {...props}
       />
     </>
   );

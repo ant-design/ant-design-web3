@@ -123,23 +123,25 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
                   groupOrder={groupOrder}
                 />
               </div>
-            </div>
-            {isSimple && (
-              <div className={`${prefixCls}-simple-guide`}>
-                {intl.getMessage(intl.messages.guideTipTitle)}
-                <Button
-                  type="link"
-                  className={`${prefixCls}-simple-guide-right`}
-                  onClick={() => {
-                    updatePanelRoute('guide');
-                  }}
-                  size="small"
-                >
-                  {intl.getMessage(intl.messages.guideTipLearnMoreLinkText)}
-                </Button>
+              <div className={`${prefixCls}-footer-container`}>
+                {isSimple && (
+                  <div className={`${prefixCls}-simple-guide`}>
+                    {intl.getMessage(intl.messages.guideTipTitle)}
+                    <Button
+                      type="link"
+                      className={`${prefixCls}-simple-guide-right`}
+                      onClick={() => {
+                        updatePanelRoute('guide');
+                      }}
+                      size="small"
+                    >
+                      {intl.getMessage(intl.messages.guideTipLearnMoreLinkText)}
+                    </Button>
+                  </div>
+                )}
+                {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
               </div>
-            )}
-            {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+            </div>
           </div>
         )}
         {!(panelRoute === 'init' && isSimple) && (
