@@ -68,13 +68,12 @@ const App: React.FC = () => {
         </Checkbox>
         <Select
           value={theme}
-          onChange={(v) => {
-            setTheme(v);
-          }}
-        >
-          <Select.Option value="default">Default Theme</Select.Option>
-          <Select.Option value="custom">Custom Theme</Select.Option>
-        </Select>
+          onChange={(v) => setTheme(v)}
+          options={[
+            { value: 'default', label: 'Default Theme' },
+            { value: 'custom', label: 'Custom Theme' },
+          ]}
+        />
       </Space>
       <Divider />
       <ConfigProvider theme={theme === 'custom' ? customToken : undefined}>
