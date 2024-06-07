@@ -1,5 +1,6 @@
 import React from 'react';
-import { ConnectButton, ConnectModalProps, Connector } from '@ant-design/web3';
+import type { ConnectModalProps } from '@ant-design/web3';
+import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   MetaMask,
   OkxWallet,
@@ -7,10 +8,12 @@ import {
   WagmiWeb3ConfigProvider,
   WalletConnect,
 } from '@ant-design/web3-wagmi';
-import { Checkbox, Divider, Radio, Space } from 'antd';
+import { Checkbox, ConfigProvider, Divider, Radio, Select, Space } from 'antd';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { walletConnect } from 'wagmi/connectors';
+
+import { customToken } from './tokens';
 
 const config = createConfig({
   chains: [mainnet],
@@ -28,6 +31,7 @@ const config = createConfig({
 const App: React.FC = () => {
   const [mode, setMode] = React.useState<ConnectModalProps['mode']>('simple');
   const [quickConnect, setQuickConnect] = React.useState<boolean>(false);
+  const [theme, setTheme] = React.useState<'default' | 'custom'>('default');
   return (
     <WagmiWeb3ConfigProvider
       eip6963={{
@@ -62,15 +66,25 @@ const App: React.FC = () => {
         >
           Quick Connect
         </Checkbox>
+        <Select
+          value={theme}
+          onChange={(v) => setTheme(v)}
+          options={[
+            { value: 'default', label: 'Default Theme' },
+            { value: 'custom', label: 'Custom Theme' },
+          ]}
+        />
       </Space>
       <Divider />
-      <Connector
-        modalProps={{
-          mode,
-        }}
-      >
-        <ConnectButton quickConnect={quickConnect} />
-      </Connector>
+      <ConfigProvider theme={theme === 'custom' ? customToken : undefined}>
+        <Connector
+          modalProps={{
+            mode,
+          }}
+        >
+          <ConnectButton quickConnect={quickConnect} />
+        </Connector>
+      </ConfigProvider>
     </WagmiWeb3ConfigProvider>
   );
 };
