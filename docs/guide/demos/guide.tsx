@@ -1,5 +1,6 @@
 import React from 'react';
-import { ConnectButton, ConnectModalProps, Connector } from '@ant-design/web3';
+import type { ConnectModalProps } from '@ant-design/web3';
+import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   MetaMask,
   OkxWallet,
