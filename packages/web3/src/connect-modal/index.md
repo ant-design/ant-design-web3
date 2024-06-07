@@ -37,6 +37,10 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 
 <code src="./demos/customGuide.tsx"></code>
 
+## Custom Footer
+
+<code src="./demos/footer.tsx"></code>
+
 ## API
 
 ### ConnectModalProps

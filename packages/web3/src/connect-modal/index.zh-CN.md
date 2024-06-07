@@ -38,6 +38,10 @@ group: UI 组件
 
 <code src="./demos/customGuide.tsx"></code>
 
+## 自定义 Footer
+
+<code src="./demos/footer.tsx"></code>
+
 ## API
 
 ### ConnectModalProps

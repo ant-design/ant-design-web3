@@ -55,6 +55,11 @@ const App: React.FC = () => {
       <Connector
         modalProps={{
           mode: 'simple',
+          footer: (
+            <div>
+              Powered By <a href="https://web3.ant.design">Ant Design Web3</a>
+            </div>
+          ),
         }}
       >
         <ConnectButton />

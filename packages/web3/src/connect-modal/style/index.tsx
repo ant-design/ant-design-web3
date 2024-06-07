@@ -27,6 +27,8 @@ export interface ConnectModalToken extends Web3AliasToken {
   cardBg: string;
   iconSize: number;
   simpleGuideBg: string;
+  walletListWidth: number;
+  modalMinHeight: number;
 }
 
 const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
@@ -63,12 +65,11 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
         display: 'flex',
         justifyContent: 'space-between',
         position: 'relative',
-        minHeight: 518,
+        minHeight: token.modalMinHeight,
         [`${componentCls}-title`]: {
           fontSize: token.fontSizeXL,
           lineHeight: '28px',
           fontWeight: 600,
-          // color: token.colorText,
           backgroundImage: `linear-gradient(90deg, ${token.modalTitleStartColor} 0%, ${token.modalTitleEndColor} 16%, ${token.modalTitleStartColor} 48%, ${token.modalTitleEndColor} 67%, ${token.modalTitleStartColor} 85%, ${token.modalTitleEndColor} 96%, ${token.modalTitleStartColor} 100%)`,
           display: 'inline-block',
           backgroundClip: 'text',
@@ -84,7 +85,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
         [`${componentCls}-list-panel`]: {
           paddingTop: token.paddingLG,
           paddingBottom: token.paddingContentVerticalLG,
-          width: 328,
+          width: token.walletListWidth,
           flexShrink: 0,
           borderRight: `1px solid ${token.splitColor}`,
           display: 'flex',
@@ -96,26 +97,18 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             height: 30,
           },
           [`${componentCls}-list`]: {
-            position: 'relative',
-            marginBlock: token.marginSM,
-            flexGrow: 1,
-            [`&::after`]: {
-              content: '""',
-              position: 'absolute',
-              bottom: 0,
-              width: '100%',
-              height: token.controlHeightLG,
-              backgroundImage: `linear-gradient(to bottom, ${new TinyColor(token.colorBgBase)
-                .setAlpha(0)
-                .toRgbString()}, ${new TinyColor(token.colorBgBase).setAlpha(1).toRgbString()})`,
-              pointerEvents: 'none',
-            },
+            display: 'flex',
+            flexDirection: 'column',
+            marginBlockStart: token.marginSM,
+            height: 436,
           },
           [`${componentCls}-list-container`]: {
             paddingInline: token.paddingMD,
-            maxHeight: 424,
             overflowY: 'auto',
+            scrollbarWidth: 'thin',
+            scrollbarColor: 'unset',
             height: '100%',
+            flexGrow: 1,
             [`${componentCls}-wallet-list`]: {
               overflow: 'scroll',
               '&::-webkit-scrollbar': {
@@ -218,6 +211,21 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               },
             },
           },
+          [`${componentCls}-footer-container`]: {
+            position: 'relative',
+            [`&::before`]: {
+              content: '""',
+              position: 'absolute',
+              bottom: '100%',
+              width: token.walletListWidth - token.paddingMD * 2,
+              left: token.paddingMD,
+              height: token.controlHeightLG,
+              backgroundImage: `linear-gradient(to bottom, ${new TinyColor(token.colorBgBase)
+                .setAlpha(0)
+                .toRgbString()}, ${new TinyColor(token.colorBgBase).setAlpha(1).toRgbString()})`,
+              pointerEvents: 'none',
+            },
+          },
           [`${componentCls}-footer`]: {
             color: token.listItemDescriptionColor,
             borderBlockStart: `1px solid ${token.splitColor}`,
@@ -229,7 +237,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             justifyContent: 'space-between',
             alignItems: 'center',
             color: token.listItemDescriptionColor,
-            margin: `0 ${token.marginMD}px ${token.marginSM}px ${token.marginMD}px`,
+            margin: `${token.marginSM}px ${token.marginMD}px`,
             padding: `${token.paddingXS}px ${token.paddingMD}px`,
             borderRadius: 18,
             background: token.simpleGuideBg,
@@ -466,7 +474,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               fontSize: token.fontSizeLG,
               position: 'relative',
               width: '100%',
-              marginBlockStart: token.marginSM,
+              marginBlockStart: token.margin,
               [`${componentCls}-qr-code-tips-download`]: {
                 textAlign: 'center',
               },
@@ -487,7 +495,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               marginBlockStart: token.marginLG,
             },
             [`${componentCls}-qr-code-tips`]: {
-              marginBlockStart: token.marginXL,
+              marginBlockStart: token.margin,
             },
           },
         },
@@ -576,6 +584,8 @@ export function useStyle(prefixCls: string): UseStyleResult {
       iconSize: token.sizeXL,
       web3ComponentsCls: `.${prefixCls}`,
       simpleGuideBg: new TinyColor(token.colorText).complement().setAlpha(0.06).toRgbString(),
+      walletListWidth: 328,
+      modalMinHeight: 518,
     };
     return [genModalStyle(connectModalToken)];
   });

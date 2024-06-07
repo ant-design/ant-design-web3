@@ -18,7 +18,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
   const { prefixCls, updatePanelRoute, updateSelectedWallet, localeMessage, getMessage } =
     useContext(connectModalContext);
   const [qrCodeValue, setQrCodeValue] = useState('QR code not ready');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (wallet) {
@@ -28,6 +28,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
         } else {
           console.error(`wallet ${wallet.name} app is undefined, please check your config.`);
         }
+        setLoading(false);
         return;
       }
       setLoading(true);
@@ -61,7 +62,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
           className={`${prefixCls}-qr-code`}
           value={qrCodeValue}
           status={!loading ? 'active' : 'loading'}
-          style={{ width: simple ? '100%' : 350, height: simple ? '100%' : 350 }}
+          style={{ width: simple ? '100%' : 346, height: simple ? '100%' : 346 }}
           iconSize={60}
           type="svg"
         />

@@ -2,45 +2,17 @@ import React from 'react';
 import { ConfigProvider, Space } from 'antd';
 
 import BasiceDemo from './basic';
+import SimpleDemo from './simple';
+import { customToken } from './tokens';
 
 const App: React.FC = () => {
   return (
     <Space>
-      <ConfigProvider
-        theme={{
-          token: {
-            colorPrimary: '#8442ff',
-          },
-          components: {
-            Button: {
-              borderRadius: 16,
-              borderRadiusLG: 24,
-            },
-            Modal: {
-              borderRadiusLG: 24,
-            },
-          },
-        }}
-      >
+      <ConfigProvider theme={customToken}>
         <BasiceDemo />
       </ConfigProvider>
-      <ConfigProvider
-        theme={{
-          token: {
-            colorPrimary: '#00B96B',
-          },
-          components: {
-            Button: {
-              borderRadius: 16,
-              borderRadiusLG: 24,
-            },
-            Modal: {
-              borderRadiusLG: 24,
-            },
-          },
-        }}
-      >
-        <BasiceDemo />
+      <ConfigProvider theme={customToken}>
+        <SimpleDemo />
       </ConfigProvider>
     </Space>
   );
