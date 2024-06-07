@@ -1,5 +1,6 @@
 import { ConnectButton, Connector, useConnection } from '@ant-design/web3';
-import { fireEvent } from '@testing-library/react';
+import { metadata_Unisat, metadata_Xverse } from '@ant-design/web3-assets';
+import { fireEvent, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -116,6 +117,32 @@ describe('BitcoinWeb3ConfigProvider', () => {
     // disconnect
     const disconnectBtn = selector('.disconnect')!;
     fireEvent.click(disconnectBtn);
+  });
+
+  it('available `autoConnect`', async () => {
+    const getItem = () => metadata_Xverse.name;
+    global.localStorage = {
+      setItem: vi.fn(),
+      getItem: getItem,
+      removeItem: vi.fn(),
+    } as any;
+
+    const App = () => {
+      return (
+        <BitcoinWeb3ConfigProvider wallets={[XverseWallet()]} autoConnect>
+          <Connector>
+            <ConnectButton className="connect" />
+          </Connector>
+        </BitcoinWeb3ConfigProvider>
+      );
+    };
+
+    const { selector } = xrender(App);
+    const connectBtn = selector('.connect')!;
+
+    await waitFor(() => {
+      expect(connectBtn.textContent).toBe('123...123');
+    });
   });
 
   it('get inscriptions', async () => {
