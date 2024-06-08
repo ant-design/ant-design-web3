@@ -1,12 +1,19 @@
-import React, { useDeferredValue } from 'react';
+import React, { useDeferredValue, useMemo } from 'react';
 import type { Token } from '@ant-design/web3-common';
-import { Flex, InputNumber, Space, Typography } from 'antd';
+import { theme as antdTheme, ConfigProvider, Flex, InputNumber, Typography } from 'antd';
 import Decimal from 'decimal.js';
 import { isNull } from 'lodash';
 
 import { CryptoPrice } from '../crypto-price';
 import useIntl from '../hooks/useIntl';
 import { TokenSelect, type TokenSelectProps } from '../token-select';
+import {
+  INPUT_FONT_SIZE,
+  INPUT_FONT_SIZE_LG,
+  INPUT_FONT_SIZE_SM,
+  PADDING_BLOCK,
+  PADDING_INLINE,
+} from './constants';
 import { useCryptoInputStyle } from './style';
 
 // get CryptoInput self decimal instance with precision 100
@@ -42,6 +49,10 @@ export interface CryptoInputProps extends Omit<TokenSelectProps, 'value' | 'onCh
    * custom render for footer
    */
   footer?: false | React.ReactNode;
+  /**
+   * size of the input
+   */
+  size?: 'small' | 'middle' | 'large';
 }
 
 export const CryptoInput: React.FC<CryptoInputProps> = ({
@@ -50,9 +61,33 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
   header,
   footer,
   balance,
+  size = 'middle',
   ...selectProps
 }) => {
   const { messages } = useIntl('CryptoInput');
+
+  const {
+    token: { InputNumber: originToken },
+  } = antdTheme.useToken();
+
+  /**
+   * if user not overwrite the token
+   * use our default theme settings
+   */
+  const finalToken = useMemo(() => {
+    return {
+      ...originToken,
+      inputFontSizeSM: originToken?.inputFontSizeSM || INPUT_FONT_SIZE_SM,
+      inputFontSize: originToken?.inputFontSize || INPUT_FONT_SIZE,
+      inputFontSizeLG: originToken?.inputFontSizeLG || INPUT_FONT_SIZE_LG,
+      paddingInlineSM: originToken?.paddingInlineSM || PADDING_INLINE,
+      paddingInline: originToken?.paddingInline || PADDING_INLINE,
+      paddingInlineLG: originToken?.paddingInlineLG || PADDING_INLINE,
+      paddingBlockSM: originToken?.paddingBlockSM || PADDING_BLOCK,
+      paddingBlock: originToken?.paddingBlock || PADDING_BLOCK,
+      paddingBlockLG: originToken?.paddingBlockLG || PADDING_BLOCK,
+    };
+  }, [originToken]);
 
   const { token, inputString } = value || {};
 
@@ -66,62 +101,70 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
   );
 
   return wrapSSR(
-    <Space direction="vertical" className={getClsName('wrapper')}>
+    <Flex vertical className={getClsName('wrapper')}>
       {header && <div className={getClsName('header')}>{header}</div>}
-      <InputNumber
-        stringMode
-        size="large"
-        variant="borderless"
-        controls={false}
-        value={inputString}
-        // remove unnecessary 0 at the end of the number
-        onChange={(amt) => {
-          // if amount is null or token is not selected, clean the value
-          if (isNull(amt) || !token) {
-            onChange?.({
-              token,
-            });
-            return;
-          }
-
-          const [integers, decimals] = String(amt).split('.');
-
-          let inputAmt = amt;
-
-          // if precision is more than token decimal, cut it
-          if (decimals?.length > token.decimal) {
-            inputAmt = `${integers}.${decimals.slice(0, token.decimal)}`;
-          }
-
-          // covert string amt to bigint
-
-          const newAmt = BigInt(
-            new Decimal100(inputAmt)
-              .times(Decimal100.pow(10, token.decimal))
-              .toFixed(0, Decimal100.ROUND_DOWN),
-          );
-
-          onChange?.({
-            ...value,
-            amount: newAmt,
-            inputString: inputAmt,
-          });
+      <ConfigProvider
+        theme={{
+          components: {
+            InputNumber: finalToken,
+          },
         }}
-        placeholder={messages.placeholder}
-        className={getClsName('amount')}
-        addonAfter={
-          <TokenSelect
-            variant="borderless"
-            {...selectProps}
-            value={value?.token}
-            onChange={(newToken) =>
+      >
+        <InputNumber
+          stringMode
+          size={size}
+          controls={false}
+          variant="borderless"
+          className={getClsName('amount')}
+          placeholder={messages.placeholder}
+          value={inputString}
+          // remove unnecessary 0 at the end of the number
+          onChange={(amt) => {
+            // if amount is null or token is not selected, clean the value
+            if (isNull(amt) || !token) {
               onChange?.({
-                token: newToken,
-              })
+                token,
+              });
+              return;
             }
-          />
-        }
-      />
+
+            const [integers, decimals] = String(amt).split('.');
+
+            let inputAmt = amt;
+
+            // if precision is more than token decimal, cut it
+            if (decimals?.length > token.decimal) {
+              inputAmt = `${integers}.${decimals.slice(0, token.decimal)}`;
+            }
+
+            // covert string amt to bigint
+
+            const newAmt = BigInt(
+              new Decimal100(inputAmt)
+                .times(Decimal100.pow(10, token.decimal))
+                .toFixed(0, Decimal100.ROUND_DOWN),
+            );
+
+            onChange?.({
+              ...value,
+              amount: newAmt,
+              inputString: inputAmt,
+            });
+          }}
+          addonAfter={
+            <TokenSelect
+              variant="borderless"
+              {...selectProps}
+              value={value?.token}
+              onChange={(newToken) =>
+                onChange?.({
+                  token: newToken,
+                })
+              }
+            />
+          }
+        />
+      </ConfigProvider>
       {footer !== false && (
         <div className={getClsName('footer')}>
           {footer || (
@@ -151,7 +194,7 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
                       });
                     }}
                   >
-                    Max
+                    {messages.maxButtonText}
                   </a>
                 )}
               </span>
@@ -159,6 +202,6 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
           )}
         </div>
       )}
-    </Space>,
+    </Flex>,
   );
 };

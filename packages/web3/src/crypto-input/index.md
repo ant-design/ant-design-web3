@@ -13,6 +13,10 @@ group:
 
 <code src="./demos/basic.tsx"></code>
 
+### Size change
+
+<code src="./demos/sizeChange.tsx"></code>
+
 ### No default footer
 
 <code src="./demos/noFooter.tsx"></code>

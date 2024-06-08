@@ -60,6 +60,7 @@ const localeValues: RequiredLocale = {
   },
   CryptoInput: {
     placeholder: 'Please enter amount',
+    maxButtonText: 'Max',
   },
 };
 

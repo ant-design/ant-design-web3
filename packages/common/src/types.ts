@@ -270,6 +270,7 @@ export interface RequiredLocale {
   };
   CryptoInput: {
     placeholder: string;
+    maxButtonText: string;
   };
 }
 

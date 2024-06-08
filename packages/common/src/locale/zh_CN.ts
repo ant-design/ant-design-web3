@@ -57,6 +57,7 @@ const localeValues: RequiredLocale = {
   },
   CryptoInput: {
     placeholder: '请输入代币数量',
+    maxButtonText: '最大',
   },
 };
 

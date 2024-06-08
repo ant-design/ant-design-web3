@@ -18,25 +18,10 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
       paddingInline: token.padding,
       border: `1px solid ${token.colorBorder}`,
       borderRadius: token.borderRadiusLG,
-      boxSizing: 'border-box',
-      width: '100%',
+      rowGap: 8,
 
       '.ant-input-number-group-wrapper': {
         width: '100%',
-      },
-
-      '.ant-input-number': {
-        input: {
-          padding: 0,
-          fontSize: token.fontSizeLG,
-          // lineHeight: token.lineHeightLG,
-          // fontWeight: token.fontWeightStrong,
-          // color: token.colorBgSpotlight,
-
-          // '&::placeholder': {
-          //   fontWeight: 'normal',
-          // },
-        },
       },
     },
 
