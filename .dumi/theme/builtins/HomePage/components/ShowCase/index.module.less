@@ -1,7 +1,9 @@
 .container {
   overflow: hidden;
-  background-color: #fff;
+  background-color: #fbfafc;
   padding: 67px 0;
+  position: relative;
+  box-shadow: 0 0 10px 15px #e3e3e330 inset;
   .headTitle {
     font-size: 38px;
     margin: 0 0 24px 0;
@@ -56,6 +58,12 @@
 
 @media screen and (max-width: 767px) {
   .container {
+    .headTitle {
+      font-size: 24px;
+    }
+    .desc {
+      font-size: 12px;
+    }
     .componentList {
       &.pc {
         display: none;
@@ -64,7 +72,6 @@
         display: block;
       }
       width: 100%;
-      padding-top: 40px;
       .carouselDot {
         text-align: center;
         top: -20px;
