@@ -61,8 +61,8 @@ importers:
         specifier: ^0.1.13
         version: 0.1.13(@solana/web3.js@1.91.0)
       '@tanstack/react-query':
-        specifier: ^5.40.0
-        version: 5.40.0(react@18.2.0)
+        specifier: ^5.40.1
+        version: 5.40.1(react@18.2.0)
       '@testing-library/react':
         specifier: ^14.2.2
         version: 14.2.2(react-dom@18.2.0)(react@18.2.0)
@@ -173,7 +173,7 @@ importers:
         version: 1.6.0(@types/node@20.14.0)(jsdom@24.0.0)
       wagmi:
         specifier: ^2.5.7
-        version: 2.8.6(@tanstack/react-query@5.40.0)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.5)(viem@2.13.3)
+        version: 2.8.6(@tanstack/react-query@5.40.1)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.5)(viem@2.13.3)
 
   examples/eth-web3js:
     dependencies:
@@ -194,7 +194,7 @@ importers:
         version: 5.17.3(react-dom@18.2.0)(react@18.2.0)
       umi:
         specifier: ^4.1.5
-        version: 4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0)
+        version: 4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.3.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0)
       web3:
         specifier: ^4.7.0
         version: 4.8.0(typescript@5.4.5)
@@ -231,7 +231,7 @@ importers:
         version: 6.11.1
       umi:
         specifier: ^4.1.5
-        version: 4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0)
+        version: 4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.3.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0)
     devDependencies:
       '@types/react':
         specifier: ^18.2.78
@@ -265,7 +265,7 @@ importers:
         version: 5.7.2
       umi:
         specifier: ^4.1.5
-        version: 4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0)
+        version: 4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.3.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0)
     devDependencies:
       '@types/react':
         specifier: ^18.2.78
@@ -367,8 +367,8 @@ importers:
         specifier: workspace:*
         version: link:../wagmi
       '@tanstack/react-query':
-        specifier: ^5.40.0
-        version: 5.40.0(react@18.2.0)
+        specifier: ^5.40.1
+        version: 5.40.1(react@18.2.0)
       debug:
         specifier: ^4.3.4
         version: 4.3.4(supports-color@5.5.0)
@@ -377,7 +377,7 @@ importers:
         version: 2.13.3(typescript@5.4.5)
       wagmi:
         specifier: ^2.5.7
-        version: 2.8.6(@tanstack/react-query@5.40.0)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.5)(viem@2.13.3)
+        version: 2.8.6(@tanstack/react-query@5.40.1)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.5)(viem@2.13.3)
     devDependencies:
       '@types/debug':
         specifier: ^4.1.12
@@ -404,8 +404,8 @@ importers:
         specifier: workspace:*
         version: link:../wagmi
       '@tanstack/react-query':
-        specifier: ^5.40.0
-        version: 5.40.0(react@18.2.0)
+        specifier: ^5.40.1
+        version: 5.40.1(react@18.2.0)
       debug:
         specifier: ^4.3.4
         version: 4.3.4(supports-color@5.5.0)
@@ -414,7 +414,7 @@ importers:
         version: 2.13.3(typescript@5.4.5)
       wagmi:
         specifier: ^2.5.7
-        version: 2.8.6(@tanstack/react-query@5.40.0)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.5)(viem@2.13.3)
+        version: 2.8.6(@tanstack/react-query@5.40.1)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.5)(viem@2.13.3)
     devDependencies:
       '@types/debug':
         specifier: ^4.1.12
@@ -444,8 +444,8 @@ importers:
         specifier: workspace:*
         version: link:../wagmi
       '@tanstack/react-query':
-        specifier: ^5.40.0
-        version: 5.40.0(react@18.2.0)
+        specifier: ^5.40.1
+        version: 5.40.1(react@18.2.0)
       debug:
         specifier: ^4.3.4
         version: 4.3.4(supports-color@5.5.0)
@@ -454,7 +454,7 @@ importers:
         version: 2.13.3(typescript@5.4.5)
       wagmi:
         specifier: ^2.5.7
-        version: 2.8.6(@tanstack/react-query@5.40.0)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.5)(viem@2.13.3)
+        version: 2.8.6(@tanstack/react-query@5.40.1)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.5)(viem@2.13.3)
     devDependencies:
       '@types/debug':
         specifier: ^4.1.12
@@ -580,8 +580,8 @@ importers:
         version: 4.3.4(supports-color@5.5.0)
     devDependencies:
       '@tanstack/react-query':
-        specifier: ^5.40.0
-        version: 5.40.0(react@18.2.0)
+        specifier: ^5.40.1
+        version: 5.40.1(react@18.2.0)
       '@types/debug':
         specifier: ^4.1.12
         version: 4.1.12
@@ -596,7 +596,7 @@ importers:
         version: 2.13.3(typescript@5.4.5)
       wagmi:
         specifier: ^2.5.7
-        version: 2.8.6(@tanstack/react-query@5.40.0)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.5)(viem@2.13.3)
+        version: 2.8.6(@tanstack/react-query@5.40.1)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.5)(viem@2.13.3)
 
   packages/web3:
     dependencies:
@@ -7967,8 +7967,8 @@ packages:
   /@tanstack/query-core@5.40.0:
     resolution: {integrity: sha512-eD8K8jsOIq0Z5u/QbvOmfvKKE/XC39jA7yv4hgpl/1SRiU+J8QCIwgM/mEHuunQsL87dcvnHqSVLmf9pD4CiaA==}
 
-  /@tanstack/react-query@5.40.0(react@18.2.0):
-    resolution: {integrity: sha512-iv/W0Axc4aXhFzkrByToE1JQqayxTPNotCoSCnarR/A1vDIHaoKpg7FTIfP3Ev2mbKn1yrxq0ZKYUdLEJxs6Tg==}
+  /@tanstack/react-query@5.40.1(react@18.2.0):
+    resolution: {integrity: sha512-gOcmu+gpFd2taHrrgMM9RemLYYEDYfsCqszxCC0xtx+csDa4R8t7Hr7SfWXQP13S2sF+mOxySo/+FNXJFYBqcA==}
     peerDependencies:
       react: ^18.0.0
     dependencies:
@@ -19137,23 +19137,6 @@ packages:
       typescript: 5.4.5
     dev: true
 
-  /prettier-plugin-organize-imports@3.2.4(prettier@3.2.5)(typescript@5.4.5):
-    resolution: {integrity: sha512-6m8WBhIp0dfwu0SkgfOxJqh+HpdyfqSSLfKKRZSFbDuEQXDDndb8fTpRWkUrX/uBenkex3MgnVk0J3b3Y5byog==}
-    peerDependencies:
-      '@volar/vue-language-plugin-pug': ^1.0.4
-      '@volar/vue-typescript': ^1.0.4
-      prettier: '>=2.0'
-      typescript: '>=2.9'
-    peerDependenciesMeta:
-      '@volar/vue-language-plugin-pug':
-        optional: true
-      '@volar/vue-typescript':
-        optional: true
-    dependencies:
-      prettier: 3.2.5
-      typescript: 5.4.5
-    dev: false
-
   /prettier-plugin-organize-imports@3.2.4(prettier@3.3.0)(typescript@5.4.5):
     resolution: {integrity: sha512-6m8WBhIp0dfwu0SkgfOxJqh+HpdyfqSSLfKKRZSFbDuEQXDDndb8fTpRWkUrX/uBenkex3MgnVk0J3b3Y5byog==}
     peerDependencies:
@@ -19169,20 +19152,6 @@ packages:
     dependencies:
       prettier: 3.3.0
       typescript: 5.4.5
-    dev: true
-
-  /prettier-plugin-packagejson@2.4.3(prettier@3.2.5):
-    resolution: {integrity: sha512-kPeeviJiwy0BgOSk7No8NmzzXfW4R9FYWni6ziA5zc1kGVVrKnBzMZdu2TUhI+I7h8/5Htt3vARYOk7KKJTTNQ==}
-    peerDependencies:
-      prettier: '>= 1.16.0'
-    peerDependenciesMeta:
-      prettier:
-        optional: true
-    dependencies:
-      prettier: 3.2.5
-      sort-package-json: 2.4.1
-      synckit: 0.8.5
-    dev: false
 
   /prettier-plugin-packagejson@2.4.3(prettier@3.3.0):
     resolution: {integrity: sha512-kPeeviJiwy0BgOSk7No8NmzzXfW4R9FYWni6ziA5zc1kGVVrKnBzMZdu2TUhI+I7h8/5Htt3vARYOk7KKJTTNQ==}
@@ -19195,7 +19164,6 @@ packages:
       prettier: 3.3.0
       sort-package-json: 2.4.1
       synckit: 0.8.5
-    dev: true
 
   /prettier-plugin-two-style-order@1.0.1(prettier@2.8.8):
     resolution: {integrity: sha512-ETltO2FRR/Pxc7bsgz2XwuzWSPwafl7/v5+5Rria4S579CTas7dya+xsmbkix0q1tYQiuRjVVdfGnCKlH/aOuQ==}
@@ -19214,17 +19182,10 @@ packages:
     hasBin: true
     dev: true
 
-  /prettier@3.2.5:
-    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
-    engines: {node: '>=14'}
-    hasBin: true
-    dev: false
-
   /prettier@3.3.0:
     resolution: {integrity: sha512-J9odKxERhCQ10OC2yb93583f6UnYutOeiV5i0zEDS7UGTdUt0u+y8erxl3lBKvwo/JHyyoEdXjwp4dke9oyZ/g==}
     engines: {node: '>=14'}
     hasBin: true
-    dev: true
 
   /pretty-error@4.0.0:
     resolution: {integrity: sha512-AoJ5YMAcXKYxKhuJGdcvse+Voc6v1RgnsR3nWcYU7q4t6z0Q6T86sv5Zq8VIRbOWWFpvdGE83LtdSMNd+6Y0xw==}
@@ -22612,57 +22573,6 @@ packages:
     dependencies:
       multiformats: 9.9.0
 
-  /umi@4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0):
-    resolution: {integrity: sha512-c313niwbqauUQE2RZ3gJJLuxu8avDIlSMLSjUGHQpfZ8s+W0fSfr4GDY/x9VR9a1Fm8RL+gc40easH5VQQtoZQ==}
-    engines: {node: '>=14'}
-    hasBin: true
-    dependencies:
-      '@babel/runtime': 7.23.6
-      '@umijs/bundler-utils': 4.1.5
-      '@umijs/bundler-webpack': 4.1.5(typescript@5.4.5)(webpack@5.91.0)
-      '@umijs/core': 4.1.5
-      '@umijs/lint': 4.1.5(eslint@8.57.0)(stylelint@14.16.1)(typescript@5.4.5)
-      '@umijs/preset-umi': 4.1.5(@types/node@20.14.0)(@types/react@18.2.78)(sass@1.69.5)(typescript@5.4.5)(webpack@5.91.0)
-      '@umijs/renderer-react': 4.1.5(react-dom@18.2.0)(react@18.2.0)
-      '@umijs/server': 4.1.5
-      '@umijs/test': 4.1.5(@babel/core@7.24.3)
-      '@umijs/utils': 4.1.5
-      prettier-plugin-organize-imports: 3.2.4(prettier@3.2.5)(typescript@5.4.5)
-      prettier-plugin-packagejson: 2.4.3(prettier@3.2.5)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@types/node'
-      - '@types/react'
-      - '@types/webpack'
-      - '@volar/vue-language-plugin-pug'
-      - '@volar/vue-typescript'
-      - eslint
-      - jest
-      - lightningcss
-      - postcss-html
-      - postcss-jsx
-      - postcss-less
-      - postcss-markdown
-      - postcss-scss
-      - prettier
-      - react
-      - react-dom
-      - rollup
-      - sass
-      - sockjs-client
-      - stylelint
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - type-fest
-      - typescript
-      - webpack
-      - webpack-dev-server
-      - webpack-hot-middleware
-      - webpack-plugin-serve
-    dev: false
-
   /umi@4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.3.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0):
     resolution: {integrity: sha512-c313niwbqauUQE2RZ3gJJLuxu8avDIlSMLSjUGHQpfZ8s+W0fSfr4GDY/x9VR9a1Fm8RL+gc40easH5VQQtoZQ==}
     engines: {node: '>=14'}
@@ -22712,7 +22622,6 @@ packages:
       - webpack-dev-server
       - webpack-hot-middleware
       - webpack-plugin-serve
-    dev: true
 
   /unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
@@ -23415,7 +23324,7 @@ packages:
       xml-name-validator: 5.0.0
     dev: true
 
-  /wagmi@2.8.6(@tanstack/react-query@5.40.0)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.5)(viem@2.13.3):
+  /wagmi@2.8.6(@tanstack/react-query@5.40.1)(@types/react@18.2.78)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.5)(viem@2.13.3):
     resolution: {integrity: sha512-DqYKllsgaTtbGgiVmECmDW2wQaV457nMB1yjkM7lNhS5+kVPj4g8gYqerVSRW9yHyred946VcAALSxENM4zZ3A==}
     peerDependencies:
       '@tanstack/react-query': '>=5.0.0'
@@ -23426,7 +23335,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@tanstack/react-query': 5.40.0(react@18.2.0)
+      '@tanstack/react-query': 5.40.1(react@18.2.0)
       '@wagmi/connectors': 4.3.8(@types/react@18.2.78)(@wagmi/core@2.9.6)(react-dom@18.2.0)(react-i18next@13.5.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.4.5)(viem@2.13.3)
       '@wagmi/core': 2.9.6(@types/react@18.2.78)(react@18.2.0)(typescript@5.4.5)(viem@2.13.3)
       react: 18.2.0
