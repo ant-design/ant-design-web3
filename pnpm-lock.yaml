@@ -194,7 +194,7 @@ importers:
         version: 5.17.3(react-dom@18.2.0)(react@18.2.0)
       umi:
         specifier: ^4.1.5
-        version: 4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0)
+        version: 4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.3.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0)
       web3:
         specifier: ^4.7.0
         version: 4.8.0(typescript@5.4.5)
@@ -231,7 +231,7 @@ importers:
         version: 6.11.1
       umi:
         specifier: ^4.1.5
-        version: 4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0)
+        version: 4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.3.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0)
     devDependencies:
       '@types/react':
         specifier: ^18.2.78
@@ -265,7 +265,7 @@ importers:
         version: 5.7.2
       umi:
         specifier: ^4.1.5
-        version: 4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0)
+        version: 4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.3.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0)
     devDependencies:
       '@types/react':
         specifier: ^18.2.78
@@ -314,8 +314,8 @@ importers:
         specifier: workspace:*
         version: link:../icons
       sats-connect:
-        specifier: ^2.3.1
-        version: 2.3.1(typescript@5.4.5)
+        specifier: ^2.4.0
+        version: 2.4.0(typescript@5.4.5)
     devDependencies:
       father:
         specifier: ^4.4.0
@@ -5103,7 +5103,7 @@ packages:
     dependencies:
       asn1.js: 5.4.1
       async-retry: 1.3.3
-      axios: 1.6.7(debug@4.3.4)
+      axios: 1.6.8(debug@4.3.4)
       base64-js: 1.5.1
       bignumber.js: 9.1.2
     transitivePeerDependencies:
@@ -5115,7 +5115,7 @@ packages:
     engines: {node: '>=16.10.0'}
     dependencies:
       async-retry: 1.3.3
-      axios: 1.6.7(debug@4.3.4)
+      axios: 1.6.8(debug@4.3.4)
     transitivePeerDependencies:
       - debug
     dev: false
@@ -5140,7 +5140,7 @@ packages:
       aptos: 1.8.5(debug@4.3.4)
       arbundles: 0.10.1(arweave@1.15.0)(debug@4.3.4)
       async-retry: 1.3.3
-      axios: 1.6.7(debug@4.3.4)
+      axios: 1.6.8(debug@4.3.4)
       base64url: 3.0.1
       bignumber.js: 9.1.2
       bs58: 5.0.0
@@ -6963,10 +6963,10 @@ packages:
     resolution: {integrity: sha512-qBDM469cVCedpBpeTSn+k5FUr9+rq5bMTflp/mKd7h35uafcexvOR/PHZn2qftqV8b1kc9b8t22cPRJ2365jew==}
     engines: {node: '>=16'}
 
-  /@sats-connect/core@0.0.7:
-    resolution: {integrity: sha512-4m5amq+orHDbqLqCRWojvDQigKAys33Ntwc7U5xNtFeib4j+DpYz6lVAL/s3cay1kq03WUZ+Gil3l5rv+5bQWQ==}
+  /@sats-connect/core@0.0.9:
+    resolution: {integrity: sha512-7/hY7VF9OqNDYcXlADluMKCTDu9f4OENWkWWO8K1LqanuyZhepu3fBRQKSCT6Xr/3KorvSH/e8sSTcJCzuVOAA==}
     dependencies:
-      axios: 1.6.8
+      axios: 1.6.8(debug@4.3.4)
       bitcoin-address-validation: 2.2.3
       buffer: 6.0.3
       jsontokens: 4.0.1
@@ -6975,33 +6975,16 @@ packages:
       - debug
     dev: false
 
-  /@sats-connect/core@0.0.8:
-    resolution: {integrity: sha512-vb7drnd8lFfO4ahCzaVAFkX1eHF1J7jheJl2V/JuuJd5f1sy6nHeNzKMp1zmiuql8uNwe0Sx1WrK1I+4tUmDHg==}
-    dependencies:
-      axios: 1.6.8
-      bitcoin-address-validation: 2.2.3
-      buffer: 6.0.3
-      jsontokens: 4.0.1
-      lodash.omit: 4.5.0
-    transitivePeerDependencies:
-      - debug
-    dev: false
-
-  /@sats-connect/make-default-provider-config@0.0.4(typescript@5.4.5):
-    resolution: {integrity: sha512-PsLzg1hV3FxMXUp9XrOUmDJgbuyR4VDHq/7mh1O1CtC3dDZQnJFa+Ue43duPMmUaRGinuVKtS2hnMhPLyURdGA==}
+  /@sats-connect/make-default-provider-config@0.0.5(@sats-connect/core@0.0.9)(typescript@5.4.5):
+    resolution: {integrity: sha512-b/v4IeDEde5DqFOdMbMmf3B0t/lxlKnY04f3YIUWe1khOg3S6VdcK9Mqva+WUOsJHBTIA5b4hK7CqfMjx1Ic+w==}
     peerDependencies:
+      '@sats-connect/core': '*'
       typescript: 5.4.4
     dependencies:
-      '@sats-connect/core': 0.0.7
-      '@sats-connect/ui': 0.0.5-c661c02
+      '@sats-connect/core': 0.0.9
+      '@sats-connect/ui': 0.0.6
       bowser: 2.11.0
       typescript: 5.4.5
-    transitivePeerDependencies:
-      - debug
-    dev: false
-
-  /@sats-connect/ui@0.0.5-c661c02:
-    resolution: {integrity: sha512-6MUXFDGTapBhZAxb6deAdqKuB64GOe6k927gGww5JYwVnOUCaHGDcfaZ/lwexzYL45u8RJof12I4np7MgS+Bwg==}
     dev: false
 
   /@sats-connect/ui@0.0.6:
@@ -10617,26 +10600,16 @@ packages:
   /axios@0.27.2(debug@4.3.4):
     resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
     dependencies:
-      follow-redirects: 1.15.5(debug@4.3.4)
+      follow-redirects: 1.15.6(debug@4.3.4)
       form-data: 4.0.0
     transitivePeerDependencies:
       - debug
     dev: false
 
-  /axios@1.6.7(debug@4.3.4):
-    resolution: {integrity: sha512-/hDJGff6/c7u0hDkvkGxR/oy6CbCs8ziCsC7SqmhjfozqiJGc8Z11wrv9z9lYfY4K8l+H9TpjcMDX0xOZmx+RA==}
-    dependencies:
-      follow-redirects: 1.15.5(debug@4.3.4)
-      form-data: 4.0.0
-      proxy-from-env: 1.1.0
-    transitivePeerDependencies:
-      - debug
-    dev: false
-
-  /axios@1.6.8:
+  /axios@1.6.8(debug@4.3.4):
     resolution: {integrity: sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==}
     dependencies:
-      follow-redirects: 1.15.6
+      follow-redirects: 1.15.6(debug@4.3.4)
       form-data: 4.0.0
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
@@ -14082,8 +14055,8 @@ packages:
       readable-stream: 2.3.8
     dev: true
 
-  /follow-redirects@1.15.5(debug@4.3.4):
-    resolution: {integrity: sha512-vSFWUON1B+yAw1VN4xMfxgn5fTUiaOzAJCKBwIIgT/+7CuGy9+r+5gITvP62j3RmaD5Ph65UaERdOSRGUzZtgw==}
+  /follow-redirects@1.15.6(debug@4.3.4):
+    resolution: {integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==}
     engines: {node: '>=4.0'}
     peerDependencies:
       debug: '*'
@@ -14092,16 +14065,6 @@ packages:
         optional: true
     dependencies:
       debug: 4.3.4(supports-color@5.5.0)
-    dev: false
-
-  /follow-redirects@1.15.6:
-    resolution: {integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==}
-    engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
     dev: false
 
   /follow-redirects@1.5.10:
@@ -19137,23 +19100,6 @@ packages:
       typescript: 5.4.5
     dev: true
 
-  /prettier-plugin-organize-imports@3.2.4(prettier@3.2.5)(typescript@5.4.5):
-    resolution: {integrity: sha512-6m8WBhIp0dfwu0SkgfOxJqh+HpdyfqSSLfKKRZSFbDuEQXDDndb8fTpRWkUrX/uBenkex3MgnVk0J3b3Y5byog==}
-    peerDependencies:
-      '@volar/vue-language-plugin-pug': ^1.0.4
-      '@volar/vue-typescript': ^1.0.4
-      prettier: '>=2.0'
-      typescript: '>=2.9'
-    peerDependenciesMeta:
-      '@volar/vue-language-plugin-pug':
-        optional: true
-      '@volar/vue-typescript':
-        optional: true
-    dependencies:
-      prettier: 3.2.5
-      typescript: 5.4.5
-    dev: false
-
   /prettier-plugin-organize-imports@3.2.4(prettier@3.3.0)(typescript@5.4.5):
     resolution: {integrity: sha512-6m8WBhIp0dfwu0SkgfOxJqh+HpdyfqSSLfKKRZSFbDuEQXDDndb8fTpRWkUrX/uBenkex3MgnVk0J3b3Y5byog==}
     peerDependencies:
@@ -19169,20 +19115,6 @@ packages:
     dependencies:
       prettier: 3.3.0
       typescript: 5.4.5
-    dev: true
-
-  /prettier-plugin-packagejson@2.4.3(prettier@3.2.5):
-    resolution: {integrity: sha512-kPeeviJiwy0BgOSk7No8NmzzXfW4R9FYWni6ziA5zc1kGVVrKnBzMZdu2TUhI+I7h8/5Htt3vARYOk7KKJTTNQ==}
-    peerDependencies:
-      prettier: '>= 1.16.0'
-    peerDependenciesMeta:
-      prettier:
-        optional: true
-    dependencies:
-      prettier: 3.2.5
-      sort-package-json: 2.4.1
-      synckit: 0.8.5
-    dev: false
 
   /prettier-plugin-packagejson@2.4.3(prettier@3.3.0):
     resolution: {integrity: sha512-kPeeviJiwy0BgOSk7No8NmzzXfW4R9FYWni6ziA5zc1kGVVrKnBzMZdu2TUhI+I7h8/5Htt3vARYOk7KKJTTNQ==}
@@ -19195,7 +19127,6 @@ packages:
       prettier: 3.3.0
       sort-package-json: 2.4.1
       synckit: 0.8.5
-    dev: true
 
   /prettier-plugin-two-style-order@1.0.1(prettier@2.8.8):
     resolution: {integrity: sha512-ETltO2FRR/Pxc7bsgz2XwuzWSPwafl7/v5+5Rria4S579CTas7dya+xsmbkix0q1tYQiuRjVVdfGnCKlH/aOuQ==}
@@ -19214,17 +19145,10 @@ packages:
     hasBin: true
     dev: true
 
-  /prettier@3.2.5:
-    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
-    engines: {node: '>=14'}
-    hasBin: true
-    dev: false
-
   /prettier@3.3.0:
     resolution: {integrity: sha512-J9odKxERhCQ10OC2yb93583f6UnYutOeiV5i0zEDS7UGTdUt0u+y8erxl3lBKvwo/JHyyoEdXjwp4dke9oyZ/g==}
     engines: {node: '>=14'}
     hasBin: true
-    dev: true
 
   /pretty-error@4.0.0:
     resolution: {integrity: sha512-AoJ5YMAcXKYxKhuJGdcvse+Voc6v1RgnsR3nWcYU7q4t6z0Q6T86sv5Zq8VIRbOWWFpvdGE83LtdSMNd+6Y0xw==}
@@ -21059,11 +20983,11 @@ packages:
       immutable: 4.3.4
       source-map-js: 1.2.0
 
-  /sats-connect@2.3.1(typescript@5.4.5):
-    resolution: {integrity: sha512-3KzqRO5KVBlge7Q4a/L828SfCkFD+M4MVdtgJZS+L+oHiDYoXlLkvnu3almh9Ynhcm0HnsGmVH1pKVL0lonjyQ==}
+  /sats-connect@2.4.0(typescript@5.4.5):
+    resolution: {integrity: sha512-9wgPaCEhrrmWzXgEMPvVLQb2JoCLEwGd0I2oMK79QgrbQMQYgOm+y8McTdXNnwqgJBimbU/Ik1i4l8YUwTu0fg==}
     dependencies:
-      '@sats-connect/core': 0.0.8
-      '@sats-connect/make-default-provider-config': 0.0.4(typescript@5.4.5)
+      '@sats-connect/core': 0.0.9
+      '@sats-connect/make-default-provider-config': 0.0.5(@sats-connect/core@0.0.9)(typescript@5.4.5)
       '@sats-connect/ui': 0.0.6
     transitivePeerDependencies:
       - debug
@@ -22612,57 +22536,6 @@ packages:
     dependencies:
       multiformats: 9.9.0
 
-  /umi@4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0):
-    resolution: {integrity: sha512-c313niwbqauUQE2RZ3gJJLuxu8avDIlSMLSjUGHQpfZ8s+W0fSfr4GDY/x9VR9a1Fm8RL+gc40easH5VQQtoZQ==}
-    engines: {node: '>=14'}
-    hasBin: true
-    dependencies:
-      '@babel/runtime': 7.23.6
-      '@umijs/bundler-utils': 4.1.5
-      '@umijs/bundler-webpack': 4.1.5(typescript@5.4.5)(webpack@5.91.0)
-      '@umijs/core': 4.1.5
-      '@umijs/lint': 4.1.5(eslint@8.57.0)(stylelint@14.16.1)(typescript@5.4.5)
-      '@umijs/preset-umi': 4.1.5(@types/node@20.14.0)(@types/react@18.2.78)(sass@1.69.5)(typescript@5.4.5)(webpack@5.91.0)
-      '@umijs/renderer-react': 4.1.5(react-dom@18.2.0)(react@18.2.0)
-      '@umijs/server': 4.1.5
-      '@umijs/test': 4.1.5(@babel/core@7.24.3)
-      '@umijs/utils': 4.1.5
-      prettier-plugin-organize-imports: 3.2.4(prettier@3.2.5)(typescript@5.4.5)
-      prettier-plugin-packagejson: 2.4.3(prettier@3.2.5)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@types/node'
-      - '@types/react'
-      - '@types/webpack'
-      - '@volar/vue-language-plugin-pug'
-      - '@volar/vue-typescript'
-      - eslint
-      - jest
-      - lightningcss
-      - postcss-html
-      - postcss-jsx
-      - postcss-less
-      - postcss-markdown
-      - postcss-scss
-      - prettier
-      - react
-      - react-dom
-      - rollup
-      - sass
-      - sockjs-client
-      - stylelint
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - type-fest
-      - typescript
-      - webpack
-      - webpack-dev-server
-      - webpack-hot-middleware
-      - webpack-plugin-serve
-    dev: false
-
   /umi@4.1.5(@babel/core@7.24.3)(@types/node@20.14.0)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.3.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0):
     resolution: {integrity: sha512-c313niwbqauUQE2RZ3gJJLuxu8avDIlSMLSjUGHQpfZ8s+W0fSfr4GDY/x9VR9a1Fm8RL+gc40easH5VQQtoZQ==}
     engines: {node: '>=14'}
@@ -22712,7 +22585,6 @@ packages:
       - webpack-dev-server
       - webpack-hot-middleware
       - webpack-plugin-serve
-    dev: true
 
   /unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}

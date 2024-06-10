@@ -43,7 +43,7 @@
   "dependencies": {
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
-    "sats-connect": "^2.3.1"
+    "sats-connect": "^2.4.0"
   },
   "devDependencies": {
     "father": "^4.4.0",
