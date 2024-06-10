@@ -51,12 +51,12 @@
     "@wagmi/core": "^2.9.3",
     "father": "^4.4.0",
     "typescript": "^5.4.5",
-    "wagmi": "^2.8.6",
+    "wagmi": "^2.9.10",
     "@tanstack/react-query": "^5.40.1",
     "viem": "^2.13.3"
   },
   "peerDependencies": {
-    "wagmi": "^2.8.6",
+    "wagmi": "^2.9.10",
     "@tanstack/react-query": "^5.40.1",
     "viem": ">=2.0.0"
   },
