@@ -208,7 +208,7 @@ describe('Connector', () => {
             setAccount(undefined);
           }}
         >
-          <ConnectButton loading>children</ConnectButton>
+          <ConnectButton connecting>children</ConnectButton>
         </Connector>
       );
     };

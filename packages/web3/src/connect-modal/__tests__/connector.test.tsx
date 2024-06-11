@@ -13,10 +13,10 @@ describe('Connect spin', async () => {
     vi.useFakeTimers();
 
     const CustomTrigger: React.FC<ConnectorTriggerProps> = (props) => {
-      const { loading, onConnectClick, account } = props;
+      const { connecting, onConnectClick, account } = props;
       return (
         <Button onClick={() => onConnectClick?.()}>
-          {loading ? 'Connecting...' : account?.address || 'Connect Your Wallet'}
+          {connecting ? 'Connecting...' : account?.address || 'Connect Your Wallet'}
         </Button>
       );
     };

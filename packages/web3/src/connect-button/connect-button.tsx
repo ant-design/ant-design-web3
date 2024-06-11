@@ -33,7 +33,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     profileModal = true,
     onMenuItemClick,
     actionsMenu = false,
-    loading,
+    connecting,
     onClick,
     balance,
     className,
@@ -73,7 +73,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     size: props.size,
     type: props.type,
     ghost: props.ghost,
-    loading,
+    loading: connecting,
     className: classNames(className, prefixCls, hashId),
     onClick: (e) => {
       setShowMenu(false);

@@ -203,7 +203,7 @@ export type Balance = BalanceMetadata & {
 
 export interface ConnectorTriggerProps {
   account?: Account;
-  loading?: boolean;
+  connecting?: boolean;
   onConnectClick?: (wallet?: Wallet) => void;
   onDisconnectClick?: () => void;
   onSwitchChain?: (chain: Chain) => Promise<void>;
