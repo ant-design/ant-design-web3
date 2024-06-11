@@ -105,7 +105,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
           await switchChain?.(c);
           onChainSwitched?.(c);
         },
-        connecting,
+        loading: connecting,
         ...children.props,
       })}
 
