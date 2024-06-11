@@ -28,7 +28,7 @@ export const ShowCase: React.FC = () => {
       </div>
       <div className={classNames(styles.componentList, styles.pc)}>{caseList}</div>
       <div className={classNames(styles.componentList, styles.mobile)}>
-        <Carousel dots={{ className: styles.carouselDot }} dotPosition="top">
+        <Carousel dots={{ className: styles.carouselDot }} dotPosition="top" adaptiveHeight>
           <ConnectButton />
           <Address />
           <NFTCard />
