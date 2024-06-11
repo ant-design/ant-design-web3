@@ -314,8 +314,8 @@ importers:
         specifier: workspace:*
         version: link:../icons
       sats-connect:
-        specifier: ^2.3.1
-        version: 2.3.1(typescript@5.4.5)
+        specifier: ^2.4.0
+        version: 2.4.0(typescript@5.4.5)
     devDependencies:
       father:
         specifier: ^4.4.0
@@ -5103,7 +5103,7 @@ packages:
     dependencies:
       asn1.js: 5.4.1
       async-retry: 1.3.3
-      axios: 1.6.7(debug@4.3.4)
+      axios: 1.6.8(debug@4.3.4)
       base64-js: 1.5.1
       bignumber.js: 9.1.2
     transitivePeerDependencies:
@@ -5115,7 +5115,7 @@ packages:
     engines: {node: '>=16.10.0'}
     dependencies:
       async-retry: 1.3.3
-      axios: 1.6.7(debug@4.3.4)
+      axios: 1.6.8(debug@4.3.4)
     transitivePeerDependencies:
       - debug
     dev: false
@@ -5140,7 +5140,7 @@ packages:
       aptos: 1.8.5(debug@4.3.4)
       arbundles: 0.10.1(arweave@1.15.0)(debug@4.3.4)
       async-retry: 1.3.3
-      axios: 1.6.7(debug@4.3.4)
+      axios: 1.6.8(debug@4.3.4)
       base64url: 3.0.1
       bignumber.js: 9.1.2
       bs58: 5.0.0
@@ -6963,10 +6963,10 @@ packages:
     resolution: {integrity: sha512-qBDM469cVCedpBpeTSn+k5FUr9+rq5bMTflp/mKd7h35uafcexvOR/PHZn2qftqV8b1kc9b8t22cPRJ2365jew==}
     engines: {node: '>=16'}
 
-  /@sats-connect/core@0.0.7:
-    resolution: {integrity: sha512-4m5amq+orHDbqLqCRWojvDQigKAys33Ntwc7U5xNtFeib4j+DpYz6lVAL/s3cay1kq03WUZ+Gil3l5rv+5bQWQ==}
+  /@sats-connect/core@0.0.9:
+    resolution: {integrity: sha512-7/hY7VF9OqNDYcXlADluMKCTDu9f4OENWkWWO8K1LqanuyZhepu3fBRQKSCT6Xr/3KorvSH/e8sSTcJCzuVOAA==}
     dependencies:
-      axios: 1.6.8
+      axios: 1.6.8(debug@4.3.4)
       bitcoin-address-validation: 2.2.3
       buffer: 6.0.3
       jsontokens: 4.0.1
@@ -6975,33 +6975,16 @@ packages:
       - debug
     dev: false
 
-  /@sats-connect/core@0.0.8:
-    resolution: {integrity: sha512-vb7drnd8lFfO4ahCzaVAFkX1eHF1J7jheJl2V/JuuJd5f1sy6nHeNzKMp1zmiuql8uNwe0Sx1WrK1I+4tUmDHg==}
-    dependencies:
-      axios: 1.6.8
-      bitcoin-address-validation: 2.2.3
-      buffer: 6.0.3
-      jsontokens: 4.0.1
-      lodash.omit: 4.5.0
-    transitivePeerDependencies:
-      - debug
-    dev: false
-
-  /@sats-connect/make-default-provider-config@0.0.4(typescript@5.4.5):
-    resolution: {integrity: sha512-PsLzg1hV3FxMXUp9XrOUmDJgbuyR4VDHq/7mh1O1CtC3dDZQnJFa+Ue43duPMmUaRGinuVKtS2hnMhPLyURdGA==}
+  /@sats-connect/make-default-provider-config@0.0.5(@sats-connect/core@0.0.9)(typescript@5.4.5):
+    resolution: {integrity: sha512-b/v4IeDEde5DqFOdMbMmf3B0t/lxlKnY04f3YIUWe1khOg3S6VdcK9Mqva+WUOsJHBTIA5b4hK7CqfMjx1Ic+w==}
     peerDependencies:
+      '@sats-connect/core': '*'
       typescript: 5.4.4
     dependencies:
-      '@sats-connect/core': 0.0.7
-      '@sats-connect/ui': 0.0.5-c661c02
+      '@sats-connect/core': 0.0.9
+      '@sats-connect/ui': 0.0.6
       bowser: 2.11.0
       typescript: 5.4.5
-    transitivePeerDependencies:
-      - debug
-    dev: false
-
-  /@sats-connect/ui@0.0.5-c661c02:
-    resolution: {integrity: sha512-6MUXFDGTapBhZAxb6deAdqKuB64GOe6k927gGww5JYwVnOUCaHGDcfaZ/lwexzYL45u8RJof12I4np7MgS+Bwg==}
     dev: false
 
   /@sats-connect/ui@0.0.6:
@@ -10617,26 +10600,16 @@ packages:
   /axios@0.27.2(debug@4.3.4):
     resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
     dependencies:
-      follow-redirects: 1.15.5(debug@4.3.4)
+      follow-redirects: 1.15.6(debug@4.3.4)
       form-data: 4.0.0
     transitivePeerDependencies:
       - debug
     dev: false
 
-  /axios@1.6.7(debug@4.3.4):
-    resolution: {integrity: sha512-/hDJGff6/c7u0hDkvkGxR/oy6CbCs8ziCsC7SqmhjfozqiJGc8Z11wrv9z9lYfY4K8l+H9TpjcMDX0xOZmx+RA==}
-    dependencies:
-      follow-redirects: 1.15.5(debug@4.3.4)
-      form-data: 4.0.0
-      proxy-from-env: 1.1.0
-    transitivePeerDependencies:
-      - debug
-    dev: false
-
-  /axios@1.6.8:
+  /axios@1.6.8(debug@4.3.4):
     resolution: {integrity: sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==}
     dependencies:
-      follow-redirects: 1.15.6
+      follow-redirects: 1.15.6(debug@4.3.4)
       form-data: 4.0.0
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
@@ -14082,8 +14055,8 @@ packages:
       readable-stream: 2.3.8
     dev: true
 
-  /follow-redirects@1.15.5(debug@4.3.4):
-    resolution: {integrity: sha512-vSFWUON1B+yAw1VN4xMfxgn5fTUiaOzAJCKBwIIgT/+7CuGy9+r+5gITvP62j3RmaD5Ph65UaERdOSRGUzZtgw==}
+  /follow-redirects@1.15.6(debug@4.3.4):
+    resolution: {integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==}
     engines: {node: '>=4.0'}
     peerDependencies:
       debug: '*'
@@ -14092,16 +14065,6 @@ packages:
         optional: true
     dependencies:
       debug: 4.3.4(supports-color@5.5.0)
-    dev: false
-
-  /follow-redirects@1.15.6:
-    resolution: {integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==}
-    engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
     dev: false
 
   /follow-redirects@1.5.10:
@@ -21020,11 +20983,11 @@ packages:
       immutable: 4.3.4
       source-map-js: 1.2.0
 
-  /sats-connect@2.3.1(typescript@5.4.5):
-    resolution: {integrity: sha512-3KzqRO5KVBlge7Q4a/L828SfCkFD+M4MVdtgJZS+L+oHiDYoXlLkvnu3almh9Ynhcm0HnsGmVH1pKVL0lonjyQ==}
+  /sats-connect@2.4.0(typescript@5.4.5):
+    resolution: {integrity: sha512-9wgPaCEhrrmWzXgEMPvVLQb2JoCLEwGd0I2oMK79QgrbQMQYgOm+y8McTdXNnwqgJBimbU/Ik1i4l8YUwTu0fg==}
     dependencies:
-      '@sats-connect/core': 0.0.8
-      '@sats-connect/make-default-provider-config': 0.0.4(typescript@5.4.5)
+      '@sats-connect/core': 0.0.9
+      '@sats-connect/make-default-provider-config': 0.0.5(@sats-connect/core@0.0.9)(typescript@5.4.5)
       '@sats-connect/ui': 0.0.6
     transitivePeerDependencies:
       - debug
