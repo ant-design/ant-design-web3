@@ -4,7 +4,7 @@ exports[`web3-config-provider > Should work 1`] = `
 <body>
   <div>
     <button
-      class="ant-btn css-dev-only-do-not-override-3rel02 ant-btn-default ant-web3-connect-button css-dev-only-do-not-override-3rel02"
+      class="ant-btn css-dev-only-do-not-override-17seli4 ant-btn-default ant-web3-connect-button css-dev-only-do-not-override-17seli4"
       type="button"
     >
       <div
@@ -49,27 +49,23 @@ exports[`web3-config-provider > useNFT with custom getNFTMetadata 1`] = `
     <div
       aria-busy="false"
       aria-live="polite"
-      class="ant-spin css-dev-only-do-not-override-3rel02"
+      class="ant-spin css-dev-only-do-not-override-17seli4"
     >
       <span
-        class="ant-spin-dot-holder"
+        class="ant-spin-dot ant-spin-dot-spin"
       >
-        <span
-          class="ant-spin-dot ant-spin-dot-spin"
-        >
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-        </span>
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
       </span>
     </div>
   </div>
