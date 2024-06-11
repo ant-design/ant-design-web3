@@ -1,19 +1,14 @@
 import React, { useDeferredValue, useMemo } from 'react';
 import type { Token } from '@ant-design/web3-common';
 import { theme as antdTheme, ConfigProvider, Flex, InputNumber, Typography } from 'antd';
+import { mergeToken } from 'antd/es/theme/internal';
 import Decimal from 'decimal.js';
 import { isNull } from 'lodash';
 
 import { CryptoPrice } from '../crypto-price';
 import useIntl from '../hooks/useIntl';
 import { TokenSelect, type TokenSelectProps } from '../token-select';
-import {
-  INPUT_FONT_SIZE,
-  INPUT_FONT_SIZE_LG,
-  INPUT_FONT_SIZE_SM,
-  PADDING_BLOCK,
-  PADDING_INLINE,
-} from './constants';
+import { CRYPTO_INPUT_TOKEN } from './constants';
 import { useCryptoInputStyle } from './style';
 
 // get CryptoInput self decimal instance with precision 100
@@ -74,20 +69,10 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
    * if user not overwrite the token
    * use our default theme settings
    */
-  const finalToken = useMemo(() => {
-    return {
-      ...originToken,
-      inputFontSizeSM: originToken?.inputFontSizeSM || INPUT_FONT_SIZE_SM,
-      inputFontSize: originToken?.inputFontSize || INPUT_FONT_SIZE,
-      inputFontSizeLG: originToken?.inputFontSizeLG || INPUT_FONT_SIZE_LG,
-      paddingInlineSM: originToken?.paddingInlineSM || PADDING_INLINE,
-      paddingInline: originToken?.paddingInline || PADDING_INLINE,
-      paddingInlineLG: originToken?.paddingInlineLG || PADDING_INLINE,
-      paddingBlockSM: originToken?.paddingBlockSM || PADDING_BLOCK,
-      paddingBlock: originToken?.paddingBlock || PADDING_BLOCK,
-      paddingBlockLG: originToken?.paddingBlockLG || PADDING_BLOCK,
-    };
-  }, [originToken]);
+  const finalToken = useMemo(
+    () => mergeToken(CRYPTO_INPUT_TOKEN, originToken || {}),
+    [originToken],
+  );
 
   const { token, inputString } = value || {};
 
@@ -161,6 +146,7 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
                   token: newToken,
                 })
               }
+              size={size}
             />
           }
         />

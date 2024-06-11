@@ -14,6 +14,10 @@ group:
 
 <code src="./demos/basic.tsx"></code>
 
+### 支持尺寸调整
+
+<code src="./demos/sizeChange.tsx"></code>
+
 ### 关闭默认底部
 
 <code src="./demos/noFooter.tsx"></code>
@@ -57,3 +61,7 @@ group:
 | amount | 用户拥有的代币数量       | `bigint`           | -      | -    |
 | price  | 代币的价格               | `string \| number` | -      | -    |
 | unit   | 代币价格的单位，比如 "$" | `string`           | -      | -    |
+
+## 主题变量
+
+[请参考 Ant Design InputNumber 组件](https://ant-design.antgroup.com/components/input-number-cn#%E4%B8%BB%E9%A2%98%E5%8F%98%E9%87%8Fdesign-token)

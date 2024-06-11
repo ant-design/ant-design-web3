@@ -1,28 +1,39 @@
-import { type CryptoInputProps } from '.';
-
-export type Size = Exclude<CryptoInputProps['size'], undefined>;
-
 /**
  * CryptoInput overwrite InputFontSizeSM token
  */
-export const INPUT_FONT_SIZE_SM = 16;
+const INPUT_FONT_SIZE_SM = 16;
 
 /**
  * CryptoInput overwrite InputFontSize token
  */
-export const INPUT_FONT_SIZE = 18;
+const INPUT_FONT_SIZE = 18;
 
 /**
  * CryptoInput overwrite InputFontSizeLG token
  */
-export const INPUT_FONT_SIZE_LG = 20;
+const INPUT_FONT_SIZE_LG = 20;
 
 /**
  * CryptoInput overwrite PaddingInline token
  */
-export const PADDING_INLINE = 0;
+const PADDING_INLINE = 0;
 
 /**
  * CryptoInput overwrite PaddingBlock token
  */
-export const PADDING_BLOCK = 0;
+const PADDING_BLOCK = 0;
+
+/**
+ * CrpytoInput default Token
+ */
+export const CRYPTO_INPUT_TOKEN = {
+  inputFontSizeSM: INPUT_FONT_SIZE_SM,
+  inputFontSize: INPUT_FONT_SIZE,
+  inputFontSizeLG: INPUT_FONT_SIZE_LG,
+  paddingInlineSM: PADDING_INLINE,
+  paddingInline: PADDING_INLINE,
+  paddingInlineLG: PADDING_INLINE,
+  paddingBlockSM: PADDING_BLOCK,
+  paddingBlock: PADDING_BLOCK,
+  paddingBlockLG: PADDING_BLOCK,
+};

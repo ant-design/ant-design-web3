@@ -60,3 +60,7 @@ group:
 | amount   | user had token amount              | `bigint`           | -       | -       |
 | price    | token price                        | `string \| number` | -       | -       |
 | unit     | token price display unit, like "$" | `bigint`           | -       | -       |
+
+## Design Token
+
+[Please ref Ant Design InputNumber](https://ant-design.antgroup.com/components/input-number-cn#%E4%B8%BB%E9%A2%98%E5%8F%98%E9%87%8Fdesign-token)
