@@ -1,4 +1,4 @@
-import type { WalletMetadata } from '@ant-design/web3-common';
+import { ChainType, type WalletMetadata } from '@ant-design/web3-common';
 import { ChromeCircleColorful, MetaMaskColorful } from '@ant-design/web3-icons';
 
 export const metadata_MetaMask: WalletMetadata = {
@@ -28,5 +28,5 @@ export const metadata_MetaMask: WalletMetadata = {
       return `ethereum:${toAddress}@${chainId}?value=${amount}`;
     }
   },
-  supportChainTypes: ['EVM'],
+  supportChainTypes: [ChainType.EVM],
 };

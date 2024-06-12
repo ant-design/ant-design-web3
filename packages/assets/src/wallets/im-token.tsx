@@ -1,4 +1,4 @@
-import type { WalletMetadata } from '@ant-design/web3-common';
+import { ChainType, type WalletMetadata } from '@ant-design/web3-common';
 import { ImTokenColorful } from '@ant-design/web3-icons';
 
 export const metadata_imToken: WalletMetadata = {
@@ -16,5 +16,5 @@ export const metadata_imToken: WalletMetadata = {
       return `ethereum:${toAddress}@${chainId}?decimal=18&value=${amount}`;
     }
   },
-  supportChainTypes: ['EVM'],
+  supportChainTypes: [ChainType.EVM],
 };
