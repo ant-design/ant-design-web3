@@ -88,6 +88,7 @@ export const Theme: React.FC = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.leftBottomImage}></div>
       <h3 className={styles.title}>{intl.formatMessage({ id: 'app.docs.site.theme.title' })}</h3>
       <div className={styles.desc}>
         {intl.formatMessage({ id: 'app.docs.site.theme.description' })}
