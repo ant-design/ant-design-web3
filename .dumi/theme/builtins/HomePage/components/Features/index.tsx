@@ -3,7 +3,7 @@ import { useIntl } from 'dumi';
 import styles from './index.module.less';
 
 type FeatureType = {
-  icon: string;
+  preview: string;
   title: string;
   description: string;
 };
@@ -13,17 +13,20 @@ export const Features: React.FC = () => {
 
   const features: FeatureType[] = [
     {
-      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*HR6IRIi3eDIAAAAAAAAAAAAADlrGAQ/original',
+      preview:
+        'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*BGOrT7hmCK0AAAAAAAAAAAAADlrGAQ/original',
       title: intl.formatMessage({ id: 'app.docs.site.features.0.title' }),
       description: intl.formatMessage({ id: 'app.docs.site.features.0.description' }),
     },
     {
-      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*VbthS5vDlCQAAAAAAAAAAAAADlrGAQ/original',
+      preview:
+        'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*lg4mQrmwvQMAAAAAAAAAAAAADlrGAQ/original',
       title: intl.formatMessage({ id: 'app.docs.site.features.1.title' }),
       description: intl.formatMessage({ id: 'app.docs.site.features.1.description' }),
     },
     {
-      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*agjbQpbtY2kAAAAAAAAAAAAADlrGAQ/original',
+      preview:
+        'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*QIPWQJicUxYAAAAAAAAAAAAADlrGAQ/original',
       title: intl.formatMessage({ id: 'app.docs.site.features.2.title' }),
       description: intl.formatMessage({ id: 'app.docs.site.features.2.description' }),
     },
@@ -33,9 +36,9 @@ export const Features: React.FC = () => {
     <div className={styles.container}>
       {features.map((feature) => (
         <div className={styles.item} key={feature.title}>
-          <img className={styles.icon} src={feature.icon} alt={feature.title} />
           <div className={styles.title}>{feature.title}</div>
           <div className={styles.desc}>{feature.description}</div>
+          <img className={styles.preview} src={feature.preview} alt={feature.title} />
         </div>
       ))}
     </div>

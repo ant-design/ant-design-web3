@@ -43,12 +43,10 @@
   "dependencies": {
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
-    "debug": "^4.3.4",
-    "@wagmi/core": "^2.9.6"
+    "debug": "^4.3.4"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
-    "@wagmi/core": "^2.9.3",
     "father": "^4.4.4",
     "typescript": "^5.4.5",
     "wagmi": "^2.10.0",

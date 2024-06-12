@@ -7,7 +7,6 @@ import {
   type Locale,
   type Wallet,
 } from '@ant-design/web3-common';
-import { disconnect, getAccount } from '@wagmi/core';
 import type { Chain as WagmiChain } from 'viem';
 import {
   useAccount,
@@ -18,6 +17,7 @@ import {
   useSwitchChain,
   type Connector as WagmiConnector,
 } from 'wagmi';
+import { disconnect, getAccount } from 'wagmi/actions';
 
 import type { EIP6963Config, WalletFactory, WalletUseInWagmiAdapter } from '../interface';
 import { isEIP6963Connector } from '../utils';
