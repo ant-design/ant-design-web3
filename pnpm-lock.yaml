@@ -572,9 +572,6 @@ importers:
       '@ant-design/web3-common':
         specifier: workspace:*
         version: link:../common
-      '@wagmi/core':
-        specifier: ^2.9.6
-        version: 2.9.6(@types/react@18.2.78)(react@18.2.0)(typescript@5.4.5)(viem@2.13.3)
       debug:
         specifier: ^4.3.4
         version: 4.3.4(supports-color@5.5.0)
