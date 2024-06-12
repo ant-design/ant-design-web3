@@ -30,7 +30,9 @@ vi.mock('wagmi', () => {
     useConnect: () => {
       return {
         connectors: [],
-        connectAsync: () => {},
+        connectAsync: async () => {
+          return {};
+        },
       };
     },
     useDisconnect: () => {

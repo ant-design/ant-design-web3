@@ -209,10 +209,13 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         if (!connector) {
           throw new Error(`Can not find connector for ${wallet?.name}`);
         }
-        await connectAsync({
+        const { accounts } = await connectAsync({
           connector,
           chainId: currentChain?.id,
         });
+        return {
+          address: accounts?.[0],
+        };
       }}
       disconnect={async () => {
         // await disconnectAsync();
