@@ -200,12 +200,12 @@ export type WalletMetadata = {
    * @desc 支持的链虚拟机类型
    * @descEn Supported chain virtual machine types
    */
-  supportChainTypes?: string[];
+  supportChainTypes?: ChainType[];
   /**
    * @desc 快捷扫码的参数是否支持
    * @descEn Whether the parameters of fast scan code are supported
    */
-  payQRCodeFormatterFunc?: (params: Record<string, any>) => string;
+  transferQRCodeFormatter?: (params: Record<string, any>) => string;
 };
 
 export type Balance = BalanceMetadata & {

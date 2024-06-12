@@ -74,6 +74,8 @@ const genPaypanelStyle: GenerateStyle<PayPanelToken> = (token) => {
             lineHeight: token.lineHeightHeading1,
             paddingBlock: token.paddingContentVertical,
             color: token.colorTextDescription,
+            display: 'flex',
+            gap: token.paddingContentVerticalSM,
           },
         },
       },

@@ -1,6 +1,7 @@
 import React, { useContext, useMemo, useState } from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { Button, ConfigProvider, Flex, QRCode, Statistic, Tabs, Typography } from 'antd';
+import { useIntl } from 'dumi';
 
 import { PayPanelContext } from './PayPanelContext';
 
@@ -10,6 +11,7 @@ interface ShowCodeProps {
   onReturn: () => void;
 }
 export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn }) => {
+  const intl = useIntl();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-pay-panel');
   const { token, amount, target, wallets, onFinish } = useContext(PayPanelContext);
@@ -17,22 +19,16 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
 
   const [paymentLink, setPaymentLink] = useState<string>(toAddress);
 
-  const availableWallets = useMemo(() => {
-    const selectedChain = target[selectedChainId].chain;
-    return wallets.filter((wallet) =>
-      wallet.supportChainTypes?.some((chainType) => chainType === selectedChain.type),
-    );
-  }, [selectedChainId]);
+  const selectedChain = target[selectedChainId].chain;
+  const availableWallets = wallets.filter((wallet) =>
+    wallet.supportChainTypes?.some((chainType) => chainType === selectedChain.type),
+  );
+  const tokenChannel = token.availableChains.find(
+    (channel) => channel.chain.id === Number(selectedChainId),
+  );
 
-  const tokenChannel = useMemo(() => {
-    const tokenChannelInfo = token.availableChains.find(
-      (channel) => channel.chain.id === Number(selectedChainId),
-    );
-    return tokenChannelInfo;
-  }, [selectedChainId]);
-
-  const returnLinks = (payQRCodeFormatterFunc: (params: Record<string, any>) => string) => {
-    const formattedLink = payQRCodeFormatterFunc({
+  const returnLinks = (transferQRCodeFormatter: (params: Record<string, any>) => string) => {
+    const formattedLink = transferQRCodeFormatter({
       toAddress,
       amount,
       chainId: selectedChainId,
@@ -59,8 +55,8 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
   const onWalletSelect = (activeKey: string) => {
     const selectWalletInfo = availableWallets.find((wallet) => wallet.name === activeKey);
     let links = toAddress;
-    if (selectWalletInfo && selectWalletInfo.payQRCodeFormatterFunc) {
-      links = returnLinks(selectWalletInfo.payQRCodeFormatterFunc);
+    if (selectWalletInfo && selectWalletInfo.transferQRCodeFormatter) {
+      links = returnLinks(selectWalletInfo.transferQRCodeFormatter);
     }
     setPaymentLink(links);
   };
@@ -80,7 +76,7 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
       <div className={`${prefixCls}-code-content`}>
         <div className={`${prefixCls}-code-tips`}>
           <InfoCircleOutlined />
-          <span>Please scan the QR code or copy the address</span>
+          <span>{intl.formatMessage({ id: 'app.docs.components.paypanel.tips' })}</span>
         </div>
 
         {paymentLink && <QRCode value={paymentLink} />}

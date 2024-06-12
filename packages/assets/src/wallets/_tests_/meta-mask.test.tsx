@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 
 import { metadata_MetaMask } from '../meta-mask';
 
-describe('payQRCodeFormatterFunc', () => {
-  const formatterFunc = metadata_MetaMask.payQRCodeFormatterFunc!;
+describe('transferQRCodeFormatter', () => {
+  const formatterFunc = metadata_MetaMask.transferQRCodeFormatter!;
 
   const commonParams = {
     toAddress: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',

@@ -21,5 +21,6 @@
   "app.docs.site.theme.description": "开放更多的样式算法，使定制你的主题更加容易",
 
   "app.docs.site.case.title": "丰富组件，轻松选择",
-  "app.docs.site.case.description": "满足您需求的大量实用组件，灵活的定制与扩展功能"
+  "app.docs.site.case.description": "满足您需求的大量实用组件，灵活的定制与扩展功能",
+  "app.docs.components.paypanel.tips": "请扫描二维码或复制地址"
 }

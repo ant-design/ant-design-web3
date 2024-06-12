@@ -18,7 +18,7 @@ export const metadata_MetaMask: WalletMetadata = {
     },
   ],
   group: 'Popular',
-  payQRCodeFormatterFunc: (params) => {
+  transferQRCodeFormatter: (params) => {
     const { toAddress, chainId, amount, tokenAddress = '', decimal } = params;
     if (tokenAddress) {
       return `ethereum:${tokenAddress}@${chainId}/transfer?address=${toAddress}&uint256=${

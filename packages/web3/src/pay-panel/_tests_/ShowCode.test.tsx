@@ -10,12 +10,12 @@ import { ShowCode } from '../ShowCode';
 // Mocks for metadata
 const mockMetaMaskWallet = {
   ...metadata_MetaMask,
-  payQRCodeFormatterFunc: vi.fn((data) => `formatted-link-for-${data.toAddress}`),
+  transferQRCodeFormatter: vi.fn((data) => `formatted-link-for-${data.toAddress}`),
 };
 const mockNormalWallet = {
   ...metadata_MetaMask,
   name: 'NormalWallet',
-  payQRCodeFormatterFunc: undefined,
+  transferQRCodeFormatter: undefined,
 };
 const mockProps: PayPanelProps = {
   amount: 1000000,
@@ -65,7 +65,7 @@ describe('ShowCode', () => {
     const metaMaskTab = screen.getByText(mockMetaMaskWallet.name);
     fireEvent.click(metaMaskTab);
     await waitFor(() => {
-      expect(mockMetaMaskWallet.payQRCodeFormatterFunc).toHaveBeenCalled();
+      expect(mockMetaMaskWallet.transferQRCodeFormatter).toHaveBeenCalled();
     });
   });
 
