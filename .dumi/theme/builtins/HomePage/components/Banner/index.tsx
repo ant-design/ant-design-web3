@@ -12,7 +12,7 @@ export const Banner: React.FC = () => {
       <img
         draggable={false}
         className={styles.bgImg}
-        src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*FsEBRIB7xIAAAAAAAAAAAAAADlrGAQ/original"
+        src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*664qTJ8PpR8AAAAAAAAAAAAADlrGAQ/original"
         alt="banner"
       />
       <div className={styles.wrap}>
