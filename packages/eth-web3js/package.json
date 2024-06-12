@@ -59,7 +59,7 @@
     "@types/debug": "^4.1.12",
     "father": "^4.4.4",
     "typescript": "^5.4.5",
-    "web3": "^4.8.0"
+    "web3": "^4.9.0"
   },
   "peerDependencies": {
     "web3": "^4.0.0"
