@@ -70,7 +70,7 @@
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
-    "father": "^4.4.0",
+    "father": "^4.4.4",
     "typescript": "^5.4.5",
     "ethers": "^6.11.1"
   },

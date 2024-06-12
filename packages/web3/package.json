@@ -61,7 +61,7 @@
     "@ant-design/web3-eth-web3js": "workspace:*",
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
-    "father": "^4.4.0",
+    "father": "^4.4.4",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {

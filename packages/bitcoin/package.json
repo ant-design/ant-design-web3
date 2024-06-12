@@ -46,7 +46,7 @@
     "sats-connect": "^2.4.0"
   },
   "devDependencies": {
-    "father": "^4.4.0",
+    "father": "^4.4.4",
     "typescript": "^5.4.5"
   },
   "publishConfig": {
