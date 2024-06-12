@@ -145,8 +145,8 @@ describe('Connector', () => {
           }}
           onDisconnected={onDisconnected}
           onDisconnect={onDisconnect}
-          onConnected={(account) => {
-            onConnected(account);
+          onConnected={(a) => {
+            onConnected(a);
           }}
         >
           <CustomButton>children</CustomButton>
@@ -229,8 +229,8 @@ describe('Connector', () => {
           }}
           onDisconnected={onDisconnected}
           onDisconnect={onDisconnect}
-          onConnected={(account) => {
-            onConnected(account);
+          onConnected={(a) => {
+            onConnected(a);
           }}
         >
           <CustomButton>children</CustomButton>
