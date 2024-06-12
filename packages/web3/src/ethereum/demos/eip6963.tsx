@@ -12,6 +12,7 @@ const config = createConfig({
 });
 
 const App: React.FC = () => {
+  const [messageApi, contextHolder] = message.useMessage();
   return (
     <WagmiWeb3ConfigProvider
       config={config}
@@ -22,11 +23,12 @@ const App: React.FC = () => {
     >
       <Connector
         onConnected={(account) => {
-          message.success(`Connected to ${account?.address}`);
+          messageApi.success(`Connected to ${account?.address}`);
         }}
       >
         <ConnectButton />
       </Connector>
+      {contextHolder}
     </WagmiWeb3ConfigProvider>
   );
 };
