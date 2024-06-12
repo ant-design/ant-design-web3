@@ -13,4 +13,4 @@ updates:
         - dependency-name: "ethers"
           directory: "/examples/*"
         - dependency-name: "ethers"
-          directory: "/packages/*"
+          directory: "/packages/ethers-v5/*"
