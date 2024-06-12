@@ -102,7 +102,7 @@
     "viem": "^2.13.3",
     "vite-plugin-svgr": "^4.2.0",
     "vitest": "~1.6.0",
-    "wagmi": "^2.8.6"
+    "wagmi": "^2.9.12"
   },
   "ci": {
     "type": "aci",
