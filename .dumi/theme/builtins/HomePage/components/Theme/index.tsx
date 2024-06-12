@@ -25,7 +25,6 @@ export const Theme: React.FC = () => {
 
   const updateTheme = (c: string) => {
     setThemeColor(c);
-    setIsDark(c === 'auto' && color === 'dark');
   };
 
   useEffect(() => {
