@@ -22,35 +22,40 @@ describe('CryptoInput component', () => {
     // no header
     const { baseElement, rerender } = render(<CryptoInput tokenList={mockTokens} />);
 
-    expect(baseElement.querySelectorAll('.ant-space-item').length).toBe(2);
+    expect(baseElement.querySelector('.web3-crypto-input-wrapper')?.children?.length).toBe(2);
+    expect(baseElement.querySelector('.web3-crypto-input-header')).toBeNull();
 
     // custom header
     rerender(
       <CryptoInput
         tokenList={mockTokens}
-        header={() => <div className="custom-header">Custom header</div>}
+        header={<div className="custom-header">Custom header</div>}
       />,
     );
 
-    expect(baseElement.querySelectorAll('.ant-space-item').length).toBe(3);
-    expect(baseElement.querySelector('header')).not.toBeNull();
-    expect(baseElement.querySelector('header')?.textContent).toBe('Custom header');
+    expect(baseElement.querySelector('.web3-crypto-input-wrapper')?.children?.length).toBe(3);
+
+    const headerEle = baseElement.querySelector('.web3-crypto-input-header');
+
+    expect(headerEle).not.toBeNull();
+    expect(headerEle!.textContent).toBe('Custom header');
   });
 
   it('should display correct footer', () => {
     // close footer
     const { baseElement, rerender } = render(<CryptoInput tokenList={mockTokens} footer={false} />);
 
-    expect(baseElement.querySelectorAll('.ant-space-item').length).toBe(1);
+    expect(baseElement.querySelector('.web3-crypto-input-wrapper')?.children?.length).toBe(1);
 
     // custom footer
     rerender(
       <CryptoInput
         tokenList={mockTokens}
-        footer={() => <div className="custom-footer">Custom footer</div>}
+        footer={<div className="custom-footer">Custom footer</div>}
       />,
     );
 
+    expect(baseElement.querySelector('.web3-crypto-input-wrapper')?.children?.length).toBe(2);
     expect(baseElement.querySelector('.custom-footer')).not.toBeNull();
     expect(baseElement.querySelector('.custom-footer')?.textContent).toBe('Custom footer');
 
@@ -109,7 +114,7 @@ describe('CryptoInput component', () => {
     expect(handleChange).toHaveBeenCalledWith({
       token: mockTokens[0],
       amount: 10000000000000000000n,
-      amountString: '10000000000000000000',
+      inputString: '10',
     });
   });
 
@@ -158,7 +163,7 @@ describe('CryptoInput component', () => {
       expect(handleChange).toHaveBeenCalledWith({
         token: mockTokens[0],
         amount: expectAmount,
-        amountString: expectAmount.toString(),
+        inputString: expectInputValue,
       });
 
       fireEvent.blur(inputEle);
