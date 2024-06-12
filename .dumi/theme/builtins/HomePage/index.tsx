@@ -25,11 +25,8 @@ export const HomePage: React.FC = () => {
   return (
     <div className={styles.container}>
       <Banner />
-      <div className={styles.centerbg}>
-        <Features />
-        <Theme />
-        <div className={styles.leftBottomImage} />
-      </div>
+      <Features />
+      <Theme />
       <ShowCase />
     </div>
   );
