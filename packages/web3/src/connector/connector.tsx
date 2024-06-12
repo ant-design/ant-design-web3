@@ -29,7 +29,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     addressPrefix,
   } = useProvider(props);
   const [open, setOpen] = React.useState(false);
-  const [loading, setLoading] = React.useState(false);
+  const [connecting, setConnecting] = React.useState(false);
   const [defaultSelectedWallet, setDefaultSelectedWallet] = React.useState<Wallet>();
   const actionRef = React.useRef<ConnectModalActionType>();
   const [messageApi, contextHolder] = message.useMessage();
@@ -37,7 +37,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
   const connectWallet = async (wallet?: Wallet, options?: ConnectOptions) => {
     onConnect?.();
     try {
-      setLoading(true);
+      setConnecting(true);
       await connect?.(wallet, options);
       onConnected?.();
       setOpen(false);
@@ -49,7 +49,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         console.error(e);
       }
     } finally {
-      setLoading(false);
+      setConnecting(false);
     }
   };
 
@@ -89,11 +89,11 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
           setOpen(true);
         },
         onDisconnectClick: () => {
-          setLoading(true);
+          setConnecting(true);
           onDisconnect?.();
           disconnect?.().then(() => {
             onDisconnected?.();
-            setLoading(false);
+            setConnecting(false);
           });
         },
         balance,
@@ -105,12 +105,12 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
           await switchChain?.(c);
           onChainSwitched?.(c);
         },
-        loading,
+        loading: connecting,
         ...children.props,
       })}
 
       <ConnectModal
-        loading={loading}
+        connecting={connecting}
         open={open}
         actionRef={actionRef}
         defaultSelectedWallet={defaultSelectedWallet}
@@ -122,7 +122,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         onCancel={(e) => {
           modalProps?.onCancel?.(e);
           setOpen(false);
-          setLoading(false);
+          setConnecting(false);
           modalProps?.onCancel?.(e);
         }}
       />
