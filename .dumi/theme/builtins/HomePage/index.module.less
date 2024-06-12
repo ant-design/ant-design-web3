@@ -1,35 +1,7 @@
 .container {
-  .centerbg {
-    overflow: hidden;
-    padding: 89px 0;
-    position: relative;
-    background: linear-gradient(
-      to bottom,
-      #fdf7ff30 0%,
-      #c1cff830 40%,
-      #e0e1e430 90%,
-      #e3e3e330 100%
-    );
+  background-color: #fbfafc;
 
-    .rightTopImage {
-      pointer-events: none;
-      position: absolute;
-      right: 0;
-      top: 0;
-      background-image: url(https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*a8GvQ50c-SUAAAAAAAAAAAAADlrGAQ/original);
-      width: 298px;
-      height: 246px;
-    }
-    .leftBottomImage {
-      pointer-events: none;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      background-image: url(https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*IfSxQK7EuKYAAAAAAAAAAAAADlrGAQ/original);
-      background-size: 100% 100%;
-      width: 403px;
-      height: 455px;
-      max-width: 100%;
-    }
+  &:global(.dark) {
+    background-color: #090b0d;
   }
 }
