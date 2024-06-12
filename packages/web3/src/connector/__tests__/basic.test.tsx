@@ -145,8 +145,8 @@ describe('Connector', () => {
           }}
           onDisconnected={onDisconnected}
           onDisconnect={onDisconnect}
-          onConnected={() => {
-            onConnected({ address: '0x1234567890' });
+          onConnected={(account) => {
+            onConnected(account);
           }}
         >
           <CustomButton>children</CustomButton>
@@ -181,6 +181,75 @@ describe('Connector', () => {
       expect(onDisconnect).toBeCalled();
     });
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
+  });
+
+  it('connect without return account info', async () => {
+    const onConnectCallTest = vi.fn();
+    const onDisconnected = vi.fn();
+    const onDisconnect = vi.fn();
+    const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
+      const { account, onConnectClick, onDisconnectClick, children } = props;
+      return (
+        <Button
+          onClick={() => {
+            if (account) {
+              onDisconnectClick?.();
+            } else {
+              onConnectClick?.();
+            }
+          }}
+        >
+          {account?.address ?? children}
+        </Button>
+      );
+    };
+    const onConnected = vi.fn((account) => account);
+
+    const App = () => {
+      const [account, setAccount] = React.useState<Account | undefined>();
+      return (
+        <Connector
+          account={account}
+          availableWallets={[
+            {
+              ...metadata_MetaMask,
+              hasWalletReady: async () => {
+                return true;
+              },
+            },
+          ]}
+          onConnect={onConnectCallTest}
+          connect={async () => {
+            setAccount({
+              address: '0x1234567890',
+            });
+          }}
+          disconnect={async () => {
+            setAccount(undefined);
+          }}
+          onDisconnected={onDisconnected}
+          onDisconnect={onDisconnect}
+          onConnected={(account) => {
+            onConnected(account);
+          }}
+        >
+          <CustomButton>children</CustomButton>
+        </Connector>
+      );
+    };
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
+    fireEvent.click(baseElement.querySelector('.ant-btn')!);
+
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')).toBeTruthy();
+    });
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')!);
+
+    await vi.waitFor(() => {
+      expect(onConnectCallTest).toBeCalled();
+      expect(onConnected).toBeCalledWith(undefined);
+    });
   });
 
   it('should support controlled  loading', async () => {
