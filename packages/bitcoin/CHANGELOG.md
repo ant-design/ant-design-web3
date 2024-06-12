@@ -1,5 +1,12 @@
 # @ant-design/web3-bitcoin
 
+## 1.3.1
+
+### Patch Changes
+
+- Updated dependencies [4abe7c0]
+  - @ant-design/web3-common@1.11.0
+
 ## 1.3.0
 
 ### Minor Changes

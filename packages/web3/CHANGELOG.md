@@ -1,5 +1,21 @@
 # @ant-design/web3
 
+## 1.14.0
+
+### Minor Changes
+
+- 4abe7c0: feat: onConnected callback support provider account
+
+### Patch Changes
+
+- d0d8bd5: fix: wallets container height style
+- 0d33add: fix: ConnectModal height style when has footer
+- f4f9dc4: fix(web3): rename 'loading' to 'connecting' for fix prop name conflict
+- Updated dependencies [0d33add]
+- Updated dependencies [4abe7c0]
+  - @ant-design/web3-assets@1.8.1
+  - @ant-design/web3-common@1.11.0
+
 ## 1.13.0
 
 ### Minor Changes
