@@ -2,4 +2,4 @@
 '@ant-design/web3': patch
 ---
 
-feat(web3): rename 'loading' to 'connecting' 
+fix(web3): rename 'loading' to 'connecting' for fix prop name conflict
