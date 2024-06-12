@@ -116,7 +116,7 @@ describe('Connector', () => {
         </Button>
       );
     };
-    const onConnected = vi.fn();
+    const onConnected = vi.fn((account) => account);
 
     const App = () => {
       const [account, setAccount] = React.useState<Account | undefined>();
@@ -146,7 +146,7 @@ describe('Connector', () => {
           onDisconnected={onDisconnected}
           onDisconnect={onDisconnect}
           onConnected={() => {
-            onConnected();
+            onConnected({ address: '0x1234567890' });
           }}
         >
           <CustomButton>children</CustomButton>
