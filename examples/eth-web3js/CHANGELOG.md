@@ -1,5 +1,18 @@
 # @example/eth-web3js
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [d0d8bd5]
+- Updated dependencies [0d33add]
+- Updated dependencies [4abe7c0]
+- Updated dependencies [f4f9dc4]
+  - @ant-design/web3@1.14.0
+  - @ant-design/web3-assets@1.8.1
+  - @ant-design/web3-common@1.11.0
+  - @ant-design/web3-eth-web3js@1.1.2
+
 ## 0.0.3
 
 ### Patch Changes

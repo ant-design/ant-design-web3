@@ -1,5 +1,17 @@
 # @ant-design/web3-ethers
 
+## 1.1.2
+
+### Patch Changes
+
+- 3759500: fix(ethers): useEthersSigner hook issue when chain not contain
+- Updated dependencies [0d33add]
+- Updated dependencies [4abe7c0]
+- Updated dependencies [61c17c5]
+  - @ant-design/web3-assets@1.8.1
+  - @ant-design/web3-common@1.11.0
+  - @ant-design/web3-wagmi@2.6.0
+
 ## 1.1.1
 
 ### Patch Changes

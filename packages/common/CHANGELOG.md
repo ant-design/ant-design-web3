@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.11.0
+
+### Minor Changes
+
+- 4abe7c0: feat: onConnected callback support provider account
+
 ## 1.10.1
 
 ### Patch Changes
