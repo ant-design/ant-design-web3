@@ -1,12 +1,13 @@
 .bannerContainer {
   width: 100%;
   position: relative;
-  margin-block-end: -140px;
+  margin-block-end: -80px;
   .bgImg {
     display: block;
-    width: 100%;
+    width: 3268px;
     height: auto;
     min-height: 256px;
+    margin-left: calc(50% - 1634px);
   }
   .wrap {
     position: absolute;
@@ -20,16 +21,20 @@
     margin: 0 auto;
     .titleImg {
       display: block;
-      width: 660px;
+      width: 792px;
       max-width: 100%;
       z-index: 9;
     }
 
     .slogan {
-      font-size: 22px;
-      color: #333;
+      font-family:
+        PingFangSC-Regular,
+        PingFang SC;
       padding-inline-start: 14px;
       margin-top: 12px;
+      font-size: 32px;
+      color: rgba(0, 0, 0, 0.85);
+      opacity: 0.65;
     }
 
     .btn {
@@ -88,10 +93,11 @@
 @media screen and (max-width: 767px) {
   .bannerContainer {
     padding-top: 100px;
-    margin-block-end: -90px;
     .bgImg {
       object-fit: cover;
       object-position: center;
+      margin-left: 0;
+      width: 100%;
     }
     .wrap {
       width: calc(100% - 40px);
