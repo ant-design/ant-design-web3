@@ -1,17 +1,17 @@
 /**
  * CryptoInput overwrite InputFontSizeSM token
  */
-const INPUT_FONT_SIZE_SM = 16;
+const INPUT_FONT_SIZE_SM = 20;
 
 /**
  * CryptoInput overwrite InputFontSize token
  */
-const INPUT_FONT_SIZE = 18;
+const INPUT_FONT_SIZE = 24;
 
 /**
  * CryptoInput overwrite InputFontSizeLG token
  */
-const INPUT_FONT_SIZE_LG = 20;
+const INPUT_FONT_SIZE_LG = 28;
 
 /**
  * CryptoInput overwrite PaddingInline token

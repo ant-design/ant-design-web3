@@ -40,6 +40,14 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
 
       [`${antCls}-input-number`]: {
         fontSize: inputFontSize,
+
+        [`${antCls}-input-number-input`]: {
+          fontWeight: fontWeightStrong,
+
+          '&::placeholder': {
+            fontWeight: 'normal',
+          },
+        },
       },
 
       [`${antCls}-input-number-lg`]: {
