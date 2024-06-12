@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import classNames from 'classnames';
 import { usePrefersColor } from 'dumi';
 
 import { Banner } from './components/Banner';
@@ -8,7 +9,7 @@ import { Theme } from './components/Theme';
 import styles from './index.module.less';
 
 export const HomePage: React.FC = () => {
-  const [, prefersColor] = usePrefersColor();
+  const [color, prefersColor] = usePrefersColor();
 
   useEffect(() => {
     // zh-CN: 临时修复主题跟随系统时先切换到亮色主题的问题，后续在 dumi 中修复后再删掉
@@ -23,14 +24,14 @@ export const HomePage: React.FC = () => {
   }, [prefersColor]);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={classNames(styles.container, {
+        dark: color === 'dark',
+      })}
+    >
       <Banner />
-      <div className={styles.centerbg}>
-        <Features />
-        <Theme />
-        <div className={styles.rightTopImage} />
-        <div className={styles.leftBottomImage} />
-      </div>
+      <Features />
+      <Theme />
       <ShowCase />
     </div>
   );
