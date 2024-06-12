@@ -26,7 +26,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div style={{ width: 456, rowGap: 16 }}>
+    <div style={{ width: 480, rowGap: 16 }}>
       <Radio.Group
         value={size}
         onChange={(e) => setSize(e.target.value)}

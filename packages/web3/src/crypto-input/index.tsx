@@ -62,7 +62,7 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
   const { messages } = useIntl('CryptoInput');
 
   const {
-    token: { InputNumber: originToken },
+    token: { InputNumber: CUSTOM_TOKEN },
   } = antdTheme.useToken();
 
   /**
@@ -70,8 +70,8 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
    * use our default theme settings
    */
   const finalToken = useMemo(
-    () => mergeToken(CRYPTO_INPUT_TOKEN, originToken || {}),
-    [originToken],
+    () => mergeToken(CRYPTO_INPUT_TOKEN, CUSTOM_TOKEN || {}),
+    [CUSTOM_TOKEN],
   );
 
   const { token, inputString } = value || {};

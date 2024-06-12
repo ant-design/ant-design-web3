@@ -25,6 +25,9 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
     marginSM,
     marginXS,
     colorInfoText,
+    lineHeightSM,
+    lineHeightHeading1,
+    lineHeightHeading3,
     InputNumber: { inputFontSize, inputFontSizeLG, inputFontSizeSM } = {},
   } = token;
 
@@ -43,6 +46,7 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
 
         [`${antCls}-input-number-input`]: {
           fontWeight: fontWeightStrong,
+          lineHeight: lineHeightHeading3,
 
           '&::placeholder': {
             fontWeight: 'normal',
@@ -52,10 +56,18 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
 
       [`${antCls}-input-number-lg`]: {
         fontSize: inputFontSizeLG,
+
+        [`${antCls}-input-number-input`]: {
+          lineHeight: lineHeightHeading1,
+        },
       },
 
       [`${antCls}-input-number-sm`]: {
         fontSize: inputFontSizeSM,
+
+        [`${antCls}-input-number-input`]: {
+          lineHeight: lineHeightSM,
+        },
       },
     },
 
