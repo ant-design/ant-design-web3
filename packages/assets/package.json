@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-assets",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -74,7 +74,7 @@
   "devDependencies": {
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
-    "father": "^4.4.0",
+    "father": "^4.4.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.4.5"

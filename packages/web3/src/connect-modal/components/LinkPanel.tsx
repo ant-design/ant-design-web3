@@ -6,14 +6,14 @@ import MainPanelHeader from './MainPanelHeader';
 import WalletIcon from './WalletIcon';
 
 const LinkPanel: React.FC = () => {
-  const { loading, updatePanelRoute, localeMessage, prefixCls, selectedWallet } =
+  const { connecting, updatePanelRoute, localeMessage, prefixCls, selectedWallet } =
     useContext(connectModalContext);
 
   React.useEffect(() => {
-    if (!loading) {
+    if (!connecting) {
       updatePanelRoute('init', true);
     }
-  }, [loading]);
+  }, [connecting]);
 
   return (
     <>

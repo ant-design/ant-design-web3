@@ -7,7 +7,7 @@ import { mainnet } from 'wagmi/chains';
 import { MetaMask } from '../../wallets';
 import { AntDesignWeb3ConfigProvider } from '../config-provider';
 
-vi.mock('@wagmi/core', () => ({
+vi.mock('wagmi/actions', () => ({
   readContract: async () => {
     return 'http://nft-metadata.com';
   },
@@ -31,7 +31,9 @@ vi.mock('wagmi', () => {
     useConnect: () => {
       return {
         connectors: [],
-        connectAsync: () => {},
+        connectAsync: async () => {
+          return {};
+        },
       };
     },
     useDisconnect: () => {

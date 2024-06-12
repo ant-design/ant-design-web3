@@ -7,7 +7,7 @@ import { mainnet } from 'wagmi/chains';
 import { MetaMask } from '../../wallets';
 import { AntDesignWeb3ConfigProvider } from '../config-provider';
 
-vi.mock('@wagmi/core', () => {
+vi.mock('wagmi/actions', () => {
   return {
     getAccount: () => ({}),
     disconnect: () => {},
@@ -30,7 +30,9 @@ vi.mock('wagmi', () => {
     useConnect: () => {
       return {
         connectors: [],
-        connectAsync: () => {},
+        connectAsync: async () => {
+          return {};
+        },
       };
     },
     useDisconnect: () => {

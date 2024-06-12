@@ -136,6 +136,12 @@ export type ConnectModalProps = ModalProps &
     locale?: Locale['ConnectModal'];
 
     addressPrefix?: string | false;
+
+    /**
+     * @desc 连接状态
+     * @descEn connect status
+     */
+    connecting?: boolean;
   };
 
 export type PanelRoute = 'init' | 'guide' | 'wallet' | 'qrCode' | 'downloadQrCode' | 'link';

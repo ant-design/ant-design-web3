@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -62,7 +62,7 @@
     "@ant-design/web3-wagmi": "workspace:*",
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
-    "father": "^4.4.0",
+    "father": "^4.4.4",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {

@@ -7,7 +7,6 @@ import {
   type Locale,
   type Wallet,
 } from '@ant-design/web3-common';
-import { disconnect, getAccount } from '@wagmi/core';
 import type { Chain as WagmiChain } from 'viem';
 import {
   useAccount,
@@ -18,6 +17,7 @@ import {
   useSwitchChain,
   type Connector as WagmiConnector,
 } from 'wagmi';
+import { disconnect, getAccount } from 'wagmi/actions';
 
 import type { EIP6963Config, WalletFactory, WalletUseInWagmiAdapter } from '../interface';
 import { isEIP6963Connector } from '../utils';
@@ -209,10 +209,13 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         if (!connector) {
           throw new Error(`Can not find connector for ${wallet?.name}`);
         }
-        await connectAsync({
+        const { accounts } = await connectAsync({
           connector,
           chainId: currentChain?.id,
         });
+        return {
+          address: accounts?.[0],
+        };
       }}
       disconnect={async () => {
         // await disconnectAsync();

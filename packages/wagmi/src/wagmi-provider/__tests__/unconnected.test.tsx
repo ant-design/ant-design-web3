@@ -10,7 +10,7 @@ const mockConnector = {
   name: 'MetaMask',
 };
 
-vi.mock('@wagmi/core', () => ({
+vi.mock('wagmi/actions', () => ({
   getAccount: () => ({}),
   disconnect: () => {},
 }));
@@ -31,7 +31,9 @@ vi.mock('wagmi', () => {
     useConnect: () => {
       return {
         connectors: [mockConnector],
-        connectAsync: () => {},
+        connectAsync: async () => {
+          return {};
+        },
       };
     },
     useDisconnect: () => {
