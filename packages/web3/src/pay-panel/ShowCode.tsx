@@ -42,18 +42,17 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
     {
       label: 'Address',
       key: 'general',
-      icon: <WalletColorful />,
+      icon: (<WalletColorful />) as React.ReactNode,
     },
   ];
-  const walletItems = normalAddress.concat(
-    availableWallets.map((wallet) => {
-      return {
-        label: wallet.name,
-        key: wallet.name,
-        icon: wallet.icon,
-      };
-    }),
-  );
+  const availableWalletsList = availableWallets.map((wallet) => {
+    return {
+      label: wallet.name,
+      key: wallet.name,
+      icon: wallet.icon,
+    };
+  });
+  const walletItems = normalAddress.concat(availableWalletsList);
   const onWalletSelect = (activeKey: string) => {
     const selectWalletInfo = availableWallets.find((wallet) => wallet.name === activeKey);
     let links = toAddress;
