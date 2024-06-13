@@ -27,6 +27,7 @@ const mockProps: PayPanelProps = {
       address: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
     },
   },
+  supportedChains: [Mainnet, BSC],
   token: USDT,
   wallets: [mockMetaMaskWallet, mockNormalWallet],
   onFinish: vi.fn(),

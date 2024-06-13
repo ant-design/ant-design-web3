@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { WalletColorful } from '@ant-design/web3-icons';
 import { Button, ConfigProvider, Flex, QRCode, Statistic, Tabs, Typography } from 'antd';
+// @ts-ignore
 import { useIntl } from 'dumi';
 
 import { PayPanelContext } from './PayPanelContext';
