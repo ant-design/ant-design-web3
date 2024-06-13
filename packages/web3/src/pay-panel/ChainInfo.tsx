@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
-import { Chain } from '@ant-design/web3-common';
 import { ConfigProvider } from 'antd';
 
 import { PayPanelContext } from './PayPanelContext';
 
 interface ChainListProps {
-  chainId: String;
+  chainId: String | Number;
 }
 
 export const ChainInfo: React.FC<ChainListProps> = ({ chainId }) => {
@@ -13,7 +12,7 @@ export const ChainInfo: React.FC<ChainListProps> = ({ chainId }) => {
   const { supportedChains } = useContext(PayPanelContext);
 
   const prefixCls = getPrefixCls('web3-pay-panel');
-  console.log('supportedChains', supportedChains);
+
   const returnChainInfo = supportedChains.filter((chain) => chain.id === Number(chainId))[0];
 
   return (

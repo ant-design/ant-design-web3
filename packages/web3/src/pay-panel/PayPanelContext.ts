@@ -3,7 +3,7 @@ import { Chain, type Token, type WalletMetadata } from '@ant-design/web3-common'
 
 export type PayPanelProps = {
   amount: number | bigint;
-  target: { [chainId: string]: { address: string } };
+  target: { [chainId: string | number]: { address: string } };
   supportedChains: Chain[];
   token: Token;
   wallets: WalletMetadata[];

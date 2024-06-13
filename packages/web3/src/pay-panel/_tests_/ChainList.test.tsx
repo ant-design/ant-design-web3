@@ -1,6 +1,6 @@
 import React from 'react';
 import { BSC, Mainnet, USDT } from '@ant-design/web3-assets';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -12,13 +12,12 @@ const mockContextValue: PayPanelProps = {
   target: {
     [Mainnet.id]: {
       address: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
-      chain: Mainnet,
     },
     [BSC.id]: {
       address: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
-      chain: BSC,
     },
   },
+  supportedChains: [Mainnet, BSC],
   token: USDT,
   wallets: [],
   onFinish: vi.fn(),

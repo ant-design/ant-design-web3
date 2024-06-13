@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { ConfigProvider, Space } from 'antd';
+import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 
 import { ChainList } from './ChainList';
