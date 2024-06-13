@@ -3,14 +3,12 @@ import { useState } from 'react';
 export const LATEST_WALLET_STORAGE_KEY = '@ant-design/web3-bitcoin:latest-wallet';
 
 export const useLatestWallet = () => {
-  const [latestWalletName, setLatestWalletName] = useState(() => {
+  const latestWalletNameRef = React.useRef<string | undefined>();
+  React.useEffect(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
-      const latestWallet = window.localStorage.getItem(LATEST_WALLET_STORAGE_KEY);
-      return latestWallet;
+      latestWalletNameRef.current = window.localStorage.getItem(LATEST_WALLET_STORAGE_KEY);
     }
-
-    return undefined;
-  });
+  }, []);
 
   const cacheSelectedWallet = (walletName?: string) => {
     setLatestWalletName(walletName);
