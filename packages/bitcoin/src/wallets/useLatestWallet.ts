@@ -11,7 +11,7 @@ export const useLatestWallet = () => {
   }, []);
 
   const cacheSelectedWallet = (walletName?: string) => {
-    setLatestWalletName(walletName);
+   latestWalletNameRef.current = walletName;
 
     if (typeof window !== 'undefined' && window.localStorage) {
       if (walletName) {
