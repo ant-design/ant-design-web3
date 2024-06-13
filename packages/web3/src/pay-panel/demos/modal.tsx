@@ -9,6 +9,7 @@ import {
   USDT,
 } from '@ant-design/web3-assets';
 import { Button, Modal } from 'antd';
+import { parseUnits } from 'viem';
 
 const App: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -31,15 +32,14 @@ const App: React.FC = () => {
           target={{
             [Mainnet.id]: {
               address: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
-              chain: Mainnet,
             },
             [BSC.id]: {
               address: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
-              chain: BSC,
             },
           }}
+          supportedChains={[Mainnet, BSC]}
           token={USDT}
-          amount={1000000}
+          amount={parseUnits('1', USDT.decimal)}
           wallets={[metadata_MetaMask, metadata_imToken, metadata_TokenPocket]}
           onFinish={() => {
             hideModal();

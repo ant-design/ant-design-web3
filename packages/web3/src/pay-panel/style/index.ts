@@ -17,7 +17,7 @@ const genPaypanelStyle: GenerateStyle<PayPanelToken> = (token) => {
           fontSize: token.fontSizeHeading4,
           lineHeight: token.lineHeightHeading4,
           color: token.colorTextBase,
-          paddingBlock: token.paddingContentVerticalLG,
+          paddingBottom: token.paddingContentVerticalLG,
         },
         [`${token.componentCls}-desc`]: {
           fontSize: token.fontSize,
@@ -50,7 +50,7 @@ const genPaypanelStyle: GenerateStyle<PayPanelToken> = (token) => {
           fontSize: token.fontSize,
           lineHeight: token.lineHeightHeading4,
           color: token.colorTextBase,
-          paddingBlock: token.paddingContentVertical,
+          paddingBottom: token.paddingContentVertical,
         },
         [`${token.componentCls}-code-amount`]: {
           fontSize: token.fontSizeHeading1,

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ConfigProvider, List } from 'antd';
+import { ConfigProvider } from 'antd';
 
 import { ChainInfo } from './ChainInfo';
 import { PayPanelContext } from './PayPanelContext';
@@ -13,10 +13,11 @@ export const ChainList: React.FC<ChainListProps> = ({ onChainSelected }) => {
   const prefixCls = getPrefixCls('web3-pay-panel');
 
   const { target } = useContext(PayPanelContext);
+
   return (
     <>
       <div className={`${prefixCls}-title`}>Select network</div>
-      {Object.entries(target).map(([chainId, { chain }]) => {
+      {Object.entries(target).map(([chainId]) => {
         return (
           <div
             key={chainId}
@@ -24,7 +25,7 @@ export const ChainList: React.FC<ChainListProps> = ({ onChainSelected }) => {
               onChainSelected(chainId);
             }}
           >
-            <ChainInfo chainInfo={chain} />
+            <ChainInfo chainId={chainId} />
           </div>
         );
       })}

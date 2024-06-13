@@ -13,13 +13,14 @@ export const PayPanel: React.FC<React.PropsWithChildren<PayPanelProps>> = (props
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [selectedChainId, setSelectedChainId] = useState<number | string>();
 
-  const { amount, target, token, wallets, onFinish } = props;
+  const { amount, target, supportedChains, token, wallets, onFinish } = props;
 
   return wrapSSR(
     <PayPanelContext.Provider
       value={{
         amount,
         target,
+        supportedChains,
         token,
         wallets,
         onFinish,

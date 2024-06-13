@@ -1,5 +1,6 @@
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
+import { WalletColorful } from '@ant-design/web3-icons';
 import { Button, ConfigProvider, Flex, QRCode, Statistic, Tabs, Typography } from 'antd';
 import { useIntl } from 'dumi';
 
@@ -14,14 +15,14 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
   const intl = useIntl();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-pay-panel');
-  const { token, amount, target, wallets, onFinish } = useContext(PayPanelContext);
+  const { token, amount, target, supportedChains, wallets, onFinish } = useContext(PayPanelContext);
   const toAddress = target[selectedChainId].address;
 
   const [paymentLink, setPaymentLink] = useState<string>(toAddress);
 
-  const selectedChain = target[selectedChainId].chain;
+  const selectedChain = supportedChains.find((chain) => chain.id === Number(selectedChainId));
   const availableWallets = wallets.filter((wallet) =>
-    wallet.supportChainTypes?.some((chainType) => chainType === selectedChain.type),
+    wallet.supportChainTypes?.some((chainType) => chainType === selectedChain!.type),
   );
   const tokenChannel = token.availableChains.find(
     (channel) => channel.chain.id === Number(selectedChainId),
@@ -41,6 +42,7 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
     {
       label: 'Address',
       key: 'general',
+      icon: <WalletColorful />,
     },
   ];
   const walletItems = normalAddress.concat(
@@ -64,13 +66,14 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
   return (
     <>
       <div className={`${prefixCls}-code-title`}>
-        Send {token.symbol} on {target[selectedChainId].chain.name} network
+        Send {token.symbol} on {selectedChain?.name} network
       </div>
 
       <Statistic
         className={`${prefixCls}-amount`}
         value={Number(amount) / Math.pow(10, token.decimal)}
         precision={4}
+        valueStyle={{ fontSize: 38 }}
       />
       <Tabs items={walletItems} onChange={onWalletSelect} />
       <div className={`${prefixCls}-code-content`}>

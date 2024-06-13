@@ -22,11 +22,9 @@ const mockProps: PayPanelProps = {
   target: {
     [Mainnet.id]: {
       address: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
-      chain: Mainnet,
     },
     [BSC.id]: {
       address: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
-      chain: BSC,
     },
   },
   token: USDT,
