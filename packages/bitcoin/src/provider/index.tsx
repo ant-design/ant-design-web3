@@ -25,7 +25,7 @@ export const BitcoinWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigPr
   const [wallets, setWallets] = useState<WalletWithAdapter[]>([]);
   const { name: adapterName } = useBitcoinWallet();
 
-  const { latestWalletName, cacheSelectedWallet } = useLatestWallet();
+  const { latestWalletNameRef, cacheSelectedWallet } = useLatestWallet();
 
   useEffect(() => {
     if (initWallets.length === 0) return;
@@ -47,10 +47,10 @@ export const BitcoinWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigPr
     cacheSelectedWallet(wallet.name);
   };
 
-  // autoConnect
+  // auto connect
   useEffect(() => {
-    if (autoConnect && latestWalletName && !adapterName) {
-      const wallet = wallets.find((w) => w.name === latestWalletName);
+    if (autoConnect && latestWalletNameRef.current && !adapterName) {
+      const wallet = wallets.find((w) => w.name === latestWalletNameRef.current);
       if (wallet) {
         selectWallet(wallet);
       }
