@@ -196,7 +196,7 @@ describe('CryptoInput component', () => {
       );
     };
 
-    const { baseElement } = render(<TestComponent />);
+    const { baseElement, rerender } = render(<TestComponent />);
 
     // set token amount to 10
     fireEvent.change(baseElement.querySelector('.ant-input-number-input') as Element, {
@@ -220,7 +220,7 @@ describe('CryptoInput component', () => {
     expect(baseElement.querySelector('.total-price')?.textContent).toBe('-');
 
     // change token balance to undefined
-    render(<TestComponent balance={undefined} />);
+    rerender(<TestComponent balance={undefined} />);
     expect(baseElement.querySelector('.total-price')?.textContent).toBe('-');
   });
 });
