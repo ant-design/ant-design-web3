@@ -20,9 +20,9 @@ group: UI 组件
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| target | 支持的链及对应的接收地址 | `{ [chainId: string]: { address: string; chain: Chain } }` | - | - |
+| target | 支持的链及对应的接收地址 | `{ [chainId: string \| number]: { address: string; } }` | - | - |
 | token | Token 的信息 | `Token` | - | - |
-| amount | 指定的数量 | `number \| bigint` | - | - |
+| amount | 带小数位数的数量 | `number \| bigint` | - | - |
 | wallets | 支持的钱包列表 | `WalletMetadata[]` | - | - |
 | onFinish | 点击完成的回调 | `() => void` | - | - |
 

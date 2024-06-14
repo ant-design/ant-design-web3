@@ -5,6 +5,8 @@ group: UI Components
 
 # PayPanel
 
+The component for receiving coins supports different chain channels and some wallets for quick code scanning.
+
 ## Basic Usage
 
 <code src="./demos/basic.tsx"></code>
@@ -17,9 +19,9 @@ group: UI Components
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| target | Supporting chain and corresponding receiving address | `{ [chainId: string]: { address: string; chain: Chain } }` | - | - |
+| target | Supporting chain and corresponding receiving address | `{ [chainId: string \| number]: { address: string; chain: Chain } }` | - | - |
 | token | Token info | `Token` | - | - |
-| amount | The amount specified | `number \| bigint` | - | - |
+| amount | The number of decimal places | `number \| bigint` | - | - |
 | wallets | List of supported wallets | `WalletMetadata[]` | - | - |
 | onFinish | Click on the completed callback | `() => void` | - | - |
 
