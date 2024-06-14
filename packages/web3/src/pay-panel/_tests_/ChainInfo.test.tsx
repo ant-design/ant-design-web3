@@ -5,7 +5,7 @@ import { ConfigProvider } from 'antd';
 import { describe, expect, it, vi } from 'vitest';
 
 import { ChainInfo } from '../ChainInfo';
-import { PayPanelContext, PayPanelProps } from '../PayPanelContext';
+import { PayPanelContext, type PayPanelProps } from '../PayPanelContext';
 
 const mockContextValue: PayPanelProps = {
   amount: 1000000,

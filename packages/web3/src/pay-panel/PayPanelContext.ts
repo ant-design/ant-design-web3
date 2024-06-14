@@ -1,5 +1,5 @@
 import React from 'react';
-import { Chain, type Token, type WalletMetadata } from '@ant-design/web3-common';
+import { type Chain, type Token, type WalletMetadata } from '@ant-design/web3-common';
 
 type PayPanelTargetProps = { [chainId: string | number]: string };
 

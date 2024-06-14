@@ -4,7 +4,6 @@ import { WalletColorful } from '@ant-design/web3-icons';
 import { Button, ConfigProvider, Flex, QRCode, Statistic, Tabs, Typography } from 'antd';
 // @ts-ignore
 import { useIntl } from 'dumi';
-import { set } from 'lodash';
 
 import { PayPanelContext } from './PayPanelContext';
 
@@ -19,6 +18,7 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
   const prefixCls = getPrefixCls('web3-pay-panel');
   const { token, amount, target, supportedChains, wallets, onFinish } = useContext(PayPanelContext);
   const [toAddress, setToAddress] = useState<string>('');
+  const [paymentLink, setPaymentLink] = useState<string>('');
 
   useEffect(() => {
     let toAddress = '';
@@ -32,8 +32,6 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
     setToAddress(toAddress);
     setPaymentLink(toAddress);
   }, [target, selectedChainId]);
-
-  const [paymentLink, setPaymentLink] = useState<string>(toAddress);
 
   const selectedChain = supportedChains.find((chain) => chain.id === Number(selectedChainId));
   const availableWallets = wallets.filter((wallet) =>

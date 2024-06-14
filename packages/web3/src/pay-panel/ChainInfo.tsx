@@ -4,7 +4,7 @@ import { ConfigProvider } from 'antd';
 import { PayPanelContext } from './PayPanelContext';
 
 interface ChainListProps {
-  chainId: String | Number;
+  chainId: string | number;
 }
 
 export const ChainInfo: React.FC<ChainListProps> = ({ chainId }) => {
