@@ -1,9 +1,11 @@
 import React from 'react';
 import { Chain, type Token, type WalletMetadata } from '@ant-design/web3-common';
 
+type PayPanelTargetProps = { [chainId: string | number]: string };
+
 export type PayPanelProps = {
   amount: number | bigint;
-  target: { [chainId: string | number]: { address: string } };
+  target: PayPanelTargetProps | (() => Promise<PayPanelTargetProps>);
   supportedChains: Chain[];
   token: Token;
   wallets: WalletMetadata[];

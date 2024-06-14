@@ -1,9 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { WalletColorful } from '@ant-design/web3-icons';
 import { Button, ConfigProvider, Flex, QRCode, Statistic, Tabs, Typography } from 'antd';
 // @ts-ignore
 import { useIntl } from 'dumi';
+import { set } from 'lodash';
 
 import { PayPanelContext } from './PayPanelContext';
 
@@ -17,7 +18,20 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-pay-panel');
   const { token, amount, target, supportedChains, wallets, onFinish } = useContext(PayPanelContext);
-  const toAddress = target[selectedChainId].address;
+  const [toAddress, setToAddress] = useState<string>('');
+
+  useEffect(() => {
+    let toAddress = '';
+    if (typeof target === 'function') {
+      target().then((targetValue) => {
+        toAddress = targetValue[selectedChainId];
+      });
+    } else {
+      toAddress = target[selectedChainId];
+    }
+    setToAddress(toAddress);
+    setPaymentLink(toAddress);
+  }, [target, selectedChainId]);
 
   const [paymentLink, setPaymentLink] = useState<string>(toAddress);
 

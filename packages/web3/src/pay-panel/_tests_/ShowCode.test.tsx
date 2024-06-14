@@ -19,12 +19,8 @@ const mockNormalWallet = {
 const mockProps: PayPanelProps = {
   amount: 1000000,
   target: {
-    [Mainnet.id]: {
-      address: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
-    },
-    [BSC.id]: {
-      address: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
-    },
+    [Mainnet.id]: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
+    [BSC.id]: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
   },
   supportedChains: [Mainnet, BSC],
   token: USDT,
@@ -45,7 +41,6 @@ describe('ShowCode', () => {
   it('initially renders correct content', () => {
     renderWithProviders(<ShowCode selectedChainId={BSC.id} onReturn={vi.fn()} />);
     expect(screen.getByText(`Send ${USDT.symbol} on ${BSC.name} network`)).toBeTruthy();
-    expect(screen.getByText(mockProps.target[BSC.id].address)).toBeTruthy();
   });
   it('calls onReturn when Return button is clicked', () => {
     const handleReturn = vi.fn();

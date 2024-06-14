@@ -30,12 +30,8 @@ const App: React.FC = () => {
       <Modal open={open} footer={null} width={450} onCancel={hideModal}>
         <PayPanel
           target={{
-            [Mainnet.id]: {
-              address: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
-            },
-            [BSC.id]: {
-              address: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
-            },
+            [Mainnet.id]: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
+            [BSC.id]: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
           }}
           supportedChains={[Mainnet, BSC]}
           token={USDT}
