@@ -14,7 +14,6 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { PayPanel } from '../index';
 import { type PayPanelProps } from '../PayPanelContext';
 
-// Mock ChainList and ShowCode components for simplicity
 vi.mock('../ChainList', () => ({
   ChainList: ({ onChainSelected }: any) => (
     <button onClick={() => onChainSelected(BSC.id)}>Select Chain</button>

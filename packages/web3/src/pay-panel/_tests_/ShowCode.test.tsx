@@ -7,7 +7,6 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { PayPanelContext, type PayPanelProps } from '../PayPanelContext';
 import { ShowCode } from '../ShowCode';
 
-// Mocks for metadata
 const mockMetaMaskWallet = {
   ...metadata_MetaMask,
   transferQRCodeFormatter: vi.fn((data) => `formatted-link-for-${data.toAddress}`),
