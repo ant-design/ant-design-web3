@@ -6,6 +6,10 @@
   "app.docs.components.icon.circle-filled": "圆底单色",
   "app.docs.components.icon.category.common": "常用图标",
   "app.docs.components.icon.category.other": "其他图标",
+  "app.docs.components.icon.overview.general": "通用",
+  "app.docs.components.icon.overview.connect": "连接链",
+  "app.docs.components.icon.overview.display": "UI 组件",
+  "app.docs.components.icon.overview.advanced": "高级",
 
   "app.docs.site.index.banner.slogan": "高效的 React 组件库，更轻松地构建去中心化应用",
   "app.docs.site.index.banner.button-text": "开始使用",

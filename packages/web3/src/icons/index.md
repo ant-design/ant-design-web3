@@ -4,6 +4,7 @@ group:
   title: General
   order: 0
 order: 1
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*oWPmSpU15hEAAAAAAAAAAAAADlrGAQ/original
 ---
 
 ## How to use

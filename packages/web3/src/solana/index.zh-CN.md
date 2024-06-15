@@ -5,6 +5,7 @@ order: 5
 group:
   title: 连接链
   order: 2
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*VJDJSoFtt2MAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Solana

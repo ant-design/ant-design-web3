@@ -112,12 +112,12 @@ export default defineConfig({
       'en-US': [
         { title: 'Course', link: '/course/introduction' },
         { title: 'Guide', link: '/guide/ant-design-web3' },
-        { title: 'Components', link: '/components/icons' },
+        { title: 'Components', link: '/components/overview' },
       ],
       'zh-CN': [
         { title: '课程', link: '/course/introduction-cn' },
         { title: '指南', link: '/guide/ant-design-web3-cn' },
-        { title: '组件', link: '/components/icons-cn' },
+        { title: '组件', link: '/components/overview-cn' },
       ],
     },
     // @ts-ignore

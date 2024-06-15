@@ -2,6 +2,7 @@
 nav: 组件
 subtitle: NFT 图片
 group: UI 组件
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*0bRHTJ-qHbIAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # NFTImage

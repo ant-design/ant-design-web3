@@ -4,6 +4,7 @@ subtitle: Web3 全局配置
 group:
   title: 高级
   order: 4
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*agi7R62kJMQAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Web3ConfigProvider
