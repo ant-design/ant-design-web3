@@ -6,10 +6,6 @@
   "app.docs.components.icon.circle-filled": "Circle Filled",
   "app.docs.components.icon.category.common": "Common Icons",
   "app.docs.components.icon.category.other": "Other Icons",
-  "app.docs.components.icon.overview.general": "General",
-  "app.docs.components.icon.overview.connect": "Connect Blockchains",
-  "app.docs.components.icon.overview.display": "UI Components",
-  "app.docs.components.icon.overview.advanced": "Advanced",
 
   "app.docs.site.index.banner.slogan": "Efficient react components for building dapps easier",
   "app.docs.site.index.banner.button-text": "Start",
