@@ -13,7 +13,7 @@ const mockContextValue: PayPanelProps = {
     [Mainnet.id]: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
     [BSC.id]: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
   },
-  supportedChains: [Mainnet, BSC],
+  supportedChains: [{ chain: Mainnet }, { chain: BSC }],
   token: USDT,
   wallets: [],
   onFinish: vi.fn(),

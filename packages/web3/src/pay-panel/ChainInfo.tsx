@@ -13,14 +13,17 @@ export const ChainInfo: React.FC<ChainListProps> = ({ chainId }) => {
 
   const prefixCls = getPrefixCls('web3-pay-panel');
 
-  const returnChainInfo = supportedChains.filter((chain) => chain.id === Number(chainId))[0];
+  const returnChainInfo = supportedChains.find((chain) => chain.chain.id === Number(chainId));
 
   return (
     <div className={`${prefixCls}-chainItem`}>
       <div className={`${prefixCls}-chainInfo`}>
-        <span className={`${prefixCls}-icon`}>{returnChainInfo?.icon}</span>
-        <span>{returnChainInfo?.name}</span>
+        <span className={`${prefixCls}-icon`}>{returnChainInfo?.chain.icon}</span>
+        <div>
+          <span>{returnChainInfo?.chain.name}</span>
+        </div>
       </div>
+      <div className={`${prefixCls}-gasInfo`}>{returnChainInfo?.gasRender}</div>
     </div>
   );
 };

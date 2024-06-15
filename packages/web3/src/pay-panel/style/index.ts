@@ -25,7 +25,7 @@ const genPaypanelStyle: GenerateStyle<PayPanelToken> = (token) => {
           lineHeight: token.lineHeightSM,
         },
         [`${token.componentCls}-chainItem`]: {
-          width: 340,
+          width: '100%',
           paddingBlock: token.paddingXS,
           display: 'flex',
           alignItems: 'center',
@@ -38,6 +38,11 @@ const genPaypanelStyle: GenerateStyle<PayPanelToken> = (token) => {
             [`${token.componentCls}-icon`]: {
               fontSize: token.fontSizeHeading1,
               paddingInlineEnd: token.paddingContentVerticalSM,
+            },
+            [`${token.componentCls}-type`]: {
+              fontSize: token.fontSize,
+              color: token.colorTextDescription,
+              lineHeight: token.lineHeightSM,
             },
           },
           [`${token.componentCls}-gasInfo`]: {

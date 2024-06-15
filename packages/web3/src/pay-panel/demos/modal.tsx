@@ -33,7 +33,7 @@ const App: React.FC = () => {
             [Mainnet.id]: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
             [BSC.id]: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
           }}
-          supportedChains={[Mainnet, BSC]}
+          supportedChains={[{ chain: Mainnet }, { chain: BSC }]}
           token={USDT}
           amount={parseUnits('1', USDT.decimal)}
           wallets={[metadata_MetaMask, metadata_imToken, metadata_TokenPocket]}

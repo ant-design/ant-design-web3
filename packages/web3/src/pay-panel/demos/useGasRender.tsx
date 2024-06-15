@@ -10,7 +10,11 @@ import {
 import { Card } from 'antd';
 import { parseUnits } from 'viem';
 
-const App: React.FC = () => {
+const GasRender: React.FC = () => {
+  const supportedChains = [
+    { chain: Mainnet, gasRender: <>GAS≈0.003 ETH ($37.02)</> },
+    { chain: BSC, gasRender: <>GAS≈0.003 ETH ($37.02)</> },
+  ];
   return (
     <Card style={{ width: 450 }}>
       <PayPanel
@@ -18,7 +22,7 @@ const App: React.FC = () => {
           [Mainnet.id]: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
           [BSC.id]: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
         }}
-        supportedChains={[{ chain: Mainnet }, { chain: BSC }]}
+        supportedChains={supportedChains}
         token={USDT}
         amount={parseUnits('1', USDT.decimal)}
         wallets={[metadata_MetaMask, metadata_imToken, metadata_TokenPocket]}
@@ -29,5 +33,4 @@ const App: React.FC = () => {
     </Card>
   );
 };
-
-export default App;
+export default GasRender;

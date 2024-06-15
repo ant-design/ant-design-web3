@@ -11,6 +11,12 @@ The component for receiving coins supports different chain channels and some wal
 
 <code src="./demos/basic.tsx"></code>
 
+## Gas Render Usage
+
+There's a place for the Gas, and if you want to try it out, you can do it yourself.
+
+<code src="./demos/useGasRender.tsx"></code>
+
 ## With Modal
 
 <code src="./demos/modal.tsx"></code>
@@ -19,7 +25,8 @@ The component for receiving coins supports different chain channels and some wal
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| target | Supporting chain and corresponding receiving address | `{ [chainId: string \| number]: string; } \| () => Promise<{ [chainId: string \| number]: string; }>` | - | - |
+| target | Supporting chain corresponding receiving address | `{ [chainId: string \| number]: string; } \| () => Promise<{ [chainId: string \| number]: string; }>` | - | - |
+| supportedChains | Support for chain information | `{chain: Chain, gasRender?: React.ReactNode}[]` | - | - |
 | token | Token info | `Token` | - | - |
 | amount | The number of decimal places | `number \| bigint` | - | - |
 | wallets | List of supported wallets | `WalletMetadata[]` | - | - |

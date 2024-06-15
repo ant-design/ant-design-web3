@@ -33,7 +33,9 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
     setPaymentLink(toAddress);
   }, [target, selectedChainId]);
 
-  const selectedChain = supportedChains.find((chain) => chain.id === Number(selectedChainId));
+  const selectedChain = supportedChains.find(
+    (chain) => chain.chain.id === Number(selectedChainId),
+  )?.chain;
   const availableWallets = wallets.filter((wallet) =>
     wallet.supportChainTypes?.some((chainType) => chainType === selectedChain!.type),
   );
