@@ -21,16 +21,16 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
   const [paymentLink, setPaymentLink] = useState<string>('');
 
   useEffect(() => {
-    let toAddress = '';
+    let address = '';
     if (typeof target === 'function') {
       target().then((targetValue) => {
-        toAddress = targetValue[selectedChainId];
+        address = targetValue[selectedChainId];
       });
     } else {
-      toAddress = target[selectedChainId];
+      address = target[selectedChainId];
     }
-    setToAddress(toAddress);
-    setPaymentLink(toAddress);
+    setToAddress(address);
+    setPaymentLink(address);
   }, [target, selectedChainId]);
 
   const selectedChain = supportedChains.find(
