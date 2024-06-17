@@ -23,7 +23,7 @@ export const ChainInfo: React.FC<ChainListProps> = ({ chainId }) => {
           <span>{returnChainInfo?.chain.name}</span>
         </div>
       </div>
-      <div className={`${prefixCls}-gasInfo`}>{returnChainInfo?.gasRender}</div>
+      <div className={`${prefixCls}-gasInfo`}>{returnChainInfo?.extra}</div>
     </div>
   );
 };

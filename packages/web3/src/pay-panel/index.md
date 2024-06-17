@@ -26,7 +26,7 @@ There's a place for the Gas, and if you want to try it out, you can do it yourse
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | target | Supporting chain corresponding receiving address | `{ [chainId: string \| number]: string; } \| () => Promise<{ [chainId: string \| number]: string; }>` | - | - |
-| supportedChains | Support for chain information | `{chain: Chain, gasRender?: React.ReactNode}[]` | - | - |
+| supportedChains | Support for chain information | `{chain: Chain, extra?: React.ReactNode}[]` | - | - |
 | token | Token info | `Token` | - | - |
 | amount | The number of decimal places | `number \| bigint` | - | - |
 | wallets | List of supported wallets | `WalletMetadata[]` | - | - |

@@ -6,7 +6,7 @@ type PayPanelTargetProps = { [chainId: string | number]: string };
 export type PayPanelProps = {
   amount: number | bigint;
   target: PayPanelTargetProps | (() => Promise<PayPanelTargetProps>);
-  supportedChains: { chain: Chain; gasRender?: React.ReactNode }[];
+  supportedChains: { chain: Chain; extra?: React.ReactNode }[];
   token: Token;
   wallets: WalletMetadata[];
   onFinish: () => void;

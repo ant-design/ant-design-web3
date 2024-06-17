@@ -12,8 +12,8 @@ import { parseUnits } from 'viem';
 
 const GasRender: React.FC = () => {
   const supportedChains = [
-    { chain: Mainnet, gasRender: <>GAS≈0.003 ETH ($37.02)</> },
-    { chain: BSC, gasRender: <>GAS≈0.003 ETH ($37.02)</> },
+    { chain: Mainnet, extra: <>GAS≈0.003 ETH ($37.02)</> },
+    { chain: BSC, extra: <>GAS≈0.003 ETH ($37.02)</> },
   ];
   return (
     <Card style={{ width: 450 }}>
