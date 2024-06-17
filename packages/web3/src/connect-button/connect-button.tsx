@@ -110,10 +110,10 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     address: account?.address,
     name: account?.name,
     avatar: avatar ?? {
-      icon: chain?.icon ? (
-        <div className={`${prefixCls}-chain-icon`}>{chain?.icon}</div>
+      icon: account?.avatar ? (
+        <Avatar className={`${prefixCls}-chain-icon`} src={account?.avatar} />
       ) : (
-        <UserOutlined className={`${prefixCls}-default-icon`} />
+        <Avatar className={`${prefixCls}-chain-icon`} icon={chain?.icon ?? <UserOutlined />} />
       ),
     },
     balance,
@@ -128,11 +128,11 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     <div className={`${prefixCls}-content`}>
       <div className={`${prefixCls}-content-inner`}>
         <div className={`${prefixCls}-text`}>{buttonText}</div>
-        {avatar && (
+        {(account?.avatar || avatar) && (
           <>
             <Divider type="vertical" />
             <div className={`${prefixCls}-avatar`}>
-              <Avatar {...avatar} />
+              <Avatar src={account?.avatar} {...avatar} />
             </div>
           </>
         )}

@@ -1,6 +1,7 @@
 export interface Account {
   address: string;
   name?: string;
+  avatar?: string;
 }
 
 export enum ChainIds {
