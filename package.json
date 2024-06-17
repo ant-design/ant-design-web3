@@ -81,7 +81,7 @@
     "babel-plugin-react-inline-svg-unique-id": "^1.4.0",
     "classnames": "^2.5.1",
     "dumi": "^2.3.8",
-    "dumi-theme-antd-web3": "0.3.16",
+    "dumi-theme-antd-web3": "0.4.1",
     "eslint": "^8.57.0",
     "eslint-plugin-unused-imports": "^3.1.0",
     "ethers": "^6.11.1",
