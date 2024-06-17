@@ -1,14 +1,12 @@
-import React, { useDeferredValue, useMemo } from 'react';
+import React, { useDeferredValue } from 'react';
 import type { Token } from '@ant-design/web3-common';
-import { theme as antdTheme, ConfigProvider, Flex, InputNumber, Typography } from 'antd';
-import { mergeToken } from 'antd/es/theme/internal';
+import { theme as antdTheme, Flex, InputNumber, Typography } from 'antd';
 import Decimal from 'decimal.js';
 import { isNull } from 'lodash';
 
 import { CryptoPrice } from '../crypto-price';
 import useIntl from '../hooks/useIntl';
 import { TokenSelect, type TokenSelectProps } from '../token-select';
-import { CRYPTO_INPUT_TOKEN } from './constants';
 import { useCryptoInputStyle } from './style';
 
 // get CryptoInput self decimal instance with precision 100
@@ -65,15 +63,6 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
     token: { InputNumber: CUSTOM_TOKEN },
   } = antdTheme.useToken();
 
-  /**
-   * if user not overwrite the token
-   * use our default theme settings
-   */
-  const finalToken = useMemo(
-    () => mergeToken(CRYPTO_INPUT_TOKEN, CUSTOM_TOKEN || {}),
-    [CUSTOM_TOKEN],
-  );
-
   const { token, inputString } = value || {};
 
   const { wrapSSR, getClsName } = useCryptoInputStyle();
@@ -88,69 +77,61 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
   return wrapSSR(
     <Flex vertical className={getClsName('wrapper')}>
       {header && <div className={getClsName('header')}>{header}</div>}
-      <ConfigProvider
-        theme={{
-          components: {
-            InputNumber: finalToken,
-          },
-        }}
-      >
-        <InputNumber
-          stringMode
-          size={size}
-          controls={false}
-          variant="borderless"
-          className={getClsName('amount')}
-          placeholder={messages.placeholder}
-          value={inputString}
-          // remove unnecessary 0 at the end of the number
-          onChange={(amt) => {
-            // if amount is null or token is not selected, clean the value
-            if (isNull(amt) || !token) {
-              onChange?.({
-                token,
-              });
-              return;
-            }
-
-            const [integers, decimals] = String(amt).split('.');
-
-            let inputAmt = amt;
-
-            // if precision is more than token decimal, cut it
-            if (decimals?.length > token.decimal) {
-              inputAmt = `${integers}.${decimals.slice(0, token.decimal)}`;
-            }
-
-            // covert string amt to bigint
-
-            const newAmt = BigInt(
-              new Decimal100(inputAmt)
-                .times(Decimal100.pow(10, token.decimal))
-                .toFixed(0, Decimal100.ROUND_DOWN),
-            );
-
+      <InputNumber
+        stringMode
+        size={size}
+        controls={false}
+        variant="borderless"
+        className={getClsName('amount')}
+        placeholder={messages.placeholder}
+        value={inputString}
+        // remove unnecessary 0 at the end of the number
+        onChange={(amt) => {
+          // if amount is null or token is not selected, clean the value
+          if (isNull(amt) || !token) {
             onChange?.({
-              ...value,
-              amount: newAmt,
-              inputString: inputAmt,
+              token,
             });
-          }}
-          addonAfter={
-            <TokenSelect
-              variant="borderless"
-              {...selectProps}
-              value={value?.token}
-              onChange={(newToken) =>
-                onChange?.({
-                  token: newToken,
-                })
-              }
-              size={size}
-            />
+            return;
           }
-        />
-      </ConfigProvider>
+
+          const [integers, decimals] = String(amt).split('.');
+
+          let inputAmt = amt;
+
+          // if precision is more than token decimal, cut it
+          if (decimals?.length > token.decimal) {
+            inputAmt = `${integers}.${decimals.slice(0, token.decimal)}`;
+          }
+
+          // covert string amt to bigint
+
+          const newAmt = BigInt(
+            new Decimal100(inputAmt)
+              .times(Decimal100.pow(10, token.decimal))
+              .toFixed(0, Decimal100.ROUND_DOWN),
+          );
+
+          onChange?.({
+            ...value,
+            amount: newAmt,
+            inputString: inputAmt,
+          });
+        }}
+        addonAfter={
+          <TokenSelect
+            variant="borderless"
+            {...selectProps}
+            value={value?.token}
+            onChange={(newToken) =>
+              onChange?.({
+                token: newToken,
+              })
+            }
+            size={size}
+          />
+        }
+      />
       {footer !== false && (
         <div className={getClsName('footer')}>
           {footer || (

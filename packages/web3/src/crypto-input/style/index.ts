@@ -28,8 +28,10 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
     lineHeightSM,
     lineHeightHeading1,
     lineHeightHeading3,
-    InputNumber: { inputFontSize, inputFontSizeLG, inputFontSizeSM } = {},
   } = token;
+
+  const { inputFontSize, inputFontSizeSM, inputFontSizeLG, paddingInline, paddingBlock } =
+    CRYPTO_INPUT_TOKEN;
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -47,6 +49,8 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
         [`${antCls}-input-number-input`]: {
           fontWeight: fontWeightStrong,
           lineHeight: lineHeightHeading3,
+          paddingInline: paddingInline,
+          paddingBlock: paddingBlock,
 
           '&::placeholder': {
             fontWeight: 'normal',
@@ -68,6 +72,10 @@ const getTokenStyle: GenerateStyle<TokenStyle> = (token) => {
         [`${antCls}-input-number-input`]: {
           lineHeight: lineHeightSM,
         },
+      },
+
+      [`${antCls}-input-number-group-addon`]: {
+        paddingInlineEnd: paddingInline,
       },
     },
 
@@ -104,10 +112,6 @@ export function useStyle(prefixCls: string): UseStyleResult {
   return useAntdStyle('crypto-input', (token) => {
     const proListToken: TokenStyle = {
       ...token,
-      InputNumber: {
-        ...CRYPTO_INPUT_TOKEN,
-        ...token.InputNumber!,
-      },
       componentCls: `.${prefixCls}`,
     };
 
