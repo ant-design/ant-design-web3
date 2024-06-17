@@ -1,6 +1,8 @@
 export interface Account {
   address: string;
   name?: string;
+  avatar?: string;
+  status?: 'default' | 'connected' | 'connecting' | 'disconnected';
 }
 
 export enum ChainIds {
@@ -108,9 +110,9 @@ export interface UniversalWeb3ProviderInterface {
 }
 
 export interface Wallet extends WalletMetadata {
-  hasWalletReady?: () => Promise<boolean>;
-  hasExtensionInstalled?: () => Promise<boolean>;
-  getQrCode?: () => Promise<{ uri: string }>;
+  hasWalletReady?: () => boolean | Promise<boolean>;
+  hasExtensionInstalled?: () => boolean | Promise<boolean>;
+  getQrCode?: () => { uri: string } | Promise<{ uri: string }>;
 }
 
 /**
