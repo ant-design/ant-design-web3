@@ -51,7 +51,7 @@
     "@walletconnect/core": "^2.12.1",
     "@walletconnect/universal-provider": "^2.13.0",
     "@walletconnect/utils": "^2.13.0",
-    "@walletconnect/web3wallet": "^1.12.0",
+    "@walletconnect/web3wallet": "^1.12.3",
     "bs58": "^5.0.0",
     "debug": "^4.3.4"
   },
