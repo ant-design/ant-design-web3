@@ -32,7 +32,7 @@ order: 3
 
 ### ChainBrowser
 
-| Property | Description | Type | Default | Version |
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | icon | 链浏览器图标 | `React.ReactNode` | - | - |
 | getBrowserLink | 从区块链浏览器获取地址或交易链接方法 | `(address: string, type: 'address' \| 'transaction') => string` | - | - |
@@ -114,10 +114,10 @@ order: 3
 
 ### TokenChain
 
-| Property | Description          | Type            | Default | Version |
-| -------- | -------------------- | --------------- | ------- | ------- |
-| chain    | 链信息               | [Chain](#chain) | -       | -       |
-| contract | 代币在该链的合约地址 | `string`        | -       |
+| 属性     | 描述                 | 类型            | 默认值 | 版本 |
+| -------- | -------------------- | --------------- | ------ | ---- |
+| chain    | 链信息               | [Chain](#chain) | -      | -    |
+| contract | 代币在该链的合约地址 | `string`        | -      |
 
 ## Locale
 
