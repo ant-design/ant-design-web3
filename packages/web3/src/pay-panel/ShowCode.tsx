@@ -2,9 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { WalletColorful } from '@ant-design/web3-icons';
 import { Button, ConfigProvider, Flex, QRCode, Statistic, Tabs, Typography } from 'antd';
-// @ts-ignore
-import { useIntl } from 'dumi';
 
+import useIntl from '../hooks/useIntl';
 import { PayPanelContext } from './PayPanelContext';
 
 const { Paragraph } = Typography;
@@ -13,7 +12,7 @@ interface ShowCodeProps {
   onReturn: () => void;
 }
 export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn }) => {
-  const intl = useIntl();
+  const { messages } = useIntl('PayPanel');
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-pay-panel');
   const { token, amount, target, supportedChains, wallets, onFinish } = useContext(PayPanelContext);
@@ -93,7 +92,7 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
       <div className={`${prefixCls}-code-content`}>
         <div className={`${prefixCls}-code-tips`}>
           <InfoCircleOutlined />
-          <span>{intl.formatMessage({ id: 'app.docs.components.paypanel.tips' })}</span>
+          <span>{messages.tips}</span>
         </div>
 
         {paymentLink && <QRCode value={paymentLink} />}

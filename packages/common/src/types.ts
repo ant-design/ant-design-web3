@@ -283,6 +283,9 @@ export interface RequiredLocale {
     placeholder: string;
     maxButtonText: string;
   };
+  PayPanel: {
+    tips: string;
+  };
 }
 
 export interface Locale {
@@ -292,6 +295,7 @@ export interface Locale {
   Address?: Partial<RequiredLocale['Address']>;
   TokenSelect?: Partial<RequiredLocale['TokenSelect']>;
   CryptoInput?: Partial<RequiredLocale['CryptoInput']>;
+  PayPanel?: Partial<RequiredLocale['PayPanel']>;
 }
 
 export interface UniversalEIP6963Config {
