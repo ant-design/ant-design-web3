@@ -51,14 +51,15 @@
     "antd": "^5.17.3",
     "bs58": "^5.0.0",
     "classnames": "^2.5.1",
-    "copy-to-clipboard": "^3.3.3"
+    "copy-to-clipboard": "^3.3.3",
+    "decimal.js": "^10.4.3"
   },
   "devDependencies": {
     "@ant-design/web3-bitcoin": "workspace:*",
+    "@ant-design/web3-eth-web3js": "workspace:*",
     "@ant-design/web3-ethers": "workspace:*",
     "@ant-design/web3-solana": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
-    "@ant-design/web3-eth-web3js": "workspace:*",
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
     "father": "^4.4.4",

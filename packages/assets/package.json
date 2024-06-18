@@ -20,6 +20,11 @@
       "import": "./dist/esm/solana/index.js",
       "require": "./dist/lib/solana/index.js",
       "types": "./dist/esm/solana/index.d.ts"
+    },
+    "./tokens": {
+      "import": "./dist/esm/tokens/index.js",
+      "require": "./dist/lib/tokens/index.js",
+      "types": "./dist/esm/tokens/index.d.ts"
     }
   },
   "sideEffects": false,
