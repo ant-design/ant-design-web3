@@ -1,4 +1,4 @@
-(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[4293],{70755:function(t,n,o){"use strict";o.r(n),o.d(n,{BitcoinWeb3ConfigProvider:function(){return e.N},OkxWallet:function(){return r.Yw},UnisatWallet:function(){return r.Oq},XverseWallet:function(){return r.x5},useBitcoinWallet:function(){return c.i}});var e=o(55281),r=o(19073),i=o(60183),u=o.n(i),d={};for(var s in i)["default","useBitcoinWallet","BitcoinWeb3ConfigProvider","OkxWallet","UnisatWallet","XverseWallet"].indexOf(s)<0&&(d[s]=function(a){return i[a]}.bind(0,s));o.d(n,d);var c=o(45010)},60183:function(){},9609:function(t,n,o){"use strict";o.r(n),o.d(n,{CoinbaseWallet:function(){return i.G},EthersWeb3ConfigProvider:function(){return e.G},ImToken:function(){return a.V},MetaMask:function(){return r.M},OkxWallet:function(){return c.Y},SafeheronWallet:function(){return d.V},TokenPocket:function(){return u.g},UniversalWallet:function(){return s.M},clientToProvider:function(){return l.j},clientToSigner:function(){return p.r},useEthersProvider:function(){return l.Z},useEthersSigner:function(){return p.z}});var e=o(26315),r=o(35698),i=o(35331),u=o(15563),d=o(31917),s=o(8935),c=o(27765),a=o(2327),l=o(20720),p=o(30100)},20770:function(t,n,o){"use strict";o.r(n),o.d(n,{BaseError:function(){return e.BaseError},ChainNotConfiguredError:function(){return e.ChainNotConfiguredError},ConnectorAccountNotFoundError:function(){return e.ConnectorAccountNotFoundError},ConnectorAlreadyConnectedError:function(){return e.ConnectorAlreadyConnectedError},ConnectorNotFoundError:function(){return e.ConnectorNotFoundError},Context:function(){return e.Context},Hydrate:function(){return e.Hydrate},ProviderNotFoundError:function(){return e.ProviderNotFoundError},SwitchChainNotSupportedError:function(){return e.SwitchChainNotSupportedError},WagmiConfig:function(){return e.WagmiConfig},WagmiContext:function(){return e.WagmiContext},WagmiProvider:function(){return e.WagmiProvider},WagmiProviderNotFoundError:function(){return e.WagmiProviderNotFoundError},actions:function(){return r},chains:function(){return i},connectors:function(){return u},cookieStorage:function(){return e.cookieStorage},cookieToInitialState:function(){return e.cookieToInitialState},createConfig:function(){return e.createConfig},createConnector:function(){return e.createConnector},createStorage:function(){return e.createStorage},custom:function(){return e.custom},deepEqual:function(){return e.deepEqual},deserialize:function(){return e.deserialize},fallback:function(){return e.fallback},http:function(){return e.http},noopStorage:function(){return e.noopStorage},normalizeChainId:function(){return e.normalizeChainId},parseCookie:function(){return e.parseCookie},serialize:function(){return e.serialize},unstable_connector:function(){return e.unstable_connector},useAccount:function(){return e.useAccount},useAccountEffect:function(){return e.useAccountEffect},useBalance:function(){return e.useBalance},useBlock:function(){return e.useBlock},useBlockNumber:function(){return e.useBlockNumber},useBlockTransactionCount:function(){return e.useBlockTransactionCount},useBytecode:function(){return e.useBytecode},useCall:function(){return e.useCall},useChainId:function(){return e.useChainId},useChains:function(){return e.useChains},useClient:function(){return e.useClient},useConfig:function(){return e.useConfig},useConnect:function(){return e.useConnect},useConnections:function(){return e.useConnections},useConnectorClient:function(){return e.useConnectorClient},useConnectors:function(){return e.useConnectors},useContractInfiniteReads:function(){return e.useContractInfiniteReads},useContractRead:function(){return e.useContractRead},useContractReads:function(){return e.useContractReads},useContractWrite:function(){return e.useContractWrite},useDisconnect:function(){return e.useDisconnect},useEnsAddress:function(){return e.useEnsAddress},useEnsAvatar:function(){return e.useEnsAvatar},useEnsName:function(){return e.useEnsName},useEnsResolver:function(){return e.useEnsResolver},useEnsText:function(){return e.useEnsText},useEstimateFeesPerGas:function(){return e.useEstimateFeesPerGas},useEstimateGas:function(){return e.useEstimateGas},useEstimateMaxPriorityFeePerGas:function(){return e.useEstimateMaxPriorityFeePerGas},useFeeData:function(){return e.useFeeData},useFeeHistory:function(){return e.useFeeHistory},useGasPrice:function(){return e.useGasPrice},useInfiniteReadContracts:function(){return e.useInfiniteReadContracts},usePrepareTransactionRequest:function(){return e.usePrepareTransactionRequest},useProof:function(){return e.useProof},usePublicClient:function(){return e.usePublicClient},useReadContract:function(){return e.useReadContract},useReadContracts:function(){return e.useReadContracts},useReconnect:function(){return e.useReconnect},useSendTransaction:function(){return e.useSendTransaction},useSignMessage:function(){return e.useSignMessage},useSignTypedData:function(){return e.useSignTypedData},useSimulateContract:function(){return e.useSimulateContract},useStorageAt:function(){return e.useStorageAt},useSwitchAccount:function(){return e.useSwitchAccount},useSwitchChain:function(){return e.useSwitchChain},useToken:function(){return e.useToken},useTransaction:function(){return e.useTransaction},useTransactionConfirmations:function(){return e.useTransactionConfirmations},useTransactionCount:function(){return e.useTransactionCount},useTransactionReceipt:function(){return e.useTransactionReceipt},useVerifyMessage:function(){return e.useVerifyMessage},useVerifyTypedData:function(){return e.useVerifyTypedData},useWaitForTransactionReceipt:function(){return e.useWaitForTransactionReceipt},useWalletClient:function(){return e.useWalletClient},useWatchBlockNumber:function(){return e.useWatchBlockNumber},useWatchBlocks:function(){return e.useWatchBlocks},useWatchContractEvent:function(){return e.useWatchContractEvent},useWatchPendingTransactions:function(){return e.useWatchPendingTransactions},useWriteContract:function(){return e.useWriteContract},version:function(){return e.version},webSocket:function(){return e.webSocket}});var e=o(6290),r=o(78420),i=o(68462),u=o(8714)},29774:function(t,n,o){"use strict";o.r(n),o.d(n,{BackpackWallet:function(){return a.bS},CoinbaseWallet:function(){return a.GU},OKXWallet:function(){return a.D2},PhantomWallet:function(){return a.j1},SolanaWeb3ConfigProvider:function(){return d.G},StandardWalletFactory:function(){return c.Oy},TrustWallet:function(){return a.d0},WalletAdapterNetwork:function(){return u.Q},WalletConnectWallet:function(){return a.eM},WalletConnectWalletFactory:function(){return c.Ho},WalletFactory:function(){return c.$d},solana:function(){return s.Zj},solanaDevnet:function(){return s.ol},solanaTestnet:function(){return s.Q6},useAnchorWallet:function(){return r.z},useConnection:function(){return i.R},useWallet:function(){return e.O}});var e=o(75975),r=o(21497),i=o(56986),u=o(87911),d=o(72631),s=o(16145),c=o(28863),a=o(13470)},35564:function(t,n,o){"use strict";o.r(n),o.d(n,{fillWithPrefix:function(){return r.fillWithPrefix},formatAddress:function(){return r.formatAddress},formatBalance:function(){return r.formatBalance},getPlatform:function(){return e.getPlatform},writeCopyText:function(){return e.writeCopyText}});var e=o(5867),r=o(44977)},14543:function(t,n){"use strict";n.Z=`import { Address } from '@ant-design/web3';
+(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[6027],{87744:function(t,n,o){"use strict";o.d(n,{h:function(){return i}});var e=o(50434),r=o(23202),a=o(11527),i={name:"Ethereum",symbol:"ETH",decimal:18,icon:(0,a.jsx)(e.m,{}),availableChains:[{chain:r.ny},{chain:r.Su,contract:"0x2170Ed0880ac9A755fd29B2688956BD959F933F8"}]}},59699:function(t,n,o){"use strict";o.r(n),o.d(n,{ETH:function(){return e.h},USDT:function(){return r.A}});var e=o(87744),r=o(7779)},7779:function(t,n,o){"use strict";o.d(n,{A:function(){return i}});var e=o(29076),r=o(23202),a=o(11527),i={name:"Tether USD",symbol:"USDT",decimal:6,icon:(0,a.jsx)(e.d,{}),availableChains:[{chain:r.ny,contract:"0xdac17f958d2ee523a2206206994597c13d831ec7"},{chain:r.mg,contract:"0x3813e82e6f7098b9583FC0F33a962D02018B6803"},{chain:r.Su,contract:"0x55d398326f99059fF775485246999027B3197955"},{chain:r.Ff,contract:"0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"},{chain:r.qr,contract:"0x7f5c764cbc14f9669b88837ca1490cca17c31607"}]}},70755:function(t,n,o){"use strict";o.r(n),o.d(n,{BitcoinWeb3ConfigProvider:function(){return e.N},OkxWallet:function(){return r.Yw},UnisatWallet:function(){return r.Oq},XverseWallet:function(){return r.x5},useBitcoinWallet:function(){return u.i}});var e=o(55281),r=o(19073),a=o(60183),i=o.n(a),d={};for(var c in a)["default","useBitcoinWallet","BitcoinWeb3ConfigProvider","OkxWallet","UnisatWallet","XverseWallet"].indexOf(c)<0&&(d[c]=function(s){return a[s]}.bind(0,c));o.d(n,d);var u=o(45010)},60183:function(){},9609:function(t,n,o){"use strict";o.r(n),o.d(n,{CoinbaseWallet:function(){return a.G},EthersWeb3ConfigProvider:function(){return e.G},ImToken:function(){return s.V},MetaMask:function(){return r.M},OkxWallet:function(){return u.Y},SafeheronWallet:function(){return d.V},TokenPocket:function(){return i.g},UniversalWallet:function(){return c.M},clientToProvider:function(){return l.j},clientToSigner:function(){return p.r},useEthersProvider:function(){return l.Z},useEthersSigner:function(){return p.z}});var e=o(26315),r=o(35698),a=o(35331),i=o(15563),d=o(31917),c=o(8935),u=o(27765),s=o(2327),l=o(20720),p=o(30100)},20770:function(t,n,o){"use strict";o.r(n),o.d(n,{BaseError:function(){return e.BaseError},ChainNotConfiguredError:function(){return e.ChainNotConfiguredError},ConnectorAccountNotFoundError:function(){return e.ConnectorAccountNotFoundError},ConnectorAlreadyConnectedError:function(){return e.ConnectorAlreadyConnectedError},ConnectorNotFoundError:function(){return e.ConnectorNotFoundError},Context:function(){return e.Context},Hydrate:function(){return e.Hydrate},ProviderNotFoundError:function(){return e.ProviderNotFoundError},SwitchChainNotSupportedError:function(){return e.SwitchChainNotSupportedError},WagmiConfig:function(){return e.WagmiConfig},WagmiContext:function(){return e.WagmiContext},WagmiProvider:function(){return e.WagmiProvider},WagmiProviderNotFoundError:function(){return e.WagmiProviderNotFoundError},actions:function(){return r},chains:function(){return a},connectors:function(){return i},cookieStorage:function(){return e.cookieStorage},cookieToInitialState:function(){return e.cookieToInitialState},createConfig:function(){return e.createConfig},createConnector:function(){return e.createConnector},createStorage:function(){return e.createStorage},custom:function(){return e.custom},deepEqual:function(){return e.deepEqual},deserialize:function(){return e.deserialize},fallback:function(){return e.fallback},http:function(){return e.http},noopStorage:function(){return e.noopStorage},normalizeChainId:function(){return e.normalizeChainId},parseCookie:function(){return e.parseCookie},serialize:function(){return e.serialize},unstable_connector:function(){return e.unstable_connector},useAccount:function(){return e.useAccount},useAccountEffect:function(){return e.useAccountEffect},useBalance:function(){return e.useBalance},useBlock:function(){return e.useBlock},useBlockNumber:function(){return e.useBlockNumber},useBlockTransactionCount:function(){return e.useBlockTransactionCount},useBytecode:function(){return e.useBytecode},useCall:function(){return e.useCall},useChainId:function(){return e.useChainId},useChains:function(){return e.useChains},useClient:function(){return e.useClient},useConfig:function(){return e.useConfig},useConnect:function(){return e.useConnect},useConnections:function(){return e.useConnections},useConnectorClient:function(){return e.useConnectorClient},useConnectors:function(){return e.useConnectors},useContractInfiniteReads:function(){return e.useContractInfiniteReads},useContractRead:function(){return e.useContractRead},useContractReads:function(){return e.useContractReads},useContractWrite:function(){return e.useContractWrite},useDisconnect:function(){return e.useDisconnect},useEnsAddress:function(){return e.useEnsAddress},useEnsAvatar:function(){return e.useEnsAvatar},useEnsName:function(){return e.useEnsName},useEnsResolver:function(){return e.useEnsResolver},useEnsText:function(){return e.useEnsText},useEstimateFeesPerGas:function(){return e.useEstimateFeesPerGas},useEstimateGas:function(){return e.useEstimateGas},useEstimateMaxPriorityFeePerGas:function(){return e.useEstimateMaxPriorityFeePerGas},useFeeData:function(){return e.useFeeData},useFeeHistory:function(){return e.useFeeHistory},useGasPrice:function(){return e.useGasPrice},useInfiniteReadContracts:function(){return e.useInfiniteReadContracts},usePrepareTransactionRequest:function(){return e.usePrepareTransactionRequest},useProof:function(){return e.useProof},usePublicClient:function(){return e.usePublicClient},useReadContract:function(){return e.useReadContract},useReadContracts:function(){return e.useReadContracts},useReconnect:function(){return e.useReconnect},useSendTransaction:function(){return e.useSendTransaction},useSignMessage:function(){return e.useSignMessage},useSignTypedData:function(){return e.useSignTypedData},useSimulateContract:function(){return e.useSimulateContract},useStorageAt:function(){return e.useStorageAt},useSwitchAccount:function(){return e.useSwitchAccount},useSwitchChain:function(){return e.useSwitchChain},useToken:function(){return e.useToken},useTransaction:function(){return e.useTransaction},useTransactionConfirmations:function(){return e.useTransactionConfirmations},useTransactionCount:function(){return e.useTransactionCount},useTransactionReceipt:function(){return e.useTransactionReceipt},useVerifyMessage:function(){return e.useVerifyMessage},useVerifyTypedData:function(){return e.useVerifyTypedData},useWaitForTransactionReceipt:function(){return e.useWaitForTransactionReceipt},useWalletClient:function(){return e.useWalletClient},useWatchBlockNumber:function(){return e.useWatchBlockNumber},useWatchBlocks:function(){return e.useWatchBlocks},useWatchContractEvent:function(){return e.useWatchContractEvent},useWatchPendingTransactions:function(){return e.useWatchPendingTransactions},useWriteContract:function(){return e.useWriteContract},version:function(){return e.version},webSocket:function(){return e.webSocket}});var e=o(6290),r=o(78420),a=o(68462),i=o(8714)},29774:function(t,n,o){"use strict";o.r(n),o.d(n,{BackpackWallet:function(){return s.bS},CoinbaseWallet:function(){return s.GU},OKXWallet:function(){return s.D2},PhantomWallet:function(){return s.j1},SolanaWeb3ConfigProvider:function(){return d.G},StandardWalletFactory:function(){return u.Oy},TrustWallet:function(){return s.d0},WalletAdapterNetwork:function(){return i.Q},WalletConnectWallet:function(){return s.eM},WalletConnectWalletFactory:function(){return u.Ho},WalletFactory:function(){return u.$d},solana:function(){return c.Zj},solanaDevnet:function(){return c.ol},solanaTestnet:function(){return c.Q6},useAnchorWallet:function(){return r.z},useConnection:function(){return a.R},useWallet:function(){return e.O}});var e=o(75975),r=o(21497),a=o(56986),i=o(87911),d=o(72631),c=o(16145),u=o(28863),s=o(13470)},35564:function(t,n,o){"use strict";o.r(n),o.d(n,{fillWithPrefix:function(){return r.fillWithPrefix},formatAddress:function(){return r.formatAddress},formatBalance:function(){return r.formatBalance},getPlatform:function(){return e.getPlatform},writeCopyText:function(){return e.writeCopyText}});var e=o(5867),r=o(44977)},14543:function(t,n){"use strict";n.Z=`import { Address } from '@ant-design/web3';
 
 const App: React.FC = () => {
   return <Address ellipsis address={'3ea2cfd153b8d8505097b81c87c11f5d05097c18'} />;
@@ -1395,6 +1395,276 @@ const App: React.FC = () => {
 };
 
 export default App;
+`},41616:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+import { CryptoInput, type CryptoInputProps, type Token } from '@ant-design/web3';
+import { ETH, USDT } from '@ant-design/web3-assets/tokens';
+
+const App: React.FC = () => {
+  const [crypto, setCrypto] = useState<CryptoInputProps['value']>();
+
+  const [tokenBalance, setTokenBalance] = useState<CryptoInputProps['balance']>();
+
+  const handleQueryCrypto = async (token?: Token) => {
+    if (!token) {
+      return setTokenBalance(undefined);
+    }
+
+    // mock query token balance
+    setTimeout(() => {
+      setTokenBalance({
+        amount: 10000000000000000000000n,
+        unit: '$',
+        price: 3984.57,
+      });
+    }, 500);
+  };
+
+  return (
+    <div style={{ width: 456 }}>
+      <CryptoInput
+        value={crypto}
+        balance={tokenBalance}
+        onChange={(value) => {
+          setCrypto(value);
+
+          if (value?.token?.symbol !== crypto?.token?.symbol) {
+            handleQueryCrypto(value?.token);
+          }
+        }}
+        tokenList={[ETH, USDT]}
+      />
+    </div>
+  );
+};
+
+export default App;
+`},15794:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+import type { CryptoInputProps } from '@ant-design/web3';
+import { CryptoInput } from '@ant-design/web3';
+import { ETH, USDT } from '@ant-design/web3-assets/tokens';
+
+const App: React.FC = () => {
+  const [crypto, setCrypto] = useState<CryptoInputProps['value']>();
+
+  return (
+    <div style={{ width: 456 }}>
+      <CryptoInput
+        footer={'Custom Footer'}
+        value={crypto}
+        onChange={setCrypto}
+        tokenList={[ETH, USDT]}
+      />
+    </div>
+  );
+};
+
+export default App;
+`},73295:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+import { CryptoInput, type CryptoInputProps } from '@ant-design/web3';
+import { ETH, USDT } from '@ant-design/web3-assets/tokens';
+
+const App: React.FC = () => {
+  const [crypto, setCrypto] = useState<CryptoInputProps['value']>();
+
+  return (
+    <div style={{ width: 456 }}>
+      <CryptoInput
+        value={crypto}
+        onChange={setCrypto}
+        header={'Crypto Input Header'}
+        tokenList={[ETH, USDT]}
+      />
+    </div>
+  );
+};
+
+export default App;
+`},47971:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+import { CryptoInput, type CryptoInputProps } from '@ant-design/web3';
+import { ETH, USDT } from '@ant-design/web3-assets/tokens';
+
+const App: React.FC = () => {
+  const [crypto, setCrypto] = useState<CryptoInputProps['value']>();
+
+  return (
+    <div style={{ width: 456 }}>
+      <CryptoInput value={crypto} footer={false} onChange={setCrypto} tokenList={[ETH, USDT]} />
+    </div>
+  );
+};
+
+export default App;
+`},835:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+import { CryptoInput, type CryptoInputProps, type Token } from '@ant-design/web3';
+import { ETH, USDT } from '@ant-design/web3-assets/tokens';
+import { Radio } from 'antd';
+
+const App: React.FC = () => {
+  const [crypto, setCrypto] = useState<CryptoInputProps['value']>();
+
+  const [tokenBalance, setTokenBalance] = useState<CryptoInputProps['balance']>();
+
+  const [size, setSize] = useState<CryptoInputProps['size']>('middle');
+
+  const handleQueryCrypto = async (token?: Token) => {
+    if (!token) {
+      return setTokenBalance(undefined);
+    }
+
+    // mock query token balance
+    setTimeout(() => {
+      setTokenBalance({
+        amount: 10000000000000000000000n,
+        unit: '$',
+        price: 3984.57,
+      });
+    }, 500);
+  };
+
+  return (
+    <div style={{ width: 480, rowGap: 16 }}>
+      <Radio.Group
+        value={size}
+        onChange={(e) => setSize(e.target.value)}
+        optionType="button"
+        options={[
+          {
+            label: 'small',
+            value: 'small',
+          },
+          {
+            label: 'middle',
+            value: 'middle',
+          },
+          {
+            label: 'large',
+            value: 'large',
+          },
+        ]}
+        style={{ marginBottom: 16 }}
+      />
+      <CryptoInput
+        value={crypto}
+        balance={tokenBalance}
+        onChange={(value) => {
+          setCrypto(value);
+
+          if (value?.token?.symbol !== crypto?.token?.symbol) {
+            handleQueryCrypto(value?.token);
+          }
+        }}
+        tokenList={[ETH, USDT]}
+        size={size}
+      />
+    </div>
+  );
+};
+
+export default App;
+`},5098:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+import { SwapOutlined } from '@ant-design/icons';
+import { CryptoInput, type CryptoInputProps, type Token } from '@ant-design/web3';
+import { ETH, USDT } from '@ant-design/web3-assets/tokens';
+import { Button, Flex } from 'antd';
+import Decimal from 'decimal.js';
+
+const App: React.FC = () => {
+  const [cryptoPair, setCryptoPair] = useState<CryptoInputProps['value'][]>([]);
+
+  const [tokenBalances, setTokenBalances] = useState<CryptoInputProps['balance'][]>([]);
+
+  const handleQueryCrypto = async (crptoIndex: number, token?: Token) => {
+    const newTokenBalances = [...tokenBalances];
+    if (!token) {
+      newTokenBalances[crptoIndex] = undefined;
+
+      return setTokenBalances(newTokenBalances);
+    }
+
+    // mock query token balance
+    console.log('Decimal.pow(10, token.decimal)', Decimal.pow(10, token.decimal).toFixed());
+
+    setTimeout(() => {
+      newTokenBalances[crptoIndex] = {
+        amount: BigInt(new Decimal(1000).times(Decimal.pow(10, token.decimal)).toFixed()),
+        unit: '$',
+        price: token.name.includes('USD') ? 0.99 : 3984.57,
+      };
+
+      setTokenBalances(newTokenBalances);
+    }, 500);
+  };
+
+  return (
+    <Flex vertical align="center" style={{ width: 456 }} gap={16}>
+      <CryptoInput
+        header={'Sell'}
+        value={cryptoPair[0]}
+        balance={tokenBalances[0]}
+        onChange={(crypto) => {
+          setCryptoPair([crypto, cryptoPair[1]]);
+
+          if (crypto?.token?.symbol !== cryptoPair?.[0]?.token?.symbol) {
+            handleQueryCrypto(0, crypto?.token);
+          }
+        }}
+        tokenList={[ETH, USDT]}
+      />
+      <span
+        style={{
+          width: 30,
+          height: 30,
+          background: '#fff',
+          border: '1px solid #d9d9d9',
+          borderRadius: 8,
+          marginBlock: -24,
+          zIndex: 2,
+          textAlign: 'center',
+          cursor: 'pointer',
+          boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.1)',
+        }}
+        onClick={() => {
+          setCryptoPair([cryptoPair[1], cryptoPair[0]]);
+
+          setTokenBalances([tokenBalances[1], tokenBalances[0]]);
+        }}
+      >
+        <SwapOutlined
+          style={{
+            fontSize: 18,
+            transform: 'rotate(90deg)',
+            marginBlockStart: 6,
+          }}
+        />
+      </span>
+      <CryptoInput
+        header={'Buy'}
+        value={cryptoPair[1]}
+        balance={tokenBalances[1]}
+        onChange={(crypto) => {
+          setCryptoPair([cryptoPair[0], crypto]);
+
+          if (crypto?.token?.symbol !== cryptoPair?.[1]?.token?.symbol) {
+            handleQueryCrypto(1, crypto?.token);
+          }
+        }}
+        tokenList={[ETH, USDT]}
+      />
+      <Button
+        type="primary"
+        size="large"
+        style={{ width: '100%' }}
+        onClick={() => {
+          console.log('current crypto pair:', cryptoPair);
+        }}
+      >
+        Swap
+      </Button>
+    </Flex>
+  );
+};
+
+export default App;
 `},14570:function(t,n){"use strict";n.Z=`import { CryptoPrice } from '@ant-design/web3';
 
 const App: React.FC = () => {
@@ -2540,6 +2810,36 @@ const App: React.FC = () => {
         <ConnectButton />
       </Connector>
     </SolanaWeb3ConfigProvider>
+  );
+};
+
+export default App;
+`},1413:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+import { TokenSelect, type Token } from '@ant-design/web3';
+import { ETH, USDT } from '@ant-design/web3-assets/tokens';
+
+const App: React.FC = () => {
+  const [token, setToken] = useState<Token>();
+
+  return <TokenSelect value={token} onChange={setToken} tokenList={[ETH, USDT]} />;
+};
+
+export default App;
+`},90937:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+import { TokenSelect, type Token } from '@ant-design/web3';
+import { ETH, USDT } from '@ant-design/web3-assets/tokens';
+
+const App: React.FC = () => {
+  const [token, setToken] = useState<Token>();
+
+  return (
+    <TokenSelect
+      showSearch
+      value={token}
+      onChange={setToken}
+      placeholder={'Enter name / contract'}
+      tokenList={[ETH, USDT]}
+    />
   );
 };
 
