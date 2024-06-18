@@ -29,7 +29,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     actionRef,
     defaultSelectedWallet,
     locale,
-    loading,
+    connecting,
   } = props;
   const intl = useIntl('ConnectModal', locale);
   const showQRCoodByDefault = defaultSelectedWallet?.getQrCode;
@@ -99,7 +99,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
         canBack: routeStack.current.length > 1,
         localeMessage: intl.messages,
         getMessage: intl.getMessage,
-        loading,
+        connecting,
       }}
     >
       <div

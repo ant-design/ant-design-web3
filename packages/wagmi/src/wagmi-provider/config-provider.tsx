@@ -7,17 +7,18 @@ import {
   type Locale,
   type Wallet,
 } from '@ant-design/web3-common';
-import { disconnect, getAccount } from '@wagmi/core';
 import type { Chain as WagmiChain } from 'viem';
 import {
   useAccount,
   useBalance,
   useConfig,
   useConnect,
+  useEnsAvatar,
   useEnsName,
   useSwitchChain,
   type Connector as WagmiConnector,
 } from 'wagmi';
+import { disconnect, getAccount } from 'wagmi/actions';
 
 import type { EIP6963Config, WalletFactory, WalletUseInWagmiAdapter } from '../interface';
 import { isEIP6963Connector } from '../utils';
@@ -43,35 +44,26 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     walletFactorys,
     availableChains,
     availableConnectors,
-    ens,
+    ens = true,
     balance,
     locale,
     eip6963,
   } = props;
   const { address, isDisconnected, chain } = useAccount();
   const config = useConfig();
-  const [account, setAccount] = React.useState<Account | undefined>();
   const { connectAsync } = useConnect();
   const { switchChain } = useSwitchChain();
-  const { data: balanceData } = useBalance({
-    address: balance && account ? fillAddressWith0x(account.address) : undefined,
-  });
+  const { data: balanceData } = useBalance({ address });
   const { data: ensName } = useEnsName({ address });
-
-  React.useEffect(() => {
-    if (!address || isDisconnected) {
-      setAccount(undefined);
-    } else if (ens && ensName) {
-      setAccount({
-        address: fillAddressWith0x(address),
-        name: ensName as string,
-      });
-    } else {
-      setAccount({
-        address: fillAddressWith0x(address),
-      });
-    }
-  }, [address, isDisconnected, ens, ensName]);
+  const { data: ensAvatar } = useEnsAvatar({ name: ensName ?? undefined });
+  const account: Account | undefined =
+    address && !isDisconnected
+      ? {
+          address,
+          name: ensName && ens ? ensName : undefined,
+          avatar: ensAvatar ?? undefined,
+        }
+      : undefined;
 
   const findConnectorByName = (name: string): WagmiConnector | undefined => {
     const commonConnector = availableConnectors.find(
@@ -209,10 +201,13 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         if (!connector) {
           throw new Error(`Can not find connector for ${wallet?.name}`);
         }
-        await connectAsync({
+        const { accounts } = await connectAsync({
           connector,
           chainId: currentChain?.id,
         });
+        return {
+          address: accounts?.[0],
+        };
       }}
       disconnect={async () => {
         // await disconnectAsync();

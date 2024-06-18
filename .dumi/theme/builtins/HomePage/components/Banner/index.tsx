@@ -12,33 +12,31 @@ export const Banner: React.FC = () => {
       <img
         draggable={false}
         className={styles.bgImg}
-        src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*x9HgRpaXSmsAAAAAAAAAAAAADlrGAQ/original"
+        src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*664qTJ8PpR8AAAAAAAAAAAAADlrGAQ/original"
         alt="banner"
       />
       <div className={styles.wrap}>
-        <div>
-          <img
-            draggable={false}
-            className={styles.titleImg}
-            src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8Aj9RZXO3d0AAAAAAAAAAAAADlrGAQ/original"
-            alt="title"
-          />
-          <div className={styles.slogan}>
-            {intl.formatMessage({ id: 'app.docs.site.index.banner.slogan' })}
-          </div>
-          <div className={styles.btn}>
-            <Link to={`/guide/ant-design-web3${intl.locale === 'zh-CN' ? '-cn' : ''}`}>
-              {intl.formatMessage({ id: 'app.docs.site.index.banner.button-text' })}
-            </Link>
-            <a
-              href="https://github.com/ant-design/ant-design-web3"
-              target="_blank"
-              rel="noreferrer"
-              className={styles.link}
-            >
-              GitHub
-            </a>
-          </div>
+        <img
+          draggable={false}
+          className={styles.titleImg}
+          src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*5kc-Ro7c1H8AAAAAAAAAAAAADlrGAQ/original"
+          alt="title"
+        />
+        <div className={styles.slogan}>
+          {intl.formatMessage({ id: 'app.docs.site.index.banner.slogan' })}
+        </div>
+        <div className={styles.btn}>
+          <Link to={`/guide/ant-design-web3${intl.locale === 'zh-CN' ? '-cn' : ''}`}>
+            {intl.formatMessage({ id: 'app.docs.site.index.banner.button-text' })}
+          </Link>
+          <a
+            href="https://github.com/ant-design/ant-design-web3"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.link}
+          >
+            GitHub
+          </a>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -28,7 +28,7 @@
     "ui",
     "web3"
   ],
-  "homepage": "https://we3.ant.design",
+  "homepage": "https://web3.ant.design",
   "bugs": {
     "url": "https://github.com/ant-design/ant-design-web3/issues"
   },
@@ -51,17 +51,18 @@
     "antd": "^5.17.3",
     "bs58": "^5.0.0",
     "classnames": "^2.5.1",
-    "copy-to-clipboard": "^3.3.3"
+    "copy-to-clipboard": "^3.3.3",
+    "decimal.js": "^10.4.3"
   },
   "devDependencies": {
     "@ant-design/web3-bitcoin": "workspace:*",
+    "@ant-design/web3-eth-web3js": "workspace:*",
     "@ant-design/web3-ethers": "workspace:*",
     "@ant-design/web3-solana": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
-    "@ant-design/web3-eth-web3js": "workspace:*",
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
-    "father": "^4.4.0",
+    "father": "^4.4.4",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {

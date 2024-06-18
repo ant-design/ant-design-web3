@@ -1,5 +1,19 @@
 # @ant-design/web3-wagmi
 
+## 2.6.0
+
+### Minor Changes
+
+- 4abe7c0: feat: onConnected callback support provider account
+
+### Patch Changes
+
+- 61c17c5: chore(wagmi): use wagmi/actions instead of wagmi/core
+- Updated dependencies [0d33add]
+- Updated dependencies [4abe7c0]
+  - @ant-design/web3-assets@1.8.1
+  - @ant-design/web3-common@1.11.0
+
 ## 2.5.0
 
 ### Minor Changes

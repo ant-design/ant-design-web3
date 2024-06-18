@@ -59,6 +59,7 @@ group: UI 组件
 | actionRef | 用于控制组件 | `MutableRefObject<ConnectModalActionType>` | - | - |
 | defaultSelectedWallet | 默认选中的钱包 | `Wallet` | - | - |
 | locale | 多语言设置 | `Locale["ConnectModal"]` | - | - |
+| connecting | 是否正在连接 | `boolean` | - | - |
 
 其他弹框属性详见： [ModalProps](https://ant.design/components/modal-cn#api)
 

@@ -1,4 +1,4 @@
-import type { WalletMetadata } from '@ant-design/web3-common';
+import { ChainType, type WalletMetadata } from '@ant-design/web3-common';
 import { ChromeCircleColorful, MetaMaskColorful } from '@ant-design/web3-icons';
 
 export const metadata_MetaMask: WalletMetadata = {
@@ -18,4 +18,15 @@ export const metadata_MetaMask: WalletMetadata = {
     },
   ],
   group: 'Popular',
+  transferQRCodeFormatter: (params) => {
+    const { toAddress, chainId, amount, tokenAddress = '', decimal } = params;
+    if (tokenAddress) {
+      return `ethereum:${tokenAddress}@${chainId}/transfer?address=${toAddress}&uint256=${
+        Number(amount) * Math.pow(10, 18 - decimal)
+      }`;
+    } else {
+      return `ethereum:${toAddress}@${chainId}?value=${amount}`;
+    }
+  },
+  supportChainTypes: [ChainType.EVM],
 };

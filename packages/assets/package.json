@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-assets",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -20,6 +20,11 @@
       "import": "./dist/esm/solana/index.js",
       "require": "./dist/lib/solana/index.js",
       "types": "./dist/esm/solana/index.d.ts"
+    },
+    "./tokens": {
+      "import": "./dist/esm/tokens/index.js",
+      "require": "./dist/lib/tokens/index.js",
+      "types": "./dist/esm/tokens/index.d.ts"
     }
   },
   "sideEffects": false,
@@ -50,7 +55,7 @@
     "ui",
     "web3"
   ],
-  "homepage": "https://we3.ant.design",
+  "homepage": "https://web3.ant.design",
   "bugs": {
     "url": "https://github.com/ant-design/ant-design-web3/issues"
   },
@@ -69,7 +74,7 @@
   "devDependencies": {
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
-    "father": "^4.4.0",
+    "father": "^4.4.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.4.5"

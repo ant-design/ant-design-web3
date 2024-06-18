@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-wagmi",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -28,7 +28,7 @@
     "ui",
     "web3"
   ],
-  "homepage": "https://we3.ant.design",
+  "homepage": "https://web3.ant.design",
   "bugs": {
     "url": "https://github.com/ant-design/ant-design-web3/issues"
   },
@@ -43,21 +43,19 @@
   "dependencies": {
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
-    "debug": "^4.3.4",
-    "@wagmi/core": "^2.9.6"
+    "debug": "^4.3.4"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
-    "@wagmi/core": "^2.9.3",
-    "father": "^4.4.0",
+    "father": "^4.4.4",
     "typescript": "^5.4.5",
     "wagmi": "^2.8.6",
-    "@tanstack/react-query": "^5.40.0",
+    "@tanstack/react-query": "^5.40.1",
     "viem": "^2.13.3"
   },
   "peerDependencies": {
     "wagmi": "^2.8.6",
-    "@tanstack/react-query": "^5.40.0",
+    "@tanstack/react-query": "^5.40.1",
     "viem": ">=2.0.0"
   },
   "publishConfig": {

@@ -19,7 +19,7 @@ const event = new EventEmitter();
 const connectAsync = vi.fn();
 const disconnectAsync = vi.fn();
 
-vi.mock('@wagmi/core', () => ({
+vi.mock('wagmi/actions', () => ({
   getAccount: () => ({}),
   disconnect: () => {
     disconnectAsync();
@@ -50,9 +50,15 @@ vi.mock('wagmi', () => {
     useConnect: () => {
       return {
         connectors: [mockConnector],
-        connectAsync: () => {
+        connectAsync: async () => {
           connectAsync();
           event.emit('connectChanged', true);
+          return {
+            accounts: [
+              '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+              '0x0212f0974d53a6e96eF05d7B324a9803735fFd3B',
+            ],
+          };
         },
       };
     },
@@ -73,23 +79,26 @@ vi.mock('wagmi', () => {
       return {};
     },
     useEnsName: () => ({}),
+    useEnsAvatar: () => ({}),
   };
 });
 
 describe('WagmiWeb3ConfigProvider connect', () => {
   it('connect', async () => {
+    const onConnected = vi.fn();
     const CustomConnector = () => {
       const { connect, account, disconnect } = useProvider();
       return (
         <div>
           <div
             className="custom-text"
-            onClick={() => {
+            onClick={async () => {
               if (account) {
                 disconnect?.();
                 return;
               }
-              connect?.(MetaMask().create([mockConnector]));
+              const res = await connect?.(MetaMask().create([mockConnector]));
+              onConnected(res);
             }}
           >
             {account ? account?.address : 'Connect'}
@@ -117,6 +126,10 @@ describe('WagmiWeb3ConfigProvider connect', () => {
       expect(baseElement.querySelector('.custom-text')?.textContent).toBe(
         '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
       );
+    });
+
+    expect(onConnected).toBeCalledWith({
+      address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
     });
 
     fireEvent.click(baseElement.querySelector('.custom-text')!);
