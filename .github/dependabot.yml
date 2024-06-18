@@ -9,5 +9,9 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
-    ignore:
-      - dependency-name: "ethers"
+    groups:
+      ethers:
+        applies-to: version-updates
+        patterns:
+        - "ethers*"
+        update-types: ["major", "minor"]
