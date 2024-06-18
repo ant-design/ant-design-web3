@@ -1,4 +1,4 @@
-import type { WalletMetadata } from '@ant-design/web3-common';
+import { ChainType, type WalletMetadata } from '@ant-design/web3-common';
 import { ChromeCircleColorful, TokenPocketColorful } from '@ant-design/web3-icons';
 
 export const metadata_TokenPocket: WalletMetadata = {
@@ -17,4 +17,5 @@ export const metadata_TokenPocket: WalletMetadata = {
       description: 'Access your wallet right from your favorite web browser.',
     },
   ],
+  supportChainTypes: [ChainType.EVM],
 };

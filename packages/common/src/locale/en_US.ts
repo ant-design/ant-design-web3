@@ -62,6 +62,9 @@ const localeValues: RequiredLocale = {
     placeholder: 'Please enter amount',
     maxButtonText: 'Max',
   },
+  PayPanel: {
+    tips: 'Please scan the QR code or copy the address',
+  },
 };
 
 export default localeValues;

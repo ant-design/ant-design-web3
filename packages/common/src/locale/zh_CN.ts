@@ -59,6 +59,9 @@ const localeValues: RequiredLocale = {
     placeholder: '请输入代币数量',
     maxButtonText: '最大',
   },
+  PayPanel: {
+    tips: '请扫描二维码或复制地址',
+  },
 };
 
 export default localeValues;
