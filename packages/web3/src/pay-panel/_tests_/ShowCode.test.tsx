@@ -27,6 +27,19 @@ const mockProps: PayPanelProps = {
   wallets: [mockMetaMaskWallet, mockNormalWallet],
   onFinish: vi.fn(),
 };
+
+const targetMockProps: PayPanelProps = {
+  amount: 1000000,
+  target: () =>
+    Promise.resolve({
+      [Mainnet.id]: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
+      [BSC.id]: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
+    }),
+  supportedChains: [{ chain: Mainnet }, { chain: BSC }],
+  token: USDT,
+  wallets: [mockMetaMaskWallet, mockNormalWallet],
+  onFinish: vi.fn(),
+};
 describe('ShowCode', () => {
   const renderWithProviders = (ui: React.ReactElement) => {
     return render(
@@ -35,11 +48,22 @@ describe('ShowCode', () => {
       </ConfigProvider>,
     );
   };
+  const renderWithTargetProviders = (ui: React.ReactElement) => {
+    return render(
+      <ConfigProvider>
+        <PayPanelContext.Provider value={targetMockProps}>{ui}</PayPanelContext.Provider>
+      </ConfigProvider>,
+    );
+  };
   beforeEach(() => {
     vi.resetAllMocks();
   });
   it('initially renders correct content', () => {
     renderWithProviders(<ShowCode selectedChainId={BSC.id} onReturn={vi.fn()} />);
+    expect(screen.getByText(`Send ${USDT.symbol} on ${BSC.name} network`)).toBeTruthy();
+  });
+  it('initially renders with promise target', () => {
+    renderWithTargetProviders(<ShowCode selectedChainId={BSC.id} onReturn={vi.fn()} />);
     expect(screen.getByText(`Send ${USDT.symbol} on ${BSC.name} network`)).toBeTruthy();
   });
   it('calls onReturn when Return button is clicked', () => {
