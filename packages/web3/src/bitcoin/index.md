@@ -42,6 +42,7 @@ The wallets currently supported are as follows, and we also welcome you to submi
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| autoConnect | Whether to connect automatically | `boolean` | `false` | - |
 | balance | Whether to display balance | `boolean` | `false` | - |
 | wallets | Wallets | `WalletFactory[]` | - | - |
 | locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/en_US.ts) | - | - |
