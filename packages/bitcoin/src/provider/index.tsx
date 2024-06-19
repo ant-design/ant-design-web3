@@ -51,7 +51,7 @@ export const BitcoinWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigPr
   useEffect(() => {
     if (autoConnect && latestWalletNameRef.current && !adapterName) {
       const wallet = wallets.find((w) => w.name === latestWalletNameRef.current);
-      if (wallet && wallet.adapter.allowAutoConnect) {
+      if (wallet) {
         selectWallet(wallet);
       }
     }
