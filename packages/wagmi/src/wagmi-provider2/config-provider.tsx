@@ -1,29 +1,33 @@
 import React from 'react';
-import {
+import type {
   Account,
+  Balance,
   Chain,
   ConnectOptions,
+  Locale,
   Wallet,
-  Web3ConfigProvider,
 } from '@ant-design/web3-common';
+import { Web3ConfigProvider } from '@ant-design/web3-common';
 import {
   useAccount,
+  useBalance,
   useChainId,
-  useChains,
-  useConfig,
   useConnect,
-  useConnectors,
   useDisconnect,
   useEnsAvatar,
   useEnsName,
   useSwitchChain,
 } from 'wagmi';
 
-export interface WagmiWeb3ConfigProviderProps2 {}
+export interface WagmiWeb3ConfigProviderProps2 {
+  ens?: boolean;
+  balance?: boolean;
+  locale?: Locale;
+}
 
 export const WagmiWeb3ConfigProvider2: React.FC<
   React.PropsWithChildren<WagmiWeb3ConfigProviderProps2>
-> = ({ children }) => {
+> = ({ children, ens = true, balance: enableBalance = false, locale }) => {
   const { address, isConnected, isConnecting, isDisconnected, isReconnecting } = useAccount();
   const { data: ensName } = useEnsName({ address });
   const name = ensName ?? undefined;
@@ -41,20 +45,33 @@ export const WagmiWeb3ConfigProvider2: React.FC<
     status = 'default';
   }
 
-  const account: Account = {
-    address: address!,
-    name,
-    avatar,
-    status,
-  };
+  const account: Account | undefined =
+    address && !isDisconnected
+      ? {
+          address,
+          name: ensName && ens ? ensName : undefined,
+          avatar,
+          status,
+        }
+      : undefined;
 
   const connectedChainId = useChainId();
-  const chains = useChains();
-  const availableChains = chains.map<Chain>((current) => current);
+  const { switchChainAsync: wagmiSwitchChainAsync, chains } = useSwitchChain();
+  const availableChains = chains.map<Chain>((current) => current); // TODO: merge with chainAssets
 
   const chain =
     availableChains.find((current) => current.id === connectedChainId) ?? availableChains?.[0];
   const chainId = chain?.id;
+
+  const { data: balanceData } = useBalance({ address: enableBalance ? address : undefined });
+  const balance: Balance | undefined = balanceData
+    ? {
+        symbol: balanceData?.symbol,
+        value: balanceData?.value,
+        decimals: balanceData?.decimals,
+        icon: chain.nativeCurrency?.icon,
+      }
+    : undefined;
 
   const { connectors, connectAsync: wagmiConnectAsync } = useConnect();
 
@@ -69,25 +86,30 @@ export const WagmiWeb3ConfigProvider2: React.FC<
 
   const connect = async (wallet?: Wallet, options?: ConnectOptions) => {
     const connector = connectors.find((current) => current.uid === wallet?.key);
-    if (!connector) return; // TODO
+
+    if (!connector) {
+      throw new Error(`Can not find connector for ${wallet?.name}`);
+    }
     const { accounts } = await wagmiConnectAsync({ connector, chainId });
-    return { address: accounts?.[0] };
+    const [connectedAddress] = accounts ?? [];
+    return { address: connectedAddress, chainId };
   };
 
   const { disconnectAsync: wagmiDisconnectAsync } = useDisconnect();
   const disconnect = async () => wagmiDisconnectAsync();
 
-  const { switchChainAsync: wagmiSwitchChainAsync } = useSwitchChain();
   const switchChain = async (newChain: Chain) => {
     await wagmiSwitchChainAsync({ chainId: newChain.id });
   };
 
   return (
     <Web3ConfigProvider
+      locale={locale}
       account={account}
       addressPrefix="0x"
       availableChains={availableChains}
       availableWallets={availableWallets}
+      balance={balance}
       chain={chain}
       connect={connect}
       disconnect={disconnect}
