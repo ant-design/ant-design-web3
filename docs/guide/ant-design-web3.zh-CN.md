@@ -9,8 +9,12 @@ Ant Design Web3 是一个基于 [Ant Design](https://ant.design/index-cn) 的 We
 你可以通过以下任意方式使用 Ant Design Web3：
 
 - 仅仅通过 `@ant-design/web3` 直接使用 UI 组件，比如 `ConnectButton`、`Address` 等。连接区块链的部分你可以选择你喜欢的任何方式，比如 [ether](https://docs.ethers.org/v6/)、[viem](https://viem.sh/) 和 [web3.js](https://web3js.org/)。以及其它任何链的 SDK，包括非 EVM 兼容的区块链也可以使用这种方式来使用 Ant Design Web3。
-- 通过我们官方提供的 `@ant-design/web3-wagmi` 适配器配合 `@ant-design/web3` 使用，它基于 [wagmi](https://wagmi.sh/) 内置了和 EVM 兼容链的连接能力，你可以更加简单的使用 Ant Design Web3，不需要自己处理和区块链连接的相关逻辑。
-- 参考 `@ant-design/web3-wagmi` 的实现，自己实现一个类似的适配器，这样你就可以使用 wagmi 以外的其它方式连接不同的区块链了。具体实现方式可以参考[开发适配器](adapter.zh-CN.md)。
+- 通过我们官方提供的适配器配合 `@ant-design/web3` 使用，快速连接各类区块链，不需要自己处理和区块链连接的相关逻辑。
+  - 基于 `@ant-design/web3-wagmi` 或者 `@ant-design/web3-ethers` 和 `@ant-design/web3-eth-web3js` 连接 EVM 兼容链。
+  - 基于 `@ant-design/web3-solana` 连接 Solana。
+  - 基于 `@ant-design/web3-bitcoin` 连接比特币。
+- 自己实现一个适配器，支持连接更多不同的区块链，具体实现方式可以参考[开发适配器](adapter.zh-CN.md)。
+- 仅仅使用官方提供的适配器，比如 `@ant-design/web3-solana`，然后完全自定义 UI 组件，在组件中通过 [Web3ConfigProvider](http://localhost:8000/components/web3-config-provider-cn) 消费适配器提供的能力。
 
 ## 试试看
 
