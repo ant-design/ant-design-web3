@@ -105,6 +105,9 @@ importers:
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
+      decimal.js:
+        specifier: ^10.4.3
+        version: 10.4.3
       dumi:
         specifier: ^2.3.8
         version: 2.3.8(@babel/core@7.24.3)(@types/node@20.14.2)(@types/react@18.2.78)(eslint@8.57.0)(prettier@3.3.2)(react-dom@18.2.0)(react@18.2.0)(stylelint@14.16.1)(typescript@5.4.5)(webpack@5.91.0)
