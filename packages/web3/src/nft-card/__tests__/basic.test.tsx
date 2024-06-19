@@ -1,5 +1,5 @@
 import { NFTCard } from '@ant-design/web3';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 describe('NFTCard', () => {

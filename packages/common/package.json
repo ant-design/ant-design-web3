@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-common",
-  "version": "1.10.1",
+  "version": "1.11.0",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -28,7 +28,7 @@
     "ui",
     "web3"
   ],
-  "homepage": "https://we3.ant.design",
+  "homepage": "https://web3.ant.design",
   "bugs": {
     "url": "https://github.com/ant-design/ant-design-web3/issues"
   },

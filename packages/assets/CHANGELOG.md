@@ -1,5 +1,13 @@
 # @ant-design/web3-assets
 
+## 1.8.1
+
+### Patch Changes
+
+- 0d33add: fix: ConnectModal height style when has footer
+- Updated dependencies [4abe7c0]
+  - @ant-design/web3-common@1.11.0
+
 ## 1.8.0
 
 ### Minor Changes

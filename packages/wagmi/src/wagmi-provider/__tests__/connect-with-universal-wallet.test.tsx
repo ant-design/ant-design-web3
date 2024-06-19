@@ -58,6 +58,7 @@ vi.mock('wagmi', () => {
         connectAsync: (options: any) => {
           connectAsync(options);
           event.emit('connectChanged', true);
+          return {};
         },
       };
     },
@@ -78,6 +79,7 @@ vi.mock('wagmi', () => {
       return {};
     },
     useEnsName: () => ({}),
+    useEnsAvatar: () => ({}),
   };
 });
 

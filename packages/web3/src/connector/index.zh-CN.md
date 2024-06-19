@@ -30,11 +30,11 @@ group: UI 组件
 | --- | --- | --- | --- | --- |
 | children | 连接控件，通常是 `ConnectButton` | `React.ReactNode` | - | - |
 | modalProps | 透传给 `ConnectModal` 的属性 | `ModalProps` | - | - |
-| onConnect | 触发连接时的回调 | `() => Promise<void>` | - | - |
-| onDisconnect | 触发断开连接时的回调 | `() => Promise<void>` | - | - |
-| onConnected | 连接成功时的回调 | `() => Promise<void>` | - | - |
-| onDisconnected | 断开连接时的回调 | `() => Promise<void>` | - | - |
-| onChainSwitched | 切换网络时的回调 | `(chain: Chain) => Promise<void>` | - | - |
+| onConnect | 触发连接时的回调 | `() => void` | - | - |
+| onDisconnect | 触发断开连接时的回调 | `() => void` | - | - |
+| onConnected | 连接成功时的回调，`account` 是否可用取决于适配器实现 | `(account?: Account) => void` | - | - |
+| onDisconnected | 断开连接时的回调 | `() => void` | - | - |
+| onChainSwitched | 切换网络时的回调 | `(chain: Chain) => void` | - | - |
 | availableWallets | 钱包列表 | `Wallet[]` | - | - |
 | account | 当前连接账号 | `Account[]` | - | - |
 | availableChains | 可以连接的链列表 | `Chain[]` | - | - |

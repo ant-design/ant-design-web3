@@ -39,7 +39,7 @@ export default () => {
       }}
     >
       <div className={classNames(styles.cardBg, styles.connectModalCardBg)}>
-        <span className={styles.title}>Connect Wallet</span>
+        <span className={styles.title}>Connect Modal</span>
         <div className={classNames(styles.connectContainer, styles.connectModalContainer)}>
           <ConnectModal.ModalPanel
             locale={{
