@@ -2,21 +2,21 @@ import { Carousel } from 'antd';
 import classNames from 'classnames';
 import { useIntl } from 'dumi';
 
-import Address from './Address';
 import Connect from './Connect';
-import ConnectButton from './ConnectButton';
+import CryptoInput from './CryptoInput';
 import styles from './index.module.less';
 import NFTCard from './NFTCard';
+import PayPanel from './PayPanel';
 
 export const ShowCase: React.FC = () => {
   const intl = useIntl();
 
   const caseList = (
     <>
-      <ConnectButton />
-      <Address />
-      <NFTCard />
       <Connect />
+      <NFTCard />
+      <PayPanel />
+      <CryptoInput />
     </>
   );
 
@@ -29,10 +29,7 @@ export const ShowCase: React.FC = () => {
       <div className={classNames(styles.componentList, styles.pc)}>{caseList}</div>
       <div className={classNames(styles.componentList, styles.mobile)}>
         <Carousel dots={{ className: styles.carouselDot }} dotPosition="top" adaptiveHeight>
-          <ConnectButton />
-          <Address />
-          <NFTCard />
-          <Connect />
+          {caseList}
         </Carousel>
       </div>
     </div>
