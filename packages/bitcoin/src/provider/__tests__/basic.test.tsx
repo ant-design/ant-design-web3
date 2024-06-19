@@ -1,11 +1,11 @@
 import { ConnectButton, Connector, useConnection } from '@ant-design/web3';
-import { metadata_Unisat, metadata_Xverse } from '@ant-design/web3-assets';
+import { metadata_Unisat } from '@ant-design/web3-assets';
 import { fireEvent, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { getBalanceByMempool, getInscriptionsByAddress } from '../../helpers';
-import { XverseWallet } from '../../wallets';
+import { UnisatWallet, XverseWallet } from '../../wallets';
 import { BitcoinWeb3ConfigProvider } from '../index';
 import { xrender } from './utils';
 
@@ -43,6 +43,11 @@ describe('BitcoinWeb3ConfigProvider', () => {
   beforeEach(() => {
     // @ts-ignore: vi.fn().mockReset
     global.fetch.mockReset();
+    global.localStorage = {
+      setItem: vi.fn(),
+      getItem: vi.fn(),
+      removeItem: vi.fn(),
+    } as any;
   });
 
   it('mount correctly', () => {
@@ -120,7 +125,13 @@ describe('BitcoinWeb3ConfigProvider', () => {
   });
 
   it('available `autoConnect`', async () => {
-    const getItem = () => metadata_Xverse.name;
+    (global as any).unisat = {
+      requestAccounts: async () => {
+        return ['bc1pz7wkcn4h3dgdrxfzrkuj73gp7wk6dume2falkn_fake_fake_fake_fake'];
+      },
+    };
+
+    const getItem = () => metadata_Unisat.name;
     global.localStorage = {
       setItem: vi.fn(),
       getItem: getItem,
@@ -129,7 +140,7 @@ describe('BitcoinWeb3ConfigProvider', () => {
 
     const App = () => {
       return (
-        <BitcoinWeb3ConfigProvider wallets={[XverseWallet()]} autoConnect>
+        <BitcoinWeb3ConfigProvider wallets={[UnisatWallet()]} autoConnect>
           <Connector>
             <ConnectButton className="connect" />
           </Connector>
@@ -141,8 +152,10 @@ describe('BitcoinWeb3ConfigProvider', () => {
     const connectBtn = selector('.connect')!;
 
     await waitFor(() => {
-      expect(connectBtn.textContent).toBe('123...123');
+      expect(connectBtn.textContent).toBe('bc1pz7...fake');
     });
+
+    delete (global as any).unisat;
   });
 
   it('get inscriptions', async () => {

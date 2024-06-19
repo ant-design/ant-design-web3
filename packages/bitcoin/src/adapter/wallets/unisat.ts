@@ -9,6 +9,7 @@ export class UnisatBitcoinWallet implements BitcoinWallet {
   name: string;
   provider?: Unisat.Provider;
   account?: Account;
+  readonly allowAutoConnect = true;
 
   constructor(name: string) {
     this.name = name;

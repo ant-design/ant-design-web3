@@ -12,6 +12,9 @@ export class XverseBitcoinWallet implements BitcoinWallet {
   account?: Account;
   payment?: string;
 
+  // Xverse requires confirmation every time user connect, so let's disable it.
+  readonly allowAutoConnect = false;
+
   constructor(name: string, id = 'XverseProviders.BitcoinProvider') {
     this.name = name;
     this.provider = getProviderById(id);

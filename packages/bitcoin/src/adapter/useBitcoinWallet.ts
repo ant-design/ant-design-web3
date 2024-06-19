@@ -7,6 +7,8 @@ export interface BitcoinWallet<Provider = any> {
   name: string;
   provider?: Provider;
   account?: Account;
+  readonly allowAutoConnect?: boolean;
+
   getBalance: () => Promise<Balance>;
   connect: () => Promise<void>;
   signMessage: (message: string) => Promise<string>;
