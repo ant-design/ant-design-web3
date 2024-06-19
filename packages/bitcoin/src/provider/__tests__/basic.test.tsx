@@ -1,5 +1,5 @@
 import { ConnectButton, Connector, useConnection } from '@ant-design/web3';
-import { metadata_Unisat, metadata_Xverse } from '@ant-design/web3-assets';
+import { metadata_Xverse } from '@ant-design/web3-assets';
 import { fireEvent, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
@@ -43,6 +43,12 @@ describe('BitcoinWeb3ConfigProvider', () => {
   beforeEach(() => {
     // @ts-ignore: vi.fn().mockReset
     global.fetch.mockReset();
+
+    global.localStorage = {
+      setItem: vi.fn(),
+      getItem: vi.fn(),
+      removeItem: vi.fn(),
+    } as any;
   });
 
   it('mount correctly', () => {
