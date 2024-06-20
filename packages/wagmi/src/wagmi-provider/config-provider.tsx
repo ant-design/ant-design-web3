@@ -50,7 +50,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   } = props;
   const { address, isDisconnected, chain } = useAccount();
   const config = useConfig();
-  const { connectAsync, isIdle } = useConnect();
+  const { connectAsync } = useConnect();
   const { switchChain } = useSwitchChain();
   const { data: balanceData } = useBalance({ address });
   const { data: ensName } = useEnsName({ address });
