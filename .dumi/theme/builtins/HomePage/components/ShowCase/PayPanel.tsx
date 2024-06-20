@@ -20,7 +20,7 @@ const GasRender: React.FC = () => {
   return (
     <div className={styles.cardBg}>
       <span className={styles.title}>Pay Panel</span>
-      <Card style={{ width: 400 }}>
+      <Card>
         <PayPanel
           target={{
             [Mainnet.id]: '0x35ceCD3d51Fe9E5AD14ea001475668C5A5e5ea76',
