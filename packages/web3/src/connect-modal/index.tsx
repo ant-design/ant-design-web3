@@ -38,6 +38,7 @@ export const ConnectModal: React.FC<ConnectModalProps> & {
       onCancel={(e) => {
         onCancel?.(e);
       }}
+      destroyOnClose
     >
       <ModalPanel {...props} />
     </Modal>,

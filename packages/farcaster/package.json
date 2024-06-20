@@ -1,0 +1,61 @@
+{
+  "name": "@ant-design/web3-farcaster",
+  "version": "1.0.0",
+  "main": "dist/lib/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/lib/index.js",
+    "types": "./dist/esm/index.d.ts"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "keywords": [
+    "ant",
+    "component",
+    "components",
+    "design",
+    "framework",
+    "frontend",
+    "react",
+    "react-component",
+    "ui",
+    "web3",
+    "farcaster"
+  ],
+  "homepage": "https://web3.ant.design",
+  "bugs": {
+    "url": "https://github.com/ant-design/ant-design-web3/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/ant-design-web3"
+  },
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build"
+  },
+  "dependencies": {
+    "@farcaster/auth-client": "^0.1.1",
+    "@farcaster/auth-kit": "^0.3.1"
+  },
+  "devDependencies": {
+    "father": "^4.4.4",
+    "typescript": "^5.4.5"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
+}

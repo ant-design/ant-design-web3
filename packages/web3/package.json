@@ -46,6 +46,7 @@
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
+    "@ant-design/web3-farcaster": "workspace:*",
     "@ctrl/tinycolor": "^4.1.0",
     "@inline-svg-unique-id/react": "^1.2.3",
     "antd": "^5.17.3",

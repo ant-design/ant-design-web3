@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConnectModal, ConnectModalProps } from '@ant-design/web3';
+import { ConnectModal, type ConnectModalProps } from '@ant-design/web3';
 import {
   metadata_MetaMask,
   metadata_MobileConnect,

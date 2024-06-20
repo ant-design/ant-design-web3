@@ -144,4 +144,11 @@ export type ConnectModalProps = ModalProps &
     connecting?: boolean;
   };
 
-export type PanelRoute = 'init' | 'guide' | 'wallet' | 'qrCode' | 'downloadQrCode' | 'link';
+export type PanelRoute =
+  | 'init'
+  | 'guide'
+  | 'wallet'
+  | 'qrCode'
+  | 'downloadQrCode'
+  | 'link'
+  | 'farcaster';

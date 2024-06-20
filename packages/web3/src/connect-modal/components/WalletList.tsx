@@ -1,5 +1,6 @@
 import React, { forwardRef, useContext, useImperativeHandle, useMemo } from 'react';
 import { QrcodeOutlined } from '@ant-design/icons';
+import { useFarcaster } from '@ant-design/web3-farcaster';
 import { Button, List, Space, Typography } from 'antd';
 import classNames from 'classnames';
 
@@ -69,7 +70,52 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
       selectWallet,
     };
   });
-  const renderContent = (params?: { group?: string }) => {
+
+  const { farcasterSupported, farcasterLogin } = useFarcaster();
+
+  const renderFarcasterContent = () => {
+    return farcasterSupported ? (
+      <List
+        itemLayout="horizontal"
+        dataSource={[
+          {
+            key: 'farcaster',
+            name: 'Farcaster',
+          },
+        ]}
+        rowKey="key"
+        renderItem={(item) => (
+          <List.Item
+            className={classNames(`${prefixCls}-wallet-item`)}
+            onClick={() => {
+              farcasterLogin();
+              updatePanelRoute('farcaster', true);
+            }}
+          >
+            <div className={`${prefixCls}-content`}>
+              <div>图标</div>
+              <Typography.Text ellipsis={{ tooltip: true }} className={`${prefixCls}-name`}>
+                {item.name}
+              </Typography.Text>
+            </div>
+            <Button
+              size="small"
+              className={`${prefixCls}-qr-btn`}
+              onClick={(e) => {
+                e.stopPropagation();
+                farcasterLogin();
+                updatePanelRoute('farcaster', true);
+              }}
+            >
+              <QrcodeOutlined />
+            </Button>
+          </List.Item>
+        )}
+      />
+    ) : null;
+  };
+
+  const renderWalletsContent = (params?: { group?: string }) => {
     const { group } = params || {};
     return (
       <List<Wallet>
@@ -123,12 +169,15 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
 
   return (
     <div className={`${prefixCls}-wallet-list`}>
+      <div className={`${prefixCls}-group`}>
+        <div className={`${prefixCls}-group-content`}>{renderFarcasterContent()}</div>
+      </div>
       {internalGroup ? (
         groupKeys.map((group) => (
           <div className={`${prefixCls}-group`} key={group}>
             <div className={`${prefixCls}-group-title`}>{group}</div>
             <div className={`${prefixCls}-group-content`}>
-              {renderContent({
+              {renderWalletsContent({
                 group,
               })}
             </div>
@@ -136,7 +185,7 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
         ))
       ) : (
         <div className={`${prefixCls}-group`}>
-          <div className={`${prefixCls}-group-content`}>{renderContent()}</div>
+          <div className={`${prefixCls}-group-content`}>{renderWalletsContent()}</div>
         </div>
       )}
     </div>

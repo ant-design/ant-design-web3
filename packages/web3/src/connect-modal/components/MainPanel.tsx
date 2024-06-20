@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { connectModalContext } from '../context';
 import type { ConnectModalProps } from '../interface';
 import DefaultGuidePanel from './DefaultGuidePanel';
+import FarcasterCard from './FarcasterCard';
 import LinkPanel from './LinkPanel';
 import QrCode from './QrCode';
 import WalletCard from './WalletCard';
@@ -28,6 +29,7 @@ const MainPanel: React.FC<MainPanelProps> = (props) => {
       {panelRoute === 'downloadQrCode' && selectedWallet ? (
         <QrCode wallet={selectedWallet} simple={simple} download />
       ) : null}
+      {panelRoute === 'farcaster' ? <FarcasterCard /> : null}
     </div>
   );
 };

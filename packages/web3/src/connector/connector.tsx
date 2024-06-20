@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ConnectModal, type ConnectModalActionType } from '@ant-design/web3';
 import type { Chain, ConnectOptions, ConnectorTriggerProps, Wallet } from '@ant-design/web3-common';
+import { useFarcaster } from '@ant-design/web3-farcaster';
 import { message } from 'antd';
 
 import useProvider from '../hooks/useProvider';
@@ -33,6 +34,13 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
   const [defaultSelectedWallet, setDefaultSelectedWallet] = React.useState<Wallet>();
   const actionRef = React.useRef<ConnectModalActionType>();
   const [messageApi, contextHolder] = message.useMessage();
+
+  // close modal when login farcaster success
+  const { isSuccess } = useFarcaster();
+  useEffect(() => {
+    if (!isSuccess) return;
+    setOpen(false);
+  }, [isSuccess]);
 
   const connectWallet = async (wallet?: Wallet, options?: ConnectOptions) => {
     onConnect?.();
