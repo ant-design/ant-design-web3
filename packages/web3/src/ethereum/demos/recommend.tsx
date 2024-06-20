@@ -20,7 +20,7 @@ const config = createConfig({
   },
   connectors: [
     walletConnect({
-      showQrModal: true,
+      showQrModal: false,
       projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
     }),
   ],
@@ -36,7 +36,7 @@ const App: React.FC = () => {
       wallets={[
         MetaMask({}),
         WalletConnect({
-          useWalletConnectOfficialModal: true,
+          useWalletConnectOfficialModal: false,
         }),
         TokenPocket({
           group: 'Popular',
