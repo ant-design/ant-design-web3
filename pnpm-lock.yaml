@@ -633,6 +633,9 @@ importers:
       decimal.js:
         specifier: ^10.4.3
         version: 10.4.3
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
       react:
         specifier: '>=17.0.0'
         version: 18.2.0
@@ -655,6 +658,9 @@ importers:
       '@ant-design/web3-wagmi':
         specifier: workspace:*
         version: link:../wagmi
+      '@types/lodash-es':
+        specifier: ^4.17.12
+        version: 4.17.12
       '@types/react':
         specifier: ^18.2.78
         version: 18.2.78
