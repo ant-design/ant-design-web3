@@ -219,7 +219,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               bottom: '100%',
               width: token.walletListWidth - token.paddingMD * 2,
               left: '50%',
-              transform: 'translate(-50%)',
+              transform: 'translateX(-50%)',
               height: token.controlHeightLG,
               backgroundImage: `linear-gradient(to bottom, ${new TinyColor(token.colorBgContainer)
                 .setAlpha(0)
