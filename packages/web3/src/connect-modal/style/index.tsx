@@ -217,7 +217,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               content: '""',
               position: 'absolute',
               bottom: '100%',
-              width: '98%',
+              width: 'calc(100% - 20px)',
               left: '50%',
               transform: 'translateX(-50%)',
               height: token.controlHeightLG,
