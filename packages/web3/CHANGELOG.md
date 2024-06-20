@@ -1,5 +1,11 @@
 # @ant-design/web3
 
+## 1.15.1
+
+### Patch Changes
+
+- f1c388f: fix: add lodash-es for @ant-design/web3
+
 ## 1.15.0
 
 ### Minor Changes
