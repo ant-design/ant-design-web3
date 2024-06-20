@@ -56,8 +56,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   const { data: ensName } = useEnsName({ address });
   const { data: ensAvatar } = useEnsAvatar({ name: ensName ?? undefined });
 
-  console.log('isConnecting', isIdle);
-
   const account: Account | undefined =
     address && !isDisconnected
       ? {
@@ -195,16 +193,13 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       }
       availableWallets={wallets}
       addressPrefix="0x"
-      connect={async (wallet, options, onConnectStart) => {
+      connect={async (wallet, options) => {
         let connector = await (wallet as WalletUseInWagmiAdapter)?.getWagmiConnector?.(options);
         if (!connector && wallet) {
           connector = findConnectorByName(wallet.name);
         }
         if (!connector) {
           throw new Error(`Can not find connector for ${wallet?.name}`);
-        }
-        if (onConnectStart && typeof onConnectStart === 'function') {
-          onConnectStart(); // Call the provided callback function
         }
         const { accounts } = await connectAsync({
           connector,
