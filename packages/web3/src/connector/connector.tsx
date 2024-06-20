@@ -38,6 +38,10 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     onConnect?.();
     try {
       setConnecting(true);
+      // if use qr code, close modal after connect
+      if (wallet && !wallet?.getQrCode) {
+        setOpen(false);
+      }
       const connectedAccount = await connect?.(wallet, options);
       onConnected?.(connectedAccount ? connectedAccount : undefined);
       setOpen(false);
