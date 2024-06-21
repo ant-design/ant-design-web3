@@ -216,7 +216,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             [`&::before`]: {
               content: '""',
               position: 'absolute',
-              bottom: '100%',
+              bottom: `calc(100% - ${token.marginSM}px)`,
               width: `calc(100% - ${token.paddingMD * 2}px)`,
               left: '50%',
               transform: 'translateX(-50%)',
