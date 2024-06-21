@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 export const LATEST_WALLET_STORAGE_KEY = '@ant-design/web3-bitcoin:latest-wallet';
 

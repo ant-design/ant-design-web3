@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  fillAddressWith0x,
   Web3ConfigProvider,
   type Account,
   type Chain,

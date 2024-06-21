@@ -1,5 +1,6 @@
 import React from 'react';
-import { ConnectModal, ConnectModalProps } from '@ant-design/web3';
+import type { ConnectModalProps } from '@ant-design/web3';
+import { ConnectModal } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import { Button } from 'antd';
 
