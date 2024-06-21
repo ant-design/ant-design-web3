@@ -2,7 +2,12 @@ import React, { useEffect, useRef } from 'react';
 
 export const LATEST_WALLET_STORAGE_KEY = '@ant-design/web3-bitcoin:latest-wallet';
 
-export const useLatestWallet = () => {
+type UseLatestWalletResult = {
+  latestWalletNameRef: React.MutableRefObject<string | undefined>;
+  cacheSelectedWallet: (walletName?: string) => void;
+};
+
+export const useLatestWallet = (): UseLatestWalletResult => {
   const latestWalletNameRef = useRef<string>();
 
   useEffect(() => {
