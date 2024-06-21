@@ -1,7 +1,8 @@
 import React from 'react';
 import { type Chain, type Token, type WalletMetadata } from '@ant-design/web3-common';
 
-type PayPanelTargetProps = { [chainId: string | number]: string };
+type ChainId = string | number;
+type PayPanelTargetProps = Record<ChainId, string>;
 
 export type PayPanelProps = {
   amount: number | bigint;
