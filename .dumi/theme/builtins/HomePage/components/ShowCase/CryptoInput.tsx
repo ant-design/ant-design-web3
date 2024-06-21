@@ -38,7 +38,7 @@ const App: React.FC = () => {
     <div className={styles.cardBg}>
       <span className={styles.title}>Crypto Input</span>
       <Card>
-        <Flex vertical align="center" style={{ width: 400 }} gap={16}>
+        <Flex vertical align="center" style={{ maxWidth: 400 }} gap={16}>
           <CryptoInput
             header={'Sell'}
             value={cryptoPair[0]}
