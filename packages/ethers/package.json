@@ -71,7 +71,7 @@
   "devDependencies": {
     "@types/debug": "^4.1.12",
     "father": "^4.4.4",
-    "typescript": "^5.4.5",
+    "typescript": "^5.5.2",
     "ethers": "^6.11.1"
   },
   "peerDependencies": {
