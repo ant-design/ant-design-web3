@@ -1,5 +1,16 @@
 # @ant-design/web3-common
 
+## 1.12.0
+
+### Minor Changes
+
+- f1b85b9: feat: auto display ens avatar
+- 66aaab4: feat: new components TokenSelect and CryptoInput
+
+### Patch Changes
+
+- 9321e7d: feat: add payPanel component
+
 ## 1.11.0
 
 ### Minor Changes

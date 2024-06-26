@@ -43,6 +43,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| autoConnect | 是否自动连接 | `boolean` | `false` | - |
 | balance | 是否显示余额 | `boolean` | `false` | - |
 | wallets | 可用的钱包 | `WalletFactory[]` | - | - |
 | locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
