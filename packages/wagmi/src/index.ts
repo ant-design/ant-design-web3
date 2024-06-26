@@ -1,6 +1,6 @@
-export * from './wagmi-provider';
+export * from './provider';
 export * from './wallets';
 export * from './interface';
 export * from '@ant-design/web3-assets';
 
-export * from './wagmi-provider2';
+export * as connectors from './connectors';

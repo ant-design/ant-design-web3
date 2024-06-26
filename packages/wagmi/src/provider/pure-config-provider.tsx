@@ -7,28 +7,33 @@ import type {
   ConnectOptions,
   Locale,
   Wallet,
+  Web3ConfigProviderProps,
 } from '@ant-design/web3-common';
-import { Web3ConfigProvider } from '@ant-design/web3-common';
+import { fillAddressWith0x, requestWeb3Asset, Web3ConfigProvider } from '@ant-design/web3-common';
 import {
   useAccount,
   useBalance,
   useChainId,
+  useConfig,
   useConnect,
   useDisconnect,
   useEnsAvatar,
   useEnsName,
   useSwitchChain,
 } from 'wagmi';
+import { readContract } from 'wagmi/actions';
 
-export interface WagmiWeb3ConfigProviderProps2 {
+export interface WagmiPureConfigProviderProps {
   ens?: boolean;
   balance?: boolean;
   locale?: Locale;
 }
 
-export const WagmiWeb3ConfigProvider2: React.FC<
-  React.PropsWithChildren<WagmiWeb3ConfigProviderProps2>
+export const WagmiPureConfigProvider: React.FC<
+  React.PropsWithChildren<WagmiPureConfigProviderProps>
 > = ({ children, ens = true, balance: enableBalance = false, locale }) => {
+  const config = useConfig();
+
   const { address, isDisconnected } = useAccount();
   const { data: ensName } = useEnsName({ address });
   const { data: ensAvatar } = useEnsAvatar({ name: ensName ?? undefined });
@@ -91,6 +96,7 @@ export const WagmiWeb3ConfigProvider2: React.FC<
       hasWalletReady: () => !!connector.uid,
       hasExtensionInstalled: () => true,
       getQrCode: walletConnectConnector ? getQrCode : undefined,
+      group: 'Installed',
     };
   });
 
@@ -115,6 +121,33 @@ export const WagmiWeb3ConfigProvider2: React.FC<
     await wagmiSwitchChainAsync({ chainId: newChain.id });
   };
 
+  const getNFTMetadata: Web3ConfigProviderProps['getNFTMetadata'] = async ({
+    address: contractAddress,
+    tokenId,
+  }) => {
+    const tokenURI = await readContract(config, {
+      address: fillAddressWith0x(contractAddress),
+      args: [tokenId!],
+      chainId,
+      abi: [
+        {
+          name: 'tokenURI',
+          inputs: [
+            {
+              name: 'tokenId',
+              type: 'uint256',
+            },
+          ],
+          outputs: [{ name: '', type: 'string' }],
+          stateMutability: 'view',
+          type: 'function',
+        },
+      ],
+      functionName: 'tokenURI',
+    });
+    return requestWeb3Asset(tokenURI);
+  };
+
   return (
     <Web3ConfigProvider
       locale={locale}
@@ -127,6 +160,7 @@ export const WagmiWeb3ConfigProvider2: React.FC<
       connect={connect}
       disconnect={disconnect}
       switchChain={switchChain}
+      getNFTMetadata={getNFTMetadata}
     >
       {children}
     </Web3ConfigProvider>
