@@ -21,11 +21,20 @@ This is an enum type that contains the IDs of some commonly used chains. Its val
 
 ## Chain
 
-| Property | Description | Type                  | Default | Version |
-| -------- | ----------- | --------------------- | ------- | ------- |
-| id       | Chain ID    | [ChainIds](#chainids) | -       | -       |
-| name     | Chain name  | `string`              | -       | -       |
-| icon     | Chain icon  | `React.ReactNode`     | -       | -       |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| id | Chain ID | [ChainIds](#chainids) | - | - |
+| name | Chain name | `string` | - | - |
+| icon | Chain icon | `React.ReactNode` | - | - |
+| type | Chain Type： EVM compatible chains/SolanaVM chain/Bitcoin chain | `EVM \| SVM \| Bitcoin` | - | - |
+| browser | Chain browser config | [ChainBrowser](#chainbrowser) | - | - |
+
+### ChainBrowser
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| icon | Chain browser icon | `React.ReactNode` | - | - |
+| getBrowserLink | Get chain browser record url hanlder | `(address: string, type: 'address' \| 'transaction') => string` | - | - |
 
 ## Wallet
 
@@ -91,6 +100,23 @@ This is an enum type that contains the IDs of some commonly used chains. Its val
 | disconnect | Disconnect from the chain | `() => Promise<void>` | - | - |
 | switchChain | Switch to another chain | `(chainId: ChainIds) => Promise<void>` | - | - |
 | getNFTMetadata | Get the metadata of the NFT | `(contractAddress: string, tokenId?: string) => Promise<NFTMetadata>` | - | - |
+
+## Token
+
+| Property        | Description              | Type                         | Default | Version |
+| --------------- | ------------------------ | ---------------------------- | ------- | ------- |
+| name            | Name of the token        | `string`                     | -       | -       |
+| symbol          | Symbol of the token      | `string`                     | -       | -       |
+| icon            | The icon of the token    | `React.ReactNode`            | -       | -       |
+| decimal         | The decimal of the token | `number`                     | -       | -       |
+| availableChains | List of available chains | [TokenChain](#tokenChain)\[] | -       | -       |
+
+### TokenChain
+
+| Property | Description                   | Type            | Default | Version |
+| -------- | ----------------------------- | --------------- | ------- | ------- |
+| chain    | The chain of token            | [Chain](#chain) | -       | -       |
+| contract | The contract address of token | `string`        | -       |
 
 ## Locale
 

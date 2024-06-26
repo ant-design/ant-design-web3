@@ -22,11 +22,20 @@ order: 3
 
 ## Chain
 
-| 属性 | 描述     | 类型                  | 默认值 | 版本 |
-| ---- | -------- | --------------------- | ------ | ---- |
-| id   | 链的 ID  | [ChainIds](#chainids) | -      | -    |
-| name | 链的名称 | `string`              | -      | -    |
-| icon | 链的图标 | `React.ReactNode`     | -      | -    |
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| id | 链的 ID | [ChainIds](#chainids) | - | - |
+| name | 链的名称 | `string` | - | - |
+| icon | 链的图标 | `React.ReactNode` | - | - |
+| type | 链类型，以太坊虚拟机兼容链/Solana虚拟机链/比特币链 | `EVM \| SVM \| Bitcoin` | - | - |
+| browser | 链浏览器配置 | [ChainBrowser](#chainbrowser) | - | - |
+
+### ChainBrowser
+
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| icon | 链浏览器图标 | `React.ReactNode` | - | - |
+| getBrowserLink | 从区块链浏览器获取地址或交易链接方法 | `(address: string, type: 'address' \| 'transaction') => string` | - | - |
 
 ## Wallet
 
@@ -92,6 +101,23 @@ order: 3
 | disconnect | 断开钱包连接 | `() => Promise<void>` | - | - |
 | switchChain | 切换链 | `(chain: Chain) => Promise<void>` | - | - |
 | getNFTMetadata | 获取 NFT 的元数据 | `(params: { address: string; tokenId?: bigint \| number }) => Promise<NFTMetadata>` | - | - |
+
+## Token
+
+| 属性            | 描述             | 类型                         | 默认值 | 版本 |
+| --------------- | ---------------- | ---------------------------- | ------ | ---- |
+| name            | 代币名称         | `string`                     | -      | -    |
+| symbol          | 代币符号         | `string`                     | -      | -    |
+| icon            | 代币图标         | `React.ReactNode`            | -      | -    |
+| decimal         | 代币金额精度     | `number`                     | -      | -    |
+| availableChains | 代币可用的链列表 | [TokenChain](#tokenChain)\[] | -      | -    |
+
+### TokenChain
+
+| 属性     | 描述                 | 类型            | 默认值 | 版本 |
+| -------- | -------------------- | --------------- | ------ | ---- |
+| chain    | 链信息               | [Chain](#chain) | -      | -    |
+| contract | 代币在该链的合约地址 | `string`        | -      |
 
 ## Locale
 

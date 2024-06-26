@@ -55,6 +55,16 @@ const localeValues: RequiredLocale = {
     copyTips: 'Copy Address',
     copiedTips: 'Address Copied!',
   },
+  TokenSelect: {
+    placeholder: 'Please select token',
+  },
+  CryptoInput: {
+    placeholder: 'Please enter amount',
+    maxButtonText: 'Max',
+  },
+  PayPanel: {
+    tips: 'Please scan the QR code or copy the address',
+  },
 };
 
 export default localeValues;

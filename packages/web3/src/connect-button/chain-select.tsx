@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import type { Chain } from '@ant-design/web3-common';
-import { Button, ButtonProps, ConfigProvider, Dropdown, Space } from 'antd';
+import type { ButtonProps } from 'antd';
+import { Button, ConfigProvider, Dropdown, Space } from 'antd';
 import classNames from 'classnames';
 
 export interface ChainSelectProps {

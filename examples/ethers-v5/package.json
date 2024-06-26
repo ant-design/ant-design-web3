@@ -1,7 +1,7 @@
 {
   "name": "@example/ethers-v5",
   "private": true,
-  "version": "0.0.4",
+  "version": "0.0.6",
   "author": "Jeason <me@cowpoke.cc>",
   "type": "module",
   "scripts": {
@@ -22,6 +22,6 @@
   "devDependencies": {
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.2"
   }
 }
