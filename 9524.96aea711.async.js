@@ -89,7 +89,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},3460:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+`},3460:function(t,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { ConnectButton, Connector, NFTImage } from '@ant-design/web3';
 import {
   BitcoinWeb3ConfigProvider,
@@ -1397,7 +1397,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},63881:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+`},63881:function(t,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { CryptoInput, type CryptoInputProps, type Token } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 
@@ -1440,7 +1440,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},18716:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+`},18716:function(t,n){"use strict";n.Z=`import React, { useState } from 'react';
 import type { CryptoInputProps } from '@ant-design/web3';
 import { CryptoInput } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
@@ -1461,7 +1461,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},67946:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+`},67946:function(t,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { CryptoInput, type CryptoInputProps } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 
@@ -1481,7 +1481,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},35050:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+`},35050:function(t,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { CryptoInput, type CryptoInputProps } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 
@@ -1496,7 +1496,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},3546:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+`},3546:function(t,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { CryptoInput, type CryptoInputProps, type Token } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 import { Radio } from 'antd';
@@ -1563,7 +1563,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},36474:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+`},36474:function(t,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { SwapOutlined } from '@ant-design/icons';
 import { CryptoInput, type CryptoInputProps, type Token } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
@@ -2659,7 +2659,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},36918:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+`},36918:function(t,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { PayPanel } from '@ant-design/web3';
 import {
   BSC,
@@ -2935,7 +2935,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},36439:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+`},36439:function(t,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { TokenSelect, type Token } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 
@@ -2946,7 +2946,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},90338:function(t,n){"use strict";n.Z=`import { useState } from 'react';
+`},90338:function(t,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { TokenSelect, type Token } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 
