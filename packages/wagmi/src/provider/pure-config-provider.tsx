@@ -66,6 +66,7 @@ export const WagmiPureConfigProvider: React.FC<
     : undefined;
 
   const { connectors, connectAsync: wagmiConnectAsync } = useConnect();
+  console.log(connectors);
 
   const walletConnectConnector = connectors.find((current) => current.id === 'walletConnect');
   const availableWallets = connectors.map<Wallet>((connector) => {
