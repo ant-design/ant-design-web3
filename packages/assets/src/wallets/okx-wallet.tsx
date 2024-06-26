@@ -2,6 +2,7 @@ import type { WalletMetadata } from '@ant-design/web3-common';
 import { ChromeCircleColorful, OkxWalletColorful } from '@ant-design/web3-icons';
 
 export const metadata_OkxWallet: WalletMetadata = {
+  key: 'com.okex.wallet',
   icon: <OkxWalletColorful />,
   name: 'OKX Wallet',
   remark: 'OKX Wallet',

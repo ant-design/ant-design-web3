@@ -2,6 +2,7 @@ import type { WalletMetadata } from '@ant-design/web3-common';
 import { BackpackColorful, ChromeCircleColorful } from '@ant-design/web3-icons';
 
 export const metadata_Backpack: WalletMetadata = {
+  key: 'app.backpack',
   icon: <BackpackColorful />,
   name: 'Backpack',
   remark: 'Backpack Wallet',

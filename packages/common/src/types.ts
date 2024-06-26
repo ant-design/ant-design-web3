@@ -2,7 +2,6 @@ export interface Account {
   address: string;
   name?: string;
   avatar?: string;
-  status?: 'default' | 'connected' | 'connecting' | 'disconnected';
 }
 
 export enum ChainIds {
@@ -162,8 +161,8 @@ export type WalletMetadata = {
    */
   remark: string;
   /**
-   * @desc 钱包的 key
-   * @descEn The key of Wallet
+   * @desc 钱包的 key, 一般设置为 EIP6963 中的 RDNS（RFC2397）格式
+   * @descEn The key of Wallet, generally set to the RDNS (RFC2397) format in EIP6963
    */
   key?: React.Key;
   /**

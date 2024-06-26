@@ -2,6 +2,7 @@ import type { WalletMetadata } from '@ant-design/web3-common';
 import { ChromeCircleColorful, SafeheronColorful } from '@ant-design/web3-icons';
 
 export const metadata_Safeheron: WalletMetadata = {
+  key: 'com.safeheron.wallet',
   icon: <SafeheronColorful />,
   name: 'Safeheron',
   remark: 'Safeheron Wallet',
