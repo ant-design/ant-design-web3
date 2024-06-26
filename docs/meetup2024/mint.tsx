@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useAccount } from '@ant-design/web3';
 import { Button, message } from 'antd';
 import { useReadContract, useWriteContract } from 'wagmi';
 
 const contractAddress = '0x8fab440bf0279695100c944e498c64fe612b2338';
 
-const Mint = () => {
+const Mint: React.FC = () => {
   const { account } = useAccount();
   const [mintSuccess, setMintSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
