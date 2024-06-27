@@ -1,6 +1,6 @@
 import React, { useDeferredValue } from 'react';
 import type { Token } from '@ant-design/web3-common';
-import { theme as antdTheme, Flex, InputNumber, Typography } from 'antd';
+import { Flex, InputNumber, Typography } from 'antd';
 import Decimal from 'decimal.js';
 import { isNull } from 'lodash-es';
 
@@ -58,10 +58,6 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
   ...selectProps
 }) => {
   const { messages } = useIntl('CryptoInput');
-
-  const {
-    token: { InputNumber: CUSTOM_TOKEN },
-  } = antdTheme.useToken();
 
   const { token, inputString } = value || {};
 
@@ -135,11 +131,14 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
       {footer !== false && (
         <div className={getClsName('footer')}>
           {footer || (
-            <Flex className="default-footer" justify="space-between">
-              <Typography.Text ellipsis={{ tooltip: tokenTotalPrice }} className="total-price">
+            <Flex className={getClsName('default-footer')} justify="space-between">
+              <Typography.Text
+                ellipsis={{ tooltip: tokenTotalPrice }}
+                className={getClsName('total-price')}
+              >
                 {tokenTotalPrice || '-'}
               </Typography.Text>
-              <span className="token-balance">
+              <span className={getClsName('token-balance')}>
                 {!!token && (
                   <CryptoPrice
                     {...token}
@@ -150,7 +149,8 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
                 )}
                 {!!balance?.amount && (
                   <a
-                    className="max-button"
+                    className={getClsName('max-button')}
+                    role="button"
                     onClick={() => {
                       onChange?.({
                         ...value,
