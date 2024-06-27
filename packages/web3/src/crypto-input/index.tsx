@@ -131,7 +131,7 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
       {footer !== false && (
         <div className={getClsName('footer')}>
           {footer || (
-            <Flex className={getClsName('total-default-footer')} justify="space-between">
+            <Flex className={getClsName('default-footer')} justify="space-between">
               <Typography.Text
                 ellipsis={{ tooltip: tokenTotalPrice }}
                 className={getClsName('total-price')}
