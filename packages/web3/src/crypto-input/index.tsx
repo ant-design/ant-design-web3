@@ -150,6 +150,7 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
                 {!!balance?.amount && (
                   <a
                     className={getClsName('max-button')}
+                    role="button"
                     onClick={() => {
                       onChange?.({
                         ...value,
