@@ -203,24 +203,30 @@ describe('CryptoInput component', () => {
       target: { value: '10.012345678' },
     });
 
-    expect(baseElement.querySelector('.total-price')?.textContent).toBe('$ 38993.78110716846');
-    expect(baseElement.querySelector('.token-balance')?.textContent).includes('100');
+    expect(baseElement.querySelector('.web3-crypto-input-total-price')?.textContent).toBe(
+      '$ 38993.78110716846',
+    );
+    expect(baseElement.querySelector('.web3-crypto-input-token-balance')?.textContent).includes(
+      '100',
+    );
 
     // change token amount to max
-    fireEvent.click(baseElement.querySelector('.max-button') as Element);
+    fireEvent.click(baseElement.querySelector('.web3-crypto-input-max-button') as Element);
 
     expect(baseElement.querySelector('.ant-input-number-input')?.getAttribute('value')).toBe('100');
-    expect(baseElement.querySelector('.total-price')?.textContent).toBe('$ 389457');
+    expect(baseElement.querySelector('.web3-crypto-input-total-price')?.textContent).toBe(
+      '$ 389457',
+    );
 
     // set token amount to null
     fireEvent.change(baseElement.querySelector('.ant-input-number-input') as Element, {
       target: { value: null },
     });
 
-    expect(baseElement.querySelector('.total-price')?.textContent).toBe('-');
+    expect(baseElement.querySelector('.web3-crypto-input-total-price')?.textContent).toBe('-');
 
     // change token balance to undefined
     rerender(<TestComponent balance={undefined} />);
-    expect(baseElement.querySelector('.total-price')?.textContent).toBe('-');
+    expect(baseElement.querySelector('.web3-crypto-input-total-price')?.textContent).toBe('-');
   });
 });
