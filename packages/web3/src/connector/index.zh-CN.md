@@ -2,6 +2,7 @@
 nav: 组件
 subtitle: 连接器
 group: UI 组件
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*66ojTqksPJsAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Connector

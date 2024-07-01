@@ -3,6 +3,7 @@ nav: Components
 group:
   title: Advanced
   order: 4
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*agi7R62kJMQAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Web3ConfigProvider

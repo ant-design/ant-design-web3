@@ -3,6 +3,7 @@ nav: 组件
 subtitle: 类型
 group: 通用
 order: 3
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*2tAoRKBMwVUAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Types

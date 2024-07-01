@@ -1,6 +1,7 @@
 ---
 nav: Components
 group: UI Components
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*0bRHTJ-qHbIAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # NFTImage
