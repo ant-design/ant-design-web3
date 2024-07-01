@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@ant-design/cssinjs':
-        specifier: 1.21.0
+        specifier: ^1.20.0
         version: 1.21.0(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/icons':
         specifier: ^5.3.7
@@ -598,8 +598,8 @@ importers:
   packages/web3:
     dependencies:
       '@ant-design/cssinjs':
-        specifier: ^1.20.0
-        version: 1.20.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^1.21.0
+        version: 1.21.0(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/icons':
         specifier: ^5.3.7
         version: 5.3.7(react-dom@18.2.0)(react@18.2.0)
