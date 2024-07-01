@@ -56,7 +56,7 @@
     "@ant-design/web3-ethers": "workspace:*",
     "@tanstack/react-query": "^5.40.1",
     "debug": "^4.3.5",
-    "viem": "^2.15.1",
+    "viem": "^2.16.5",
     "wagmi": "^2.10.5"
   },
   "devDependencies": {
