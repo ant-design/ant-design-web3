@@ -41,7 +41,7 @@
     "build": "father build"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "^1.20.0",
+    "@ant-design/cssinjs": "^1.21.0",
     "@ant-design/icons": "^5.3.7",
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
