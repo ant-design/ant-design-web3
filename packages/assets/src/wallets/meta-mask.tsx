@@ -2,6 +2,7 @@ import { ChainType, type WalletMetadata } from '@ant-design/web3-common';
 import { ChromeCircleColorful, MetaMaskColorful } from '@ant-design/web3-icons';
 
 export const metadata_MetaMask: WalletMetadata = {
+  key: 'io.metamask',
   icon: <MetaMaskColorful />,
   name: 'MetaMask',
   remark: 'MetaMask Wallet',

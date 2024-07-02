@@ -2,6 +2,7 @@ import type { WalletMetadata } from '@ant-design/web3-common';
 import { ChromeCircleColorful, TrustWalletColorful } from '@ant-design/web3-icons';
 
 export const metadata_Trust: WalletMetadata = {
+  key: 'com.trustwallet.app',
   icon: <TrustWalletColorful />,
   name: 'Trust',
   remark: 'Trust Wallet',
