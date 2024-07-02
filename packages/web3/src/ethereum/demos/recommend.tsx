@@ -34,8 +34,10 @@ const App: React.FC = () => {
       }}
       ens
       wallets={[
-        MetaMask(),
-        WalletConnect(),
+        MetaMask({}),
+        WalletConnect({
+          useWalletConnectOfficialModal: false,
+        }),
         TokenPocket({
           group: 'Popular',
         }),

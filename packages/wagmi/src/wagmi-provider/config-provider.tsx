@@ -55,6 +55,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   const { data: balanceData } = useBalance({ address });
   const { data: ensName } = useEnsName({ address });
   const { data: ensAvatar } = useEnsAvatar({ name: ensName ?? undefined });
+
   const account: Account | undefined =
     address && !isDisconnected
       ? {
