@@ -9,7 +9,8 @@ import TonConnectSdk from './TonConnectSdk';
 
 interface TonConnectorContextProps {
   tonConnectSdk: TonConnectSdk | null;
-  tonSdkWallet: Wallet | null;
+  tonSelectWallet: Wallet | null;
+  setTonConnectSdk: (sdk: TonConnectSdk | null) => void;
 }
 
 export const TonConnectorContext = React.createContext<TonConnectorContextProps | null>(null);
@@ -32,7 +33,7 @@ export const TonWeb3ConfigProvider: React.FC<PropsWithChildren<TonWeb3ConfigProv
   connectProps,
 }) => {
   const [tonConnectSdk, setTonConnectSdk] = React.useState<TonConnectSdk | null>(null);
-  const [tonSdkWallet, setSdkWallet] = React.useState<Wallet | null>(null);
+  const [tonSelectWallet, setTonSelectWallet] = React.useState<Wallet | null>(null);
   const [tonWallets, setTonWallets] = React.useState<WalletInfo[]>([]);
 
   useEffect(() => {
@@ -40,7 +41,7 @@ export const TonWeb3ConfigProvider: React.FC<PropsWithChildren<TonWeb3ConfigProv
       const tonSdk = new TonConnectSdk(connectProps);
       tonSdk.restoreConnection();
       tonSdk.onStatusChange((s) => {
-        setSdkWallet(s);
+        setTonSelectWallet(s);
       });
       setTonConnectSdk(tonSdk);
     }
@@ -55,7 +56,7 @@ export const TonWeb3ConfigProvider: React.FC<PropsWithChildren<TonWeb3ConfigProv
   }, [wallets, tonConnectSdk]);
 
   return (
-    <TonConnectorContext.Provider value={{ tonConnectSdk, tonSdkWallet }}>
+    <TonConnectorContext.Provider value={{ tonConnectSdk, tonSelectWallet, setTonConnectSdk }}>
       <TonConfigProvider
         wallets={tonWallets?.map((w) => TonWalletFactory(w).create())}
         balance={balance}

@@ -21,7 +21,7 @@ const TonConfigProvider: React.FC<PropsWithChildren<TonConfigProviderProps>> = (
   balance: showBalance,
   wallets,
 }) => {
-  const { connector, tonSelectWallet } = useTonConnector();
+  const { connector, tonSelectWallet, setTonConnectSdk } = useTonConnector();
   const [balance, setBalance] = React.useState<Balance>();
   const [account, setAccount] = React.useState<Account>();
 
@@ -39,6 +39,8 @@ const TonConfigProvider: React.FC<PropsWithChildren<TonConfigProviderProps>> = (
       setAccount({
         address: toUserFriendlyAddress(tonSelectWallet.account.address),
       });
+    } else {
+      setAccount(undefined);
     }
   }, [tonSelectWallet]);
 
@@ -57,6 +59,9 @@ const TonConfigProvider: React.FC<PropsWithChildren<TonConfigProviderProps>> = (
       }}
       disconnect={async () => {
         await connector?.disconnect();
+        if (!connector?.connected) {
+          setTonConnectSdk?.(null);
+        }
       }}
     >
       {children}
