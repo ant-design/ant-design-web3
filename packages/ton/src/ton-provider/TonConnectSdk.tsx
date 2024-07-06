@@ -1,10 +1,13 @@
 import TonConnect from '@tonconnect/sdk';
 
+interface TonConnectSdkOptions {
+  manifestUrl: string;
+}
 class TonConnectSdk extends TonConnect {
   private _api: string;
 
-  constructor() {
-    super();
+  constructor(options: TonConnectSdkOptions) {
+    super({ manifestUrl: options.manifestUrl });
     this._api = 'https://toncenter.com/api/v3';
   }
 
@@ -17,6 +20,7 @@ class TonConnectSdk extends TonConnect {
   }
 
   async getBalance() {
+    if (!this.account?.address) return Promise.resolve('0');
     return fetch(`${this._api}/account?address=${this.account?.address}`, {
       method: 'GET',
       headers: {

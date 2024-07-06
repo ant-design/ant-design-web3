@@ -4,7 +4,6 @@ import { type WalletFactory } from './type';
 
 export const TonWalletFactory = (metadata: WalletInfo): WalletFactory => {
   const isReady = isWalletInfoCurrentlyInjected(metadata);
-  console.log(metadata, isReady);
   return {
     create: () => {
       return {

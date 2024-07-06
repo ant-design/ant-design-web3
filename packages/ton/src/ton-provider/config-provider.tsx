@@ -1,10 +1,17 @@
 import React, { useEffect, type PropsWithChildren } from 'react';
-import { Web3ConfigProvider, type Balance, type Wallet } from '@ant-design/web3-common';
+import {
+  Web3ConfigProvider,
+  type Account,
+  type Balance,
+  type Wallet,
+} from '@ant-design/web3-common';
+import { toUserFriendlyAddress } from '@tonconnect/sdk';
 
 import useTonConnector from '../hooks/useTonConnector';
 import { type TonWeb3ConfigProviderProps } from './TonWeb3ConfigProvider';
 
-interface TonConfigProviderProps extends Omit<TonWeb3ConfigProviderProps, 'wallets'> {
+interface TonConfigProviderProps
+  extends Omit<TonWeb3ConfigProviderProps, 'wallets' | 'connectProps'> {
   wallets?: Wallet[];
 }
 
@@ -14,11 +21,12 @@ const TonConfigProvider: React.FC<PropsWithChildren<TonConfigProviderProps>> = (
   balance: showBalance,
   wallets,
 }) => {
-  const connector = useTonConnector();
+  const { connector, tonSelectWallet } = useTonConnector();
   const [balance, setBalance] = React.useState<Balance>();
+  const [account, setAccount] = React.useState<Account>();
 
   useEffect(() => {
-    if (!showBalance) return;
+    if (!showBalance || !connector) return;
     connector?.getBalance().then((res) => {
       setBalance({
         value: BigInt(res),
@@ -26,18 +34,29 @@ const TonConfigProvider: React.FC<PropsWithChildren<TonConfigProviderProps>> = (
     });
   }, [connector, showBalance]);
 
+  useEffect(() => {
+    if (tonSelectWallet) {
+      setAccount({
+        address: toUserFriendlyAddress(tonSelectWallet.account.address),
+      });
+    }
+  }, [tonSelectWallet]);
+
   return (
     <Web3ConfigProvider
       addressPrefix={false}
       locale={locale}
       availableWallets={wallets}
       balance={balance}
-      account={{ address: connector?.account?.address ?? '' }}
+      account={account}
       connect={async (wallet) => {
-        console.log(wallet);
+        const tonWallets = await connector?.getWallets();
+        const selectWallet = tonWallets?.find((w) => w.appName === wallet?.name);
+        if (!selectWallet) return;
+        connector?.connect(selectWallet);
       }}
       disconnect={async () => {
-        connector?.disconnect();
+        await connector?.disconnect();
       }}
     >
       {children}
