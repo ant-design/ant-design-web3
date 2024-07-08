@@ -27,6 +27,13 @@ export enum SolanaChainIds {
   Testnet = 4,
 }
 
+export enum SuiChainIds {
+  Mainnet = 1,
+  Testnet = 2,
+  Devnet = 3,
+  Localnet = 4,
+}
+
 export type BrowserLinkType = 'address' | 'transaction';
 
 export type BalanceMetadata = {
@@ -71,7 +78,7 @@ export interface NFTMetadata {
   description?: string;
   image?: string;
   dna?: string;
-  edition?: number;
+  edition?: string | number;
   date?: number;
   attributes?: {
     trait_type?: string;

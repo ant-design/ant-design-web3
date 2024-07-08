@@ -1,8 +1,7 @@
 {
-  "name": "@ant-design/web3",
-  "version": "1.15.1",
-  "type": "module",
-  "main": "dist/esm/index.js",
+  "name": "@ant-design/web3-sui",
+  "version": "0.0.0",
+  "main": "dist/lib/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
   "exports": {
@@ -26,7 +25,8 @@
     "react",
     "react-component",
     "ui",
-    "web3"
+    "web3",
+    "sui"
   ],
   "homepage": "https://web3.ant.design",
   "bugs": {
@@ -41,42 +41,29 @@
     "build": "father build"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "^1.21.0",
-    "@ant-design/icons": "^5.3.7",
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
-    "@ant-design/web3-icons": "workspace:*",
-    "@ctrl/tinycolor": "^4.1.0",
-    "@inline-svg-unique-id/react": "^1.2.3",
-    "@mysten/dapp-kit": "^0.14.9",
+    "@mysten/dapp-kit": "^0.13.2",
     "@mysten/sui.js": "^0.54.1",
-    "antd": "^5.18.3",
-    "bs58": "^5.0.0",
-    "classnames": "^2.5.1",
-    "copy-to-clipboard": "^3.3.3",
-    "decimal.js": "^10.4.3",
-    "lodash-es": "^4.17.21"
+    "@tanstack/react-query": "^5.37.1",
+    "debug": "^4.3.4"
   },
   "devDependencies": {
-    "@ant-design/web3-bitcoin": "workspace:*",
-    "@ant-design/web3-eth-web3js": "workspace:*",
-    "@ant-design/web3-ethers": "workspace:*",
-    "@ant-design/web3-solana": "workspace:*",
-    "@ant-design/web3-sui": "workspace:*",
-    "@ant-design/web3-wagmi": "workspace:*",
-    "@types/react": "^18.2.78",
-    "@types/react-dom": "^18.2.25",
-    "father": "^4.4.4",
-    "typescript": "^5.5.2",
-    "@types/lodash-es": "^4.17.12"
+    "@types/debug": "^4.1.12",
+    "father": "^4.4.0",
+    "typescript": "^5.4.4"
   },
   "peerDependencies": {
-    "antd": ">=5.0.0",
-    "react": ">=17.0.0",
-    "react-dom": ">=17.0.0"
+    "@solana/web3.js": "^1.89.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
 }
