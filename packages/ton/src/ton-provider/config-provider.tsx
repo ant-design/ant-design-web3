@@ -1,18 +1,14 @@
 import React, { useEffect, type PropsWithChildren } from 'react';
-import {
-  Web3ConfigProvider,
-  type Account,
-  type Balance,
-  type Wallet,
-} from '@ant-design/web3-common';
+import { Web3ConfigProvider, type Account, type Balance } from '@ant-design/web3-common';
 import { toUserFriendlyAddress } from '@tonconnect/sdk';
 
 import useTonConnector from '../hooks/useTonConnector';
+import type { TonWallet } from '../wallets/type';
 import { type TonWeb3ConfigProviderProps } from './TonWeb3ConfigProvider';
 
 interface TonConfigProviderProps
   extends Omit<TonWeb3ConfigProviderProps, 'wallets' | 'connectProps'> {
-  wallets?: Wallet[];
+  wallets?: TonWallet[];
 }
 
 const TonConfigProvider: React.FC<PropsWithChildren<TonConfigProviderProps>> = ({
@@ -21,7 +17,7 @@ const TonConfigProvider: React.FC<PropsWithChildren<TonConfigProviderProps>> = (
   balance: showBalance,
   wallets,
 }) => {
-  const { connector, tonSelectWallet, setTonConnectSdk } = useTonConnector();
+  const { connector, tonSelectWallet, setTonSelectWallet } = useTonConnector();
   const [balance, setBalance] = React.useState<Balance>();
   const [account, setAccount] = React.useState<Account>();
 
@@ -52,15 +48,14 @@ const TonConfigProvider: React.FC<PropsWithChildren<TonConfigProviderProps>> = (
       balance={balance}
       account={account}
       connect={async (wallet) => {
-        const tonWallets = await connector?.getWallets();
-        const selectWallet = tonWallets?.find((w) => w.appName === wallet?.name);
-        if (!selectWallet) return;
-        connector?.connect(selectWallet);
+        const walletInfo = wallets?.find((w) => w.appName === wallet?.name);
+        if (!walletInfo) return;
+        connector?.connect(walletInfo);
       }}
       disconnect={async () => {
         await connector?.disconnect();
         if (!connector?.connected) {
-          setTonConnectSdk?.(null);
+          setTonSelectWallet?.(null);
         }
       }}
     >

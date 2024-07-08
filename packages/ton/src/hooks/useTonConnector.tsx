@@ -8,7 +8,7 @@ const useTonConnector = () => {
   return {
     connector: provider?.tonConnectSdk,
     tonSelectWallet: provider?.tonSelectWallet,
-    setTonConnectSdk: provider?.setTonConnectSdk,
+    setTonSelectWallet: provider?.setTonSelectWallet,
   };
 };
 

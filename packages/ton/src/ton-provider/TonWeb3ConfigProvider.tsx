@@ -1,6 +1,6 @@
 import React, { useEffect, type PropsWithChildren } from 'react';
-import type { Locale } from '@ant-design/web3-common';
-import type { Wallet, WalletInfo } from '@tonconnect/sdk';
+import type { Locale, WalletMetadata } from '@ant-design/web3-common';
+import type { Wallet } from '@tonconnect/sdk';
 
 import { TonWalletFactory } from '../wallets/factory';
 import { type TonBasicWallet } from '../wallets/type';
@@ -10,7 +10,7 @@ import TonConnectSdk from './TonConnectSdk';
 interface TonConnectorContextProps {
   tonConnectSdk: TonConnectSdk | null;
   tonSelectWallet: Wallet | null;
-  setTonConnectSdk: (sdk: TonConnectSdk | null) => void;
+  setTonSelectWallet: (sdk: Wallet | null) => void;
 }
 
 export const TonConnectorContext = React.createContext<TonConnectorContextProps | null>(null);
@@ -18,7 +18,7 @@ export const TonConnectorContext = React.createContext<TonConnectorContextProps 
 export interface TonWeb3ConfigProviderProps {
   locale?: Locale;
   balance?: boolean;
-  wallets?: TonBasicWallet[];
+  wallets?: WalletMetadata[];
   connectProps: {
     manifestUrl: string;
     reconnect?: boolean;
@@ -34,7 +34,7 @@ export const TonWeb3ConfigProvider: React.FC<PropsWithChildren<TonWeb3ConfigProv
 }) => {
   const [tonConnectSdk, setTonConnectSdk] = React.useState<TonConnectSdk | null>(null);
   const [tonSelectWallet, setTonSelectWallet] = React.useState<Wallet | null>(null);
-  const [tonWallets, setTonWallets] = React.useState<WalletInfo[]>([]);
+  const [tonWallets, setTonWallets] = React.useState<TonBasicWallet[]>([]);
 
   useEffect(() => {
     if (!tonConnectSdk) {
@@ -50,15 +50,29 @@ export const TonWeb3ConfigProvider: React.FC<PropsWithChildren<TonWeb3ConfigProv
   React.useEffect(() => {
     if (tonConnectSdk && wallets?.length) {
       tonConnectSdk.getWallets().then((res) => {
-        setTonWallets(res.filter((t) => wallets.findIndex((w) => w.appName === t.appName) >= 0));
+        const availableWallets = res.filter(
+          (t) => wallets.findIndex((w) => w.name === t.appName) >= 0,
+        );
+        setTonWallets(
+          availableWallets.map((w) => {
+            const tonBasicWallet = wallets.find((t) => t.name === w.appName);
+            if (!tonBasicWallet) {
+              throw new Error('Wallet not found');
+            }
+            return {
+              ...w,
+              ...tonBasicWallet,
+            };
+          }),
+        );
       });
     }
   }, [wallets, tonConnectSdk]);
 
   return (
-    <TonConnectorContext.Provider value={{ tonConnectSdk, tonSelectWallet, setTonConnectSdk }}>
+    <TonConnectorContext.Provider value={{ tonConnectSdk, tonSelectWallet, setTonSelectWallet }}>
       <TonConfigProvider
-        wallets={tonWallets?.map((w) => TonWalletFactory(w).create())}
+        wallets={tonWallets.map((w) => TonWalletFactory(w).create())}
         balance={balance}
         locale={locale}
       >

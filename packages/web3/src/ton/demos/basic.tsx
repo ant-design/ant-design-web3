@@ -1,10 +1,10 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { tonkeeper, TonWeb3ConfigProvider } from '@ant-design/web3-ton';
+import { telegramWallet, tonkeeper, TonWeb3ConfigProvider } from '@ant-design/web3-ton';
 
 const Basic = () => {
   return (
     <TonWeb3ConfigProvider
-      wallets={[tonkeeper]}
+      wallets={[tonkeeper, telegramWallet]}
       balance={false}
       connectProps={{
         manifestUrl:

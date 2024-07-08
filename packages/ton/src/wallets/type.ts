@@ -1,17 +1,13 @@
-import type { Wallet } from '@ant-design/web3-common';
+import type { Wallet, WalletMetadata } from '@ant-design/web3-common';
 import { type WalletInfo } from '@tonconnect/sdk';
 
-export type TonBasicWallet = {
-  appName: string;
-};
+export type TonBasicWallet = WalletMetadata &
+  WalletInfo & {
+    universalLink?: string;
+  };
 
-export type WalletWithBridge = Wallet & WalletInfo;
-
-export type TonWalletMetadata = WalletInfo & {
-  universalUrl: string;
-  bridgeUrl: string;
-};
+export type TonWallet = Wallet & WalletInfo;
 
 export interface WalletFactory {
-  create: () => WalletWithBridge;
+  create: () => TonWallet;
 }

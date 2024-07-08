@@ -534,6 +534,7 @@ export * from './components/tokenpocket-colorful';
 export * from './components/tomo-colorful';
 export * from './components/ton-circle-colorful';
 export * from './components/toncoin-circle-filled';
+export * from './components/tonkeeper-colorful';
 export * from './components/tor-colorful';
 export * from './components/torn-colorful';
 export * from './components/trac-colorful';
