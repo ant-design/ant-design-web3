@@ -539,8 +539,8 @@ importers:
         specifier: ^2.13.3
         version: 2.13.3
       '@walletconnect/utils':
-        specifier: ^2.13.0
-        version: 2.13.0
+        specifier: ^2.13.3
+        version: 2.13.3
       '@walletconnect/web3wallet':
         specifier: ^1.12.3
         version: 1.12.3
@@ -6399,7 +6399,6 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -6408,7 +6407,6 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -6417,7 +6415,6 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -6426,7 +6423,6 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -6435,7 +6431,6 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     optional: true
 
