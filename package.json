@@ -101,7 +101,7 @@
     "@ant-design/web3-solana": "workspace:*",
     "@ant-design/web3-sui": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
-    "@mysten/dapp-kit": "^0.13.2",
+    "@mysten/dapp-kit": "^0.14.11",
     "@mysten/sui.js": "^0.54.1",
     "@solana/wallet-adapter-coinbase": "^0.1.19",
     "@solana/wallet-adapter-trust": "^0.1.13",

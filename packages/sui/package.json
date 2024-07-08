@@ -43,7 +43,7 @@
   "dependencies": {
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
-    "@mysten/dapp-kit": "^0.13.2",
+    "@mysten/dapp-kit": "^0.14.11",
     "@mysten/sui.js": "^0.54.1",
     "@tanstack/react-query": "^5.37.1",
     "debug": "^4.3.4"
