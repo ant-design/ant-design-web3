@@ -57,7 +57,7 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
     "@testing-library/react": "^16.0.0",
     "@types/lodash": "^4.17.6",
-    "@types/node": "^20.14.2",
+    "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-copy-to-clipboard": "^5.0.7",
     "@umijs/fabric": "^4.0.1",
