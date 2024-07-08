@@ -1,5 +1,6 @@
 import React, { useEffect, type PropsWithChildren } from 'react';
 import { Web3ConfigProvider, type Account, type Balance } from '@ant-design/web3-common';
+import { TonCircleColorful } from '@ant-design/web3-icons';
 import { toUserFriendlyAddress } from '@tonconnect/sdk';
 
 import useTonConnector from '../hooks/useTonConnector';
@@ -45,7 +46,7 @@ const TonConfigProvider: React.FC<PropsWithChildren<TonConfigProviderProps>> = (
       addressPrefix={false}
       locale={locale}
       availableWallets={wallets}
-      balance={balance}
+      balance={balance ? { icon: <TonCircleColorful />, symbol: 'TON' } : undefined}
       account={account}
       connect={async (wallet) => {
         const walletInfo = wallets?.find((w) => w.appName === wallet?.name);

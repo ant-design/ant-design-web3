@@ -1,6 +1,5 @@
 ---
 nav: 组件
-subtitle: TON
 order: 6
 group:
   title: 连接链

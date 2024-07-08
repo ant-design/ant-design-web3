@@ -5,7 +5,7 @@ const Basic = () => {
   return (
     <TonWeb3ConfigProvider
       wallets={[tonkeeper, telegramWallet]}
-      balance={false}
+      balance={true}
       connectProps={{
         manifestUrl:
           'https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json',
