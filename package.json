@@ -53,7 +53,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.6.4",
     "@changesets/changelog-git": "^0.2.0",
-    "@changesets/cli": "^2.27.5",
+    "@changesets/cli": "^2.27.7",
     "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
     "@testing-library/react": "^16.0.0",
     "@types/lodash": "^4.17.6",
