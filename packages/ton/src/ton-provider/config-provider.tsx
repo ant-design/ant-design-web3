@@ -3,7 +3,7 @@ import { Web3ConfigProvider, type Account, type Balance } from '@ant-design/web3
 import { TonCircleColorful } from '@ant-design/web3-icons';
 import { toUserFriendlyAddress } from '@tonconnect/sdk';
 
-import useTonConnector from '../hooks/useTonConnector';
+import { useTonConnector } from '../hooks/useTonConnector';
 import type { TonWallet } from '../wallets/type';
 import { type TonWeb3ConfigProviderProps } from './TonWeb3ConfigProvider';
 
@@ -29,7 +29,7 @@ const TonConfigProvider: React.FC<PropsWithChildren<TonConfigProviderProps>> = (
         value: BigInt(res),
       });
     });
-  }, [connector, showBalance]);
+  }, [connector, showBalance, tonSelectWallet]);
 
   useEffect(() => {
     if (tonSelectWallet) {
@@ -46,7 +46,11 @@ const TonConfigProvider: React.FC<PropsWithChildren<TonConfigProviderProps>> = (
       addressPrefix={false}
       locale={locale}
       availableWallets={wallets}
-      balance={balance ? { icon: <TonCircleColorful />, symbol: 'TON' } : undefined}
+      balance={
+        balance
+          ? { ...balance, decimals: 9, icon: <TonCircleColorful />, symbol: 'TON' }
+          : undefined
+      }
       account={account}
       connect={async (wallet) => {
         const walletInfo = wallets?.find((w) => w.appName === wallet?.name);

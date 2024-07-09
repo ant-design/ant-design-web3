@@ -1,22 +1,36 @@
-import TonConnect from '@tonconnect/sdk';
+import TonConnect, { CHAIN } from '@tonconnect/sdk';
 
-interface TonConnectSdkOptions {
+export interface TonConnectSdkOptions {
   manifestUrl: string;
+  reconnect?: boolean;
+  chain?: CHAIN;
 }
 class TonConnectSdk extends TonConnect {
   private _api: string;
+  private _network: CHAIN;
 
   constructor(options: TonConnectSdkOptions) {
     super({ manifestUrl: options.manifestUrl });
-    this._api = 'https://toncenter.com/api/v3';
+    this._api = '';
+    this._network = CHAIN.MAINNET;
+    this._switchNetwork(options.chain || this._network);
   }
 
-  get api() {
-    return this._api;
+  get network() {
+    return this._network;
   }
 
-  set api(api: string) {
-    this._api = api;
+  set network(network: CHAIN) {
+    this._switchNetwork(network);
+  }
+
+  private _switchNetwork(network: CHAIN) {
+    if (network === CHAIN.MAINNET) {
+      this._api = 'https://toncenter.com/api/v3';
+    } else {
+      this._api = 'https://testnet.toncenter.com/api/v3';
+    }
+    this._network = network;
   }
 
   async getBalance() {
@@ -35,6 +49,10 @@ class TonConnectSdk extends TonConnect {
       })
       .then((res) => {
         return res.balance as string;
+      })
+      .catch((e) => {
+        console.error(e);
+        return '0';
       });
   }
 }

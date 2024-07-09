@@ -1,11 +1,11 @@
 import React, { useEffect, type PropsWithChildren } from 'react';
 import type { Locale, WalletMetadata } from '@ant-design/web3-common';
-import type { Wallet } from '@tonconnect/sdk';
+import type { CHAIN, Wallet } from '@tonconnect/sdk';
 
 import { TonWalletFactory } from '../wallets/factory';
 import { type TonBasicWallet } from '../wallets/type';
 import TonConfigProvider from './config-provider';
-import TonConnectSdk from './TonConnectSdk';
+import TonConnectSdk, { TonConnectSdkOptions } from './TonConnectSdk';
 
 interface TonConnectorContextProps {
   tonConnectSdk: TonConnectSdk | null;
@@ -19,10 +19,8 @@ export interface TonWeb3ConfigProviderProps {
   locale?: Locale;
   balance?: boolean;
   wallets?: WalletMetadata[];
-  connectProps: {
-    manifestUrl: string;
-    reconnect?: boolean;
-  };
+  chains?: string[];
+  connectProps: TonConnectSdkOptions;
 }
 
 export const TonWeb3ConfigProvider: React.FC<PropsWithChildren<TonWeb3ConfigProviderProps>> = ({
@@ -39,7 +37,9 @@ export const TonWeb3ConfigProvider: React.FC<PropsWithChildren<TonWeb3ConfigProv
   useEffect(() => {
     if (!tonConnectSdk) {
       const tonSdk = new TonConnectSdk(connectProps);
-      tonSdk.restoreConnection();
+      if (connectProps.reconnect) {
+        tonSdk.restoreConnection();
+      }
       tonSdk.onStatusChange((s) => {
         setTonSelectWallet(s);
       });
