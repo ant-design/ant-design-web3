@@ -18,7 +18,7 @@ import { SUI_DECIMALS } from '@mysten/sui.js/utils';
 
 import type { SuiChain } from '../chain';
 
-type GetNFTMetadata = Exclude<UniversalWeb3ProviderInterface['getNFTMetadata'], undefined>;
+type GetNFTMetadata = NonNullable<UniversalWeb3ProviderInterface['getNFTMetadata']>;
 
 export interface AntDesignWeb3ConfigProviderProps {
   balance?: boolean;

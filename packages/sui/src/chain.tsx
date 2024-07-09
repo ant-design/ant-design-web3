@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Chain } from '@ant-design/web3-common';
 import { createGetBrowserLink, SuiChainIds } from '@ant-design/web3-common';
 import { SuiColorful } from '@ant-design/web3-icons';

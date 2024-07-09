@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Locale } from '@ant-design/web3-common';
-import { createNetworkConfig, SuiClientProvider, WalletProvider } from '@mysten/dapp-kit';
+import type { createNetworkConfig } from '@mysten/dapp-kit';
+import { SuiClientProvider, WalletProvider } from '@mysten/dapp-kit';
 import type { QueryClient } from '@tanstack/react-query';
 import { QueryClientProvider } from '@tanstack/react-query';
 
