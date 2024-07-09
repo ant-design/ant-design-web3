@@ -109,9 +109,9 @@ export interface UniversalWeb3ProviderInterface {
 }
 
 export interface Wallet extends WalletMetadata {
-  hasWalletReady?: () => Promise<boolean>;
-  hasExtensionInstalled?: () => Promise<boolean>;
-  getQrCode?: () => Promise<{ uri: string }>;
+  hasWalletReady?: () => boolean | Promise<boolean>;
+  hasExtensionInstalled?: () => boolean | Promise<boolean>;
+  getQrCode?: () => { uri: string } | Promise<{ uri: string }>;
 }
 
 /**
@@ -161,8 +161,8 @@ export type WalletMetadata = {
    */
   remark: string;
   /**
-   * @desc 钱包的 key
-   * @descEn The key of Wallet
+   * @desc 钱包的 key, 一般设置为 EIP6963 中的 RDNS（RFC2397）格式
+   * @descEn The key of Wallet, generally set to the RDNS (RFC2397) format in EIP6963
    */
   key?: React.Key;
   /**
