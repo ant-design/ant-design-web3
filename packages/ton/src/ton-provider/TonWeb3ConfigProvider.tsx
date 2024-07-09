@@ -1,11 +1,11 @@
 import React, { useEffect, type PropsWithChildren } from 'react';
 import type { Locale, WalletMetadata } from '@ant-design/web3-common';
-import type { CHAIN, Wallet } from '@tonconnect/sdk';
+import type { Wallet } from '@tonconnect/sdk';
 
 import { TonWalletFactory } from '../wallets/factory';
-import { type TonBasicWallet } from '../wallets/type';
+import type { TonBasicWallet } from '../wallets/type';
 import TonConfigProvider from './config-provider';
-import TonConnectSdk, { TonConnectSdkOptions } from './TonConnectSdk';
+import TonConnectSdk, { type TonConnectSdkConfigType } from './TonConnectSdk';
 
 interface TonConnectorContextProps {
   tonConnectSdk: TonConnectSdk | null;
@@ -20,7 +20,7 @@ export interface TonWeb3ConfigProviderProps {
   balance?: boolean;
   wallets?: WalletMetadata[];
   chains?: string[];
-  connectProps: TonConnectSdkOptions;
+  connectConfig: TonConnectSdkConfigType;
 }
 
 export const TonWeb3ConfigProvider: React.FC<PropsWithChildren<TonWeb3ConfigProviderProps>> = ({
@@ -28,7 +28,7 @@ export const TonWeb3ConfigProvider: React.FC<PropsWithChildren<TonWeb3ConfigProv
   balance,
   locale,
   wallets,
-  connectProps,
+  connectConfig,
 }) => {
   const [tonConnectSdk, setTonConnectSdk] = React.useState<TonConnectSdk | null>(null);
   const [tonSelectWallet, setTonSelectWallet] = React.useState<Wallet | null>(null);
@@ -36,8 +36,8 @@ export const TonWeb3ConfigProvider: React.FC<PropsWithChildren<TonWeb3ConfigProv
 
   useEffect(() => {
     if (!tonConnectSdk) {
-      const tonSdk = new TonConnectSdk(connectProps);
-      if (connectProps.reconnect) {
+      const tonSdk = new TonConnectSdk(connectConfig);
+      if (connectConfig.reconnect) {
         tonSdk.restoreConnection();
       }
       tonSdk.onStatusChange((s) => {
@@ -45,7 +45,7 @@ export const TonWeb3ConfigProvider: React.FC<PropsWithChildren<TonWeb3ConfigProv
       });
       setTonConnectSdk(tonSdk);
     }
-  }, [tonConnectSdk, connectProps]);
+  }, [tonConnectSdk, connectConfig]);
 
   React.useEffect(() => {
     if (tonConnectSdk && wallets?.length) {

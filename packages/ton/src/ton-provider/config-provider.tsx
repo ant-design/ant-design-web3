@@ -5,10 +5,10 @@ import { toUserFriendlyAddress } from '@tonconnect/sdk';
 
 import { useTonConnector } from '../hooks/useTonConnector';
 import type { TonWallet } from '../wallets/type';
-import { type TonWeb3ConfigProviderProps } from './TonWeb3ConfigProvider';
+import type { TonWeb3ConfigProviderProps } from './TonWeb3ConfigProvider';
 
 interface TonConfigProviderProps
-  extends Omit<TonWeb3ConfigProviderProps, 'wallets' | 'connectProps'> {
+  extends Omit<TonWeb3ConfigProviderProps, 'wallets' | 'connectConfig'> {
   wallets?: TonWallet[];
 }
 

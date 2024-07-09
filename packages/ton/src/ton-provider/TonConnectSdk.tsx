@@ -1,6 +1,6 @@
 import TonConnect, { CHAIN } from '@tonconnect/sdk';
 
-export interface TonConnectSdkOptions {
+export interface TonConnectSdkConfigType {
   manifestUrl: string;
   reconnect?: boolean;
   chain?: CHAIN;
@@ -9,7 +9,7 @@ class TonConnectSdk extends TonConnect {
   private _api: string;
   private _network: CHAIN;
 
-  constructor(options: TonConnectSdkOptions) {
+  constructor(options: TonConnectSdkConfigType) {
     super({ manifestUrl: options.manifestUrl });
     this._api = '';
     this._network = CHAIN.MAINNET;

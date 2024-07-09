@@ -42,8 +42,7 @@
   },
   "dependencies": {
     "@ant-design/web3-assets": "workspace:*",
-    "@ant-design/web3-common": "workspace:*",
-    "@tonconnect/sdk": "^3.0.3"
+    "@ant-design/web3-common": "workspace:*"
   },
   "devDependencies": {
     "father": "^4.4.4",
@@ -52,6 +51,9 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
+  },
+  "peerDependencies": {
+    "@tonconnect/sdk": "^3.0.3"
   },
   "browserslist": [
     "last 2 versions",
