@@ -1,4 +1,4 @@
-import { ChainIds, createGetBrowserLink, type Chain } from '@ant-design/web3-common';
+import { ChainIds, ChainType, createGetBrowserLink, type Chain } from '@ant-design/web3-common';
 import {
   ArbitrumCircleColorful,
   AvalancheCircleColorful,
@@ -17,6 +17,7 @@ import {
 export const Mainnet: Chain = {
   id: ChainIds.Mainnet,
   name: 'Ethereum',
+  type: ChainType.EVM,
   icon: <EthereumCircleColorful />,
   browser: {
     icon: <EtherscanCircleColorful />,
@@ -31,6 +32,7 @@ export const Mainnet: Chain = {
 export const Goerli: Chain = {
   id: ChainIds.Goerli,
   name: 'Goerli',
+  type: ChainType.EVM,
   icon: <EthereumCircleColorful />,
   browser: {
     icon: <EthereumCircleColorful />,
@@ -42,6 +44,7 @@ export const Goerli: Chain = {
 export const Sepolia: Chain = {
   id: ChainIds.Sepolia,
   name: 'Sepolia',
+  type: ChainType.EVM,
   icon: <EthereumCircleColorful />,
   browser: {
     icon: <EthereumCircleColorful />,
@@ -53,6 +56,7 @@ export const Sepolia: Chain = {
 export const Holesky: Chain = {
   id: ChainIds.Holesky,
   name: 'Holesky',
+  type: ChainType.EVM,
   icon: <EthereumCircleColorful />,
   browser: {
     icon: <EthereumCircleColorful />,
@@ -64,6 +68,7 @@ export const Holesky: Chain = {
 export const Polygon: Chain = {
   id: ChainIds.Polygon,
   name: 'Polygon',
+  type: ChainType.EVM,
   icon: <PolygonCircleColorful />,
   browser: {
     icon: <PolygonCircleColorful />,
@@ -75,6 +80,7 @@ export const Polygon: Chain = {
 export const BSC: Chain = {
   id: ChainIds.BSC,
   name: 'BNB Smart Chain',
+  type: ChainType.EVM,
   icon: <BSCCircleColorful />,
   browser: {
     icon: <BSCCircleColorful />,
@@ -86,6 +92,7 @@ export const BSC: Chain = {
 export const Arbitrum: Chain = {
   id: ChainIds.Arbitrum,
   name: 'Arbitrum One',
+  type: ChainType.EVM,
   icon: <ArbitrumCircleColorful />,
   browser: {
     icon: <ArbitrumCircleColorful />,
@@ -97,6 +104,7 @@ export const Arbitrum: Chain = {
 export const Optimism: Chain = {
   id: ChainIds.Optimism,
   name: 'OP Mainnet',
+  type: ChainType.EVM,
   icon: <OptimismCircleColorful />,
   browser: {
     icon: <OptimismCircleColorful />,
@@ -108,6 +116,7 @@ export const Optimism: Chain = {
 export const Avalanche: Chain = {
   id: ChainIds.Avalanche,
   name: 'Avalanche',
+  type: ChainType.EVM,
   icon: <AvalancheCircleColorful />,
   browser: {
     icon: <AvalancheCircleColorful />,
@@ -120,6 +129,7 @@ export const Avalanche: Chain = {
 export const X1Testnet: Chain = {
   id: ChainIds.X1Testnet,
   name: 'X1 testnet',
+  type: ChainType.EVM,
   icon: <OkxWalletColorful />,
   browser: {
     icon: <OkxWalletColorful />,
@@ -131,6 +141,7 @@ export const X1Testnet: Chain = {
 export const Scroll: Chain = {
   id: ChainIds.Scroll,
   name: 'Scroll',
+  type: ChainType.EVM,
   icon: <ScrollColorful />,
   browser: {
     icon: <ScrollColorful />,
@@ -142,6 +153,7 @@ export const Scroll: Chain = {
 export const ScrollSepolia: Chain = {
   id: ChainIds.ScrollSepolia,
   name: 'Scroll Sepolia Testnet',
+  type: ChainType.EVM,
   icon: <ScrollColorful />,
   browser: {
     icon: <ScrollColorful />,
@@ -153,6 +165,7 @@ export const ScrollSepolia: Chain = {
 export const Hardhat: Chain = {
   id: ChainIds.Hardhat,
   name: 'Hardhat',
+  type: ChainType.EVM,
   icon: <HardhatColorful />,
   nativeCurrency: { icon: <EthereumFilled />, name: 'Ether', symbol: 'ETH', decimals: 18 },
 };
@@ -160,6 +173,7 @@ export const Hardhat: Chain = {
 export const Localhost: Chain = {
   id: ChainIds.Localhost,
   name: 'Localhost',
+  type: ChainType.EVM,
   icon: <EthereumColorful />,
   nativeCurrency: { icon: <EthereumFilled />, name: 'Ether', symbol: 'ETH', decimals: 18 },
 };

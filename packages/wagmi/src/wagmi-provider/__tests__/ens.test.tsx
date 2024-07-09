@@ -30,7 +30,9 @@ vi.mock('wagmi', () => {
     useConnect: () => {
       return {
         connectors: [],
-        connectAsync: () => {},
+        connectAsync: async () => {
+          return {};
+        },
       };
     },
     useDisconnect: () => {
@@ -52,6 +54,9 @@ vi.mock('wagmi', () => {
       }
       return {};
     },
+    useEnsAvatar: () => ({
+      data: 'test-avatar',
+    }),
   };
 });
 
@@ -83,6 +88,34 @@ describe('WagmiWeb3ConfigProvider ens', () => {
 
     await waitFor(() => {
       expect(baseElement.querySelector('.custom-text')?.textContent).toBe('wanderingearth.eth');
+    });
+  });
+
+  it('should display avatar', async () => {
+    const CustomConnector = () => {
+      const { account } = useProvider();
+      return (
+        <div>
+          <div className="custom-text">{account ? account?.avatar : 'Connect'}</div>
+        </div>
+      );
+    };
+
+    const App = () => (
+      <AntDesignWeb3ConfigProvider
+        ens
+        availableChains={[mainnet]}
+        availableConnectors={[]}
+        walletFactorys={[MetaMask()]}
+        chainAssets={[Mainnet]}
+      >
+        <CustomConnector />
+      </AntDesignWeb3ConfigProvider>
+    );
+    const { baseElement } = render(<App />);
+
+    await waitFor(() => {
+      expect(baseElement.querySelector('.custom-text')?.textContent).toBe('test-avatar');
     });
   });
 });

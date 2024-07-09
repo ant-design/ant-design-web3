@@ -1,7 +1,7 @@
 ---
 nav: Course
 group:
-  title: advanced
+  title: Advanced
   order: 4
 order: 1
 ---

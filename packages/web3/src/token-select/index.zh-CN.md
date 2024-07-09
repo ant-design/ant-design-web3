@@ -1,0 +1,30 @@
+---
+nav: 组件
+subtitle: 代币选择器
+group:
+  title: UI 组件
+  order: 3
+---
+
+# TokenSelect
+
+代币下拉选择器组件，是 `AntDesign Select` 组件的二次封装，基础 props 请参照 `AntDesign Select`，API 的设计兼容 `AntDesign Form` 可实现快速接入。
+
+## 代码演示
+
+### 基本用法
+
+<code src="./demos/basic.tsx"></code>
+
+### 带搜索功能
+
+<code src="./demos/withSearch.tsx"></code>
+
+## API
+
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| value | 当前选择的代币 | [Token](/components/types-cn#token) | - | - |
+| onChange | 选中代币发生变动时的回调 | (token?: [Token](/components/types-cn#token)) => void | - | - |
+| tokenList | 可选择的代币列表 | [Token](/components/types-cn#token)[] | - | - |
+| ...props | 请参照 AntDesign `Select` 组件 | [Select Props](https://ant-design.antgroup.com/components/select-cn#select-props) | - | - |

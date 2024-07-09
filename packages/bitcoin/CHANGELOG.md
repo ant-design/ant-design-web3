@@ -1,5 +1,25 @@
 # @ant-design/web3-bitcoin
 
+## 1.4.0
+
+### Minor Changes
+
+- 3ab04d9: feat: Bitcoin adapter supports auto connect wallet
+
+### Patch Changes
+
+- Updated dependencies [f1b85b9]
+- Updated dependencies [66aaab4]
+- Updated dependencies [9321e7d]
+  - @ant-design/web3-common@1.12.0
+
+## 1.3.1
+
+### Patch Changes
+
+- Updated dependencies [4abe7c0]
+  - @ant-design/web3-common@1.11.0
+
 ## 1.3.0
 
 ### Minor Changes

@@ -1,5 +1,27 @@
 # @ant-design/web3-assets
 
+## 1.9.0
+
+### Minor Changes
+
+- 66aaab4: feat: new components TokenSelect and CryptoInput
+- 9321e7d: feat: add payPanel component
+
+### Patch Changes
+
+- Updated dependencies [f1b85b9]
+- Updated dependencies [66aaab4]
+- Updated dependencies [9321e7d]
+  - @ant-design/web3-common@1.12.0
+
+## 1.8.1
+
+### Patch Changes
+
+- 0d33add: fix: ConnectModal height style when has footer
+- Updated dependencies [4abe7c0]
+  - @ant-design/web3-common@1.11.0
+
 ## 1.8.0
 
 ### Minor Changes

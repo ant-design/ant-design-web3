@@ -38,8 +38,8 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     onConnect?.();
     try {
       setConnecting(true);
-      await connect?.(wallet, options);
-      onConnected?.();
+      const connectedAccount = await connect?.(wallet, options);
+      onConnected?.(connectedAccount ? connectedAccount : undefined);
       setOpen(false);
     } catch (e: any) {
       if (typeof onConnectError === 'function') {

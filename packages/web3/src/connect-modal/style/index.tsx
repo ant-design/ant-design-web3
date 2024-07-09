@@ -217,12 +217,15 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               content: '""',
               position: 'absolute',
               bottom: '100%',
-              width: token.walletListWidth - token.paddingMD * 2,
-              left: token.paddingMD,
+              width: `calc(100% - ${token.paddingMD * 2}px)`,
+              left: '50%',
+              transform: 'translateX(-50%)',
               height: token.controlHeightLG,
-              backgroundImage: `linear-gradient(to bottom, ${new TinyColor(token.colorBgBase)
+              backgroundImage: `linear-gradient(to bottom, ${new TinyColor(token.colorBgContainer)
                 .setAlpha(0)
-                .toRgbString()}, ${new TinyColor(token.colorBgBase).setAlpha(1).toRgbString()})`,
+                .toRgbString()}, ${new TinyColor(token.colorBgContainer)
+                .setAlpha(1)
+                .toRgbString()})`,
               pointerEvents: 'none',
             },
           },

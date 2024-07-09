@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-ethers-v5",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -37,7 +37,7 @@
     "ethers-v5",
     "ethersjs"
   ],
-  "homepage": "https://we3.ant.design",
+  "homepage": "https://web3.ant.design",
   "bugs": {
     "url": "https://github.com/ant-design/ant-design-web3/issues"
   },
@@ -55,14 +55,14 @@
     "@ant-design/web3-wagmi": "workspace:*",
     "@ant-design/web3-ethers": "workspace:*",
     "@tanstack/react-query": "^5.40.1",
-    "debug": "^4.3.4",
-    "viem": ">=2.13.3",
-    "wagmi": "^2.8.3"
+    "debug": "^4.3.5",
+    "viem": "^2.16.5",
+    "wagmi": "^2.10.5"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
     "father": "^4.4.4",
-    "typescript": "^5.4.5",
+    "typescript": "^5.5.2",
     "ethers": "^5.7.2"
   },
   "peerDependencies": {
