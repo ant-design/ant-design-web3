@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Locale } from '@ant-design/web3-common';
-import type { createNetworkConfig } from '@mysten/dapp-kit';
-import { SuiClientProvider, WalletProvider } from '@mysten/dapp-kit';
+import { createNetworkConfig, SuiClientProvider, WalletProvider } from '@mysten/dapp-kit';
+import { getFullnodeUrl } from '@mysten/sui.js/client';
 import type { QueryClient } from '@tanstack/react-query';
 import { QueryClientProvider } from '@tanstack/react-query';
 
@@ -13,11 +13,10 @@ export interface SuiWeb3ConfigProviderProps {
   balance?: boolean;
   locale?: Locale;
   autoConnect?: boolean;
-  networkConfig: ReturnType<typeof createNetworkConfig>;
+  networkConfig?: ReturnType<typeof createNetworkConfig>['networkConfig'];
   sns?: boolean;
   defaultNetwork?: string;
   queryClient: QueryClient;
-  chains?: SuiChain[];
 }
 
 export const SuiWeb3ConfigProvider: React.FC<
@@ -26,7 +25,7 @@ export const SuiWeb3ConfigProvider: React.FC<
   autoConnect,
   balance,
   locale,
-  networkConfig: networkConfigs,
+  networkConfig,
   defaultNetwork = 'mainnet',
   queryClient,
   sns,
@@ -34,16 +33,23 @@ export const SuiWeb3ConfigProvider: React.FC<
 }) => {
   const [network, setNetwork] = React.useState(defaultNetwork);
 
+  const realNetworkConfig = React.useMemo<NonNullable<typeof networkConfig>>(() => {
+    return (
+      networkConfig ??
+      createNetworkConfig({
+        mainnet: { url: getFullnodeUrl('mainnet') },
+      }).networkConfig
+    );
+  }, [networkConfig]);
+
   const networks = React.useMemo(() => {
-    const networkKeys = Object.keys(networkConfigs.networkConfig);
-    const configs = [SuiMainnet, SuiTestnet, SuiDevnet, SuiLocalnet];
-    return networkKeys
-      .map((networkKey) => {
-        const networkConfig = configs.find((item) => item.network === networkKey);
-        return networkConfig;
-      })
+    const networkConfigKeys = Object.keys(realNetworkConfig);
+    const networkConfigs = [SuiMainnet, SuiTestnet, SuiDevnet, SuiLocalnet];
+
+    return networkConfigKeys
+      .map((networkKey) => networkConfigs.find((item) => item.network === networkKey))
       .filter((item): item is SuiChain => !!item);
-  }, [networkConfigs]);
+  }, [realNetworkConfig]);
 
   const currentNetwork = React.useMemo(() => {
     return networks?.find((item) => item.network === network);
@@ -51,7 +57,7 @@ export const SuiWeb3ConfigProvider: React.FC<
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SuiClientProvider networks={networkConfigs.networkConfig as any} network={network}>
+      <SuiClientProvider networks={realNetworkConfig} network={network}>
         <WalletProvider autoConnect={autoConnect}>
           <AntDesignWeb3ConfigProvider
             locale={locale}
