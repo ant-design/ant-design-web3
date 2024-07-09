@@ -11,9 +11,6 @@ import {
   useSuiClientQuery,
   useWallets,
 } from '@mysten/dapp-kit';
-
-import '@mysten/sui.js/client';
-
 import { SUI_DECIMALS } from '@mysten/sui.js/utils';
 
 import type { SuiChain } from '../chain';
