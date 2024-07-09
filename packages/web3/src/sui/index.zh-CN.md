@@ -1,25 +1,25 @@
 ---
-nav: Components
+nav: 组件
 order: 6
 group:
-  title: Connect Blockchains
+  title: 连接链
   order: 2
 ---
 
 # Sui
 
-## Recommended configuration
+## 推荐配置
 
 <code src="./demos/recommend.tsx"></code>
 
-## Networks
+## 网络
 
 <code src="./demos/networks.tsx"></code>
 
-## Unoffical networks
+## 非官方网络
 
 <code src="./demos/networks-unofficial.tsx"></code>
 
-## More Components
+## 更多组件
 
 <code src="./demos/more-components.tsx"></code>
