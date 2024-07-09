@@ -50,8 +50,8 @@
     "@mysten/sui.js": "^0.54.1",
     "@tanstack/react-query": "^5.40.1",
     "@types/debug": "^4.1.12",
-    "father": "^4.4.0",
-    "typescript": "^5.4.4"
+    "father": "^4.4.4",
+    "typescript": "^5.5.2"
   },
   "peerDependencies": {
     "@mysten/dapp-kit": "^0.14.11",

@@ -79,27 +79,30 @@ export const AntDesignWeb3ConfigProvider: React.FC<
     });
   }, [wallets]);
 
-  const getNFTMetadataFunc = useCallback<GetNFTMetadata>(async ({ address, tokenId }) => {
-    const { data: nftData } = await fetchNFTMetadata({
-      id: address,
-      options: {
-        showContent: true,
-        showDisplay: true,
-      },
-    });
+  const getNFTMetadataFunc = useCallback<GetNFTMetadata>(
+    async ({ address }) => {
+      const { data: nftData } = await fetchNFTMetadata({
+        id: address,
+        options: {
+          showContent: true,
+          showDisplay: true,
+        },
+      });
 
-    const displayData = nftData?.display?.data;
-    const objectFields: Record<string, any> | undefined =
-      nftData?.content?.dataType === 'moveObject' ? nftData.content.fields : undefined;
+      const displayData = nftData?.display?.data;
+      const objectFields: Record<string, any> | undefined =
+        nftData?.content?.dataType === 'moveObject' ? nftData.content.fields : undefined;
 
-    return {
-      image: displayData?.image_url,
-      date: objectFields?.birthdate,
-      attributes: objectFields?.attributes,
-      description: displayData?.description,
-      edition: nftData?.version,
-    };
-  }, []);
+      return {
+        image: displayData?.image_url,
+        date: objectFields?.birthdate,
+        attributes: objectFields?.attributes,
+        description: displayData?.description,
+        edition: nftData?.version,
+      };
+    },
+    [fetchNFTMetadata],
+  );
 
   return (
     <Web3ConfigProvider
