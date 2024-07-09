@@ -53,11 +53,11 @@
   "devDependencies": {
     "@biomejs/biome": "^1.6.4",
     "@changesets/changelog-git": "^0.2.0",
-    "@changesets/cli": "^2.27.5",
+    "@changesets/cli": "^2.27.7",
     "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
     "@testing-library/react": "^16.0.0",
     "@types/lodash": "^4.17.6",
-    "@types/node": "^20.14.2",
+    "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-copy-to-clipboard": "^5.0.7",
     "@umijs/fabric": "^4.0.1",
@@ -91,7 +91,7 @@
   },
   "repository": "https://github.com/ant-design/ant-design-web3.git",
   "dependencies": {
-    "@ant-design/cssinjs": "^1.20.0",
+    "@ant-design/cssinjs": "^1.21.0",
     "@ant-design/icons": "^5.3.7",
     "@ant-design/web3": "workspace:*",
     "@ant-design/web3-assets": "workspace:*",
@@ -108,14 +108,14 @@
     "antd-token-previewer-web3": "^2.0.8",
     "cross-env": "^7.0.3",
     "decimal.js": "^10.4.3",
-    "dumi": "^2.3.8",
+    "dumi": "^2.4.5",
     "dumi-theme-antd-web3": "0.4.2",
     "ethers": "^6.13.1",
     "github-contributors-lists": "^1.0.3",
-    "react": "^18.2.0",
+    "react": "18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "18.2.0",
     "viem": "^2.16.5",
-    "wagmi": "^2.10.5"
+    "wagmi": "^2.10.9"
   }
 }
