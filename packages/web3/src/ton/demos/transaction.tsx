@@ -3,14 +3,14 @@ import { CHAIN, tonkeeper, TonWeb3ConfigProvider, useTonConnector } from '@ant-d
 import { Button, Space } from 'antd';
 
 const SendTransfer: React.FC = () => {
-  const { connector, account } = useTonConnector();
+  const { connector, account, connectConfig } = useTonConnector();
   if (account?.address && connector) {
     return (
       <Button
         onClick={() => {
           connector?.sendTransaction({
             validUntil: Math.floor(Date.now() / 1000) + 360,
-            network: CHAIN.TESTNET,
+            network: connectConfig?.chain,
             messages: [
               {
                 address: '0QBLw4PC68wCqWRLq-DtRehPkKNs0Lf-XB097tPfO10bDUWi',

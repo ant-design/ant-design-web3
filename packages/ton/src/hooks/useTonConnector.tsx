@@ -9,5 +9,6 @@ export const useTonConnector = () => {
     account: provider?.tonConnectSdk?.account,
     tonSelectWallet: provider?.tonSelectWallet,
     setTonSelectWallet: provider?.setTonSelectWallet,
+    connectConfig: provider?.connectConfig,
   };
 };

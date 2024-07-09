@@ -11,6 +11,7 @@ interface TonConnectorContextProps {
   tonConnectSdk: TonConnectSdk | null;
   tonSelectWallet: Wallet | null;
   setTonSelectWallet: (sdk: Wallet | null) => void;
+  connectConfig: TonConnectSdkConfigType;
 }
 
 export const TonConnectorContext = React.createContext<TonConnectorContextProps | null>(null);
@@ -18,7 +19,7 @@ export const TonConnectorContext = React.createContext<TonConnectorContextProps 
 export interface TonWeb3ConfigProviderProps {
   locale?: Locale;
   balance?: boolean;
-  wallets?: WalletMetadata[];
+  wallets: WalletMetadata[];
   chains?: string[];
   connectConfig: TonConnectSdkConfigType;
 }
@@ -70,7 +71,9 @@ export const TonWeb3ConfigProvider: React.FC<PropsWithChildren<TonWeb3ConfigProv
   }, [wallets, tonConnectSdk]);
 
   return (
-    <TonConnectorContext.Provider value={{ tonConnectSdk, tonSelectWallet, setTonSelectWallet }}>
+    <TonConnectorContext.Provider
+      value={{ tonConnectSdk, tonSelectWallet, setTonSelectWallet, connectConfig }}
+    >
       <TonConfigProvider
         wallets={tonWallets.map((w) => TonWalletFactory(w).create())}
         balance={balance}
