@@ -60,7 +60,7 @@ export default defineConfig({
     setupFiles: ['./tests/setup.ts'],
     reporters: ['default'],
     coverage: {
-      include: ['packages/*/src/**/*.{tx,tsx}'],
+      include: ['packages/*/src/**/*.{ts,tsx}'],
       exclude: ['**/demos/*.tsx'],
       reporter: ['json-summary', ['text', { skipFull: true }], 'cobertura', 'html'],
     },
