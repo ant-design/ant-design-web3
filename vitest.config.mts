@@ -8,6 +8,19 @@ const resolve = (src: string) => {
 
 const isDist = process.env.LIB_DIR === 'dist';
 
+// Examples:
+//   pnpm test -- --pkg=wagmi
+//   pnpm test -- --pkg=solana,wagmi
+const pkg = process.argv.find(arg => arg.startsWith('--pkg='));
+const pkgValue = pkg ? pkg.split('=')[1] : '';
+const packages = pkgValue ?
+  pkgValue.includes(',') ? `{${pkgValue}}` : pkgValue
+  : '';
+
+if (packages) {
+  console.warn(`Testing packages: [${pkgValue}]\r\n`);
+}
+
 export default defineConfig({
   plugins: [
     svgr({
@@ -56,11 +69,11 @@ export default defineConfig({
   },
   test: {
     environment: 'jsdom',
-    include: ['./packages/**/*.test.{ts,tsx}'],
+    include: [`./packages${packages ? ('/' + packages) : ''}/**/*.test.{ts,tsx}`],
     setupFiles: ['./tests/setup.ts'],
     reporters: ['default'],
     coverage: {
-      include: ['packages/*/src/**/*.{ts,tsx}'],
+      include: [`packages/${packages ? packages : '*'}/src/**/*.{ts,tsx}`],
       exclude: ['**/demos/*.{ts,tsx}', '**/src/index.ts'],
       reporter: ['json-summary', ['text', { skipFull: true }], 'cobertura', 'html'],
     },
