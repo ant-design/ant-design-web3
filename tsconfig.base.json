@@ -19,6 +19,7 @@
       "@ant-design/web3-common": ["./packages/common/src/"],
       "@ant-design/web3-icons": ["./packages/icons/src/"],
       "@ant-design/web3-assets": ["./packages/assets/src/"],
+      "@ant-design/web3-assets/ethereum": ["./packages/assets/src/chains/ethereum.tsx"],
       "@ant-design/web3-assets/solana": ["./packages/assets/src/solana/"],
       "@ant-design/web3-assets/tokens": ["./packages/assets/src/tokens/"],
       "@ant-design/web3-wagmi": ["./packages/wagmi/src/"],

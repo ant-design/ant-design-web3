@@ -6,9 +6,12 @@ const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
       chains={[mainnet]}
-      multiInjectedProviderDiscovery={false}
       walletConnect={{ projectId: YOUR_WALLET_CONNECT_PROJECT_ID }}
-      connectors={[connectors.metaMask({ group: '11kj' })]}
+      connectors={[
+        connectors.metaMask({ group: '11kj' }),
+        connectors.okxWallet(),
+        connectors.turstWallet(),
+      ]}
     >
       <Connector>
         <ConnectButton />

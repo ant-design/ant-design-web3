@@ -575,6 +575,9 @@ importers:
       debug:
         specifier: ^4.3.5
         version: 4.3.5(supports-color@5.5.0)
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
     devDependencies:
       '@tanstack/react-query':
         specifier: ^5.40.1
@@ -582,6 +585,9 @@ importers:
       '@types/debug':
         specifier: ^4.1.12
         version: 4.1.12
+      '@types/lodash-es':
+        specifier: ^4.17.12
+        version: 4.17.12
       father:
         specifier: ^4.4.4
         version: 4.4.4(@babel/core@7.24.3)(@types/node@20.14.2)(styled-components@5.3.11)(webpack@5.91.0)
