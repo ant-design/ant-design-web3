@@ -9,8 +9,9 @@ export const TonWalletFactory = (metadata: TonBasicWallet): WalletFactory => {
     create: () => {
       return {
         ...metadata,
-        name: metadata.appName,
+        name: metadata.name,
         remark: metadata.appName,
+        key: metadata.appName,
         icon: metadata.icon ?? metadata.imageUrl,
         hasWalletReady: () => Promise.resolve(isReady),
         hasExtensionInstalled: () => Promise.resolve(isReady),

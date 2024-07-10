@@ -1,8 +1,6 @@
-import TonConnect, { CHAIN } from '@tonconnect/sdk';
+import TonConnect, { CHAIN, type TonConnectOptions } from '@tonconnect/sdk';
 
-export interface TonConnectSdkConfigType {
-  manifestUrl: string;
-  reconnect?: boolean;
+export interface TonConnectSdkConfigType extends TonConnectOptions {
   chain?: CHAIN;
 }
 class TonConnectSdk extends TonConnect {

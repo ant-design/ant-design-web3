@@ -1,8 +1,8 @@
-import type { WalletMetadata } from '@ant-design/web3-common';
 import { TonkeeperColorful } from '@ant-design/web3-icons';
 
-export const tonkeeper: WalletMetadata = {
-  name: 'tonkeeper',
-  remark: 'tonkeeper',
+import type { TonWalletMetadata } from './type';
+
+export const tonkeeper: TonWalletMetadata = {
+  key: 'tonkeeper',
   icon: <TonkeeperColorful />,
 };

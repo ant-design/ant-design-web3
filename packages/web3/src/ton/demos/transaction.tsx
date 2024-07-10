@@ -8,7 +8,7 @@ const SendTransfer: React.FC = () => {
     return (
       <Button
         onClick={() => {
-          connector?.sendTransaction({
+          connector.sendTransaction({
             validUntil: Math.floor(Date.now() / 1000) + 360,
             network: connectConfig?.chain,
             messages: [
@@ -32,12 +32,9 @@ const Basic = () => {
     <TonWeb3ConfigProvider
       wallets={[tonkeeper]}
       balance
-      connectConfig={{
-        manifestUrl:
-          'https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json',
-        reconnect: false,
-        chain: CHAIN.TESTNET,
-      }}
+      chain={CHAIN.TESTNET}
+      manifestUrl="https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json"
+      reconnect={false}
     >
       <Space>
         <Connector>
