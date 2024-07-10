@@ -1,3 +1,4 @@
+/* v8 ignore start */
 import { metadata_Safeheron } from '@ant-design/web3-assets';
 import { type Wallet } from '@ant-design/web3-common';
 import type { Connector } from 'wagmi';

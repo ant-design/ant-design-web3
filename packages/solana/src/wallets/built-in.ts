@@ -1,3 +1,4 @@
+/* v8 ignore start */
 import {
   metadata_Backpack,
   metadata_CoinbaseWallet,

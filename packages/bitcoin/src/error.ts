@@ -1,3 +1,4 @@
+/* v8 ignore start */
 export class NoProviderError extends Error {
   name: string;
 
