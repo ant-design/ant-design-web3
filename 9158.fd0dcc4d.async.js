@@ -3024,6 +3024,7 @@ export const formatAddress = (address: string = '', groupSize = 4): string => {
   const formattedGroups = [];
 
   const has0x = address.startsWith('0x');
+  /* v8 ignore next */
   const formatText = has0x ? address.slice(2) : address;
 
   for (let i = 0; i < formatText.length; i += groupSize) {
@@ -3033,6 +3034,7 @@ export const formatAddress = (address: string = '', groupSize = 4): string => {
 
   const formattedText = formattedGroups.join(' ');
 
+  /* v8 ignore next */
   return has0x ? \`0x \${formattedText}\` : formattedText;
 };
 
