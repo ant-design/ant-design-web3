@@ -169,14 +169,14 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     },
                     [`${componentCls}-plugin-tag`]: {
                       '&:not(:disabled):not(.ant-btn-disabled):hover': {
-                        color: token.colorPrimary,
-                        borderColor: token.colorPrimary,
+                        color: token.colorPrimaryTextHover,
+                        borderColor: token.colorPrimaryTextHover,
                       },
                     },
                     [`${componentCls}-qr-btn`]: {
                       '&:hover': {
-                        color: token.colorPrimary,
-                        borderColor: token.colorPrimary,
+                        color: token.colorPrimaryTextHover,
+                        borderColor: token.colorPrimaryTextHover,
                       },
                     },
                     '&:last-child': {
@@ -186,20 +186,20 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                       background: token.hoverBg,
                       [`&:has(${componentCls}-qr-btn:not(:hover))`]: {
                         [`${componentCls}-plugin-tag:not(:disabled)`]: {
-                          color: token.colorPrimary,
-                          borderColor: token.colorPrimary,
+                          color: token.colorPrimaryTextHover,
+                          borderColor: token.colorPrimaryTextHover,
                         },
                       },
                       [`&:not(:has(${componentCls}-plugin-tag))`]: {
                         [`${componentCls}-qr-btn`]: {
-                          color: token.colorPrimary,
-                          borderColor: token.colorPrimary,
+                          color: token.colorPrimaryTextHover,
+                          borderColor: token.colorPrimaryTextHover,
                         },
                       },
                       [`&:has(${componentCls}-plugin-tag:disabled)`]: {
                         [`${componentCls}-qr-btn`]: {
-                          color: token.colorPrimary,
-                          borderColor: token.colorPrimary,
+                          color: token.colorPrimaryTextHover,
+                          borderColor: token.colorPrimaryTextHover,
                         },
                       },
                     },

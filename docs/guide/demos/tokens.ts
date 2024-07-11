@@ -1,3 +1,4 @@
+import { TinyColor } from '@ctrl/tinycolor';
 import type { ThemeConfig } from 'antd';
 import { theme } from 'antd';
 
@@ -5,6 +6,7 @@ export type ThemeValue = 'default' | 'violet' | 'dark' | 'green' | 'pink';
 
 export const customToken: ThemeConfig = {
   token: {
+    borderRadius: 16,
     wireframe: false,
     padding: 24,
     paddingSM: 16,
@@ -15,15 +17,11 @@ export const customToken: ThemeConfig = {
     fontSizeHeading5: 20,
     fontSizeHeading2: 36,
     fontSizeXL: 24,
-    borderRadius: 6,
     colorPrimary: '#8442ff',
     colorInfo: '#8442ff',
   },
   components: {
     Button: {
-      borderRadius: 16,
-      borderRadiusLG: 24,
-      borderRadiusSM: 8,
       controlHeight: 44,
       marginXS: 8,
       paddingContentHorizontal: 24,
@@ -39,7 +37,6 @@ export const customToken: ThemeConfig = {
       paddingContentHorizontalLG: 24,
       fontSizeLG: 20,
       padding: 16,
-      borderRadiusLG: 10,
       paddingContentVertical: 24,
       paddingXS: 8,
       paddingSM: 12,
@@ -58,8 +55,6 @@ export const customToken: ThemeConfig = {
       paddingLG: 24,
       paddingMD: 20,
       paddingXS: 12,
-      borderRadiusLG: 24,
-      borderRadiusSM: 10,
     },
   },
 };
@@ -71,6 +66,7 @@ export type ThemeSetting = {
   token: ThemeConfig;
 };
 
+// 部分参考 antd 官网的主题 https://github.com/ant-design/ant-design/blob/master/.dumi/pages/index/components/Theme/index.tsx#L305
 export const themeList: ThemeSetting[] = [
   {
     color: '#1677FF',
@@ -85,6 +81,11 @@ export const themeList: ThemeSetting[] = [
     value: 'dark',
     name: 'Dark',
     token: {
+      token: {
+        borderRadius: 2,
+        colorPrimary: '#000',
+        colorPrimaryTextHover: '#fff',
+      },
       algorithm: theme.darkAlgorithm,
     },
   },

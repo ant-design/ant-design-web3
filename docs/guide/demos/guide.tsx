@@ -9,13 +9,15 @@ import {
   WalletConnect,
 } from '@ant-design/web3-wagmi';
 import { TinyColor } from '@ctrl/tinycolor';
-import { Checkbox, Col, ConfigProvider, Radio, Row, Select, Space, Switch } from 'antd';
+import { Col, ConfigProvider, Radio, Row, Select, Slider, Space, Switch } from 'antd';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { walletConnect } from 'wagmi/connectors';
 
 import styles from './guide.module.less';
 import { themeList, type ThemeSetting, type ThemeValue } from './tokens';
+
+const defaultRadius = 8;
 
 const config = createConfig({
   chains: [mainnet],
@@ -58,7 +60,10 @@ const App: React.FC = () => {
   const [mode, setMode] = React.useState<ConnectModalProps['mode']>('simple');
   const [quickConnect, setQuickConnect] = React.useState<boolean>(false);
   const [theme, setTheme] = React.useState<ThemeValue>('default');
+  const [radius, setRadius] = React.useState<number>(defaultRadius);
   const currentTheme = themeList.find((t) => t.value === theme);
+
+  console.log('Radius', radius);
 
   return (
     <WagmiWeb3ConfigProvider
@@ -76,8 +81,16 @@ const App: React.FC = () => {
       ]}
       config={config}
     >
-      <div className={styles.connectorContainer}>
-        <ConfigProvider theme={currentTheme?.token}>
+      <ConfigProvider
+        theme={{
+          ...currentTheme?.token,
+          token: {
+            ...currentTheme?.token.token,
+            borderRadius: radius,
+          },
+        }}
+      >
+        <div className={styles.connectorContainer}>
           <Connector
             modalProps={{
               mode,
@@ -92,8 +105,8 @@ const App: React.FC = () => {
               quickConnect={quickConnect}
             />
           </Connector>
-        </ConfigProvider>
-      </div>
+        </div>
+      </ConfigProvider>
       <div className={styles.configContainer}>
         <Row>
           <Col xs={24} sm={12}>
@@ -121,17 +134,36 @@ const App: React.FC = () => {
           </Col>
           <Col xs={24} sm={12}>
             <div className={styles.groupTitle}>Theme</div>
-            <Select
-              style={{
-                width: 300,
-              }}
-              size="large"
-              value={theme}
-              onChange={(v) => setTheme(v)}
-              options={themeList.map((item) => {
-                return { value: item.value, label: <ThemeLabel theme={item} /> };
-              })}
-            />
+            <Space direction="vertical">
+              <Select
+                style={{
+                  width: 300,
+                }}
+                size="large"
+                value={theme}
+                onChange={(v) => {
+                  setTheme(v);
+                  const theme = themeList.find((t) => t.value === v);
+                  setRadius(theme?.token.token?.borderRadius || defaultRadius);
+                }}
+                options={themeList.map((item) => {
+                  return { value: item.value, label: <ThemeLabel theme={item} /> };
+                })}
+              />
+              <Space>
+                Border Radius:
+                <Slider
+                  value={radius}
+                  style={{
+                    width: 190,
+                  }}
+                  defaultValue={defaultRadius}
+                  min={0}
+                  max={16}
+                  onChange={setRadius}
+                />
+              </Space>
+            </Space>
           </Col>
         </Row>
       </div>
