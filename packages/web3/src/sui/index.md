@@ -16,7 +16,7 @@ group:
 
 <code src="./demos/networks.tsx"></code>
 
-## Unoffical networks
+## Unofficial networks
 
 <code src="./demos/networks-unofficial.tsx"></code>
 
