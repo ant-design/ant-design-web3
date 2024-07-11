@@ -1,5 +1,7 @@
 import type { ThemeConfig } from 'antd';
 
+export type ThemeValue = 'default' | 'violet';
+
 export const customToken: ThemeConfig = {
   token: {
     wireframe: false,
@@ -60,3 +62,27 @@ export const customToken: ThemeConfig = {
     },
   },
 };
+
+export type ThemeSetting = {
+  color: string;
+  value: ThemeValue;
+  name: string;
+  token: ThemeConfig;
+};
+
+export const themeList: ThemeSetting[] = [
+  {
+    color: '#1677FF',
+    value: 'default',
+    name: 'Default',
+    token: {
+      token: {},
+    },
+  },
+  {
+    color: '#8343FF',
+    value: 'violet',
+    name: 'Violet',
+    token: customToken,
+  },
+];
