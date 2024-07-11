@@ -63,8 +63,6 @@ const App: React.FC = () => {
   const [radius, setRadius] = React.useState<number>(defaultRadius);
   const currentTheme = themeList.find((t) => t.value === theme);
 
-  console.log('Radius', radius);
-
   return (
     <WagmiWeb3ConfigProvider
       eip6963={{
