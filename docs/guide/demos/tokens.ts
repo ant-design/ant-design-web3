@@ -1,6 +1,7 @@
 import type { ThemeConfig } from 'antd';
+import { theme } from 'antd';
 
-export type ThemeValue = 'default' | 'violet';
+export type ThemeValue = 'default' | 'violet' | 'dark' | 'green' | 'pink';
 
 export const customToken: ThemeConfig = {
   token: {
@@ -77,6 +78,36 @@ export const themeList: ThemeSetting[] = [
     name: 'Default',
     token: {
       token: {},
+    },
+  },
+  {
+    color: '#000',
+    value: 'dark',
+    name: 'Dark',
+    token: {
+      algorithm: theme.darkAlgorithm,
+    },
+  },
+  {
+    value: 'green',
+    name: 'Forest green',
+    color: '#00B96B',
+    token: {
+      token: {
+        colorPrimary: '#00B96B',
+        borderRadius: 4,
+      },
+    },
+  },
+  {
+    value: 'pink',
+    name: 'Blossom',
+    color: '#ED4192',
+    token: {
+      token: {
+        colorPrimary: '#ED4192',
+        borderRadius: 16,
+      },
     },
   },
   {

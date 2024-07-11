@@ -40,7 +40,7 @@ const ThemeLabel: React.FC<{ theme: ThemeSetting }> = ({ theme }) => {
       <div
         className={styles.themeLabel}
         style={{
-          backgroundColor: new TinyColor(theme.color).lighten(5).toString(),
+          backgroundColor: new TinyColor(theme.color).lighten(30).toString(),
         }}
       >
         <div
@@ -84,6 +84,7 @@ const App: React.FC = () => {
             }}
           >
             <ConnectButton
+              type="primary"
               style={{
                 width: 'auto',
               }}
