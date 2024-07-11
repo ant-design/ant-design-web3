@@ -1,3 +1,4 @@
+/* v8 ignore start */
 import React from 'react';
 import type { FC } from 'react';
 import { render } from '@testing-library/react';
@@ -26,3 +27,5 @@ export const xrender: XRender = (Comp, options) => {
 export function remember<T>(value: T) {
   return { value };
 }
+
+export const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
