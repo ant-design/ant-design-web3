@@ -5,6 +5,7 @@ group:
   title: UI 组件
   order: 3
 cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*Z5dsSKhwD4oAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ymJDSYEjQKwAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Address

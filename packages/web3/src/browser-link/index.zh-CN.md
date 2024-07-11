@@ -3,6 +3,7 @@ nav: 组件
 subtitle: 浏览器链接
 group: UI 组件
 cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*q6K0SbQKVMwAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*CQLuSblAN2YAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # BrowerLink

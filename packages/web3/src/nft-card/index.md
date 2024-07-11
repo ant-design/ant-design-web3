@@ -2,6 +2,7 @@
 nav: Components
 group: UI Components
 cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*S8DvSLvOppYAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*WFYmR4qa6iAAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # NFTCard

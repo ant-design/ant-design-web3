@@ -5,6 +5,7 @@ group:
   title: Connect Blockchains
   order: 2
 cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*GbIiQYH7qf0AAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*umZtTpZ5MHYAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Ethereum

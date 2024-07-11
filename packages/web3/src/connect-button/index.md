@@ -2,6 +2,7 @@
 nav: Components
 group: UI Components
 cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*leoQRImIrekAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*S4cyQ7OCxDUAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # ConnectButton

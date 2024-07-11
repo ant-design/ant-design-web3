@@ -3,6 +3,7 @@ nav: 组件
 subtitle: 连接钱包按钮
 group: UI 组件
 cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*leoQRImIrekAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*S4cyQ7OCxDUAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # ConnectButton
