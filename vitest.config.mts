@@ -13,6 +13,7 @@ const isDist = process.env.LIB_DIR === 'dist';
 const pkgList = readdirSync(path.join(__dirname, 'packages'));
 
 // Examples:
+//   pnpm test -- --pkg=*
 //   pnpm test -- --pkg=wagmi
 //   pnpm test -- --pkg=solana,wagmi
 const pkg = process.argv.find(arg => arg.startsWith('--pkg='));

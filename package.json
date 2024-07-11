@@ -28,7 +28,7 @@
     "test:dist": "cross-env LIB_DIR=dist vitest",
     "test:update": "vitest -u",
     "test:coverage": "vitest --coverage",
-    "test:ci": "cross-env LIB_DIR=normal vitest --coverage",
+    "test:ci": "cross-env LIB_DIR=normal vitest --coverage -- --pkg=*",
     "lint": "pnpm run \"/^lint:.+/\"",
     "lint:eslint": "eslint --ext .ts,.tsx .",
     "eslint": "eslint . --fix",
