@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import type { Locale } from '@ant-design/web3-common';
 import { createNetworkConfig, SuiClientProvider, WalletProvider } from '@mysten/dapp-kit';
 import { getFullnodeUrl } from '@mysten/sui.js/client';
-import type { QueryClient } from '@tanstack/react-query';
-import { QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientContext, QueryClientProvider } from '@tanstack/react-query';
 
 import type { SuiChain } from '../chain';
 import { SuiDevnet, SuiLocalnet, SuiMainnet, SuiTestnet } from '../chain';
@@ -16,7 +15,7 @@ export interface SuiWeb3ConfigProviderProps {
   networkConfig?: ReturnType<typeof createNetworkConfig>['networkConfig'];
   sns?: boolean;
   defaultNetwork?: string;
-  queryClient: QueryClient;
+  queryClient?: QueryClient;
 }
 
 export const SuiWeb3ConfigProvider: React.FC<
@@ -33,7 +32,12 @@ export const SuiWeb3ConfigProvider: React.FC<
 }) => {
   const [network, setNetwork] = React.useState(defaultNetwork);
 
-  const realNetworkConfig = React.useMemo<NonNullable<typeof networkConfig>>(() => {
+  const injectedQueryClient = useContext(QueryClientContext);
+  const mergedQueryClient = React.useMemo(() => {
+    return queryClient ?? injectedQueryClient ?? new QueryClient();
+  }, [injectedQueryClient, queryClient]);
+
+  const mergedNetworkConfig = React.useMemo<NonNullable<typeof networkConfig>>(() => {
     return (
       networkConfig ??
       createNetworkConfig({
@@ -43,21 +47,21 @@ export const SuiWeb3ConfigProvider: React.FC<
   }, [networkConfig]);
 
   const networks = React.useMemo(() => {
-    const networkConfigKeys = Object.keys(realNetworkConfig);
+    const networkConfigKeys = Object.keys(mergedNetworkConfig);
     const networkConfigs = [SuiMainnet, SuiTestnet, SuiDevnet, SuiLocalnet];
 
     return networkConfigKeys
       .map((networkKey) => networkConfigs.find((item) => item.network === networkKey))
       .filter((item): item is SuiChain => !!item);
-  }, [realNetworkConfig]);
+  }, [mergedNetworkConfig]);
 
   const currentNetwork = React.useMemo(() => {
     return networks?.find((item) => item.network === network);
   }, [network, networks]);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <SuiClientProvider networks={realNetworkConfig} network={network}>
+    <QueryClientProvider client={mergedQueryClient}>
+      <SuiClientProvider networks={mergedNetworkConfig} network={network}>
         <WalletProvider autoConnect={autoConnect}>
           <AntDesignWeb3ConfigProvider
             locale={locale}

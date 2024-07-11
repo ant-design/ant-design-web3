@@ -37,8 +37,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<
   onCurrentChainChange,
   children,
 }) => {
-  const wallets = useWallets();
   const account = useCurrentAccount();
+  const standardWallets = useWallets();
   const { mutateAsync: connectAsync } = useConnectWallet();
   const { mutateAsync: disconnectAsync } = useDisconnectWallet();
   const { data: snsData } = useResolveSuiNSName(sns ? account?.address : undefined);
@@ -64,7 +64,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
     : undefined;
 
   const availableWallets = useMemo<Wallet[]>(() => {
-    return wallets.map((w) => {
+    return standardWallets.map((w) => {
       return {
         name: w.name,
         icon: w.icon,
@@ -77,7 +77,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         },
       };
     });
-  }, [wallets]);
+  }, [standardWallets]);
 
   const getNFTMetadataFunc = useCallback<GetNFTMetadata>(
     async ({ address }) => {
@@ -124,7 +124,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       connect={async (wallet) => {
         if (!wallet) return;
 
-        await connectAsync({ wallet: wallets.find((w) => w.name === wallet.name)! });
+        await connectAsync({ wallet: standardWallets.find((w) => w.name === wallet.name)! });
       }}
       disconnect={async () => {
         await disconnectAsync();
