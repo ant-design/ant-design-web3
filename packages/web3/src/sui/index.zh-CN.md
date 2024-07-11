@@ -8,11 +8,25 @@ group:
 
 # Sui
 
+Ant Design Web3 官方提供了 `@ant-design/web3-sui` 来适配 Sui。它基于 [@mysten/dapp-kit](https://www.npmjs.com/package/@mysten/dapp-kit) 和 [@mysten/sui.js](https://www.npmjs.com/package/@mysten/sui.js) ，为 `@ant-design/web3` 的组件提供了连接 Sui 的能力。
+
 ## 推荐配置
+
+对于大部分 Sui DApp 来说，我们推荐使用如下配置：
 
 <code src="./demos/recommend.tsx"></code>
 
+该推荐配置主要包括：
+
+- 自动添加检测到的插件钱包。
+- 显示余额。
+- 显示 SNS。
+- 配置 `quickConnect`，提供快速连接入口，简化用户操作。
+- 使用 `simple` 模式，去掉钱包分组，简化界面。
+
 ## 网络
+
+我们内置了 Sui 主网 `mainnet`，如果想使用其余网络，可以配置 `networkConfig`。
 
 <code src="./demos/networks.tsx"></code>
 
