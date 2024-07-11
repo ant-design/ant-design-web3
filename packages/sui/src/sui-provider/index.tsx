@@ -5,7 +5,7 @@ import { getFullnodeUrl } from '@mysten/sui.js/client';
 import { QueryClient, QueryClientContext, QueryClientProvider } from '@tanstack/react-query';
 
 import type { SuiChain } from '../chain';
-import { SuiDevnet, SuiLocalnet, SuiMainnet, SuiTestnet } from '../chain';
+import { suiDevnet, suiLocalnet, suiMainnet, suiTestnet } from '../chain';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 
 export interface SuiWeb3ConfigProviderProps {
@@ -48,7 +48,7 @@ export const SuiWeb3ConfigProvider: React.FC<
 
   const networks = React.useMemo(() => {
     const networkConfigKeys = Object.keys(mergedNetworkConfig);
-    const networkConfigs = [SuiMainnet, SuiTestnet, SuiDevnet, SuiLocalnet];
+    const networkConfigs = [suiMainnet, suiTestnet, suiDevnet, suiLocalnet];
 
     return networkConfigKeys
       .map((networkKey) => networkConfigs.find((item) => item.network === networkKey))

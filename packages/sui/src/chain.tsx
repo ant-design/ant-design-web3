@@ -9,7 +9,7 @@ export interface SuiChain extends Chain {
   network: 'mainnet' | 'testnet' | 'devnet' | 'localnet';
 }
 
-export const SuiMainnet: SuiChain = {
+export const suiMainnet: SuiChain = {
   id: SuiChainIds.Mainnet,
   name: 'Sui',
   network: 'mainnet',
@@ -21,7 +21,7 @@ export const SuiMainnet: SuiChain = {
   nativeCurrency: { name: 'Sui', symbol: 'SUI', decimals: SUI_DECIMALS },
 };
 
-export const SuiTestnet: SuiChain = {
+export const suiTestnet: SuiChain = {
   id: SuiChainIds.Testnet,
   name: 'Sui Testnet',
   network: 'testnet',
@@ -33,7 +33,7 @@ export const SuiTestnet: SuiChain = {
   nativeCurrency: { name: 'Sui', symbol: 'SUI', decimals: SUI_DECIMALS },
 };
 
-export const SuiDevnet: SuiChain = {
+export const suiDevnet: SuiChain = {
   id: SuiChainIds.Devnet,
   name: 'Sui Devnet',
   network: 'devnet',
@@ -45,7 +45,7 @@ export const SuiDevnet: SuiChain = {
   nativeCurrency: { name: 'Sui', symbol: 'SUI', decimals: SUI_DECIMALS },
 };
 
-export const SuiLocalnet: SuiChain = {
+export const suiLocalnet: SuiChain = {
   id: SuiChainIds.Localnet,
   name: 'Sui Localnet',
   network: 'localnet',
