@@ -27,7 +27,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-ton` 来适配 TON 生态，�
 | wallets | 支持的钱包列表 | WalletMetadata\[\] | - | 否 | 必填 |
 | balance | 连接后是否展示余额 | `boolean` | `false` | 否 | - |
 | locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | 否 | - |
-| reconnect | 是否支持自动重新连接 | `boolean` | `false` | 否 | - |
+| reconnect | 是否支持自动重新连接 | `boolean` | `true` | 否 | - |
 | chain | 连接的网络，支持主网和测试网 | `CHAIN` | `CHAIN.MAINNET` | 否 | - |
 | manifestUrl | 用于连接钱包时候提供 Dapp 身份 | `string` | - | 是 | - |
 | storage | 存储协议数据的地址 | `IStorage` | `localStorage` | 是 | - |

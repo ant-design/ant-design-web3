@@ -8,7 +8,7 @@ class TonConnectSdk extends TonConnect {
   private _network: CHAIN;
 
   constructor(options: TonConnectSdkConfigType) {
-    super({ manifestUrl: options.manifestUrl });
+    super({ manifestUrl: options?.manifestUrl });
     this._api = '';
     this._network = CHAIN.MAINNET;
     this._switchNetwork(options.chain || this._network);
