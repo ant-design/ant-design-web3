@@ -25,7 +25,7 @@
     "release:beta": "pnpm run release:prepare && changeset version --snapshot beta && changeset publish --tag beta",
     "ci": "npm run build && npm run lint && npm run test:dist && npm run test:ci",
     "test": "vitest",
-    "test:dist": "cross-env LIB_DIR=dist vitest",
+    "test:dist": "cross-env LIB_DIR=dist vitest -- --pkg=*",
     "test:update": "vitest -u",
     "test:coverage": "vitest --coverage",
     "test:ci": "cross-env LIB_DIR=normal vitest --coverage -- --pkg=*",
