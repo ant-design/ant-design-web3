@@ -3,9 +3,6 @@ import { ConnectButton, Connector } from '@ant-design/web3';
 import { SuiWeb3ConfigProvider } from '@ant-design/web3-sui';
 import { createNetworkConfig } from '@mysten/dapp-kit';
 import { getFullnodeUrl } from '@mysten/sui.js/client';
-import { QueryClient } from '@tanstack/react-query';
-
-const queryClient = new QueryClient();
 
 const { networkConfig } = createNetworkConfig({
   localnet: { url: getFullnodeUrl('localnet') },
@@ -16,7 +13,7 @@ const { networkConfig } = createNetworkConfig({
 
 const App: React.FC = () => {
   return (
-    <SuiWeb3ConfigProvider balance networkConfig={networkConfig} queryClient={queryClient}>
+    <SuiWeb3ConfigProvider balance networkConfig={networkConfig} defaultNetwork="testnet">
       <Connector>
         <ConnectButton />
       </Connector>

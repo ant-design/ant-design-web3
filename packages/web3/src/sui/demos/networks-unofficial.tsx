@@ -2,9 +2,6 @@ import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { SuiWeb3ConfigProvider } from '@ant-design/web3-sui';
 import { createNetworkConfig } from '@mysten/dapp-kit';
-import { QueryClient } from '@tanstack/react-query';
-
-const queryClient = new QueryClient();
 
 const { networkConfig } = createNetworkConfig({
   testnet: { url: `https://api.zan.top/node/v1/sui/testnet/${YOUR_ZAN_API_KEY}` },
@@ -13,7 +10,7 @@ const { networkConfig } = createNetworkConfig({
 
 const App: React.FC = () => {
   return (
-    <SuiWeb3ConfigProvider balance networkConfig={networkConfig} queryClient={queryClient}>
+    <SuiWeb3ConfigProvider balance networkConfig={networkConfig}>
       <Connector>
         <ConnectButton />
       </Connector>
