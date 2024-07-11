@@ -7,7 +7,7 @@ import {
   useCurrentAccount,
   useDisconnectWallet,
   useResolveSuiNSName,
-  useSuiClientMutation,
+  useSuiClient,
   useSuiClientQuery,
   useWallets,
 } from '@mysten/dapp-kit';
@@ -42,7 +42,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
   const { mutateAsync: connectAsync } = useConnectWallet();
   const { mutateAsync: disconnectAsync } = useDisconnectWallet();
   const { data: snsData } = useResolveSuiNSName(sns ? account?.address : undefined);
-  const { mutateAsync: fetchNFTMetadata } = useSuiClientMutation('getObject', {});
+  const client = useSuiClient();
 
   const { data: balanceData } = useSuiClientQuery(
     'getBalance',
@@ -81,7 +81,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
 
   const getNFTMetadataFunc = useCallback<GetNFTMetadata>(
     async ({ address }) => {
-      const { data: nftData } = await fetchNFTMetadata({
+      const { data: nftData } = await client.getObject({
         id: address,
         options: {
           showContent: true,
@@ -101,7 +101,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         edition: nftData?.version,
       };
     },
-    [fetchNFTMetadata],
+    [client],
   );
 
   return (
@@ -122,9 +122,15 @@ export const AntDesignWeb3ConfigProvider: React.FC<
           : undefined
       }
       connect={async (wallet) => {
-        if (!wallet) return;
+        const foundWallet = wallet
+          ? standardWallets.find((w) => w.name === wallet.name)
+          : undefined;
 
-        await connectAsync({ wallet: standardWallets.find((w) => w.name === wallet.name)! });
+        if (!foundWallet) {
+          throw new Error(`Can not find wallet ${wallet?.name}`);
+        }
+
+        await connectAsync({ wallet: foundWallet });
       }}
       disconnect={async () => {
         await disconnectAsync();
