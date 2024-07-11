@@ -1,6 +1,8 @@
 import path from 'path';
 import svgr from 'vite-plugin-svgr';
 import { defineConfig } from 'vitest/config';
+import checkbox from '@inquirer/checkbox';
+import { readdirSync } from 'fs';
 
 const resolve = (src: string) => {
   return path.resolve(__dirname, src);
@@ -8,18 +10,34 @@ const resolve = (src: string) => {
 
 const isDist = process.env.LIB_DIR === 'dist';
 
+const pkgList = readdirSync(path.join(__dirname, 'packages'));
+
 // Examples:
 //   pnpm test -- --pkg=wagmi
 //   pnpm test -- --pkg=solana,wagmi
 const pkg = process.argv.find(arg => arg.startsWith('--pkg='));
-const pkgValue = pkg ? pkg.split('=')[1] : '';
-const packages = pkgValue ?
-  pkgValue.includes(',') ? `{${pkgValue}}` : pkgValue
-  : '';
+let packages: string[] = [];
 
-if (packages) {
-  console.warn(`Testing packages: [${pkgValue}]\r\n`);
+if (pkg) {
+  const pkgValue = pkg ? pkg.split('=')[1] : '';
+  packages = pkgValue.split(',');
+} else {
+  packages = await checkbox({
+    message: 'Select packages to test (Enter to select all):',
+    choices: pkgList.map((pkg) => ({
+      name: pkg,
+      value: pkg,
+    })),
+  });
 }
+
+if (packages.length) {
+  console.warn(`Testing packages: [${packages.join(',')}]\r\n`);
+} else {
+  console.warn(`Testing all packages\r\n`);
+}
+
+const testPackages = packages.length > 1 ? `{${packages.join(',')}}` : packages.join('');
 
 export default defineConfig({
   plugins: [
@@ -69,11 +87,11 @@ export default defineConfig({
   },
   test: {
     environment: 'jsdom',
-    include: [`./packages${packages ? ('/' + packages) : ''}/**/*.test.{ts,tsx}`],
+    include: [`./packages${testPackages ? ('/' + testPackages) : ''}/**/*.test.{ts,tsx}`],
     setupFiles: ['./tests/setup.ts'],
     reporters: ['default'],
     coverage: {
-      include: [`packages/${packages ? packages : '*'}/src/**/*.{ts,tsx}`],
+      include: [`packages/${testPackages ? testPackages : '*'}/src/**/*.{ts,tsx}`],
       exclude: ['**/demos/*.{ts,tsx}', '**/src/index.ts'],
       reporter: ['json-summary', ['text', { skipFull: true }], 'cobertura', 'html'],
     },
