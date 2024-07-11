@@ -141,8 +141,8 @@ const App: React.FC = () => {
                 value={theme}
                 onChange={(v) => {
                   setTheme(v);
-                  const theme = themeList.find((t) => t.value === v);
-                  setRadius(theme?.token.token?.borderRadius || defaultRadius);
+                  const selectedTheme = themeList.find((t) => t.value === v);
+                  setRadius(selectedTheme?.token.token?.borderRadius || defaultRadius);
                 }}
                 options={themeList.map((item) => {
                   return { value: item.value, label: <ThemeLabel theme={item} /> };
