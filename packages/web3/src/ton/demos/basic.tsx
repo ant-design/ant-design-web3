@@ -3,11 +3,7 @@ import { telegramWallet, tonkeeper, TonWeb3ConfigProvider } from '@ant-design/we
 
 const Basic = () => {
   return (
-    <TonWeb3ConfigProvider
-      wallets={[tonkeeper, telegramWallet]}
-      balance
-      manifestUrl="https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json"
-    >
+    <TonWeb3ConfigProvider wallets={[tonkeeper, telegramWallet]} balance>
       <Connector>
         <ConnectButton />
       </Connector>

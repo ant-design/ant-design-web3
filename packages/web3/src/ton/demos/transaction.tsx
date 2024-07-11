@@ -1,5 +1,14 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { CHAIN, tonkeeper, TonWeb3ConfigProvider, useTonConnector } from '@ant-design/web3-ton';
+import {
+  CHAIN,
+  dewallet,
+  myTonWallet,
+  openmask,
+  tonhub,
+  tonkeeper,
+  TonWeb3ConfigProvider,
+  useTonConnector,
+} from '@ant-design/web3-ton';
 import { Button, Space } from 'antd';
 
 const SendTransfer: React.FC = () => {
@@ -30,10 +39,9 @@ const SendTransfer: React.FC = () => {
 const Basic = () => {
   return (
     <TonWeb3ConfigProvider
-      wallets={[tonkeeper]}
+      wallets={[tonkeeper, myTonWallet, tonhub, dewallet, openmask]}
       balance
       chain={CHAIN.TESTNET}
-      manifestUrl="https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json"
       reconnect={false}
     >
       <Space>
