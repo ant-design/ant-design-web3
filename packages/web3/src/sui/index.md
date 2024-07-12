@@ -28,9 +28,7 @@ The recommended configuration mainly includes:
 
 You can use `PersistQueryClientProvider` to override the default `QueryClientProvider`.
 
-```bash
-pnpm i @tanstack/query-sync-storage-persister @tanstack/react-query-persist-client
-```
+<NormalInstallDependencies packageNames="@tanstack/query-sync-storage-persister @tanstack/react-query-persist-client" save="true"></NormalInstallDependencies>
 
 <code src="./demos/query-client.tsx"></code>
 
