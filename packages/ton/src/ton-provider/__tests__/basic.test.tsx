@@ -1,11 +1,8 @@
-import React, { useState, type FC, type PropsWithChildren } from 'react';
-import {
-  ConnectButton,
-  Connector,
-  useProvider,
-  type ConnectorTriggerProps,
-} from '@ant-design/web3';
-import { fireEvent, render } from '@testing-library/react';
+import React from 'react';
+import { ConnectButton, Connector } from '@ant-design/web3';
+import { fireEvent, render, waitFor } from '@testing-library/react';
+import { CHAIN, TonConnect } from '@tonconnect/sdk';
+import { Button } from 'antd';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { tonkeeper } from '../../wallets';
@@ -148,36 +145,4 @@ describe('TonWeb3ConfigProvider', () => {
       fireEvent.click(connectBtn);
     });
   });
-
-  // it('connect and disconnect', () => {
-  //   const Disconnect = () => {
-  //     const provider = React.useContext(TonConnectorContext ?? {});
-  //     return (
-  //       <Button className="disconnect" onClick={() => provider?.tonConnectSdk?.disconnect?.()}>disconnect</Button>
-  //     );
-  //   };
-
-  //     const App = () => {
-  //       return (
-  //         <TonWeb3ConfigProvider wallets={[tonkeeper]} balance>
-  //           <Connector>
-  //             <ConnectButton className="connect" />
-  //           </Connector>
-  //           <Disconnect />
-  //         </TonWeb3ConfigProvider>
-  //       );
-  //     };
-
-  //     const { baseElement } = render(<App />);
-  //     const modalBtn = baseElement.querySelector('.connect') as HTMLButtonElement;
-  //     fireEvent.click(modalBtn);
-  //     waitFor(() => {
-  //       const connectBtn = baseElement.querySelector('.ant-list-item')!;
-  //       expect(connectBtn).not.toBeNull();
-  //       fireEvent.click(connectBtn);
-  //     })
-  //     expect(modalBtn.textContent).toBe('123...123');
-  //     const disconnectBtn = baseElement.querySelector('.disconnect')!;
-  //     fireEvent.click(disconnectBtn);
-  //   })
 });
