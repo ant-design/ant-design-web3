@@ -26,7 +26,7 @@ The recommended configuration mainly includes:
 
 ## Custom QueryClientProvider
 
-You can also use `PersistQueryClientProvider` to override the default `QueryClientProvider`.
+You can use `PersistQueryClientProvider` to override the default `QueryClientProvider`.
 
 ```bash
 pnpm i @tanstack/query-sync-storage-persister @tanstack/react-query-persist-client
@@ -52,14 +52,15 @@ We have built-in the Sui mainnet `mainnet`. If you want to use other networks, y
 
 ### SuiWeb3ConfigProvider
 
-| Property       | Description                      | Type          | Default   | Version |
-| -------------- | -------------------------------- | ------------- | --------- | ------- |
-| balance        | Whether to display the balance   | boolean       | `false`   |         |
-| autoConnect    | Whether to connect automatically | boolean       | `false`   |         |
-| networkConfig  | Network configuration            | NetworkConfig | -         |         |
-| sns            | Whether to display SNS           | boolean       | `false`   |         |
-| defaultNetwork | Default network                  | string        | `mainnet` |         |
-| queryClient    | QueryClient                      | QueryClient   | -         | -       |
-| locale         | Multilingual settings            | [Locale]      | -         | -       |
+| Property       | Description                      | Type            | Default   | Version |
+| -------------- | -------------------------------- | --------------- | --------- | ------- |
+| balance        | Whether to display the balance   | boolean         | `false`   | -       |
+| autoConnect    | Whether to connect automatically | boolean         | `false`   | -       |
+| networkConfig  | Network configuration            | NetworkConfig   | -         | -       |
+| sns            | Whether to display SNS           | boolean         | `false`   | -       |
+| defaultNetwork | Default network                  | string          | `mainnet` | -       |
+| wallets        | Wallet list                      | WalletFactory[] | -         | -       |
+| queryClient    | QueryClient                      | QueryClient     | -         | -       |
+| locale         | Multilingual settings            | [Locale]        | -         | -       |
 
 [Locale]: https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts

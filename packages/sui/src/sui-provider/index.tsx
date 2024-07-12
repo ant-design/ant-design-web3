@@ -6,6 +6,7 @@ import { QueryClient, QueryClientContext, QueryClientProvider } from '@tanstack/
 
 import type { SuiChain } from '../chain';
 import { suiDevnet, suiLocalnet, suiMainnet, suiTestnet } from '../chain';
+import type { WalletFactory } from '../wallets/types';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 
 export interface SuiWeb3ConfigProviderProps {
@@ -15,6 +16,7 @@ export interface SuiWeb3ConfigProviderProps {
   networkConfig?: ReturnType<typeof createNetworkConfig>['networkConfig'];
   sns?: boolean;
   defaultNetwork?: string;
+  wallets?: WalletFactory[];
   queryClient?: QueryClient;
 }
 
@@ -28,6 +30,7 @@ export const SuiWeb3ConfigProvider: React.FC<
   defaultNetwork = 'mainnet',
   queryClient,
   sns,
+  wallets,
   children,
 }) => {
   const [network, setNetwork] = React.useState(defaultNetwork);
@@ -66,6 +69,7 @@ export const SuiWeb3ConfigProvider: React.FC<
           <AntDesignWeb3ConfigProvider
             locale={locale}
             availableChains={networks}
+            availableWallets={wallets}
             currentChain={currentNetwork}
             balance={balance}
             sns={sns}

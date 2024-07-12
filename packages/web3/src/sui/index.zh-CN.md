@@ -26,11 +26,9 @@ Ant Design Web3 官方提供了 `@ant-design/web3-sui` 来适配 Sui。它基于
 
 ## 自定义 QueryClientProvider
 
-也可以直接使用 `PersistQueryClientProvider` 覆盖默认的 `QueryClientProvider`。
+可以直接使用 `PersistQueryClientProvider` 覆盖默认的 `QueryClientProvider`。
 
-```bash
-pnpm i @tanstack/query-sync-storage-persister @tanstack/react-query-persist-client
-```
+<NormalInstallDependencies packageNames="@tanstack/query-sync-storage-persister @tanstack/react-query-persist-client" save="true"></NormalInstallDependencies>
 
 <code src="./demos/query-client.tsx"></code>
 
@@ -52,14 +50,15 @@ pnpm i @tanstack/query-sync-storage-persister @tanstack/react-query-persist-clie
 
 ### SuiWeb3ConfigProvider
 
-| 参数           | 说明         | 类型          | 默认值    | 版本 |
-| -------------- | ------------ | ------------- | --------- | ---- |
-| balance        | 是否显示余额 | boolean       | `false`   |      |
-| autoConnect    | 是否自动连接 | boolean       | `false`   |      |
-| networkConfig  | 网络配置     | NetworkConfig | -         |      |
-| sns            | 是否显示 SNS | boolean       | `false`   |      |
-| defaultNetwork | 默认网络     | string        | `mainnet` |      |
-| queryClient    | QueryClient  | QueryClient   | -         |      |
-| locale         | 多语言设置   | [Locale]      | -         | -    |
+| 参数           | 说明         | 类型            | 默认值    | 版本 |
+| -------------- | ------------ | --------------- | --------- | ---- |
+| balance        | 是否显示余额 | boolean         | `false`   | -    |
+| autoConnect    | 是否自动连接 | boolean         | `false`   | -    |
+| networkConfig  | 网络配置     | NetworkConfig   | -         | -    |
+| sns            | 是否显示 SNS | boolean         | `false`   | -    |
+| defaultNetwork | 默认网络     | string          | `mainnet` | -    |
+| wallets        | 钱包列表     | WalletFactory[] | -         | -    |
+| queryClient    | QueryClient  | QueryClient     | -         | -    |
+| locale         | 多语言设置   | [Locale]        | -         | -    |
 
 [Locale]: https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts

@@ -14,6 +14,7 @@ import {
 import { SUI_DECIMALS } from '@mysten/sui.js/utils';
 
 import type { SuiChain } from '../chain';
+import type { WalletFactory } from '../wallets/types';
 
 type GetNFTMetadata = NonNullable<UniversalWeb3ProviderInterface['getNFTMetadata']>;
 
@@ -21,6 +22,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   balance?: boolean;
   locale?: Locale;
   availableChains?: SuiChain[];
+  availableWallets?: WalletFactory[];
   currentChain?: SuiChain;
   sns?: boolean;
   onCurrentChainChange: (network: string) => void;
@@ -32,6 +34,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
   balance: showBalance,
   locale,
   availableChains,
+  availableWallets,
   currentChain,
   sns,
   onCurrentChainChange,
@@ -63,8 +66,14 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       }
     : undefined;
 
-  const availableWallets = useMemo<Wallet[]>(() => {
-    return standardWallets.map((w) => {
+  const allWallets = useMemo<Wallet[]>(() => {
+    const standardWalletNames = standardWallets.map((w) => w.name);
+
+    const fixedWallets = availableWallets
+      ?.map((factory) => factory.create())
+      ?.filter((w) => !standardWalletNames.includes(w.name));
+
+    const injectedWalletAssets = standardWallets.map<Wallet>((w) => {
       return {
         name: w.name,
         icon: w.icon,
@@ -77,7 +86,9 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         },
       };
     });
-  }, [standardWallets]);
+
+    return fixedWallets ? fixedWallets.concat(injectedWalletAssets) : injectedWalletAssets;
+  }, [availableWallets, standardWallets]);
 
   const getNFTMetadataFunc = useCallback<GetNFTMetadata>(
     async ({ address }) => {
@@ -107,7 +118,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
   return (
     <Web3ConfigProvider
       availableChains={availableChains}
-      availableWallets={availableWallets}
+      availableWallets={allWallets}
       locale={locale}
       account={accountData}
       chain={currentChain}
