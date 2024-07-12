@@ -45,3 +45,19 @@ We have built-in the Sui mainnet `mainnet`. If you want to use other networks, y
 ## More Components
 
 <code src="./demos/more-components.tsx"></code>
+
+## API
+
+### SuiWeb3ConfigProvider
+
+| Property       | Description                      | Type          | Default   | Version |
+| -------------- | -------------------------------- | ------------- | --------- | ------- |
+| balance        | Whether to display the balance   | boolean       | `false`   |         |
+| autoConnect    | Whether to connect automatically | boolean       | `false`   |         |
+| networkConfig  | Network configuration            | NetworkConfig | -         |         |
+| sns            | Whether to display SNS           | boolean       | `false`   |         |
+| defaultNetwork | Default network                  | string        | `mainnet` |         |
+| queryClient    | QueryClient                      | QueryClient   | -         | -       |
+| locale         | Multilingual settings            | [Locale]      | -         | -       |
+
+[Locale]: https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts

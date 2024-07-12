@@ -47,3 +47,19 @@ pnpm i @tanstack/query-sync-storage-persister @tanstack/react-query-persist-clie
 ## 更多组件
 
 <code src="./demos/more-components.tsx"></code>
+
+## API
+
+### SuiWeb3ConfigProvider
+
+| 参数           | 说明         | 类型          | 默认值    | 版本 |
+| -------------- | ------------ | ------------- | --------- | ---- |
+| balance        | 是否显示余额 | boolean       | `false`   |      |
+| autoConnect    | 是否自动连接 | boolean       | `false`   |      |
+| networkConfig  | 网络配置     | NetworkConfig | -         |      |
+| sns            | 是否显示 SNS | boolean       | `false`   |      |
+| defaultNetwork | 默认网络     | string        | `mainnet` |      |
+| queryClient    | QueryClient  | QueryClient   | -         |      |
+| locale         | 多语言设置   | [Locale]      | -         | -    |
+
+[Locale]: https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts
