@@ -20,8 +20,7 @@ const pkg = process.argv.find(arg => arg.startsWith('--pkg='));
 let packages: string[] = [];
 
 if (pkg) {
-  const pkgValue = pkg ? pkg.split('=')[1] : '';
-  packages = pkgValue.split(',');
+  packages = pkg.split('=')[1].split(',');
 } else {
   packages = await checkbox({
     message: 'Select packages to test (Enter to select all):',
