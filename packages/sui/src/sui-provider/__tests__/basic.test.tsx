@@ -1,6 +1,8 @@
 import React from 'react';
 import { Connector } from '@ant-design/web3';
 import { type ConnectorTriggerProps } from '@ant-design/web3-common';
+import { useSuiClient, useSuiClientQuery } from '@mysten/dapp-kit';
+import { QueryClient, QueryClientProvider, useQuery, useQueryClient } from '@tanstack/react-query';
 import { describe, expect, it, vi } from 'vitest';
 
 import { suiMainnet, SuiWeb3ConfigProvider } from '../../';
@@ -48,5 +50,55 @@ describe('SuiWeb3ConfigProvider basic tests', () => {
     const { selector } = xrender(App);
 
     expect(selector('.content')?.textContent).toBe('Sui');
+  });
+
+  it('available set `queryClient`', () => {
+    const testFakeKey = 'fake____key';
+    const myQueryClient = new QueryClient();
+    (myQueryClient as any).__fake__key = testFakeKey;
+
+    const TestQueryClientInstance = () => {
+      const client = useQueryClient();
+
+      return <div className="fake-key">{(client as any).__fake__key}</div>;
+    };
+
+    const App = () => {
+      return (
+        <SuiWeb3ConfigProvider queryClient={myQueryClient}>
+          <TestQueryClientInstance />
+        </SuiWeb3ConfigProvider>
+      );
+    };
+
+    const { selector } = xrender(App);
+
+    expect(selector('.fake-key')?.textContent).toBe(testFakeKey);
+  });
+
+  it('available custom QueryClientProvider', () => {
+    const testFakeKey = 'fake____key';
+    const myQueryClient = new QueryClient();
+    (myQueryClient as any).__fake__key = testFakeKey;
+
+    const TestQueryClientInstance = () => {
+      const client = useQueryClient();
+
+      return <div className="fake-key">{(client as any).__fake__key}</div>;
+    };
+
+    const App = () => {
+      return (
+        <QueryClientProvider client={myQueryClient}>
+          <SuiWeb3ConfigProvider>
+            <TestQueryClientInstance />
+          </SuiWeb3ConfigProvider>
+        </QueryClientProvider>
+      );
+    };
+
+    const { selector } = xrender(App);
+
+    expect(selector('.fake-key')?.textContent).toBe(testFakeKey);
   });
 });
