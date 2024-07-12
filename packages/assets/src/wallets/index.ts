@@ -11,3 +11,4 @@ export * from './unisat-wallet';
 export * from './backpack';
 export * from './trust';
 export * from './mobile-wallet';
+export * from './sui-wallet';
