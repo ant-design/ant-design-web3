@@ -4,6 +4,8 @@ subtitle: 加密输入框
 group:
   title: UI 组件
   order: 3
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*2Mj9QYCUJDgAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*eDQZSopLDxEAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # CryptoInput

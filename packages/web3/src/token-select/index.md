@@ -3,6 +3,8 @@ nav: Components
 group:
   title: UI Components
   order: 3
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*5w_dS5UWbToAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*pk6_R7FY_nkAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # TokenSelect
