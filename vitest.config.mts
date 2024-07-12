@@ -38,7 +38,7 @@ if (packages.length) {
   console.warn(`Testing all packages\r\n`);
 }
 
-const testPackages = packages.length > 1 ? `{${packages.join(',')}}` : packages.join('');
+const testPackages = packages.length > 1 ? `{${packages.join(',')}}` : packages[0];
 
 export default defineConfig({
   plugins: [
