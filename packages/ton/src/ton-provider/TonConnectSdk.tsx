@@ -22,6 +22,10 @@ class TonConnectSdk extends TonConnect {
     this._switchNetwork(network);
   }
 
+  get api() {
+    return this._api;
+  }
+
   private _switchNetwork(network: CHAIN) {
     if (network === CHAIN.MAINNET) {
       this._api = 'https://toncenter.com/api/v3';
@@ -31,9 +35,10 @@ class TonConnectSdk extends TonConnect {
     this._network = network;
   }
 
-  async getBalance() {
-    if (!this.account?.address) return Promise.resolve('0');
-    return fetch(`${this._api}/account?address=${this.account?.address}`, {
+  async getBalance(url?: string) {
+    if (!this.account?.address && !url) return Promise.resolve('0');
+    const queryUrl = url || `${this._api}/account?address=${this.account?.address}`;
+    return fetch(queryUrl, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

@@ -3,7 +3,7 @@ import { Web3ConfigProvider, type Account, type Balance } from '@ant-design/web3
 import { TonCircleColorful } from '@ant-design/web3-icons';
 import { toUserFriendlyAddress } from '@tonconnect/sdk';
 
-import { useTonConnector } from '../hooks/useTonConnector';
+import { useTonConnector } from '../hooks';
 import type { TonWallet } from '../wallets/type';
 import type { TonWeb3ConfigProviderProps } from './TonWeb3ConfigProvider';
 

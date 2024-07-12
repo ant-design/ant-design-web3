@@ -50,15 +50,12 @@ export const TonWeb3ConfigProvider: React.FC<PropsWithChildren<TonWeb3ConfigProv
   React.useEffect(() => {
     if (tonConnectSdk && wallets?.length) {
       tonConnectSdk.getWallets().then((res) => {
-        const availableWallets = res.filter(
-          (t) => wallets.findIndex((w) => w.key === t.appName) >= 0,
+        const availableWallets = wallets.filter(
+          (w) => res.findIndex((t) => t.appName === w.key) >= 0,
         );
         setTonWallets(
           availableWallets.map((w) => {
-            const tonBasicWallet = wallets.find((t) => t.key === w.appName);
-            if (!tonBasicWallet) {
-              throw new Error('Wallet not found');
-            }
+            const tonBasicWallet = res.find((t) => t.appName === w.key)!;
             return {
               ...w,
               ...tonBasicWallet,
