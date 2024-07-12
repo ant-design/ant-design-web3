@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TonConnectorContext } from '../ton-provider';
+import { TonConnectorContext } from '../ton-provider/TonWeb3ConfigProvider';
 
 export const useTonConnector = () => {
   const provider = React.useContext(TonConnectorContext ?? {});

@@ -1,8 +1,11 @@
-import React from 'react';
-import { ConnectButton, Connector } from '@ant-design/web3';
-import { fireEvent, render, waitFor } from '@testing-library/react';
-import { CHAIN, TonConnect } from '@tonconnect/sdk';
-import { Button } from 'antd';
+import React, { useState, type FC, type PropsWithChildren } from 'react';
+import {
+  ConnectButton,
+  Connector,
+  useProvider,
+  type ConnectorTriggerProps,
+} from '@ant-design/web3';
+import { fireEvent, render } from '@testing-library/react';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { tonkeeper } from '../../wallets';
