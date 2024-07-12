@@ -1,4 +1,4 @@
-import { useState, type FC, type PropsWithChildren } from 'react';
+import React, { useState, type FC, type PropsWithChildren } from 'react';
 import {
   ConnectButton,
   Connector,
