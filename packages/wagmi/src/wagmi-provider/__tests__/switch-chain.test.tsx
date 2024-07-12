@@ -70,6 +70,7 @@ vi.mock('wagmi', () => {
       };
     },
     useEnsName: () => ({}),
+    useEnsAvatar: () => ({}),
   };
 });
 

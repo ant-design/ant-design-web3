@@ -1,5 +1,28 @@
 # @ant-design/web3
 
+## 1.15.1
+
+### Patch Changes
+
+- f1c388f: fix: add lodash-es for @ant-design/web3
+
+## 1.15.0
+
+### Minor Changes
+
+- f1b85b9: feat: auto display ens avatar
+- 66aaab4: feat: new components TokenSelect and CryptoInput
+- 9321e7d: feat: add payPanel component
+
+### Patch Changes
+
+- fa9208c: fix: wallet list scroll cover style in dark mode
+- Updated dependencies [f1b85b9]
+- Updated dependencies [66aaab4]
+- Updated dependencies [9321e7d]
+  - @ant-design/web3-common@1.12.0
+  - @ant-design/web3-assets@1.9.0
+
 ## 1.14.0
 
 ### Minor Changes

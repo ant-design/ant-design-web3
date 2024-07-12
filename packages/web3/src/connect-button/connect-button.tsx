@@ -109,12 +109,10 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     },
     address: account?.address,
     name: account?.name,
-    avatar: avatar ?? {
-      icon: chain?.icon ? (
-        <div className={`${prefixCls}-chain-icon`}>{chain?.icon}</div>
-      ) : (
-        <UserOutlined className={`${prefixCls}-default-icon`} />
-      ),
+    avatar: {
+      className: `${prefixCls}-chain-icon`,
+      src: account?.avatar ?? chain?.icon ?? <UserOutlined />,
+      ...avatar,
     },
     balance,
     modalProps: typeof profileModal === 'object' ? profileModal : undefined,
@@ -128,11 +126,11 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     <div className={`${prefixCls}-content`}>
       <div className={`${prefixCls}-content-inner`}>
         <div className={`${prefixCls}-text`}>{buttonText}</div>
-        {avatar && (
+        {(account?.avatar || avatar) && (
           <>
             <Divider type="vertical" />
             <div className={`${prefixCls}-avatar`}>
-              <Avatar {...avatar} />
+              <Avatar {...{ src: account?.avatar ?? avatar?.src, ...avatar }} />
             </div>
           </>
         )}

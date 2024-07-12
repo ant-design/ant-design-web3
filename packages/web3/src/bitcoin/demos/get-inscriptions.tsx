@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ConnectButton, Connector, NFTImage } from '@ant-design/web3';
 import {
   BitcoinWeb3ConfigProvider,

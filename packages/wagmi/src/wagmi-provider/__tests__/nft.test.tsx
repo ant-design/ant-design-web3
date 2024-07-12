@@ -50,6 +50,7 @@ vi.mock('wagmi', () => {
       return {};
     },
     useEnsName: () => ({}),
+    useEnsAvatar: () => ({}),
   };
 });
 

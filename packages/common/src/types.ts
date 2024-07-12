@@ -1,6 +1,7 @@
 export interface Account {
   address: string;
   name?: string;
+  avatar?: string;
 }
 
 export enum ChainIds {
@@ -195,6 +196,16 @@ export type WalletMetadata = {
   universalProtocol?: {
     link: string;
   };
+  /**
+   * @desc 支持的链虚拟机类型
+   * @descEn Supported chain virtual machine types
+   */
+  supportChainTypes?: ChainType[];
+  /**
+   * @desc 快捷扫码的参数是否支持
+   * @descEn Whether the parameters of fast scan code are supported
+   */
+  transferQRCodeFormatter?: (params: Record<string, any>) => string;
 };
 
 export type Balance = BalanceMetadata & {
@@ -265,6 +276,16 @@ export interface RequiredLocale {
     copyTips: string;
     copiedTips: string;
   };
+  TokenSelect: {
+    placeholder: string;
+  };
+  CryptoInput: {
+    placeholder: string;
+    maxButtonText: string;
+  };
+  PayPanel: {
+    tips: string;
+  };
 }
 
 export interface Locale {
@@ -272,6 +293,9 @@ export interface Locale {
   ConnectModal?: Partial<RequiredLocale['ConnectModal']>;
   NFTCard?: Partial<RequiredLocale['NFTCard']>;
   Address?: Partial<RequiredLocale['Address']>;
+  TokenSelect?: Partial<RequiredLocale['TokenSelect']>;
+  CryptoInput?: Partial<RequiredLocale['CryptoInput']>;
+  PayPanel?: Partial<RequiredLocale['PayPanel']>;
 }
 
 export interface UniversalEIP6963Config {
@@ -285,6 +309,6 @@ export type Token = {
   decimal: number;
   availableChains: {
     chain: Chain;
-    contract: string;
+    contract?: string;
   }[];
 };

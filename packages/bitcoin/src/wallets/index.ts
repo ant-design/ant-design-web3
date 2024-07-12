@@ -1,3 +1,4 @@
+/* v8 ignore start */
 import { metadata_OkxWallet, metadata_Unisat, metadata_Xverse } from '@ant-design/web3-assets';
 
 import { OkxBitcoinWallet, UnisatBitcoinWallet, XverseBitcoinWallet } from '../adapter';

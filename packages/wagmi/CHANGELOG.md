@@ -1,5 +1,19 @@
 # @ant-design/web3-wagmi
 
+## 2.7.0
+
+### Minor Changes
+
+- f1b85b9: feat: auto display ens avatar
+
+### Patch Changes
+
+- Updated dependencies [f1b85b9]
+- Updated dependencies [66aaab4]
+- Updated dependencies [9321e7d]
+  - @ant-design/web3-common@1.12.0
+  - @ant-design/web3-assets@1.9.0
+
 ## 2.6.0
 
 ### Minor Changes

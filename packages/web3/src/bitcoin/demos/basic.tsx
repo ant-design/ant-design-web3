@@ -8,7 +8,7 @@ import {
 
 const App: React.FC = () => {
   return (
-    <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet(), OkxWallet()]}>
+    <BitcoinWeb3ConfigProvider autoConnect wallets={[XverseWallet(), UnisatWallet(), OkxWallet()]}>
       <Connector
         modalProps={{
           group: false,
