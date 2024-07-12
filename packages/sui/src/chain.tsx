@@ -16,7 +16,7 @@ export const suiMainnet: SuiChain = {
   icon: <SuiColorful />,
   browser: {
     icon: <SuiColorful />,
-    getBrowserLink: createGetBrowserLink('https://suiexplorer.com'),
+    getBrowserLink: createGetBrowserLink('https://suiscan.xyz/mainnet'),
   },
   nativeCurrency: { name: 'Sui', symbol: 'SUI', decimals: SUI_DECIMALS },
 };
@@ -28,7 +28,7 @@ export const suiTestnet: SuiChain = {
   icon: <SuiColorful />,
   browser: {
     icon: <SuiColorful />,
-    getBrowserLink: createGetBrowserLink('https://suiexplorer.com/?cluster=testnet'),
+    getBrowserLink: createGetBrowserLink('https://suiscan.xyz/testnet'),
   },
   nativeCurrency: { name: 'Sui', symbol: 'SUI', decimals: SUI_DECIMALS },
 };
@@ -40,7 +40,7 @@ export const suiDevnet: SuiChain = {
   icon: <SuiColorful />,
   browser: {
     icon: <SuiColorful />,
-    getBrowserLink: createGetBrowserLink('https://suiexplorer.com/?cluster=devnet'),
+    getBrowserLink: createGetBrowserLink('https://suiscan.xyz/devnet'),
   },
   nativeCurrency: { name: 'Sui', symbol: 'SUI', decimals: SUI_DECIMALS },
 };
@@ -52,7 +52,6 @@ export const suiLocalnet: SuiChain = {
   icon: <SuiColorful />,
   browser: {
     icon: <SuiColorful />,
-    getBrowserLink: createGetBrowserLink('https://suiexplorer.com/?cluster=localnet'),
   },
   nativeCurrency: { name: 'Sui', symbol: 'SUI', decimals: SUI_DECIMALS },
 };
