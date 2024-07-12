@@ -24,6 +24,16 @@ Ant Design Web3 官方提供了 `@ant-design/web3-sui` 来适配 Sui。它基于
 - 配置 `quickConnect`，提供快速连接入口，简化用户操作。
 - 使用 `simple` 模式，去掉钱包分组，简化界面。
 
+## 自定义 QueryClientProvider
+
+也可以直接使用 `PersistQueryClientProvider` 覆盖默认的 `QueryClientProvider`。
+
+```bash
+pnpm i @tanstack/query-sync-storage-persister @tanstack/react-query-persist-client
+```
+
+<code src="./demos/query-client.tsx"></code>
+
 ## 网络
 
 我们内置了 Sui 主网 `mainnet`，如果想使用其余网络，可以配置 `networkConfig`。

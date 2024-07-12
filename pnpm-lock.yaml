@@ -50,9 +50,15 @@ importers:
       '@solana/wallet-adapter-trust':
         specifier: ^0.1.13
         version: 0.1.13(@solana/web3.js@1.91.0)
+      '@tanstack/query-sync-storage-persister':
+        specifier: ^5.51.1
+        version: 5.51.1
       '@tanstack/react-query':
         specifier: ^5.40.1
         version: 5.40.1(react@18.2.0)
+      '@tanstack/react-query-persist-client':
+        specifier: ^5.51.1
+        version: 5.51.1(@tanstack/react-query@5.40.1)(react@18.2.0)
       antd:
         specifier: ^5.18.3
         version: 5.18.3(react-dom@18.2.0)(react@18.2.0)
@@ -8057,7 +8063,7 @@ packages:
     peerDependencies:
       '@babel/preset-env': ^7.1.6
     dependencies:
-      '@babel/parser': 7.24.4
+      '@babel/parser': 7.24.7
       '@babel/preset-env': 7.23.6(@babel/core@7.24.3)
       flow-parser: 0.206.0
       glob: 7.2.3
@@ -9461,6 +9467,34 @@ packages:
 
   /@tanstack/query-core@5.40.0:
     resolution: {integrity: sha512-eD8K8jsOIq0Z5u/QbvOmfvKKE/XC39jA7yv4hgpl/1SRiU+J8QCIwgM/mEHuunQsL87dcvnHqSVLmf9pD4CiaA==}
+
+  /@tanstack/query-core@5.51.1:
+    resolution: {integrity: sha512-fJBMQMpo8/KSsWW5ratJR5+IFr7YNJ3K2kfP9l5XObYHsgfVy1w3FJUWU4FT2fj7+JMaEg33zOcNDBo0LMwHnw==}
+    dev: false
+
+  /@tanstack/query-persist-client-core@5.51.1:
+    resolution: {integrity: sha512-sEaZbqO5mdaJCymLAOUsf4DkVLSUcuKvhHC4pbL1Q/GbYs+r7vQkh2AeS5aRORyuhdL2jqOAs554ldee58e5sQ==}
+    dependencies:
+      '@tanstack/query-core': 5.51.1
+    dev: false
+
+  /@tanstack/query-sync-storage-persister@5.51.1:
+    resolution: {integrity: sha512-nFuIKTJ47MAzTQCt6M5bPEUYHc1PzJYKvzlyfh7DoLxULvj0iFMmigX4s/NBZkSwmOPphkM0U3t5q3fa5KsKdw==}
+    dependencies:
+      '@tanstack/query-core': 5.51.1
+      '@tanstack/query-persist-client-core': 5.51.1
+    dev: false
+
+  /@tanstack/react-query-persist-client@5.51.1(@tanstack/react-query@5.40.1)(react@18.2.0):
+    resolution: {integrity: sha512-8sqMCsF6jpxdhuIQAt1z9PJjCPRlFuAFD/Tk5oXXWq5KjqVg/TP1XB/THtclw5KjNsGomkHSGPySNGY2zK1mJQ==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.51.1
+      react: ^18 || ^19
+    dependencies:
+      '@tanstack/query-persist-client-core': 5.51.1
+      '@tanstack/react-query': 5.40.1(react@18.2.0)
+      react: 18.2.0
+    dev: false
 
   /@tanstack/react-query@5.40.1(react@18.2.0):
     resolution: {integrity: sha512-gOcmu+gpFd2taHrrgMM9RemLYYEDYfsCqszxCC0xtx+csDa4R8t7Hr7SfWXQP13S2sF+mOxySo/+FNXJFYBqcA==}
@@ -18522,7 +18556,7 @@ packages:
       '@babel/preset-env': ^7.1.6
     dependencies:
       '@babel/core': 7.24.3
-      '@babel/parser': 7.24.4
+      '@babel/parser': 7.24.7
       '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.24.3)
       '@babel/plugin-proposal-nullish-coalescing-operator': 7.18.6(@babel/core@7.24.3)
       '@babel/plugin-proposal-optional-chaining': 7.21.0(@babel/core@7.24.3)
@@ -19697,7 +19731,7 @@ packages:
     dependencies:
       '@babel/core': 7.24.3
       '@babel/generator': 7.24.1
-      '@babel/parser': 7.24.4
+      '@babel/parser': 7.24.7
       '@babel/types': 7.24.0
       metro: 0.80.8
       metro-babel-transformer: 0.80.8
@@ -19721,7 +19755,7 @@ packages:
       '@babel/code-frame': 7.24.2
       '@babel/core': 7.24.3
       '@babel/generator': 7.24.1
-      '@babel/parser': 7.24.4
+      '@babel/parser': 7.24.7
       '@babel/template': 7.24.0
       '@babel/traverse': 7.24.1(supports-color@5.5.0)
       '@babel/types': 7.24.0
