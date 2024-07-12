@@ -18,7 +18,7 @@ group: UI 组件
 
 <code src="./demos/useGasRender.tsx"></code>
 
-## 和对话框一起使用
+## 和 Modal 弹窗一起使用
 
 <code src="./demos/modal.tsx"></code>
 
