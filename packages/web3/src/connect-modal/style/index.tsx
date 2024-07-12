@@ -246,7 +246,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             background: token.simpleGuideBg,
             [`${componentCls}-simple-guide-right`]: {
               fontWeight: 400,
-              color: token.colorPrimary,
               padding: '0 15px',
             },
           },
@@ -334,7 +333,6 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             textAlign: 'center',
             marginBlockStart: token.margin,
             ['&:hover']: {
-              color: token.colorPrimary,
               opacity: 1,
             },
           },

@@ -84,7 +84,15 @@ export const themeList: ThemeSetting[] = [
       token: {
         borderRadius: 2,
         colorPrimary: '#000',
-        colorPrimaryTextHover: '#fff',
+        colorPrimaryTextHover: 'rgba(255, 255, 255, 0.8)',
+        colorLink: 'rgba(255, 255, 255, 0.75)',
+        colorText: 'rgba(255, 255, 255, 0.75)',
+      },
+      components: {
+        Button: {
+          defaultHoverColor: 'rgba(255, 255, 255, 0.8)',
+          defaultHoverBorderColor: 'rgba(255, 255, 255, 0.8)',
+        },
       },
       algorithm: theme.darkAlgorithm,
     },
@@ -97,6 +105,7 @@ export const themeList: ThemeSetting[] = [
       token: {
         colorPrimary: '#00B96B',
         borderRadius: 4,
+        colorLink: '#00B96B',
       },
     },
   },
@@ -108,6 +117,7 @@ export const themeList: ThemeSetting[] = [
       token: {
         colorPrimary: '#ED4192',
         borderRadius: 16,
+        colorLink: '#ED4192',
       },
     },
   },
