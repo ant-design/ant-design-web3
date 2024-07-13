@@ -57,6 +57,11 @@ export enum ChainType {
    * Bitcoin chain
    */
   Bitcoin = 'Bitcoin',
+
+  /**
+   * Sui chain
+   */
+  Sui = 'Sui',
 }
 
 export interface Chain {
