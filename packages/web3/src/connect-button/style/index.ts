@@ -101,6 +101,7 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
         gap: token.marginXS,
         [`${token.antCls}-btn`]: {
           flex: 1,
+          padding: 0,
         },
       },
       [`&-name`]: {
