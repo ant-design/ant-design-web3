@@ -1,18 +1,25 @@
-import { readdirSync } from 'fs';
+import { existsSync, readdirSync } from 'fs';
 import { join } from 'path';
 import { defineConfig } from 'dumi';
 
 // utils must build before core
 // runtime must build before renderer-react
-const pkgList = readdirSync(join(__dirname, 'packages')).map((pkg) => {
-  const packageJson = require(join(__dirname, 'packages', pkg, 'package.json'));
+const pkgList = readdirSync(join(__dirname, 'packages'))
+  .map((pkg) => {
+    const packagePath = join(__dirname, 'packages', pkg, 'package.json');
+    if (!existsSync(packagePath)) {
+      return;
+    }
 
-  return {
-    name: packageJson.name,
-    exports: packageJson.exports,
-    path: join(__dirname, 'packages', pkg, 'src'),
-  };
-});
+    const packageJson = require(packagePath);
+
+    return {
+      name: packageJson.name,
+      exports: packageJson.exports,
+      path: join(__dirname, 'packages', pkg, 'src'),
+    };
+  })
+  .filter((v) => !!v);
 
 const alias = pkgList.reduce(
   (pre, pkg) => {
