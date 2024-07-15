@@ -71,4 +71,40 @@ describe('TokenSelect component', () => {
     expect(baseElement.querySelectorAll('.ant-select-item').length).toBe(1);
     expect(baseElement.querySelector('.ant-select-item')?.textContent).includes('Tether USD');
   });
+
+  it('when not exist match token, show token symbol', () => {
+    const { baseElement } = render(
+      <TokenSelect showSearch value={{ ...USDT, symbol: 'Solana' }} tokenList={mockTokens} />,
+    );
+
+    fireEvent.mouseDown(baseElement.querySelector('.ant-select-selector') as Element);
+
+    expect(baseElement.querySelector('.ant-select-selection-item')?.textContent).toBe('Solana');
+
+    expect(baseElement.querySelectorAll('.ant-select-item').length).toBe(2);
+    expect(baseElement.querySelectorAll('.ant-select-item-option-selected').length).toBe(0);
+  });
+
+  it('support multiple and tags mode', () => {
+    const handleChange = vi.fn();
+
+    const { baseElement } = render(
+      <TokenSelect mode="multiple" tokenList={mockTokens} onChange={handleChange} />,
+    );
+
+    fireEvent.mouseDown(baseElement.querySelector('.ant-select-selector') as Element);
+
+    const selectOptions = baseElement.querySelectorAll('.ant-select-item');
+
+    fireEvent.click(selectOptions[0]);
+    fireEvent.click(selectOptions[1]);
+
+    expect(handleChange).toHaveBeenCalledWith(mockTokens);
+
+    expect(baseElement.querySelectorAll('.ant-select-selection-item').length).toBe(2);
+    expect(baseElement.querySelectorAll('.ant-select-selection-overflow-item').length).toBe(3);
+
+    expect(baseElement.querySelectorAll('.ant-select-selector .token-icon').length).toBe(2);
+    expect(baseElement.querySelectorAll('.ant-select-selector .token-name').length).toBe(0);
+  });
 });

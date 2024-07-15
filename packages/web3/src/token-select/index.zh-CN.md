@@ -16,9 +16,21 @@ group:
 
 <code src="./demos/basic.tsx"></code>
 
+### 兜底展示
+
+<code src="./demos/notFoundToken.tsx"></code>
+
 ### 带搜索功能
 
 <code src="./demos/withSearch.tsx"></code>
+
+### 多选模式
+
+<code src="./demos/multipltSelect.tsx"></code>
+
+### 标签模式
+
+<code src="./demos/tagsSelect.tsx"></code>
 
 ## API
 
