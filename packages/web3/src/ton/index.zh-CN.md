@@ -22,13 +22,15 @@ Ant Design Web3 官方提供了 `@ant-design/web3-ton` 来适配 TON 生态，�
 
 ### TonWeb3ConfigProvider
 
+对于 Tonconnect SDK 提供的连接字段，可以在[文档](https://github.com/ton-connect/sdk/blob/main/packages/sdk/src/models/ton-connect-options.ts)中查看具体的使用方法。
+
 | 属性 | 描述 | 类型 | 默认值 | 是否为 SDK 保留字段 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |
 | wallets | 支持的钱包列表 | WalletMetadata\[\] | - | 否 | 必填 |
 | balance | 连接后是否展示余额 | `boolean` | `false` | 否 | - |
 | locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | 否 | - |
 | reconnect | 是否支持自动重新连接 | `boolean` | `true` | 否 | - |
-| chain | 连接的网络，支持主网和测试网 | `CHAIN` | `CHAIN.MAINNET` | 否 | - |
+| chain | 连接的网络，支持主网和测试网 | [CHAIN](https://github.com/ton-connect/sdk/blob/main/packages/protocol/src/models/CHAIN.ts) | `CHAIN.MAINNET` | 否 | - |
 | manifestUrl | 用于连接钱包时候提供 Dapp 身份 | `string` | - | 是 | - |
 | storage | 存储协议数据的地址 | `IStorage` | `localStorage` | 是 | - |
 | eventDispatcher | 事件调度 | ` EventDispatcher<SdkActionEvent>` | `window.dispatchEvent` | 是 | - |

@@ -22,13 +22,15 @@ The interface design of `@ant-design/web3-ton` refers to the [TON official docum
 
 ### TonWeb3ConfigProvider
 
+For the connection fields provided by the Tonconnect SDK, you can refer to the [documentation](https://github.com/ton-connect/sdk/blob/main/packages/sdk/src/models/ton-connect-options.ts) for specific usage methods.
+
 | Property | Description | Type | Default | Reserved Field for SDK | Required |
 | --- | --- | --- | --- | --- | --- |
 | wallets | Supported wallet list | WalletMetadata\[\] | - | No | Yes |
 | balance | Whether to display the balance after connection | `boolean` | `false` | No | - |
 | locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/en_US.ts) | - | No | - |
 | reconnect | Whether to support automatic reconnection | `boolean` | `true` | No | - |
-| chain | Connected network, supporting mainnet and testnet | `CHAIN` | `CHAIN.MAINNET` | No | - |
+| chain | Connected network, supporting mainnet and testnet | [CHAIN](https://github.com/ton-connect/sdk/blob/main/packages/protocol/src/models/CHAIN.ts) | `CHAIN.MAINNET` | No | - |
 | manifestUrl | Dapp identity provided when connecting the wallet | `string` | - | Yes | - |
 | storage | Address for storing protocol data | `IStorage` | `localStorage` | Yes | - |
 | eventDispatcher | Event dispatch | ` EventDispatcher<SdkActionEvent>` | `window.dispatchEvent` | Yes | - |
