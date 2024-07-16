@@ -529,7 +529,6 @@ export * from './components/ten-circle-colorful';
 export * from './components/tera-colorful';
 export * from './components/tfuel-circle-colorful';
 export * from './components/tg-wallet-circle-colorful';
-export * from './components/tgWallet-circle-colorful';
 export * from './components/theta-colorful';
 export * from './components/tkn-colorful';
 export * from './components/tks-circle-colorful';
