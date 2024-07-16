@@ -16,7 +16,7 @@ const App: React.FC = () => {
           { ...ETH, symbol: 'ETH_CLONE', name: 'ETH_CLONE' },
           { ...USDT, symbol: 'USDT_CLONE', name: 'USDT_CLONE' },
         ]}
-        mode="tags"
+        mode="multiple"
         style={{ width: '100%' }}
         maxTagCount={3}
       />
