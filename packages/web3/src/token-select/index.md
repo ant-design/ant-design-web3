@@ -17,7 +17,7 @@ For basic props, please refer to `AntDesign Select`. The API design is compatibl
 
 <code src="./demos/basic.tsx"></code>
 
-### Not Fount Token
+### Not Found Token
 
 <code src="./demos/notFoundToken.tsx"></code>
 
