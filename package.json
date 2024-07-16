@@ -54,7 +54,8 @@
     "@biomejs/biome": "^1.6.4",
     "@changesets/changelog-git": "^0.2.0",
     "@changesets/cli": "^2.27.7",
-    "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
+    "@ctrl/tinycolor": "^4.1.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@testing-library/react": "^16.0.0",
     "@types/lodash": "^4.17.6",
     "@types/node": "^20.14.10",
@@ -73,9 +74,9 @@
     "jsdom": "^24.1.0",
     "lint-staged": "^15.2.2",
     "lodash": "^4.17.21",
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "rc-util": "^5.43.0",
-    "rimraf": "^5.0.7",
+    "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.2",
     "vite-plugin-svgr": "^4.2.0",
@@ -117,6 +118,6 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
     "viem": "^2.16.5",
-    "wagmi": "^2.10.5"
+    "wagmi": "^2.10.9"
   }
 }

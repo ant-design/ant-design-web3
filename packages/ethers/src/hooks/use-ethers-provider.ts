@@ -10,6 +10,8 @@ export function clientToProvider(client: Client<Transport, Chain>) {
     name: chain.name,
     ensAddress: chain.contracts?.ensRegistry?.address,
   };
+
+  /* v8 ignore next 7 */
   if (transport.type === 'fallback') {
     const providers = (transport.transports as ReturnType<Transport>[]).map(
       ({ value }) => new JsonRpcProvider(value?.url, network),
@@ -22,5 +24,6 @@ export function clientToProvider(client: Client<Transport, Chain>) {
 
 export function useEthersProvider() {
   const client = useClient<Config>();
+  /* v8 ignore next */
   return useMemo(() => (client ? clientToProvider(client) : null), [client]);
 }

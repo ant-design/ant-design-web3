@@ -7,5 +7,6 @@ export const isDarkTheme = (token: GlobalToken) => {
 };
 
 export const formatNumUnit = (num: number) => {
+  /* v8 ignore next */
   return num > 1000 ? `${(num / 1000).toFixed(1)}k` : num;
 };

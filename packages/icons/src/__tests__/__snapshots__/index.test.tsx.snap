@@ -6453,7 +6453,11 @@ exports[`Test Icons > should render all icons 114`] = `
     fill="currentColor"
     focusable="false"
     height="1em"
+<<<<<<< HEAD
     viewBox="0 0 97 96"
+=======
+    viewBox="0 0 96 96"
+>>>>>>> origin/main
     width="1em"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -6477,6 +6481,146 @@ exports[`Test Icons > should render all icons 114`] = `
 
 exports[`Test Icons > should render all icons 115`] = `
 <span
+<<<<<<< HEAD
+=======
+  class="anticon ant-web3-icon-tonhub-circle-colorful"
+  role="img"
+>
+  <svg
+    aria-hidden="true"
+    class=""
+    fill="currentColor"
+    focusable="false"
+    height="1em"
+    viewBox="0 0 54 54"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <script
+      charSet="utf-8"
+      xmlns=""
+    />
+    <link
+      xmlns=""
+    />
+    <script
+      xmlns=""
+    />
+    <rect
+      fill="#F3F3F3"
+      height="54"
+      rx="27"
+      width="54"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M22.2327 14.4817C22.2853 14.458 22.3424 14.4458 22.4001 14.4458H31.6001C31.6578 14.4458 31.7149 14.458 31.7676 14.4817L37.9643 17.2721C38.0367 17.3046 38.098 17.3575 38.1409 17.4243L41.673 22.9239C41.7697 23.0746 41.7581 23.2708 41.6442 23.4088L27.3153 40.7712C27.1516 40.9695 26.8486 40.9695 26.685 40.7712L12.3561 23.4088C12.2422 23.2708 12.2305 23.0746 12.3273 22.9239L15.8593 17.4243C15.9023 17.3575 15.9636 17.3046 16.0358 17.2721L22.2327 14.4817Z"
+      fill="url(#paint0_linear_144_910)"
+      fill-rule="evenodd"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M22.2327 14.4817C22.2853 14.458 22.3424 14.4458 22.4001 14.4458H31.6001C31.6578 14.4458 31.7149 14.458 31.7676 14.4817L37.9643 17.2721C38.0367 17.3046 38.098 17.3575 38.1409 17.4243L41.673 22.9239C41.7697 23.0746 41.7581 23.2708 41.6442 23.4088H12.3561C12.2422 23.2708 12.2305 23.0746 12.3273 22.9239L15.8593 17.4243C15.9023 17.3575 15.9636 17.3046 16.0358 17.2721L22.2327 14.4817Z"
+      fill="url(#paint1_linear_144_910)"
+      fill-rule="evenodd"
+    />
+    <path
+      d="M27.0004 19.9102L32.5907 27.2971H21.4102L27.0004 19.9102Z"
+      fill="#95B0FF"
+    />
+    <path
+      d="M26.6666 40.7273C26.8379 40.9343 27.1571 40.9301 27.3228 40.7187L28.895 38.714L32.5907 27.2974H21.4102L24.9999 38.714L26.6666 40.7273Z"
+      fill="url(#paint2_linear_144_910)"
+    />
+    <path
+      d="M27.0004 19.9101L17.0903 18.4429L21.4101 27.2971L27.0004 19.9101Z"
+      fill="#D7D6FC"
+    />
+    <path
+      d="M12.356 23.4088L17.0898 18.4429L21.4096 27.2971L12.356 23.4088Z"
+      fill="#BDB3F9"
+    />
+    <path
+      d="M27 19.9101L36.91 18.4429L32.5902 27.2971L27 19.9101Z"
+      fill="#6E97FF"
+    />
+    <path
+      d="M41.6443 23.4088L36.9106 18.4429L32.5908 27.2971L41.6443 23.4088Z"
+      fill="#A4CCFA"
+    />
+    <path
+      d="M41.6441 23.4094L36.9104 18.4435L37.9777 17.2798C37.9977 17.2901 38.0562 17.3154 38.1153 17.3884C38.1913 17.4821 40.4088 20.7717 41.6729 22.9246C41.7889 23.122 41.7299 23.306 41.6441 23.4094Z"
+      fill="#799FF0"
+    />
+    <path
+      d="M12.3562 23.4094L17.0898 18.4435L16.0226 17.2798C16.0025 17.2901 15.9441 17.3154 15.8849 17.3884C15.8089 17.4821 13.5915 20.7717 12.3273 22.9246C12.2114 23.122 12.2704 23.306 12.3562 23.4094Z"
+      fill="#B28DFF"
+    />
+    <path
+      d="M18.7307 28.8135C18.691 28.8321 18.6528 28.7854 18.6791 28.7503L19.9484 27.0574C20.321 26.5604 20.3889 25.8988 20.1247 25.3368L19.2252 23.4224C19.2066 23.3828 19.2535 23.3447 19.2886 23.371L20.985 24.6376C21.4831 25.0095 22.146 25.0772 22.7092 24.8136L24.6275 23.916C24.6672 23.8974 24.7053 23.9442 24.6791 23.9792L23.4098 25.6721C23.0371 26.1692 22.9693 26.8307 23.2334 27.3928L24.1329 29.3071C24.1515 29.3467 24.1047 29.3848 24.0695 29.3586L22.3731 28.0919C21.8751 27.72 21.2121 27.6523 20.6489 27.9159L18.7307 28.8135Z"
+      fill="white"
+    />
+    <defs>
+      <lineargradient
+        gradientUnits="userSpaceOnUse"
+        id="paint0_linear_144_910"
+        x1="12.2619"
+        x2="42.4751"
+        y1="23.5857"
+        y2="23.2692"
+      >
+        <stop
+          stop-color="#9889FE"
+        />
+        <stop
+          offset="0.495027"
+          stop-color="#68A3F1"
+        />
+        <stop
+          offset="1"
+          stop-color="#61A8EA"
+        />
+      </lineargradient>
+      <lineargradient
+        gradientUnits="userSpaceOnUse"
+        id="paint1_linear_144_910"
+        x1="15.8412"
+        x2="37.6326"
+        y1="17.2823"
+        y2="17.1768"
+      >
+        <stop
+          stop-color="#B69EFD"
+        />
+        <stop
+          offset="1"
+          stop-color="#9BB7FC"
+        />
+      </lineargradient>
+      <lineargradient
+        gradientUnits="userSpaceOnUse"
+        id="paint2_linear_144_910"
+        x1="27.0004"
+        x2="27.0004"
+        y1="27.2974"
+        y2="40.8799"
+      >
+        <stop
+          stop-color="#B3C9FA"
+        />
+        <stop
+          offset="1"
+          stop-color="#A3D2F6"
+        />
+      </lineargradient>
+    </defs>
+  </svg>
+</span>
+`;
+
+exports[`Test Icons > should render all icons 116`] = `
+<span
+>>>>>>> origin/main
   class="anticon ant-web3-icon-toncoin-circle-filled"
   role="img"
 >
@@ -6523,6 +6667,7 @@ exports[`Test Icons > should render all icons 115`] = `
 </span>
 `;
 
+<<<<<<< HEAD
 exports[`Test Icons > should render all icons 116`] = `
 <span
   class="anticon ant-web3-icon-tonHub-circle-colorful"
@@ -6660,6 +6805,8 @@ exports[`Test Icons > should render all icons 116`] = `
 </span>
 `;
 
+=======
+>>>>>>> origin/main
 exports[`Test Icons > should render all icons 117`] = `
 <span
   class="anticon ant-web3-icon-ton-circle-colorful"
@@ -7049,7 +7196,11 @@ exports[`Test Icons > should render all icons 124`] = `
 
 exports[`Test Icons > should render all icons 125`] = `
 <span
+<<<<<<< HEAD
   class="anticon ant-web3-icon-tgWallet-circle-colorful"
+=======
+  class="anticon ant-web3-icon-tg-wallet-circle-colorful"
+>>>>>>> origin/main
   role="img"
 >
   <svg
@@ -16415,7 +16566,11 @@ exports[`Test Icons > should render all icons 266`] = `
 
 exports[`Test Icons > should render all icons 267`] = `
 <span
+<<<<<<< HEAD
   class="anticon ant-web3-icon-openMask-circle-colorful"
+=======
+  class="anticon ant-web3-icon-openmask-circle-colorful"
+>>>>>>> origin/main
   role="img"
 >
   <svg
@@ -18532,6 +18687,79 @@ exports[`Test Icons > should render all icons 308`] = `
 `;
 
 exports[`Test Icons > should render all icons 309`] = `
+<<<<<<< HEAD
+=======
+<span
+  class="anticon ant-web3-icon-myton-wallet-circle-colorful"
+  role="img"
+>
+  <svg
+    aria-hidden="true"
+    class=""
+    fill="currentColor"
+    focusable="false"
+    height="1em"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <script
+      charSet="utf-8"
+      xmlns=""
+    />
+    <link
+      xmlns=""
+    />
+    <script
+      xmlns=""
+    />
+    <g
+      clip-path="url(#ant-web3-icon-myTonWallet-circle-colorful-1)"
+    >
+      <path
+        d="M36.512 19.629A19 19 0 1 0 38 27a18.877 18.877 0 0 0-1.488-7.371Zm-1.61 15.096-.842-2.216 2.074-1.11a17.486 17.486 0 0 1-1.231 3.329v-.003Zm-32.9-3.295 2.049 1.097-.831 2.19a17.464 17.464 0 0 1-1.217-3.287ZM1.44 27c0-.575.027-1.142.081-1.703l1.57 1.74-1.563 1.735A18.352 18.352 0 0 1 1.439 27Zm1.766-7.688.847 2.24-2.08 1.112a17.53 17.53 0 0 1 1.233-3.352Zm32.942 3.342-2.091-1.123.854-2.249a17.508 17.508 0 0 1 1.237 3.372ZM25.895 38.919l-1.648-1.116a11.792 11.792 0 0 0 1.503-.867l.145 1.983Zm-4.454 1.567-1.114-1.573a11.951 11.951 0 0 0 1.652-.29l-.538 1.863Zm-4.746.057-.555-1.918c.58.144 1.17.245 1.765.3l-1.21 1.618Zm-1.07 1.014L13.15 43.08l-.864-2.654 2.517-1.703.821 2.835Zm-3.405-2.67.143-1.948c.472.32.966.604 1.478.852l-1.621 1.097Zm0-23.743 1.586 1.078c-.5.247-.982.528-1.443.842l-.143-1.92Zm4.474-1.665 1.187 1.596c-.583.056-1.16.155-1.73.295l.543-1.891Zm4.745.057.528 1.837a11.98 11.98 0 0 0-1.617-.285l1.09-1.552Zm1.046-1.108 2.474-1.533.866 2.68-2.517 1.718-.823-2.865Zm3.404 2.687-.143 1.944c-.467-.317-.956-.6-1.463-.848l1.606-1.096ZM19.055 37.67c-5.883 0-10.67-4.787-10.67-10.67a10.65 10.65 0 0 1 3.718-8.087.678.678 0 0 0 .213-.178c.894-.73 1.9-1.31 2.98-1.72a.606.606 0 0 0 .213-.077 10.655 10.655 0 0 1 10.344 1.848.57.57 0 0 0 .075.064A10.65 10.65 0 0 1 29.725 27c0 5.883-4.786 10.67-10.67 10.67ZM7.117 27.958l-1.913-.917 1.903-.914a12.043 12.043 0 0 0 .006 1.831h.004Zm23.89-1.848 1.904.914-1.909.915c.024-.308.036-.621.037-.939a13.738 13.738 0 0 0-.037-.892l.005.002Zm-.992-3.962 1.885.166-1.326 1.374c-.15-.526-.337-1.04-.559-1.54Zm-2.364-3.489 1.92-.48-.787 1.826a12.108 12.108 0 0 0-1.133-1.349v.003Zm-8.526-4.105-1.818-2.445 1.695-2.248 1.834 2.255-1.711 2.438Zm-4.321.77-2.518-1.721.864-2.678 2.476 1.532-.822 2.867Zm-5.482 4.694L8.54 18.2l1.906.477c-.406.417-.782.863-1.124 1.335v.006Zm-1.79 3.69-1.32-1.379 1.876-.166c-.22.5-.406 1.014-.555 1.54v.006Zm-2.804-1.024 2.065 2.145-2.748 1.314-1.882-2.09 2.565-1.369Zm-.683 5.253 2.745 1.319-2.064 2.145-2.569-1.374 1.888-2.09Zm3.507 2.417c.155.535.347 1.058.575 1.566l-1.92-.17 1.345-1.396Zm2.955 5.041-1.972.493.806-1.871c.354.487.744.948 1.166 1.378Zm8.618 4.092 1.71 2.412-1.834 2.24-1.695-2.233 1.819-2.42Zm4.182-.734 2.517 1.703-.862 2.655-2.475-1.522.82-2.836Zm5.469-4.743.8 1.86-1.957-.49c.419-.427.805-.886 1.157-1.37Zm1.79-3.666 1.338 1.391-1.91.169c.227-.507.418-1.03.572-1.564v.004Zm2.824 1.039-2.064-2.145 2.746-1.32 1.885 2.09-2.567 1.375Zm.677-5.259-2.749-1.32 2.064-2.143 2.567 1.373-1.882 2.09Zm-1.24-5.047-2.965-.262 1.204-2.798 2.795.339-1.034 2.721Zm-2.903-4.34-2.887.723.222-3.038 2.748-.593-.083 2.909Zm-8.076-5.455L20.334 9.42c1.193.085 2.374.291 3.525.617l-2.01 1.245Zm-5.583.03-2.038-1.262a17.476 17.476 0 0 1 3.457-.622l-1.42 1.883Zm-5.187 6.166-2.887-.722-.087-2.91 2.752.595.222 3.037Zm-4.03.557 1.205 2.798-2.965.262-1.038-2.721 2.798-.339ZM5.277 32.984l2.965.262-1.202 2.798-2.794-.34 1.03-2.72Zm2.909 4.337 2.888-.723-.223 3.038-2.751.594.086-2.909Zm8.08 5.379 1.417 1.869a17.535 17.535 0 0 1-3.45-.616l2.033-1.254Zm5.582.029 2.003 1.232a17.507 17.507 0 0 1-3.518.616l1.515-1.848Zm5.19-6.149 2.886.726.086 2.91-2.752-.595-.22-3.04Zm4.034-.557-1.205-2.798 2.966-.263 1.032 2.722-2.793.34Zm3.95-9.008 1.582-1.754a17.95 17.95 0 0 1-.003 3.507l-1.579-1.753Zm-1.45-10.014-2.339-.284.071-2.388a17.705 17.705 0 0 1 2.267 2.672Zm-4.293-4.357-2.222.48-.7-2.169a17.592 17.592 0 0 1 2.922 1.689Zm-17.517-1.685-.705 2.184-2.233-.482c.922-.66 1.906-1.23 2.938-1.702Zm-4.954 3.385.07 2.388-2.334.284a17.769 17.769 0 0 1 2.264-2.672ZM4.605 37.066l2.27.275-.07 2.31a17.76 17.76 0 0 1-2.2-2.582v-.003Zm4.305 4.337 2.164-.467.684 2.107a17.676 17.676 0 0 1-2.848-1.64Zm17.45 1.644.694-2.127 2.177.468a17.61 17.61 0 0 1-2.87 1.655v.004Zm4.95-3.38-.069-2.341 2.3-.28a17.729 17.729 0 0 1-2.23 2.622Z"
+        fill="url(#ant-web3-icon-myTonWallet-circle-colorful-2)"
+      />
+    </g>
+    <defs>
+      <lineargradient
+        gradientUnits="userSpaceOnUse"
+        id="ant-web3-icon-myTonWallet-circle-colorful-2"
+        x1="3.705"
+        x2="43.416"
+        y1="10.47"
+        y2="22.865"
+      >
+        <stop
+          stop-color="#71AAEF"
+        />
+        <stop
+          offset="0.339"
+          stop-color="#3F79CF"
+        />
+        <stop
+          offset="0.708"
+          stop-color="#2E74B5"
+        />
+        <stop
+          offset="1"
+          stop-color="#2160A2"
+        />
+      </lineargradient>
+      <clippath
+        id="ant-web3-icon-myTonWallet-circle-colorful-1"
+      >
+        <path
+          d="M0 0h208v52H0z"
+          fill="#fff"
+        />
+      </clippath>
+    </defs>
+  </svg>
+</span>
+`;
+
+exports[`Test Icons > should render all icons 310`] = `
+>>>>>>> origin/main
 <span
   class="anticon ant-web3-icon-myst-colorful"
   role="img"
@@ -18578,6 +18806,7 @@ exports[`Test Icons > should render all icons 309`] = `
 </span>
 `;
 
+<<<<<<< HEAD
 exports[`Test Icons > should render all icons 310`] = `
 <span
   class="anticon ant-web3-icon-myTonWallet-circle-colorful"
@@ -18648,6 +18877,8 @@ exports[`Test Icons > should render all icons 310`] = `
 </span>
 `;
 
+=======
+>>>>>>> origin/main
 exports[`Test Icons > should render all icons 311`] = `
 <span
   class="anticon ant-web3-icon-mxc-circle-colorful"
@@ -38862,7 +39093,11 @@ exports[`Test Icons > should render all icons 502`] = `
 
 exports[`Test Icons > should render all icons 503`] = `
 <span
+<<<<<<< HEAD
   class="anticon ant-web3-icon-deWallet-circle-colorful"
+=======
+  class="anticon ant-web3-icon-de-wallet-circle-colorful"
+>>>>>>> origin/main
   role="img"
 >
   <svg

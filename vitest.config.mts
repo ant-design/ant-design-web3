@@ -60,8 +60,8 @@ export default defineConfig({
     setupFiles: ['./tests/setup.ts'],
     reporters: ['default'],
     coverage: {
-      include: ['packages/*/src/**/*.{tx,tsx}'],
-      exclude: ['**/demos/*.tsx'],
+      include: ['packages/*/src/**/*.{ts,tsx}'],
+      exclude: ['**/demos/*.{ts,tsx}', '**/src/index.ts'],
       reporter: ['json-summary', ['text', { skipFull: true }], 'cobertura', 'html'],
     },
     testTimeout: 3e4,

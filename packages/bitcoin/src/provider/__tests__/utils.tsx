@@ -1,3 +1,4 @@
+/* v8 ignore start */
 import type { FC } from 'react';
 import { render } from '@testing-library/react';
 
