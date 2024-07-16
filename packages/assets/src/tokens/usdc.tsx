@@ -1,4 +1,4 @@
-import { type Token } from '@ant-design/web3-common';
+import type { Token } from '@ant-design/web3-common';
 import { UsdcColorful } from '@ant-design/web3-icons';
 
 import { Arbitrum, Avalanche, Mainnet, Optimism, Polygon } from '../chains/ethereum';
