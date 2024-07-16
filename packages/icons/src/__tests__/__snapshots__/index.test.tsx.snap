@@ -6453,7 +6453,7 @@ exports[`Test Icons > should render all icons 114`] = `
     fill="currentColor"
     focusable="false"
     height="1em"
-    viewBox="0 0 97 96"
+    viewBox="0 0 96 96"
     width="1em"
     xmlns="http://www.w3.org/2000/svg"
   >
