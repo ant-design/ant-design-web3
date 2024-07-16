@@ -1,43 +1,72 @@
 import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { fireEvent, render, waitFor } from '@testing-library/react';
-import { CHAIN, TonConnect } from '@tonconnect/sdk';
-import { Button } from 'antd';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { TonConnectorContext, TonWeb3ConfigProvider } from '../';
 import { tonkeeper } from '../../wallets';
-import TonConnectSdk from '../TonConnectSdk';
-import { TonConnectorContext, TonWeb3ConfigProvider } from '../TonWeb3ConfigProvider';
 
 global.fetch = vi.fn();
 
-function createFetchResponse(data: any) {
-  return Promise.resolve({ ok: true, json: () => new Promise((resolve) => resolve(data)) });
-}
+const mockGetBalance = vi.fn().mockResolvedValue(1000000000000n);
+
+vi.mock('../TonConnectSdk', async () => {
+  const originModules = await vi.importActual('../TonConnectSdk');
+  const wallet = {
+    name: 'Tonkeeper',
+    appName: 'tonkeeper',
+    imageUrl: 'https://tonkeeper.com/assets/tonconnect-icon.png',
+    aboutUrl: 'https://tonkeeper.com',
+    tondns: 'tonkeeper.ton',
+    platforms: ['ios', 'android', 'chrome', 'firefox', 'macos'],
+    bridgeUrl: 'https://bridge.tonapi.io/bridge',
+    universalLink: 'https://app.tonkeeper.com/ton-connect',
+    deepLink: 'tonkeeper-tc://',
+    jsBridgeKey: 'tonkeeper',
+    injected: true,
+    embedded: false,
+  };
+
+  return {
+    ...originModules,
+    default: class {
+      account = {};
+      cb = (s: any) => {
+        console.log('mock class');
+      };
+      constructor() {
+        this.cb = () => {};
+      }
+
+      getWallets = async () => Promise.resolve(Promise.resolve([wallet]));
+
+      restoreConnection = () => {};
+
+      getBalance = mockGetBalance;
+
+      connect = () => {
+        this.account = {
+          address: '0:966f959b9c002a7ccae6b0103cb99feb7f1fbff2c0cc072a2a942e07b1b9c6fd',
+        };
+
+        this.cb({ account: this.account });
+      };
+      onStatusChange = (s: any) => {
+        this.cb = s;
+      };
+
+      disconnect = () => {
+        this.account = {};
+        this.cb(null);
+      };
+    },
+  };
+});
 
 describe('TonWeb3ConfigProvider', () => {
   beforeEach(() => {
     // @ts-ignore: vi.fn().mockReset
     global.fetch.mockReset();
-
-    vi.spyOn(TonConnect.prototype, 'getWallets').mockImplementation(() =>
-      Promise.resolve([
-        {
-          name: 'Tonkeeper',
-          appName: 'tonkeeper',
-          imageUrl: 'https://tonkeeper.com/assets/tonconnect-icon.png',
-          aboutUrl: 'https://tonkeeper.com',
-          tondns: 'tonkeeper.ton',
-          platforms: ['ios', 'android', 'chrome', 'firefox', 'macos'],
-          bridgeUrl: 'https://bridge.tonapi.io/bridge',
-          universalLink: 'https://app.tonkeeper.com/ton-connect',
-          deepLink: 'tonkeeper-tc://',
-          jsBridgeKey: 'tonkeeper',
-          injected: true,
-          embedded: false,
-        },
-      ]),
-    );
   });
 
   afterAll(() => {
@@ -56,76 +85,64 @@ describe('TonWeb3ConfigProvider', () => {
     expect(baseElement.querySelector('.content')?.textContent).toBe('test');
   });
 
-  it('connect wallet', () => {
-    const App = () => (
-      <TonWeb3ConfigProvider wallets={[tonkeeper]} balance>
-        <Connector>
-          <ConnectButton className="connect" />
-        </Connector>
-      </TonWeb3ConfigProvider>
-    );
+  it('show balance', async () => {
+    const App = () => {
+      return (
+        <TonWeb3ConfigProvider wallets={[tonkeeper]} balance reconnect={false}>
+          <Connector>
+            <ConnectButton className="connect" />
+          </Connector>
+        </TonWeb3ConfigProvider>
+      );
+    };
+
     const { baseElement } = render(<App />);
-    const connectBtn = baseElement.querySelector('.connect') as HTMLButtonElement;
-    fireEvent.click(connectBtn);
-    expect(connectBtn.textContent).not.toBeNull();
+    const modalBtn = baseElement.querySelector('.connect') as HTMLButtonElement;
+    fireEvent.click(modalBtn);
+    await waitFor(() => {
+      const connectBtn = baseElement.querySelector('.ant-list-item')!;
+      expect(connectBtn).toBeTruthy();
+      fireEvent.click(connectBtn);
+    });
+    await waitFor(() => {
+      expect(modalBtn.textContent).include('1000 TON');
+    });
   });
 
-  it('switch network', () => {
-    const SwitchBtn: React.FC = () => {
+  it('show address', async () => {
+    const Address = () => {
       const provider = React.useContext(TonConnectorContext ?? {});
-      const switchNetwork = () => {
-        if (provider?.tonConnectSdk) {
-          provider.tonConnectSdk.network = CHAIN.TESTNET;
-        }
-      };
-      return (
-        <Button
-          className="switch"
-          onClick={switchNetwork}
-        >{`${provider?.tonConnectSdk?.network}-${provider?.tonConnectSdk?.api}`}</Button>
-      );
+      return <div className="address">{provider?.tonSelectWallet?.account?.address}</div>;
     };
 
     const App = () => {
       return (
-        <TonWeb3ConfigProvider wallets={[tonkeeper]} balance>
+        <TonWeb3ConfigProvider wallets={[tonkeeper]} reconnect={false}>
           <Connector>
             <ConnectButton className="connect" />
           </Connector>
-          <SwitchBtn />
+          <Address />
         </TonWeb3ConfigProvider>
       );
     };
+
     const { baseElement } = render(<App />);
-    const switchBtn = baseElement.querySelector('.switch') as HTMLButtonElement;
-    expect(switchBtn.textContent).toBe('-239-https://toncenter.com/api/v3');
-    fireEvent.click(switchBtn);
-    waitFor(() => {
-      expect(switchBtn.textContent).toBe('-3-https://testnet.toncenter.com/api/v3');
+    const modalBtn = baseElement.querySelector('.connect') as HTMLButtonElement;
+    fireEvent.click(modalBtn);
+    await vi.waitFor(() => {
+      const connectBtn = baseElement.querySelector('.ant-list-item')!;
+      fireEvent.click(connectBtn);
+      expect(connectBtn).toBeTruthy();
+    });
+
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.address')?.textContent).toBe(
+        '0:966f959b9c002a7ccae6b0103cb99feb7f1fbff2c0cc072a2a942e07b1b9c6fd',
+      );
     });
   });
 
-  it('get balance success', async () => {
-    // @ts-ignore: vi.fn().mockResolvedValue
-    fetch.mockResolvedValue(createFetchResponse({ balance: '1000000000000' }));
-    const connector = new TonConnectSdk({ chain: CHAIN.TESTNET });
-    const balance = await connector.getBalance(
-      `${connector.api}/account?address=0QCWb5WbnAAqfMrmsBA8uZ_rfx-_8sDMByoqlC4HsbnG_VEy`,
-    );
-    expect(balance).not.toBe('0');
-  });
-
-  it('get balance failed', async () => {
-    // @ts-ignore: vi.fn().mockResolvedValue
-    fetch.mockResolvedValue(Promise.resolve({ ok: false }));
-    const connector = new TonConnectSdk({ chain: CHAIN.TESTNET });
-    const balance = await connector.getBalance(
-      `${connector.api}/account?address=0QCWb5WbnAAqfMrmsBA8uZ_rfx-_8sDMByoqlC4HsbnG_VEy`,
-    );
-    expect(balance).toBe('0');
-  });
-
-  it('show balance', async () => {
+  it('disconnect', async () => {
     const App = () => {
       return (
         <TonWeb3ConfigProvider wallets={[tonkeeper]} balance>
@@ -144,5 +161,18 @@ describe('TonWeb3ConfigProvider', () => {
       expect(connectBtn).toBeTruthy();
       fireEvent.click(connectBtn);
     });
+
+    await waitFor(() => {
+      expect(baseElement.querySelector('.connect')?.textContent).include('1000 TON');
+    });
+
+    fireEvent.click(modalBtn);
+
+    await waitFor(() => {
+      const disconnect = screen.getByText('Disconnect');
+      expect(disconnect).toBeTruthy();
+      fireEvent.click(screen.getByText('Disconnect'));
+    });
+    expect(baseElement.querySelector('.connect')?.textContent).toBe('Connect Wallet');
   });
 });
