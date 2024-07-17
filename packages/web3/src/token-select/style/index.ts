@@ -1,3 +1,4 @@
+import { COMPONENT_NAME } from '..';
 import {
   useStyle as useAntdStyle,
   type GenerateStyle,
@@ -14,7 +15,7 @@ const getTokenStyle: GenerateStyle<TokenStyle> = () => {
 };
 
 export function useStyle(prefixCls: string): UseStyleResult {
-  return useAntdStyle('token-select', (token) => {
+  return useAntdStyle(COMPONENT_NAME, (token) => {
     const proListToken: TokenStyle = {
       ...token,
       componentCls: `.${prefixCls}`,

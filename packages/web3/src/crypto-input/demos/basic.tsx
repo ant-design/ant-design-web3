@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CryptoInput, type CryptoInputProps, type Token } from '@ant-design/web3';
-import { ETH, USDC, USDT } from '@ant-design/web3-assets/tokens';
+import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 
 const App: React.FC = () => {
   const [crypto, setCrypto] = useState<CryptoInputProps['value']>();
@@ -34,7 +34,7 @@ const App: React.FC = () => {
             handleQueryCrypto(value?.token);
           }
         }}
-        tokenList={[ETH, USDT, USDC]}
+        options={[ETH, USDT]}
       />
     </div>
   );

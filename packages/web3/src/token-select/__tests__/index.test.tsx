@@ -3,14 +3,14 @@ import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { TokenSelect } from '..';
+import { COMPONENT_NAME, TokenSelect } from '..';
 
 // Mock tokens
 const mockTokens = [ETH, USDT];
 
 describe('TokenSelect component', () => {
   it('should render the component with placeholder text', () => {
-    const { baseElement } = render(<TokenSelect tokenList={mockTokens} />);
+    const { baseElement } = render(<TokenSelect options={mockTokens} />);
 
     expect(baseElement.querySelector('.ant-select-selection-placeholder')?.textContent).toBe(
       'Please select token',
@@ -18,7 +18,7 @@ describe('TokenSelect component', () => {
   });
 
   it('should display the token list when clicked', () => {
-    const { baseElement } = render(<TokenSelect tokenList={mockTokens} />);
+    const { baseElement } = render(<TokenSelect options={mockTokens} />);
 
     fireEvent.mouseDown(baseElement.querySelector('.ant-select-selector') as Element);
 
@@ -33,7 +33,7 @@ describe('TokenSelect component', () => {
   it('should call onChange with selected token', () => {
     const handleChange = vi.fn();
 
-    const { baseElement } = render(<TokenSelect tokenList={mockTokens} onChange={handleChange} />);
+    const { baseElement } = render(<TokenSelect options={mockTokens} onChange={handleChange} />);
 
     fireEvent.mouseDown(baseElement.querySelector('.ant-select-selector') as Element);
 
@@ -45,7 +45,7 @@ describe('TokenSelect component', () => {
   });
 
   it('should filter the token list based on input', () => {
-    const { baseElement } = render(<TokenSelect showSearch tokenList={mockTokens} />);
+    const { baseElement } = render(<TokenSelect showSearch options={mockTokens} />);
 
     // filter by symbol
     fireEvent.change(baseElement.querySelector('.ant-select-selection-search-input')!, {
@@ -74,7 +74,7 @@ describe('TokenSelect component', () => {
 
   it('when not exist match token, show token symbol', () => {
     const { baseElement } = render(
-      <TokenSelect showSearch value={{ ...USDT, symbol: 'Solana' }} tokenList={mockTokens} />,
+      <TokenSelect showSearch value={{ ...USDT, symbol: 'Solana' }} options={mockTokens} />,
     );
 
     fireEvent.mouseDown(baseElement.querySelector('.ant-select-selector') as Element);
@@ -89,7 +89,7 @@ describe('TokenSelect component', () => {
     const handleChange = vi.fn();
 
     const { baseElement } = render(
-      <TokenSelect mode="multiple" tokenList={mockTokens} onChange={handleChange} />,
+      <TokenSelect mode="multiple" options={mockTokens} onChange={handleChange} />,
     );
 
     fireEvent.mouseDown(baseElement.querySelector('.ant-select-selector') as Element);
@@ -104,7 +104,11 @@ describe('TokenSelect component', () => {
     expect(baseElement.querySelectorAll('.ant-select-selection-item').length).toBe(2);
     expect(baseElement.querySelectorAll('.ant-select-selection-overflow-item').length).toBe(3);
 
-    expect(baseElement.querySelectorAll('.ant-select-selector .token-icon').length).toBe(2);
-    expect(baseElement.querySelectorAll('.ant-select-selector .token-name').length).toBe(0);
+    expect(
+      baseElement.querySelectorAll(`.ant-select-selector .${COMPONENT_NAME}-token-icon`).length,
+    ).toBe(2);
+    expect(
+      baseElement.querySelectorAll(`.ant-select-selector .${COMPONENT_NAME}-token-name`).length,
+    ).toBe(0);
   });
 });

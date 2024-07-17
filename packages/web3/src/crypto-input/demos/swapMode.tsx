@@ -45,7 +45,7 @@ const App: React.FC = () => {
             handleQueryCrypto(0, crypto?.token);
           }
         }}
-        tokenList={[ETH, USDT]}
+        options={[ETH, USDT]}
       />
       <span
         style={{
@@ -85,7 +85,7 @@ const App: React.FC = () => {
             handleQueryCrypto(1, crypto?.token);
           }
         }}
-        tokenList={[ETH, USDT]}
+        options={[ETH, USDT]}
       />
       <Button
         type="primary"

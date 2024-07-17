@@ -38,5 +38,6 @@ group:
 | --- | --- | --- | --- | --- |
 | value | 当前选择的代币 | [Token](/components/types-cn#token) | - | - |
 | onChange | 选中代币发生变动时的回调 | (token?: [Token](/components/types-cn#token)) => void | - | - |
-| tokenList | 可选择的代币列表 | [Token](/components/types-cn#token)[] | - | - |
+| tokenList | 可选择的代币列表，已弃用，请使用 `options` API | [Token](/components/types-cn#token)[] | - | - |
+| options | 可选择的代币选项 | [Token](/components/types-cn#token)[] | - | - |
 | ...props | 请参照 AntDesign `Select` 组件 | [Select Props](https://ant-design.antgroup.com/components/select-cn#select-props) | - | - |

@@ -10,7 +10,7 @@ const App: React.FC = () => {
       <TokenSelect
         value={token}
         onChange={setToken}
-        tokenList={[
+        options={[
           ETH,
           USDT,
           { ...ETH, symbol: 'ETH_CLONE', name: 'ETH_CLONE' },

@@ -12,7 +12,7 @@ const App: React.FC = () => {
         footer={'Custom Footer'}
         value={crypto}
         onChange={setCrypto}
-        tokenList={[ETH, USDT]}
+        options={[ETH, USDT]}
       />
     </div>
   );

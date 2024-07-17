@@ -7,7 +7,7 @@ const App: React.FC = () => {
 
   return (
     <div style={{ width: 456 }}>
-      <CryptoInput value={crypto} footer={false} onChange={setCrypto} tokenList={[ETH, USDT]} />
+      <CryptoInput value={crypto} footer={false} onChange={setCrypto} options={[ETH, USDT]} />
     </div>
   );
 };

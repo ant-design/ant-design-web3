@@ -6,7 +6,9 @@ import { Flex, Select } from 'antd';
 import useIntl from '../hooks/useIntl';
 import { useStyle } from './style';
 
-export interface TokenSelectProps extends Omit<SelectProps, 'value' | 'onChange'> {
+export const COMPONENT_NAME = 'web3-token-select';
+
+export interface TokenSelectProps extends Omit<SelectProps, 'value' | 'onChange' | 'options'> {
   /**
    * selected value
    */
@@ -16,19 +18,27 @@ export interface TokenSelectProps extends Omit<SelectProps, 'value' | 'onChange'
    */
   onChange?: (value: Token) => void;
   /**
+   * @deprecated
    * controlled token list
+   * please use options instead
    */
   tokenList?: Token[];
+  /**
+   * token list
+   */
+  options?: Token[];
 }
 
 /**
  * Single Token render
  */
 const SingleToken = ({ token, hideName }: { token: Token; hideName?: boolean }) => {
+  console.log(hideName, 'hideName');
+
   return (
     <Flex gap={8}>
-      <span className="token-icon">{token.icon}</span>
-      {!hideName && <span className="token-name">{token.name}</span>}
+      <span className={`${COMPONENT_NAME}-token-icon`}>{token.icon}</span>
+      {!hideName && <span className={`${COMPONENT_NAME}-token-name`}>{token.name}</span>}
     </Flex>
   );
 };
@@ -37,15 +47,19 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
   value,
   onChange,
   tokenList,
+  options,
   mode,
   ...selectProps
 }) => {
   const { messages } = useIntl('TokenSelect');
 
-  const { wrapSSR } = useStyle('web3-token-select');
+  const { wrapSSR } = useStyle(COMPONENT_NAME);
 
   // Multiple or tags mode
   const isMultipleOrTagsMode = ['multiple', 'tags'].includes(mode ?? '');
+
+  // effective options
+  const effectiveOptions = options || tokenList;
 
   return wrapSSR(
     <Select
@@ -53,7 +67,7 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
       popupMatchSelectWidth={false}
       {...selectProps}
       mode={mode}
-      options={tokenList}
+      options={effectiveOptions}
       value={
         isMultipleOrTagsMode
           ? (value as Token[])?.map((token) => token.symbol)
@@ -64,7 +78,7 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
         value: 'symbol',
       }}
       labelRender={({ value: symbol }) => {
-        const token = tokenList?.find((item) => item.symbol === symbol);
+        const token = effectiveOptions?.find((item) => item.symbol === symbol);
 
         if (!token) {
           return symbol;
