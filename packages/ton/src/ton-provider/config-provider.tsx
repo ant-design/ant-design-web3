@@ -54,8 +54,7 @@ const TonConfigProvider: React.FC<PropsWithChildren<TonConfigProviderProps>> = (
       account={account}
       connect={async (wallet) => {
         const walletInfo = wallets?.find((w) => w.appName === wallet?.key);
-        if (!walletInfo) return;
-        connector?.connect(walletInfo);
+        connector?.connect(walletInfo!);
       }}
       disconnect={async () => {
         await connector?.disconnect();

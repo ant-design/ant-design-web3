@@ -3,7 +3,7 @@ import { telegramWallet, tonkeeper, TonWeb3ConfigProvider } from '@ant-design/we
 
 const Basic = () => {
   return (
-    <TonWeb3ConfigProvider wallets={[tonkeeper, telegramWallet]} balance>
+    <TonWeb3ConfigProvider wallets={[tonkeeper, telegramWallet, { key: 'safepalwallet' }]} balance>
       <Connector>
         <ConnectButton />
       </Connector>

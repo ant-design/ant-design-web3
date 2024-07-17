@@ -1,9 +1,11 @@
 import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { Button } from 'antd';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { TonConnectorContext, TonWeb3ConfigProvider } from '../';
+import { CHAIN } from '../..';
 import { tonkeeper } from '../../wallets';
 
 global.fetch = vi.fn();
@@ -38,7 +40,16 @@ vi.mock('../TonConnectSdk', async () => {
         this.cb = () => {};
       }
 
-      getWallets = async () => Promise.resolve(Promise.resolve([wallet]));
+      getWallets = async () =>
+        Promise.resolve(
+          Promise.resolve([
+            wallet,
+            {
+              appName: 'safepalwallet',
+              imageUrl: 'https://s.pvcliping.com/web/public_image/SafePal_x288.png',
+            },
+          ]),
+        );
 
       restoreConnection = () => {};
 
@@ -174,5 +185,31 @@ describe('TonWeb3ConfigProvider', () => {
       fireEvent.click(screen.getByText('Disconnect'));
     });
     expect(baseElement.querySelector('.connect')?.textContent).toBe('Connect Wallet');
+  });
+
+  it('show icon', async () => {
+    const App = () => {
+      return (
+        <TonWeb3ConfigProvider wallets={[tonkeeper, { key: 'safepalwallet' }]} balance>
+          <Connector>
+            <ConnectButton className="connect" />
+          </Connector>
+        </TonWeb3ConfigProvider>
+      );
+    };
+
+    const { baseElement } = render(<App />);
+    const modalBtn = baseElement.querySelector('.connect') as HTMLButtonElement;
+    fireEvent.click(modalBtn);
+    await waitFor(() => {
+      const icons = baseElement.querySelector('.ant-web3-icon-tonkeeper-colorful')!;
+      expect(icons).toBeTruthy();
+    });
+    await waitFor(() => {
+      const items = baseElement.querySelectorAll('.ant-list-item')!;
+      expect(items.length).toBe(2);
+      const item = baseElement.querySelector('.ant-web3-connect-modal-img')!;
+      expect(item.getAttribute('src')).toBeTruthy();
+    });
   });
 });

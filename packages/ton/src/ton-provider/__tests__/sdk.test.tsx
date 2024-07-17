@@ -1,13 +1,7 @@
-import React from 'react';
-import { ConnectButton, Connector } from '@ant-design/web3';
-import { fireEvent, render, waitFor } from '@testing-library/react';
-import TonConnect, { CHAIN } from '@tonconnect/sdk';
-import { Button } from 'antd';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { tonkeeper } from '../../wallets';
+import { CHAIN } from '../../index';
 import TonConnectSdk from '../TonConnectSdk';
-import { TonConnectorContext, TonWeb3ConfigProvider } from '../TonWeb3ConfigProvider';
 
 global.fetch = vi.fn();
 function createFetchResponse(data: any) {
@@ -23,41 +17,6 @@ describe('TonSDK', () => {
   afterAll(() => {
     vi.restoreAllMocks();
     vi.resetModules();
-  });
-
-  it('switch network', () => {
-    const SwitchBtn: React.FC = () => {
-      const provider = React.useContext(TonConnectorContext ?? {});
-      const switchNetwork = () => {
-        if (provider?.tonConnectSdk) {
-          provider.tonConnectSdk.network = CHAIN.TESTNET;
-        }
-      };
-      return (
-        <Button
-          className="switch"
-          onClick={switchNetwork}
-        >{`${provider?.tonConnectSdk?.network}-${provider?.tonConnectSdk?.api}`}</Button>
-      );
-    };
-
-    const App = () => {
-      return (
-        <TonWeb3ConfigProvider wallets={[tonkeeper]} balance>
-          <Connector>
-            <ConnectButton className="connect" />
-          </Connector>
-          <SwitchBtn />
-        </TonWeb3ConfigProvider>
-      );
-    };
-    const { baseElement } = render(<App />);
-    const switchBtn = baseElement.querySelector('.switch') as HTMLButtonElement;
-    expect(switchBtn.textContent).toBe('-239-https://toncenter.com/api/v3');
-    fireEvent.click(switchBtn);
-    waitFor(() => {
-      expect(switchBtn.textContent).toBe('-3-https://testnet.toncenter.com/api/v3');
-    });
   });
 
   it('get balance success', async () => {
@@ -78,5 +37,19 @@ describe('TonSDK', () => {
       `${connector.api}/account?address=0QCWb5WbnAAqfMrmsBA8uZ_rfx-_8sDMByoqlC4HsbnG_VEy`,
     );
     expect(balance).toBe('0');
+
+    const failedbalance = await connector.getBalance();
+    expect(failedbalance).toBe('0');
+  });
+
+  it('switch network', () => {
+    const connector = new TonConnectSdk({});
+    console.log(connector.account);
+    expect(connector.api).toBe('https://toncenter.com/api/v3');
+    expect(connector.network).toBe(CHAIN.MAINNET);
+
+    connector.network = CHAIN.TESTNET;
+    expect(connector.api).toBe('https://testnet.toncenter.com/api/v3');
+    expect(connector.network).toBe(CHAIN.TESTNET);
   });
 });
