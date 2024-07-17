@@ -33,8 +33,6 @@ export interface TokenSelectProps extends Omit<SelectProps, 'value' | 'onChange'
  * Single Token render
  */
 const SingleToken = ({ token, hideName }: { token: Token; hideName?: boolean }) => {
-  console.log(hideName, 'hideName');
-
   return (
     <Flex gap={8}>
       <span className={`${COMPONENT_NAME}-token-icon`}>{token.icon}</span>

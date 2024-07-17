@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
+import type { TokenSelectProps } from '..';
 import { COMPONENT_NAME, TokenSelect } from '..';
 
 // Mock tokens
@@ -19,6 +20,19 @@ describe('TokenSelect component', () => {
 
   it('should display the token list when clicked', () => {
     const { baseElement } = render(<TokenSelect options={mockTokens} />);
+
+    fireEvent.mouseDown(baseElement.querySelector('.ant-select-selector') as Element);
+
+    const selectOptions = baseElement.querySelectorAll('.ant-select-item');
+
+    expect(selectOptions.length).toBe(2);
+
+    expect(selectOptions[0].textContent).includes('Ethereum');
+    expect(selectOptions[1].textContent).includes('Tether USD');
+  });
+
+  it('should display correct token list when use tokenList property', () => {
+    const { baseElement } = render(<TokenSelect tokenList={mockTokens} />);
 
     fireEvent.mouseDown(baseElement.querySelector('.ant-select-selector') as Element);
 
@@ -86,11 +100,26 @@ describe('TokenSelect component', () => {
   });
 
   it('support multiple and tags mode', () => {
+    const TestComponent = (props: TokenSelectProps) => {
+      const [tokenList, setTokenList] = useState<TokenSelectProps['value']>();
+
+      return (
+        <TokenSelect
+          mode="multiple"
+          options={mockTokens}
+          value={tokenList}
+          onChange={(newTokenList) => {
+            setTokenList(newTokenList);
+
+            props.onChange?.(newTokenList);
+          }}
+        />
+      );
+    };
+
     const handleChange = vi.fn();
 
-    const { baseElement } = render(
-      <TokenSelect mode="multiple" options={mockTokens} onChange={handleChange} />,
-    );
+    const { baseElement } = render(<TestComponent onChange={handleChange} />);
 
     fireEvent.mouseDown(baseElement.querySelector('.ant-select-selector') as Element);
 
