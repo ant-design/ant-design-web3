@@ -52,6 +52,7 @@ const Icon: React.FC = () => {
             overflow: hidden;
             text-overflow: ellipsis;
             transition: color 0.3s ease-in-out;
+            line-height: 1.5;
           }
         }
 
