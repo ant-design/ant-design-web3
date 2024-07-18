@@ -10,12 +10,15 @@ import {
 } from '@ant-design/web3-wagmi';
 import { TinyColor } from '@ctrl/tinycolor';
 import { Col, ConfigProvider, Radio, Row, Select, Slider, Space, Switch } from 'antd';
+import type { ConfigProviderProps } from 'antd';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { walletConnect } from 'wagmi/connectors';
 
 import styles from './guide.module.less';
 import { themeList, type ThemeSetting, type ThemeValue } from './tokens';
+
+type SizeType = ConfigProviderProps['componentSize'];
 
 const defaultRadius = 8;
 
@@ -58,6 +61,7 @@ const ThemeLabel: React.FC<{ theme: ThemeSetting }> = ({ theme }) => {
 
 const App: React.FC = () => {
   const [mode, setMode] = React.useState<ConnectModalProps['mode']>('simple');
+  const [size, setSize] = React.useState<SizeType>('large'); // default is 'middle'
   const [quickConnect, setQuickConnect] = React.useState<boolean>(false);
   const [theme, setTheme] = React.useState<ThemeValue>('default');
   const [radius, setRadius] = React.useState<number>(defaultRadius);
@@ -99,7 +103,7 @@ const App: React.FC = () => {
               style={{
                 width: 'auto',
               }}
-              size="large"
+              size={size}
               quickConnect={quickConnect}
             />
           </Connector>
@@ -128,6 +132,11 @@ const App: React.FC = () => {
                 />
                 Quick Connect
               </Space>
+              <Radio.Group value={size} onChange={(e) => setSize(e.target.value)}>
+                <Radio.Button value="large">Large</Radio.Button>
+                <Radio.Button value="default">Default</Radio.Button>
+                <Radio.Button value="small">Small</Radio.Button>
+              </Radio.Group>
             </Space>
           </Col>
           <Col xs={24} sm={12}>

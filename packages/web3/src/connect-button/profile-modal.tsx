@@ -23,6 +23,7 @@ export interface ProfileModalProps {
   modalProps?: Omit<ModalProps, 'open' | 'onClose' | 'className'>;
   balance?: Balance;
   addressPrefix?: string | false;
+  size?: 'small' | 'middle' | 'large';
 }
 
 export const ProfileModal: React.FC<ProfileModalProps> = ({
@@ -38,10 +39,13 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   modalProps,
   balance,
   addressPrefix,
+  size,
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-button-profile-modal');
   const [messageApi, contextHolder] = message.useMessage();
+  const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
+  const sizeCls = size ? sizeClassNameMap[size] : '';
 
   const footer = (
     <div className={classNames(`${prefixCls}-footer`, __hashId__)}>
@@ -65,10 +69,16 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
       {contextHolder}
       <Modal
         footer={footer}
-        width={280}
+        width="fit-content"
         {...modalProps}
         onCancel={onClose}
         className={classNames(className, __hashId__, prefixCls)}
+        classNames={{
+          body: classNames({
+            [`${prefixCls}-body`]: !sizeCls,
+            [`${prefixCls}-body-${sizeCls}`]: sizeCls,
+          }),
+        }}
         styles={{
           ...modalProps?.styles,
 

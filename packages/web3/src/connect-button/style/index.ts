@@ -81,6 +81,15 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
     },
 
     [`${token.componentCls}-profile-modal`]: {
+      [`${token.componentCls}-profile-modal-body`]: {
+        width: `calc(280px + ${2 * (token.paddingContentHorizontal - token.lineWidth)}px)`,
+      },
+      [`${token.componentCls}-profile-modal-body-lg`]: {
+        width: `calc(280px + ${2 * (token.paddingContentHorizontalLG - token.lineWidth)}px)`,
+      },
+      [`${token.componentCls}-profile-modal-body-sm`]: {
+        width: `calc(280px + ${2 * (token.paddingContentHorizontalSM - token.lineWidth)}px)`,
+      },
       [`${token.antCls}-modal-content`]: {
         padding: token.padding,
       },
@@ -101,7 +110,6 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
         gap: token.marginXS,
         [`${token.antCls}-btn`]: {
           flex: 1,
-          padding: 0,
         },
       },
       [`&-name`]: {
