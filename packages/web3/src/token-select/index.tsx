@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { type Token } from '@ant-design/web3-common';
 import type { SelectProps } from 'antd';
-import { Flex, Select } from 'antd';
+import { ConfigProvider, Flex, Select } from 'antd';
 
 import useIntl from '../hooks/useIntl';
 import { useStyle } from './style';
-
-export const COMPONENT_NAME = 'web3-token-select';
 
 export interface TokenSelectProps extends Omit<SelectProps, 'value' | 'onChange' | 'options'> {
   /**
@@ -32,11 +30,19 @@ export interface TokenSelectProps extends Omit<SelectProps, 'value' | 'onChange'
 /**
  * Single Token render
  */
-const SingleToken = ({ token, hideName }: { token: Token; hideName?: boolean }) => {
+const SingleToken = ({
+  token,
+  hideName,
+  prefixCls,
+}: {
+  token: Token;
+  hideName?: boolean;
+  prefixCls: string;
+}) => {
   return (
     <Flex gap={8}>
-      <span className={`${COMPONENT_NAME}-token-icon`}>{token.icon}</span>
-      {!hideName && <span className={`${COMPONENT_NAME}-token-name`}>{token.name}</span>}
+      <span className={`${prefixCls}-token-icon`}>{token.icon}</span>
+      {!hideName && <span className={`${prefixCls}-token-name`}>{token.name}</span>}
     </Flex>
   );
 };
@@ -51,7 +57,11 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
 }) => {
   const { messages } = useIntl('TokenSelect');
 
-  const { wrapSSR } = useStyle(COMPONENT_NAME);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+
+  const prefixCls = getPrefixCls('web3-token-select');
+
+  const { wrapSSR } = useStyle(prefixCls);
 
   // Multiple or tags mode
   const isMultipleOrTagsMode = ['multiple', 'tags'].includes(mode ?? '');
@@ -82,7 +92,7 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
           return symbol;
         }
 
-        return <SingleToken token={token} hideName={isMultipleOrTagsMode} />;
+        return <SingleToken prefixCls={prefixCls} token={token} hideName={isMultipleOrTagsMode} />;
       }}
       filterOption={(input, option) => {
         const { name, symbol, availableChains } = option as Token;
@@ -100,7 +110,7 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
         ].some((content) => content?.includes(keywordLower));
       }}
       optionRender={({ data }) => {
-        return <SingleToken token={data as Token} />;
+        return <SingleToken prefixCls={prefixCls} token={data as Token} />;
       }}
     />,
   );

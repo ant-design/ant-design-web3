@@ -4,7 +4,7 @@ import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 import type { TokenSelectProps } from '..';
-import { COMPONENT_NAME, TokenSelect } from '..';
+import { TokenSelect } from '..';
 
 // Mock tokens
 const mockTokens = [ETH, USDT];
@@ -134,10 +134,10 @@ describe('TokenSelect component', () => {
     expect(baseElement.querySelectorAll('.ant-select-selection-overflow-item').length).toBe(3);
 
     expect(
-      baseElement.querySelectorAll(`.ant-select-selector .${COMPONENT_NAME}-token-icon`).length,
+      baseElement.querySelectorAll(`.ant-select-selector .ant-web3-token-select-token-icon`).length,
     ).toBe(2);
     expect(
-      baseElement.querySelectorAll(`.ant-select-selector .${COMPONENT_NAME}-token-name`).length,
+      baseElement.querySelectorAll(`.ant-select-selector .ant-web3-token-select-token-name`).length,
     ).toBe(0);
   });
 });
