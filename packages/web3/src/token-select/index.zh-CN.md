@@ -28,10 +28,6 @@ group:
 
 <code src="./demos/multipltSelect.tsx"></code>
 
-### 标签模式
-
-<code src="./demos/tagsSelect.tsx"></code>
-
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
@@ -40,4 +36,5 @@ group:
 | onChange | 选中代币发生变动时的回调 | (token?: [Token](/components/types-cn#token)) => void | - | - |
 | tokenList | 可选择的代币列表，已弃用，请使用 `options` API | [Token](/components/types-cn#token)[] | - | - |
 | options | 可选择的代币选项 | [Token](/components/types-cn#token)[] | - | - |
+| mode | 选择器模式，支持多选模式，默认单选 | `multiple` | - | - |
 | ...props | 请参照 AntDesign `Select` 组件 | [Select Props](https://ant-design.antgroup.com/components/select-cn#select-props) | - | - |

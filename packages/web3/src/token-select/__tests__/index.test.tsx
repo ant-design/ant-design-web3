@@ -99,7 +99,7 @@ describe('TokenSelect component', () => {
     expect(baseElement.querySelectorAll('.ant-select-item-option-selected').length).toBe(0);
   });
 
-  it('support multiple and tags mode', () => {
+  it('support multiple mode', () => {
     const TestComponent = (props: TokenSelectProps) => {
       const [tokenList, setTokenList] = useState<TokenSelectProps['value']>();
 

@@ -6,7 +6,8 @@ import { ConfigProvider, Flex, Select } from 'antd';
 import useIntl from '../hooks/useIntl';
 import { useStyle } from './style';
 
-export interface TokenSelectProps extends Omit<SelectProps, 'value' | 'onChange' | 'options'> {
+export interface TokenSelectProps
+  extends Omit<SelectProps, 'value' | 'onChange' | 'options' | 'mode'> {
   /**
    * selected value
    */
@@ -25,6 +26,10 @@ export interface TokenSelectProps extends Omit<SelectProps, 'value' | 'onChange'
    * token list
    */
   options?: Token[];
+  /**
+   * select mode
+   */
+  mode?: 'multiple';
 }
 
 /**
@@ -63,8 +68,8 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
 
   const { wrapSSR } = useStyle(prefixCls);
 
-  // Multiple or tags mode
-  const isMultipleOrTagsMode = ['multiple', 'tags'].includes(mode ?? '');
+  // Multiple mode
+  const isMultipleMode = mode === 'multiple';
 
   // effective options
   const effectiveOptions = options || tokenList;
@@ -77,9 +82,7 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
       mode={mode}
       options={effectiveOptions}
       value={
-        isMultipleOrTagsMode
-          ? (value as Token[])?.map((token) => token.symbol)
-          : (value as Token)?.symbol
+        isMultipleMode ? (value as Token[])?.map((token) => token.symbol) : (value as Token)?.symbol
       }
       onChange={(_, token) => onChange?.(token as Token)}
       fieldNames={{
@@ -92,7 +95,7 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
           return symbol;
         }
 
-        return <SingleToken prefixCls={prefixCls} token={token} hideName={isMultipleOrTagsMode} />;
+        return <SingleToken prefixCls={prefixCls} token={token} hideName={isMultipleMode} />;
       }}
       filterOption={(input, option) => {
         const { name, symbol, availableChains } = option as Token;
