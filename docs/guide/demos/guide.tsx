@@ -132,11 +132,6 @@ const App: React.FC = () => {
                 />
                 Quick Connect
               </Space>
-              <Radio.Group value={size} onChange={(e) => setSize(e.target.value)}>
-                <Radio.Button value="large">Large</Radio.Button>
-                <Radio.Button value="default">Default</Radio.Button>
-                <Radio.Button value="small">Small</Radio.Button>
-              </Radio.Group>
             </Space>
           </Col>
           <Col xs={24} sm={12}>
@@ -169,6 +164,14 @@ const App: React.FC = () => {
                   max={16}
                   onChange={setRadius}
                 />
+              </Space>
+              <Space>
+                Button Size:
+                <Radio.Group value={size} onChange={(e) => setSize(e.target.value)}>
+                  <Radio.Button value="large">Large</Radio.Button>
+                  <Radio.Button value="default">Default</Radio.Button>
+                  <Radio.Button value="small">Small</Radio.Button>
+                </Radio.Group>
               </Space>
             </Space>
           </Col>
