@@ -1,4 +1,3 @@
-import { TinyColor } from '@ctrl/tinycolor';
 import type { ThemeConfig } from 'antd';
 import { theme } from 'antd';
 
@@ -19,12 +18,14 @@ export const customToken: ThemeConfig = {
     fontSizeXL: 24,
     colorPrimary: '#8442ff',
     colorInfo: '#8442ff',
+    paddingContentHorizontal: 20,
+    paddingContentHorizontalSM: 16,
+    paddingContentHorizontalLG: 24,
   },
   components: {
     Button: {
       controlHeight: 44,
       marginXS: 8,
-      paddingContentHorizontal: 24,
       fontSizeLG: 18,
       controlHeightLG: 52,
       controlHeightSM: 36,
