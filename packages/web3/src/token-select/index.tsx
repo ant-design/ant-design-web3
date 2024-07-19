@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { type Token } from '@ant-design/web3-common';
+import { devUseWarning, type Token } from '@ant-design/web3-common';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Flex, Select } from 'antd';
 
@@ -60,6 +60,11 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
   mode,
   ...selectProps
 }) => {
+  // Warning for deprecated usage
+  const warning = devUseWarning('TokenSelect');
+
+  warning.deprecated(!tokenList, 'tokenList', 'options');
+
   const { messages } = useIntl('TokenSelect');
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
