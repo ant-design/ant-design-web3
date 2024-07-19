@@ -42,7 +42,6 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     addressPrefix: addressPrefixProp,
     ...restProps
   } = props;
-  const { size } = restProps;
   const intl = useIntl('ConnectButton', locale);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const { addressPrefix: addressPrefixContext } = useProvider();
@@ -118,7 +117,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     balance,
     modalProps: typeof profileModal === 'object' ? profileModal : undefined,
     addressPrefix: addressPrefixProp,
-    size,
+    size: props.size,
   };
 
   const chainSelect =

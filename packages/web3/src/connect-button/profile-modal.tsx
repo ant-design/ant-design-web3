@@ -44,13 +44,12 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('web3-connect-button-profile-modal');
   const [messageApi, contextHolder] = message.useMessage();
-  const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
-  const sizeCls = size ? sizeClassNameMap[size] : '';
 
   const footer = (
     <div className={classNames(`${prefixCls}-footer`, __hashId__)}>
       {address ? (
         <Button
+          size={size}
           onClick={() => {
             writeCopyText(address).then(() => {
               messageApi.success(intl.getMessage(intl.messages.copied));
@@ -60,7 +59,9 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
           {intl.getMessage(intl.messages.copyAddress)}
         </Button>
       ) : null}
-      <Button onClick={onDisconnect}>{intl.getMessage(intl.messages.disconnect)}</Button>
+      <Button size={size} onClick={onDisconnect}>
+        {intl.getMessage(intl.messages.disconnect)}
+      </Button>
     </div>
   );
 
@@ -73,12 +74,6 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
         {...modalProps}
         onCancel={onClose}
         className={classNames(className, __hashId__, prefixCls)}
-        classNames={{
-          body: classNames({
-            [`${prefixCls}-body`]: !sizeCls,
-            [`${prefixCls}-body-${sizeCls}`]: sizeCls,
-          }),
-        }}
         styles={{
           ...modalProps?.styles,
 

@@ -62,7 +62,7 @@ exports[`ProfileModal > match snapshot 1`] = `
                 </span>
               </button>
               <div
-                class="ant-modal-body ant-web3-connect-button-profile-modal-body"
+                class="ant-modal-body"
                 style="text-align: center;"
               >
                 <div
