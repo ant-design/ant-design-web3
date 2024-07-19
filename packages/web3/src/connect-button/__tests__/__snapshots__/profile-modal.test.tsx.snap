@@ -18,7 +18,6 @@ exports[`ProfileModal > match snapshot 1`] = `
           aria-modal="true"
           class="ant-modal css-dev-only-do-not-override-m4timi hashId ant-web3-connect-button-profile-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
-          style="width: 280px;"
         >
           <div
             aria-hidden="true"
