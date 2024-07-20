@@ -12,6 +12,16 @@ Ant Design Web3 provides `@ant-design/web3-ton` to adapt to the TON ecosystem. I
 
 The interface design of `@ant-design/web3-ton` refers to the [TON official documentation](https://docs.ton.org/) and `@tonconnect/sdk`. You can find more in-depth implementation details in the documentation. The RPC service (such as balance inquiry) uses [Tonconnect](http://toncenter.com), including the testnet and mainnet.
 
+You can check the wallets supported by Ton in the [Wallet Interface](https://raw.githubusercontent.com/ton-blockchain/wallets-list/main/wallets-v2.json). Ant Design Web3 provides settings for some commonly used wallets, as follows:
+
+- telegram-wallet
+- Tonkeeper
+- MyTonWallet
+- OpenMask
+- Tonhub
+- DeWallet
+- OKX (Make sure OKX wallet is up to date before using)
+
 ## Basic Usage
 
 <code src='./demos/basic.tsx'></code>
