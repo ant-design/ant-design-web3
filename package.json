@@ -110,7 +110,7 @@
     "cross-env": "^7.0.3",
     "decimal.js": "^10.4.3",
     "dumi": "^2.4.5",
-    "dumi-theme-antd-web3": "0.4.2",
+    "dumi-theme-antd-web3": "0.4.3",
     "ethers": "^6.13.1",
     "github-contributors-lists": "^1.0.3",
     "react": "18.2.0",
