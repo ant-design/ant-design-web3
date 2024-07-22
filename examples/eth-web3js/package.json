@@ -20,7 +20,7 @@
     "umi": "^4.1.5"
   },
   "devDependencies": {
-    "@types/react": "^18.2.73",
+    "@types/react": "^18.3.3",
     "@types/react-dom": "^18.2.22",
     "typescript": "^5.5.2"
   }
