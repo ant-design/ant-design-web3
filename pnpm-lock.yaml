@@ -104,7 +104,7 @@ importers:
         version: 4.3.1(prettier@3.3.3)
       '@testing-library/react':
         specifier: ^16.0.0
-        version: 16.0.0(@testing-library/dom@10.1.0)(@types/react@18.3.3)(react-dom@18.2.0)(react@18.2.0)
+        version: 16.0.0(@testing-library/dom@10.1.0)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.2.0)(react@18.2.0)
       '@types/lodash':
         specifier: ^4.17.6
         version: 4.17.6
@@ -117,6 +117,9 @@ importers:
       '@types/react-copy-to-clipboard':
         specifier: ^5.0.7
         version: 5.0.7
+      '@types/react-dom':
+        specifier: ^18.3.0
+        version: 18.3.0
       '@umijs/fabric':
         specifier: ^4.0.1
         version: 4.0.1(postcss@8.4.32)
@@ -206,8 +209,8 @@ importers:
         specifier: ^18.3.3
         version: 18.3.3
       '@types/react-dom':
-        specifier: ^18.2.22
-        version: 18.2.25
+        specifier: ^18.3.0
+        version: 18.3.0
       typescript:
         specifier: ^5.5.2
         version: 5.5.2
@@ -240,8 +243,8 @@ importers:
         specifier: ^18.3.3
         version: 18.3.3
       '@types/react-dom':
-        specifier: ^18.2.25
-        version: 18.2.25
+        specifier: ^18.3.0
+        version: 18.3.0
       typescript:
         specifier: ^5.5.2
         version: 5.5.2
@@ -274,8 +277,8 @@ importers:
         specifier: ^18.3.3
         version: 18.3.3
       '@types/react-dom':
-        specifier: ^18.2.25
-        version: 18.2.25
+        specifier: ^18.3.0
+        version: 18.3.0
       typescript:
         specifier: ^5.5.2
         version: 5.5.2
@@ -293,8 +296,8 @@ importers:
         specifier: ^18.3.3
         version: 18.3.3
       '@types/react-dom':
-        specifier: ^18.2.25
-        version: 18.2.25
+        specifier: ^18.3.0
+        version: 18.3.0
       father:
         specifier: ^4.4.4
         version: 4.4.4(@babel/core@7.24.3)(@types/node@20.14.10)(styled-components@5.3.11)(webpack@5.91.0)
@@ -340,8 +343,8 @@ importers:
         specifier: ^18.3.3
         version: 18.3.3
       '@types/react-dom':
-        specifier: ^18.2.25
-        version: 18.2.25
+        specifier: ^18.3.0
+        version: 18.3.0
       antd:
         specifier: ^5.17.3
         version: 5.17.3(react-dom@18.2.0)(react@18.2.0)
@@ -488,8 +491,8 @@ importers:
         specifier: ^18.3.3
         version: 18.3.3
       '@types/react-dom':
-        specifier: ^18.2.25
-        version: 18.2.25
+        specifier: ^18.3.0
+        version: 18.3.0
       antd:
         specifier: ^5.17.3
         version: 5.17.3(react-dom@18.2.0)(react@18.2.0)
@@ -668,8 +671,8 @@ importers:
         specifier: ^18.3.3
         version: 18.3.3
       '@types/react-dom':
-        specifier: ^18.2.25
-        version: 18.2.25
+        specifier: ^18.3.0
+        version: 18.3.0
       father:
         specifier: ^4.4.4
         version: 4.4.4(@babel/core@7.24.3)(@types/node@20.14.10)(styled-components@5.3.11)(webpack@5.91.0)
@@ -8259,7 +8262,7 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
-  /@testing-library/react@16.0.0(@testing-library/dom@10.1.0)(@types/react@18.3.3)(react-dom@18.2.0)(react@18.2.0):
+  /@testing-library/react@16.0.0(@testing-library/dom@10.1.0)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-guuxUKRWQ+FgNX0h0NS0FIq3Q3uLtWVpBzcLOggmfMoUpgBnzBzvLLd4fbm6yS8ydJd94cIfY4yP9qUQjM2KwQ==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -8277,6 +8280,7 @@ packages:
       '@babel/runtime': 7.24.5
       '@testing-library/dom': 10.1.0
       '@types/react': 18.3.3
+      '@types/react-dom': 18.3.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true
@@ -8701,8 +8705,8 @@ packages:
       '@types/react': 18.3.3
     dev: true
 
-  /@types/react-dom@18.2.25:
-    resolution: {integrity: sha512-o/V48vf4MQh7juIKZU2QGDfli6p1+OOi5oXx36Hffpc9adsHeXjVp8rHuPkjd8VT8sOJ2Zp05HR7CdpGTIUFUA==}
+  /@types/react-dom@18.3.0:
+    resolution: {integrity: sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==}
     dependencies:
       '@types/react': 18.3.3
     dev: true
