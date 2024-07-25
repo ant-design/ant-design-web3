@@ -28,7 +28,7 @@ You can check the wallets supported by Ton in the [Wallet Interface](https://raw
 
 ## Transaction on TON
 
-<code src='./demos/transaction.tsx'></code>
+Transaction on TON testnet. <code src='./demos/transaction.tsx'></code>
 
 ### TonWeb3ConfigProvider
 
