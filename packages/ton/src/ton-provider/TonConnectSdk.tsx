@@ -52,9 +52,6 @@ class TonConnectSdk extends TonConnect {
       })
       .then((res) => {
         return res.balance as bigint;
-      })
-      .catch((e) => {
-        throw new Error(`Network Error: ${e}`);
       });
   }
 }

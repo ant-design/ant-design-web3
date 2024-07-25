@@ -1,3 +1,4 @@
+import { waitFor } from '@testing-library/react';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { CHAIN } from '../../index';
@@ -33,13 +34,15 @@ describe('TonSDK', () => {
     // @ts-ignore: vi.fn().mockResolvedValue
     fetch.mockResolvedValue({ ok: false });
     const connector = new TonConnectSdk({ chain: CHAIN.TESTNET });
-    const balance = await connector.getBalance(
-      `${connector.api}/account?address=0QCWb5WbnAAqfMrmsBA8uZ_rfx-_8sDMByoqlC4HsbnG_VEy`,
-    );
-    expect(balance).toBe('0');
+    const errorThrowingFunctionWithUrl = async () => {
+      return connector.getBalance(
+        `${connector.api}/account?address=0QCWb5WbnAAqfMrmsBA8uZ_rfx-_8sDMByoqlC4HsbnG_VEy`,
+      );
+    };
 
-    const failedbalance = await connector.getBalance();
-    expect(failedbalance).toBe('0');
+    expect(errorThrowingFunctionWithUrl()).rejects.toThrow();
+    const balance = await connector.getBalance();
+    expect(balance).toBe(0n);
   });
 
   it('switch network', () => {
