@@ -5,4 +5,5 @@ import type { TonWalletMetadata } from './type';
 export const tonkeeper: TonWalletMetadata = {
   key: 'tonkeeper',
   icon: <TonkeeperColorful />,
+  group: 'Popular',
 };

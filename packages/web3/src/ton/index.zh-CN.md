@@ -28,7 +28,7 @@ Ton 支持的钱包可以在 [钱包接口](https://raw.githubusercontent.com/to
 
 ## 在 TON 上进行交易
 
-<code src='./demos/transaction.tsx'></code>
+在 TON 的测试链上进行交易 <code src='./demos/transaction.tsx'></code>
 
 ### TonWeb3ConfigProvider
 

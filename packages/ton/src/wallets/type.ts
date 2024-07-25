@@ -12,4 +12,4 @@ export interface WalletFactory {
   create: () => TonWallet;
 }
 
-export type TonWalletMetadata = Pick<WalletMetadata, 'icon' | 'key'>;
+export type TonWalletMetadata = Omit<WalletMetadata, 'name' | 'remark'>;

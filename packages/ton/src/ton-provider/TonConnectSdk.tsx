@@ -36,7 +36,7 @@ class TonConnectSdk extends TonConnect {
   }
 
   async getBalance(url?: string) {
-    if (!this.account?.address && !url) return Promise.resolve('0');
+    if (!this.account?.address && !url) return Promise.resolve(0n);
     const queryUrl = url || `${this._api}/account?address=${this.account?.address}`;
     return fetch(queryUrl, {
       method: 'GET',
@@ -51,11 +51,10 @@ class TonConnectSdk extends TonConnect {
         return res.json();
       })
       .then((res) => {
-        return res.balance as string;
+        return res.balance as bigint;
       })
       .catch((e) => {
-        console.error(e);
-        return '0';
+        throw new Error(`Network Error: ${e}`);
       });
   }
 }

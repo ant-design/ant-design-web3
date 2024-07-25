@@ -41,7 +41,6 @@ describe('TonSdkWithMock', () => {
     // @ts-ignore: vi.fn().mockResolvedValue
     fetch.mockResolvedValue(createFetchResponse({ balance: '1000000000000' }));
     const connector = new TonConnectSdk({ chain: CHAIN.TESTNET });
-    console.log(connector.account);
     const balance = await connector.getBalance();
     expect(balance).not.toBe('0');
   });
