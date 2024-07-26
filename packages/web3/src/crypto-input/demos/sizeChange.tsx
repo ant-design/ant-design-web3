@@ -57,7 +57,7 @@ const App: React.FC = () => {
             handleQueryCrypto(value?.token);
           }
         }}
-        tokenList={[ETH, USDT]}
+        options={[ETH, USDT]}
         size={size}
       />
     </div>

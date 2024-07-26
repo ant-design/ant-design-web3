@@ -11,7 +11,7 @@ const App: React.FC = () => {
         value={crypto}
         onChange={setCrypto}
         header={'Crypto Input Header'}
-        tokenList={[ETH, USDT]}
+        options={[ETH, USDT]}
       />
     </div>
   );

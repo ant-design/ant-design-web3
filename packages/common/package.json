@@ -44,10 +44,10 @@
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
-    "@types/react": "^18.2.78",
-    "@types/react-dom": "^18.2.25",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "@types/lodash-es": "^4.17.12",
-    "antd": "^5.17.3",
+    "antd": "^5.19.3",
     "father": "^4.4.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

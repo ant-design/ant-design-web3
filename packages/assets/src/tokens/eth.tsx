@@ -1,4 +1,4 @@
-import { type Token } from '@ant-design/web3-common';
+import type { Token } from '@ant-design/web3-common';
 import { EthereumColorful } from '@ant-design/web3-icons';
 
 import { BSC, Mainnet } from '../chains/ethereum';

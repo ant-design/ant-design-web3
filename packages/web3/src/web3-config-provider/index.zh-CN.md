@@ -14,6 +14,10 @@ group:
 
 <code src="./demos/basic.tsx"></code>
 
+## 基于 Web3ConfigProvider 定义适配器
+
+<code src="./demos/custom-adapter.tsx"></code>
+
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
