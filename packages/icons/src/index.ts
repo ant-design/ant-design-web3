@@ -553,6 +553,7 @@ export * from './components/tron-circle-colorful';
 export * from './components/tron-circle-filled';
 export * from './components/tron-colorful';
 export * from './components/tron-filled';
+export * from './components/tronlink-colorful';
 export * from './components/trtl-circle-colorful';
 export * from './components/trust-wallet-circle-colorful';
 export * from './components/trust-wallet-circle-filled';
