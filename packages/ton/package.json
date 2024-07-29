@@ -1,0 +1,64 @@
+{
+  "name": "@ant-design/web3-ton",
+  "version": "0.0.0",
+  "main": "dist/lib/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/lib/index.js",
+    "types": "./dist/esm/index.d.ts"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "keywords": [
+    "ant",
+    "component",
+    "components",
+    "design",
+    "framework",
+    "frontend",
+    "react",
+    "react-component",
+    "ui",
+    "web3",
+    "ton"
+  ],
+  "homepage": "https://web3.ant.design",
+  "bugs": {
+    "url": "https://github.com/ant-design/ant-design-web3/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/ant-design-web3"
+  },
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build"
+  },
+  "dependencies": {
+    "@ant-design/web3-assets": "workspace:*",
+    "@ant-design/web3-common": "workspace:*"
+  },
+  "devDependencies": {
+    "father": "^4.4.4",
+    "typescript": "^5.5.2"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@tonconnect/sdk": "^3.0.3"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
+}
