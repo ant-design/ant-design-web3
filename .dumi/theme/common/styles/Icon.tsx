@@ -103,6 +103,7 @@ const Icon: React.FC = () => {
           opacity: 0;
           transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
           content: 'Copied!';
+          z-index: -1;
         }
 
         &.copied::after {
