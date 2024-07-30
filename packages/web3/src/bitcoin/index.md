@@ -5,7 +5,7 @@ group:
   title: Connect Blockchains
   order: 2
 cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*0Q62Q7VE6ncAAAAAAAAAAAAADlrGAQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*0Q62Q7VE6ncAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*vETQSJI75-4AAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Bitcoin
