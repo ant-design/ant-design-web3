@@ -22,6 +22,11 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
         alignItems: 'center',
         flexDirection: 'row',
       },
+      [`${token.componentCls}-text`]: {
+        [`${token.antCls}-typography`]: {
+          color: 'unset',
+        },
+      },
       [`${token.componentCls}-avatar`]: {
         height: `${token.lineHeight}em`,
         aspectRatio: '1 / 1',
@@ -57,6 +62,7 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
     },
 
     [`${token.componentCls}-quick-connect`]: {
+      width: 'fit-content',
       [`${token.componentCls}-quick-connect-icon`]: {
         marginLeft: token.marginXS,
       },

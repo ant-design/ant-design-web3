@@ -11,7 +11,7 @@ const App: React.FC = () => {
       value={token}
       onChange={setToken}
       placeholder={'Enter name / contract'}
-      tokenList={[ETH, USDT]}
+      options={[ETH, USDT]}
     />
   );
 };

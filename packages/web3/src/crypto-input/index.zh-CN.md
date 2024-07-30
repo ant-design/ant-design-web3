@@ -42,7 +42,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*eDQZSopLDxEAAA
 | --- | --- | --- | --- | --- |
 | value | 加密输入框组件的值 | [CryptoInputValue](#cryptoinputvalue) | - | - |
 | onChange | 加密输入框组件值变动的回调 | (value?: [CryptoInputValue](#cryptoinputvalue)) => void | - | - |
-| tokenList | 可选择的代币列表 | [Token](/components/types-cn#token)[] | - | - |
+| options | 可选择的代币列表 | [Token](/components/types-cn#token)[] | - | - |
 | balance | 代币的余额相关信息，包含数量和单价 | [TokenBalance](#tokenbalance) | - | - |
 | header | 自定义渲染的头部 | (value?: [CryptoInputValue](#cryptoinputvalue)) => React.ReactNode | - | - |
 | footer | 自定义渲染的底部，不传递时使用默认底部 | (value?: [CryptoInputValue](#cryptoinputvalue)) => React.ReactNode | - | - |

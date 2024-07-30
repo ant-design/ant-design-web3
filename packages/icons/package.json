@@ -41,9 +41,9 @@
     "build": "father build"
   },
   "devDependencies": {
-    "@types/react": "^18.2.78",
-    "@types/react-dom": "^18.2.25",
-    "antd": "^5.17.3",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "antd": "^5.19.3",
     "father": "^4.4.4",
     "glob": "^10.4.1",
     "react": "^18.2.0",
