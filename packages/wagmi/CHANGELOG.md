@@ -1,5 +1,14 @@
 # @ant-design/web3-wagmi
 
+## 2.7.1
+
+### Patch Changes
+
+- 3727e20: chore: code style format
+- Updated dependencies [8f3430b]
+- Updated dependencies [d663c3b]
+  - @ant-design/web3-assets@1.10.0
+
 ## 2.7.0
 
 ### Minor Changes
