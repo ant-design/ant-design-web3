@@ -50,6 +50,7 @@ Ant Design Web3 是一个基于 [Ant Design](https://ant.design/index-cn) 的 We
 | [支持以太坊及其 L2](https://web3.ant.design/components/wagmi-cn) | ✅       |
 | [支持比特币](https://web3.ant.design/components/bitcoin-cn)      | ✅       |
 | [支持 Solana](https://web3.ant.design/components/solana-cn)      | ✅       |
+| [支持 TON](https://web3.ant.design/components/ton-cn)            | ✅       |
 | [适配更多非 EVM 链](https://web3.ant.design/guide/adapter-cn)    | ✅       |
 | [课程](https://web3.ant.design/course/introduction-cn)           | ✅       |
 | 和 wagmi 一起使用                                                | ✅       |
