@@ -1,5 +1,6 @@
+import { metadata_OkxWallet } from '@ant-design/web3-assets';
+
 import type { TonWalletMetadata } from './type';
-import { metadata_OkxWallet } from '/packages/assets/src';
 
 export const okxTonWallet: TonWalletMetadata = {
   ...metadata_OkxWallet,
