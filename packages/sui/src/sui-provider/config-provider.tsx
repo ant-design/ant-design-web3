@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
+import { SUI } from '@ant-design/web3-assets/tokens';
 import type { Account, Locale, UniversalWeb3ProviderInterface } from '@ant-design/web3-common';
 import { Web3ConfigProvider, type Wallet } from '@ant-design/web3-common';
 import { SuiColorful } from '@ant-design/web3-icons';
@@ -11,7 +12,6 @@ import {
   useSuiClientQuery,
   useWallets,
 } from '@mysten/dapp-kit';
-import { SUI_DECIMALS } from '@mysten/sui.js/utils';
 
 import type { SuiChain } from '../chain';
 import type { WalletFactory } from '../wallets/types';
@@ -125,8 +125,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       balance={
         showBalance
           ? {
-              symbol: 'SUI',
-              decimals: SUI_DECIMALS,
+              symbol: SUI.symbol,
+              decimals: SUI.decimal,
               value: balanceData,
               icon: <SuiColorful />,
             }
