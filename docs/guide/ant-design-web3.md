@@ -50,6 +50,7 @@ There are more features:
 | [Support Ethereum and its L2](https://web3.ant.design/components/wagmi) | ✅        |
 | [Support Bitcoin](https://web3.ant.design/components/bitcoin)           | ✅        |
 | [Support Solana](https://web3.ant.design/components/solana)             | ✅        |
+| [Support TON](https://web3.ant.design/components/ton)                   | ✅        |
 | [Adapt to more non-EVM chains](https://web3.ant.design/guide/adapter)   | ✅        |
 | [Course](https://web3.ant.design/course/introduction)                   | ✅        |
 | Use with wagmi                                                          | ✅        |
