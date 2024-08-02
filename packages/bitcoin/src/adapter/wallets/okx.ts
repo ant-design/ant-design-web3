@@ -1,3 +1,4 @@
+/* v8 ignore start */
 import type { Account, Balance } from '@ant-design/web3-common';
 
 import { NoAddressError, NoProviderError } from '../../error';

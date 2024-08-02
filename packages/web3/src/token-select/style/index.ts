@@ -14,7 +14,7 @@ const getTokenStyle: GenerateStyle<TokenStyle> = () => {
 };
 
 export function useStyle(prefixCls: string): UseStyleResult {
-  return useAntdStyle('token-select', (token) => {
+  return useAntdStyle('web3-token-select', (token) => {
     const proListToken: TokenStyle = {
       ...token,
       componentCls: `.${prefixCls}`,

@@ -39,7 +39,7 @@ group:
 | --- | --- | --- | --- | --- |
 | value | Crypto input value | [CryptoInputValue](#cryptoinputvalue) | - | - |
 | onChange | Crypto input value change callback | (value?: [CryptoInputValue](#cryptoinputvalue)) => void | - | - |
-| tokenList | selectable token list | [Token](/components/types-cn#token)[] | - | - |
+| options | selectable token options | [Token](/components/types-cn#token)[] | - | - |
 | balance | selected token balance, includes amount and unit price | [TokenBalance](#tokenbalance) | - | - |
 | header | custom render for header | (value?: [CryptoInputValue](#cryptoinputvalue)) => React.ReactNode | - | - |
 | footer | custom render for footer | (value?: [CryptoInputValue](#cryptoinputvalue)) => React.ReactNode | - | - |

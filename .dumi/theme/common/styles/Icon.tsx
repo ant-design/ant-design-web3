@@ -52,6 +52,7 @@ const Icon: React.FC = () => {
             overflow: hidden;
             text-overflow: ellipsis;
             transition: color 0.3s ease-in-out;
+            line-height: 1.5;
           }
         }
 
@@ -102,6 +103,7 @@ const Icon: React.FC = () => {
           opacity: 0;
           transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
           content: 'Copied!';
+          z-index: -1;
         }
 
         &.copied::after {

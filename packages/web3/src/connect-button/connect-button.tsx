@@ -117,6 +117,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     balance,
     modalProps: typeof profileModal === 'object' ? profileModal : undefined,
     addressPrefix: addressPrefixProp,
+    size: props.size,
   };
 
   const chainSelect =

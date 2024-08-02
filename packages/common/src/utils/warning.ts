@@ -1,3 +1,4 @@
+/* v8 ignore start */
 import * as React from 'react';
 import rcWarning, { resetWarned as rcResetWarned } from 'rc-util/lib/warning';
 

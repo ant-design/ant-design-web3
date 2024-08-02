@@ -13,6 +13,10 @@ Provide global configuration and states for components.
 
 <code src="./demos/basic.tsx"></code>
 
+## Define an adapter based on Web3ConfigProvider
+
+<code src="./demos/custom-adapter.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |

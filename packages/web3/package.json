@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3",
-  "version": "1.15.1",
+  "version": "1.16.0",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -48,7 +48,7 @@
     "@ant-design/web3-icons": "workspace:*",
     "@ctrl/tinycolor": "^4.1.0",
     "@inline-svg-unique-id/react": "^1.2.3",
-    "antd": "^5.18.3",
+    "antd": "^5.19.3",
     "bs58": "^5.0.0",
     "classnames": "^2.5.1",
     "copy-to-clipboard": "^3.3.3",
@@ -61,8 +61,9 @@
     "@ant-design/web3-ethers": "workspace:*",
     "@ant-design/web3-solana": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
-    "@types/react": "^18.2.78",
-    "@types/react-dom": "^18.2.25",
+    "@ant-design/web3-ton": "workspace:*",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "father": "^4.4.4",
     "typescript": "^5.5.2",
     "@types/lodash-es": "^4.17.12"
