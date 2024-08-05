@@ -1,5 +1,14 @@
 # @ant-design/web3-bitcoin
 
+## 1.4.1
+
+### Patch Changes
+
+- 3727e20: chore: code style format
+- Updated dependencies [cf6c044]
+- Updated dependencies [7d8f51f]
+  - @ant-design/web3-icons@1.8.0
+
 ## 1.4.0
 
 ### Minor Changes

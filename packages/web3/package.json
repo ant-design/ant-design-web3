@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3",
-  "version": "1.15.1",
+  "version": "1.16.0",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -65,7 +65,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "father": "^4.4.4",
-    "typescript": "^5.5.2",
+    "typescript": "^5.5.4",
     "@types/lodash-es": "^4.17.12"
   },
   "peerDependencies": {

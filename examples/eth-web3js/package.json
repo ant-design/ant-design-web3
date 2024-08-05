@@ -1,7 +1,7 @@
 {
   "name": "@example/eth-web3js",
   "private": true,
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Jeason <me@cowpoke.cc>",
   "type": "module",
   "scripts": {
@@ -16,12 +16,12 @@
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-eth-web3js": "workspace:*",
     "antd": "^5.19.3",
-    "web3": "^4.9.0",
+    "web3": "^4.11.1",
     "umi": "^4.1.5"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.4"
   }
 }
