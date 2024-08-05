@@ -59,7 +59,7 @@
     "@types/debug": "^4.1.12",
     "@solana/wallet-adapter-phantom": "^0.9.24",
     "father": "^4.4.4",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.4"
   },
   "peerDependencies": {
     "@solana/web3.js": "^1.89.1"
