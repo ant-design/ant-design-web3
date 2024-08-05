@@ -5,6 +5,8 @@ order: 4
 group:
   title: 连接链
   order: 2
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*X1AlTp0rcN4AAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*7VQsSahh_GsAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Ethereum (web3js)

@@ -5,6 +5,8 @@ group:
   title: 通用
   order: 0
 order: 1
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*oWPmSpU15hEAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*55u1Q4PjPNoAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Icons

@@ -4,6 +4,8 @@ order: 6
 group:
   title: Connect Blockchains
   order: 2
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*AS6lTZiDHgcAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*VGWkQauYH3MAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # TON

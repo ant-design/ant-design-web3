@@ -2,6 +2,8 @@
 nav: Components
 group: General
 order: 2
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*impVR5nGEFYAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*SXbqSKo3tlAAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Hooks
