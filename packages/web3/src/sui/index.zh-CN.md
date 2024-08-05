@@ -8,7 +8,7 @@ group:
 
 # Sui
 
-Ant Design Web3 官方提供了 `@ant-design/web3-sui` 来适配 Sui。它基于 [@mysten/dapp-kit](https://www.npmjs.com/package/@mysten/dapp-kit) 和 [@mysten/sui.js](https://www.npmjs.com/package/@mysten/sui.js) ，为 `@ant-design/web3` 的组件提供了连接 Sui 的能力。
+Ant Design Web3 官方提供了 `@ant-design/web3-sui` 来适配 Sui。它基于 [@mysten/dapp-kit](https://www.npmjs.com/package/@mysten/dapp-kit) 和 [@mysten/sui](https://www.npmjs.com/package/@mysten/sui) ，为 `@ant-design/web3` 的组件提供了连接 Sui 的能力。
 
 ## 推荐配置
 

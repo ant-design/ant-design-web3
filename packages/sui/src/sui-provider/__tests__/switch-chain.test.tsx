@@ -1,7 +1,7 @@
 import React from 'react';
 import { ConnectButton, Connector, useProvider } from '@ant-design/web3';
 import { createNetworkConfig } from '@mysten/dapp-kit';
-import { getFullnodeUrl } from '@mysten/sui.js/client';
+import { getFullnodeUrl } from '@mysten/sui/client';
 import { fireEvent } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 

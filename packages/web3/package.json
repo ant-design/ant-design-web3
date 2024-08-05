@@ -48,8 +48,6 @@
     "@ant-design/web3-icons": "workspace:*",
     "@ctrl/tinycolor": "^4.1.0",
     "@inline-svg-unique-id/react": "^1.2.3",
-    "@mysten/dapp-kit": "^0.14.9",
-    "@mysten/sui.js": "^0.54.1",
     "antd": "^5.19.3",
     "bs58": "^5.0.0",
     "classnames": "^2.5.1",

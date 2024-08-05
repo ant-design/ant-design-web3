@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import type { Locale } from '@ant-design/web3-common';
 import { createNetworkConfig, SuiClientProvider, WalletProvider } from '@mysten/dapp-kit';
-import { getFullnodeUrl } from '@mysten/sui.js/client';
+import { getFullnodeUrl } from '@mysten/sui/client';
 import { QueryClient, QueryClientContext, QueryClientProvider } from '@tanstack/react-query';
 
 import type { SuiChain } from '../chain';

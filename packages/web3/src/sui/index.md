@@ -8,7 +8,7 @@ group:
 
 # Sui
 
-Ant Design Web3 officially provides `@ant-design/web3-sui` to adapt to Sui. It is an Ant Design Web3 Sui adapter based on [@mysten/dapp-kit](https://www.npmjs.com/package/@mysten/dapp-kit) and [@mysten/sui.js](https://www.npmjs.com/package/@mysten/sui.js).
+Ant Design Web3 officially provides `@ant-design/web3-sui` to adapt to Sui. It is an Ant Design Web3 Sui adapter based on [@mysten/dapp-kit](https://www.npmjs.com/package/@mysten/dapp-kit) and [@mysten/sui](https://www.npmjs.com/package/@mysten/sui).
 
 ## Recommended configuration
 
