@@ -43,10 +43,10 @@ importers:
         version: link:packages/wagmi
       '@mysten/dapp-kit':
         specifier: ^0.14.11
-        version: 0.14.13(@tanstack/react-query@5.51.11)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.2.0)(react@18.2.0)(svelte@4.2.18)(typescript@5.5.2)
+        version: 0.14.13(@tanstack/react-query@5.51.11)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.2.0)(react@18.2.0)(svelte@4.2.18)(typescript@5.5.4)
       '@mysten/sui':
         specifier: ^1.4.0
-        version: 1.4.0(svelte@4.2.18)(typescript@5.5.2)
+        version: 1.4.0(svelte@4.2.18)(typescript@5.5.4)
       '@solana/wallet-adapter-coinbase':
         specifier: ^0.1.19
         version: 0.1.19(@solana/web3.js@1.91.0)
@@ -602,10 +602,10 @@ importers:
     devDependencies:
       '@mysten/dapp-kit':
         specifier: ^0.14.11
-        version: 0.14.13(@tanstack/react-query@5.51.11)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.2.0)(react@18.2.0)(svelte@4.2.18)(typescript@5.5.2)
+        version: 0.14.13(@tanstack/react-query@5.51.11)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.2.0)(react@18.2.0)(svelte@4.2.18)(typescript@5.5.4)
       '@mysten/sui':
         specifier: ^1.4.0
-        version: 1.4.0(svelte@4.2.18)(typescript@5.5.2)
+        version: 1.4.0(svelte@4.2.18)(typescript@5.5.4)
       '@tanstack/react-query':
         specifier: ^5.40.1
         version: 5.51.11(react@18.2.0)
@@ -614,10 +614,10 @@ importers:
         version: 4.1.12
       father:
         specifier: ^4.4.4
-        version: 4.4.4(@babel/core@7.24.3)(@types/node@20.14.10)(styled-components@5.3.11)(webpack@5.91.0)
+        version: 4.4.4(@babel/core@7.24.3)(@types/node@22.1.0)(styled-components@5.3.11)(webpack@5.91.0)
       typescript:
         specifier: ^5.5.2
-        version: 5.5.2
+        version: 5.5.4
 
   packages/ton:
     dependencies:
@@ -766,15 +766,15 @@ packages:
     dependencies:
       graphql: 16.9.0
 
-  /@0no-co/graphqlsp@1.12.12(graphql@16.9.0)(typescript@5.5.2):
+  /@0no-co/graphqlsp@1.12.12(graphql@16.9.0)(typescript@5.5.4):
     resolution: {integrity: sha512-BmCAc/q3tQcIwXxKoxubYaB23s2fWMMmNGSlY9mgQvWiReBS8ZutPZSf11OADfwTv1J1JIazU6q6OFX+cEp8PQ==}
     peerDependencies:
       graphql: ^15.5.0 || ^16.0.0 || ^17.0.0
       typescript: ^5.0.0
     dependencies:
-      '@gql.tada/internal': 1.0.5(graphql@16.9.0)(typescript@5.5.2)
+      '@gql.tada/internal': 1.0.5(graphql@16.9.0)(typescript@5.5.4)
       graphql: 16.9.0
-      typescript: 5.5.2
+      typescript: 5.5.4
 
   /@aashutoshrathi/word-wrap@1.2.6:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
@@ -5386,24 +5386,24 @@ packages:
       typescript: 5.5.4
     dev: false
 
-  /@gql.tada/cli-utils@1.5.3(@0no-co/graphqlsp@1.12.12)(graphql@16.9.0)(svelte@4.2.18)(typescript@5.5.2):
+  /@gql.tada/cli-utils@1.5.3(@0no-co/graphqlsp@1.12.12)(graphql@16.9.0)(svelte@4.2.18)(typescript@5.5.4):
     resolution: {integrity: sha512-sUNYlBCv+6/KPHmqjJMAO6UA/vruH4iDgMBB7kXeK1Np6df6Qpn9hVstE4WvwKikB08VeAOOOLrOg1MpEPbrog==}
     peerDependencies:
       '@0no-co/graphqlsp': ^1.12.9
       graphql: ^15.5.0 || ^16.0.0 || ^17.0.0
       typescript: ^5.0.0
     dependencies:
-      '@0no-co/graphqlsp': 1.12.12(graphql@16.9.0)(typescript@5.5.2)
-      '@gql.tada/internal': 1.0.5(graphql@16.9.0)(typescript@5.5.2)
-      '@vue/compiler-dom': 3.4.34
-      '@vue/language-core': 2.0.29(typescript@5.5.2)
+      '@0no-co/graphqlsp': 1.12.12(graphql@16.9.0)(typescript@5.5.4)
+      '@gql.tada/internal': 1.0.5(graphql@16.9.0)(typescript@5.5.4)
+      '@vue/compiler-dom': 3.4.35
+      '@vue/language-core': 2.0.29(typescript@5.5.4)
       graphql: 16.9.0
-      svelte2tsx: 0.7.15(svelte@4.2.18)(typescript@5.5.2)
-      typescript: 5.5.2
+      svelte2tsx: 0.7.15(svelte@4.2.18)(typescript@5.5.4)
+      typescript: 5.5.4
     transitivePeerDependencies:
       - svelte
 
-  /@gql.tada/internal@1.0.5(graphql@16.9.0)(typescript@5.5.2):
+  /@gql.tada/internal@1.0.5(graphql@16.9.0)(typescript@5.5.4):
     resolution: {integrity: sha512-3rTRBAwfXem4OV0Lm5aM5cShfrUnPFaXc03F78165Q95Zw1dlI7cmsNZK9pmLm5IevjwMHqqT8C1aN1Kb+AJvw==}
     peerDependencies:
       graphql: ^15.5.0 || ^16.0.0 || ^17.0.0
@@ -5411,7 +5411,7 @@ packages:
     dependencies:
       '@0no-co/graphql.web': 1.0.7(graphql@16.9.0)
       graphql: 16.9.0
-      typescript: 5.5.2
+      typescript: 5.5.4
 
   /@graphql-typed-document-node/core@3.2.0(graphql@16.9.0):
     resolution: {integrity: sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ==}
@@ -6297,15 +6297,15 @@ packages:
     dependencies:
       bs58: 6.0.0
 
-  /@mysten/dapp-kit@0.14.13(@tanstack/react-query@5.51.11)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.2.0)(react@18.2.0)(svelte@4.2.18)(typescript@5.5.2):
+  /@mysten/dapp-kit@0.14.13(@tanstack/react-query@5.51.11)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.2.0)(react@18.2.0)(svelte@4.2.18)(typescript@5.5.4):
     resolution: {integrity: sha512-dyLl+uE2R4OC3mwipO58IJxBegkywwgO3GdEDG8jpsKcwv179p0rPG0nYhuP0gdzr+8k+Da9KoKRtOkp1Fukfg==}
     peerDependencies:
       '@tanstack/react-query': ^5.0.0
       react: '*'
     dependencies:
-      '@mysten/sui': 1.3.1(svelte@4.2.18)(typescript@5.5.2)
-      '@mysten/wallet-standard': 0.12.13(svelte@4.2.18)(typescript@5.5.2)
-      '@mysten/zksend': 0.10.2(svelte@4.2.18)(typescript@5.5.2)
+      '@mysten/sui': 1.3.1(svelte@4.2.18)(typescript@5.5.4)
+      '@mysten/wallet-standard': 0.12.13(svelte@4.2.18)(typescript@5.5.4)
+      '@mysten/zksend': 0.10.2(svelte@4.2.18)(typescript@5.5.4)
       '@radix-ui/react-dialog': 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-dropdown-menu': 2.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-slot': 1.1.0(@types/react@18.3.3)(react@18.2.0)
@@ -6325,7 +6325,7 @@ packages:
       - svelte
       - typescript
 
-  /@mysten/sui@1.3.1(svelte@4.2.18)(typescript@5.5.2):
+  /@mysten/sui@1.3.1(svelte@4.2.18)(typescript@5.5.4):
     resolution: {integrity: sha512-TxTYFO9ou/LOk3LQYZIJrZQJ/8UHEqYpT67MbCHYLCxGiPqAnvpIgnVBzJkpYFA/7vR0pQ1e3KELvQrYHnz2Ag==}
     engines: {node: '>=18'}
     dependencies:
@@ -6337,7 +6337,7 @@ packages:
       '@scure/bip39': 1.3.0
       '@suchipi/femver': 1.0.0
       bech32: 2.0.0
-      gql.tada: 1.8.4(graphql@16.9.0)(svelte@4.2.18)(typescript@5.5.2)
+      gql.tada: 1.8.4(graphql@16.9.0)(svelte@4.2.18)(typescript@5.5.4)
       graphql: 16.9.0
       tweetnacl: 1.0.3
       valibot: 0.36.0
@@ -6345,7 +6345,7 @@ packages:
       - svelte
       - typescript
 
-  /@mysten/sui@1.4.0(svelte@4.2.18)(typescript@5.5.2):
+  /@mysten/sui@1.4.0(svelte@4.2.18)(typescript@5.5.4):
     resolution: {integrity: sha512-j1JVdmL4pAqMmPQXw/RPAVJP0jqCfj/GVH4Z4NBPfl6nwcbLOJdcBczRhyY8WB/87rTog1N0guxPylfvU76gqw==}
     engines: {node: '>=18'}
     dependencies:
@@ -6357,7 +6357,7 @@ packages:
       '@scure/bip39': 1.3.0
       '@suchipi/femver': 1.0.0
       bech32: 2.0.0
-      gql.tada: 1.8.4(graphql@16.9.0)(svelte@4.2.18)(typescript@5.5.2)
+      gql.tada: 1.8.4(graphql@16.9.0)(svelte@4.2.18)(typescript@5.5.4)
       graphql: 16.9.0
       tweetnacl: 1.0.3
       valibot: 0.36.0
@@ -6365,20 +6365,20 @@ packages:
       - svelte
       - typescript
 
-  /@mysten/wallet-standard@0.12.13(svelte@4.2.18)(typescript@5.5.2):
+  /@mysten/wallet-standard@0.12.13(svelte@4.2.18)(typescript@5.5.4):
     resolution: {integrity: sha512-tIkEqwBYPeaRA5/dkdVVsIcNroV98ZdmYQAqpdrYNN1QDMi1nxrmnmTSrCci22GI+VD81aCrfsqwrgQ15QrheA==}
     dependencies:
-      '@mysten/sui': 1.3.1(svelte@4.2.18)(typescript@5.5.2)
+      '@mysten/sui': 1.3.1(svelte@4.2.18)(typescript@5.5.4)
       '@wallet-standard/core': 1.0.3
     transitivePeerDependencies:
       - svelte
       - typescript
 
-  /@mysten/zksend@0.10.2(svelte@4.2.18)(typescript@5.5.2):
+  /@mysten/zksend@0.10.2(svelte@4.2.18)(typescript@5.5.4):
     resolution: {integrity: sha512-ul0CS4aEECikTVJgNUpj2Z9fO6mJ4B4KD7weTANhCXsyt1WVa8ajSb5ItsuKQtrh0EnobKZULQU7LUlwrUqKNg==}
     dependencies:
-      '@mysten/sui': 1.3.1(svelte@4.2.18)(typescript@5.5.2)
-      '@mysten/wallet-standard': 0.12.13(svelte@4.2.18)(typescript@5.5.2)
+      '@mysten/sui': 1.3.1(svelte@4.2.18)(typescript@5.5.4)
+      '@mysten/wallet-standard': 0.12.13(svelte@4.2.18)(typescript@5.5.4)
       mitt: 3.0.1
       nanostores: 0.10.3
       valibot: 0.36.0
@@ -6614,6 +6614,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -6622,6 +6623,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -6630,6 +6632,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -6638,6 +6641,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -6646,6 +6650,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -7282,7 +7287,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.24.7
+      '@babel/runtime': 7.24.8
       '@rc-component/portal': 1.1.2(react-dom@18.2.0)(react@18.2.0)
       classnames: 2.5.1
       rc-motion: 2.9.2(react-dom@18.2.0)(react@18.2.0)
@@ -9342,7 +9347,7 @@ packages:
   /@types/graceful-fs@4.1.9:
     resolution: {integrity: sha512-olP3sd1qOEe5dXTSaFvQG+02VdRXcdytWLAZsAq1PecU8uqQAhkrnbli7DagjtXKW/Bl7YJbUsa8MPcuc8LHEQ==}
     dependencies:
-      '@types/node': 20.14.10
+      '@types/node': 22.1.0
     dev: false
 
   /@types/hapi__joi@17.1.9:
@@ -9397,7 +9402,7 @@ packages:
   /@types/keyv@3.1.4:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
     dependencies:
-      '@types/node': 20.14.10
+      '@types/node': 22.1.0
     dev: false
 
   /@types/lodash-es@4.17.12:
@@ -9501,7 +9506,7 @@ packages:
   /@types/responselike@1.0.3:
     resolution: {integrity: sha512-H/+L+UkTV33uf49PH5pCAUBVPNj2nDBXTN+qS1dOwyyg24l3CcicicCA7ca+HMvJBZcFgl5r8e+RR6elsb4Lyw==}
     dependencies:
-      '@types/node': 20.14.10
+      '@types/node': 22.1.0
     dev: false
 
   /@types/sax@1.2.7:
@@ -10767,6 +10772,56 @@ packages:
       loupe: 2.3.7
       pretty-format: 29.7.0
     dev: true
+
+  /@volar/language-core@2.4.0-alpha.18:
+    resolution: {integrity: sha512-JAYeJvYQQROmVRtSBIczaPjP3DX4QW1fOqW1Ebs0d3Y3EwSNRglz03dSv0Dm61dzd0Yx3WgTW3hndDnTQqgmyg==}
+    dependencies:
+      '@volar/source-map': 2.4.0-alpha.18
+
+  /@volar/source-map@2.4.0-alpha.18:
+    resolution: {integrity: sha512-MTeCV9MUwwsH0sNFiZwKtFrrVZUK6p8ioZs3xFzHc2cvDXHWlYN3bChdQtwKX+FY2HG6H3CfAu1pKijolzIQ8g==}
+
+  /@vue/compiler-core@3.4.35:
+    resolution: {integrity: sha512-gKp0zGoLnMYtw4uS/SJRRO7rsVggLjvot3mcctlMXunYNsX+aRJDqqw/lV5/gHK91nvaAAlWFgdVl020AW1Prg==}
+    dependencies:
+      '@babel/parser': 7.25.0
+      '@vue/shared': 3.4.35
+      entities: 4.5.0
+      estree-walker: 2.0.2
+      source-map-js: 1.2.0
+
+  /@vue/compiler-dom@3.4.35:
+    resolution: {integrity: sha512-pWIZRL76/oE/VMhdv/ovZfmuooEni6JPG1BFe7oLk5DZRo/ImydXijoZl/4kh2406boRQ7lxTYzbZEEXEhj9NQ==}
+    dependencies:
+      '@vue/compiler-core': 3.4.35
+      '@vue/shared': 3.4.35
+
+  /@vue/compiler-vue2@2.7.16:
+    resolution: {integrity: sha512-qYC3Psj9S/mfu9uVi5WvNZIzq+xnXMhOwbTFKKDD7b1lhpnn71jXSFdTQ+WsIEk0ONCd7VV2IMm7ONl6tbQ86A==}
+    dependencies:
+      de-indent: 1.0.2
+      he: 1.2.0
+
+  /@vue/language-core@2.0.29(typescript@5.5.4):
+    resolution: {integrity: sha512-o2qz9JPjhdoVj8D2+9bDXbaI4q2uZTHQA/dbyZT4Bj1FR9viZxDJnLcKVHfxdn6wsOzRgpqIzJEEmSSvgMvDTQ==}
+    peerDependencies:
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@volar/language-core': 2.4.0-alpha.18
+      '@vue/compiler-dom': 3.4.35
+      '@vue/compiler-vue2': 2.7.16
+      '@vue/shared': 3.4.35
+      computeds: 0.0.1
+      minimatch: 9.0.4
+      muggle-string: 0.4.1
+      path-browserify: 1.0.1
+      typescript: 5.5.4
+
+  /@vue/shared@3.4.35:
+    resolution: {integrity: sha512-hvuhBYYDe+b1G8KHxsQ0diDqDMA8D9laxWZhNAjE83VZb5UDaXl9Xnz7cGdDSyiHM90qqI/CyGMcpBpiDy6VVQ==}
 
   /@wagmi/connectors@5.0.21(@types/react@18.3.3)(@wagmi/core@2.11.6)(react-dom@18.2.0)(react-native@0.73.6)(react@18.2.0)(typescript@5.5.4)(viem@2.16.5)(zod@3.23.8):
     resolution: {integrity: sha512-lbjXEv6HhOa9nXZ5r6NGFJdaadCt2Yj9hSWHjKuiTobrE6dEGQqG16mCQS17yXcvXpI62Q/sW6SL347JrBju/Q==}
@@ -16580,17 +16635,17 @@ packages:
       url-parse-lax: 1.0.0
     dev: false
 
-  /gql.tada@1.8.4(graphql@16.9.0)(svelte@4.2.18)(typescript@5.5.2):
+  /gql.tada@1.8.4(graphql@16.9.0)(svelte@4.2.18)(typescript@5.5.4):
     resolution: {integrity: sha512-2hyPGbNCU4jvlQLpO3ya74jAW391jp9qwX6iRwln8QkO3Y7xG6Yy4Bcv8PHhaHb4fMTJG+t82Wn+BDL479ODBQ==}
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
     dependencies:
       '@0no-co/graphql.web': 1.0.7(graphql@16.9.0)
-      '@0no-co/graphqlsp': 1.12.12(graphql@16.9.0)(typescript@5.5.2)
-      '@gql.tada/cli-utils': 1.5.3(@0no-co/graphqlsp@1.12.12)(graphql@16.9.0)(svelte@4.2.18)(typescript@5.5.2)
-      '@gql.tada/internal': 1.0.5(graphql@16.9.0)(typescript@5.5.2)
-      typescript: 5.5.2
+      '@0no-co/graphqlsp': 1.12.12(graphql@16.9.0)(typescript@5.5.4)
+      '@gql.tada/cli-utils': 1.5.3(@0no-co/graphqlsp@1.12.12)(graphql@16.9.0)(svelte@4.2.18)(typescript@5.5.4)
+      '@gql.tada/internal': 1.0.5(graphql@16.9.0)(typescript@5.5.4)
+      typescript: 5.5.4
     transitivePeerDependencies:
       - graphql
       - svelte
@@ -18060,7 +18115,7 @@ packages:
     resolution: {integrity: sha512-eIz2msL/EzL9UFTFFx7jBTkeZfku0yUAyZZZmJ93H2TYEiroIx2PQjEXcwYtYl8zXCxb+PAmA2hLIt/6ZEkPHw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
-      '@types/node': 20.14.10
+      '@types/node': 22.1.0
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
@@ -24411,7 +24466,7 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  /svelte2tsx@0.7.15(svelte@4.2.18)(typescript@5.5.2):
+  /svelte2tsx@0.7.15(svelte@4.2.18)(typescript@5.5.4):
     resolution: {integrity: sha512-91RbLJI448FR1UEZqXSS3ucVMERuWo8ACOhxfkBPK1CL2ocGMOC5bwc8tzFvb/Ji8NqZ7wmSGfvRebcUsiauKA==}
     peerDependencies:
       svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
@@ -24420,7 +24475,7 @@ packages:
       dedent-js: 1.0.1
       pascal-case: 3.1.2
       svelte: 4.2.18
-      typescript: 5.5.2
+      typescript: 5.5.4
 
   /svelte@4.2.18:
     resolution: {integrity: sha512-d0FdzYIiAePqRJEb90WlJDkjUEx42xhivxN8muUBmfZnP+tzUgz12DJ2hRJi8sIHCME7jeK1PTMgKPSfTd8JrA==}
