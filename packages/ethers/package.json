@@ -72,10 +72,10 @@
     "@types/debug": "^4.1.12",
     "father": "^4.4.4",
     "typescript": "^5.5.2",
-    "ethers": "^6.11.1"
+    "ethers": "^6.13.2"
   },
   "peerDependencies": {
-    "ethers": "^6.11.1"
+    "ethers": "^6.13.2"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
