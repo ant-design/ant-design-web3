@@ -46,7 +46,7 @@ export default function Web3() {
 
 - [createConfig](https://wagmi.sh/react/config)：wagmi 用来创建配置的方法。
 - http：wagmi 用来创建 [HTTP JSON RPC](https://wagmi.sh/core/api/transports/http) 连接的方法，通过它你可以通过 HTTP 请求访问区块链。
-- [mainnet](https://wagmi.sh/react/chains)：代表以太坊主网，除了 `mainnet` 以外还会有类似 `goerli` 的测速网和类似 `bsc` 和 `base` 的 EVM 兼容的其它公链，有的是和以太坊一样的 L1 公链，有的是 L2 公链，这里先暂不展开。
+- [mainnet](https://wagmi.sh/react/chains)：代表以太坊主网，除了 `mainnet` 以外还会有类似 `goerli` 的测试网和类似 `bsc` 和 `base` 的 EVM 兼容的其它公链，有的是和以太坊一样的 L1 公链，有的是 L2 公链，这里先暂不展开。
 - [WagmiWeb3ConfigProvider](https://web3.ant.design/components/wagmi-cn#wagmiweb3configproviderprops)：Ant Design Web3 用来接收 wagmi 配置的 Provider。
 
 接着创建配置：
