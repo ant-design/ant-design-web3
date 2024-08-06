@@ -1,15 +1,15 @@
 ---
-'@ant-design/web3-eth-web3js': minor
-'@ant-design/web3-ethers-v5': minor
-'@ant-design/web3-bitcoin': minor
-'@ant-design/web3-assets': minor
-'@ant-design/web3-common': minor
-'@ant-design/web3-ethers': minor
-'@ant-design/web3-solana': minor
-'@ant-design/web3-icons': minor
-'@ant-design/web3-wagmi': minor
-'@ant-design/web3': minor
-'@ant-design/web3-ton': minor
+'@ant-design/web3-eth-web3js': patch
+'@ant-design/web3-ethers-v5': patch
+'@ant-design/web3-bitcoin': patch
+'@ant-design/web3-assets': patch
+'@ant-design/web3-common': patch
+'@ant-design/web3-ethers': patch
+'@ant-design/web3-solana': patch
+'@ant-design/web3-icons': patch
+'@ant-design/web3-wagmi': patch
+'@ant-design/web3': patch
+'@ant-design/web3-ton': patch
 ---
 
 build: set targets chrome 100
