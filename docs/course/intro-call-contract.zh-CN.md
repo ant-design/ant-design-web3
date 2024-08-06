@@ -22,7 +22,7 @@ DApp 调用合约方法一般有两种方式：通过钱包插件连接、通过
 
 ![metamask](./img/metamask.png)
 
-MetaMask 钱包安装完成后，我们可以在浏览器的右上角看到 MetaMask 的图标，同时它也会给每一个页面注入 `window.ethereum` 对象，这个对象是 DApp 与以太坊网络交互的接口，我们可以通过它来调用以太坊的 API。比如我们可以可以发起一个 `eth_chainId` 的 RPC 请求，获取当前网络的 ID：
+MetaMask 钱包安装完成后，我们可以在浏览器的右上角看到 MetaMask 的图标，同时它也会给每一个页面注入 `window.ethereum` 对象，这个对象是 DApp 与以太坊网络交互的接口，我们可以通过它来调用以太坊的 API。比如我们可以发起一个 `eth_chainId` 的 RPC 请求，获取当前网络的 ID：
 
 ```js
 await window.ethereum.request({ method: 'eth_chainId' }); // 0x1 代表以太坊主网
