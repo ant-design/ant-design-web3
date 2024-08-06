@@ -35,9 +35,6 @@ describe('MobileWallet', () => {
       getProvider: async () => {
         return {
           on: (_: string, callback: (uri: string) => void) => {
-            if (eventFired) {
-              return;
-            }
             eventFired = true;
             setTimeout(() => {
               callback('https://web3.ant.design');
