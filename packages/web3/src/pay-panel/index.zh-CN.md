@@ -2,6 +2,8 @@
 nav: 组件
 subtitle: 收款
 group: UI 组件
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*4WV4Qoc-o5YAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*0zPhTLh23NwAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # PayPanel
