@@ -108,7 +108,7 @@ export default function Web3() {
 
 参考以上的代码添加调用合约的 `balanceOf` 方法，我们新建了一个 `CallTest` 组件，然后在 `WagmiWeb3ConfigProvider` 内添加了这个组件。因为 `useReadContract` 必须在 `WagmiWeb3ConfigProvider` 内部才能正常工作，所以我们不能在 `export default function Web3() {` 这一行代码下面直接使用 `useReadContract`。在实际的项目中 `WagmiWeb3ConfigProvider` 通常应该在你项目组件的最外层，这样确保你的项目所有组件中都可以正常使用相关的 Hooks。
 
-`balanceOf` 是用来获取某一个地址下有多少个这个合约 NFT 的方法。所以我们还需要用到 `@ant-design/web3` 提供的 `useAccount` Hook 来获取当前连接的账户地址。然后将账户地址作为 `balanceOf` 方法的参数传入，这样就可以获取到当前账户地址下有多少个 NFT 了。如果不出意外，你会得到 `0` 的结果。
+`balanceOf` 是用来获取某一个地址下有多少个 NFT 的合约方法。所以我们还需要用到 `@ant-design/web3` 提供的 `useAccount` Hook 来获取当前连接的账户地址。然后将账户地址作为 `balanceOf` 方法的参数传入，这样就可以获取到当前账户地址下有多少个 NFT 了。如果不出意外，你会得到 `0` 的结果。
 
 代码中的 `abi` 字段定义了方法的类型，这样 wagmi 才能知道如何处理方法的入参和返回，把 JavaScript 中的对象转换成区块链的交易信息。通常 `abi` 都是通过合约代码自动生成的，我们会在下一章讲到这一部分。
 
