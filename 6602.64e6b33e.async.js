@@ -73,6 +73,10 @@ import {
   XverseWallet,
 } from '@ant-design/web3-bitcoin';
 
+/**
+ * The main application component that sets up the BitcoinWeb3ConfigProvider and Connector.
+ * @returns {JSX.Element} The rendered application component.
+ */
 const App: React.FC = () => {
   return (
     <BitcoinWeb3ConfigProvider autoConnect wallets={[XverseWallet(), UnisatWallet(), OkxWallet()]}>
@@ -101,6 +105,10 @@ import {
 } from '@ant-design/web3-bitcoin';
 import { Button, message, Space } from 'antd';
 
+/**
+ * Component to get and display inscriptions.
+ * @returns {JSX.Element | null} The rendered component.
+ */
 const GetInscriptions: React.FC = () => {
   const { account, getInscriptions } = useBitcoinWallet();
   const [inscription, setInscription] = useState<Inscription>();
@@ -133,6 +141,10 @@ const GetInscriptions: React.FC = () => {
   ) : null;
 };
 
+/**
+ * Main application component that sets up the BitcoinWeb3ConfigProvider and Connector.
+ * @returns {JSX.Element} The rendered application component.
+ */
 const App: React.FC = () => {
   return (
     <BitcoinWeb3ConfigProvider wallets={[UnisatWallet(), XverseWallet(), OkxWallet()]}>
@@ -151,6 +163,10 @@ export default App;
 import { BitcoinWeb3ConfigProvider } from '@ant-design/web3-bitcoin';
 import { Space } from 'antd';
 
+/**
+ * The main application component that sets up the BitcoinWeb3ConfigProvider and displays NFT cards.
+ * @returns {JSX.Element} The rendered application component.
+ */
 const App: React.FC = () => {
   return (
     <BitcoinWeb3ConfigProvider>
@@ -184,6 +200,10 @@ import {
 } from '@ant-design/web3-bitcoin';
 import { Button, Space } from 'antd';
 
+/**
+ * Component to send Bitcoin transfer.
+ * @returns {JSX.Element | null} The rendered component.
+ */
 const SendBitcoin: React.FC = () => {
   const { sendTransfer, account } = useBitcoinWallet();
 
@@ -206,6 +226,10 @@ const SendBitcoin: React.FC = () => {
   ) : null;
 };
 
+/**
+ * Main application component that sets up the BitcoinWeb3ConfigProvider and Connector.
+ * @returns {JSX.Element} The rendered application component.
+ */
 const App: React.FC = () => {
   return (
     <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet(), OkxWallet()]} balance>
@@ -230,6 +254,10 @@ import {
 } from '@ant-design/web3-bitcoin';
 import { Button, Space } from 'antd';
 
+/**
+ * Component to sign a message.
+ * @returns {JSX.Element | null} The rendered component.
+ */
 const SignMessage: React.FC = () => {
   const { signMessage, account } = useBitcoinWallet();
   return account ? (
@@ -248,6 +276,10 @@ const SignMessage: React.FC = () => {
   ) : null;
 };
 
+/**
+ * Component to sign a PSBT (Partially Signed Bitcoin Transaction).
+ * @returns {JSX.Element | null} The rendered component.
+ */
 const SignPsbt: React.FC = () => {
   const { signPsbt, account } = useBitcoinWallet();
 
@@ -271,6 +303,10 @@ const SignPsbt: React.FC = () => {
   ) : null;
 };
 
+/**
+ * Main application component that sets up the BitcoinWeb3ConfigProvider and Connector.
+ * @returns {JSX.Element} The rendered application component.
+ */
 const App: React.FC = () => {
   return (
     <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet(), OkxWallet()]}>
