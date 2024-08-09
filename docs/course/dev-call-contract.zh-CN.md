@@ -67,6 +67,8 @@ const config = createConfig({
   ],
 });
 
++ const CONTRACT_ADDRESS = '0xEcd0D12E21805803f70de03B72B1C162dB0898d9'
++
 + const CallTest = () => {
 +  const { account } = useAccount();
 +  const result = useReadContract({
@@ -79,7 +81,7 @@ const config = createConfig({
 +        outputs: [{ type: 'uint256' }],
 +      },
 +    ],
-+    address: '0xEcd0D12E21805803f70de03B72B1C162dB0898d9',
++    address: CONTRACT_ADDRESS,
 +    functionName: 'balanceOf',
 +    args: [account?.address as `0x${string}`],
 +   });
@@ -131,7 +133,18 @@ export default function Web3() {
 const CallTest = () => {
 
 // ...
-+ const { writeContract } = useWriteContract();
++ const { writeContract, data: hash } = useWriteContract();
++ const { isLoading: isConfirming, isSuccess: isConfirmed } =
++   useWaitForTransactionReceipt({
++    hash,
++  });
++
++ useEffect(() => {
++  if (isConfirmed) {
++    message.success("Mint Success");
++    result.refetch();
++  }
++ }, [isConfirmed]);
 
   return (
     <div>
@@ -155,9 +168,9 @@ const CallTest = () => {
 +                  outputs: [],
 +                },
 +              ],
-+              address: "0xEcd0D12E21805803f70de03B72B1C162dB0898d9",
++              address: CONTRACT_ADDRESS,
 +              functionName: "mint",
-+              args: [1],
++              args: [BigInt(1)],
 +              value: parseEther("0.01"),
 +            },
 +            {
@@ -173,6 +186,7 @@ const CallTest = () => {
 +      >
 +        mint
 +      </Button>
++      <Spin spinning={isConfirming} fullscreen />
     </div>
   );
 };
