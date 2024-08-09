@@ -8,6 +8,10 @@ import {
 } from '@ant-design/web3-bitcoin';
 import { Button, Space } from 'antd';
 
+/**
+ * Component to send Bitcoin transfer.
+ * @returns {JSX.Element | null} The rendered component.
+ */
 const SendBitcoin: React.FC = () => {
   const { sendTransfer, account } = useBitcoinWallet();
 
@@ -30,6 +34,10 @@ const SendBitcoin: React.FC = () => {
   ) : null;
 };
 
+/**
+ * Main application component that sets up the BitcoinWeb3ConfigProvider and Connector.
+ * @returns {JSX.Element} The rendered application component.
+ */
 const App: React.FC = () => {
   return (
     <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet(), OkxWallet()]} balance>

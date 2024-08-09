@@ -2,6 +2,10 @@ import { NFTCard } from '@ant-design/web3';
 import { BitcoinWeb3ConfigProvider } from '@ant-design/web3-bitcoin';
 import { Space } from 'antd';
 
+/**
+ * The main application component that sets up the BitcoinWeb3ConfigProvider and displays NFT cards.
+ * @returns {JSX.Element} The rendered application component.
+ */
 const App: React.FC = () => {
   return (
     <BitcoinWeb3ConfigProvider>
