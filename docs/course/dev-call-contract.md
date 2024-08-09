@@ -149,7 +149,7 @@ const CallTest = () => {
   return (
     <div>
       {result.data?.toString()}
-+     <Button
++      <Button
 +        onClick={() => {
 +          writeContract(
 +            {

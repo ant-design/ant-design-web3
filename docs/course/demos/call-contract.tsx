@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Address, ConnectButton, Connector, NFTCard, useAccount } from '@ant-design/web3';
 import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
-import { Button, Flex, message, Spin } from 'antd';
+import { Button, message, Spin } from 'antd';
 import { parseEther } from 'viem';
 import {
   createConfig,
