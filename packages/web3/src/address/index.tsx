@@ -10,18 +10,49 @@ import useIntl from '../hooks/useIntl';
 import { fillWithPrefix, formatAddress } from '../utils';
 import { useStyle } from './style';
 
+/**
+ * Props for the Address component.
+ */
 export interface AddressProps {
+  /**
+   * Address ellipsis configuration.
+   * If true, the address will be clipped with default head and tail values.
+   * If an object, you can specify custom headClip and tailClip values.
+   */
   ellipsis?:
     | boolean
     | {
         headClip?: number;
         tailClip?: number;
       };
+  /**
+   * The address to display.
+   */
   address?: string;
+  /**
+   * The prefix to use for the address.
+   * If false, no prefix will be used.
+   */
   addressPrefix?: string | false;
+  /**
+   * Whether the address is copyable.
+   */
   copyable?: boolean;
+  /**
+   * Tooltip configuration.
+   * If true, the address will be shown in a tooltip.
+   * If a string or ReactNode, it will be used as the tooltip content.
+   */
   tooltip?: boolean | TooltipProps['title'];
+  /**
+   * Address format configuration.
+   * If true, the address will be formatted.
+   * If a function, it will be used to format the address.
+   */
   format?: boolean | ((address: string) => ReactNode);
+  /**
+   * Locale configuration for the Address component.
+   */
   locale?: Locale['Address'];
 }
 

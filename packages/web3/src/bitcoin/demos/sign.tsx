@@ -8,6 +8,10 @@ import {
 } from '@ant-design/web3-bitcoin';
 import { Button, Space } from 'antd';
 
+/**
+ * Component to sign a message.
+ * @returns {JSX.Element | null} The rendered component.
+ */
 const SignMessage: React.FC = () => {
   const { signMessage, account } = useBitcoinWallet();
   return account ? (
@@ -26,6 +30,10 @@ const SignMessage: React.FC = () => {
   ) : null;
 };
 
+/**
+ * Component to sign a PSBT (Partially Signed Bitcoin Transaction).
+ * @returns {JSX.Element | null} The rendered component.
+ */
 const SignPsbt: React.FC = () => {
   const { signPsbt, account } = useBitcoinWallet();
 
@@ -49,6 +57,10 @@ const SignPsbt: React.FC = () => {
   ) : null;
 };
 
+/**
+ * Main application component that sets up the BitcoinWeb3ConfigProvider and Connector.
+ * @returns {JSX.Element} The rendered application component.
+ */
 const App: React.FC = () => {
   return (
     <BitcoinWeb3ConfigProvider wallets={[XverseWallet(), UnisatWallet(), OkxWallet()]}>

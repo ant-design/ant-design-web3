@@ -1,5 +1,14 @@
 # @ant-design/web3-solana
 
+## 1.1.9
+
+### Patch Changes
+
+- 3f7d7a6: build: set targets chrome 100
+- Updated dependencies [3f7d7a6]
+  - @ant-design/web3-assets@1.10.1
+  - @ant-design/web3-common@1.12.1
+
 ## 1.1.8
 
 ### Patch Changes

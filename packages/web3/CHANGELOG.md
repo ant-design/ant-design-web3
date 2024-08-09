@@ -1,5 +1,16 @@
 # @ant-design/web3
 
+## 1.16.1
+
+### Patch Changes
+
+- 3f7d7a6: build: set targets chrome 100
+- ebc95c9: fix: show default avatar when not find chain icon in ConnectButton profle modal
+- Updated dependencies [3f7d7a6]
+  - @ant-design/web3-assets@1.10.1
+  - @ant-design/web3-common@1.12.1
+  - @ant-design/web3-icons@1.8.1
+
 ## 1.16.0
 
 ### Minor Changes

@@ -76,6 +76,28 @@ describe('ProfileModal', () => {
     });
   });
 
+  it('show default avatar', async () => {
+    const App = () => (
+      <ConnectButton
+        account={{
+          address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        }}
+      />
+    );
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.ant-web3-connect-button')).not.toBeNull();
+
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button')!);
+
+    await vi.waitFor(() => {
+      expect(
+        baseElement.querySelector(
+          '.ant-web3-connect-button-chain-icon.ant-web3-connect-button-default-icon',
+        ),
+      ).not.toBeNull();
+    });
+  });
+
   it('show chain icon as the default avatar', async () => {
     const App = () => (
       <ConnectButton

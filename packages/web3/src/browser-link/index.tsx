@@ -7,16 +7,50 @@ import { Address } from '../address';
 import useProvider from '../hooks/useProvider';
 import { fillWithPrefix } from '../utils';
 
+/**
+ * Props for the BrowserLink component.
+ */
 export interface BrowserLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  /**
+   * Icon property, can be a boolean value or a custom React node.
+   */
   icon?: boolean | React.ReactNode;
+  /**
+   * Icon style.
+   */
   iconStyle?: React.CSSProperties;
+  /**
+   * Whether to display only the icon.
+   */
   iconOnly?: boolean;
+  /**
+   * Whether to enable ellipsis for displaying Ethereum addresses.
+   */
   ellipsis?: boolean;
+  /**
+   * Ethereum address to generate the link.
+   */
   address: string;
+  /**
+   * The prefix to use for the address.
+   * If false, no prefix will be used.
+   */
   addressPrefix?: string | false;
+  /**
+   * Custom link target. If provided, it will override the generated link.
+   */
   href?: string;
+  /**
+   * The chain of the corresponding address.
+   */
   chain?: Chain;
+  /**
+   * The type of link, either 'address' (default) or 'transaction'.
+   */
   type?: BrowserLinkType;
+  /**
+   * Custom display name. Display `address` default.
+   */
   name?: string;
 }
 
