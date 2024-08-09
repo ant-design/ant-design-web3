@@ -38,6 +38,15 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     onConnect?.();
     try {
       setConnecting(true);
+
+      // for special wallet, such as WalletConnect, useWalletConnectOfficialModal is true, use official modal
+      if (
+        wallet &&
+        wallet?.name === 'WalletConnect' &&
+        (wallet as any)?.useWalletConnectOfficialModal
+      ) {
+        setOpen(false);
+      }
       const connectedAccount = await connect?.(wallet, options);
       onConnected?.(connectedAccount ? connectedAccount : undefined);
       setOpen(false);

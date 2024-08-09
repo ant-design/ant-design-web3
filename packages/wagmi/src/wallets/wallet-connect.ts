@@ -14,7 +14,12 @@ export const WalletConnect: EthereumWalletConnect = (metadata) => {
   const { useWalletConnectOfficialModal = false, ...rest } = metadata || {};
   return {
     connectors: ['WalletConnect'],
-    create: (connectors?: readonly Connector[]): WalletUseInWagmiAdapter => {
+    create: (
+      connectors?: readonly Connector[],
+    ): WalletUseInWagmiAdapter & {
+      // for the specific wallet metadata
+      useWalletConnectOfficialModal: boolean;
+    } => {
       let qrCodeUri: string | undefined = undefined;
       const getQrCode = async () => {
         const provider = await connectors?.[0]?.getProvider();
@@ -41,6 +46,7 @@ export const WalletConnect: EthereumWalletConnect = (metadata) => {
         hasWalletReady: async () => {
           return true;
         },
+        useWalletConnectOfficialModal: useWalletConnectOfficialModal,
         getQrCode: useWalletConnectOfficialModal ? undefined : getQrCode,
         ...rest,
       };

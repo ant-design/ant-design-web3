@@ -59,8 +59,7 @@ describe('Connector quick connect', () => {
   it('open qrcode default', async () => {
     const App = () => {
       const [account, setAccount] = React.useState<Account | undefined>();
-
-      const wallets: Wallet[] = [
+      const wallets: Array<Wallet & { useWalletConnectOfficialModal?: boolean }> = [
         {
           ...metadata_MetaMask,
           hasWalletReady: async () => {
@@ -70,6 +69,7 @@ describe('Connector quick connect', () => {
         },
         {
           ...metadata_WalletConnect,
+          useWalletConnectOfficialModal: true,
           hasWalletReady: async () => {
             return true;
           },
