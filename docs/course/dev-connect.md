@@ -46,7 +46,7 @@ The introduction of the content is as follows:
 
 - [createConfig](https://wagmi.sh/react/config): wagmi is used to create the method of configuration.
 - http: wagmi is used to create the method of [HTTP JSON RPC](https://wagmi.sh/core/api/transports/http) connection. Through it, you can access the blockchain through HTTP request.
-- [mainnet](https://wagmi.sh/react/chains): represents the Ethereum mainnet. In addition to `mainnet`, there will be other testnets similar to `goerli` and other EVM-compatible public chains similar to `bsc` and `base`. Some are L1 public chains like Ethereum, and some are L2 public chains. We will not go into details here.
+- [mainnet](https://wagmi.sh/react/chains): represents the Ethereum mainnet. In addition to `mainnet`, there will be other testnets similar to `sepolia` and other EVM-compatible public chains similar to `bsc` and `base`. Some are L1 public chains like Ethereum, and some are L2 public chains. We will not go into details here.
 - [WagmiWeb3ConfigProvider](https://web3.ant.design/components/wagmi#wagmiweb3configproviderprops): Ant Design Web3 is the Provider used to receive wagmi configuration.
 
 Then create the configuration:

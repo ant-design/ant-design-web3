@@ -39,7 +39,7 @@ order: 3
 
 ## 部署
 
-点击 `Deploy&Run` 可以将将交易发送到当前的 `ENVIRONMENT` 中。
+点击 `Deploy&Run` 可以将交易发送到当前的 `ENVIRONMENT` 中。
 
 接下来我们尝试通过 MetaMask 部署合约到测试网 Goerli 中，请先将你的 MetaMask 切换到测试网 Goerli（当然你也可以切换到其它你习惯使用的测试网）。
 
