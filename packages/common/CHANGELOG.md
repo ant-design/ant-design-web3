@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.12.1
+
+### Patch Changes
+
+- 3f7d7a6: build: set targets chrome 100
+
 ## 1.12.0
 
 ### Minor Changes
