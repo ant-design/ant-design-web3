@@ -121,6 +121,7 @@ export interface UniversalWeb3ProviderInterface {
 }
 
 export interface Wallet extends WalletMetadata {
+  _standardWallet?: any;
   hasWalletReady?: () => Promise<boolean>;
   hasExtensionInstalled?: () => Promise<boolean>;
   getQrCode?: () => Promise<{ uri: string }>;

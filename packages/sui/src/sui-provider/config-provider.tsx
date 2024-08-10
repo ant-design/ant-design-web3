@@ -78,6 +78,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         name: w.name,
         icon: w.icon,
         remark: w.name,
+        _standardWallet: w,
         async hasExtensionInstalled() {
           return true;
         },
@@ -133,9 +134,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
           : undefined
       }
       connect={async (wallet) => {
-        const foundWallet = wallet
-          ? standardWallets.find((w) => w.name === wallet.name)
-          : undefined;
+        const foundWallet = wallet?._standardWallet;
 
         if (!foundWallet) {
           throw new Error(`Can not find wallet ${wallet?.name}`);
