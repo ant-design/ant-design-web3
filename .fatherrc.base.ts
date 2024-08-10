@@ -10,6 +10,7 @@ export default defineConfig({
     output: 'dist/esm',
     transformer: 'babel',
   },
+  targets: { chrome: 100 },
   extraBabelPlugins: [
     [
       'inline-react-svg',

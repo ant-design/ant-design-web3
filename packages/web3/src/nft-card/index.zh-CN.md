@@ -2,6 +2,8 @@
 nav: 组件
 subtitle: NFT 卡片
 group: UI 组件
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*S8DvSLvOppYAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*WFYmR4qa6iAAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # NFTCard

@@ -65,9 +65,6 @@ describe('WalletConnect', async () => {
       getProvider: async () => {
         return {
           on: (name: string, callback: (uri: string) => void) => {
-            if (eventFired) {
-              return;
-            }
             eventFired = true;
             setTimeout(() => {
               callback('https://web3.ant.design');

@@ -4,6 +4,8 @@ order: 3
 group:
   title: Connect Blockchains
   order: 2
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*T2_iTYHBEn4AAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9nWCTYpaq74AAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Ethereum (ethersjs)
