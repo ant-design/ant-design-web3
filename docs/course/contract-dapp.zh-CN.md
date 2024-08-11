@@ -50,7 +50,7 @@ const config = createConfig({
 });
 
 - const CONTRACT_ADDRESS = "0xEcd0D12E21805803f70de03B72B1C162dB0898d9";
-+ const CONTRACT_ADDRESS = "0x81BaD6F768947D7741c83d9EB9007e1569115703"; use your own contract address
++ const CONTRACT_ADDRESS = "0x81BaD6F768947D7741c83d9EB9007e1569115703"; // use your own contract address
 
 const CallTest = () => {
   const { account } = useAccount();
