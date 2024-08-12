@@ -134,23 +134,11 @@ const CallTest = () => {
 
 // ...
 + const { writeContract, data: hash } = useWriteContract();
-+ const { isLoading: isConfirming, isSuccess: isConfirmed } =
-+   useWaitForTransactionReceipt({
-+    hash,
-+  });
-+
-+ useEffect(() => {
-+  if (isConfirmed) {
-+    message.success("Mint Success");
-+    result.refetch();
-+  }
-+ }, [isConfirmed]);
 
   return (
     <div>
       {result.data?.toString()}
 +      <Button
-+        loading={isConfirming}
 +        onClick={() => {
 +          writeContract(
 +            {
@@ -207,7 +195,42 @@ Contract calls will have corresponding prompts for success and failure. If the a
 
 ![](./img/call-contract.png)
 
-Click **Reject**, the contract call will not be executed, and your ETH will not be consumed. In the next chapter, we will guide you to deploy a test contract and experience the complete process in the test environment. Of course, if you are very rich, you can also click OK, so that the contract call will be executed, your ETH will be consumed, and you will get an NFT.
+Click **Reject**, the contract call will not be executed, and your ETH will not be consumed. In the next chapter, we will guide you to deploy a test contract and experience the complete process in the test environment. Of course, if you are very rich, you can also click OK, so that the contract call will be executed.
+
+After the transaction is sent, you need to listen to the transaction `hash`, wait for the transaction to be confirmed, consume your ETH, and get an NFT.
+
+The code that needs to be modified is as follows:
+
+```diff
++ import { useWaitForTransactionReceipt } from 'wagmi';
+// ...
+
+const CallTest = () => {
++ const { isLoading: isConfirming, isSuccess: isConfirmed } =
++   useWaitForTransactionReceipt({
++    hash,
++  });
++
++ useEffect(() => {
++  if (isConfirmed) {
++    message.success("Mint Success");
++    result.refetch();
++  }
++ }, [isConfirmed]);
++
+  return (
+    <div>
+      {result.data?.toString()}
+      <Button
++       loading={isConfirming}
+        {/* ... */}
+      </Button>
+    </div>
+  )
+};
+```
+
+Sending a transaction refers to the process of creating and broadcasting a transaction to the blockchain network, while transaction confirmation (transaction on-chain) means that once the transaction is verified and included in the blockchain, the transaction data is permanently recorded in the blockchain process. Once a transaction is backed up into a block and the block is added to the blockchain, the transaction data will be permanently stored in each account on the blockchain and cannot be tampered with.
 
 Full code:
 
