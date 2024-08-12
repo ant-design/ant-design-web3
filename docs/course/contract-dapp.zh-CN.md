@@ -85,6 +85,7 @@ const CallTest = () => {
     <div>
       {result.data?.toString()}
       <Button
+        loading={isConfirming}
         onClick={() => {
           writeContract(
             {
@@ -118,7 +119,6 @@ const CallTest = () => {
       >
         mint
       </Button>
-      <Spin spinning={isConfirming} fullscreen />
     </div>
   );
 };

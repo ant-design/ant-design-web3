@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Address, ConnectButton, Connector, NFTCard, useAccount } from '@ant-design/web3';
 import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
-import { Button, message, Spin } from 'antd';
+import { Button, message } from 'antd';
 import { parseEther } from 'viem';
 import {
   createConfig,
@@ -25,7 +25,6 @@ const config = createConfig({
   ],
 });
 
-// Sepolia test contract 0x81BaD6F768947D7741c83d9EB9007e1569115703
 const CONTRACT_ADDRESS = '0xEcd0D12E21805803f70de03B72B1C162dB0898d9';
 
 const CallTest = () => {
@@ -60,6 +59,7 @@ const CallTest = () => {
     <div>
       {result.data?.toString()}
       <Button
+        loading={isConfirming}
         onClick={() => {
           writeContract(
             {
@@ -93,7 +93,6 @@ const CallTest = () => {
       >
         mint
       </Button>
-      <Spin spinning={isConfirming} fullscreen />
     </div>
   );
 };
