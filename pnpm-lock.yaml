@@ -503,8 +503,8 @@ importers:
         specifier: ^4.4.4
         version: 4.4.4(@babel/core@7.24.3)(@types/node@22.1.0)(styled-components@5.3.11)(webpack@5.91.0)
       glob:
-        specifier: ^10.4.1
-        version: 10.4.1
+        specifier: ^11.0.0
+        version: 11.0.0
       react:
         specifier: ^18.2.0
         version: 18.2.0
