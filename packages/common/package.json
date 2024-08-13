@@ -49,8 +49,8 @@
     "@types/lodash-es": "^4.17.12",
     "antd": "^5.19.3",
     "father": "^4.4.4",
-    "react": "^18.3.1",
-    "react-dom": "^18.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "typescript": "^5.5.4"
   },
   "peerDependencies": {
