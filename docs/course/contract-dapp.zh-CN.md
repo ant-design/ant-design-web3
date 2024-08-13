@@ -18,11 +18,11 @@ order: 4
 ```diff
 import { createConfig, http, useReadContract, useWriteContract } from "wagmi";
 - import { mainnet } from "wagmi/chains";
-+ import { mainnet, goerli } from "wagmi/chains";
++ import { mainnet, sepolia } from "wagmi/chains";
 import {
   WagmiWeb3ConfigProvider,
   MetaMask,
-+  Goerli,
++  Sepolia,
 } from "@ant-design/web3-wagmi";
 import {
   Address,
@@ -37,10 +37,10 @@ import { parseEther } from "viem";
 
 const config = createConfig({
 -  chains: [mainnet],
-+  chains: [mainnet, goerli],
++  chains: [mainnet, sepolia],
   transports: {
      [mainnet.id]: http(),
-+    [goerli.id]: http(),
++    [sepolia.id]: http(),
   },
   connectors: [
     injected({
@@ -48,6 +48,9 @@ const config = createConfig({
     }),
   ],
 });
+
+- const CONTRACT_ADDRESS = "0xEcd0D12E21805803f70de03B72B1C162dB0898d9";
++ const CONTRACT_ADDRESS = "0x81BaD6F768947D7741c83d9EB9007e1569115703"; // use your own contract address
 
 const CallTest = () => {
   const { account } = useAccount();
@@ -61,17 +64,28 @@ const CallTest = () => {
         outputs: [{ type: "uint256" }],
       },
     ],
--    address: "0xEcd0D12E21805803f70de03B72B1C162dB0898d9",
-+    address: "0x418325c3979b7f8a17678ec2463a74355bdbe72c", // use your own contract address
+    address: CONTRACT_ADDRESS,
     functionName: "balanceOf",
     args: [account?.address as `0x${string}`],
   });
-  const { writeContract } = useWriteContract();
+  const { data: hash, writeContract } = useWriteContract();
+  const { isLoading: isConfirming, isSuccess: isConfirmed } =
+    useWaitForTransactionReceipt({
+      hash,
+    });
+
+  useEffect(() => {
+    if (isConfirmed) {
+      message.success("Mint Success");
+      result.refetch();
+    }
+  }, [isConfirmed]);
 
   return (
     <div>
       {result.data?.toString()}
       <Button
+        loading={isConfirming}
         onClick={() => {
           writeContract(
             {
@@ -90,16 +104,12 @@ const CallTest = () => {
                   outputs: [],
                 },
               ],
--             address: "0xEcd0D12E21805803f70de03B72B1C162dB0898d9",
-+             address: "0x418325c3979b7f8a17678ec2463a74355bdbe72c", // use your own contract address
+              address: CONTRACT_ADDRESS,
               functionName: "mint",
-              args: [1],
+              args: [BigInt(1)],
               value: parseEther("0.01"),
             },
             {
-              onSuccess: () => {
-                message.success("Mint Success");
-              },
               onError: (err) => {
                 message.error(err.message);
               },
@@ -117,7 +127,7 @@ export default function Web3() {
   return (
     <WagmiWeb3ConfigProvider
       config={config}
-+      chains={[Goerli]}
++      chains={[Sepolia]}
       wallets={[MetaMask()]}
     >
       <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
@@ -135,11 +145,11 @@ export default function Web3() {
 
 ```
 
-然后在 DApp 页面中切换到 Goerli 测试网，点击 `mint` 按钮后如果顺利会触发 MetaMask 的交易确认弹窗：
+然后在 DApp 页面中切换到 Sepolia 测试网，点击 `mint` 按钮后如果顺利会触发 MetaMask 的交易确认弹窗：
 
 ![](./img/mint-test-net.png)
 
-交易完成后再刷新页面，你会发现之前 `balanceOf` 的结果变成了 `1`，这代表你已经成功铸造了一个 NFT。当然，一个真正体验好的 DApp 会在智能合约中添加事件，在前端监听合约事件，然后自动更新结果。但是关于事件这部分内容我们就不在这个入门的课程中介绍了。
+交易上链后，你会发现之前 `balanceOf` 的结果变成了 `1`，这代表你已经成功铸造了一个 NFT。当然，一个真正体验好的 DApp 会在智能合约中添加事件，在前端监听合约事件，然后自动更新结果。但是关于事件这部分内容我们就不在这个入门的课程中介绍了。
 
 ## 完整示例
 
