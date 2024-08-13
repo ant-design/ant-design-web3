@@ -1,8 +1,15 @@
-"use strict";(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[5394],{61461:function(s,a,c){c.r(a),c.d(a,{TinyColor:function(){return u.C},bounds:function(){return v},cmykToRgb:function(){return i.JT},convertDecimalToHex:function(){return i.Wl},convertHexToDecimal:function(){return i.T6},fromRatio:function(){return M},hslToRgb:function(){return i.ve},hsvToRgb:function(){return i.WE},inputToRGB:function(){return b.uA},isReadable:function(){return w},isValidCSSUnit:function(){return b.ky},legacyRandom:function(){return x},mostReadable:function(){return B},names:function(){return f.R},numberInputToObject:function(){return i.Yt},parseIntFromHex:function(){return i.VD},random:function(){return R},readability:function(){return m},rgbToCmyk:function(){return i.D5},rgbToHex:function(){return i.vq},rgbToHsl:function(){return i.lC},rgbToHsv:function(){return i.py},rgbToRgb:function(){return i.rW},rgbaToArgbHex:function(){return i.GC},rgbaToHex:function(){return i.s},stringInputToObject:function(){return b.uz},toMsFilter:function(){return y}});var u=c(11899),f=c(23375);function m(n,o){const e=new u.C(n),t=new u.C(o);return(Math.max(e.getLuminance(),t.getLuminance())+.05)/(Math.min(e.getLuminance(),t.getLuminance())+.05)}function w(n,o,e={level:"AA",size:"small"}){const t=m(n,o);switch((e.level??"AA")+(e.size??"small")){case"AAsmall":case"AAAlarge":return t>=4.5;case"AAlarge":return t>=3;case"AAAsmall":return t>=7;default:return!1}}function B(n,o,e={includeFallbackColors:!1,level:"AA",size:"small"}){let t=null,r=0;const{includeFallbackColors:l,level:d,size:k}=e;for(const g of o){const C=m(n,g);C>r&&(r=C,t=new u.C(g))}return w(n,t,{level:d,size:k})||!l?t:(e.includeFallbackColors=!1,B(n,["#fff","#000"],e))}var i=c(79158);function y(n,o){const e=new u.C(n),t="#"+(0,i.GC)(e.r,e.g,e.b,e.a);let r=t;const l=e.gradientType?"GradientType = 1, ":"";if(o){const d=new u.C(o);r="#"+(0,i.GC)(d.r,d.g,d.b,d.a)}return`progid:DXImageTransform.Microsoft.gradient(${l}startColorstr=${t},endColorstr=${r})`}var h=c(70979);function M(n,o){const e={r:(0,h.JX)(n.r),g:(0,h.JX)(n.g),b:(0,h.JX)(n.b)};return n.a!==void 0&&(e.a=Number(n.a)),new u.C(e,o)}function x(){return new u.C({r:Math.random(),g:Math.random(),b:Math.random()})}var b=c(41587);function R(n={}){if(n.count!==void 0&&n.count!==null){const l=n.count,d=[];for(n.count=void 0;l>d.length;)n.count=null,n.seed&&(n.seed+=1),d.push(R(n));return n.count=l,d}const o=W(n.hue,n.seed),e=P(o,n),t=L(o,e,n),r={h:o,s:e,v:t};return n.alpha!==void 0&&(r.a=n.alpha),new u.C(r)}function W(n,o){const e=z(n);let t=p(e,o);return t<0&&(t=360+t),t}function P(n,o){if(o.hue==="monochrome")return 0;if(o.luminosity==="random")return p([0,100],o.seed);const{saturationRange:e}=S(n);let t=e[0],r=e[1];switch(o.luminosity){case"bright":t=55;break;case"dark":t=r-10;break;case"light":r=55;break;default:break}return p([t,r],o.seed)}function L(n,o,e){let t=A(n,o),r=100;switch(e.luminosity){case"dark":r=t+20;break;case"light":t=(r+t)/2;break;case"random":t=0,r=100;break;default:break}return p([t,r],e.seed)}function A(n,o){const{lowerBounds:e}=S(n);for(let t=0;t<e.length-1;t++){const r=e[t][0],l=e[t][1],d=e[t+1][0],k=e[t+1][1];if(o>=r&&o<=d){const g=(k-l)/(d-r),C=l-g*r;return g*o+C}}return 0}function z(n){const o=parseInt(n,10);if(!Number.isNaN(o)&&o<360&&o>0)return[o,o];if(typeof n=="string"){const e=v.find(r=>r.name===n);if(e){const r=T(e);if(r.hueRange)return r.hueRange}const t=new u.C(n);if(t.isValid){const r=t.toHsv().h;return[r,r]}}return[0,360]}function S(n){n>=334&&n<=360&&(n-=360);for(const o of v){const e=T(o);if(e.hueRange&&n>=e.hueRange[0]&&n<=e.hueRange[1])return e}throw Error("Color not found")}function p(n,o){if(o===void 0)return Math.floor(n[0]+Math.random()*(n[1]+1-n[0]));const e=n[1]||1,t=n[0]||0;o=(o*9301+49297)%233280;const r=o/233280;return Math.floor(t+r*(e-t))}function T(n){const o=n.lowerBounds[0][0],e=n.lowerBounds[n.lowerBounds.length-1][0],t=n.lowerBounds[n.lowerBounds.length-1][1],r=n.lowerBounds[0][1];return{name:n.name,hueRange:n.hueRange,lowerBounds:n.lowerBounds,saturationRange:[o,e],brightnessRange:[t,r]}}const v=[{name:"monochrome",hueRange:null,lowerBounds:[[0,0],[100,0]]},{name:"red",hueRange:[-26,18],lowerBounds:[[20,100],[30,92],[40,89],[50,85],[60,78],[70,70],[80,60],[90,55],[100,50]]},{name:"orange",hueRange:[19,46],lowerBounds:[[20,100],[30,93],[40,88],[50,86],[60,85],[70,70],[100,70]]},{name:"yellow",hueRange:[47,62],lowerBounds:[[25,100],[40,94],[50,89],[60,86],[70,84],[80,82],[90,80],[100,75]]},{name:"green",hueRange:[63,178],lowerBounds:[[30,100],[40,90],[50,85],[60,81],[70,74],[80,64],[90,50],[100,40]]},{name:"blue",hueRange:[179,257],lowerBounds:[[20,100],[30,86],[40,80],[50,74],[60,60],[70,52],[80,44],[90,39],[100,35]]},{name:"purple",hueRange:[258,282],lowerBounds:[[20,100],[30,87],[40,79],[50,70],[60,65],[70,59],[80,52],[90,45],[100,42]]},{name:"pink",hueRange:[283,334],lowerBounds:[[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73]]}]},5944:function(s,a,c){c.r(a),c.d(a,{customToken:function(){return f},themeList:function(){return m}});var u=c(87142),f={token:{borderRadius:16,wireframe:!1,padding:24,paddingSM:16,paddingXS:12,fontSize:16,fontSizeLG:18,fontSizeHeading4:24,fontSizeHeading5:20,fontSizeHeading2:36,fontSizeXL:24,colorPrimary:"#8442ff",colorInfo:"#8442ff",paddingContentHorizontal:20,paddingContentHorizontalSM:16,paddingContentHorizontalLG:24},components:{Button:{controlHeight:44,marginXS:8,fontSizeLG:18,controlHeightLG:52,controlHeightSM:36,paddingXS:16},List:{paddingLG:24,marginLG:24,marginXXL:48,paddingContentHorizontalLG:24,fontSizeLG:20,padding:16,paddingContentVertical:24,paddingXS:8,paddingSM:12},Modal:{controlHeightLG:44,fontSizeHeading5:20,fontSizeLG:18,marginSM:12,margin:16,marginLG:24,marginXS:8,padding:16,paddingContentHorizontalLG:24,paddingLG:24,paddingMD:20,paddingXS:12}}},m=[{color:"#1677FF",value:"default",name:"Default",token:{token:{}}},{color:"#000",value:"dark",name:"Dark",token:{token:{borderRadius:2,colorPrimary:"#000",colorPrimaryTextHover:"rgba(255, 255, 255, 0.8)",colorLink:"rgba(255, 255, 255, 0.75)",colorText:"rgba(255, 255, 255, 0.75)"},components:{Button:{defaultHoverColor:"rgba(255, 255, 255, 0.8)",defaultHoverBorderColor:"rgba(255, 255, 255, 0.8)"}},algorithm:u.Z.darkAlgorithm}},{value:"green",name:"Forest green",color:"#00B96B",token:{token:{colorPrimary:"#00B96B",borderRadius:4,colorLink:"#00B96B"}}},{value:"pink",name:"Blossom",color:"#ED4192",token:{token:{colorPrimary:"#ED4192",borderRadius:16,colorLink:"#ED4192"}}},{color:"#8343FF",value:"violet",name:"Violet",token:f}]},26093:function(s,a,c){c.r(a),a.default={connectorContainer:"kfwGrlVcCE4MvdumjdId",configContainer:"_Gx0iI33mzcTuHlSgUWf",groupTitle:"zIFtGimZzYYTq_Sn9MCQ",themeLabel:"oDD26f5G4roGf2phJfvL"}},76034:function(s,a){a.Z=`import { Address, ConnectButton, Connector, NFTCard, useAccount } from '@ant-design/web3';
+"use strict";(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[5394],{61461:function(s,a,c){c.r(a),c.d(a,{TinyColor:function(){return u.C},bounds:function(){return v},cmykToRgb:function(){return i.JT},convertDecimalToHex:function(){return i.Wl},convertHexToDecimal:function(){return i.T6},fromRatio:function(){return M},hslToRgb:function(){return i.ve},hsvToRgb:function(){return i.WE},inputToRGB:function(){return b.uA},isReadable:function(){return w},isValidCSSUnit:function(){return b.ky},legacyRandom:function(){return x},mostReadable:function(){return R},names:function(){return f.R},numberInputToObject:function(){return i.Yt},parseIntFromHex:function(){return i.VD},random:function(){return S},readability:function(){return m},rgbToCmyk:function(){return i.D5},rgbToHex:function(){return i.vq},rgbToHsl:function(){return i.lC},rgbToHsv:function(){return i.py},rgbToRgb:function(){return i.rW},rgbaToArgbHex:function(){return i.GC},rgbaToHex:function(){return i.s},stringInputToObject:function(){return b.uz},toMsFilter:function(){return y}});var u=c(11899),f=c(23375);function m(n,o){const e=new u.C(n),t=new u.C(o);return(Math.max(e.getLuminance(),t.getLuminance())+.05)/(Math.min(e.getLuminance(),t.getLuminance())+.05)}function w(n,o,e={level:"AA",size:"small"}){const t=m(n,o);switch((e.level??"AA")+(e.size??"small")){case"AAsmall":case"AAAlarge":return t>=4.5;case"AAlarge":return t>=3;case"AAAsmall":return t>=7;default:return!1}}function R(n,o,e={includeFallbackColors:!1,level:"AA",size:"small"}){let t=null,r=0;const{includeFallbackColors:l,level:d,size:k}=e;for(const g of o){const C=m(n,g);C>r&&(r=C,t=new u.C(g))}return w(n,t,{level:d,size:k})||!l?t:(e.includeFallbackColors=!1,R(n,["#fff","#000"],e))}var i=c(79158);function y(n,o){const e=new u.C(n),t="#"+(0,i.GC)(e.r,e.g,e.b,e.a);let r=t;const l=e.gradientType?"GradientType = 1, ":"";if(o){const d=new u.C(o);r="#"+(0,i.GC)(d.r,d.g,d.b,d.a)}return`progid:DXImageTransform.Microsoft.gradient(${l}startColorstr=${t},endColorstr=${r})`}var h=c(70979);function M(n,o){const e={r:(0,h.JX)(n.r),g:(0,h.JX)(n.g),b:(0,h.JX)(n.b)};return n.a!==void 0&&(e.a=Number(n.a)),new u.C(e,o)}function x(){return new u.C({r:Math.random(),g:Math.random(),b:Math.random()})}var b=c(41587);function S(n={}){if(n.count!==void 0&&n.count!==null){const l=n.count,d=[];for(n.count=void 0;l>d.length;)n.count=null,n.seed&&(n.seed+=1),d.push(S(n));return n.count=l,d}const o=W(n.hue,n.seed),e=A(o,n),t=L(o,e,n),r={h:o,s:e,v:t};return n.alpha!==void 0&&(r.a=n.alpha),new u.C(r)}function W(n,o){const e=E(n);let t=p(e,o);return t<0&&(t=360+t),t}function A(n,o){if(o.hue==="monochrome")return 0;if(o.luminosity==="random")return p([0,100],o.seed);const{saturationRange:e}=T(n);let t=e[0],r=e[1];switch(o.luminosity){case"bright":t=55;break;case"dark":t=r-10;break;case"light":r=55;break;default:break}return p([t,r],o.seed)}function L(n,o,e){let t=P(n,o),r=100;switch(e.luminosity){case"dark":r=t+20;break;case"light":t=(r+t)/2;break;case"random":t=0,r=100;break;default:break}return p([t,r],e.seed)}function P(n,o){const{lowerBounds:e}=T(n);for(let t=0;t<e.length-1;t++){const r=e[t][0],l=e[t][1],d=e[t+1][0],k=e[t+1][1];if(o>=r&&o<=d){const g=(k-l)/(d-r),C=l-g*r;return g*o+C}}return 0}function E(n){const o=parseInt(n,10);if(!Number.isNaN(o)&&o<360&&o>0)return[o,o];if(typeof n=="string"){const e=v.find(r=>r.name===n);if(e){const r=B(e);if(r.hueRange)return r.hueRange}const t=new u.C(n);if(t.isValid){const r=t.toHsv().h;return[r,r]}}return[0,360]}function T(n){n>=334&&n<=360&&(n-=360);for(const o of v){const e=B(o);if(e.hueRange&&n>=e.hueRange[0]&&n<=e.hueRange[1])return e}throw Error("Color not found")}function p(n,o){if(o===void 0)return Math.floor(n[0]+Math.random()*(n[1]+1-n[0]));const e=n[1]||1,t=n[0]||0;o=(o*9301+49297)%233280;const r=o/233280;return Math.floor(t+r*(e-t))}function B(n){const o=n.lowerBounds[0][0],e=n.lowerBounds[n.lowerBounds.length-1][0],t=n.lowerBounds[n.lowerBounds.length-1][1],r=n.lowerBounds[0][1];return{name:n.name,hueRange:n.hueRange,lowerBounds:n.lowerBounds,saturationRange:[o,e],brightnessRange:[t,r]}}const v=[{name:"monochrome",hueRange:null,lowerBounds:[[0,0],[100,0]]},{name:"red",hueRange:[-26,18],lowerBounds:[[20,100],[30,92],[40,89],[50,85],[60,78],[70,70],[80,60],[90,55],[100,50]]},{name:"orange",hueRange:[19,46],lowerBounds:[[20,100],[30,93],[40,88],[50,86],[60,85],[70,70],[100,70]]},{name:"yellow",hueRange:[47,62],lowerBounds:[[25,100],[40,94],[50,89],[60,86],[70,84],[80,82],[90,80],[100,75]]},{name:"green",hueRange:[63,178],lowerBounds:[[30,100],[40,90],[50,85],[60,81],[70,74],[80,64],[90,50],[100,40]]},{name:"blue",hueRange:[179,257],lowerBounds:[[20,100],[30,86],[40,80],[50,74],[60,60],[70,52],[80,44],[90,39],[100,35]]},{name:"purple",hueRange:[258,282],lowerBounds:[[20,100],[30,87],[40,79],[50,70],[60,65],[70,59],[80,52],[90,45],[100,42]]},{name:"pink",hueRange:[283,334],lowerBounds:[[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73]]}]},5944:function(s,a,c){c.r(a),c.d(a,{customToken:function(){return f},themeList:function(){return m}});var u=c(87142),f={token:{borderRadius:16,wireframe:!1,padding:24,paddingSM:16,paddingXS:12,fontSize:16,fontSizeLG:18,fontSizeHeading4:24,fontSizeHeading5:20,fontSizeHeading2:36,fontSizeXL:24,colorPrimary:"#8442ff",colorInfo:"#8442ff",paddingContentHorizontal:20,paddingContentHorizontalSM:16,paddingContentHorizontalLG:24},components:{Button:{controlHeight:44,marginXS:8,fontSizeLG:18,controlHeightLG:52,controlHeightSM:36,paddingXS:16},List:{paddingLG:24,marginLG:24,marginXXL:48,paddingContentHorizontalLG:24,fontSizeLG:20,padding:16,paddingContentVertical:24,paddingXS:8,paddingSM:12},Modal:{controlHeightLG:44,fontSizeHeading5:20,fontSizeLG:18,marginSM:12,margin:16,marginLG:24,marginXS:8,padding:16,paddingContentHorizontalLG:24,paddingLG:24,paddingMD:20,paddingXS:12}}},m=[{color:"#1677FF",value:"default",name:"Default",token:{token:{}}},{color:"#000",value:"dark",name:"Dark",token:{token:{borderRadius:2,colorPrimary:"#000",colorPrimaryTextHover:"rgba(255, 255, 255, 0.8)",colorLink:"rgba(255, 255, 255, 0.75)",colorText:"rgba(255, 255, 255, 0.75)"},components:{Button:{defaultHoverColor:"rgba(255, 255, 255, 0.8)",defaultHoverBorderColor:"rgba(255, 255, 255, 0.8)"}},algorithm:u.Z.darkAlgorithm}},{value:"green",name:"Forest green",color:"#00B96B",token:{token:{colorPrimary:"#00B96B",borderRadius:4,colorLink:"#00B96B"}}},{value:"pink",name:"Blossom",color:"#ED4192",token:{token:{colorPrimary:"#ED4192",borderRadius:16,colorLink:"#ED4192"}}},{color:"#8343FF",value:"violet",name:"Violet",token:f}]},26093:function(s,a,c){c.r(a),a.default={connectorContainer:"kfwGrlVcCE4MvdumjdId",configContainer:"_Gx0iI33mzcTuHlSgUWf",groupTitle:"zIFtGimZzYYTq_Sn9MCQ",themeLabel:"oDD26f5G4roGf2phJfvL"}},76034:function(s,a){a.Z=`import React, { useEffect } from 'react';
+import { Address, ConnectButton, Connector, NFTCard, useAccount } from '@ant-design/web3';
 import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { Button, message } from 'antd';
 import { parseEther } from 'viem';
-import { createConfig, http, useReadContract, useWriteContract } from 'wagmi';
+import {
+  createConfig,
+  http,
+  useReadContract,
+  useWaitForTransactionReceipt,
+  useWriteContract,
+} from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { injected } from 'wagmi/connectors';
 
@@ -18,6 +25,8 @@ const config = createConfig({
   ],
 });
 
+const CONTRACT_ADDRESS = '0xEcd0D12E21805803f70de03B72B1C162dB0898d9';
+
 const CallTest = () => {
   const { account } = useAccount();
   const result = useReadContract({
@@ -30,17 +39,27 @@ const CallTest = () => {
         outputs: [{ type: 'uint256' }],
       },
     ],
-    // Goerli test contract 0x418325c3979b7f8a17678ec2463a74355bdbe72c
-    address: '0xEcd0D12E21805803f70de03B72B1C162dB0898d9',
+    address: CONTRACT_ADDRESS,
     functionName: 'balanceOf',
     args: [account?.address as \`0x\${string}\`],
   });
-  const { writeContract } = useWriteContract();
+  const { writeContract, data: hash } = useWriteContract();
+  const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({
+    hash,
+  });
+
+  useEffect(() => {
+    if (isConfirmed) {
+      message.success('Mint Success');
+      result.refetch();
+    }
+  }, [isConfirmed]);
 
   return (
     <div>
       {result.data?.toString()}
       <Button
+        loading={isConfirming}
         onClick={() => {
           writeContract(
             {
@@ -59,15 +78,12 @@ const CallTest = () => {
                   outputs: [],
                 },
               ],
-              address: '0xEcd0D12E21805803f70de03B72B1C162dB0898d9',
+              address: CONTRACT_ADDRESS,
               functionName: 'mint',
               args: [BigInt(1)],
               value: parseEther('0.01'),
             },
             {
-              onSuccess: () => {
-                message.success('Mint Success');
-              },
               onError: (err) => {
                 message.error(err.message);
               },
@@ -122,19 +138,26 @@ export default function Web3() {
     </WagmiWeb3ConfigProvider>
   );
 }
-`},69888:function(s,a){a.Z=`import { Address, ConnectButton, Connector, NFTCard, useAccount } from '@ant-design/web3';
-import { Goerli, MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+`},69888:function(s,a){a.Z=`import React, { useEffect } from 'react';
+import { Address, ConnectButton, Connector, NFTCard, useAccount } from '@ant-design/web3';
+import { MetaMask, Sepolia, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { Button, message } from 'antd';
 import { parseEther } from 'viem';
-import { createConfig, http, useReadContract, useWriteContract } from 'wagmi';
-import { goerli, mainnet } from 'wagmi/chains';
+import {
+  createConfig,
+  http,
+  useReadContract,
+  useWaitForTransactionReceipt,
+  useWriteContract,
+} from 'wagmi';
+import { mainnet, sepolia } from 'wagmi/chains';
 import { injected } from 'wagmi/connectors';
 
 const config = createConfig({
-  chains: [mainnet, goerli],
+  chains: [mainnet, sepolia],
   transports: {
     [mainnet.id]: http(),
-    [goerli.id]: http(),
+    [sepolia.id]: http(),
   },
   connectors: [
     injected({
@@ -142,6 +165,9 @@ const config = createConfig({
     }),
   ],
 });
+
+// Sepolia test contract 0x81BaD6F768947D7741c83d9EB9007e1569115703
+const CONTRACT_ADDRESS = '0x81BaD6F768947D7741c83d9EB9007e1569115703';
 
 const CallTest = () => {
   const { account } = useAccount();
@@ -155,17 +181,27 @@ const CallTest = () => {
         outputs: [{ type: 'uint256' }],
       },
     ],
-    // Goerli test contract 0x418325c3979b7f8a17678ec2463a74355bdbe72c
-    address: '0xEcd0D12E21805803f70de03B72B1C162dB0898d9',
+    address: CONTRACT_ADDRESS,
     functionName: 'balanceOf',
     args: [account?.address as \`0x\${string}\`],
   });
-  const { writeContract } = useWriteContract();
+  const { writeContract, data: hash } = useWriteContract();
+  const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({
+    hash,
+  });
+
+  useEffect(() => {
+    if (isConfirmed) {
+      message.success('Mint Success');
+      result.refetch();
+    }
+  }, [isConfirmed]);
 
   return (
     <div>
       {result.data?.toString()}
       <Button
+        loading={isConfirming}
         onClick={() => {
           writeContract(
             {
@@ -184,15 +220,12 @@ const CallTest = () => {
                   outputs: [],
                 },
               ],
-              address: '0xEcd0D12E21805803f70de03B72B1C162dB0898d9',
+              address: CONTRACT_ADDRESS,
               functionName: 'mint',
               args: [BigInt(1)],
               value: parseEther('0.01'),
             },
             {
-              onSuccess: () => {
-                message.success('Mint Success');
-              },
               onError: (err) => {
                 message.error(err.message);
               },
@@ -208,7 +241,7 @@ const CallTest = () => {
 
 export default function Web3() {
   return (
-    <WagmiWeb3ConfigProvider config={config} chains={[Goerli]} wallets={[MetaMask()]}>
+    <WagmiWeb3ConfigProvider config={config} chains={[Sepolia]} wallets={[MetaMask()]}>
       <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
       <NFTCard address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" tokenId={641} />
       <Connector>
