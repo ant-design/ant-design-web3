@@ -4,7 +4,8 @@ import { useProvider } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import type { Connector } from 'wagmi';
+import type { Connector, Config as WagmiConfig } from 'wagmi';
+import type * as Wagmi from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 
 import { TokenPocket } from '../../wallets';
@@ -32,12 +33,13 @@ vi.mock('wagmi/actions', () => ({
   },
 }));
 
-vi.mock('wagmi', () => {
+vi.mock('wagmi', async (importOriginal) => {
+  const actual = await importOriginal<typeof Wagmi>();
   return {
+    ...actual,
     useConfig: () => {
       return {};
     },
-    // https://wagmi.sh/react/hooks/useAccount
     useAccount: () => {
       const [connected, setConnected] = React.useState(false);
       useEffect(() => {
@@ -58,7 +60,7 @@ vi.mock('wagmi', () => {
         connectAsync: (options: any) => {
           connectAsync(options);
           event.emit('connectChanged', true);
-          return {};
+          return { accounts: ['0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B'] };
         },
       };
     },
@@ -76,10 +78,10 @@ vi.mock('wagmi', () => {
       };
     },
     useBalance: () => {
-      return {};
+      return { data: {} };
     },
-    useEnsName: () => ({}),
-    useEnsAvatar: () => ({}),
+    useEnsName: () => ({ data: null }),
+    useEnsAvatar: () => ({ data: null }),
   };
 });
 
@@ -105,12 +107,23 @@ describe('WagmiWeb3ConfigProvider connect with UniversalWallet', () => {
       );
     };
 
+    const { createConfig, http } = await import('wagmi');
+
+    const mockWagmiConfig: WagmiConfig = {
+      ...createConfig({
+        chains: [mainnet],
+        transports: {
+          [mainnet.id]: http(),
+        },
+      }),
+      connectors: [walletConnetor, injectConnector],
+    };
+
     const App = () => (
       <AntDesignWeb3ConfigProvider
-        availableChains={[mainnet]}
-        availableConnectors={[injectConnector, walletConnetor]}
-        walletFactorys={[TokenPocket()]}
         chainAssets={[Mainnet]}
+        walletFactorys={[TokenPocket()]}
+        wagimConfig={mockWagmiConfig}
       >
         <CustomConnector />
       </AntDesignWeb3ConfigProvider>
@@ -119,10 +132,12 @@ describe('WagmiWeb3ConfigProvider connect with UniversalWallet', () => {
     expect(baseElement.querySelector('.custom-text')?.textContent).toBe('Connect');
     fireEvent.click(baseElement.querySelector('.custom-text')!);
     await vi.waitFor(() => {
-      expect(connectAsync).toBeCalledWith({
-        chainId: 1,
-        connector: walletConnetor,
-      });
+      expect(connectAsync).toBeCalledWith(
+        expect.objectContaining({
+          chainId: 1,
+          connector: walletConnetor,
+        }),
+      );
 
       expect(baseElement.querySelector('.custom-text')?.textContent).toBe(
         '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
@@ -161,12 +176,23 @@ describe('WagmiWeb3ConfigProvider connect with UniversalWallet', () => {
       );
     };
 
+    const { createConfig, http } = await import('wagmi');
+
+    const mockWagmiConfig: WagmiConfig = {
+      ...createConfig({
+        chains: [mainnet],
+        transports: {
+          [mainnet.id]: http(),
+        },
+      }),
+      connectors: [walletConnetor, injectConnector],
+    };
+
     const App = () => (
       <AntDesignWeb3ConfigProvider
-        availableChains={[mainnet]}
-        availableConnectors={[injectConnector, walletConnetor]}
-        walletFactorys={[TokenPocket()]}
         chainAssets={[Mainnet]}
+        walletFactorys={[TokenPocket()]}
+        wagimConfig={mockWagmiConfig}
       >
         <CustomConnector />
       </AntDesignWeb3ConfigProvider>
@@ -175,10 +201,12 @@ describe('WagmiWeb3ConfigProvider connect with UniversalWallet', () => {
     expect(baseElement.querySelector('.custom-text')?.textContent).toBe('Connect');
     fireEvent.click(baseElement.querySelector('.custom-text')!);
     await vi.waitFor(() => {
-      expect(connectAsync).toBeCalledWith({
-        chainId: 1,
-        connector: injectConnector,
-      });
+      expect(connectAsync).toBeCalledWith(
+        expect.objectContaining({
+          chainId: 1,
+          connector: injectConnector,
+        }),
+      );
 
       expect(baseElement.querySelector('.custom-text')?.textContent).toBe(
         '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
