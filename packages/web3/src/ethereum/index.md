@@ -88,6 +88,8 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 | balance | Whether to display balance | `boolean` | - | - |
 | locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/en_US.ts) | - | - |
 | eip6963 | Whether to use EIP6963 protocol wallet and related configurations | `boolean` \| `EIP6963Config` | `false` |  |
+| initialState | Initial state to hydrate into the [Wagmi Config](https://wagmi.sh/react/api/createConfig). Useful for SSR. | [State](https://wagmi.sh/react/api/createConfig#state-1) \| `undefined` | - | - |
+| reconnectOnMount | Whether or not to reconnect previously connected [connectors](https://wagmi.sh/react/api/createConfig#connectors) on mount. | `boolean` \| `undefined` | `true` | - |
 
 ### WalletFactory
 
