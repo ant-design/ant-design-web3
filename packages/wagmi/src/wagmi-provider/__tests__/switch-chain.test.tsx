@@ -92,7 +92,7 @@ describe('switch chain when connect', () => {
 
     const App = () => (
       <AntDesignWeb3ConfigProvider
-        walletFactorys={[MetaMask()]}
+        walletFactories={[MetaMask()]}
         chainAssets={[Mainnet, Polygon]}
         wagimConfig={config}
       >

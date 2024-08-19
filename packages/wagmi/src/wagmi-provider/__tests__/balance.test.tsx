@@ -76,7 +76,7 @@ describe('WagmiWeb3ConfigProvider balance', () => {
     const App = () => (
       <AntDesignWeb3ConfigProvider
         balance
-        walletFactorys={[MetaMask()]}
+        walletFactories={[MetaMask()]}
         chainAssets={[Mainnet]}
         wagimConfig={config}
       >
@@ -105,7 +105,7 @@ describe('WagmiWeb3ConfigProvider balance', () => {
 
     const App = () => (
       <AntDesignWeb3ConfigProvider
-        walletFactorys={[MetaMask()]}
+        walletFactories={[MetaMask()]}
         chainAssets={[Mainnet]}
         wagimConfig={config}
       >
