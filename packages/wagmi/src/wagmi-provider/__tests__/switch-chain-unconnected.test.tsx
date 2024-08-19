@@ -2,6 +2,7 @@ import { ConnectButton, Connector } from '@ant-design/web3';
 import { Mainnet, Polygon } from '@ant-design/web3-assets';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+import type * as Wagmi from 'wagmi';
 import { mainnet, polygon } from 'wagmi/chains';
 
 import { MetaMask } from '../../wallets';
@@ -16,8 +17,10 @@ vi.mock('wagmi/actions', () => ({
   disconnect: () => {},
 }));
 
-vi.mock('wagmi', () => {
+vi.mock('wagmi', async (importOriginal) => {
+  const actual = await importOriginal<typeof Wagmi>();
   return {
+    ...actual,
     useConfig: () => {
       return {};
     },
@@ -59,13 +62,23 @@ vi.mock('wagmi', () => {
 });
 
 describe('switch chain when not connected', () => {
-  it('switch chain when not connected', () => {
+  it('switch chain when not connected', async () => {
+    const { createConfig, http } = await import('wagmi');
+
+    const config = createConfig({
+      chains: [mainnet, polygon],
+      transports: {
+        [mainnet.id]: http(),
+        [polygon.id]: http(),
+      },
+      connectors: [],
+    });
+
     const App = () => (
       <AntDesignWeb3ConfigProvider
-        availableConnectors={[]}
-        availableChains={[mainnet, polygon]}
         walletFactorys={[MetaMask()]}
         chainAssets={[Mainnet, Polygon]}
+        wagimConfig={config}
       >
         <Connector>
           <ConnectButton />

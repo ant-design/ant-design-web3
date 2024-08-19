@@ -2,6 +2,7 @@ import { ConnectButton, Connector } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
 import { render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+import type * as Wagmi from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 
 import { MetaMask } from '../../wallets';
@@ -16,8 +17,10 @@ vi.mock('wagmi/actions', () => ({
   disconnect: () => {},
 }));
 
-vi.mock('wagmi', () => {
+vi.mock('wagmi', async (importOriginal) => {
+  const actual = await importOriginal<typeof Wagmi>();
   return {
+    ...actual,
     useConfig: () => {
       return {};
     },
@@ -59,14 +62,23 @@ vi.mock('wagmi', () => {
 });
 
 describe('WagmiWeb3ConfigProvider balance', () => {
-  it('show balance', () => {
+  it('show balance', async () => {
+    const { createConfig, http } = await import('wagmi');
+
+    const config = createConfig({
+      chains: [mainnet],
+      transports: {
+        [mainnet.id]: http(),
+      },
+      connectors: [],
+    });
+
     const App = () => (
       <AntDesignWeb3ConfigProvider
-        availableConnectors={[]}
         balance
-        availableChains={[mainnet]}
         walletFactorys={[MetaMask()]}
         chainAssets={[Mainnet]}
+        wagimConfig={config}
       >
         <Connector>
           <ConnectButton />
@@ -80,13 +92,22 @@ describe('WagmiWeb3ConfigProvider balance', () => {
     expect(baseElement.querySelector('.ant-web3-icon-ethereum-filled')).toBeTruthy();
   });
 
-  it('show address', () => {
+  it('show address', async () => {
+    const { createConfig, http } = await import('wagmi');
+
+    const config = createConfig({
+      chains: [mainnet],
+      transports: {
+        [mainnet.id]: http(),
+      },
+      connectors: [],
+    });
+
     const App = () => (
       <AntDesignWeb3ConfigProvider
-        availableConnectors={[]}
-        availableChains={[mainnet]}
         walletFactorys={[MetaMask()]}
         chainAssets={[Mainnet]}
+        wagimConfig={config}
       >
         <Connector>
           <ConnectButton />
