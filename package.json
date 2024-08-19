@@ -51,7 +51,7 @@
     "*.{json,less,md}": "prettier --ignore-unknown --write"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.6.4",
+    "@biomejs/biome": "^1.8.3",
     "@changesets/changelog-git": "^0.2.0",
     "@changesets/cli": "^2.27.7",
     "@ctrl/tinycolor": "^4.1.0",
