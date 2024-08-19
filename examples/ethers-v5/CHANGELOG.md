@@ -1,5 +1,12 @@
 # @example/ethers-v5
 
+## 0.0.9
+
+### Patch Changes
+
+- @ant-design/web3-ethers-v5@1.0.7
+- @ant-design/web3@1.16.1
+
 ## 0.0.8
 
 ### Patch Changes
