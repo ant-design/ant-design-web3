@@ -2,6 +2,7 @@ import { NFTCard } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
 import { render, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+import type * as Wagmi from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 
 import { MetaMask } from '../../wallets';
@@ -15,8 +16,10 @@ vi.mock('wagmi/actions', () => ({
   disconnect: () => {},
 }));
 
-vi.mock('wagmi', () => {
+vi.mock('wagmi', async (importOriginal) => {
+  const actual = await importOriginal<typeof Wagmi>();
   return {
+    ...actual,
     useConfig: () => {
       return {};
     },
@@ -68,12 +71,21 @@ describe('WagmiWeb3ConfigProvider getMetadata', () => {
       } as any);
     });
 
+    const { createConfig, http } = await import('wagmi');
+
+    const config = createConfig({
+      chains: [mainnet],
+      transports: {
+        [mainnet.id]: http(),
+      },
+      connectors: [],
+    });
+
     const App = () => (
       <AntDesignWeb3ConfigProvider
-        availableChains={[mainnet]}
-        availableConnectors={[]}
         walletFactorys={[MetaMask()]}
         chainAssets={[Mainnet]}
+        wagimConfig={config}
       >
         <NFTCard tokenId={213} address="0x1234" />
       </AntDesignWeb3ConfigProvider>

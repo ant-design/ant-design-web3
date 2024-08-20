@@ -6,7 +6,7 @@ import {
   type Locale,
   type Wallet,
 } from '@ant-design/web3-common';
-import type { Chain as WagmiChain } from 'viem';
+import type { Config as WagmiConfig } from 'wagmi';
 import {
   useAccount,
   useBalance,
@@ -32,8 +32,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   ens?: boolean;
   balance?: boolean;
   eip6963?: EIP6963Config;
-  readonly availableChains: readonly WagmiChain[];
-  readonly availableConnectors: readonly WagmiConnector[];
+  wagimConfig: WagmiConfig;
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
@@ -41,12 +40,11 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     children,
     chainAssets,
     walletFactorys,
-    availableChains,
-    availableConnectors,
     ens = true,
     balance,
     locale,
     eip6963,
+    wagimConfig,
   } = props;
   const { address, isDisconnected, chain } = useAccount();
   const config = useConfig();
@@ -65,13 +63,13 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       : undefined;
 
   const findConnectorByName = (name: string): WagmiConnector | undefined => {
-    const commonConnector = availableConnectors.find(
+    const commonConnector = wagimConfig.connectors.find(
       (item) => item.name === name && !isEIP6963Connector(item),
     );
     if (!eip6963) {
       return commonConnector;
     }
-    const eip6963Connector = availableConnectors.find(
+    const eip6963Connector = wagimConfig.connectors.find(
       (item) => item.name === name && isEIP6963Connector(item),
     );
     return eip6963Connector || commonConnector;
@@ -79,8 +77,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
 
   const wallets: Wallet[] = React.useMemo(() => {
     const autoAddEIP6963Wallets: Wallet[] = [];
-
-    availableConnectors.forEach((connector) => {
+    wagimConfig.connectors.forEach((connector) => {
       if (isEIP6963Connector(connector)) {
         // check is need auto add eip6963 wallet
         if (
@@ -128,10 +125,10 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       .filter((item) => item !== null) as Wallet[];
 
     return [...supportWallets, ...autoAddEIP6963Wallets];
-  }, [availableConnectors, walletFactorys, eip6963]);
+  }, [wagimConfig.connectors, walletFactorys, eip6963]);
 
   const chainList: Chain[] = React.useMemo(() => {
-    return availableChains
+    return wagimConfig.chains
       .map((item) => {
         const c = chainAssets?.find((asset) => {
           return asset.id === item.id;
@@ -149,10 +146,10 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         return null;
       })
       .filter((item) => item !== null) as Chain[];
-  }, [availableChains, chainAssets]);
+  }, [wagimConfig.chains, chainAssets]);
 
-  const chainId = chain?.id || availableChains?.[0]?.id;
-  const chainName = chain?.name || availableChains?.[0]?.name;
+  const chainId = chain?.id || wagimConfig.chains?.[0]?.id;
+  const chainName = chain?.name || wagimConfig.chains?.[0]?.name;
   const [currentChain, setCurrentChain] = React.useState<Chain | undefined>(undefined);
 
   React.useEffect(() => {
@@ -164,7 +161,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       }
       return newChain || prevChain;
     });
-  }, [chainAssets, availableChains, chainId, chainName]);
+  }, [chainAssets, wagimConfig.chains, chainId, chainName]);
 
   const currency = currentChain?.nativeCurrency;
 

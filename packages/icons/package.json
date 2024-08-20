@@ -43,7 +43,7 @@
   "devDependencies": {
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "antd": "^5.19.3",
+    "antd": "^5.20.1",
     "father": "^4.4.4",
     "glob": "^11.0.0",
     "react": "18.3.1",

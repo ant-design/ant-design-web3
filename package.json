@@ -51,7 +51,7 @@
     "*.{json,less,md}": "prettier --ignore-unknown --write"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.6.4",
+    "@biomejs/biome": "^1.8.3",
     "@changesets/changelog-git": "^0.2.0",
     "@changesets/cli": "^2.27.7",
     "@ctrl/tinycolor": "^4.1.0",
@@ -106,12 +106,12 @@
     "@solana/wallet-adapter-coinbase": "^0.1.19",
     "@solana/wallet-adapter-trust": "^0.1.13",
     "@tanstack/react-query": "^5.51.11",
-    "antd": "^5.19.3",
+    "antd": "^5.20.1",
     "antd-style": "^3.6.2",
     "antd-token-previewer-web3": "^2.0.8",
     "cross-env": "^7.0.3",
     "decimal.js": "^10.4.3",
-    "dumi": "^2.4.5",
+    "dumi": "^2.4.7",
     "dumi-theme-antd-web3": "0.4.3",
     "ethers": "^6.13.2",
     "github-contributors-lists": "^1.0.3",
