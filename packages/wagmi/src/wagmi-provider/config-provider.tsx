@@ -26,7 +26,7 @@ import { getNFTMetadata } from './methods';
 
 export interface AntDesignWeb3ConfigProviderProps {
   chainAssets: Chain[];
-  walletFactorys: WalletFactory[];
+  walletFactories: WalletFactory[];
   locale?: Locale;
   children?: React.ReactNode;
   ens?: boolean;
@@ -39,7 +39,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   const {
     children,
     chainAssets,
-    walletFactorys,
+    walletFactories,
     ens = true,
     balance,
     locale,
@@ -83,7 +83,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         if (
           typeof eip6963 === 'object' &&
           eip6963?.autoAddInjectedWallets &&
-          !walletFactorys.find((item) => item.connectors.includes(connector.name))
+          !walletFactories.find((item) => item.connectors.includes(connector.name))
         ) {
           // not config wallet and find the wallet in connectors, auto add it
           autoAddEIP6963Wallets.push(EIP6963Wallet().create([connector]));
@@ -92,7 +92,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         return;
       }
 
-      const walletFactory = walletFactorys.find((factory) =>
+      const walletFactory = walletFactories.find((factory) =>
         factory.connectors.includes(connector.name),
       );
 
@@ -105,7 +105,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     });
 
     // Generate Wallet for @ant-design/web3
-    const supportWallets = walletFactorys
+    const supportWallets = walletFactories
       .map((factory) => {
         const connectors = factory.connectors
           .map(findConnectorByName)
@@ -125,7 +125,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       .filter((item) => item !== null) as Wallet[];
 
     return [...supportWallets, ...autoAddEIP6963Wallets];
-  }, [wagimConfig.connectors, walletFactorys, eip6963]);
+  }, [wagimConfig.connectors, walletFactories, eip6963]);
 
   const chainList: Chain[] = React.useMemo(() => {
     return wagimConfig.chains
