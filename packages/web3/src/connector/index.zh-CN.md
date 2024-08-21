@@ -14,7 +14,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*PfFaQbs3w98AAA
 
 另外，`Connector` 通常会配合[适配器](../../guide/adapter)使用，适配器可以帮助你快速和区块链交互，使用适配器的情况下你基本不需要配置 `Connector` 的属性。
 
-> 注：**本文档中的示例仅仅是纯 UI 的示例**，在 Ant Design Web3 中。UI 模块和连接模块是分离的。要像真正的连接钱包，请参考[以太坊适配器](../ethereum/index.zh-CN.md)的文档，或阅读[适配器文档](../../../../docs/guide/adapter.zh-CN.md)了解更多。
+> 注：**本文档中的示例仅仅是纯 UI 的示例**，在 Ant Design Web3 中。UI 模块和连接模块是分离的。要想真正的连接钱包，请参考[以太坊适配器](../ethereum/index.zh-CN.md)的文档，或阅读[适配器文档](../../../../docs/guide/adapter.zh-CN.md)了解更多。
 
 ## 基本使用
 

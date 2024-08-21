@@ -2,7 +2,9 @@ import { useProvider } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
 import { render, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+import type * as Wagmi from 'wagmi';
 import { mainnet } from 'wagmi/chains';
+import type { Chain as WagmiChain } from 'wagmi/chains';
 
 import { MetaMask } from '../../wallets';
 import { AntDesignWeb3ConfigProvider } from '../config-provider';
@@ -14,8 +16,10 @@ vi.mock('wagmi/actions', () => {
   };
 });
 
-vi.mock('wagmi', () => {
+vi.mock('wagmi', async (importOriginal) => {
+  const actual = await importOriginal<typeof Wagmi>();
   return {
+    ...actual,
     useConfig: () => {
       return {};
     },
@@ -72,14 +76,22 @@ describe('WagmiWeb3ConfigProvider ens', () => {
         </div>
       );
     };
+    const { createConfig, http } = await import('wagmi');
+
+    const config = createConfig({
+      chains: [mainnet],
+      transports: {
+        [mainnet.id]: http(),
+      },
+      connectors: [],
+    });
 
     const App = () => (
       <AntDesignWeb3ConfigProvider
         ens
-        availableChains={[mainnet]}
-        availableConnectors={[]}
-        walletFactorys={[MetaMask()]}
+        walletFactories={[MetaMask()]}
         chainAssets={[Mainnet]}
+        wagimConfig={config}
       >
         <CustomConnector />
       </AntDesignWeb3ConfigProvider>
@@ -101,13 +113,22 @@ describe('WagmiWeb3ConfigProvider ens', () => {
       );
     };
 
+    const { createConfig, http } = await import('wagmi');
+
+    const config = createConfig({
+      chains: [mainnet],
+      transports: {
+        [mainnet.id]: http(),
+      },
+      connectors: [],
+    });
+
     const App = () => (
       <AntDesignWeb3ConfigProvider
         ens
-        availableChains={[mainnet]}
-        availableConnectors={[]}
-        walletFactorys={[MetaMask()]}
+        walletFactories={[MetaMask()]}
         chainAssets={[Mainnet]}
+        wagimConfig={config}
       >
         <CustomConnector />
       </AntDesignWeb3ConfigProvider>

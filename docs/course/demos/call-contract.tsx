@@ -1,8 +1,15 @@
+import React, { useEffect } from 'react';
 import { Address, ConnectButton, Connector, NFTCard, useAccount } from '@ant-design/web3';
 import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { Button, message } from 'antd';
 import { parseEther } from 'viem';
-import { createConfig, http, useReadContract, useWriteContract } from 'wagmi';
+import {
+  createConfig,
+  http,
+  useReadContract,
+  useWaitForTransactionReceipt,
+  useWriteContract,
+} from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { injected } from 'wagmi/connectors';
 
@@ -18,6 +25,8 @@ const config = createConfig({
   ],
 });
 
+const CONTRACT_ADDRESS = '0xEcd0D12E21805803f70de03B72B1C162dB0898d9';
+
 const CallTest = () => {
   const { account } = useAccount();
   const result = useReadContract({
@@ -30,17 +39,27 @@ const CallTest = () => {
         outputs: [{ type: 'uint256' }],
       },
     ],
-    // Goerli test contract 0x418325c3979b7f8a17678ec2463a74355bdbe72c
-    address: '0xEcd0D12E21805803f70de03B72B1C162dB0898d9',
+    address: CONTRACT_ADDRESS,
     functionName: 'balanceOf',
     args: [account?.address as `0x${string}`],
   });
-  const { writeContract } = useWriteContract();
+  const { writeContract, data: hash } = useWriteContract();
+  const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({
+    hash,
+  });
+
+  useEffect(() => {
+    if (isConfirmed) {
+      message.success('Mint Success');
+      result.refetch();
+    }
+  }, [isConfirmed]);
 
   return (
     <div>
       {result.data?.toString()}
       <Button
+        loading={isConfirming}
         onClick={() => {
           writeContract(
             {
@@ -59,15 +78,12 @@ const CallTest = () => {
                   outputs: [],
                 },
               ],
-              address: '0xEcd0D12E21805803f70de03B72B1C162dB0898d9',
+              address: CONTRACT_ADDRESS,
               functionName: 'mint',
               args: [BigInt(1)],
               value: parseEther('0.01'),
             },
             {
-              onSuccess: () => {
-                message.success('Mint Success');
-              },
               onError: (err) => {
                 message.error(err.message);
               },

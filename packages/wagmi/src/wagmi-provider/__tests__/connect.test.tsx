@@ -4,7 +4,8 @@ import { useProvider } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import type { Connector } from 'wagmi';
+import type { Connector, Config as WagmiConfig } from 'wagmi';
+import type * as Wagmi from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 
 import { MetaMask } from '../../wallets';
@@ -27,8 +28,10 @@ vi.mock('wagmi/actions', () => ({
   },
 }));
 
-vi.mock('wagmi', () => {
+vi.mock('wagmi', async (importOriginal) => {
+  const actual = await importOriginal<typeof Wagmi>();
   return {
+    ...actual,
     useConfig: () => {
       return {};
     },
@@ -107,12 +110,23 @@ describe('WagmiWeb3ConfigProvider connect', () => {
       );
     };
 
+    const { createConfig, http } = await import('wagmi');
+
+    const mockWagmiConfig: WagmiConfig = {
+      ...createConfig({
+        chains: [mainnet],
+        transports: {
+          [mainnet.id]: http(),
+        },
+      }),
+      connectors: [mockConnector],
+    };
+
     const App = () => (
       <AntDesignWeb3ConfigProvider
-        availableChains={[mainnet]}
-        availableConnectors={[mockConnector]}
-        walletFactorys={[MetaMask()]}
+        walletFactories={[MetaMask()]}
         chainAssets={[Mainnet]}
+        wagimConfig={mockWagmiConfig}
       >
         <CustomConnector />
       </AntDesignWeb3ConfigProvider>
@@ -166,12 +180,23 @@ describe('WagmiWeb3ConfigProvider connect', () => {
       );
     };
 
+    const { createConfig, http } = await import('wagmi');
+
+    const mockWagmiConfig: WagmiConfig = {
+      ...createConfig({
+        chains: [mainnet],
+        transports: {
+          [mainnet.id]: http(),
+        },
+      }),
+      connectors: [mockConnector],
+    };
+
     const App = () => (
       <AntDesignWeb3ConfigProvider
-        availableChains={[mainnet]}
-        availableConnectors={[mockConnector]}
-        walletFactorys={[MetaMask()]}
+        walletFactories={[MetaMask()]}
         chainAssets={[Mainnet]}
+        wagimConfig={mockWagmiConfig}
       >
         <CustomConnector />
       </AntDesignWeb3ConfigProvider>

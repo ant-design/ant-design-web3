@@ -19,11 +19,11 @@ In addition to the address, we also need to switch to the testnet. The specific 
 ```diff
 import { createConfig, http, useReadContract, useWriteContract } from "wagmi";
 - import { mainnet } from "wagmi/chains";
-+ import { mainnet, goerli } from "wagmi/chains";
++ import { mainnet, sepolia } from "wagmi/chains";
 import {
   WagmiWeb3ConfigProvider,
   MetaMask,
-+  Goerli,
++  Sepolia,
 } from "@ant-design/web3-wagmi";
 import {
   Address,
@@ -38,10 +38,10 @@ import { parseEther } from "viem";
 
 const config = createConfig({
 -  chains: [mainnet],
-+  chains: [mainnet, goerli],
++  chains: [mainnet, sepolia],
   transports: {
      [mainnet.id]: http(),
-+    [goerli.id]: http(),
++    [sepolia.id]: http(),
   },
   connectors: [
     injected({
@@ -49,6 +49,9 @@ const config = createConfig({
     }),
   ],
 });
+
+- const CONTRACT_ADDRESS = "0xEcd0D12E21805803f70de03B72B1C162dB0898d9";
++ const CONTRACT_ADDRESS = "0x81BaD6F768947D7741c83d9EB9007e1569115703"; // use your own contract address
 
 const CallTest = () => {
   const { account } = useAccount();
@@ -62,17 +65,28 @@ const CallTest = () => {
         outputs: [{ type: "uint256" }],
       },
     ],
--    address: "0xEcd0D12E21805803f70de03B72B1C162dB0898d9",
-+    address: "0x418325c3979b7f8a17678ec2463a74355bdbe72c", // use your own contract address
+    address: CONTRACT_ADDRESS,
     functionName: "balanceOf",
     args: [account?.address as `0x${string}`],
   });
-  const { writeContract } = useWriteContract();
+  const { data: hash, writeContract } = useWriteContract();
+  const { isLoading: isConfirming, isSuccess: isConfirmed } =
+    useWaitForTransactionReceipt({
+      hash,
+    });
+
+  useEffect(() => {
+    if (isConfirmed) {
+      message.success("Mint Success");
+      result.refetch();
+    }
+  }, [isConfirmed]);
 
   return (
     <div>
       {result.data?.toString()}
       <Button
+        loading={isConfirming}
         onClick={() => {
           writeContract(
             {
@@ -91,16 +105,12 @@ const CallTest = () => {
                   outputs: [],
                 },
               ],
--             address: "0xEcd0D12E21805803f70de03B72B1C162dB0898d9",
-+             address: "0x418325c3979b7f8a17678ec2463a74355bdbe72c", // use your own contract address
+              address: CONTRACT_ADDRESS,
               functionName: "mint",
-              args: [1],
+              args: [BigInt(1)],
               value: parseEther("0.01"),
             },
             {
-              onSuccess: () => {
-                message.success("Mint Success");
-              },
               onError: (err) => {
                 message.error(err.message);
               },
@@ -118,7 +128,7 @@ export default function Web3() {
   return (
     <WagmiWeb3ConfigProvider
       config={config}
-+      chains={[Goerli]}
++      chains={[Sepolia]}
       wallets={[MetaMask()]}
     >
       <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
@@ -140,7 +150,7 @@ Switch to the Goerli testnet in the DApp page, and if you click the `mint` butto
 
 ![](./img/mint-test-net.png)
 
-After the transaction is completed, refresh the page, and you will find that the previous `balanceOf` result has become `1`, which means that you have successfully minted an NFT. Of course, a truly good DApp will add events to the smart contract, listen to contract events on the front end, and then automatically update the results. But we will not introduce the event part in this introductory course.
+After the transaction is online, and you will find that the previous `balanceOf` result has become `1`, which means that you have successfully minted an NFT. Of course, a truly good DApp will add events to the smart contract, listen to contract events on the front end, and then automatically update the results. But we will not introduce the event part in this introductory course.
 
 ## Complete example
 
