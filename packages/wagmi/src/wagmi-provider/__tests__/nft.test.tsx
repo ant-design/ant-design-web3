@@ -83,7 +83,7 @@ describe('WagmiWeb3ConfigProvider getMetadata', () => {
 
     const App = () => (
       <AntDesignWeb3ConfigProvider
-        walletFactorys={[MetaMask()]}
+        walletFactories={[MetaMask()]}
         chainAssets={[Mainnet]}
         wagimConfig={config}
       >

@@ -76,7 +76,7 @@ describe('switch chain when not connected', () => {
 
     const App = () => (
       <AntDesignWeb3ConfigProvider
-        walletFactorys={[MetaMask()]}
+        walletFactories={[MetaMask()]}
         chainAssets={[Mainnet, Polygon]}
         wagimConfig={config}
       >
