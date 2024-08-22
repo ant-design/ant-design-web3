@@ -11,7 +11,7 @@ const mockTokens = [ETH, USDT];
 
 describe('CryptoInput component', () => {
   it('should render the component with placeholder text', () => {
-    const { baseElement } = render(<CryptoInput tokenList={mockTokens} />);
+    const { baseElement } = render(<CryptoInput options={mockTokens} />);
 
     expect(baseElement.querySelector('.ant-input-number-input')?.getAttribute('placeholder')).toBe(
       'Please enter amount',
@@ -20,7 +20,7 @@ describe('CryptoInput component', () => {
 
   it('should display correct header', () => {
     // no header
-    const { baseElement, rerender } = render(<CryptoInput tokenList={mockTokens} />);
+    const { baseElement, rerender } = render(<CryptoInput options={mockTokens} />);
 
     expect(baseElement.querySelector('.web3-crypto-input-wrapper')?.children?.length).toBe(2);
     expect(baseElement.querySelector('.web3-crypto-input-header')).toBeNull();
@@ -28,7 +28,7 @@ describe('CryptoInput component', () => {
     // custom header
     rerender(
       <CryptoInput
-        tokenList={mockTokens}
+        options={mockTokens}
         header={<div className="custom-header">Custom header</div>}
       />,
     );
@@ -43,14 +43,14 @@ describe('CryptoInput component', () => {
 
   it('should display correct footer', () => {
     // close footer
-    const { baseElement, rerender } = render(<CryptoInput tokenList={mockTokens} footer={false} />);
+    const { baseElement, rerender } = render(<CryptoInput options={mockTokens} footer={false} />);
 
     expect(baseElement.querySelector('.web3-crypto-input-wrapper')?.children?.length).toBe(1);
 
     // custom footer
     rerender(
       <CryptoInput
-        tokenList={mockTokens}
+        options={mockTokens}
         footer={<div className="custom-footer">Custom footer</div>}
       />,
     );
@@ -60,13 +60,13 @@ describe('CryptoInput component', () => {
     expect(baseElement.querySelector('.custom-footer')?.textContent).toBe('Custom footer');
 
     // default footer
-    rerender(<CryptoInput tokenList={mockTokens} />);
+    rerender(<CryptoInput options={mockTokens} />);
 
     expect(baseElement.querySelector('.web3-crypto-input-footer')).not.toBeNull();
   });
 
   it('should display the token list when clicked', () => {
-    const { baseElement } = render(<CryptoInput tokenList={mockTokens} />);
+    const { baseElement } = render(<CryptoInput options={mockTokens} />);
 
     fireEvent.mouseDown(baseElement.querySelector('.ant-select-selector') as Element);
 
@@ -84,7 +84,7 @@ describe('CryptoInput component', () => {
 
       return (
         <CryptoInput
-          tokenList={mockTokens}
+          options={mockTokens}
           value={crypto}
           onChange={(newCrypto) => {
             setCrypto(newCrypto);
@@ -124,7 +124,7 @@ describe('CryptoInput component', () => {
 
       return (
         <CryptoInput
-          tokenList={mockTokens}
+          options={mockTokens}
           value={crypto}
           onChange={(newCrypto) => {
             setCrypto(newCrypto);
@@ -187,7 +187,7 @@ describe('CryptoInput component', () => {
 
       return (
         <CryptoInput
-          tokenList={mockTokens}
+          options={mockTokens}
           value={crypto}
           onChange={setCrypto}
           balance={{ amount: 100000000000000000000n, unit: '$', price: 3894.57 }}
@@ -203,24 +203,30 @@ describe('CryptoInput component', () => {
       target: { value: '10.012345678' },
     });
 
-    expect(baseElement.querySelector('.total-price')?.textContent).toBe('$ 38993.78110716846');
-    expect(baseElement.querySelector('.token-balance')?.textContent).includes('100');
+    expect(baseElement.querySelector('.web3-crypto-input-total-price')?.textContent).toBe(
+      '$ 38993.78110716846',
+    );
+    expect(baseElement.querySelector('.web3-crypto-input-token-balance')?.textContent).includes(
+      '100',
+    );
 
     // change token amount to max
-    fireEvent.click(baseElement.querySelector('.max-button') as Element);
+    fireEvent.click(baseElement.querySelector('.web3-crypto-input-max-button') as Element);
 
     expect(baseElement.querySelector('.ant-input-number-input')?.getAttribute('value')).toBe('100');
-    expect(baseElement.querySelector('.total-price')?.textContent).toBe('$ 389457');
+    expect(baseElement.querySelector('.web3-crypto-input-total-price')?.textContent).toBe(
+      '$ 389457',
+    );
 
     // set token amount to null
     fireEvent.change(baseElement.querySelector('.ant-input-number-input') as Element, {
       target: { value: null },
     });
 
-    expect(baseElement.querySelector('.total-price')?.textContent).toBe('-');
+    expect(baseElement.querySelector('.web3-crypto-input-total-price')?.textContent).toBe('-');
 
     // change token balance to undefined
     rerender(<TestComponent balance={undefined} />);
-    expect(baseElement.querySelector('.total-price')?.textContent).toBe('-');
+    expect(baseElement.querySelector('.web3-crypto-input-total-price')?.textContent).toBe('-');
   });
 });

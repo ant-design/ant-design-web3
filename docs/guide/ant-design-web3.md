@@ -20,7 +20,7 @@ You can use Ant Design Web3 in any of the following ways:
 
 Here are examples of using Ant Design Web3 through `@ant-design/web3-wagmi`:
 
-<code src="./demos/guide.tsx"></code>
+<code compact src="./demos/guide.tsx"></code>
 
 If you want to further try how to use Ant Design Web3 in your own project, or want to create a project based on Ant Design Web3 from 0, you can continue reading [Quick Start](quick-start.md), wish you a pleasant surfing in Web3! 🌊🌊🌊
 
@@ -50,6 +50,7 @@ There are more features:
 | [Support Ethereum and its L2](https://web3.ant.design/components/wagmi) | ✅        |
 | [Support Bitcoin](https://web3.ant.design/components/bitcoin)           | ✅        |
 | [Support Solana](https://web3.ant.design/components/solana)             | ✅        |
+| [Support TON](https://web3.ant.design/components/ton)                   | ✅        |
 | [Adapt to more non-EVM chains](https://web3.ant.design/guide/adapter)   | ✅        |
 | [Course](https://web3.ant.design/course/introduction)                   | ✅        |
 | Use with wagmi                                                          | ✅        |

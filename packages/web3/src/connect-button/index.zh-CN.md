@@ -2,13 +2,15 @@
 nav: 组件
 subtitle: 连接钱包按钮
 group: UI 组件
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*leoQRImIrekAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*S4cyQ7OCxDUAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # ConnectButton
 
 连接区块链钱包的按钮。通常来说，你需要配合 [Connector](../connector/index.zh-CN.md) 组件使用。
 
-> 注：**本文档中的示例仅仅是纯 UI 的示例**，在 Ant Design Web3 中。UI 模块和连接模块是分离的。要像真正的连接钱包，请参考[以太坊适配器](../ethereum/index.zh-CN.md)的文档，或阅读[适配器文档](../../../../docs/guide/adapter.zh-CN.md)了解更多。
+> 注：**本文档中的示例仅仅是纯 UI 的示例**，在 Ant Design Web3 中。UI 模块和连接模块是分离的。要想真正的连接钱包，请参考[以太坊适配器](../ethereum/index.zh-CN.md)的文档，或阅读[适配器文档](../../../../docs/guide/adapter.zh-CN.md)了解更多。
 
 ## 基本使用
 

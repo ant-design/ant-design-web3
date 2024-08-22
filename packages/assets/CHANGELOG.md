@@ -1,5 +1,27 @@
 # @ant-design/web3-assets
 
+## 1.10.1
+
+### Patch Changes
+
+- 3f7d7a6: build: set targets chrome 100
+- Updated dependencies [3f7d7a6]
+  - @ant-design/web3-common@1.12.1
+  - @ant-design/web3-icons@1.8.1
+
+## 1.10.0
+
+### Minor Changes
+
+- 8f3430b: feat(assets): Add USDC token
+- d663c3b: feat: Add Tronlink icon
+
+### Patch Changes
+
+- Updated dependencies [cf6c044]
+- Updated dependencies [7d8f51f]
+  - @ant-design/web3-icons@1.8.0
+
 ## 1.9.0
 
 ### Minor Changes

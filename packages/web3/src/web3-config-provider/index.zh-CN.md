@@ -4,6 +4,8 @@ subtitle: Web3 全局配置
 group:
   title: 高级
   order: 4
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*agi7R62kJMQAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*DuEdT5NT9nwAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Web3ConfigProvider
@@ -13,6 +15,10 @@ group:
 ## 基本使用
 
 <code src="./demos/basic.tsx"></code>
+
+## 基于 Web3ConfigProvider 定义适配器
+
+<code src="./demos/custom-adapter.tsx"></code>
 
 ## API
 

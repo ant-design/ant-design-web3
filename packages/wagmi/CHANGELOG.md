@@ -1,5 +1,30 @@
 # @ant-design/web3-wagmi
 
+## 2.7.3
+
+### Patch Changes
+
+- 615d403: fix(web3-wagmi): Ensure AntDesignWeb3ConfigProvider component renders correctly when Wagmi config ssr is true
+- 8760a03: feat(web3-wagmi): Add 'initialState' and 'reconnectOnMount' props to WagmiWeb3ConfigProviderProps
+
+## 2.7.2
+
+### Patch Changes
+
+- 3f7d7a6: build: set targets chrome 100
+- Updated dependencies [3f7d7a6]
+  - @ant-design/web3-assets@1.10.1
+  - @ant-design/web3-common@1.12.1
+
+## 2.7.1
+
+### Patch Changes
+
+- 3727e20: chore: code style format
+- Updated dependencies [8f3430b]
+- Updated dependencies [d663c3b]
+  - @ant-design/web3-assets@1.10.0
+
 ## 2.7.0
 
 ### Minor Changes

@@ -1,3 +1,4 @@
+/* v8 ignore start */
 import type { WalletName } from '@solana/wallet-adapter-base';
 import {
   BaseSignerWalletAdapter,

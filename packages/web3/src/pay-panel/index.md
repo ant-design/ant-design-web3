@@ -1,6 +1,8 @@
 ---
 nav: Components
 group: UI Components
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*4WV4Qoc-o5YAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*0zPhTLh23NwAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # PayPanel
@@ -13,7 +15,7 @@ The component for receiving coins supports different chain channels and some wal
 
 ## Gas Render Usage
 
-There's a place for the Gas, and if you want to try it out, you can do it yourself.
+There is a place reserved for the Gas. If you want to use it, you can implement it yourself.
 
 <code src="./demos/useGasRender.tsx"></code>
 

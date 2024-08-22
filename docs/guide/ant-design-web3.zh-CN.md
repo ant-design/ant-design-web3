@@ -20,7 +20,7 @@ Ant Design Web3 是一个基于 [Ant Design](https://ant.design/index-cn) 的 We
 
 下面是通过 `@ant-design/web3-wagmi` 的方式使用 Ant Design Web3 的例子：
 
-<code src="./demos/guide.tsx"></code>
+<code compact src="./demos/guide.tsx"></code>
 
 如果你想要进一步尝试如何在自己的项目中使用 Ant Design Web3，或者想要从 0 创建一个基于 Ant Design Web3 的项目，你可以继续阅读[快速开始](quick-start.zh-CN.md)，祝你在 Web3 冲浪愉快！🌊🌊🌊
 
@@ -50,6 +50,7 @@ Ant Design Web3 是一个基于 [Ant Design](https://ant.design/index-cn) 的 We
 | [支持以太坊及其 L2](https://web3.ant.design/components/wagmi-cn) | ✅       |
 | [支持比特币](https://web3.ant.design/components/bitcoin-cn)      | ✅       |
 | [支持 Solana](https://web3.ant.design/components/solana-cn)      | ✅       |
+| [支持 TON](https://web3.ant.design/components/ton-cn)            | ✅       |
 | [适配更多非 EVM 链](https://web3.ant.design/guide/adapter-cn)    | ✅       |
 | [课程](https://web3.ant.design/course/introduction-cn)           | ✅       |
 | 和 wagmi 一起使用                                                | ✅       |

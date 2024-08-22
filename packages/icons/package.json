@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-icons",
-  "version": "1.7.0",
+  "version": "1.8.1",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -41,14 +41,14 @@
     "build": "father build"
   },
   "devDependencies": {
-    "@types/react": "^18.2.78",
-    "@types/react-dom": "^18.2.25",
-    "antd": "^5.17.3",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "antd": "^5.20.1",
     "father": "^4.4.4",
-    "glob": "^10.4.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^5.5.2"
+    "glob": "^11.0.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "typescript": "^5.5.4"
   },
   "peerDependencies": {
     "antd": ">=4.23.0 || >=5.0.0",

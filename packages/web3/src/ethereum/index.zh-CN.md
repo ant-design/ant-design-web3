@@ -5,6 +5,8 @@ order: 2
 group:
   title: 连接链
   order: 2
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*GbIiQYH7qf0AAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*umZtTpZ5MHYAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Ethereum
@@ -85,6 +87,8 @@ Ant Design Web3 官方提供了 `wagmi`、`ethers` 等多个框架的适配器�
 | balance | 是否显示余额 | `boolean` | - | - |
 | locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
 | eip6963 | 是否采用 EIP6963 协议钱包以及相关配置 | `boolean` \| `EIP6963Config` | `false` | `2.2.0` |
+| initialState | [Wagmi 配置](https://wagmi.sh/react/api/createConfig)的初始状态，用于 SSR 预填充数据 | [State](https://wagmi.sh/core/config) \| `undefined` | - | - |
+| reconnectOnMount | 是否在组件挂载时重新连接之前已连接的[连接器](https://wagmi.sh/react/api/createConfig#connectors) | `boolean` \| `undefined` | `true` | - |
 
 ### EIP6963Config
 

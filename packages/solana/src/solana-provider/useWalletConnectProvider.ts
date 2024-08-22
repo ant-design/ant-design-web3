@@ -14,6 +14,7 @@ export const useWalletConnectProvider = (walletConnect?: UniversalProviderOpts) 
   );
   const promiseResolvesRef = useLatest(promiseResolves);
 
+  /* v8 ignore next 9 */
   const getWalletConnectProvider = useCallback(async () => {
     if (walletConnectProvider) return Promise.resolve(walletConnectProvider);
 
@@ -30,6 +31,7 @@ export const useWalletConnectProvider = (walletConnect?: UniversalProviderOpts) 
     setMounted(true);
 
     import('@walletconnect/universal-provider').then(async ({ UniversalProvider }) => {
+      /* v8 ignore next 7 */
       const provider = await UniversalProvider.init(walletConnect);
 
       setWalletConnectProvider(provider);

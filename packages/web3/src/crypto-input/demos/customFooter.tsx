@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import type { CryptoInputProps } from '@ant-design/web3';
 import { CryptoInput } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
@@ -12,7 +12,7 @@ const App: React.FC = () => {
         footer={'Custom Footer'}
         value={crypto}
         onChange={setCrypto}
-        tokenList={[ETH, USDT]}
+        options={[ETH, USDT]}
       />
     </div>
   );

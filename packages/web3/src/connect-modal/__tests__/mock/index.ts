@@ -1,3 +1,4 @@
+/* v8 ignore start */
 import type { DefaultGuide } from '@ant-design/web3';
 
 export const walletList = [

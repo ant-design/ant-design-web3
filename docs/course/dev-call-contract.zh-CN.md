@@ -67,6 +67,8 @@ const config = createConfig({
   ],
 });
 
++ const CONTRACT_ADDRESS = '0xEcd0D12E21805803f70de03B72B1C162dB0898d9'
++
 + const CallTest = () => {
 +  const { account } = useAccount();
 +  const result = useReadContract({
@@ -79,7 +81,7 @@ const config = createConfig({
 +        outputs: [{ type: 'uint256' }],
 +      },
 +    ],
-+    address: '0xEcd0D12E21805803f70de03B72B1C162dB0898d9',
++    address: CONTRACT_ADDRESS,
 +    functionName: 'balanceOf',
 +    args: [account?.address as `0x${string}`],
 +   });
@@ -108,7 +110,7 @@ export default function Web3() {
 
 参考以上的代码添加调用合约的 `balanceOf` 方法，我们新建了一个 `CallTest` 组件，然后在 `WagmiWeb3ConfigProvider` 内添加了这个组件。因为 `useReadContract` 必须在 `WagmiWeb3ConfigProvider` 内部才能正常工作，所以我们不能在 `export default function Web3() {` 这一行代码下面直接使用 `useReadContract`。在实际的项目中 `WagmiWeb3ConfigProvider` 通常应该在你项目组件的最外层，这样确保你的项目所有组件中都可以正常使用相关的 Hooks。
 
-`balanceOf` 是用来获取某一个地址下有多少个这个合约 NFT 的方法。所以我们还需要用到 `@ant-design/web3` 提供的 `useAccount` Hook 来获取当前连接的账户地址。然后将账户地址作为 `balanceOf` 方法的参数传入，这样就可以获取到当前账户地址下有多少个 NFT 了。如果不出意外，你会得到 `0` 的结果。
+`balanceOf` 是用来获取某一个地址下有多少个 NFT 的合约方法。所以我们还需要用到 `@ant-design/web3` 提供的 `useAccount` Hook 来获取当前连接的账户地址。然后将账户地址作为 `balanceOf` 方法的参数传入，这样就可以获取到当前账户地址下有多少个 NFT 了。如果不出意外，你会得到 `0` 的结果。
 
 代码中的 `abi` 字段定义了方法的类型，这样 wagmi 才能知道如何处理方法的入参和返回，把 JavaScript 中的对象转换成区块链的交易信息。通常 `abi` 都是通过合约代码自动生成的，我们会在下一章讲到这一部分。
 
@@ -131,12 +133,13 @@ export default function Web3() {
 const CallTest = () => {
 
 // ...
-+ const { writeContract } = useWriteContract();
++ const { writeContract, data: hash } = useWriteContract();
 
   return (
     <div>
       {result.data?.toString()}
 +      <Button
++        loading={isConfirming}
 +        onClick={() => {
 +          writeContract(
 +            {
@@ -155,9 +158,9 @@ const CallTest = () => {
 +                  outputs: [],
 +                },
 +              ],
-+              address: "0xEcd0D12E21805803f70de03B72B1C162dB0898d9",
++              address: CONTRACT_ADDRESS,
 +              functionName: "mint",
-+              args: [1],
++              args: [BigInt(1)],
 +              value: parseEther("0.01"),
 +            },
 +            {
@@ -193,7 +196,42 @@ npm i viem --save
 
 ![](./img/call-contract.png)
 
-点击 **拒绝** 后，不会执行合约调用，不会消耗你的任何 ETH。在下一章中，我们会指引你部署一个测试合约，在测试环境中体验完整的流程。当然如果你很富有，你也可以点击确认，这样就会执行合约调用，消耗你的 ETH，得到一个 NFT。
+点击 **拒绝** 后，不会执行合约调用，不会消耗你的任何 ETH。在下一章中，我们会指引你部署一个测试合约，在测试环境中体验完整的流程。当然如果你很富有，你也可以点击确认，这样就会执行合约调用。
+
+交易发送后，需要监听交易`hash`，等待交易被确认后，消耗你的 ETH，得到一个 NFT。
+
+需要改动的代码如下：
+
+```diff
++ import { useWaitForTransactionReceipt } from 'wagmi';
+// ...
+
+const CallTest = () => {
++ const { isLoading: isConfirming, isSuccess: isConfirmed } =
++   useWaitForTransactionReceipt({
++    hash,
++  });
++
++ useEffect(() => {
++  if (isConfirmed) {
++    message.success("Mint Success");
++    result.refetch();
++  }
++ }, [isConfirmed]);
++
+  return (
+    <div>
+      {result.data?.toString()}
+      <Button
++       loading={isConfirming}
+        {/* ... */}
+      </Button>
+    </div>
+  )
+};
+```
+
+发送交易是指创建并向区块链网络发送一笔交易的过程，而交易被确认（交易上链）是指一旦交易被验证并包含在区块中，该交易数据被永久记录在区块链上的过程。一旦交易被打包到区块中，该区块被添加到区块链上，交易数据就被永久保存在区块链的分布式账本中，不可篡改。
 
 最终完整的代码如下：
 

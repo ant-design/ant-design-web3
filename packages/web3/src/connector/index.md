@@ -1,6 +1,8 @@
 ---
 nav: Components
 group: UI Components
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*66ojTqksPJsAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*PfFaQbs3w98AAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Connector

@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-solana",
-  "version": "1.1.7",
+  "version": "1.1.9",
   "main": "dist/lib/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
@@ -48,10 +48,10 @@
     "@solana/wallet-adapter-react": "^0.15.35",
     "@solana/wallet-adapter-coinbase": "^0.1.19",
     "@solana/wallet-adapter-trust": "^0.1.13",
-    "@walletconnect/core": "^2.13.3",
-    "@walletconnect/universal-provider": "^2.13.3",
-    "@walletconnect/utils": "^2.13.0",
-    "@walletconnect/web3wallet": "^1.12.3",
+    "@walletconnect/core": "^2.14.0",
+    "@walletconnect/universal-provider": "^2.14.0",
+    "@walletconnect/utils": "^2.13.3",
+    "@walletconnect/web3wallet": "^1.14.0",
     "bs58": "^5.0.0",
     "debug": "^4.3.5"
   },
@@ -59,7 +59,7 @@
     "@types/debug": "^4.1.12",
     "@solana/wallet-adapter-phantom": "^0.9.24",
     "father": "^4.4.4",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.4"
   },
   "peerDependencies": {
     "@solana/web3.js": "^1.89.1"

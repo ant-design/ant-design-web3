@@ -1,5 +1,42 @@
 # @ant-design/web3
 
+## 1.16.1
+
+### Patch Changes
+
+- 3f7d7a6: build: set targets chrome 100
+- ebc95c9: fix: show default avatar when not find chain icon in ConnectButton profle modal
+- Updated dependencies [3f7d7a6]
+  - @ant-design/web3-assets@1.10.1
+  - @ant-design/web3-common@1.12.1
+  - @ant-design/web3-icons@1.8.1
+
+## 1.16.0
+
+### Minor Changes
+
+- 0886599: feat: TokenSelect Component Support Multiple Mode
+- d49a4b8: feat: add ton chain
+
+### Patch Changes
+
+- f188f8c: fix: ConnectModal style bug in dark theme
+- 2f55bec: fix(ProfileModal): footer button overflow in custom token
+- deae4aa: fix: improve crypto-input
+- fd1f6fa: fix: use colorPrimaryTextHover for ConnectModal text hover style
+- 8c5e50b: fix(connect-button): width is fit-content when the ConnectButton is set to quick
+- aff7e1e: fix: ConnectButton text color in primary type
+- 3727e20: chore: code style format
+- ed69c53: fix(crypto-input): fix token style
+- 868e6fc: fix(connect-modal): footer-container mask width overflow
+- fd1f6fa: fix: ConnectModal get more btn link color design token bug
+- Updated dependencies [8f3430b]
+- Updated dependencies [cf6c044]
+- Updated dependencies [d663c3b]
+- Updated dependencies [7d8f51f]
+  - @ant-design/web3-assets@1.10.0
+  - @ant-design/web3-icons@1.8.0
+
 ## 1.15.1
 
 ### Patch Changes

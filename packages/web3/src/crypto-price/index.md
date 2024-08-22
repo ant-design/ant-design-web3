@@ -2,6 +2,8 @@
 nav: Components
 group:
   title: UI Components
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*iHc2Sb3o9I4AAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*mPCSRr0ymHgAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # CryptoPrice

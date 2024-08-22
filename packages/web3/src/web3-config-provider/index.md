@@ -3,6 +3,8 @@ nav: Components
 group:
   title: Advanced
   order: 4
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*agi7R62kJMQAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*DuEdT5NT9nwAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Web3ConfigProvider
@@ -12,6 +14,10 @@ Provide global configuration and states for components.
 ## Basic Usage
 
 <code src="./demos/basic.tsx"></code>
+
+## Define an adapter based on Web3ConfigProvider
+
+<code src="./demos/custom-adapter.tsx"></code>
 
 ## API
 

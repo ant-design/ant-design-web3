@@ -96,6 +96,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     },
   };
 
+  const chainIcon = account?.avatar ?? chain?.icon;
   const profileModalProps: ProfileModalProps = {
     intl,
     open: profileOpen,
@@ -110,13 +111,17 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     address: account?.address,
     name: account?.name,
     avatar: {
-      className: `${prefixCls}-chain-icon`,
-      src: account?.avatar ?? chain?.icon ?? <UserOutlined />,
+      className: chainIcon
+        ? `${prefixCls}-chain-icon`
+        : `${prefixCls}-chain-icon ${prefixCls}-default-icon`,
+      src: chainIcon,
+      icon: !chainIcon && <UserOutlined />,
       ...avatar,
     },
     balance,
     modalProps: typeof profileModal === 'object' ? profileModal : undefined,
     addressPrefix: addressPrefixProp,
+    size: props.size,
   };
 
   const chainSelect =

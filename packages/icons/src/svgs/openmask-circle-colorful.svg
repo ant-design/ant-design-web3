@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><script xmlns="" charset="utf-8"/><link xmlns=""/><script xmlns=""/>
+  <g>
+   <title>OpenMask Logo</title>
+   <path d="M 85,0 150,250 215,0 z" fill="#a0ddfe" stroke="#a0ddfe"/>
+   <path d="M 215,0 150,250 300,85 z" fill="#88d3ff" stroke="#88d3ff"/>
+   <path d="M 300,85 150,250 300,215 z" fill="#73cbff" stroke="#73cbff"/>
+   <path d="M 300,215 150,250 215,300 z" fill="#5bc1ff" stroke="#5bc1ff"/>
+   <path d="M 215,300 150,250 85,300 z" fill="#80cfff" stroke="#80cfff"/>
+   <path d="M 85,300 150,250 0,215 z" fill="#95d9ff" stroke="#95d9ff"/>
+   <path d="M 0,215 150,250 0,85 z" fill="#ade2ff" stroke="#ade2ff"/>
+   <path d="M 0,85 150,250 85,0 z" fill="#b7e7ff" stroke="#b7e7ff"/>
+  </g>
+ </svg>

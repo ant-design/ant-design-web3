@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ConnectButton, Connector, NFTImage } from '@ant-design/web3';
 import {
   BitcoinWeb3ConfigProvider,
@@ -10,6 +10,10 @@ import {
 } from '@ant-design/web3-bitcoin';
 import { Button, message, Space } from 'antd';
 
+/**
+ * Component to get and display inscriptions.
+ * @returns {JSX.Element | null} The rendered component.
+ */
 const GetInscriptions: React.FC = () => {
   const { account, getInscriptions } = useBitcoinWallet();
   const [inscription, setInscription] = useState<Inscription>();
@@ -42,6 +46,10 @@ const GetInscriptions: React.FC = () => {
   ) : null;
 };
 
+/**
+ * Main application component that sets up the BitcoinWeb3ConfigProvider and Connector.
+ * @returns {JSX.Element} The rendered application component.
+ */
 const App: React.FC = () => {
   return (
     <BitcoinWeb3ConfigProvider wallets={[UnisatWallet(), XverseWallet(), OkxWallet()]}>

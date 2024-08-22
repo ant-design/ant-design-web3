@@ -1,5 +1,33 @@
 # @ant-design/web3-ethers
 
+## 1.1.6
+
+### Patch Changes
+
+- Updated dependencies [615d403]
+- Updated dependencies [8760a03]
+  - @ant-design/web3-wagmi@2.7.3
+
+## 1.1.5
+
+### Patch Changes
+
+- 3f7d7a6: build: set targets chrome 100
+- Updated dependencies [3f7d7a6]
+  - @ant-design/web3-assets@1.10.1
+  - @ant-design/web3-common@1.12.1
+  - @ant-design/web3-wagmi@2.7.2
+
+## 1.1.4
+
+### Patch Changes
+
+- Updated dependencies [8f3430b]
+- Updated dependencies [d663c3b]
+- Updated dependencies [3727e20]
+  - @ant-design/web3-assets@1.10.0
+  - @ant-design/web3-wagmi@2.7.1
+
 ## 1.1.3
 
 ### Patch Changes

@@ -3,6 +3,8 @@ nav: Components
 group:
   title: UI Components
   order: 3
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*2Mj9QYCUJDgAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*eDQZSopLDxEAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # CryptoInput
@@ -39,7 +41,7 @@ group:
 | --- | --- | --- | --- | --- |
 | value | Crypto input value | [CryptoInputValue](#cryptoinputvalue) | - | - |
 | onChange | Crypto input value change callback | (value?: [CryptoInputValue](#cryptoinputvalue)) => void | - | - |
-| tokenList | selectable token list | [Token](/components/types-cn#token)[] | - | - |
+| options | selectable token options | [Token](/components/types-cn#token)[] | - | - |
 | balance | selected token balance, includes amount and unit price | [TokenBalance](#tokenbalance) | - | - |
 | header | custom render for header | (value?: [CryptoInputValue](#cryptoinputvalue)) => React.ReactNode | - | - |
 | footer | custom render for footer | (value?: [CryptoInputValue](#cryptoinputvalue)) => React.ReactNode | - | - |

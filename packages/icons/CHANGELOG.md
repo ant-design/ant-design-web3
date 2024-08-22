@@ -1,5 +1,18 @@
 # @ant-design/web3-icons
 
+## 1.8.1
+
+### Patch Changes
+
+- 3f7d7a6: build: set targets chrome 100
+
+## 1.8.0
+
+### Minor Changes
+
+- cf6c044: feat(icons): Add Suiet wallet icons
+- 7d8f51f: feat: add icons
+
 ## 1.7.0
 
 ### Minor Changes

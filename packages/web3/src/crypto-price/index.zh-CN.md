@@ -3,6 +3,8 @@ nav: 组件
 subtitle: 加密价格
 group:
   title: UI 组件
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*iHc2Sb3o9I4AAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*mPCSRr0ymHgAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # CryptoPrice

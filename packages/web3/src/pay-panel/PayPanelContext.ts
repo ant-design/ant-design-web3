@@ -1,3 +1,4 @@
+/* v8 ignore start */
 import React from 'react';
 import { type Chain, type Token, type WalletMetadata } from '@ant-design/web3-common';
 
