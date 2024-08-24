@@ -1,6 +1,5 @@
 .container {
   overflow: hidden;
-  background-color: #fbfafc;
   padding: 67px 0;
   position: relative;
   .headTitle {
@@ -8,10 +7,12 @@
     margin: 0 0 24px 0;
     text-align: center;
     font-weight: 700;
+    color: var(--theme-text-color);
   }
 
   .desc {
     text-align: center;
+    color: var(--theme-text-color);
   }
 
   .componentList {
@@ -34,8 +35,7 @@
     }
     .cardBg {
       position: relative;
-      background: #f7f5ff;
-      background-image: radial-gradient(circle at 94% 97%, #eee5ff 0%, rgba(236, 233, 255, 0) 53%);
+      background: var(--theme-item-bg);
       border-radius: 16px;
       padding: 40px 36px;
       margin: 0 10px;
@@ -43,7 +43,7 @@
         display: block;
         font-size: 16px;
         margin: 0 0 42px 0;
-        color: rgba(0, 0, 0, 0.85);
+        color: var(--theme-text-color);
       }
     }
 

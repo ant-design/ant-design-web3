@@ -1,46 +1,24 @@
 :global(.dark) {
   .container {
     background: #0d0e0f;
-
-    .leftBottomImage {
-      display: none;
-    }
   }
 }
 
 .container {
   padding: 84px 0;
   position: relative;
-  background: linear-gradient(
-    to bottom,
-    #fbfafc 0%,
-    #f8f5fc 25%,
-    #f4effc 50%,
-    #f4eefc 75%,
-    #fbfafc 100%
-  );
-
-  .leftBottomImage {
-    pointer-events: none;
-    position: absolute;
-    left: 80px;
-    bottom: 60px;
-    width: 486px;
-    height: 386px;
-    background-image: url(https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*Wcc_S5HOjE8AAAAAAAAAAAAADlrGAQ/original);
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
+  background: no-repeat center/cover;
   .title {
     text-align: center;
     font-size: 38px;
     margin: 100px 0 24px 0;
     font-weight: 700;
+    color: var(--theme-text-color);
   }
   .desc {
     text-align: center;
     padding-inline: 12px;
+    color: var(--theme-text-color);
   }
   .card {
     width: 797px;
@@ -50,81 +28,6 @@
   .controls {
     display: flex;
     justify-content: center;
-  }
-  .themeBtns {
-    text-align: center;
-    span {
-      display: inline-block;
-      svg {
-        cursor: pointer;
-        opacity: 0.5;
-        width: 32px;
-        height: 32px;
-      }
-      .lightIcon,
-      .darkIcon {
-        color: #333;
-        &.selected {
-          opacity: 1;
-        }
-      }
-    }
-    // FIXME: 等网站支持了全局主题切换后再加回来
-    // &.dark {
-    //   .lightIcon,
-    //   .darkIcon {
-    //     color: #fff;
-    //   }
-    // }
-  }
-  .colorSelector {
-    margin-left: 80px;
-    display: flex;
-    .colorItem {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      margin-right: 8px;
-      background-color: var(--color);
-      cursor: pointer;
-      box-sizing: border-box;
-      overflow: hidden;
-      &.selected {
-        outline: 2px solid var(--color);
-        outline-offset: 1px;
-      }
-      &.auto {
-        position: relative;
-        background: #fff;
-        outline: 2px solid #ddd;
-        &::before,
-        &::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-image: linear-gradient(
-            45deg,
-            rgba(0, 0, 0, 0.1) 25%,
-            transparent 25%,
-            transparent 75%,
-            rgba(0, 0, 0, 0.1) 75%,
-            rgba(0, 0, 0, 0.1)
-          );
-          background-size: 20% 20%;
-        }
-
-        &::after {
-          transform: rotate(90deg);
-        }
-
-        &.selected {
-          outline: 2px solid #999;
-        }
-      }
-    }
   }
 }
 
@@ -142,25 +45,9 @@
       z-index: 3;
       margin: 20px;
     }
-    .themeBtns {
-      svg {
-        width: 18px !important;
-        height: 18px !important;
-      }
+    .thumbnailBox {
+      width: 100%;
+      margin: 0 auto;
     }
-    .colorSelector {
-      margin-left: 40px;
-      .colorItem {
-        width: 18px;
-        height: 18px;
-      }
-    }
-  }
-}
-
-[data-prefers-color='dark'] {
-  .darkIcon,
-  .lightIcon {
-    color: #ddd !important;
   }
 }

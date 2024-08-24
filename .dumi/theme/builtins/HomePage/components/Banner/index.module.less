@@ -33,7 +33,7 @@
       padding-inline-start: 14px;
       margin-top: 12px;
       font-size: 32px;
-      color: rgba(0, 0, 0, 0.85);
+      color: var(--theme-slogan-color);
       opacity: 0.65;
     }
 
@@ -58,14 +58,29 @@
         transition: opacity 0.2s;
         &:first-child {
           color: #fff;
-          background-color: #8242ff;
+          background-color: var(--theme-primary-color);
         }
         &:last-child {
-          color: #8242ff;
-          border: 1px solid #8242ff;
+          color: var(--theme-primary-color);
+          border: 1px solid var(--theme-primary-color);
         }
         &:hover {
           opacity: 0.8;
+        }
+      }
+    }
+  }
+  &.darkTheme {
+    .wrap {
+      .btn {
+        a {
+          &:first-child {
+            background-color: #794af5;
+          }
+          &:last-child {
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+          }
         }
       }
     }
