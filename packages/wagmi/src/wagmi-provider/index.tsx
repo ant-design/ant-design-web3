@@ -46,12 +46,11 @@ export function WagmiWeb3ConfigProvider({
         <AntDesignWeb3ConfigProvider
           locale={locale}
           chainAssets={chainAssets}
-          walletFactorys={wallets}
-          availableChains={config.chains}
-          availableConnectors={config.connectors}
+          walletFactories={wallets}
           ens={ens}
           balance={balance}
           eip6963={eip6963}
+          wagimConfig={config}
         >
           {children}
         </AntDesignWeb3ConfigProvider>
