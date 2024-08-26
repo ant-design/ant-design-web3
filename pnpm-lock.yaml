@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@ant-design/cssinjs':
-        specifier: ^1.21.0
-        version: 1.21.0(react-dom@18.3.1)(react@18.3.1)
+        specifier: ^1.21.1
+        version: 1.21.1(react-dom@18.3.1)(react@18.3.1)
       '@ant-design/icons':
         specifier: ^5.3.7
         version: 5.3.7(react-dom@18.3.1)(react@18.3.1)
@@ -672,8 +672,8 @@ importers:
   packages/web3:
     dependencies:
       '@ant-design/cssinjs':
-        specifier: ^1.21.0
-        version: 1.21.0(react-dom@18.3.1)(react@18.3.1)
+        specifier: ^1.21.1
+        version: 1.21.1(react-dom@18.3.1)(react@18.3.1)
       '@ant-design/icons':
         specifier: ^5.3.7
         version: 5.3.7(react-dom@18.3.1)(react@18.3.1)
@@ -824,7 +824,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@ant-design/cssinjs': 1.21.0(react-dom@18.3.1)(react@18.3.1)
+      '@ant-design/cssinjs': 1.21.1(react-dom@18.3.1)(react@18.3.1)
       '@babel/runtime': 7.24.8
       rc-util: 5.43.0(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
@@ -844,11 +844,11 @@ packages:
       rc-util: 5.43.0(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      stylis: 4.3.0
+      stylis: 4.3.4
     dev: false
 
-  /@ant-design/cssinjs@1.21.0(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-gIilraPl+9EoKdYxnupxjHB/Q6IHNRjEXszKbDxZdsgv4sAZ9pjkCq8yanDWNvyfjp4leir2OVAJm0vxwKK8YA==}
+  /@ant-design/cssinjs@1.21.1(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-tyWnlK+XH7Bumd0byfbCiZNK43HEubMoCcu9VxwsAwiHdHTgWa+tMN0/yvxa+e8EzuFP1WdUNNPclRpVtD33lg==}
     peerDependencies:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
@@ -861,7 +861,7 @@ packages:
       rc-util: 5.43.0(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      stylis: 4.3.0
+      stylis: 4.3.4
 
   /@ant-design/fast-color@2.0.6:
     resolution: {integrity: sha512-y2217gk4NqL35giHl72o6Zzqji9O7vHh9YmhUVkPtAOpoTCH4uWxo/pr4VE8t0+ChEPs0qo4eJRC5Q1eXWo3vA==}
@@ -8366,7 +8366,7 @@ packages:
     resolution: {integrity: sha512-dPObl4ntmfOc0VAGGyyFvrqhL8UkHXmVsgbj0K9RcznKV4KB3MgjGwzo8CTSX5El5lkb0rDeEzFqvToJXRz3dw==}
     engines: {node: '>=16'}
     dependencies:
-      '@noble/curves': 1.4.0
+      '@noble/curves': 1.5.0
       '@solana/wallet-standard-chains': 1.1.0
       '@solana/wallet-standard-features': 1.2.0
     dev: false
@@ -11988,7 +11988,7 @@ packages:
       antd: '>=5.8.1'
       react: '>=18'
     dependencies:
-      '@ant-design/cssinjs': 1.21.0(react-dom@18.3.1)(react@18.3.1)
+      '@ant-design/cssinjs': 1.21.1(react-dom@18.3.1)(react@18.3.1)
       '@babel/runtime': 7.24.5
       '@emotion/cache': 11.11.0
       '@emotion/css': 11.11.2
@@ -12012,7 +12012,7 @@ packages:
       react-dom: '>=16.0.0'
     dependencies:
       '@ant-design/colors': 6.0.0
-      '@ant-design/cssinjs': 1.21.0(react-dom@18.3.1)(react@18.3.1)
+      '@ant-design/cssinjs': 1.21.1(react-dom@18.3.1)(react@18.3.1)
       '@ant-design/icons': 5.3.7(react-dom@18.3.1)(react@18.3.1)
       '@arvinxu/layout-kit': 1.4.0(@babel/core@7.24.3)(react-dom@18.3.1)(react-is@18.2.0)(react@18.3.1)
       '@babel/runtime': 7.24.0
@@ -12040,7 +12040,7 @@ packages:
       react-dom: '>=16.0.0'
     dependencies:
       '@ant-design/colors': 6.0.0
-      '@ant-design/cssinjs': 1.21.0(react-dom@18.3.1)(react@18.3.1)
+      '@ant-design/cssinjs': 1.21.1(react-dom@18.3.1)(react@18.3.1)
       '@ant-design/icons': 4.8.1(react-dom@18.3.1)(react@18.3.1)
       '@arvinxu/layout-kit': 1.4.0(@babel/core@7.24.3)(react-dom@18.3.1)(react-is@18.2.0)(react@18.3.1)
       '@babel/runtime': 7.24.8
@@ -12071,7 +12071,7 @@ packages:
       react-dom: '>=16.9.0'
     dependencies:
       '@ant-design/colors': 7.1.0
-      '@ant-design/cssinjs': 1.21.0(react-dom@18.3.1)(react@18.3.1)
+      '@ant-design/cssinjs': 1.21.1(react-dom@18.3.1)(react@18.3.1)
       '@ant-design/cssinjs-utils': 1.0.3(react-dom@18.3.1)(react@18.3.1)
       '@ant-design/icons': 5.4.0(react-dom@18.3.1)(react@18.3.1)
       '@ant-design/react-slick': 1.1.2(react@18.3.1)
@@ -24304,8 +24304,8 @@ packages:
     resolution: {integrity: sha512-Orov6g6BB1sDfYgzWfTHDOxamtX1bE/zo104Dh9e6fqJ3PooipYyfJ0pUmrZO2wAvO8YbEyeFrkV91XTsGMSrw==}
     dev: false
 
-  /stylis@4.3.0:
-    resolution: {integrity: sha512-E87pIogpwUsUwXw7dNyU4QDjdgVMy52m+XEOPEKUn161cCzWjjhPSQhByfd1CcNvrOLnXQ6OnnZDwnJrz/Z4YQ==}
+  /stylis@4.3.4:
+    resolution: {integrity: sha512-osIBl6BGUmSfDkyH2mB7EFvCJntXDrLhKjHTRj/rK6xLH0yuPrHULDRQzKokSOD4VoorhtKpfcfW1GAntu8now==}
 
   /sucrase@3.35.0:
     resolution: {integrity: sha512-8EbVDiu9iN/nESwxeSxDKe0dunta1GOlHufmSSXxMD2z2/tMZpDMpvXQGsc+ajGo8y2uYUmixaSRUc/QPoQ0GA==}
