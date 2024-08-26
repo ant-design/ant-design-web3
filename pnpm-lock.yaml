@@ -60,8 +60,8 @@ importers:
         specifier: ^5.51.11
         version: 5.51.11(react@18.3.1)
       '@tanstack/react-query-persist-client':
-        specifier: ^5.51.11
-        version: 5.52.0(@tanstack/react-query@5.51.11)(react@18.3.1)
+        specifier: ^5.52.1
+        version: 5.52.1(@tanstack/react-query@5.51.11)(react@18.3.1)
       antd:
         specifier: ^5.20.1
         version: 5.20.1(react-dom@18.3.1)(react@18.3.1)
@@ -8366,7 +8366,7 @@ packages:
     resolution: {integrity: sha512-dPObl4ntmfOc0VAGGyyFvrqhL8UkHXmVsgbj0K9RcznKV4KB3MgjGwzo8CTSX5El5lkb0rDeEzFqvToJXRz3dw==}
     engines: {node: '>=16'}
     dependencies:
-      '@noble/curves': 1.4.0
+      '@noble/curves': 1.5.0
       '@solana/wallet-standard-chains': 1.1.0
       '@solana/wallet-standard-features': 1.2.0
     dev: false
@@ -8991,10 +8991,10 @@ packages:
       '@tanstack/query-persist-client-core': 5.52.0
     dev: false
 
-  /@tanstack/react-query-persist-client@5.52.0(@tanstack/react-query@5.51.11)(react@18.3.1):
-    resolution: {integrity: sha512-ka8K/quDsMRq+ANZXSXaRr9wj+E/ikz482EhrBo3ZFKrbumIbU30X8oiOIIR5IMygrfPyQc4QfTsQBhKF17syg==}
+  /@tanstack/react-query-persist-client@5.52.1(@tanstack/react-query@5.51.11)(react@18.3.1):
+    resolution: {integrity: sha512-Wy6+Fd8rq1OuGd6CoL3LWKCtBWCad2kcwvd5gxpxSFkGEbirMiJo03xp38nK5/D4BPYxIhjMqsJcxMQ5En8DPQ==}
     peerDependencies:
-      '@tanstack/react-query': ^5.52.0
+      '@tanstack/react-query': ^5.52.1
       react: ^18 || ^19
     dependencies:
       '@tanstack/query-persist-client-core': 5.52.0
