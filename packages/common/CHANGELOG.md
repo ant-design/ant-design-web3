@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.13.0
+
+### Minor Changes
+
+- 9bb1ea1: feat: Add Sui adapter
+
 ## 1.12.1
 
 ### Patch Changes
