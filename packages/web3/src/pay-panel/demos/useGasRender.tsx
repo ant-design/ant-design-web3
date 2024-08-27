@@ -1,3 +1,4 @@
+import React from 'react';
 import { PayPanel } from '@ant-design/web3';
 import {
   BSC,
