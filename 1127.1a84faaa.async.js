@@ -2662,7 +2662,8 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},49111:function(t,n){"use strict";n.Z=`import { PayPanel } from '@ant-design/web3';
+`},49111:function(t,n){"use strict";n.Z=`import React from 'react';
+import { PayPanel } from '@ant-design/web3';
 import {
   BSC,
   Mainnet,
@@ -2745,7 +2746,8 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},73919:function(t,n){"use strict";n.Z=`import { PayPanel } from '@ant-design/web3';
+`},73919:function(t,n){"use strict";n.Z=`import React from 'react';
+import { PayPanel } from '@ant-design/web3';
 import {
   BSC,
   Mainnet,
