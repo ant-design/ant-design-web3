@@ -1,9 +1,24 @@
 import { useMemo } from 'react';
-import { Affix, Card, Col, Divider, Flex, Input, Row, Tag, Typography } from 'antd';
+import {
+  BitcoinCircleColorful,
+  EthereumCircleColorful,
+  SolanaCircleColorful,
+  SuiCircleColorful,
+  TonCircleColorful,
+} from '@ant-design/web3-icons';
+import { Card, Col, Flex, Row, Tag, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import { Link, usePrefersColor, useSidebarData } from 'dumi';
 
-const useStyle = createStyles(({ token, css }) => ({
+const AdapterCovers: Record<string, React.ReactNode> = {
+  Bitcoin: <BitcoinCircleColorful />,
+  Ethereum: <EthereumCircleColorful />,
+  Solana: <SolanaCircleColorful />,
+  Sui: <SuiCircleColorful />,
+  TON: <TonCircleColorful />,
+};
+
+const useStyle = createStyles(({ token, css }, { dark }: { dark: boolean }) => ({
   componentsOverviewGroupTitle: css`
     margin-bottom: ${token.marginLG}px !important;
   `,
@@ -17,6 +32,23 @@ const useStyle = createStyles(({ token, css }) => ({
     align-items: center;
     justify-content: center;
     height: 152px;
+  `,
+  componentOverviewAdapterCover: css`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+    width: 50px;
+    height: 50px;
+    border-radius: 36px;
+    font-size: 44px;
+    background-image: ${dark
+      ? `linear-gradient(175deg, #262525 -8%, #363535 32%)`
+      : `linear-gradient(175deg, #f5f8fc -8%, #ffffff 32%)`};
+    border-image-slice: 1;
+    box-shadow: ${dark
+      ? `0px 0 14px 2px rgba(210, 198, 255, 0.25), inset 0px -2px 0 0 #525355`
+      : `0px 25px 14px 2px rgba(210, 198, 255, 0.25), inset 0px -4px 0 0 #e6ebf3`};
   `,
   componentsOverviewCard: css`
     cursor: pointer;
@@ -54,9 +86,9 @@ const useStyle = createStyles(({ token, css }) => ({
 
 export default () => {
   const data = useSidebarData();
-  const { styles } = useStyle();
   const { Title } = Typography;
   const [color = 'light'] = usePrefersColor();
+  const { styles } = useStyle({ dark: color.includes('dark') });
 
   const groups = useMemo(
     () =>
@@ -93,6 +125,7 @@ export default () => {
                 <Row gutter={[24, 24]}>
                   {components.map((component) => {
                     let url = `${component.link}`;
+                    const icon = AdapterCovers[component.title];
 
                     return (
                       <Col xs={24} sm={12} lg={8} xl={6} key={component?.title}>
@@ -107,14 +140,18 @@ export default () => {
                             }
                           >
                             <div className={styles.componentsOverviewImg}>
-                              <img
-                                src={
-                                  color.includes('dark') && component.coverDark
-                                    ? component.coverDark
-                                    : component.cover
-                                }
-                                alt={component?.title}
-                              />
+                              {icon ? (
+                                <div className={styles.componentOverviewAdapterCover}>{icon}</div>
+                              ) : (
+                                <img
+                                  src={
+                                    color.includes('dark') && component.coverDark
+                                      ? component.coverDark
+                                      : component.cover
+                                  }
+                                  alt={component?.title}
+                                />
+                              )}
                             </div>
                           </Card>
                         </Link>
