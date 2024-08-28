@@ -124,12 +124,11 @@ export default () => {
                 </Title>
                 <Row gutter={[24, 24]}>
                   {components.map((component) => {
-                    const url = component.link;
                     const icon = AdapterCovers[component.title];
 
                     return (
                       <Col xs={24} sm={12} lg={8} xl={6} key={component?.title}>
-                        <Link to={url} prefetch>
+                        <Link to={component.link} prefetch>
                           <Card
                             size="small"
                             className={styles.componentsOverviewCard}
