@@ -124,7 +124,7 @@ export default () => {
                 </Title>
                 <Row gutter={[24, 24]}>
                   {components.map((component) => {
-                    let url = `${component.link}`;
+                    const url = component.link;
                     const icon = AdapterCovers[component.title];
 
                     return (
