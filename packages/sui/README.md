@@ -1,4 +1,4 @@
-# @ant-design/web3-solana
+# @ant-design/web3-sui
 
 This package provides a [Sui](https://sui.io) adapter for [@ant-design/web3](https://www.npmjs.com/package/@ant-design/web3).
 
