@@ -389,8 +389,6 @@ export default App;
 }
 
 .configContainer {
-  background-color: #fcfcfc;
-  border-top: 1px solid #e4e9ec;
   padding: 0 24px 16px 24px;
 
   .groupTitle {
@@ -398,6 +396,11 @@ export default App;
     margin-top: 16px;
     margin-bottom: 12px;
   }
+}
+
+html[data-prefers-color='light'] .configContainer {
+  background-color: #fcfcfc;
+  border-top: 1px solid #e4e9ec;
 }
 
 .themeLabel {
