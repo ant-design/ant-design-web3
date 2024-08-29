@@ -21,6 +21,11 @@
       "require": "./dist/lib/solana/index.js",
       "types": "./dist/esm/solana/index.d.ts"
     },
+    "./wallets": {
+      "import": "./dist/esm/wallets/index.js",
+      "require": "./dist/lib/wallets/index.js",
+      "types": "./dist/esm/wallets/index.d.ts"
+    },
     "./tokens": {
       "import": "./dist/esm/tokens/index.js",
       "require": "./dist/lib/tokens/index.js",

@@ -1,13 +1,18 @@
 import type { WalletMetadata } from '@ant-design/web3-common';
-import type { Connector } from 'wagmi';
+import type { Connector, CreateConnectorFn } from 'wagmi';
 
 import type { WalletFactory, WalletUseInWagmiAdapter } from '../interface';
 
 export class UniversalWallet implements WalletFactory {
   public name?: string;
+  public createWagmiConnector?: () => CreateConnectorFn;
   public connectors: string[] = [];
-  constructor(private wallet: WalletMetadata) {
+  constructor(
+    private wallet: WalletMetadata,
+    createWagmiConnector?: () => CreateConnectorFn,
+  ) {
     this.name = wallet.name;
+    this.createWagmiConnector = createWagmiConnector;
     if (wallet.extensions) {
       // support injected connector
       // https://wagmi.sh/react/connectors/injected

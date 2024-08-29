@@ -33,6 +33,12 @@ Ant Design Web3 官方提供了 `wagmi`、`ethers` 等多个框架的适配器�
 - 使用 `simple` 模式，简化界面。
 - 手动配置 `queryClient`，方便后续自定义相关配置。
 
+## 自定义 Wagmi 配置
+
+通常情况下，我们不推荐你自定义 wagmi 配置，当你自定义 wagmi 配置并传入 `WagmiWeb3ConfigProvider` 时，会覆盖我们自动生成的默认配置。
+
+<code src="./demos/wagmi-config.tsx"></code>
+
 ## EIP6963
 
 基于 EIP6963 自动添加钱包，在 [EIP6963](https://eips.ethereum.org/EIPS/eip-6963) 协议下，可以避免用户安装多个钱包导致的冲突，以及可以自动识别到用户已经安装的钱包。
@@ -77,16 +83,18 @@ Ant Design Web3 官方提供了 `wagmi`、`ethers` 等多个框架的适配器�
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| config | wagmi 配置 | [WagmiConfig](https://wagmi.sh/core/config) | - | - |
+| config | wagmi 配置 | [WagmiConfig](https://wagmi.sh/core/config) | 通过 `chains` 和 `wallets` 等配置自动生成 | - |
 | queryClient | [TanStack Query](https://wagmi.sh/react/guides/tanstack-query) 实例 | `new QueryClient()` | - | - |
 | wallets | 钱包配置 | [WalletFactory](#walletfactory)\[\] | - | - |
-| chains | 链的配置 | [Chain](./types#chain)\[\] | - | - |
+| chains | 链的配置 | [ChainAssetWithWagmiChain](#ChainAssetWithWagmiChain)\[\] | - | - |
 | ens | 是否显示 ENS | `boolean` | - | - |
 | balance | 是否显示余额 | `boolean` | - | - |
 | locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
 | eip6963 | 是否采用 EIP6963 协议钱包以及相关配置 | `boolean` \| `EIP6963Config` | `false` | `2.2.0` |
 | initialState | [Wagmi 配置](https://wagmi.sh/react/api/createConfig)的初始状态，用于 SSR 预填充数据 | [State](https://wagmi.sh/core/config) \| `undefined` | - | - |
 | reconnectOnMount | 是否在组件挂载时重新连接之前已连接的[连接器](https://wagmi.sh/react/api/createConfig#connectors) | `boolean` \| `undefined` | `true` | - |
+| walletConnect | walletConnect 的配置 | `{ projectId: string }` | - | - |
+| transports | [Transport](https://wagmi.sh/core/api/createConfig#transports) 网关配置 | `Record<number, Transport>;` | - | - |
 
 ### EIP6963Config
 
@@ -106,3 +114,7 @@ Ant Design Web3 官方提供了 `wagmi`、`ethers` 等多个框架的适配器�
 ### UniversalWallet
 
 用于自己定钱包的类，它满足 WalletFactory 的接口要求。具体使用可以参考[自定义钱包信息](#自定义钱包信息)的示例。
+
+### ChainAssetWithWagmiChain
+
+基于 [Chain](./types#chain)[] 新增了 `wagmiChain` 字段，用于支持链的配置。通过类似 `import { Mainnet } from '@ant-design/web3-wagmi';` 的方式引入。

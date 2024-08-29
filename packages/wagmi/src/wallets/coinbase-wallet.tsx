@@ -1,9 +1,12 @@
 import { metadata_CoinbaseWallet } from '@ant-design/web3-assets';
-import { type Wallet } from '@ant-design/web3-common';
+import { type Wallet, type WalletMetadata } from '@ant-design/web3-common';
+import { coinbaseWallet, type CoinbaseWalletParameters } from 'wagmi/connectors';
 
-import type { EthereumWallet } from '../interface';
+import { WalletFactory } from '../interface';
 
-export const CoinbaseWallet: EthereumWallet = (metadata) => {
+export const CoinbaseWallet: (
+  metadata?: Partial<WalletMetadata> & CoinbaseWalletParameters,
+) => WalletFactory = (metadata) => {
   return {
     connectors: ['Coinbase Wallet'],
     create: (): Wallet => {
@@ -14,6 +17,9 @@ export const CoinbaseWallet: EthereumWallet = (metadata) => {
         },
         ...metadata,
       };
+    },
+    createWagmiConnector: () => {
+      return coinbaseWallet(metadata);
     },
   };
 };

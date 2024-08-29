@@ -1,6 +1,5 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
-  Mainnet,
   MetaMask,
   OkxWallet,
   TokenPocket,
@@ -8,9 +7,24 @@ import {
   WalletConnect,
 } from '@ant-design/web3-wagmi';
 import { QueryClient } from '@tanstack/react-query';
-import { http } from 'wagmi';
+import { createConfig, http } from 'wagmi';
+import { mainnet } from 'wagmi/chains';
+import { walletConnect } from 'wagmi/connectors';
 
 const queryClient = new QueryClient();
+
+const config = createConfig({
+  chains: [mainnet],
+  transports: {
+    [mainnet.id]: http(),
+  },
+  connectors: [
+    walletConnect({
+      showQrModal: false,
+      projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
+    }),
+  ],
+});
 
 const App: React.FC = () => {
   return (
@@ -19,13 +33,6 @@ const App: React.FC = () => {
         autoAddInjectedWallets: true,
       }}
       ens
-      chains={[Mainnet]}
-      transports={{
-        [Mainnet.id]: http(),
-      }}
-      walletConnect={{
-        projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
-      }}
       wallets={[
         MetaMask(),
         WalletConnect(),
@@ -34,6 +41,7 @@ const App: React.FC = () => {
         }),
         OkxWallet(),
       ]}
+      config={config}
       queryClient={queryClient}
     >
       <Connector

@@ -34,6 +34,12 @@ The recommended configuration mainly includes:
 - Use the `simple` mode to simplify the interface.
 - Manually configure `queryClient` for easy subsequent customization of related configurations.
 
+## Customize Wagmi configuration
+
+In general, we do not recommend customizing the wagmi configuration. When you customize the wagmi configuration and pass it to `WagmiWeb3ConfigProvider`, it will override the default configuration we automatically generate.
+
+<code src="./demos/wagmi-config.tsx"></code>
+
 ## EIP6963
 
 Automatically add wallets based on EIP6963. Under the [EIP6963](https://eips.ethereum.org/EIPS/eip-6963) protocol, it can avoid conflicts caused by users installing multiple wallets, and can automatically identify the wallets that users have installed.
@@ -81,13 +87,15 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 | config | wagmi config | [WagmiConfig](https://wagmi.sh/core/config) | - | - |
 | queryClient | [React Query](https://react-query.tanstack.com/) queryClient | `new QueryClient()` | - | - |
 | wallets | Wallets | [WalletFactory](#walletfactory)[] | - | - |
-| chains | Chains | [Chain](./types#chain)[] | - | - |
+| chains | Chains | [ChainAssetWithWagmiChain](#ChainAssetWithWagmiChain)\[\] | - | - |
 | ens | Whether to display ENS | `boolean` | - | - |
 | balance | Whether to display balance | `boolean` | - | - |
 | locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/en_US.ts) | - | - |
 | eip6963 | Whether to use EIP6963 protocol wallet and related configurations | `boolean` \| `EIP6963Config` | `false` |  |
 | initialState | Initial state to hydrate into the [Wagmi Config](https://wagmi.sh/react/api/createConfig). Useful for SSR. | [State](https://wagmi.sh/react/api/createConfig#state-1) \| `undefined` | - | - |
 | reconnectOnMount | Whether or not to reconnect previously connected [connectors](https://wagmi.sh/react/api/createConfig#connectors) on mount. | `boolean` \| `undefined` | `true` | - |
+| walletConnect | WalletConnect configuration | `{ projectId: string }` | - | - |
+| transports | [Transport](https://wagmi.sh/core/api/createConfig#transports) configuration | `Transport` | - | - |
 
 ### WalletFactory
 
@@ -101,3 +109,7 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 ### UniversalWallet
 
 A Class for creating your own wallet, it meets the interface requirements of WalletFactory. For specific use, please refer to the example in [Customize Wallet Information](#customize-wallet-information).
+
+### ChainAssetWithWagmiChain
+
+Based on [Chain](./types#chain)[] adds the `wagmiChain` field to support chain configuration. Import it in a way similar to `import { Mainnet } from '@ant-design/web3-wagmi';`.
