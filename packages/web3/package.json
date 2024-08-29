@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3",
-  "version": "1.16.1",
+  "version": "1.16.2",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -41,7 +41,7 @@
     "build": "father build"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "^1.21.0",
+    "@ant-design/cssinjs": "^1.21.1",
     "@ant-design/icons": "^5.3.7",
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
@@ -60,6 +60,7 @@
     "@ant-design/web3-eth-web3js": "workspace:*",
     "@ant-design/web3-ethers": "workspace:*",
     "@ant-design/web3-solana": "workspace:*",
+    "@ant-design/web3-sui": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
     "@ant-design/web3-ton": "workspace:*",
     "@types/react": "^18.3.3",

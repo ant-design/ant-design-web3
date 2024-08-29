@@ -13,6 +13,7 @@ Ant Design Web3 是一个基于 [Ant Design](https://ant.design/index-cn) 的 We
   - 基于 `@ant-design/web3-wagmi` 或者 `@ant-design/web3-ethers` 和 `@ant-design/web3-eth-web3js` 连接 EVM 兼容链。
   - 基于 `@ant-design/web3-solana` 连接 Solana。
   - 基于 `@ant-design/web3-bitcoin` 连接比特币。
+  - 基于 `@ant-design/web3-sui` 连接 Sui。
 - 自己实现一个适配器，支持连接更多不同的区块链，具体实现方式可以参考[开发适配器](adapter.zh-CN.md)。
 - 仅仅使用官方提供的适配器，比如 `@ant-design/web3-solana`，然后完全自定义 UI 组件，在组件中通过 [Web3ConfigProvider](http://localhost:8000/components/web3-config-provider-cn) 消费适配器提供的能力。
 

@@ -1,5 +1,14 @@
 # @ant-design/web3-wagmi
 
+## 2.7.4
+
+### Patch Changes
+
+- efbd948: fix(web3-wagmi): Correct spelling of "Factories"
+- Updated dependencies [9bb1ea1]
+  - @ant-design/web3-common@1.13.0
+  - @ant-design/web3-assets@1.10.2
+
 ## 2.7.3
 
 ### Patch Changes

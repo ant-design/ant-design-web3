@@ -27,6 +27,13 @@ export enum SolanaChainIds {
   Testnet = 4,
 }
 
+export enum SuiChainIds {
+  Mainnet = 1,
+  Testnet = 2,
+  Devnet = 3,
+  Localnet = 4,
+}
+
 export type BrowserLinkType = 'address' | 'transaction';
 
 export type BalanceMetadata = {
@@ -50,6 +57,11 @@ export enum ChainType {
    * Bitcoin chain
    */
   Bitcoin = 'Bitcoin',
+
+  /**
+   * Sui chain
+   */
+  Sui = 'Sui',
 }
 
 export interface Chain {
@@ -71,7 +83,7 @@ export interface NFTMetadata {
   description?: string;
   image?: string;
   dna?: string;
-  edition?: number;
+  edition?: string | number;
   date?: number;
   attributes?: {
     trait_type?: string;
@@ -109,9 +121,10 @@ export interface UniversalWeb3ProviderInterface {
 }
 
 export interface Wallet extends WalletMetadata {
+  _standardWallet?: any;
   hasWalletReady?: () => boolean | Promise<boolean>;
-  hasExtensionInstalled?: () => boolean | Promise<boolean>;
-  getQrCode?: () => { uri: string } | Promise<{ uri: string }>;
+  hasExtensionInstalled?: () => Promise<boolean>;
+  getQrCode?: () => Promise<{ uri: string }>;
 }
 
 /**

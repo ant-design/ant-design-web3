@@ -4,8 +4,6 @@ order: 5
 group:
   title: Connect Blockchains
   order: 2
-cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*VJDJSoFtt2MAAAAAAAAAAAAADlrGAQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ZsbbTIAI3nIAAAAAAAAAAAAADlrGAQ/original
 ---
 
 # Solana
