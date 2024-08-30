@@ -5,7 +5,6 @@ import {
   MetaMask,
   MobileWallet,
   OkxWallet,
-  SafeheronWallet,
   TokenPocket,
   WagmiWeb3ConfigProvider,
   WalletConnect,
@@ -36,7 +35,6 @@ const App: React.FC = () => {
             jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${YOUR_ZAN_API_KEY}`,
           },
         ),
-        SafeheronWallet(),
         OkxWallet(),
         ImToken(),
       ]}
