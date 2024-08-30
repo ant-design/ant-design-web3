@@ -6,37 +6,7 @@ import {
   UniversalWallet,
   WagmiWeb3ConfigProvider,
 } from '@ant-design/web3-wagmi';
-import { createConfig, http } from 'wagmi';
-import { mainnet } from 'wagmi/chains';
-import { injected, walletConnect } from 'wagmi/connectors';
-
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
-  connectors: [
-    injected({
-      target: 'metaMask',
-    }),
-    walletConnect({
-      showQrModal: false,
-      projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
-    }),
-    injected({
-      target: 'tokenPocket',
-    }),
-    injected({
-      target() {
-        return {
-          id: 'testWallet',
-          name: 'TestWallet',
-          provider: window.ethereum,
-        };
-      },
-    }),
-  ],
-});
+import { injected } from 'wagmi/connectors';
 
 const App: React.FC = () => {
   return (
@@ -44,14 +14,30 @@ const App: React.FC = () => {
       eip6963={{
         autoAddInjectedWallets: true,
       }}
+      walletConnect={{
+        projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
+      }}
       wallets={[
-        new UniversalWallet({
-          name: 'TestWallet',
-          remark: 'My TestWallet',
-          icon: <EthereumCircleColorful />,
-          extensions: [],
-          group: 'Popular',
-        }),
+        new UniversalWallet(
+          {
+            name: 'TestWallet',
+            remark: 'My TestWallet',
+            icon: <EthereumCircleColorful />,
+            extensions: [],
+            group: 'Popular',
+          },
+          () => {
+            return injected({
+              target() {
+                return {
+                  id: 'testWallet',
+                  name: 'TestWallet',
+                  provider: window.ethereum,
+                };
+              },
+            });
+          },
+        ),
         TokenPocket({
           group: 'Popular',
         }),
@@ -59,7 +45,6 @@ const App: React.FC = () => {
           group: 'More',
         }),
       ]}
-      config={config}
     >
       <Connector>
         <ConnectButton />

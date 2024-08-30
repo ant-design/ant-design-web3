@@ -10,27 +10,6 @@ import {
   WagmiWeb3ConfigProvider,
   WalletConnect,
 } from '@ant-design/web3-wagmi';
-import { createConfig, http } from 'wagmi';
-import { mainnet } from 'wagmi/chains';
-import { coinbaseWallet, walletConnect } from 'wagmi/connectors';
-
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
-  multiInjectedProviderDiscovery: true,
-  connectors: [
-    walletConnect({
-      showQrModal: false,
-      projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
-    }),
-    coinbaseWallet({
-      appName: 'ant.design.web3',
-      jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${YOUR_ZAN_API_KEY}`,
-    }),
-  ],
-});
 
 const App: React.FC = () => {
   return (
@@ -38,19 +17,27 @@ const App: React.FC = () => {
       eip6963={{
         autoAddInjectedWallets: true,
       }}
+      walletConnect={{
+        projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
+      }}
       wallets={[
         MetaMask(),
         WalletConnect(),
         TokenPocket({
           group: 'Popular',
         }),
-        CoinbaseWallet(),
+        CoinbaseWallet(
+          {},
+          {
+            appName: 'ant.design.web3',
+            jsonRpcUrl: `https://api.zan.top/node/v1/eth/mainnet/${YOUR_ZAN_API_KEY}`,
+          },
+        ),
         SafeheronWallet(),
         OkxWallet(),
         ImToken(),
         MobileWallet(),
       ]}
-      config={config}
     >
       <Connector
         modalProps={{

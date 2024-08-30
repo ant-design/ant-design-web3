@@ -37,4 +37,14 @@ describe('CoinbaseWallet', async () => {
     }).create();
     expect(wallet.group).toBe('TestGroup');
   });
+
+  it('createWagmiConnector', () => {
+    const connectorFn = CoinbaseWallet(
+      {},
+      {
+        appName: 'xx',
+      },
+    ).createWagmiConnector?.();
+    expect(typeof connectorFn).toBe('function');
+  });
 });

@@ -65,9 +65,6 @@ export function WagmiWeb3ConfigProvider({
       : [Mainnet];
 
   const generateConfigFlag = () => {
-    if (config) {
-      return '_custom';
-    }
     return `${chains.map((item) => item.id).join(',')}-${wallets.map((item) => item.name).join(',')}`;
   };
 
@@ -101,10 +98,15 @@ export function WagmiWeb3ConfigProvider({
     };
   };
 
-  const [wagmiConfig, setWagmiConfig] = React.useState<{
-    flag: string;
+  const [autoConfig, setAutoConfig] = React.useState<{
+    flag?: string;
     config: Config;
   }>(() => {
+    if (config) {
+      return {
+        config,
+      };
+    }
     return generateConfig();
   });
 
@@ -113,15 +115,20 @@ export function WagmiWeb3ConfigProvider({
   }, [queryClient]);
 
   React.useEffect(() => {
+    if (config) {
+      return;
+    }
     const flag = generateConfigFlag();
-    if (flag !== wagmiConfig.flag) {
+    if (flag !== autoConfig.flag) {
       // Need recreate wagmi config
-      setWagmiConfig(generateConfig());
+      setAutoConfig(generateConfig());
     }
   }, [config, wallets, chains]);
 
+  const wagmiConfig = config || autoConfig.config;
+
   return (
-    <WagmiProvider config={wagmiConfig.config} {...restProps}>
+    <WagmiProvider config={wagmiConfig} {...restProps}>
       <QueryClientProvider client={mergedQueryClient}>
         <AntDesignWeb3ConfigProvider
           locale={locale}
@@ -130,7 +137,7 @@ export function WagmiWeb3ConfigProvider({
           ens={ens}
           balance={balance}
           eip6963={eip6963}
-          wagimConfig={wagmiConfig.config}
+          wagimConfig={wagmiConfig}
         >
           {children}
         </AntDesignWeb3ConfigProvider>
