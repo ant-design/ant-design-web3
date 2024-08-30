@@ -5,8 +5,9 @@ import { coinbaseWallet, type CoinbaseWalletParameters } from 'wagmi/connectors'
 import { WalletFactory } from '../interface';
 
 export const CoinbaseWallet: (
-  metadata?: Partial<WalletMetadata> & CoinbaseWalletParameters,
-) => WalletFactory = (metadata) => {
+  metadata?: Partial<WalletMetadata>,
+  coinbaseConfig?: CoinbaseWalletParameters,
+) => WalletFactory = (metadata, coinbaseConfig) => {
   return {
     connectors: ['Coinbase Wallet'],
     create: (): Wallet => {
@@ -19,7 +20,7 @@ export const CoinbaseWallet: (
       };
     },
     createWagmiConnector: () => {
-      return coinbaseWallet(metadata);
+      return coinbaseWallet(coinbaseConfig);
     },
   };
 };

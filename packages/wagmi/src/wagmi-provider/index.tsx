@@ -6,11 +6,26 @@ import { createConfig, http, WagmiProvider } from 'wagmi';
 import type { Config, State } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { walletConnect as wagmiWalletConnect } from 'wagmi/connectors';
+import type { WalletConnectParameters } from 'wagmi/connectors';
 
 // Built in popular chains
 import { Mainnet } from '../chains';
 import type { ChainAssetWithWagmiChain, EIP6963Config, WalletFactory } from '../interface';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
+
+export interface WalletConnectOptions
+  extends Pick<
+    WalletConnectParameters,
+    | 'disableProviderPing'
+    | 'isNewChainsStale'
+    | 'projectId'
+    | 'metadata'
+    | 'relayUrl'
+    | 'storageOptions'
+    | 'qrModalOptions'
+  > {
+  useWalletConnectOfficialModal?: boolean;
+}
 
 export type WagmiWeb3ConfigProviderProps = {
   config?: Config;
@@ -23,9 +38,7 @@ export type WagmiWeb3ConfigProviderProps = {
   eip6963?: EIP6963Config;
   initialState?: State;
   reconnectOnMount?: boolean;
-  walletConnect?: {
-    projectId: string;
-  };
+  walletConnect?: false | WalletConnectOptions;
   transports?: Record<number, Transport>;
 };
 
@@ -55,11 +68,11 @@ export function WagmiWeb3ConfigProvider({
     }
     // Auto generate config
     const connectors = [];
-    if (walletConnect) {
+    if (walletConnect && walletConnect.projectId) {
       connectors.push(
         wagmiWalletConnect({
-          showQrModal: false,
-          projectId: walletConnect.projectId,
+          ...walletConnect,
+          showQrModal: walletConnect.useWalletConnectOfficialModal ?? false,
         }),
       );
     }
