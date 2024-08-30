@@ -1,5 +1,5 @@
 import { metadata_CoinbaseWallet } from '@ant-design/web3-assets';
-import { type Wallet, type WalletMetadata } from '@ant-design/web3-common';
+import type { Wallet, WalletMetadata } from '@ant-design/web3-common';
 import { coinbaseWallet, type CoinbaseWalletParameters } from 'wagmi/connectors';
 
 import { WalletFactory } from '../interface';
