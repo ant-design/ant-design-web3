@@ -62,15 +62,20 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         }
       : undefined;
 
-  const findConnectorByKeyOrName = (keyOrName: string): WagmiConnector | undefined => {
+  const isConnectorNameMatch = (aName: string, bName: string) => {
+    // match connector name like okxWallet, Okx Wallet, OKX Wallet
+    return aName.replace(/ /g, '').toLowerCase() === bName.replace(/ /g, '').toLowerCase();
+  };
+
+  const findConnectorByName = (name: string): WagmiConnector | undefined => {
     const commonConnector = wagimConfig.connectors.find(
-      (item) => (item.name === keyOrName || item.id === keyOrName) && !isEIP6963Connector(item),
+      (item) => isConnectorNameMatch(item.name, name) && !isEIP6963Connector(item),
     );
     if (!eip6963) {
       return commonConnector;
     }
     const eip6963Connector = wagimConfig.connectors.find(
-      (item) => item.name === keyOrName && isEIP6963Connector(item),
+      (item) => item.name === name && isEIP6963Connector(item),
     );
     return eip6963Connector || commonConnector;
   };
@@ -83,7 +88,9 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         if (
           typeof eip6963 === 'object' &&
           eip6963?.autoAddInjectedWallets &&
-          !walletFactories.find((item) => item.connectors.includes(connector.name))
+          !walletFactories.find((item) =>
+            item.connectors.some((aName) => isConnectorNameMatch(aName, connector.name)),
+          )
         ) {
           // not config wallet and find the wallet in connectors, auto add it
           autoAddEIP6963Wallets.push(EIP6963Wallet().create([connector]));
@@ -93,7 +100,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       }
 
       const walletFactory = walletFactories.find((factory) =>
-        factory.connectors.includes(connector.name),
+        factory.connectors.some((aName) => isConnectorNameMatch(aName, connector.name)),
       );
 
       if (!walletFactory?.create) {
@@ -108,7 +115,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     const supportWallets = walletFactories
       .map((factory) => {
         const connectors = factory.connectors
-          .map(findConnectorByKeyOrName)
+          .map(findConnectorByName)
           .filter((item) => !!item) as WagmiConnector[];
 
         if (connectors.length === 0 && !eip6963) {
@@ -192,7 +199,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       connect={async (wallet, options) => {
         let connector = await (wallet as WalletUseInWagmiAdapter)?.getWagmiConnector?.(options);
         if (!connector && wallet) {
-          connector = findConnectorByKeyOrName(wallet.key || wallet.name);
+          connector = findConnectorByName(wallet.name);
         }
         if (!connector) {
           throw new Error(`Can not find connector for ${wallet?.name}`);

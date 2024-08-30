@@ -177,7 +177,7 @@ export type WalletMetadata = {
    * @desc 钱包的 key
    * @descEn The key of Wallet
    */
-  key?: string;
+  key?: React.Key;
   /**
    * @desc 钱包图标
    * @descEn Wallet icon

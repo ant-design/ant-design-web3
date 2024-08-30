@@ -16,7 +16,7 @@ export class UniversalWallet implements WalletFactory {
     if (wallet.extensions) {
       // support injected connector
       // https://wagmi.sh/react/connectors/injected
-      this.connectors.push(wallet.key || wallet.name);
+      this.connectors.push(wallet.name);
     }
     if (wallet.app) {
       // support WalletConnect https://wagmi.sh/react/connectors/walletConnect
