@@ -60,12 +60,18 @@ export function WagmiWeb3ConfigProvider({
   // When user not provide config, auto generate config, chains use user provided chains
   const chainAssets: ChainAssetWithWagmiChain[] = config
     ? [Mainnet, ...chains]
-    : chains || [Mainnet];
+    : chains?.length
+      ? chains
+      : [Mainnet];
+
+  const generateConfigFlag = () => {
+    if (config) {
+      return '_custom';
+    }
+    return `${chains.map((item) => item.id).join(',')}-${wallets.map((item) => item.name).join(',')}`;
+  };
 
   const generateConfig = () => {
-    if (config) {
-      return config;
-    }
     // Auto generate config
     const connectors = [];
     if (walletConnect && walletConnect.projectId) {
@@ -87,13 +93,19 @@ export function WagmiWeb3ConfigProvider({
       transports: transports ?? {
         [mainnet.id]: http(),
       },
-      connectors: [],
+      connectors,
     });
-    return autoGenerateConfig;
+    return {
+      flag: generateConfigFlag(),
+      config: autoGenerateConfig,
+    };
   };
 
-  const [wagmiConfig, setWagmiConfig] = React.useState<Config>(() => {
-    return config || generateConfig();
+  const [wagmiConfig, setWagmiConfig] = React.useState<{
+    flag: string;
+    config: Config;
+  }>(() => {
+    return generateConfig();
   });
 
   const mergedQueryClient = React.useMemo(() => {
@@ -101,11 +113,15 @@ export function WagmiWeb3ConfigProvider({
   }, [queryClient]);
 
   React.useEffect(() => {
-    setWagmiConfig(generateConfig());
-  }, [config, chains, wallets]);
+    const flag = generateConfigFlag();
+    if (flag !== wagmiConfig.flag) {
+      // Need recreate wagmi config
+      setWagmiConfig(generateConfig());
+    }
+  }, [config, wallets, chains]);
 
   return (
-    <WagmiProvider config={wagmiConfig} {...restProps}>
+    <WagmiProvider config={wagmiConfig.config} {...restProps}>
       <QueryClientProvider client={mergedQueryClient}>
         <AntDesignWeb3ConfigProvider
           locale={locale}
@@ -114,7 +130,7 @@ export function WagmiWeb3ConfigProvider({
           ens={ens}
           balance={balance}
           eip6963={eip6963}
-          wagimConfig={wagmiConfig}
+          wagimConfig={wagmiConfig.config}
         >
           {children}
         </AntDesignWeb3ConfigProvider>
