@@ -43,7 +43,11 @@ export function WagmiWeb3ConfigProvider({
   transports,
   ...restProps
 }: React.PropsWithChildren<WagmiWeb3ConfigProviderProps>): React.ReactElement {
-  const chainAssets: ChainAssetWithWagmiChain[] = chains.length ? chains : [Mainnet];
+  // When user custom config, add Mainnet by default
+  // When user not provide config, auto generate config, chains use user provided chains
+  const chainAssets: ChainAssetWithWagmiChain[] = config
+    ? [Mainnet, ...chains]
+    : chains || [Mainnet];
 
   const generateConfig = () => {
     if (config) {
