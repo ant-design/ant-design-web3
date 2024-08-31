@@ -3,12 +3,14 @@ import { SwapOutlined } from '@ant-design/icons';
 import { CryptoInput, type CryptoInputProps, type Token } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 import { Button, Card, Flex } from 'antd';
+import { useTheme } from 'antd-style';
 import Decimal from 'decimal.js';
 
 import styles from './index.module.less';
 
 const App: React.FC = () => {
   const [cryptoPair, setCryptoPair] = useState<CryptoInputProps['value'][]>([]);
+  const token = useTheme();
 
   const [tokenBalances, setTokenBalances] = useState<CryptoInputProps['balance'][]>([]);
 
@@ -56,7 +58,7 @@ const App: React.FC = () => {
             style={{
               width: 30,
               height: 30,
-              background: '#fff',
+              background: token.colorBgContainer,
               border: '1px solid #d9d9d9',
               borderRadius: 8,
               marginBlock: -24,
