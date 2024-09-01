@@ -13,6 +13,7 @@ You can use Ant Design Web3 in any of the following ways:
   - Connect to EVM-compatible chains based on `@ant-design/web3-wagmi` or `@ant-design/web3-ethers` and `@ant-design/web3-eth-web3js`.
   - Connect to Solana based on `@ant-design/web3-solana`.
   - Connect to Bitcoin based on `@ant-design/web3-bitcoin`.
+  - Connect to Sui based on `@ant-design/web3-sui`.
 - Implement an adapter yourself to support connecting to more different blockchains, the specific implementation method can refer to [Developing Adapters](adapter.md).
 - Use only the official adapter, such as `@ant-design/web3-solana`, and then completely customize the UI components, consume the capabilities provided by the adapter through [Web3ConfigProvider](http://localhost:8000/components/web3-config-provider).
 
