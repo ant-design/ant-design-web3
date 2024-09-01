@@ -18,7 +18,7 @@ export const ShowCase: React.FC = () => {
   const { curTheme } = useContext(ThemeContext);
   const themeStyle: React.CSSProperties = {
     '--theme-item-bg': curTheme.showCaseItemBg,
-    '--theme-text-color': curTheme.name === 'Black' ? token.colorWhite : token.colorTextBase,
+    '--theme-text-color': curTheme.name === 'Dark' ? token.colorWhite : token.colorTextBase,
   } as React.CSSProperties;
 
   const caseList = [<Connect />, <NFTCard />, <PayPanel />, <CryptoInput />];

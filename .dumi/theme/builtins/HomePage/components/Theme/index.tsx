@@ -85,7 +85,7 @@ export const Theme: React.FC = () => {
   const token = useTheme();
   const themeStyle: React.CSSProperties = {
     backgroundImage: `url(${curTheme.themeBg})`,
-    '--theme-text-color': curTheme.name === 'Black' ? token.colorWhite : token.colorTextBase,
+    '--theme-text-color': curTheme.name === 'Dark' ? token.colorWhite : token.colorTextBase,
   } as React.CSSProperties;
 
   return (
@@ -101,7 +101,7 @@ export const Theme: React.FC = () => {
             curTheme.name === 'Default'
               ? undefined
               : {
-                  colorPrimary: curTheme.primary,
+                  colorPrimary: curTheme.color,
                 },
         }}
       >

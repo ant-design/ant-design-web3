@@ -9,18 +9,18 @@ import styles from './index.module.less';
 export const Banner: React.FC = () => {
   const intl = useIntl();
   const {
-    curTheme: { bannerBg, primary, darkLogo, darkSloganColor, name },
+    curTheme: { bannerBg, color, darkLogo, darkSloganColor, name },
   } = useContext(ThemeContext);
 
   const themeStyle: React.CSSProperties = {
-    '--theme-primary-color': primary,
+    '--theme-primary-color': color,
     '--theme-slogan-color': darkSloganColor || 'rgba(0, 0, 0, 0.85)',
   } as React.CSSProperties;
 
   return (
     <div
       className={classNames(styles.bannerContainer, {
-        [styles.darkTheme]: name === 'Black',
+        [styles.darkTheme]: name === 'Dark',
       })}
       style={themeStyle}
     >

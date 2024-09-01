@@ -93,15 +93,17 @@
       filter: brightness(0.4) contrast(1.5) saturate(0.75);
     }
   }
-  .titleImg {
-    filter: brightness(0.8) contrast(1.5) saturate(5);
-  }
-  .slogan {
-    color: #ccc !important;
-  }
-  .link {
-    border-color: #ccc !important;
-    color: #ccc !important;
+  .wrap {
+    .titleImg {
+      filter: brightness(0.8) contrast(1.5) saturate(5);
+    }
+    .slogan {
+      color: #ccc;
+    }
+    .link {
+      border-color: #ccc;
+      color: #ccc;
+    }
   }
 }
 
@@ -113,6 +115,7 @@
       object-position: center;
       margin-left: 0;
       width: 100%;
+      min-height: 256px;
     }
     .wrap {
       width: calc(100% - 40px);

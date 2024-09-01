@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { ThemeItem, themes } from './Theme/components/Thumbnail';
+import { FullTheme, themes } from './Theme/components/Thumbnail';
 
 export type ThemeContextProps = {
-  curTheme: ThemeItem;
-  updateTheme: (theme: ThemeItem) => void;
+  curTheme: FullTheme;
+  updateTheme: (theme: FullTheme) => void;
 };
 
 export const ThemeContext = React.createContext<ThemeContextProps>({
-  curTheme: themes.default,
+  curTheme: themes[0],
   updateTheme: () => {},
 });

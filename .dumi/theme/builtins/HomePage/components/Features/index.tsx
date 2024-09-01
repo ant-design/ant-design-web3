@@ -38,9 +38,9 @@ export const Features: React.FC = () => {
   const { curTheme } = useContext(ThemeContext);
   const token = useTheme();
   const themeStyle: React.CSSProperties = {
-    '--theme-text-color': curTheme.name === 'Black' ? token.colorWhite : token.colorTextBase,
-    '--theme-container-bg': curTheme.name === 'Black' ? '#222' : '#fff',
-    '--theme-item-bg': curTheme.name === 'Black' ? '#303030' : '#fbfafc',
+    '--theme-text-color': curTheme.name === 'Dark' ? token.colorWhite : token.colorTextBase,
+    '--theme-container-bg': curTheme.name === 'Dark' ? '#222' : '#fff',
+    '--theme-item-bg': curTheme.name === 'Dark' ? '#303030' : '#fbfafc',
   } as React.CSSProperties;
 
   return (
