@@ -11,10 +11,6 @@ export type ThemeType = 'default' | 'dark' | 'green' | 'pink' | 'violet';
 
 export type ThemeItem = {
   /**
-   * @zh 主题名称
-   */
-  name: 'Default' | 'Dark' | 'Green' | 'Pink' | 'Violet';
-  /**
    * @zh 页面主背景
    */
   mainBg: string;
@@ -79,7 +75,6 @@ const ThumbnailItem: React.FC<ThumbnailItemProps> = (item) => {
 
 export const sizeThemes: Themes = {
   default: {
-    name: 'Default',
     mainBg: '#fbfdff',
     bannerBg:
       'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dlP7SrSAbc4AAAAAAAAAAAAADlrGAQ/original',
@@ -89,7 +84,6 @@ export const sizeThemes: Themes = {
       '#EFF6FF radial-gradient(circle at 94% 97%, #C8DDFF 0%, rgba(236,233,255,0.00) 53%)',
   },
   dark: {
-    name: 'Dark',
     mainBg: '#161616',
     bannerBg:
       'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*EzS8QrmIqUAAAAAAAAAAAAAADlrGAQ/original',
@@ -102,7 +96,6 @@ export const sizeThemes: Themes = {
     darkSloganColor: 'rgba(255, 255, 255, .85)',
   },
   green: {
-    name: 'Green',
     mainBg: '#fbfffd',
     bannerBg:
       'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*z85mQ4alwjwAAAAAAAAAAAAADlrGAQ/original',
@@ -111,7 +104,6 @@ export const sizeThemes: Themes = {
       '#F5FFFB radial-gradient(circle at 94% 97%, #CDFFEA 0%, rgba(236,233,255,0.00) 53%)',
   },
   pink: {
-    name: 'Pink',
     mainBg: '#fef9fc',
     bannerBg:
       'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*MLqZT7GhUpQAAAAAAAAAAAAADlrGAQ/original',
@@ -121,7 +113,6 @@ export const sizeThemes: Themes = {
       '#FFF3F9 radial-gradient(circle at 94% 97%, #FFCFE6 0%, rgba(236,233,255,0.00) 53%)',
   },
   violet: {
-    name: 'Violet',
     mainBg: '#fbfafc',
     bannerBg:
       'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*tQ2fQK1hjMsAAAAAAAAAAAAADlrGAQ/original',
@@ -140,7 +131,7 @@ export const themes: FullTheme[] = themeList.map((item) => ({
 // const themesArray = Object.values(themes);
 
 export type ThumbnailProps = {
-  selectedTheme: ThemeItem;
+  selectedTheme: FullTheme;
   onSelect: (item: FullTheme) => void;
 };
 
