@@ -19,7 +19,6 @@ export const HomePage: React.FC = () => {
   const { updateSiteConfig } = useContext(SiteContext);
 
   const updateTheme = (theme: FullTheme) => {
-    console.log('updateTheme', theme);
     updateSiteConfig({
       theme: [theme.name === 'Dark' ? 'dark' : 'light'],
     });
