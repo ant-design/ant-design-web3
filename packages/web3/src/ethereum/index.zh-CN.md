@@ -83,18 +83,18 @@ Ant Design Web3 官方提供了 `wagmi`、`ethers` 等多个框架的适配器�
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| config | wagmi 配置 | [WagmiConfig](https://wagmi.sh/core/config) | 通过 `chains` 和 `wallets` 等配置自动生成 | - |
+| config | wagmi 配置 | [WagmiConfig](https://wagmi.sh/core/config) | `2.8.0` 后支持通过 `chains` 和 `wallets` 等配置自动生成 | - |
 | queryClient | [TanStack Query](https://wagmi.sh/react/guides/tanstack-query) 实例 | `new QueryClient()` | - | - |
 | wallets | 钱包配置 | [WalletFactory](#walletfactory)\[\] | - | - |
-| chains | 链的配置 | [ChainAssetWithWagmiChain](#ChainAssetWithWagmiChain)\[\] | - | - |
+| chains | 链的配置 | [ChainAssetWithWagmiChain](#chainassetwithwagmichain)\[\] | - | - |
 | ens | 是否显示 ENS | `boolean` | - | - |
 | balance | 是否显示余额 | `boolean` | - | - |
 | locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
 | eip6963 | 是否采用 EIP6963 协议钱包以及相关配置 | `boolean` \| `EIP6963Config` | `false` | `2.2.0` |
 | initialState | [Wagmi 配置](https://wagmi.sh/react/api/createConfig)的初始状态，用于 SSR 预填充数据 | [State](https://wagmi.sh/core/config) \| `undefined` | - | - |
 | reconnectOnMount | 是否在组件挂载时重新连接之前已连接的[连接器](https://wagmi.sh/react/api/createConfig#connectors) | `boolean` \| `undefined` | `true` | - |
-| walletConnect | walletConnect 的配置 | `{ projectId: string }` | - | - |
-| transports | [Transport](https://wagmi.sh/core/api/createConfig#transports) 网关配置 | `Record<number, Transport>;` | - | - |
+| walletConnect | walletConnect 的配置 | `false` \| [WalletConnectOptions](#walletconnectoptions) | - | `2.8.0` |
+| transports | [Transport](https://wagmi.sh/core/api/createConfig#transports) 网关配置 | `Record<number, Transport>;` | - | `2.8.0` |
 
 ### EIP6963Config
 
@@ -118,3 +118,23 @@ Ant Design Web3 官方提供了 `wagmi`、`ethers` 等多个框架的适配器�
 ### ChainAssetWithWagmiChain
 
 基于 [Chain](./types#chain)[] 新增了 `wagmiChain` 字段，用于支持链的配置。通过类似 `import { Mainnet } from '@ant-design/web3-wagmi';` 的方式引入。
+
+### WalletConnectOptions
+
+基于 wagmi [WalletConnectParameters](https://wagmi.sh/core/api/connectors/walletConnect#parameters) 配置，做了处理，新增了 `useWalletConnectOfficialModal` 字段，用于控制是否使用 WalletConnect 官方的弹窗。
+
+```ts
+export interface WalletConnectOptions
+  extends Pick<
+    WalletConnectParameters,
+    | 'disableProviderPing'
+    | 'isNewChainsStale'
+    | 'projectId'
+    | 'metadata'
+    | 'relayUrl'
+    | 'storageOptions'
+    | 'qrModalOptions'
+  > {
+  useWalletConnectOfficialModal?: boolean;
+}
+```

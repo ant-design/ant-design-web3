@@ -9,6 +9,7 @@ import {
   TokenPocket,
   WagmiWeb3ConfigProvider,
   WalletFactory,
+  type WalletConnectOptions,
 } from '@ant-design/web3-wagmi';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
@@ -235,5 +236,51 @@ describe('WagmiWeb3ConfigProvider', () => {
     );
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.wallets-qrcode')?.textContent).toBe('qrcode,qrcode,qrcode');
+  });
+
+  it('refresh walletConnect', () => {
+    const CustomConnector: React.FC<{
+      onClick: () => void;
+    }> = ({ onClick }) => {
+      const { availableWallets } = useProvider();
+      return (
+        <div className="wallets-qrcode" onClick={onClick}>
+          {availableWallets?.map((item) => (item.getQrCode ? 'qrcode' : 'noqrcode')).join(',')}
+        </div>
+      );
+    };
+
+    const App = () => {
+      const [walletConnectConfig, setWalletConnectConfig] = React.useState<
+        WalletConnectOptions | false
+      >({
+        projectId: 'test',
+      });
+      return (
+        <WagmiWeb3ConfigProvider
+          wallets={[MetaMask(), TokenPocket(), OkxWallet()]}
+          chains={[Polygon, Goerli, Mainnet]}
+          walletConnect={walletConnectConfig}
+          transports={{
+            [Goerli.id]: http(),
+            [Mainnet.id]: http(),
+            [Polygon.id]: http(),
+          }}
+        >
+          <CustomConnector
+            onClick={() => {
+              setWalletConnectConfig(false);
+            }}
+          />
+        </WagmiWeb3ConfigProvider>
+      );
+    };
+    const { baseElement } = render(<App />);
+
+    expect(baseElement.querySelector('.wallets-qrcode')?.textContent).toBe('qrcode,qrcode,qrcode');
+    fireEvent.click(baseElement.querySelector('.wallets-qrcode')!);
+    expect(baseElement.querySelector('.wallets-qrcode')?.textContent).toBe(
+      'noqrcode,noqrcode,noqrcode',
+    );
   });
 });

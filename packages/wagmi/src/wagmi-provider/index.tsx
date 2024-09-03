@@ -65,7 +65,7 @@ export function WagmiWeb3ConfigProvider({
       : [Mainnet];
 
   const generateConfigFlag = () => {
-    return `${chains.map((item) => item.id).join(',')}-${wallets.map((item) => item.name).join(',')}`;
+    return `${JSON.stringify(walletConnect)}-${chains.map((item) => item.id).join(',')}-${wallets.map((item) => item.name).join(',')}`;
   };
 
   const generateConfig = () => {
@@ -123,7 +123,7 @@ export function WagmiWeb3ConfigProvider({
       // Need recreate wagmi config
       setAutoConfig(generateConfig());
     }
-  }, [config, wallets, chains]);
+  }, [config, wallets, chains, walletConnect]);
 
   const wagmiConfig = config || autoConfig.config;
 
