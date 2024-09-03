@@ -203,6 +203,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         });
         return {
           address: accounts?.[0],
+          accounts,
         };
       }}
       disconnect={async () => {

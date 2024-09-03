@@ -2,6 +2,7 @@ export interface Account {
   address: string;
   name?: string;
   avatar?: string;
+  accounts?: readonly [`0x${string}`, ...`0x${string}`[]];
 }
 
 export enum ChainIds {
