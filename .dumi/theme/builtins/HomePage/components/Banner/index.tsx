@@ -1,25 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import classNames from 'classnames';
 // @ts-ignore
 import { Link, useIntl } from 'dumi';
 
+import { ThemeContext } from '../ThemeContext';
 import styles from './index.module.less';
 
 export const Banner: React.FC = () => {
   const intl = useIntl();
+  const {
+    curTheme: { bannerBg, color, darkLogo, darkSloganColor, name },
+  } = useContext(ThemeContext);
+
+  const themeStyle: React.CSSProperties = {
+    '--theme-primary-color': color,
+    '--theme-slogan-color': darkSloganColor || 'rgba(0, 0, 0, 0.85)',
+  } as React.CSSProperties;
 
   return (
-    <div className={styles.bannerContainer}>
-      <img
-        draggable={false}
-        className={styles.bgImg}
-        src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*664qTJ8PpR8AAAAAAAAAAAAADlrGAQ/original"
-        alt="banner"
-      />
+    <div
+      className={classNames(styles.bannerContainer, {
+        [styles.darkTheme]: name === 'Dark',
+      })}
+      style={themeStyle}
+    >
+      <img draggable={false} className={styles.bgImg} src={bannerBg} alt="banner" />
       <div className={styles.wrap}>
         <img
           draggable={false}
           className={styles.titleImg}
-          src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*5kc-Ro7c1H8AAAAAAAAAAAAADlrGAQ/original"
+          src={
+            darkLogo ||
+            'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*5kc-Ro7c1H8AAAAAAAAAAAAADlrGAQ/original'
+          }
           alt="title"
         />
         <div className={styles.slogan}>

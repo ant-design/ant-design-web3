@@ -1,0 +1,91 @@
+.thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  padding: 0 20px;
+  .thumbnailItem {
+    cursor: pointer;
+    margin-inline-end: 24px;
+    &:nth-last-child(1) {
+      margin-inline-end: none;
+    }
+    .thumbnailIcon {
+      width: 110px;
+      height: 80px;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      outline: 1px solid rgba(0, 0, 0, 0.01);
+      background: #fff;
+      transition: all 0.3s;
+      border: 1px solid rgba(0, 0, 0, 0);
+      &::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 85.45%;
+        height: 80%;
+        background: var(--theme-primary-color);
+        opacity: 0.1;
+        z-index: 1;
+        border-radius: 8px 0 8px 0;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 70.91%;
+        height: 60%;
+        background: var(--theme-primary-color);
+        z-index: 2;
+        border-radius: 8px 0 8px 0;
+      }
+    }
+    .thumbnailItemName {
+      color: var(--theme-text-color);
+      text-align: center;
+      font-size: 16px;
+      margin-top: 8px;
+      transition: all 0.3s;
+    }
+    &.selected {
+      .thumbnailIcon {
+        outline: 3px solid rgba(55, 119, 246, 0.1);
+        border: 1px solid #1677ff;
+      }
+      .thumbnailItemName {
+        color: var(--theme-text-color-selected);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .thumbnail {
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    .thumbnailItem {
+      margin-inline-end: 0;
+      .thumbnailIcon {
+        width: 60px;
+        height: 45px;
+        border-radius: 3px;
+        &::before {
+          border-radius: 3px 0 3px 0;
+        }
+        &::after {
+          border-radius: 3px 0 3px 0;
+        }
+      }
+      .thumbnailItemName {
+        font-size: 14px;
+      }
+    }
+  }
+}
