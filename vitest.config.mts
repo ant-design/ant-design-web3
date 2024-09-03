@@ -67,7 +67,12 @@ export default defineConfig({
     reporters: ['default'],
     coverage: {
       include: ['packages/*/src/**/*.{ts,tsx}'],
-      exclude: ['**/demos/*.{ts,tsx}', '**/src/index.ts'],
+      exclude: [
+        '**/demos/*.{ts,tsx}',
+        '**/src/index.ts',
+        '**/__tests__/*.{ts,tsx}',
+        '**/*.test.{ts,tsx}',
+      ],
       reporter: ['json-summary', ['text', { skipFull: true }], 'cobertura', 'html'],
     },
     testTimeout: 3e4,
