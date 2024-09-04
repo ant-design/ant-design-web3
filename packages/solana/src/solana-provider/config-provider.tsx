@@ -14,8 +14,8 @@ import { hasWalletReady } from '../utils';
 import { WalletConnectWalletAdapter } from '../wallet-connect-adapter';
 
 interface ConnectAsync {
-  promise: Promise<void>;
-  resolve: () => void;
+  promise: Promise<Account>;
+  resolve: (account?: Account) => void;
   reject: (reason: any) => void;
 }
 
@@ -70,7 +70,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
     }
 
     if (connected) {
-      connectAsyncRef.current.resolve();
+      connectAsyncRef.current.resolve(publicKey ? { address: publicKey.toBase58() } : undefined);
       connectAsyncRef.current = undefined;
     }
   }, [connected]);
@@ -172,6 +172,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
           name: adapter.name,
           icon: adapter.icon,
           remark: adapter.name,
+          _standardWallet: adapter,
 
           hasExtensionInstalled: async () => {
             return adapter.readyState === WalletReadyState.Installed;
@@ -223,7 +224,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
           selectWallet(null);
         }
 
-        const promise = new Promise<void>((res, rej) => {
+        const promise = new Promise<Account>((res, rej) => {
           resolve = res;
           reject = rej;
         });
