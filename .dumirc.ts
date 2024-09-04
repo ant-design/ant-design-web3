@@ -212,7 +212,10 @@ export default defineConfig({
         },
         {
           title: 'Community',
-          items: [{ title: 'X (Twitter)', url: 'https://twitter.com/AntDesignWeb3' }],
+          items: [
+            { title: 'X (Twitter)', url: 'https://twitter.com/AntDesignWeb3' },
+            { title: 'Telegram', url: 'https://t.me/antdweb3' },
+          ],
         },
       ],
       'zh-CN': [
@@ -286,7 +289,10 @@ export default defineConfig({
         },
         {
           title: '社区',
-          items: [{ title: 'X (Twitter)', url: 'https://twitter.com/AntDesignWeb3' }],
+          items: [
+            { title: 'X (Twitter)', url: 'https://twitter.com/AntDesignWeb3' },
+            { title: 'Telegram', url: 'https://t.me/antdweb3' },
+          ],
         },
       ],
     },
