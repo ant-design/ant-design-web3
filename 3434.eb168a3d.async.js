@@ -1,4 +1,4 @@
-(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[4120],{12230:function(t,n,o){"use strict";o.r(n),o.d(n,{BitcoinWeb3ConfigProvider:function(){return e.N},OkxWallet:function(){return r.Yw},UnisatWallet:function(){return r.Oq},XverseWallet:function(){return r.x5},useBitcoinWallet:function(){return u.i}});var e=o(77436),r=o(15724),a=o(98151),c=o.n(a),d={};for(var s in a)["default","useBitcoinWallet","BitcoinWeb3ConfigProvider","OkxWallet","UnisatWallet","XverseWallet"].indexOf(s)<0&&(d[s]=function(i){return a[i]}.bind(0,s));o.d(n,d);var u=o(1525)},98151:function(){},16060:function(t,n,o){"use strict";o.r(n),o.d(n,{CoinbaseWallet:function(){return a.G},EthersWeb3ConfigProvider:function(){return e.G},ImToken:function(){return i.V},MetaMask:function(){return r.M},OkxWallet:function(){return u.Y},SafeheronWallet:function(){return d.V},TokenPocket:function(){return c.g},UniversalWallet:function(){return s.M},clientToProvider:function(){return l.j},clientToSigner:function(){return p.r},useEthersProvider:function(){return l.Z},useEthersSigner:function(){return p.z}});var e=o(59098),r=o(20916),a=o(11316),c=o(95227),d=o(95714),s=o(47430),u=o(22468),i=o(7965),l=o(11503),p=o(471)},77964:function(t,n,o){"use strict";o.r(n),o.d(n,{BaseError:function(){return e.BaseError},ChainNotConfiguredError:function(){return e.ChainNotConfiguredError},ConnectorAccountNotFoundError:function(){return e.ConnectorAccountNotFoundError},ConnectorAlreadyConnectedError:function(){return e.ConnectorAlreadyConnectedError},ConnectorNotFoundError:function(){return e.ConnectorNotFoundError},Context:function(){return e.Context},Hydrate:function(){return e.Hydrate},ProviderNotFoundError:function(){return e.ProviderNotFoundError},SwitchChainNotSupportedError:function(){return e.SwitchChainNotSupportedError},WagmiConfig:function(){return e.WagmiConfig},WagmiContext:function(){return e.WagmiContext},WagmiProvider:function(){return e.WagmiProvider},WagmiProviderNotFoundError:function(){return e.WagmiProviderNotFoundError},actions:function(){return r},chains:function(){return a},connectors:function(){return c},cookieStorage:function(){return e.cookieStorage},cookieToInitialState:function(){return e.cookieToInitialState},createConfig:function(){return e.createConfig},createConnector:function(){return e.createConnector},createStorage:function(){return e.createStorage},custom:function(){return e.custom},deepEqual:function(){return e.deepEqual},deserialize:function(){return e.deserialize},fallback:function(){return e.fallback},http:function(){return e.http},noopStorage:function(){return e.noopStorage},normalizeChainId:function(){return e.normalizeChainId},parseCookie:function(){return e.parseCookie},serialize:function(){return e.serialize},unstable_connector:function(){return e.unstable_connector},useAccount:function(){return e.useAccount},useAccountEffect:function(){return e.useAccountEffect},useBalance:function(){return e.useBalance},useBlock:function(){return e.useBlock},useBlockNumber:function(){return e.useBlockNumber},useBlockTransactionCount:function(){return e.useBlockTransactionCount},useBytecode:function(){return e.useBytecode},useCall:function(){return e.useCall},useChainId:function(){return e.useChainId},useChains:function(){return e.useChains},useClient:function(){return e.useClient},useConfig:function(){return e.useConfig},useConnect:function(){return e.useConnect},useConnections:function(){return e.useConnections},useConnectorClient:function(){return e.useConnectorClient},useConnectors:function(){return e.useConnectors},useContractInfiniteReads:function(){return e.useContractInfiniteReads},useContractRead:function(){return e.useContractRead},useContractReads:function(){return e.useContractReads},useContractWrite:function(){return e.useContractWrite},useDeployContract:function(){return e.useDeployContract},useDisconnect:function(){return e.useDisconnect},useEnsAddress:function(){return e.useEnsAddress},useEnsAvatar:function(){return e.useEnsAvatar},useEnsName:function(){return e.useEnsName},useEnsResolver:function(){return e.useEnsResolver},useEnsText:function(){return e.useEnsText},useEstimateFeesPerGas:function(){return e.useEstimateFeesPerGas},useEstimateGas:function(){return e.useEstimateGas},useEstimateMaxPriorityFeePerGas:function(){return e.useEstimateMaxPriorityFeePerGas},useFeeData:function(){return e.useFeeData},useFeeHistory:function(){return e.useFeeHistory},useGasPrice:function(){return e.useGasPrice},useInfiniteReadContracts:function(){return e.useInfiniteReadContracts},usePrepareTransactionRequest:function(){return e.usePrepareTransactionRequest},useProof:function(){return e.useProof},usePublicClient:function(){return e.usePublicClient},useReadContract:function(){return e.useReadContract},useReadContracts:function(){return e.useReadContracts},useReconnect:function(){return e.useReconnect},useSendTransaction:function(){return e.useSendTransaction},useSignMessage:function(){return e.useSignMessage},useSignTypedData:function(){return e.useSignTypedData},useSimulateContract:function(){return e.useSimulateContract},useStorageAt:function(){return e.useStorageAt},useSwitchAccount:function(){return e.useSwitchAccount},useSwitchChain:function(){return e.useSwitchChain},useToken:function(){return e.useToken},useTransaction:function(){return e.useTransaction},useTransactionConfirmations:function(){return e.useTransactionConfirmations},useTransactionCount:function(){return e.useTransactionCount},useTransactionReceipt:function(){return e.useTransactionReceipt},useVerifyMessage:function(){return e.useVerifyMessage},useVerifyTypedData:function(){return e.useVerifyTypedData},useWaitForTransactionReceipt:function(){return e.useWaitForTransactionReceipt},useWalletClient:function(){return e.useWalletClient},useWatchBlockNumber:function(){return e.useWatchBlockNumber},useWatchBlocks:function(){return e.useWatchBlocks},useWatchContractEvent:function(){return e.useWatchContractEvent},useWatchPendingTransactions:function(){return e.useWatchPendingTransactions},useWriteContract:function(){return e.useWriteContract},version:function(){return e.version},webSocket:function(){return e.webSocket}});var e=o(83333),r=o(96726),a=o(71753),c=o(58621)},28439:function(t,n,o){"use strict";o.r(n),o.d(n,{BackpackWallet:function(){return i.bS},CoinbaseWallet:function(){return i.GU},OKXWallet:function(){return i.D2},PhantomWallet:function(){return i.j1},SolanaWeb3ConfigProvider:function(){return d.G},StandardWalletFactory:function(){return u.Oy},TrustWallet:function(){return i.d0},WalletAdapterNetwork:function(){return c.Q},WalletConnectWallet:function(){return i.eM},WalletConnectWalletFactory:function(){return u.Ho},WalletFactory:function(){return u.$d},solana:function(){return s.Zj},solanaDevnet:function(){return s.ol},solanaTestnet:function(){return s.Q6},useAnchorWallet:function(){return r.z},useConnection:function(){return a.R},useWallet:function(){return e.O}});var e=o(5310),r=o(23821),a=o(93632),c=o(87911),d=o(68368),s=o(63157),u=o(28242),i=o(73500)},43143:function(t,n,o){"use strict";o.r(n),o.d(n,{SuiWallet:function(){return a.t},SuiWeb3ConfigProvider:function(){return r.r},Suiet:function(){return a.h},WalletFactory:function(){return c.$},suiDevnet:function(){return e.d_},suiLocalnet:function(){return e.CW},suiMainnet:function(){return e.AS},suiTestnet:function(){return e.dJ}});var e=o(21522),r=o(12637),a=o(83872),c=o(41251)},84041:function(t,n,o){"use strict";o.r(n),o.d(n,{CHAIN:function(){return m.sX},TonConnectorContext:function(){return e.V},TonWeb3ConfigProvider:function(){return e.q},dewallet:function(){return l.a},myTonWallet:function(){return s.g},okxTonWallet:function(){return p.x},openmask:function(){return u.f},telegramWallet:function(){return d},tonhub:function(){return i.G},tonkeeper:function(){return r._},useTonConnector:function(){return f.B}});var e=o(43608),r=o(54083),a=o(81549),c=o(52676),d={key:"telegram-wallet",icon:(0,c.jsx)(a.u,{})},s=o(75370),u=o(11998),i=o(39750),l=o(10389),p=o(69402),m=o(29634),f=o(28388)},8319:function(t,n,o){"use strict";o.r(n),o.d(n,{fillWithPrefix:function(){return r.fillWithPrefix},formatAddress:function(){return r.formatAddress},formatBalance:function(){return r.formatBalance},getPlatform:function(){return e.getPlatform},writeCopyText:function(){return e.writeCopyText}});var e=o(54214),r=o(92296)},9874:function(t,n){"use strict";n.Z=`import { Address } from '@ant-design/web3';
+(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[3434],{12230:function(t,n,o){"use strict";o.r(n),o.d(n,{BitcoinWeb3ConfigProvider:function(){return e.N},OkxWallet:function(){return r.Yw},UnisatWallet:function(){return r.Oq},XverseWallet:function(){return r.x5},useBitcoinWallet:function(){return u.i}});var e=o(77436),r=o(15724),a=o(98151),c=o.n(a),d={};for(var s in a)["default","useBitcoinWallet","BitcoinWeb3ConfigProvider","OkxWallet","UnisatWallet","XverseWallet"].indexOf(s)<0&&(d[s]=function(i){return a[i]}.bind(0,s));o.d(n,d);var u=o(1525)},98151:function(){},16060:function(t,n,o){"use strict";o.r(n),o.d(n,{CoinbaseWallet:function(){return a.G},EthersWeb3ConfigProvider:function(){return e.G},ImToken:function(){return i.V},MetaMask:function(){return r.M},OkxWallet:function(){return u.Y},SafeheronWallet:function(){return d.V},TokenPocket:function(){return c.g},UniversalWallet:function(){return s.M},clientToProvider:function(){return l.j},clientToSigner:function(){return p.r},useEthersProvider:function(){return l.Z},useEthersSigner:function(){return p.z}});var e=o(59098),r=o(20916),a=o(11316),c=o(95227),d=o(95714),s=o(47430),u=o(22468),i=o(7965),l=o(11503),p=o(471)},77964:function(t,n,o){"use strict";o.r(n),o.d(n,{BaseError:function(){return e.BaseError},ChainNotConfiguredError:function(){return e.ChainNotConfiguredError},ConnectorAccountNotFoundError:function(){return e.ConnectorAccountNotFoundError},ConnectorAlreadyConnectedError:function(){return e.ConnectorAlreadyConnectedError},ConnectorNotFoundError:function(){return e.ConnectorNotFoundError},Context:function(){return e.Context},Hydrate:function(){return e.Hydrate},ProviderNotFoundError:function(){return e.ProviderNotFoundError},SwitchChainNotSupportedError:function(){return e.SwitchChainNotSupportedError},WagmiConfig:function(){return e.WagmiConfig},WagmiContext:function(){return e.WagmiContext},WagmiProvider:function(){return e.WagmiProvider},WagmiProviderNotFoundError:function(){return e.WagmiProviderNotFoundError},actions:function(){return r},chains:function(){return a},connectors:function(){return c},cookieStorage:function(){return e.cookieStorage},cookieToInitialState:function(){return e.cookieToInitialState},createConfig:function(){return e.createConfig},createConnector:function(){return e.createConnector},createStorage:function(){return e.createStorage},custom:function(){return e.custom},deepEqual:function(){return e.deepEqual},deserialize:function(){return e.deserialize},fallback:function(){return e.fallback},http:function(){return e.http},noopStorage:function(){return e.noopStorage},normalizeChainId:function(){return e.normalizeChainId},parseCookie:function(){return e.parseCookie},serialize:function(){return e.serialize},unstable_connector:function(){return e.unstable_connector},useAccount:function(){return e.useAccount},useAccountEffect:function(){return e.useAccountEffect},useBalance:function(){return e.useBalance},useBlock:function(){return e.useBlock},useBlockNumber:function(){return e.useBlockNumber},useBlockTransactionCount:function(){return e.useBlockTransactionCount},useBytecode:function(){return e.useBytecode},useCall:function(){return e.useCall},useChainId:function(){return e.useChainId},useChains:function(){return e.useChains},useClient:function(){return e.useClient},useConfig:function(){return e.useConfig},useConnect:function(){return e.useConnect},useConnections:function(){return e.useConnections},useConnectorClient:function(){return e.useConnectorClient},useConnectors:function(){return e.useConnectors},useContractInfiniteReads:function(){return e.useContractInfiniteReads},useContractRead:function(){return e.useContractRead},useContractReads:function(){return e.useContractReads},useContractWrite:function(){return e.useContractWrite},useDeployContract:function(){return e.useDeployContract},useDisconnect:function(){return e.useDisconnect},useEnsAddress:function(){return e.useEnsAddress},useEnsAvatar:function(){return e.useEnsAvatar},useEnsName:function(){return e.useEnsName},useEnsResolver:function(){return e.useEnsResolver},useEnsText:function(){return e.useEnsText},useEstimateFeesPerGas:function(){return e.useEstimateFeesPerGas},useEstimateGas:function(){return e.useEstimateGas},useEstimateMaxPriorityFeePerGas:function(){return e.useEstimateMaxPriorityFeePerGas},useFeeData:function(){return e.useFeeData},useFeeHistory:function(){return e.useFeeHistory},useGasPrice:function(){return e.useGasPrice},useInfiniteReadContracts:function(){return e.useInfiniteReadContracts},usePrepareTransactionRequest:function(){return e.usePrepareTransactionRequest},useProof:function(){return e.useProof},usePublicClient:function(){return e.usePublicClient},useReadContract:function(){return e.useReadContract},useReadContracts:function(){return e.useReadContracts},useReconnect:function(){return e.useReconnect},useSendTransaction:function(){return e.useSendTransaction},useSignMessage:function(){return e.useSignMessage},useSignTypedData:function(){return e.useSignTypedData},useSimulateContract:function(){return e.useSimulateContract},useStorageAt:function(){return e.useStorageAt},useSwitchAccount:function(){return e.useSwitchAccount},useSwitchChain:function(){return e.useSwitchChain},useToken:function(){return e.useToken},useTransaction:function(){return e.useTransaction},useTransactionConfirmations:function(){return e.useTransactionConfirmations},useTransactionCount:function(){return e.useTransactionCount},useTransactionReceipt:function(){return e.useTransactionReceipt},useVerifyMessage:function(){return e.useVerifyMessage},useVerifyTypedData:function(){return e.useVerifyTypedData},useWaitForTransactionReceipt:function(){return e.useWaitForTransactionReceipt},useWalletClient:function(){return e.useWalletClient},useWatchBlockNumber:function(){return e.useWatchBlockNumber},useWatchBlocks:function(){return e.useWatchBlocks},useWatchContractEvent:function(){return e.useWatchContractEvent},useWatchPendingTransactions:function(){return e.useWatchPendingTransactions},useWriteContract:function(){return e.useWriteContract},version:function(){return e.version},webSocket:function(){return e.webSocket}});var e=o(83333),r=o(96726),a=o(23739),c=o(58621)},28439:function(t,n,o){"use strict";o.r(n),o.d(n,{BackpackWallet:function(){return i.bS},CoinbaseWallet:function(){return i.GU},OKXWallet:function(){return i.D2},PhantomWallet:function(){return i.j1},SolanaWeb3ConfigProvider:function(){return d.G},StandardWalletFactory:function(){return u.Oy},TrustWallet:function(){return i.d0},WalletAdapterNetwork:function(){return c.Q},WalletConnectWallet:function(){return i.eM},WalletConnectWalletFactory:function(){return u.Ho},WalletFactory:function(){return u.$d},solana:function(){return s.Zj},solanaDevnet:function(){return s.ol},solanaTestnet:function(){return s.Q6},useAnchorWallet:function(){return r.z},useConnection:function(){return a.R},useWallet:function(){return e.O}});var e=o(5310),r=o(23821),a=o(93632),c=o(87911),d=o(68368),s=o(63157),u=o(28242),i=o(73500)},43143:function(t,n,o){"use strict";o.r(n),o.d(n,{SuiWallet:function(){return a.t},SuiWeb3ConfigProvider:function(){return r.r},Suiet:function(){return a.h},WalletFactory:function(){return c.$},suiDevnet:function(){return e.d_},suiLocalnet:function(){return e.CW},suiMainnet:function(){return e.AS},suiTestnet:function(){return e.dJ}});var e=o(21522),r=o(12637),a=o(83872),c=o(41251)},84041:function(t,n,o){"use strict";o.r(n),o.d(n,{CHAIN:function(){return m.sX},TonConnectorContext:function(){return e.V},TonWeb3ConfigProvider:function(){return e.q},dewallet:function(){return l.a},myTonWallet:function(){return s.g},okxTonWallet:function(){return p.x},openmask:function(){return u.f},telegramWallet:function(){return d},tonhub:function(){return i.G},tonkeeper:function(){return r._},useTonConnector:function(){return f.B}});var e=o(43608),r=o(54083),a=o(81549),c=o(52676),d={key:"telegram-wallet",icon:(0,c.jsx)(a.u,{})},s=o(75370),u=o(11998),i=o(39750),l=o(10389),p=o(69402),m=o(29634),f=o(28388)},8319:function(t,n,o){"use strict";o.r(n),o.d(n,{fillWithPrefix:function(){return r.fillWithPrefix},formatAddress:function(){return r.formatAddress},formatBalance:function(){return r.formatBalance},getPlatform:function(){return e.getPlatform},writeCopyText:function(){return e.writeCopyText}});var e=o(54214),r=o(92296)},9874:function(t,n){"use strict";n.Z=`import { Address } from '@ant-design/web3';
 
 const App: React.FC = () => {
   return <Address ellipsis address={'3ea2cfd153b8d8505097b81c87c11f5d05097c18'} />;
@@ -1892,59 +1892,30 @@ export default App;
 import {
   Hardhat,
   Localhost,
+  Mainnet,
   MetaMask,
   Polygon,
   WagmiWeb3ConfigProvider,
   WalletConnect,
   X1Testnet,
 } from '@ant-design/web3-wagmi';
-import { createConfig, http } from 'wagmi';
-import { hardhat, localhost, mainnet, polygon, type Chain } from 'wagmi/chains';
-import { injected, walletConnect } from 'wagmi/connectors';
-
-export const x1Testnet: Chain = {
-  id: X1Testnet.id,
-  name: X1Testnet.name,
-  nativeCurrency: { name: 'OKB', symbol: 'OKB', decimals: 18 },
-  rpcUrls: {
-    default: {
-      http: ['https://testrpc.x1.tech'],
-    },
-  },
-  blockExplorers: {
-    default: {
-      name: 'X1TestnetScan',
-      url: 'https://www.okx.com/explorer/x1-test',
-    },
-  },
-};
-
-const config = createConfig({
-  chains: [mainnet, polygon, x1Testnet, localhost, hardhat],
-  transports: {
-    [mainnet.id]: http(),
-    [polygon.id]: http(),
-    [x1Testnet.id]: http(),
-    [hardhat.id]: http(),
-    [localhost.id]: http(),
-  },
-  connectors: [
-    injected({
-      target: 'metaMask',
-    }),
-    walletConnect({
-      showQrModal: false,
-      projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
-    }),
-  ],
-});
+import { http } from 'wagmi';
 
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
+      walletConnect={{
+        projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
+      }}
+      transports={{
+        [Mainnet.id]: http(),
+        [Polygon.id]: http(),
+        [X1Testnet.id]: http(),
+        [Hardhat.id]: http(),
+        [Localhost.id]: http(),
+      }}
       wallets={[MetaMask(), WalletConnect()]}
-      chains={[Polygon, X1Testnet, Hardhat, Localhost]}
-      config={config}
+      chains={[Mainnet, Polygon, X1Testnet, Hardhat, Localhost]}
     >
       <Connector>
         <ConnectButton />
@@ -1962,37 +1933,7 @@ import {
   UniversalWallet,
   WagmiWeb3ConfigProvider,
 } from '@ant-design/web3-wagmi';
-import { createConfig, http } from 'wagmi';
-import { mainnet } from 'wagmi/chains';
-import { injected, walletConnect } from 'wagmi/connectors';
-
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
-  connectors: [
-    injected({
-      target: 'metaMask',
-    }),
-    walletConnect({
-      showQrModal: false,
-      projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
-    }),
-    injected({
-      target: 'tokenPocket',
-    }),
-    injected({
-      target() {
-        return {
-          id: 'testWallet',
-          name: 'TestWallet',
-          provider: window.ethereum,
-        };
-      },
-    }),
-  ],
-});
+import { injected } from 'wagmi/connectors';
 
 const App: React.FC = () => {
   return (
@@ -2000,14 +1941,30 @@ const App: React.FC = () => {
       eip6963={{
         autoAddInjectedWallets: true,
       }}
+      walletConnect={{
+        projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
+      }}
       wallets={[
-        new UniversalWallet({
-          name: 'TestWallet',
-          remark: 'My TestWallet',
-          icon: <EthereumCircleColorful />,
-          extensions: [],
-          group: 'Popular',
-        }),
+        new UniversalWallet(
+          {
+            name: 'TestWallet',
+            remark: 'My TestWallet',
+            icon: <EthereumCircleColorful />,
+            extensions: [],
+            group: 'Popular',
+          },
+          () => {
+            return injected({
+              target() {
+                return {
+                  id: 'testWallet',
+                  name: 'TestWallet',
+                  provider: window.ethereum,
+                };
+              },
+            });
+          },
+        ),
         TokenPocket({
           group: 'Popular',
         }),
@@ -2015,7 +1972,6 @@ const App: React.FC = () => {
           group: 'More',
         }),
       ]}
-      config={config}
     >
       <Connector>
         <ConnectButton />
@@ -2028,21 +1984,11 @@ export default App;
 `},35034:function(t,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { message } from 'antd';
-import { createConfig, http } from 'wagmi';
-import { mainnet } from 'wagmi/chains';
-
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
-});
 
 const App: React.FC = () => {
   const [messageApi, contextHolder] = message.useMessage();
   return (
     <WagmiWeb3ConfigProvider
-      config={config}
       eip6963={{
         autoAddInjectedWallets: true,
       }}
@@ -2068,32 +2014,10 @@ import {
   MetaMask,
   MobileWallet,
   OkxWallet,
-  SafeheronWallet,
   TokenPocket,
   WagmiWeb3ConfigProvider,
   WalletConnect,
 } from '@ant-design/web3-wagmi';
-import { createConfig, http } from 'wagmi';
-import { mainnet } from 'wagmi/chains';
-import { coinbaseWallet, walletConnect } from 'wagmi/connectors';
-
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
-  multiInjectedProviderDiscovery: true,
-  connectors: [
-    walletConnect({
-      showQrModal: false,
-      projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
-    }),
-    coinbaseWallet({
-      appName: 'ant.design.web3',
-      jsonRpcUrl: \`https://api.zan.top/node/v1/eth/mainnet/\${YOUR_ZAN_API_KEY}\`,
-    }),
-  ],
-});
 
 const App: React.FC = () => {
   return (
@@ -2101,19 +2025,26 @@ const App: React.FC = () => {
       eip6963={{
         autoAddInjectedWallets: true,
       }}
+      walletConnect={{
+        projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
+      }}
       wallets={[
         MetaMask(),
         WalletConnect(),
         TokenPocket({
           group: 'Popular',
         }),
-        CoinbaseWallet(),
-        SafeheronWallet(),
+        CoinbaseWallet(
+          {},
+          {
+            appName: 'ant.design.web3',
+            jsonRpcUrl: \`https://api.zan.top/node/v1/eth/mainnet/\${YOUR_ZAN_API_KEY}\`,
+          },
+        ),
         OkxWallet(),
         ImToken(),
         MobileWallet(),
       ]}
-      config={config}
     >
       <Connector
         modalProps={{
@@ -2139,38 +2070,19 @@ import {
   MetaMask,
   MobileWallet,
   OkxWallet,
-  SafeheronWallet,
   TokenPocket,
   WagmiWeb3ConfigProvider,
   WalletConnect,
 } from '@ant-design/web3-wagmi';
-import { createConfig, http } from 'wagmi';
-import { mainnet } from 'wagmi/chains';
-import { coinbaseWallet, walletConnect } from 'wagmi/connectors';
-
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
-  multiInjectedProviderDiscovery: true,
-  connectors: [
-    walletConnect({
-      showQrModal: false,
-      projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
-    }),
-    coinbaseWallet({
-      appName: 'ant.design.web3',
-      jsonRpcUrl: \`https://api.zan.top/node/v1/eth/mainnet/\${YOUR_ZAN_API_KEY}\`,
-    }),
-  ],
-});
 
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
       eip6963={{
         autoAddInjectedWallets: true,
+      }}
+      walletConnect={{
+        projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
       }}
       wallets={[
         MetaMask(),
@@ -2181,12 +2093,16 @@ const App: React.FC = () => {
           group: 'Popular',
         }),
         WalletConnect(),
-        CoinbaseWallet(),
-        SafeheronWallet(),
+        CoinbaseWallet(
+          {},
+          {
+            appName: 'ant.design.web3',
+            jsonRpcUrl: \`https://api.zan.top/node/v1/eth/mainnet/\${YOUR_ZAN_API_KEY}\`,
+          },
+        ),
         OkxWallet(),
         ImToken(),
       ]}
-      config={config}
     >
       <Connector
         modalProps={{
@@ -2206,21 +2122,6 @@ const App: React.FC = () => {
 export default App;
 `},48042:function(t,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
-import { createConfig, http } from 'wagmi';
-import { mainnet } from 'wagmi/chains';
-import { injected } from 'wagmi/connectors';
-
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
-  connectors: [
-    injected({
-      target: 'metaMask',
-    }),
-  ],
-});
 
 const App: React.FC = () => {
   return (
@@ -2230,7 +2131,6 @@ const App: React.FC = () => {
       }}
       ens
       balance
-      config={config}
       wallets={[MetaMask()]}
     >
       <Connector>
@@ -2242,6 +2142,56 @@ const App: React.FC = () => {
 
 export default App;
 `},1251:function(t,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+import {
+  Mainnet,
+  MetaMask,
+  OkxWallet,
+  TokenPocket,
+  WagmiWeb3ConfigProvider,
+  WalletConnect,
+} from '@ant-design/web3-wagmi';
+import { QueryClient } from '@tanstack/react-query';
+import { http } from 'wagmi';
+
+const queryClient = new QueryClient();
+
+const App: React.FC = () => {
+  return (
+    <WagmiWeb3ConfigProvider
+      eip6963={{
+        autoAddInjectedWallets: true,
+      }}
+      ens
+      chains={[Mainnet]}
+      transports={{
+        [Mainnet.id]: http(),
+      }}
+      walletConnect={{
+        projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
+      }}
+      wallets={[
+        MetaMask(),
+        WalletConnect(),
+        TokenPocket({
+          group: 'Popular',
+        }),
+        OkxWallet(),
+      ]}
+      queryClient={queryClient}
+    >
+      <Connector
+        modalProps={{
+          mode: 'simple',
+        }}
+      >
+        <ConnectButton quickConnect />
+      </Connector>
+    </WagmiWeb3ConfigProvider>
+  );
+};
+
+export default App;
+`},89523:function(t,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   MetaMask,
   OkxWallet,
