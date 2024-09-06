@@ -141,10 +141,10 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         }
 
         const { accounts } = await connectAsync({ wallet: foundWallet });
-        const defaultAccount = accounts[0];
+        const connectedAccount = accounts[0];
 
         return {
-          address: defaultAccount.address,
+          address: connectedAccount.address,
         };
       }}
       disconnect={async () => {
