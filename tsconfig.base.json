@@ -21,6 +21,7 @@
       "@ant-design/web3-assets": ["./packages/assets/src/"],
       "@ant-design/web3-assets/solana": ["./packages/assets/src/solana/"],
       "@ant-design/web3-assets/tokens": ["./packages/assets/src/tokens/"],
+      "@ant-design/web3-assets/wallets": ["./packages/assets/src/wallets/"],
       "@ant-design/web3-wagmi": ["./packages/wagmi/src/"],
       "@ant-design/web3-ethers": ["./packages/ethers/src/"],
       "@ant-design/web3-ethers/provider": ["./packages/ethers/src/ethers-provider/"],

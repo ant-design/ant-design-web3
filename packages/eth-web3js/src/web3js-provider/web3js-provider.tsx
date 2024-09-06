@@ -9,24 +9,8 @@ import type { Chain } from 'viem';
 import { createConfig, http, type CreateConfigParameters, type Storage } from 'wagmi';
 import * as wagmiChains from 'wagmi/chains';
 import * as wagmiConnectors from 'wagmi/connectors';
-import type { WalletConnectParameters } from 'wagmi/connectors';
-
-export interface WalletConnectOptions
-  extends Pick<
-    WalletConnectParameters,
-    | 'disableProviderPing'
-    | 'isNewChainsStale'
-    | 'projectId'
-    | 'metadata'
-    | 'relayUrl'
-    | 'storageOptions'
-    | 'qrModalOptions'
-  > {
-  useWalletConnectOfficialModal?: boolean;
-}
 
 export interface EthWeb3jsConfigProviderProps extends Omit<WagmiWeb3ConfigProviderProps, 'config'> {
-  walletConnect?: false | WalletConnectOptions;
   storage?: Storage | false;
 }
 

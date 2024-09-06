@@ -51,4 +51,9 @@ describe('OkxWallet', () => {
     }).create(config.connectors);
     expect(customWallet.group).toBe('TestGroup');
   });
+
+  it('createWagmiConnector', () => {
+    const connectorFn = OkxWallet().createWagmiConnector?.();
+    expect(typeof connectorFn).toBe('function');
+  });
 });

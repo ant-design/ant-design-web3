@@ -1,24 +1,25 @@
+import React from 'react';
 import { Connector, useProvider, type ConnectorTriggerProps } from '@ant-design/web3';
-import { Mainnet } from '@ant-design/web3-assets';
-import { CoinbaseWallet, MetaMask, Polygon, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import {
+  Goerli,
+  Mainnet,
+  MetaMask,
+  OkxWallet,
+  Polygon,
+  TokenPocket,
+  WagmiWeb3ConfigProvider,
+  WalletFactory,
+  type WalletConnectOptions,
+} from '@ant-design/web3-wagmi';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import { createConfig, http } from 'wagmi';
-import { base, goerli, mainnet, polygon } from 'wagmi/chains';
-import { injected } from 'wagmi/connectors';
+import { http } from 'wagmi';
+import { base } from 'wagmi/chains';
 
 describe('WagmiWeb3ConfigProvider', () => {
   it('mount correctly', () => {
-    const config = createConfig({
-      chains: [mainnet],
-      transports: {
-        [mainnet.id]: http(),
-      },
-      connectors: [],
-    });
-
     const App = () => (
-      <WagmiWeb3ConfigProvider config={config}>
+      <WagmiWeb3ConfigProvider>
         <div className="content">test</div>
       </WagmiWeb3ConfigProvider>
     );
@@ -27,15 +28,6 @@ describe('WagmiWeb3ConfigProvider', () => {
   });
 
   it('chains', () => {
-    const config = createConfig({
-      chains: [polygon, mainnet],
-      transports: {
-        [mainnet.id]: http(),
-        [polygon.id]: http(),
-      },
-      connectors: [],
-    });
-
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { chain, onSwitchChain } = props;
       return (
@@ -53,7 +45,13 @@ describe('WagmiWeb3ConfigProvider', () => {
     const switchChain = vi.fn();
 
     const App = () => (
-      <WagmiWeb3ConfigProvider config={config}>
+      <WagmiWeb3ConfigProvider
+        transports={{
+          [Mainnet.id]: http(),
+          [Polygon.id]: http(),
+        }}
+        chains={[Polygon, Mainnet]}
+      >
         <Connector switchChain={switchChain}>
           <CustomButton />
         </Connector>
@@ -66,21 +64,12 @@ describe('WagmiWeb3ConfigProvider', () => {
   });
 
   it('custom assets', () => {
-    const config = createConfig({
-      chains: [base, polygon],
-      transports: {
-        [base.id]: http(),
-        [polygon.id]: http(),
-      },
-      connectors: [],
-    });
-
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { chain, onSwitchChain } = props;
       return (
         <div
           onClick={() => {
-            onSwitchChain?.(polygon);
+            onSwitchChain?.(Polygon);
           }}
           className="content"
         >
@@ -90,7 +79,7 @@ describe('WagmiWeb3ConfigProvider', () => {
     };
 
     const switchChain = vi.fn();
-    const assets = [
+    const chains = [
       {
         name: 'TEST Chain show text',
         id: base.id,
@@ -100,11 +89,19 @@ describe('WagmiWeb3ConfigProvider', () => {
           symbol: 'base',
           decimals: 18,
         },
+        wagmiChain: base,
       },
+      Polygon,
     ];
 
     const App = () => (
-      <WagmiWeb3ConfigProvider chains={assets} config={config}>
+      <WagmiWeb3ConfigProvider
+        transports={{
+          [base.id]: http(),
+          [Polygon.id]: http(),
+        }}
+        chains={chains}
+      >
         <Connector switchChain={switchChain}>
           <CustomButton />
         </Connector>
@@ -113,56 +110,10 @@ describe('WagmiWeb3ConfigProvider', () => {
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.content')?.textContent).toBe('TEST Chain show text');
     fireEvent.click(baseElement.querySelector('.content')!);
-    expect(switchChain).toBeCalledWith(polygon);
+    expect(switchChain).toBeCalledWith(Polygon);
   });
 
   it('avaliable chains', () => {
-    const config = createConfig({
-      chains: [polygon, goerli, mainnet],
-      transports: {
-        [goerli.id]: http(),
-        [mainnet.id]: http(),
-        [polygon.id]: http(),
-      },
-      connectors: [
-        injected({
-          target: 'metaMask',
-        }),
-      ],
-    });
-
-    const CustomConnector: React.FC = () => {
-      const { availableChains } = useProvider();
-      return (
-        <div className="chains-name">{availableChains?.map((item) => item.name).join(',')}</div>
-      );
-    };
-
-    const App = () => (
-      <WagmiWeb3ConfigProvider config={config}>
-        <CustomConnector />
-      </WagmiWeb3ConfigProvider>
-    );
-    const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Ethereum');
-  });
-
-  it('avaliable chains with assets', () => {
-    const config = createConfig({
-      chains: [polygon, mainnet, base, goerli],
-      transports: {
-        [mainnet.id]: http(),
-        [polygon.id]: http(),
-        [base.id]: http(),
-        [goerli.id]: http(),
-      },
-      connectors: [
-        injected({
-          target: 'metaMask',
-        }),
-      ],
-    });
-
     const CustomConnector: React.FC = () => {
       const { availableChains } = useProvider();
       return (
@@ -172,61 +123,21 @@ describe('WagmiWeb3ConfigProvider', () => {
 
     const App = () => (
       <WagmiWeb3ConfigProvider
-        config={config}
-        chains={[
-          Polygon,
-          {
-            id: base.id,
-            name: 'Base',
-          },
-        ]}
+        chains={[Goerli, Mainnet, Polygon]}
+        transports={{
+          [Goerli.id]: http(),
+          [Mainnet.id]: http(),
+          [Polygon.id]: http(),
+        }}
       >
         <CustomConnector />
       </WagmiWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Polygon,Ethereum,Base');
-  });
-
-  it('empty connectors', () => {
-    const config = createConfig({
-      chains: [polygon, mainnet],
-      transports: {
-        [mainnet.id]: http(),
-        [polygon.id]: http(),
-      },
-    });
-
-    const CustomConnector: React.FC = () => {
-      const { availableWallets } = useProvider();
-      return (
-        <div className="wallets-name">{availableWallets?.map((item) => item.name).join(',')}</div>
-      );
-    };
-
-    const App = () => (
-      <WagmiWeb3ConfigProvider config={config}>
-        <CustomConnector />
-      </WagmiWeb3ConfigProvider>
-    );
-    const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.wallets-name')?.textContent).toBe('');
+    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Goerli,Ethereum,Polygon');
   });
 
   it('avaliable wallets', () => {
-    const config = createConfig({
-      chains: [polygon, mainnet],
-      transports: {
-        [mainnet.id]: http(),
-        [polygon.id]: http(),
-      },
-      connectors: [
-        injected({
-          target: 'metaMask',
-        }),
-      ],
-    });
-
     const CustomConnector: React.FC = () => {
       const { availableWallets } = useProvider();
       return (
@@ -235,42 +146,141 @@ describe('WagmiWeb3ConfigProvider', () => {
     };
 
     const App = () => (
-      <WagmiWeb3ConfigProvider config={config} wallets={[MetaMask()]}>
+      <WagmiWeb3ConfigProvider
+        wallets={[MetaMask(), TokenPocket(), OkxWallet()]}
+        chains={[Polygon, Goerli, Mainnet]}
+        transports={{
+          [Goerli.id]: http(),
+          [Mainnet.id]: http(),
+          [Polygon.id]: http(),
+        }}
+      >
         <CustomConnector />
       </WagmiWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.wallets-name')?.textContent).toBe(
+      'MetaMask,TokenPocket,OKX Wallet',
+    );
+  });
+
+  it('refresh wallets', () => {
+    const CustomConnector: React.FC<{
+      onClick: () => void;
+    }> = ({ onClick }) => {
+      const { availableWallets } = useProvider();
+      return (
+        <div className="wallets-name" onClick={onClick}>
+          {availableWallets?.map((item) => item.name).join(',')}
+        </div>
+      );
+    };
+
+    const App = () => {
+      const [wallets, setWallets] = React.useState<WalletFactory[]>([
+        MetaMask(),
+        TokenPocket(),
+        OkxWallet(),
+      ]);
+      return (
+        <WagmiWeb3ConfigProvider
+          wallets={wallets}
+          chains={[Polygon, Goerli, Mainnet]}
+          transports={{
+            [Goerli.id]: http(),
+            [Mainnet.id]: http(),
+            [Polygon.id]: http(),
+          }}
+        >
+          <CustomConnector
+            onClick={() => {
+              setWallets([MetaMask()]);
+            }}
+          />
+        </WagmiWeb3ConfigProvider>
+      );
+    };
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.wallets-name')?.textContent).toBe(
+      'MetaMask,TokenPocket,OKX Wallet',
+    );
+    fireEvent.click(baseElement.querySelector('.wallets-name')!);
     expect(baseElement.querySelector('.wallets-name')?.textContent).toBe('MetaMask');
   });
 
-  it('avaliable wallets with assets', () => {
-    const chains = [polygon, mainnet];
-    const config = createConfig({
-      chains: [polygon, mainnet],
-      transports: {
-        [mainnet.id]: http(),
-        [polygon.id]: http(),
-      },
-      connectors: [
-        injected({
-          target: 'metaMask',
-        }),
-      ],
-    });
-
+  it('wallet connect', () => {
     const CustomConnector: React.FC = () => {
       const { availableWallets } = useProvider();
       return (
-        <div className="wallets-name">{availableWallets?.map((item) => item.name).join(',')}</div>
+        <div className="wallets-qrcode">
+          {availableWallets?.map((item) => (item.getQrCode ? 'qrcode' : 'noqrcode')).join(',')}
+        </div>
       );
     };
 
     const App = () => (
-      <WagmiWeb3ConfigProvider wallets={[MetaMask(), CoinbaseWallet()]} config={config}>
+      <WagmiWeb3ConfigProvider
+        wallets={[MetaMask(), TokenPocket(), OkxWallet()]}
+        chains={[Polygon, Goerli, Mainnet]}
+        walletConnect={{
+          projectId: 'test',
+        }}
+        transports={{
+          [Goerli.id]: http(),
+          [Mainnet.id]: http(),
+          [Polygon.id]: http(),
+        }}
+      >
         <CustomConnector />
       </WagmiWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.wallets-name')?.textContent).toBe('MetaMask');
+    expect(baseElement.querySelector('.wallets-qrcode')?.textContent).toBe('qrcode,qrcode,qrcode');
+  });
+
+  it('refresh walletConnect', () => {
+    const CustomConnector: React.FC<{
+      onClick: () => void;
+    }> = ({ onClick }) => {
+      const { availableWallets } = useProvider();
+      return (
+        <div className="wallets-qrcode" onClick={onClick}>
+          {availableWallets?.map((item) => (item.getQrCode ? 'qrcode' : 'noqrcode')).join(',')}
+        </div>
+      );
+    };
+
+    const App = () => {
+      const [walletConnectConfig, setWalletConnectConfig] = React.useState<
+        WalletConnectOptions | false
+      >({
+        projectId: 'test',
+      });
+      return (
+        <WagmiWeb3ConfigProvider
+          wallets={[MetaMask(), TokenPocket(), OkxWallet()]}
+          chains={[Polygon, Goerli, Mainnet]}
+          walletConnect={walletConnectConfig}
+          transports={{
+            [Goerli.id]: http(),
+            [Mainnet.id]: http(),
+            [Polygon.id]: http(),
+          }}
+        >
+          <CustomConnector
+            onClick={() => {
+              setWalletConnectConfig(false);
+            }}
+          />
+        </WagmiWeb3ConfigProvider>
+      );
+    };
+    const { baseElement } = render(<App />);
+
+    expect(baseElement.querySelector('.wallets-qrcode')?.textContent).toBe('qrcode,qrcode,qrcode');
+    fireEvent.click(baseElement.querySelector('.wallets-qrcode')!);
+    expect(baseElement.querySelector('.wallets-qrcode')?.textContent).toBe(
+      'noqrcode,noqrcode,noqrcode',
+    );
   });
 });

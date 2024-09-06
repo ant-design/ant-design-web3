@@ -11,9 +11,6 @@ import {
 import { TinyColor } from '@ctrl/tinycolor';
 import { Col, ConfigProvider, Radio, Row, Select, Slider, Space, Switch } from 'antd';
 import type { ConfigProviderProps } from 'antd';
-import { createConfig, http } from 'wagmi';
-import { mainnet } from 'wagmi/chains';
-import { walletConnect } from 'wagmi/connectors';
 
 import styles from './guide.module.less';
 import { themeList, type ThemeSetting, type ThemeValue } from './tokens';
@@ -21,19 +18,6 @@ import { themeList, type ThemeSetting, type ThemeValue } from './tokens';
 type SizeType = ConfigProviderProps['componentSize'];
 
 const defaultRadius = 8;
-
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
-  connectors: [
-    walletConnect({
-      showQrModal: false,
-      projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
-    }),
-  ],
-});
 
 const ThemeLabel: React.FC<{ theme: ThemeSetting }> = ({ theme }) => {
   return (
@@ -72,6 +56,9 @@ const App: React.FC = () => {
       eip6963={{
         autoAddInjectedWallets: true,
       }}
+      walletConnect={{
+        projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
+      }}
       ens
       wallets={[
         MetaMask(),
@@ -81,7 +68,6 @@ const App: React.FC = () => {
         }),
         OkxWallet(),
       ]}
-      config={config}
     >
       <ConfigProvider
         theme={{

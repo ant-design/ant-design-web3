@@ -1,25 +1,45 @@
 import React from 'react';
-// Built in popular chains
-import { Mainnet } from '@ant-design/web3-assets';
-import type { Chain, Locale } from '@ant-design/web3-common';
+import type { Locale } from '@ant-design/web3-common';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { WagmiProvider } from 'wagmi';
+import type { Transport, Chain as WagmiChain } from 'viem';
+import { createConfig, http, WagmiProvider } from 'wagmi';
 import type { Config, State } from 'wagmi';
+import { mainnet } from 'wagmi/chains';
+import { walletConnect as wagmiWalletConnect } from 'wagmi/connectors';
+import type { WalletConnectParameters } from 'wagmi/connectors';
 
-import type { EIP6963Config, WalletFactory } from '../interface';
+// Built in popular chains
+import { Mainnet } from '../chains';
+import type { ChainAssetWithWagmiChain, EIP6963Config, WalletFactory } from '../interface';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 
+export interface WalletConnectOptions
+  extends Pick<
+    WalletConnectParameters,
+    | 'disableProviderPing'
+    | 'isNewChainsStale'
+    | 'projectId'
+    | 'metadata'
+    | 'relayUrl'
+    | 'storageOptions'
+    | 'qrModalOptions'
+  > {
+  useWalletConnectOfficialModal?: boolean;
+}
+
 export type WagmiWeb3ConfigProviderProps = {
-  config: Config;
+  config?: Config;
   locale?: Locale;
   wallets?: WalletFactory[];
-  chains?: Chain[];
+  chains?: ChainAssetWithWagmiChain[];
   ens?: boolean;
   queryClient?: QueryClient;
   balance?: boolean;
   eip6963?: EIP6963Config;
   initialState?: State;
   reconnectOnMount?: boolean;
+  walletConnect?: false | WalletConnectOptions;
+  transports?: Record<number, Transport>;
 };
 
 export function WagmiWeb3ConfigProvider({
@@ -32,16 +52,83 @@ export function WagmiWeb3ConfigProvider({
   queryClient,
   balance,
   eip6963,
+  walletConnect,
+  transports,
   ...restProps
 }: React.PropsWithChildren<WagmiWeb3ConfigProviderProps>): React.ReactElement {
-  const chainAssets = [...chains, Mainnet];
+  // When user custom config, add Mainnet by default
+  // When user not provide config, auto generate config, chains use user provided chains
+  const chainAssets: ChainAssetWithWagmiChain[] = config
+    ? [Mainnet, ...chains]
+    : chains?.length
+      ? chains
+      : [Mainnet];
+
+  const generateConfigFlag = () => {
+    return `${JSON.stringify(walletConnect)}-${chains.map((item) => item.id).join(',')}-${wallets.map((item) => item.name).join(',')}`;
+  };
+
+  const generateConfig = () => {
+    // Auto generate config
+    const connectors = [];
+    if (walletConnect && walletConnect.projectId) {
+      connectors.push(
+        wagmiWalletConnect({
+          ...walletConnect,
+          showQrModal: walletConnect.useWalletConnectOfficialModal ?? false,
+        }),
+      );
+    }
+    wallets.forEach((wallet) => {
+      const connector = wallet.createWagmiConnector?.();
+      if (connector) {
+        connectors.push(connector);
+      }
+    });
+    const autoGenerateConfig = createConfig({
+      chains: chainAssets.map((chain) => chain.wagmiChain) as [WagmiChain, ...WagmiChain[]],
+      transports: transports ?? {
+        [mainnet.id]: http(),
+      },
+      connectors,
+    });
+    return {
+      flag: generateConfigFlag(),
+      config: autoGenerateConfig,
+    };
+  };
+
+  const [autoConfig, setAutoConfig] = React.useState<{
+    flag?: string;
+    config: Config;
+  }>(() => {
+    if (config) {
+      return {
+        config,
+      };
+    }
+    return generateConfig();
+  });
 
   const mergedQueryClient = React.useMemo(() => {
     return queryClient ?? new QueryClient();
   }, [queryClient]);
 
+  React.useEffect(() => {
+    if (config) {
+      return;
+    }
+    const flag = generateConfigFlag();
+    if (flag !== autoConfig.flag) {
+      // Need recreate wagmi config
+      setAutoConfig(generateConfig());
+    }
+  }, [config, wallets, chains, walletConnect]);
+
+  const wagmiConfig = config || autoConfig.config;
+
   return (
-    <WagmiProvider config={config} {...restProps}>
+    <WagmiProvider config={wagmiConfig} {...restProps}>
       <QueryClientProvider client={mergedQueryClient}>
         <AntDesignWeb3ConfigProvider
           locale={locale}
@@ -50,7 +137,7 @@ export function WagmiWeb3ConfigProvider({
           ens={ens}
           balance={balance}
           eip6963={eip6963}
-          wagimConfig={config}
+          wagimConfig={wagmiConfig}
         >
           {children}
         </AntDesignWeb3ConfigProvider>

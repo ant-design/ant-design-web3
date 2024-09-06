@@ -41,4 +41,9 @@ describe('ImToken', () => {
     }).create(config.connectors);
     expect(customWallet.group).toBe('TestGroup');
   });
+
+  it('createWagmiConnector', () => {
+    const connectorFn = ImToken().createWagmiConnector?.();
+    expect(typeof connectorFn).toBe('function');
+  });
 });

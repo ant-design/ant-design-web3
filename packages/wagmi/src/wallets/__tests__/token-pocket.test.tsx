@@ -50,4 +50,9 @@ describe('TokenPocket', () => {
     }).create(config.connectors);
     expect(customWallet.group).toBe('TestGroup');
   });
+
+  it('createWagmiConnector', () => {
+    const connectorFn = TokenPocket().createWagmiConnector?.();
+    expect(typeof connectorFn).toBe('function');
+  });
 });
