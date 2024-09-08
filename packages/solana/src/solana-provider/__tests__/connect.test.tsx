@@ -149,6 +149,7 @@ describe('Solana Connect', () => {
     const { useWallet } = await import('@solana/wallet-adapter-react');
     const switchWalletRunned = vi.fn();
     const connectRunned = vi.fn();
+    const gotAddressAfterConnect = vi.fn();
 
     const CustomConnectBtn: React.FC = () => {
       const { connect, availableWallets } = useProvider();
@@ -172,7 +173,8 @@ describe('Solana Connect', () => {
               await connectWallet();
               // mock connect twice
               connect?.(availableWallets?.[1]);
-              await connect?.(availableWallets?.[0]);
+              const connectedAddress = await connect?.(availableWallets?.[0]);
+              gotAddressAfterConnect(connectedAddress?.address);
               await connect?.(availableWallets?.[2]);
 
               connectRunned();
@@ -228,6 +230,7 @@ describe('Solana Connect', () => {
       () => {
         expect(connectRunned).toBeCalled();
         expect(shownConnectRunDone.textContent).toBe('true');
+        expect(gotAddressAfterConnect).toBeCalledWith(mockedData.address.value);
       },
       {
         timeout: 5000,

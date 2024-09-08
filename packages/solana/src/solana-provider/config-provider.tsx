@@ -70,7 +70,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
     }
 
     if (connected) {
-      connectAsyncRef.current.resolve(publicKey ? { address: publicKey.toBase58() } : undefined);
+      connectAsyncRef.current.resolve({ address: publicKey!.toBase58() });
       connectAsyncRef.current = undefined;
     }
   }, [connected]);
