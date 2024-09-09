@@ -1,5 +1,11 @@
 # @ant-design/web3-assets
 
+## 1.11.0
+
+### Minor Changes
+
+- c22eb4d: feat: @ant-design/web3-wagmi support auto generate config, and add @ant-design/web3-assets/wallets export
+
 ## 1.10.2
 
 ### Patch Changes

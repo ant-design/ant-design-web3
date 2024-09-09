@@ -1,5 +1,13 @@
 # @ant-design/web3-solana
 
+## 1.1.11
+
+### Patch Changes
+
+- 1091cfd: fix(sui,solana): Should return address after connect
+- Updated dependencies [c22eb4d]
+  - @ant-design/web3-assets@1.11.0
+
 ## 1.1.10
 
 ### Patch Changes
