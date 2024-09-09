@@ -52,7 +52,7 @@
     "@ant-design/web3-wagmi": "workspace:*",
     "@tanstack/react-query": "^5.51.11",
     "debug": "^4.3.5",
-    "viem": "^2.16.5",
+    "viem": "^2.21.3",
     "wagmi": "^2.10.9"
   },
   "devDependencies": {
