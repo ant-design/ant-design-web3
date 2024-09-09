@@ -2733,7 +2733,8 @@ const GasRender: React.FC = () => {
   );
 };
 export default GasRender;
-`},36143:function(t,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},36143:function(t,n){"use strict";n.Z=`import React from 'react';
+import { ConnectButton, Connector } from '@ant-design/web3';
 import { CoinbaseWallet, SolanaWeb3ConfigProvider } from '@ant-design/web3-solana';
 
 const App: React.FC = () => {
@@ -2747,7 +2748,8 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},5767:function(t,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},5767:function(t,n){"use strict";n.Z=`import React from 'react';
+import { ConnectButton, Connector } from '@ant-design/web3';
 import { CoinbaseWallet, PhantomWallet, SolanaWeb3ConfigProvider } from '@ant-design/web3-solana';
 
 const App: React.FC = () => {
@@ -2761,7 +2763,8 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},94417:function(t,n){"use strict";n.Z=`import { Address, BrowserLink, NFTCard } from '@ant-design/web3';
+`},94417:function(t,n){"use strict";n.Z=`import React from 'react';
+import { Address, BrowserLink, NFTCard } from '@ant-design/web3';
 import { CoinbaseWallet, SolanaWeb3ConfigProvider } from '@ant-design/web3-solana';
 import { Space } from 'antd';
 
@@ -2781,7 +2784,8 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},11661:function(t,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},11661:function(t,n){"use strict";n.Z=`import React from 'react';
+import { ConnectButton, Connector } from '@ant-design/web3';
 import { CoinbaseWallet, PhantomWallet, SolanaWeb3ConfigProvider } from '@ant-design/web3-solana';
 
 const App: React.FC = () => {
@@ -2795,7 +2799,8 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},83412:function(t,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},83412:function(t,n){"use strict";n.Z=`import React from 'react';
+import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   CoinbaseWallet,
   solana,
@@ -2844,7 +2849,8 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},20476:function(t,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},20476:function(t,n){"use strict";n.Z=`import React from 'react';
+import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   PhantomWallet,
   solana,
@@ -2900,7 +2906,8 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},78071:function(t,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},78071:function(t,n){"use strict";n.Z=`import React from 'react';
+import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   PhantomWallet,
   SolanaWeb3ConfigProvider,
