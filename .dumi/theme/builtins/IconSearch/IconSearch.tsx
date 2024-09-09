@@ -1,5 +1,5 @@
 import React, { CSSProperties, useCallback, useMemo, useState } from 'react';
-import AntdIcon from '@ant-design/icons';
+import AntdIcon, { TableOutlined } from '@ant-design/icons';
 import * as AntdWeb3Icons from '@ant-design/web3-icons';
 import { Affix, Empty, Grid, Input, Segmented, type SegmentedProps } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
@@ -34,6 +34,7 @@ const options = (
 ): SegmentedProps['options'] => [
   {
     value: ThemeType.All,
+    icon: <TableOutlined />,
     label: !onlyIcon && formatMessage({ id: 'app.docs.components.icon.all' }),
   },
   {
