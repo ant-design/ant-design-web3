@@ -4,6 +4,7 @@
 export * from './components/aave-circle-colorful';
 export * from './components/abbc-circle-colorful';
 export * from './components/abt-circle-colorful';
+export * from './components/acala-circle-colorful';
 export * from './components/ach-colorful';
 export * from './components/act-circle-colorful';
 export * from './components/ada-circle-colorful';
@@ -126,6 +127,7 @@ export * from './components/cob-circle-colorful';
 export * from './components/coinbase-wallet-circle-colorful';
 export * from './components/colx-circle-colorful';
 export * from './components/comp-circle-colorful';
+export * from './components/conflux-circle-colorful';
 export * from './components/coti-circle-colorful';
 export * from './components/cow-circle-colorful';
 export * from './components/cqt-circle-colorful';
