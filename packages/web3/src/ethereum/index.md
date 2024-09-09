@@ -84,7 +84,7 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| config | wagmi config | [WagmiConfig](https://wagmi.sh/core/config) | - | - |
+| config | wagmi config | [WagmiConfig](https://wagmi.sh/core/config) | Support for automatically generating configurations such as `chains` and `wallets` is available after `2.8.0` | - |
 | queryClient | [React Query](https://react-query.tanstack.com/) queryClient | `new QueryClient()` | - | - |
 | wallets | Wallets | [WalletFactory](#walletfactory)[] | - | - |
 | chains | Chains | [ChainAssetWithWagmiChain](#chainassetwithwagmichain)\[\] | - | - |
@@ -94,8 +94,8 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 | eip6963 | Whether to use EIP6963 protocol wallet and related configurations | `boolean` \| `EIP6963Config` | `false` |  |
 | initialState | Initial state to hydrate into the [Wagmi Config](https://wagmi.sh/react/api/createConfig). Useful for SSR. | [State](https://wagmi.sh/react/api/createConfig#state-1) \| `undefined` | - | - |
 | reconnectOnMount | Whether or not to reconnect previously connected [connectors](https://wagmi.sh/react/api/createConfig#connectors) on mount. | `boolean` \| `undefined` | `true` | - |
-| walletConnect | WalletConnect configuration | `false` \| [WalletConnectOptions](#walletconnectoptions) | - | - |
-| transports | [Transport](https://wagmi.sh/core/api/createConfig#transports) configuration | `Transport` | - | - |
+| walletConnect | WalletConnect configuration | `false` \| [WalletConnectOptions](#walletconnectoptions) | - | `2.8.0` |
+| transports | [Transport](https://wagmi.sh/core/api/createConfig#transports) configuration | `Transport` | - | `2.8.0` |
 
 ### WalletFactory
 
