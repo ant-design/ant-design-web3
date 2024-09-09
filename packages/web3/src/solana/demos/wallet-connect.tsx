@@ -1,3 +1,4 @@
+import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   PhantomWallet,

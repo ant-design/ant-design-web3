@@ -140,7 +140,12 @@ export const AntDesignWeb3ConfigProvider: React.FC<
           throw new Error(`Can not find wallet ${wallet?.name}`);
         }
 
-        await connectAsync({ wallet: foundWallet });
+        const { accounts } = await connectAsync({ wallet: foundWallet });
+        const connectedAccount = accounts[0];
+
+        return {
+          address: connectedAccount.address,
+        };
       }}
       disconnect={async () => {
         await disconnectAsync();
