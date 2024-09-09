@@ -11,6 +11,7 @@ import { categories, CategoriesKeys } from './fields';
 import { CircleColorfulIcon, CircleFilledIcon, ColorfulIcon, FilledIcon } from './themeIcons';
 
 export enum ThemeType {
+  All = 'All',
   Filled = 'Filled',
   CircleFilled = 'CircleFilled',
   Colorful = 'Colorful',
@@ -31,6 +32,10 @@ const options = (
   formatMessage: (values: Record<string, string>) => React.ReactNode,
   onlyIcon?: boolean,
 ): SegmentedProps['options'] => [
+  {
+    value: ThemeType.All,
+    label: !onlyIcon && formatMessage({ id: 'app.docs.components.icon.all' }),
+  },
   {
     value: ThemeType.CircleColorful,
     icon: <AntdIcon component={CircleColorfulIcon} />,
@@ -87,16 +92,28 @@ const IconSearch: React.FC = () => {
         if (searchKey) {
           const matchKey = searchKey
             .replace(new RegExp(`^<([a-zA-Z]*)\\s/>$`, 'gi'), (_, name) => name)
-            .replace(/(Colorful|Filled|CircleFilled)$/gi, '')
+            .replace(/(Colorful|Filled|CircleFilled|CircleColorful)$/gi, '')
             .toLowerCase();
           iconList = iconList.filter((iconName) => iconName.toLowerCase().includes(matchKey));
         }
 
+        if (theme !== ThemeType.All) {
+          iconList = iconList.map((iconName) => iconName + theme);
+        } else {
+          iconList = iconList.flatMap((iconName) => {
+            const iconNames = [
+              `${iconName}Filled`,
+              `${iconName}Colorful`,
+              `${iconName}CircleFilled`,
+              `${iconName}CircleColorful`,
+            ];
+            return iconNames;
+          });
+        }
+
         return {
           category: key,
-          icons: iconList
-            .map((iconName) => iconName + theme)
-            .filter((iconName) => allIcons[iconName]),
+          icons: iconList.filter((iconName) => allIcons[iconName]),
         };
       })
       .filter(({ icons }) => !!icons.length)
