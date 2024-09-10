@@ -24,3 +24,10 @@ const Basic = () => {
 
 export default Basic;
 ```
+
+For more examples, refer to [TON - Ant Design Web3](https://web3.ant.design/components/ton).
+
+## Documentation
+
+- For more information, visit [Ant Design Web3](https://web3.ant.design).
+- For an introduction to TON , visit [TON](https://ton.org/).
