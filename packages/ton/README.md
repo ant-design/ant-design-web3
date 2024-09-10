@@ -1,6 +1,6 @@
 # @ant-design/web3-ton
 
-[https://web3.ant.design/components/ton](https://web3.ant.design/components/ton)
+This package provides a [TON](https://ton.org) adapter for [@ant-design/web3](https://www.npmjs.com/package/@ant-design/web3).
 
 ## Usage
 
@@ -30,4 +30,4 @@ For more examples, refer to [TON - Ant Design Web3](https://web3.ant.design/comp
 ## Documentation
 
 - For more information, visit [Ant Design Web3](https://web3.ant.design).
-- For an introduction to TON , visit [TON](https://ton.org/).
+- For an introduction to TON , visit [TON](https://ton.org).
