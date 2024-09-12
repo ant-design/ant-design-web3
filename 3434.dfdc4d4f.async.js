@@ -1907,6 +1907,7 @@ const App: React.FC = () => {
       walletConnect={{
         projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
       }}
+      eip6963
       transports={{
         [Mainnet.id]: http(),
         [Polygon.id]: http(),
@@ -1938,9 +1939,7 @@ import { injected } from 'wagmi/connectors';
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
-      eip6963={{
-        autoAddInjectedWallets: true,
-      }}
+      eip6963
       walletConnect={{
         projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
       }}
@@ -2125,14 +2124,7 @@ import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 
 const App: React.FC = () => {
   return (
-    <WagmiWeb3ConfigProvider
-      eip6963={{
-        autoAddInjectedWallets: true,
-      }}
-      ens
-      balance
-      wallets={[MetaMask()]}
-    >
+    <WagmiWeb3ConfigProvider eip6963 ens balance wallets={[MetaMask()]}>
       <Connector>
         <ConnectButton />
       </Connector>
