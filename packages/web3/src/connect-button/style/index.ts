@@ -63,9 +63,6 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
 
     [`${token.componentCls}-quick-connect`]: {
       width: 'fit-content',
-      [`${token.componentCls}-quick-connect-icon`]: {
-        marginLeft: token.marginXS,
-      },
     },
 
     [`${token.componentCls}-quick-connect-icon`]: {
