@@ -17,6 +17,7 @@ const App: React.FC = () => {
       walletConnect={{
         projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
       }}
+      eip6963
       transports={{
         [Mainnet.id]: http(),
         [Polygon.id]: http(),
