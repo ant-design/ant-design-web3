@@ -11,9 +11,7 @@ import { injected } from 'wagmi/connectors';
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
-      eip6963={{
-        autoAddInjectedWallets: true,
-      }}
+      eip6963
       walletConnect={{
         projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
       }}
