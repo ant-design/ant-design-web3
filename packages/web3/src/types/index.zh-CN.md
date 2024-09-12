@@ -53,6 +53,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*n4F2RK3AVTsAAA
 | hasWalletReady | 钱包是否已经准备好 | `() => boolean` | - | - |
 | hasExtensionInstalled | 是否安装浏览器扩展程序 | `() => boolean` | - | - |
 | getQrCode | 获取钱包的二维码 | `() => { uri: string }` | - | - |
+| customQrCodePanel | 自定义二维码展示的面板 | `boolean` | `false` | `1.17.0` |
 | universalProtocol | 通用协议配置 | `{ link: string }` | - | - |
 
 ### ExtensionItem

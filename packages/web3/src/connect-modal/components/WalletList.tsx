@@ -46,7 +46,7 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
         updateSelectedWallet(wallet, {
           connectType: 'extension',
         });
-      } else if (wallet.getQrCode) {
+      } else if (wallet.customQrCodePanel) {
         // Extension not installed and can use qr code to connect
         updateSelectedWallet(wallet, {
           connectType: 'qrCode',

@@ -64,7 +64,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     async (wallet?: Wallet, connectOptions?: ConnectOptions) => {
       setSelectedWallet(wallet);
       if (wallet && connectOptions) {
-        if (connectOptions.connectType === 'qrCode') {
+        if (connectOptions.connectType === 'qrCode' && !wallet.customQrCodePanel) {
           updatePanelRoute('qrCode', true);
         } else if (connectOptions.connectType === 'extension') {
           updatePanelRoute('link', true);
