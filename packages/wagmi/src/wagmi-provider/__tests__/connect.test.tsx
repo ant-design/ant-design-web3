@@ -143,7 +143,7 @@ describe('WagmiWeb3ConfigProvider connect', () => {
     });
 
     expect(onConnected).toBeCalledWith({
-      accounts: [
+      addresses: [
         '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
         '0x0212f0974d53a6e96eF05d7B324a9803735fFd3B',
       ],

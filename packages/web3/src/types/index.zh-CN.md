@@ -13,10 +13,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*n4F2RK3AVTsAAA
 
 ## Account
 
-| 属性    | 描述                       | 类型     | 默认值 | 版本 |
-| ------- | -------------------------- | -------- | ------ | ---- |
-| address | 账户地址                   | `string` | -      | -    |
-| name    | 账户名称，比如以太坊的 ENS | `string` | -      | -    |
+| 属性      | 描述                                                   | 类型       | 默认值 | 版本 |
+| --------- | ------------------------------------------------------ | ---------- | ------ | ---- |
+| address   | 账户地址                                               | `string`   | -      | -    |
+| name      | 账户名称，比如以太坊的 ENS                             | `string`   | -      | -    |
+| addresses | 用户授权的钱包地址列表（依赖适配器实现，部分链中支持） | `string[]` | -      | -    |
 
 ## ChainIds
 
