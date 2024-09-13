@@ -99,7 +99,8 @@ export const sizeThemes: Themes = {
     mainBg: '#fbfffd',
     bannerBg:
       'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*z85mQ4alwjwAAAAAAAAAAAAADlrGAQ/original',
-    themeBg: 'https://github.com/user-attachments/assets/86923205-960a-4fb9-9744-6a8546ef0fcf',
+    themeBg:
+      'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*cJ_sT7gf1gYAAAAAAAAAAAAADlrGAQ/original',
     showCaseItemBg:
       '#F5FFFB radial-gradient(circle at 94% 97%, #CDFFEA 0%, rgba(236,233,255,0.00) 53%)',
   },
