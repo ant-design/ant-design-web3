@@ -56,7 +56,8 @@ describe('WalletConnect', async () => {
     const wallet = WalletConnect({
       useWalletConnectOfficialModal: true,
     }).create();
-    expect(wallet.getQrCode).toBe(undefined);
+    expect(wallet.getQrCode).toBeTruthy();
+    expect(wallet.customQrCodePanel).toBeTruthy();
   });
 
   it('get qr code', async () => {
