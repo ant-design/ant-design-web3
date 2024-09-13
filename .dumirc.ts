@@ -51,6 +51,26 @@ export default defineConfig({
 
     gtag('config', 'G-C31HWEY1D4');
     `,
+    `
+      // 官网图片预加载
+      var imgs = [
+        "https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dlP7SrSAbc4AAAAAAAAAAAAADlrGAQ/original",
+        "https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*-xZrSLob8iIAAAAAAAAAAAAADlrGAQ/original",
+        "https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*EzS8QrmIqUAAAAAAAAAAAAAADlrGAQ/original",
+        "https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*gy2JQbp751wAAAAAAAAAAAAADlrGAQ/original",
+        "https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*a9TOS4uSj4kAAAAAAAAAAAAADlrGAQ/original",
+        "https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*z85mQ4alwjwAAAAAAAAAAAAADlrGAQ/original",
+        "https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*cJ_sT7gf1gYAAAAAAAAAAAAADlrGAQ/original",
+        "https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*MLqZT7GhUpQAAAAAAAAAAAAADlrGAQ/original",
+        "https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*-9lOTaXI20kAAAAAAAAAAAAADlrGAQ/original",
+        "https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*tQ2fQK1hjMsAAAAAAAAAAAAADlrGAQ/original",
+        "https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*v7QVR5JcrooAAAAAAAAAAAAADlrGAQ/original",
+      ];
+      imgs.forEach(function(src) {
+        var img = new Image();
+        img.src = src;
+      });
+    `,
   ],
   mfsu: false,
   alias,
