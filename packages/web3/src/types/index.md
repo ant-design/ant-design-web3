@@ -12,10 +12,11 @@ This defines the unified types of Ant Design Web3, which may be used in multiple
 
 ## Account
 
-| Property | Description                                | Type     | Default | Version |
-| -------- | ------------------------------------------ | -------- | ------- | ------- |
-| address  | Account address                            | `string` | -       | -       |
-| name     | Account name, For example, ENS in Ethereum | `string` | -       | -       |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| address | Account address (When multiple addresses are supported by the adapter, this represents the first address (`addresses[0]`)) | `string` | - | - |
+| name | Account name, For example, ENS in Ethereum | `string` | - | - |
+| addresses | List of wallet addresses authorized by the user (implemented by the adapter, supported in some chains) | `string[]` | - | - |
 
 ## ChainIds
 
