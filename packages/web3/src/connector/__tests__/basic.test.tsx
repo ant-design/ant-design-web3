@@ -191,6 +191,7 @@ describe('Connector', () => {
 
   it('customQrCodePanel', async () => {
     const onConnectCallTest = vi.fn();
+    const afterOpenChangeTest = vi.fn();
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { account, onConnectClick, onDisconnectClick, children } = props;
       return (
@@ -213,6 +214,9 @@ describe('Connector', () => {
       return (
         <Connector
           account={account}
+          modalProps={{
+            afterOpenChange: afterOpenChangeTest,
+          }}
           availableWallets={[
             {
               ...metadata_WalletConnect,
@@ -228,13 +232,8 @@ describe('Connector', () => {
             },
           ]}
           onConnect={onConnectCallTest}
-          connect={async () => {
-            setAccount({
-              address: '0x1234567890',
-            });
-            return {
-              address: '0x1234567890',
-            };
+          connect={() => {
+            return new Promise(() => {});
           }}
           disconnect={async () => {
             setAccount(undefined);
