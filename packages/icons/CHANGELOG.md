@@ -1,5 +1,11 @@
 # @ant-design/web3-icons
 
+## 1.9.0
+
+### Minor Changes
+
+- 0ad5d1e: feat: add acala-circle-colorful and conflux-circle-colorful icons
+
 ## 1.8.1
 
 ### Patch Changes

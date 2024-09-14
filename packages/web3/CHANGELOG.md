@@ -1,5 +1,21 @@
 # @ant-design/web3
 
+## 1.17.0
+
+### Minor Changes
+
+- c32f8e2: feat: support useWalletConnectOfficialModal for wagmi provider and add customQrCodePanel for wallet
+
+### Patch Changes
+
+- a964d5d: fix: remove useless margin in quick connect mode button
+- Updated dependencies [c32f8e2]
+- Updated dependencies [613b265]
+- Updated dependencies [0ad5d1e]
+  - @ant-design/web3-common@1.14.0
+  - @ant-design/web3-icons@1.9.0
+  - @ant-design/web3-assets@1.11.1
+
 ## 1.16.3
 
 ### Patch Changes

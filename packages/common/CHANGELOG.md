@@ -1,5 +1,12 @@
 # @ant-design/web3-common
 
+## 1.14.0
+
+### Minor Changes
+
+- c32f8e2: feat: support useWalletConnectOfficialModal for wagmi provider and add customQrCodePanel for wallet
+- 613b265: feat: add addresses when multi address connected in onConnected
+
 ## 1.13.0
 
 ### Minor Changes
