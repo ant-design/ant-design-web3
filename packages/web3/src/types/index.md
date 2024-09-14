@@ -53,6 +53,7 @@ This is an enum type that contains the IDs of some commonly used chains. Its val
 | hasWalletReady | Whether the wallet is ready | `() => boolean` | - | - |
 | hasExtensionInstalled | Whether the browser extension is installed | `() => boolean` | - | - |
 | getQrCode | Get the QR code of the wallet | `() => { uri: string }` | - | - |
+| customQrCodePanel | Custom QR code display panel | `boolean` | `false` | `1.17.0` |
 | universalProtocol | Universal protocol config | `{ link: string }` | - | - |
 
 ## ExtensionItem

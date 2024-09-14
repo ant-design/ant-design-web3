@@ -33,6 +33,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   balance?: boolean;
   eip6963?: EIP6963Config;
   wagimConfig: WagmiConfig;
+  useWalletConnectOfficialModal?: boolean;
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
@@ -45,6 +46,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     locale,
     eip6963,
     wagimConfig,
+    useWalletConnectOfficialModal,
   } = props;
   const { address, isDisconnected, chain } = useAccount();
   const config = useConfig();
@@ -93,7 +95,11 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           )
         ) {
           // not config wallet and find the wallet in connectors, auto add it
-          autoAddEIP6963Wallets.push(EIP6963Wallet().create([connector]));
+          autoAddEIP6963Wallets.push(
+            EIP6963Wallet().create([connector], {
+              useWalletConnectOfficialModal,
+            }),
+          );
         }
         // Do not need check eip6963 wallet
         return;
@@ -127,7 +133,9 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           );
           return null;
         }
-        return factory.create(connectors);
+        return factory.create(connectors, {
+          useWalletConnectOfficialModal,
+        });
       })
       .filter((item) => item !== null) as Wallet[];
 

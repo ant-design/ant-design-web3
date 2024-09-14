@@ -126,6 +126,7 @@ export interface Wallet extends WalletMetadata {
   hasWalletReady?: () => Promise<boolean>;
   hasExtensionInstalled?: () => Promise<boolean>;
   getQrCode?: () => Promise<{ uri: string }>;
+  customQrCodePanel?: boolean;
 }
 
 /**

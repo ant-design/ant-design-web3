@@ -1,7 +1,7 @@
 import type { WalletMetadata } from '@ant-design/web3-common';
 import type { Connector, CreateConnectorFn } from 'wagmi';
 
-import type { WalletFactory, WalletUseInWagmiAdapter } from '../interface';
+import type { CreateWalletOptions, WalletFactory, WalletUseInWagmiAdapter } from '../interface';
 
 export class UniversalWallet implements WalletFactory {
   public name?: string;
@@ -23,7 +23,10 @@ export class UniversalWallet implements WalletFactory {
       this.connectors.push('WalletConnect');
     }
   }
-  create = (connectors?: readonly Connector[]): WalletUseInWagmiAdapter => {
+  create = (
+    connectors?: readonly Connector[],
+    options?: CreateWalletOptions,
+  ): WalletUseInWagmiAdapter => {
     const walletConnector = connectors?.find((item) => item.name === 'WalletConnect');
     const injectedConnector = connectors?.find((item) => item.name === this.wallet.name);
 
@@ -53,8 +56,8 @@ export class UniversalWallet implements WalletFactory {
 
     return {
       ...this.wallet,
-      getWagmiConnector: async (options) => {
-        if (options?.connectType === 'qrCode') {
+      getWagmiConnector: async (connectOptions) => {
+        if (connectOptions?.connectType === 'qrCode') {
           return walletConnector;
         }
         if (await hasExtensionInstalled()) {
@@ -69,6 +72,7 @@ export class UniversalWallet implements WalletFactory {
         const installed = await hasExtensionInstalled();
         return !!(installed || walletConnector);
       },
+      customQrCodePanel: options?.useWalletConnectOfficialModal,
       getQrCode: walletConnector ? getQrCode : undefined,
     };
   };

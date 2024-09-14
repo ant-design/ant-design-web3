@@ -8,6 +8,7 @@ import {
   Polygon,
   TokenPocket,
   WagmiWeb3ConfigProvider,
+  WalletConnect,
   WalletFactory,
   type WalletConnectOptions,
 } from '@ant-design/web3-wagmi';
@@ -15,6 +16,7 @@ import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { http } from 'wagmi';
 import { base } from 'wagmi/chains';
+import { walletConnect } from 'wagmi/connectors';
 
 describe('WagmiWeb3ConfigProvider', () => {
   it('mount correctly', () => {
@@ -213,14 +215,23 @@ describe('WagmiWeb3ConfigProvider', () => {
       const { availableWallets } = useProvider();
       return (
         <div className="wallets-qrcode">
-          {availableWallets?.map((item) => (item.getQrCode ? 'qrcode' : 'noqrcode')).join(',')}
+          {availableWallets
+            ?.map((item) => `${typeof item.getQrCode}-${item.customQrCodePanel}`)
+            .join(',')}
         </div>
       );
     };
 
     const App = () => (
       <WagmiWeb3ConfigProvider
-        wallets={[MetaMask(), TokenPocket(), OkxWallet()]}
+        wallets={[
+          MetaMask(),
+          TokenPocket(),
+          OkxWallet(),
+          WalletConnect({
+            useWalletConnectOfficialModal: true,
+          }),
+        ]}
         chains={[Polygon, Goerli, Mainnet]}
         walletConnect={{
           projectId: 'test',
@@ -235,7 +246,44 @@ describe('WagmiWeb3ConfigProvider', () => {
       </WagmiWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.wallets-qrcode')?.textContent).toBe('qrcode,qrcode,qrcode');
+    expect(baseElement.querySelector('.wallets-qrcode')?.textContent).toBe(
+      'function-undefined,function-undefined,function-undefined,function-true',
+    );
+  });
+
+  it('wallet connect with customQrCodePanel', () => {
+    const CustomConnector: React.FC = () => {
+      const { availableWallets } = useProvider();
+      return (
+        <div className="wallets-qrcode">
+          {availableWallets
+            ?.map((item) => `${typeof item.getQrCode}-${item.customQrCodePanel}`)
+            .join(',')}
+        </div>
+      );
+    };
+
+    const App = () => (
+      <WagmiWeb3ConfigProvider
+        wallets={[MetaMask(), TokenPocket(), OkxWallet(), WalletConnect()]}
+        chains={[Polygon, Goerli, Mainnet]}
+        walletConnect={{
+          projectId: 'test',
+          useWalletConnectOfficialModal: true,
+        }}
+        transports={{
+          [Goerli.id]: http(),
+          [Mainnet.id]: http(),
+          [Polygon.id]: http(),
+        }}
+      >
+        <CustomConnector />
+      </WagmiWeb3ConfigProvider>
+    );
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.wallets-qrcode')?.textContent).toBe(
+      'function-true,function-true,function-true,function-true',
+    );
   });
 
   it('refresh walletConnect', () => {

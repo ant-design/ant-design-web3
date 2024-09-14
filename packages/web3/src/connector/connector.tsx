@@ -38,6 +38,9 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     onConnect?.();
     try {
       setConnecting(true);
+      if (wallet?.customQrCodePanel && options?.connectType === 'qrCode') {
+        setOpen(false);
+      }
       const connectedAccount = await connect?.(wallet, options);
       onConnected?.(connectedAccount ? connectedAccount : undefined);
       setOpen(false);

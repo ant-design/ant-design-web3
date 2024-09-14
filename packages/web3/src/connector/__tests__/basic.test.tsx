@@ -5,7 +5,7 @@ import {
   type Account,
   type ConnectorTriggerProps,
 } from '@ant-design/web3';
-import { metadata_MetaMask } from '@ant-design/web3-assets';
+import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import { fireEvent, render } from '@testing-library/react';
 import { Button } from 'antd';
 import { describe, expect, it, vi } from 'vitest';
@@ -15,7 +15,13 @@ describe('Connector', () => {
     const onCancelCallTest = vi.fn();
     const App = () => {
       return (
-        <Connector modalProps={{ title: 'modal title', open: true, onCancel: onCancelCallTest }}>
+        <Connector
+          modalProps={{
+            title: 'modal title',
+            open: true,
+            onCancel: onCancelCallTest,
+          }}
+        >
           <Button>children</Button>
         </Connector>
       );
@@ -181,6 +187,74 @@ describe('Connector', () => {
       expect(onDisconnect).toBeCalled();
     });
     expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
+  });
+
+  it('customQrCodePanel', async () => {
+    const onConnectCallTest = vi.fn();
+    const afterOpenChangeTest = vi.fn();
+    const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
+      const { account, onConnectClick, onDisconnectClick, children } = props;
+      return (
+        <Button
+          onClick={() => {
+            if (account) {
+              onDisconnectClick?.();
+            } else {
+              onConnectClick?.();
+            }
+          }}
+        >
+          {account?.address ?? children}
+        </Button>
+      );
+    };
+
+    const App = () => {
+      const [account, setAccount] = React.useState<Account | undefined>();
+      return (
+        <Connector
+          account={account}
+          modalProps={{
+            afterOpenChange: afterOpenChangeTest,
+          }}
+          availableWallets={[
+            {
+              ...metadata_WalletConnect,
+              hasWalletReady: async () => {
+                return true;
+              },
+              getQrCode: async () => {
+                return {
+                  uri: 'mock qr code',
+                };
+              },
+              customQrCodePanel: true,
+            },
+          ]}
+          onConnect={onConnectCallTest}
+          connect={() => {
+            return new Promise(() => {});
+          }}
+          disconnect={async () => {
+            setAccount(undefined);
+          }}
+        >
+          <CustomButton>children</CustomButton>
+        </Connector>
+      );
+    };
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.ant-btn')?.textContent).toBe('children');
+    fireEvent.click(baseElement.querySelector('.ant-btn')!);
+
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')).toBeTruthy();
+    });
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')!);
+
+    await vi.waitFor(() => {
+      expect(onConnectCallTest).toBeCalled();
+    });
   });
 
   it('connect without return account info', async () => {

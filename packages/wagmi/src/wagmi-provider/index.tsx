@@ -138,6 +138,9 @@ export function WagmiWeb3ConfigProvider({
           balance={balance}
           eip6963={eip6963}
           wagimConfig={wagmiConfig}
+          useWalletConnectOfficialModal={
+            typeof walletConnect === 'object' && walletConnect?.useWalletConnectOfficialModal
+          }
         >
           {children}
         </AntDesignWeb3ConfigProvider>
