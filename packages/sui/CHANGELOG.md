@@ -1,5 +1,14 @@
 # @ant-design/web3-sui
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies [c32f8e2]
+- Updated dependencies [613b265]
+  - @ant-design/web3-common@1.14.0
+  - @ant-design/web3-assets@1.11.1
+
 ## 1.0.1
 
 ### Patch Changes
