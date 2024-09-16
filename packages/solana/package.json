@@ -52,7 +52,7 @@
     "@walletconnect/universal-provider": "^2.14.0",
     "@walletconnect/utils": "^2.13.3",
     "@walletconnect/web3wallet": "^1.14.0",
-    "bs58": "^5.0.0",
+    "bs58": "^6.0.0",
     "debug": "^4.3.5"
   },
   "devDependencies": {

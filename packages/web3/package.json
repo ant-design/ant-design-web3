@@ -49,7 +49,7 @@
     "@ctrl/tinycolor": "^4.1.0",
     "@inline-svg-unique-id/react": "^1.2.3",
     "antd": "^5.20.1",
-    "bs58": "^5.0.0",
+    "bs58": "^6.0.0",
     "classnames": "^2.5.1",
     "copy-to-clipboard": "^3.3.3",
     "decimal.js": "^10.4.3",
