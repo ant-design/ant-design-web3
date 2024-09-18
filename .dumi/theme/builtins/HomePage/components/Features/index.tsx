@@ -13,31 +13,37 @@ type FeatureType = {
 
 export const Features: React.FC = () => {
   const intl = useIntl();
+  const { curTheme } = useContext(ThemeContext);
+  const token = useTheme();
 
   const features: FeatureType[] = [
     {
       preview:
-        'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*BGOrT7hmCK0AAAAAAAAAAAAADlrGAQ/original',
+        curTheme.name === 'Dark'
+          ? 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*q8CHTZn_t9cAAAAAAAAAAAAADlrGAQ/original'
+          : 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*BGOrT7hmCK0AAAAAAAAAAAAADlrGAQ/original',
       title: intl.formatMessage({ id: 'app.docs.site.features.0.title' }),
       description: intl.formatMessage({ id: 'app.docs.site.features.0.description' }),
     },
     {
       preview:
-        'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*lg4mQrmwvQMAAAAAAAAAAAAADlrGAQ/original',
+        curTheme.name === 'Dark'
+          ? 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*c7xpS7iRaO0AAAAAAAAAAAAADlrGAQ/original'
+          : 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*lg4mQrmwvQMAAAAAAAAAAAAADlrGAQ/original',
       title: intl.formatMessage({ id: 'app.docs.site.features.1.title' }),
       description: intl.formatMessage({ id: 'app.docs.site.features.1.description' }),
     },
     {
       preview:
-        'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*QIPWQJicUxYAAAAAAAAAAAAADlrGAQ/original',
+        curTheme.name === 'Dark'
+          ? 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*0XwWSZPgjiYAAAAAAAAAAAAADlrGAQ/original'
+          : 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*QIPWQJicUxYAAAAAAAAAAAAADlrGAQ/original',
       title: intl.formatMessage({ id: 'app.docs.site.features.2.title' }),
       description: intl.formatMessage({ id: 'app.docs.site.features.2.description' }),
     },
   ];
 
-  const { curTheme } = useContext(ThemeContext);
-  const token = useTheme();
-  const themeStyle: React.CSSProperties = {
+  const themeStyle = {
     '--theme-text-color': curTheme.name === 'Dark' ? token.colorWhite : token.colorTextBase,
     '--theme-container-bg': curTheme.name === 'Dark' ? '#222' : '#fff',
     '--theme-item-bg': curTheme.name === 'Dark' ? '#303030' : '#fbfafc',
