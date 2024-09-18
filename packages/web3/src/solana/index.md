@@ -56,6 +56,12 @@ We have built-in support for the Solana mainnet (`mainnet-beta`). To support oth
 
 <code src="./demos/balance.tsx"></code>
 
+## Use TipLink
+
+TipLink is a lightweight wallet. It provides `@tiplink/wallet-adapter`, which can be used with `@ant-design/web3-solana`.
+
+<code src="./demos/tiplink.tsx"></code>
+
 ## More components
 
 You can use more components together. The content related to the chain in the component will be obtained from the adapter. Of course, the properties configured directly on the component have a higher priority.
