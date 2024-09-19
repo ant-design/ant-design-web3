@@ -146,7 +146,7 @@ export default function Web3() {
 
 ```
 
-Switch to the Goerli testnet in the DApp page, and if you click the `mint` button, the MetaMask transaction confirmation pop-up window will be triggered if everything goes well:
+Switch to the Sepolia testnet in the DApp page, and if you click the `mint` button, the MetaMask transaction confirmation pop-up window will be triggered if everything goes well:
 
 ![](./img/mint-test-net.png)
 
