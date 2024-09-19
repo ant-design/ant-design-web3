@@ -28,6 +28,25 @@ describe('ProfileModal', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
+  it('match snapshot without name', () => {
+    const App = () => {
+      const intl = useIntl('ConnectButton');
+      return (
+        <ProfileModal
+          intl={intl}
+          open
+          __hashId__="hashId"
+          address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+          avatar={{
+            src: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original',
+          }}
+        />
+      );
+    };
+    const { baseElement } = render(<App />);
+    expect(baseElement).toMatchSnapshot();
+  });
+
   it('open profile modal in ConnectButton', async () => {
     const App = () => (
       <ConnectButton

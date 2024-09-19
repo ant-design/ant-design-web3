@@ -3,6 +3,7 @@ import React, { isValidElement, useContext, useMemo } from 'react';
 import { type Locale } from '@ant-design/web3-common';
 import type { TooltipProps } from 'antd';
 import { ConfigProvider, Space, Tooltip, Typography } from 'antd';
+import type { TextProps } from 'antd/lib/typography/Text';
 import classNames from 'classnames';
 
 import { useProvider } from '../hooks';
@@ -13,7 +14,7 @@ import { useStyle } from './style';
 /**
  * Props for the Address component.
  */
-export interface AddressProps {
+export interface AddressProps extends Omit<TextProps, 'ellipsis'> {
   /**
    * Address ellipsis configuration.
    * If true, the address will be clipped with default head and tail values.
@@ -66,6 +67,7 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
     format = false,
     children,
     locale,
+    ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const { addressPrefix: addressPrefixContext } = useProvider();
@@ -111,24 +113,23 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
   const formattedAddress = mergedFormat(filledAddress);
 
   return wrapSSR(
-    <Space className={classNames(prefixCls, hashId)}>
-      <Typography.Text
-        copyable={
-          copyable
-            ? {
-                text: filledAddress,
-                tooltips: [messages.copyTips, messages.copiedTips],
-              }
-            : false
-        }
-      >
-        <Tooltip title={mergedTooltip()}>
-          {children ??
-            (isEllipsis
-              ? `${filledAddress.slice(0, headClip)}...${filledAddress.slice(-tailClip)}`
-              : formattedAddress)}
-        </Tooltip>
-      </Typography.Text>
-    </Space>,
+    <Typography.Text
+      copyable={
+        copyable
+          ? {
+              text: filledAddress,
+              tooltips: [messages.copyTips, messages.copiedTips],
+            }
+          : false
+      }
+      {...restProps}
+    >
+      <Tooltip title={mergedTooltip()}>
+        {children ??
+          (isEllipsis
+            ? `${filledAddress.slice(0, headClip)}...${filledAddress.slice(-tailClip)}`
+            : formattedAddress)}
+      </Tooltip>
+    </Typography.Text>,
   );
 };

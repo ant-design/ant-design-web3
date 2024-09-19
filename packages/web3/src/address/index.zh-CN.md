@@ -36,3 +36,5 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ymJDSYEjQKwAAA
 | tooltip | 鼠标移入地址时展示提示 | `boolean \|` [Tooltip.title](https://ant.design/components/tooltip-cn#api) | `true ` | - |
 | format | 地址格式化 | `boolean \| (input: string) => ReactNode` | `false` | - |
 | locale | 多语言设置 | `Locale["address"]` | - | - |
+
+更多属性继承自[Typography.Text](https://ant.design/components/typography-cn#typographytext)。
