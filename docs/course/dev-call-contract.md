@@ -23,21 +23,34 @@ After the creation is successful, you will see the following page:
 
 ![](./img/zan-service.png)
 
-Select the node service address of the Ethereum mainnet and copy it. The copied address is added to the `http()` method of wagmi, as follows:
+Select the node service address of the Ethereum mainnet and copy it. After copying, configure it into `transports`:
 
 ```diff
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
--    [mainnet.id]: http(),
-+    [mainnet.id]: http('https://api.zan.top/node/v1/eth/mainnet/{YourZANApiKey}'),
-  },
-  connectors: [
-    injected({
-      target: "metaMask",
-    }),
-  ],
-});
++ import { http } from 'wagmi';
+import { Address, ConnectButton, Connector, NFTCard } from '@ant-design/web3';
+import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+
+export default function Web3() {
+  return (
+    <WagmiWeb3ConfigProvider
+      eip6963={{
+        autoAddInjectedWallets: true,
+      }}
++      transports={{
++        [Mainnet.id]: http('https://api.zan.top/node/v1/eth/mainnet/{YourZANApiKey}'),
++      }}
+      chains={[Mainnet, Sepolia]}
+      wallets={[MetaMask()]}
+    >
+      <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
+      <NFTCard address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" tokenId={641} />
+      <Connector>
+        <ConnectButton />
+      </Connector>
+      <CallTest />
+    </WagmiWeb3ConfigProvider>
+  );
+}
 ```
 
 The `YourZANApiKey` in the above code needs to be replaced with your own Key. In addition, in the actual project, in order to avoid your Key being abused, it is recommended that you put the Key in the backend service, and then call the node service through the backend service, or set the domain name whitelist in the ZAN console to reduce the risk of abuse. Of course, in the tutorial, you can continue to use `http()` to use the built-in default experimental node service of wagmi.
@@ -47,25 +60,12 @@ The `YourZANApiKey` in the above code needs to be replaced with your own Key. In
 After configuring the node service, we can start calling the contract. We use the [useReadContract](https://wagmi.sh/react/api/hooks/useReadContract) Hook provided by wagmi to read the contract data. The sample code is as follows:
 
 ```diff
-- import { createConfig, http } from "wagmi";
-+ import { createConfig, http, useReadContract } from "wagmi";
+- import { http } from "wagmi";
++ import { http, useReadContract } from "wagmi";
 import { mainnet } from "wagmi/chains";
 import { WagmiWeb3ConfigProvider, MetaMask } from "@ant-design/web3-wagmi";
 - import { Address, NFTCard, Connector, ConnectButton } from "@ant-design/web3";
 + import { Address, NFTCard, Connector, ConnectButton, useAccount } from "@ant-design/web3";
-import { injected } from "wagmi/connectors";
-
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
-  connectors: [
-    injected({
-      target: "metaMask",
-    }),
-  ],
-});
 
 + const CONTRACT_ADDRESS = '0xEcd0D12E21805803f70de03B72B1C162dB0898d9'
 +
@@ -92,7 +92,12 @@ const config = createConfig({
 
 export default function Web3() {
   return (
-    <WagmiWeb3ConfigProvider config={config} wallets={[MetaMask()]}>
+    <WagmiWeb3ConfigProvider
+      eip6963={{
+        autoAddInjectedWallets: true,
+      }}
+      wallets={[MetaMask()]}
+    >
       <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
       <NFTCard
         address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9"
@@ -123,8 +128,8 @@ Next, we will try to call the [mint](https://etherscan.io/address/0xEcd0D12E2180
 The code that needs to be modified is as follows:
 
 ```diff
-- import { createConfig, http, useReadContract } from "wagmi";
-+ import { createConfig, http, useReadContract, useWriteContract } from "wagmi";
+- import { http, useReadContract } from "wagmi";
++ import { http, useReadContract, useWriteContract } from "wagmi";
 + import { Button, message } from "antd";
 + import { parseEther } from "viem";
 

@@ -23,21 +23,34 @@ order: 3
 
 ![](./img/zan-service.png)
 
-选择以太坊主网的节点服务地址复制，复制后的地址添加到 wagmi 的 `http()` 方法中，如下：
+选择以太坊主网的节点服务地址复制，复制后配置到 `transports` 中：
 
 ```diff
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
--    [mainnet.id]: http(),
-+    [mainnet.id]: http('https://api.zan.top/node/v1/eth/mainnet/{YourZANApiKey}'),
-  },
-  connectors: [
-    injected({
-      target: "metaMask",
-    }),
-  ],
-});
++ import { http } from 'wagmi';
+import { Address, ConnectButton, Connector, NFTCard } from '@ant-design/web3';
+import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+
+export default function Web3() {
+  return (
+    <WagmiWeb3ConfigProvider
+      eip6963={{
+        autoAddInjectedWallets: true,
+      }}
++      transports={{
++        [Mainnet.id]: http('https://api.zan.top/node/v1/eth/mainnet/{YourZANApiKey}'),
++      }}
+      chains={[Mainnet, Sepolia]}
+      wallets={[MetaMask()]}
+    >
+      <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
+      <NFTCard address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" tokenId={641} />
+      <Connector>
+        <ConnectButton />
+      </Connector>
+      <CallTest />
+    </WagmiWeb3ConfigProvider>
+  );
+}
 ```
 
 上面代码中的 `YourZANApiKey` 需要替换成你自己的 Key。另外在实际的项目中，为了避免你的 Key 被滥用，建议你将 Key 放到后端服务中，然后通过后端服务来调用节点服务，或者在 ZAN 的控制台中设置域名白名单来降低被滥用的风险。当然，在教程中你也可以继续直接使用 `http()`，使用 wagmi 内置的默认的实验性的节点服务。
@@ -47,25 +60,12 @@ const config = createConfig({
 配置好节点服务后，我们就可以开始调用合约了。我们使用 wagmi 提供的 [useReadContract](https://wagmi.sh/react/api/hooks/useReadContract) Hook 来读取合约数据。示例代码如下：
 
 ```diff
-- import { createConfig, http } from "wagmi";
-+ import { createConfig, http, useReadContract } from "wagmi";
+- import { http } from "wagmi";
++ import { http, useReadContract } from "wagmi";
 import { mainnet } from "wagmi/chains";
 import { WagmiWeb3ConfigProvider, MetaMask } from "@ant-design/web3-wagmi";
 - import { Address, NFTCard, Connector, ConnectButton } from "@ant-design/web3";
 + import { Address, NFTCard, Connector, ConnectButton, useAccount } from "@ant-design/web3";
-import { injected } from "wagmi/connectors";
-
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
-  connectors: [
-    injected({
-      target: "metaMask",
-    }),
-  ],
-});
 
 + const CONTRACT_ADDRESS = '0xEcd0D12E21805803f70de03B72B1C162dB0898d9'
 +
@@ -92,7 +92,12 @@ const config = createConfig({
 
 export default function Web3() {
   return (
-    <WagmiWeb3ConfigProvider config={config} wallets={[MetaMask()]}>
+    <WagmiWeb3ConfigProvider
+      eip6963={{
+        autoAddInjectedWallets: true,
+      }}
+      wallets={[MetaMask()]}
+    >
       <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
       <NFTCard
         address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9"
@@ -123,8 +128,8 @@ export default function Web3() {
 需要改动的代码如下：
 
 ```diff
-- import { createConfig, http, useReadContract } from "wagmi";
-+ import { createConfig, http, useReadContract, useWriteContract } from "wagmi";
+- import { http, useReadContract } from "wagmi";
++ import { http, useReadContract, useWriteContract } from "wagmi";
 + import { Button, message } from "antd";
 + import { parseEther } from "viem";
 
