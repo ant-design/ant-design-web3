@@ -1,30 +1,9 @@
 import React, { useEffect } from 'react';
 import { Address, ConnectButton, Connector, NFTCard, useAccount } from '@ant-design/web3';
-import { MetaMask, Sepolia, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
+import { Mainnet, MetaMask, Sepolia, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { Button, message } from 'antd';
 import { parseEther } from 'viem';
-import {
-  createConfig,
-  http,
-  useReadContract,
-  useWaitForTransactionReceipt,
-  useWriteContract,
-} from 'wagmi';
-import { mainnet, sepolia } from 'wagmi/chains';
-import { injected } from 'wagmi/connectors';
-
-const config = createConfig({
-  chains: [mainnet, sepolia],
-  transports: {
-    [mainnet.id]: http(),
-    [sepolia.id]: http(),
-  },
-  connectors: [
-    injected({
-      target: 'metaMask',
-    }),
-  ],
-});
+import { http, useReadContract, useWaitForTransactionReceipt, useWriteContract } from 'wagmi';
 
 // Sepolia test contract 0x81BaD6F768947D7741c83d9EB9007e1569115703
 const CONTRACT_ADDRESS = '0x81BaD6F768947D7741c83d9EB9007e1569115703';
@@ -101,7 +80,17 @@ const CallTest = () => {
 
 export default function Web3() {
   return (
-    <WagmiWeb3ConfigProvider config={config} chains={[Sepolia]} wallets={[MetaMask()]}>
+    <WagmiWeb3ConfigProvider
+      eip6963={{
+        autoAddInjectedWallets: true,
+      }}
+      transports={{
+        [Mainnet.id]: http(),
+        [Sepolia.id]: http(),
+      }}
+      chains={[Mainnet, Sepolia]}
+      wallets={[MetaMask()]}
+    >
       <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
       <NFTCard address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" tokenId={641} />
       <Connector>
