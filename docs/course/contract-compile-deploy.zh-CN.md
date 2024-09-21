@@ -39,9 +39,9 @@ order: 3
 
 ## 部署
 
-点击 `Deploy&Run` 可以将交易发送到当前的 `ENVIRONMENT` 中。
+点击 `Deploy&Run` 可以将交易发送到当前的 `ENVIRONMENT` 中。部署合约需要消耗 GAS，即便是测试网也是如此。GAS 通过测试网的 ETH 支付，所以你还需要通过水龙头获取一些测试网的 ETH。比如你可以通过 [ZAN 的测试网水龙头](https://zan.top/faucet?chInfo=ch_antdweb3)获取 Sepolia 测试网的 ETH。
 
-接下来我们尝试通过 MetaMask 部署合约到测试网 Goerli 中，请先将你的 MetaMask 切换到测试网 Goerli（当然你也可以切换到其它你习惯使用的测试网）。
+接下来我们尝试通过 MetaMask 部署合约到测试网 Sepolia 中，请先将你的 MetaMask 切换到测试网 Sepolia（当然你也可以切换到其它你习惯使用的测试网）。
 
 点击`ENVIRONMENT` 的下拉选择框，可以看到有许多的选项可供选择，我们选择 `Injected Provider - MetaMask`。
 

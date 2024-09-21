@@ -3,27 +3,7 @@ import { Address, ConnectButton, Connector, NFTCard, useAccount } from '@ant-des
 import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { Button, message } from 'antd';
 import { parseEther } from 'viem';
-import {
-  createConfig,
-  http,
-  useReadContract,
-  useWaitForTransactionReceipt,
-  useWriteContract,
-} from 'wagmi';
-import { mainnet } from 'wagmi/chains';
-import { injected } from 'wagmi/connectors';
-
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
-  connectors: [
-    injected({
-      target: 'metaMask',
-    }),
-  ],
-});
+import { useReadContract, useWaitForTransactionReceipt, useWriteContract } from 'wagmi';
 
 const CONTRACT_ADDRESS = '0xEcd0D12E21805803f70de03B72B1C162dB0898d9';
 
@@ -99,7 +79,7 @@ const CallTest = () => {
 
 export default function Web3() {
   return (
-    <WagmiWeb3ConfigProvider config={config} wallets={[MetaMask()]}>
+    <WagmiWeb3ConfigProvider wallets={[MetaMask()]}>
       <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
       <NFTCard address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" tokenId={641} />
       <Connector>

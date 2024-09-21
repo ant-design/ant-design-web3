@@ -169,6 +169,12 @@ export default defineConfig({
               url: 'https://github.com/WTFAcademy/WTF-Dapp',
               openExternal: true,
             },
+            {
+              title: 'Faucet',
+              description: 'Get testnet Sepolia ETH',
+              url: 'https://zan.top/faucet?chInfo=ch_antdweb3',
+              openExternal: true,
+            },
           ],
         },
         {
@@ -244,6 +250,12 @@ export default defineConfig({
               title: 'WTF Dapp 课程',
               description: 'WTF DApp 极简入门教程',
               url: 'https://github.com/WTFAcademy/WTF-Dapp',
+              openExternal: true,
+            },
+            {
+              title: '测试网水龙头',
+              description: '获取测试网 Sepolia ETH',
+              url: 'https://zan.top/faucet?chInfo=ch_antdweb3',
               openExternal: true,
             },
           ],
