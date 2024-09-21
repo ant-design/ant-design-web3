@@ -30,8 +30,6 @@ The configuration of the adapter directly uses the [official configuration of wa
 First, please continue to edit the `pages/web3.tsx` file and introduce the content you need:
 
 ```diff
-+ import { createConfig, http } from 'wagmi';
-+ import { mainnet } from 'wagmi/chains';
 + import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { Address } from "@ant-design/web3";
 
@@ -42,14 +40,9 @@ export default function Web3() {
 };
 ```
 
-The introduction of the content is as follows:
+[WagmiWeb3ConfigProvider](https://web3.ant.design/components/wagmi-cn#wagmiweb3configproviderprops) is an Ant Design Web3 adapter based on wagmi, used for adapting Ethereum. In addition to adapting wagmi's API to the API required by Ant Design Web3, it also makes some usability improvements. You no longer need to use wagmi's [createConfig](https://wagmi.sh/react/config) to create a configuration; it will automatically create the wagmi configuration for you. Of course, if you have special needs, you can also [customize the configuration](https://web3.ant.design/components/ethereum-cn#%E8%87%AA%E5%AE%9A%E4%B9%89-wagmi-%E9%85%8D%E7%BD%AE), and the customized configuration will override the automatically generated configuration of `WagmiWeb3ConfigProvider`.
 
-- [createConfig](https://wagmi.sh/react/config): wagmi is used to create the method of configuration.
-- http: wagmi is used to create the method of [HTTP JSON RPC](https://wagmi.sh/core/api/transports/http) connection. Through it, you can access the blockchain through HTTP request.
-- [mainnet](https://wagmi.sh/react/chains): represents the Ethereum mainnet. In addition to `mainnet`, there will be other testnets similar to `sepolia` and other EVM-compatible public chains similar to `bsc` and `base`. Some are L1 public chains like Ethereum, and some are L2 public chains. We will not go into details here.
-- [WagmiWeb3ConfigProvider](https://web3.ant.design/components/wagmi#wagmiweb3configproviderprops): Ant Design Web3 is the Provider used to receive wagmi configuration.
-
-Then create the configuration:
+Then import the `WagmiWeb3ConfigProvider`:
 
 ```diff
 import { createConfig, http } from "wagmi";
@@ -57,16 +50,9 @@ import { mainnet } from "wagmi/chains";
 import { WagmiWeb3ConfigProvider } from "@ant-design/web3-wagmi";
 import { Address } from "@ant-design/web3";
 
-+ const config = createConfig({
-+   chains: [mainnet],
-+   transports: {
-+     [mainnet.id]: http(),
-+   },
-+ });
-
 export default function Web3() {
   return (
-+     <WagmiWeb3ConfigProvider config={config}>
++     <WagmiWeb3ConfigProvider>
       <div
         style={{
           height: "100vh",
@@ -86,22 +72,13 @@ In this way, we have completed the basic configuration of wagmi, and then we can
 Let's us try the `NFTCard` component.
 
 ```diff
-import { createConfig, http } from "wagmi";
-import { mainnet } from "wagmi/chains";
 import { WagmiWeb3ConfigProvider } from "@ant-design/web3-wagmi";
 - import { Address } from "@ant-design/web3";
 + import { Address, NFTCard } from "@ant-design/web3";
 
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
-});
-
 export default function Web3() {
   return (
-    <WagmiWeb3ConfigProvider config={config}>
+    <WagmiWeb3ConfigProvider>
       <div
         style={{
           height: "100vh",
@@ -128,34 +105,23 @@ Please check your network if the result is not displayed.
 
 In the previous section, we have successfully connected to the blockchain and obtained the data on the chain. However, we can see that the address displayed in the `Address` component is `0xEcd0D12E21805803f70de03B72B1C162dB0898d9`, which is not the address of the current wallet. In this section, we will guide you to connect to the wallet and obtain the address of the current wallet.
 
-We use [MetaMask](https://metamask.io/) as an example to see how to configure the wallet.
+We use [MetaMask](https://metamask.io/) as an example to see how to configure the wallet. Additionally, we have configured `eip6963`'s `autoAddInjectedWallets` to `true`, which will automatically add the wallets installed in your browser.
 
 ```diff
-
-import { createConfig, http } from "wagmi";
-import { mainnet } from "wagmi/chains";
 - import { WagmiWeb3ConfigProvider } from "@ant-design/web3-wagmi";
 + import { WagmiWeb3ConfigProvider, MetaMask } from "@ant-design/web3-wagmi";
 - import { Address, NFTCard } from "@ant-design/web3";
 + import { Address, NFTCard, Connector, ConnectButton } from "@ant-design/web3";
-+ import { injected } from "wagmi/connectors";
-
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
-+   connectors: [
-+     injected({
-+       target: "metaMask",
-+     }),
-+   ],
-});
 
 export default function Web3() {
   return (
 -   <WagmiWeb3ConfigProvider config={config}>
-+    <WagmiWeb3ConfigProvider config={config} wallets={[MetaMask()]}>
++    <WagmiWeb3ConfigProvider
++      eip6963={{
++        autoAddInjectedWallets: true,
++      }}
++      wallets={[MetaMask()]}
++    >
       <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
       <NFTCard
         address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9"
@@ -167,7 +133,6 @@ export default function Web3() {
     </WagmiWeb3ConfigProvider>
   );
 };
-
 
 ```
 

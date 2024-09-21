@@ -40,9 +40,9 @@ Click `ABI` to copy and export:
 
 ## Deploy
 
-Click `Deploy&Run` to send the transaction to the current `ENVIRONMENT`.
+Click `Deploy&Run` to send the transaction to the current `ENVIRONMENT`. Deploying contracts consumes GAS, even on the test network. GAS is paid with ETH from the test network, so you also need to obtain some ETH from the test network through the faucet. For example, you can get Sepolia test network ETH through the [ZAN test network faucet](https://zan.top/faucet?chInfo=ch_antdweb3).
 
-Next, we will try to deploy the contract to the Goerli testnet through MetaMask. Please switch your MetaMask to the Goerli testnet (of course, you can also switch to other testnets you are used to using).
+Next, we will try to deploy the contract to the Sepolia testnet through MetaMask. Please switch your MetaMask to the Sepolia testnet (of course, you can also switch to other testnets you are used to using).
 
 Click the drop-down box of `ENVIRONMENT`, you can see many options to choose from, we choose `Injected Provider - MetaMask`.
 

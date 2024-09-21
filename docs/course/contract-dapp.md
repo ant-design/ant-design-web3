@@ -17,12 +17,11 @@ In the DApp developed in the previous chapter, there is already a page that can 
 In addition to the address, we also need to switch to the testnet. The specific code is as follows:
 
 ```diff
-import { createConfig, http, useReadContract, useWriteContract } from "wagmi";
-- import { mainnet } from "wagmi/chains";
-+ import { mainnet, sepolia } from "wagmi/chains";
+import { http, useReadContract, useWriteContract } from "wagmi";
 import {
   WagmiWeb3ConfigProvider,
   MetaMask,
++  Mainnet,
 +  Sepolia,
 } from "@ant-design/web3-wagmi";
 import {
@@ -35,20 +34,6 @@ import {
 import { injected } from "wagmi/connectors";
 import { Button, message } from "antd";
 import { parseEther } from "viem";
-
-const config = createConfig({
--  chains: [mainnet],
-+  chains: [mainnet, sepolia],
-  transports: {
-     [mainnet.id]: http(),
-+    [sepolia.id]: http(),
-  },
-  connectors: [
-    injected({
-      target: "metaMask",
-    }),
-  ],
-});
 
 - const CONTRACT_ADDRESS = "0xEcd0D12E21805803f70de03B72B1C162dB0898d9";
 + const CONTRACT_ADDRESS = "0x81BaD6F768947D7741c83d9EB9007e1569115703"; // use your own contract address
@@ -127,8 +112,14 @@ const CallTest = () => {
 export default function Web3() {
   return (
     <WagmiWeb3ConfigProvider
-      config={config}
-+      chains={[Sepolia]}
+       eip6963={{
+         autoAddInjectedWallets: true,
+       }}
++      chains={[Mainnet, Sepolia]}
+       transports={{
+         [Mainnet.id]: http(),
++        [Sepolia.id]: http(),
+      }}
       wallets={[MetaMask()]}
     >
       <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
@@ -146,7 +137,7 @@ export default function Web3() {
 
 ```
 
-Switch to the Goerli testnet in the DApp page, and if you click the `mint` button, the MetaMask transaction confirmation pop-up window will be triggered if everything goes well:
+Switch to the Sepolia testnet in the DApp page, and if you click the `mint` button, the MetaMask transaction confirmation pop-up window will be triggered if everything goes well:
 
 ![](./img/mint-test-net.png)
 

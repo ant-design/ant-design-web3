@@ -452,6 +452,7 @@ export * from './components/req-colorful';
 export * from './components/reth-circle-colorful';
 export * from './components/rev-colorful';
 export * from './components/rif-circle-colorful';
+export * from './components/ripple-colorful';
 export * from './components/rlc-circle-colorful';
 export * from './components/rook-colorful';
 export * from './components/rose-circle-colorful';

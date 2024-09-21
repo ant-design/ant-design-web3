@@ -51,11 +51,18 @@
 
 // 移动端预览时采用垂直布局展示每个 item
 @media screen and (max-width: 767px) {
+  html[data-prefers-color='light'] {
+    .container {
+      background: #fff;
+      .item {
+        background: #fbfafc;
+      }
+    }
+  }
   .container {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background: #fff;
     box-sizing: border-box;
     .item {
       box-sizing: border-box;
@@ -64,7 +71,6 @@
       flex: none;
       padding: 12px;
       width: 100%;
-      background: #fbfafc;
       .title {
         white-space: normal;
         font-size: 24px;

@@ -30,8 +30,6 @@ npm i @ant-design/web3-wagmi wagmi viem @tanstack/react-query --save
 首先，请继续编辑 `pages/web3.tsx` 文件，引入所需要的内容：
 
 ```diff
-+ import { createConfig, http } from 'wagmi';
-+ import { mainnet } from 'wagmi/chains';
 + import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { Address } from "@ant-design/web3";
 
@@ -42,31 +40,17 @@ export default function Web3() {
 };
 ```
 
-其中引入的内容说明如下：
+[WagmiWeb3ConfigProvider](https://web3.ant.design/components/wagmi-cn#wagmiweb3configproviderprops) 是基于 wagmi 封装的一个 Ant Design Web3 适配器，用于适配以太坊。它除了将 wagmi 的 API 适配为 Ant Design Web3 所需要的 API 之外，还做了一些易用性上的提升。你不需要再使用 wagmi 的 [createConfig](https://wagmi.sh/react/config) 来创建配置，它会自动帮你创建好 wagmi 的配置。当然，如果你有特殊需要，也可以[自定义配置](https://web3.ant.design/components/ethereum-cn#%E8%87%AA%E5%AE%9A%E4%B9%89-wagmi-%E9%85%8D%E7%BD%AE)，自定义的配置会覆盖 `WagmiWeb3ConfigProvider` 的自动生成的配置。
 
-- [createConfig](https://wagmi.sh/react/config)：wagmi 用来创建配置的方法。
-- http：wagmi 用来创建 [HTTP JSON RPC](https://wagmi.sh/core/api/transports/http) 连接的方法，通过它你可以通过 HTTP 请求访问区块链。
-- [mainnet](https://wagmi.sh/react/chains)：代表以太坊主网，除了 `mainnet` 以外还会有类似 `sepolia` 的测试网和类似 `bsc` 和 `base` 的 EVM 兼容的其它公链，有的是和以太坊一样的 L1 公链，有的是 L2 公链，这里先暂不展开。
-- [WagmiWeb3ConfigProvider](https://web3.ant.design/components/wagmi-cn#wagmiweb3configproviderprops)：Ant Design Web3 用来接收 wagmi 配置的 Provider。
-
-接着创建配置：
+接着引入 `WagmiWeb3ConfigProvider`：
 
 ```diff
-import { createConfig, http } from "wagmi";
-import { mainnet } from "wagmi/chains";
 import { WagmiWeb3ConfigProvider } from "@ant-design/web3-wagmi";
 import { Address } from "@ant-design/web3";
 
-+ const config = createConfig({
-+   chains: [mainnet],
-+   transports: {
-+     [mainnet.id]: http(),
-+   },
-+ });
-
 export default function Web3() {
   return (
-+     <WagmiWeb3ConfigProvider config={config}>
++     <WagmiWeb3ConfigProvider>
       <div
         style={{
           height: "100vh",
@@ -86,8 +70,6 @@ export default function Web3() {
 我们试一试使用 [NFTCard](../../packages/web3/src/nft-card/index.zh-CN.md) 组件：
 
 ```diff
-import { createConfig, http } from "wagmi";
-import { mainnet } from "wagmi/chains";
 import { WagmiWeb3ConfigProvider } from "@ant-design/web3-wagmi";
 - import { Address } from "@ant-design/web3";
 + import { Address, NFTCard } from "@ant-design/web3";
@@ -101,7 +83,7 @@ const config = createConfig({
 
 export default function Web3() {
   return (
-    <WagmiWeb3ConfigProvider config={config}>
+    <WagmiWeb3ConfigProvider>
       <div
         style={{
           height: "100vh",
@@ -128,34 +110,23 @@ export default function Web3() {
 
 在上述步骤中，NFT 智能合约中的信息是公开的，无需连接用户钱包，即可通过节点服务（我们将在下一节详细介绍节点服务）直接获取。但是，如果我们希望获取用户的钱包地址，则需要与用户的钱包建立连接。
 
-我们以 [MetaMask](https://metamask.io/) 为例，看一下如何配置钱包。
+我们以 [MetaMask](https://metamask.io/) 为例，看一下如何配置钱包。另外我们配置了 `eip6963` 的 `autoAddInjectedWallets` 为 `true`，这样会自动添加你的浏览器安装的钱包。
 
 ```diff
-
-import { createConfig, http } from "wagmi";
-import { mainnet } from "wagmi/chains";
 - import { WagmiWeb3ConfigProvider } from "@ant-design/web3-wagmi";
 + import { WagmiWeb3ConfigProvider, MetaMask } from "@ant-design/web3-wagmi";
 - import { Address, NFTCard } from "@ant-design/web3";
 + import { Address, NFTCard, Connector, ConnectButton } from "@ant-design/web3";
-+ import { injected } from "wagmi/connectors";
-
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
-+   connectors: [
-+     injected({
-+       target: "metaMask",
-+     }),
-+   ],
-});
 
 export default function Web3() {
   return (
 -   <WagmiWeb3ConfigProvider config={config}>
-+    <WagmiWeb3ConfigProvider config={config} wallets={[MetaMask()]}>
++    <WagmiWeb3ConfigProvider
++      eip6963={{
++        autoAddInjectedWallets: true,
++      }}
++      wallets={[MetaMask()]}
++    >
       <Address format address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9" />
       <NFTCard
         address="0xEcd0D12E21805803f70de03B72B1C162dB0898d9"
@@ -167,7 +138,6 @@ export default function Web3() {
     </WagmiWeb3ConfigProvider>
   );
 };
-
 
 ```
 
