@@ -106,7 +106,6 @@
     "@ant-design/web3-wagmi": "workspace:*",
     "@mysten/dapp-kit": "^0.14.11",
     "@mysten/sui": "^1.9.0",
-    "@solana/wallet-adapter-base": "^0.9.23",
     "@solana/wallet-adapter-coinbase": "^0.1.19",
     "@solana/wallet-adapter-trust": "^0.1.13",
     "@tanstack/query-sync-storage-persister": "^5.51.9",
