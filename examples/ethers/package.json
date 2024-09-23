@@ -17,7 +17,7 @@
     "@ant-design/web3-ethers": "workspace:*",
     "antd": "^5.20.1",
     "ethers": "^6.11.1",
-    "umi": "^4.1.5"
+    "umi": "^4.3.22"
   },
   "devDependencies": {
     "@types/react": "^18.3.5",
