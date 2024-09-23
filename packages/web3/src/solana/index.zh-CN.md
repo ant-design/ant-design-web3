@@ -57,6 +57,14 @@ Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它
 
 <code src="./demos/balance.tsx"></code>
 
+## 使用 TipLink
+
+TipLink 是一个轻量级的钱包。我们通过内置的 TipLinkWallet 对其进行支持，你可以直接使用。
+
+你也可以在这里找到关于 TipLink Wallet Adapter 的更多信息：[TipLink Wallet Adapter](https://docs.tiplink.io/docs/products/wallet-adapter)
+
+<code src="./demos/tiplink.tsx"></code>
+
 ## 更多组件
 
 你可以配合更多组件使用，组件中涉及到链部分的内容都会从适配器中获取。当然，在组件上直接配置的属性优先级更高。

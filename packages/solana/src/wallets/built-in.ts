@@ -9,6 +9,7 @@ import {
 } from '@ant-design/web3-assets';
 import { CoinbaseWalletAdapter } from '@solana/wallet-adapter-coinbase';
 import { TrustWalletAdapter } from '@solana/wallet-adapter-trust';
+import { TipLinkWalletAdapter } from '@tiplink/wallet-adapter';
 
 import { WalletConnectWalletAdapter } from '../wallet-connect-adapter';
 import { StandardWalletFactory, WalletConnectWalletFactory, WalletFactory } from './factory';
@@ -16,6 +17,20 @@ import { StandardWalletFactory, WalletConnectWalletFactory, WalletFactory } from
 export const CoinbaseWallet = () =>
   WalletFactory(new CoinbaseWalletAdapter(), metadata_CoinbaseWallet);
 export const TrustWallet = () => WalletFactory(new TrustWalletAdapter(), metadata_Trust);
+
+export type TipLinkWalletConfig = ConstructorParameters<typeof TipLinkWalletAdapter>[0];
+export const TipLinkWallet = (config: TipLinkWalletConfig) => {
+  const adapter = new TipLinkWalletAdapter(config);
+
+  return WalletFactory(adapter, {
+    name: adapter.name,
+    remark: 'TipLink Wallet',
+    icon: adapter.icon,
+    app: {
+      link: adapter.url,
+    },
+  });
+};
 
 export const PhantomWallet = () => StandardWalletFactory(metadata_Phantom);
 export const OKXWallet = () => StandardWalletFactory(metadata_OkxWallet);

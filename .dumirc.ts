@@ -104,6 +104,7 @@ export default defineConfig({
     YOUR_INFURA_API_KEY: '287294cbc30b44efab9455664b69b130',
     YOUR_WALLET_CONNECT_PROJECT_ID: 'c07c0051c2055890eade3556618e38a6',
     YOUR_HELIUS_API_KEY: 'cec63e24-d5fd-4e7e-a2ee-5518e08b8485',
+    YOUR_TIPLINK_CLIENT_ID: '4f243e28-3cfa-4d6c-abed-6b8f72a0d18d',
   },
   publicPath: process.env.PUBLIC_PATH || '/',
   base: process.env.BASE || '/',

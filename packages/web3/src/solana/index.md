@@ -56,6 +56,14 @@ We have built-in support for the Solana mainnet (`mainnet-beta`). To support oth
 
 <code src="./demos/balance.tsx"></code>
 
+## Use TipLink
+
+TipLink is a lightweight wallet. We support it through the built-in TipLinkWallet, which you can use directly.
+
+You can also find more information about TipLink Wallet Adapter here: [TipLink Wallet Adapter](https://docs.tiplink.io/docs/products/wallet-adapter)
+
+<code src="./demos/tiplink.tsx"></code>
+
 ## More components
 
 You can use more components together. The content related to the chain in the component will be obtained from the adapter. Of course, the properties configured directly on the component have a higher priority.

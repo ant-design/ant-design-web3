@@ -1,6 +1,9 @@
 declare const YOUR_ZAN_API_KEY: string;
+declare const YOUR_INFURA_API_KEY: string;
 declare const YOUR_WALLET_CONNECT_PROJECT_ID: string;
 declare const YOUR_HELIUS_API_KEY: string;
+declare const YOUR_TIPLINK_CLIENT_ID: string;
+
 declare module '*.svg' {
   import type * as React from 'react';
 
@@ -8,4 +11,3 @@ declare module '*.svg' {
 
   export default ReactComponent;
 }
-declare const YOUR_INFURA_API_KEY: string;
