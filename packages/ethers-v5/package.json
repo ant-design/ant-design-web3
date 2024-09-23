@@ -57,7 +57,7 @@
     "@tanstack/react-query": "^5.51.11",
     "debug": "^4.3.5",
     "viem": "^2.21.3",
-    "wagmi": "^2.10.9"
+    "wagmi": "^2.12.13"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
