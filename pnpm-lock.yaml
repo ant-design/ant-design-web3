@@ -60,8 +60,8 @@ importers:
         specifier: ^5.51.11
         version: 5.51.11(react@18.3.1)
       '@tanstack/react-query-persist-client':
-        specifier: ^5.52.1
-        version: 5.52.1(@tanstack/react-query@5.51.11)(react@18.3.1)
+        specifier: ^5.56.2
+        version: 5.56.2(@tanstack/react-query@5.51.11)(react@18.3.1)
       antd:
         specifier: ^5.20.1
         version: 5.20.1(react-dom@18.3.1)(react@18.3.1)
@@ -1463,6 +1463,7 @@ packages:
   /@babel/plugin-proposal-async-generator-functions@7.20.7(@babel/core@7.24.3):
     resolution: {integrity: sha512-xMbiLsn/8RK7Wq7VeVytytS2L6qE69bXPB10YCmMdDZbKF4okCqY74pI/jJQ/8U0b/F6NrT2+14b8/P9/3AMGA==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-async-generator-functions instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -1559,6 +1560,7 @@ packages:
   /@babel/plugin-proposal-optional-catch-binding@7.18.6(@babel/core@7.24.3):
     resolution: {integrity: sha512-Q40HEhs9DJQyaZfUjjn6vE8Cv4GmMHCYuMGIWUnlxH6400VGxOuwWsPt4FxXxJkC/5eOzgn0z21M9gMT4MOhbw==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-catch-binding instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -9064,10 +9066,20 @@ packages:
     resolution: {integrity: sha512-U1DOEgltjUwalN6uWYTewSnA14b+tE7lSylOiASKCAO61ENJeCq9VVD/TXHA6O5u9+6v5+UgGYBSccTKDoyMqw==}
     dev: false
 
+  /@tanstack/query-core@5.56.2:
+    resolution: {integrity: sha512-gor0RI3/R5rVV3gXfddh1MM+hgl0Z4G7tj6Xxpq6p2I03NGPaJ8dITY9Gz05zYYb/EJq9vPas/T4wn9EaDPd4Q==}
+    dev: false
+
   /@tanstack/query-persist-client-core@5.52.0:
     resolution: {integrity: sha512-D6Ppz4/ofmcA7h/vksaYUVuMSlFRfBBWGE7JSa6AATy6JDO3cXhJoCXOHVRDEK0ScxV93A/wZ1fzawfIDHR6SQ==}
     dependencies:
       '@tanstack/query-core': 5.52.0
+    dev: false
+
+  /@tanstack/query-persist-client-core@5.56.2:
+    resolution: {integrity: sha512-4OZ/rLAxCiQWaJCQjb5q1+UbSNIZclmF4pRMHrav1q2EUj3bjrqWzwTwdy2bUxrMTdY15ZKsFwCpAFGG4r+orA==}
+    dependencies:
+      '@tanstack/query-core': 5.56.2
     dev: false
 
   /@tanstack/query-sync-storage-persister@5.52.0:
@@ -9077,13 +9089,13 @@ packages:
       '@tanstack/query-persist-client-core': 5.52.0
     dev: false
 
-  /@tanstack/react-query-persist-client@5.52.1(@tanstack/react-query@5.51.11)(react@18.3.1):
-    resolution: {integrity: sha512-Wy6+Fd8rq1OuGd6CoL3LWKCtBWCad2kcwvd5gxpxSFkGEbirMiJo03xp38nK5/D4BPYxIhjMqsJcxMQ5En8DPQ==}
+  /@tanstack/react-query-persist-client@5.56.2(@tanstack/react-query@5.51.11)(react@18.3.1):
+    resolution: {integrity: sha512-bVC0Io6ivxr3cJjOFYSeqPcwXyKBHWlhCPUuiriShvz+C4LPpYAGCExwkPke8Z8YV7RWiX0Le4kIbeIV9pzM+A==}
     peerDependencies:
-      '@tanstack/react-query': ^5.52.1
+      '@tanstack/react-query': ^5.56.2
       react: ^18 || ^19
     dependencies:
-      '@tanstack/query-persist-client-core': 5.52.0
+      '@tanstack/query-persist-client-core': 5.56.2
       '@tanstack/react-query': 5.51.11(react@18.3.1)
       react: 18.3.1
     dev: false
