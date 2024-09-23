@@ -17,7 +17,7 @@ exports[`ConnectButton > should display formatted by custom formatter when pass 
             class="ant-web3-connect-button-text"
           >
             <span
-              class="ant-typography css-dev-only-do-not-override-1c0na6j"
+              class="ant-typography ant-web3-address css-dev-only-do-not-override-1c0na6j css-dev-only-do-not-override-1c0na6j"
             >
               <span>
                 0x3ea2...7c18

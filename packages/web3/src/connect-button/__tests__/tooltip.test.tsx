@@ -22,7 +22,7 @@ describe('ConnectButton', () => {
       );
     };
     const { baseElement, rerender } = render(<App />);
-    const btn = baseElement.querySelector('.ant-web3-address .ant-typography span')!;
+    const btn = baseElement.querySelector('.ant-web3-address.ant-typography span')!;
     fireEvent.mouseEnter(btn);
     rerender(<App />);
     // When the tooltip's title is string, baseElement.outerHTML does not contain '.ant-tooltip'.

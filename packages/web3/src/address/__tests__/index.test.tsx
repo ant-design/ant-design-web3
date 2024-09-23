@@ -43,7 +43,7 @@ describe('Address', () => {
     );
 
     expect(baseElement.querySelector('.ant-web3-address')?.textContent).toBe('0x21CD...Fd3B');
-    fireEvent.mouseEnter(baseElement.querySelector('.ant-web3-address .ant-typography span')!);
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-web3-address.ant-typography span')!);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-tooltip-inner')?.textContent).toBe(
         '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
@@ -108,7 +108,7 @@ describe('Address', () => {
     const { baseElement } = render(
       <Address tooltip={false} address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,
     );
-    fireEvent.mouseEnter(baseElement.querySelector('.ant-web3-address .ant-typography span')!);
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-web3-address.ant-typography span')!);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-tooltip-inner')).toBeNull();
     });
@@ -131,7 +131,7 @@ describe('Address', () => {
         tooltip={<span>hello</span>}
       />,
     );
-    fireEvent.mouseEnter(baseElement.querySelector('.ant-web3-address .ant-typography span')!);
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-web3-address.ant-typography span')!);
     await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-tooltip-inner')?.textContent).toBe('hello');
     });

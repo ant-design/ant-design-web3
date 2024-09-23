@@ -70,7 +70,7 @@ describe('ConnectButton connect', async () => {
     fireEvent.click(baseElement.querySelector('.custom-btn')!);
     await vi.waitFor(() => {
       expect(onClickCallFn).toBeCalled();
-      expect(baseElement.querySelector('.ant-web3-address .ant-typography span')?.textContent).toBe(
+      expect(baseElement.querySelector('.ant-web3-address.ant-typography span')?.textContent).toBe(
         '0x1234...7890',
       );
     });

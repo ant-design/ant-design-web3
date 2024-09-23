@@ -92,7 +92,7 @@ exports[`ProfileModal > match snapshot 1`] = `
                     class="ant-space-item"
                   >
                     <span
-                      class="ant-typography ant-typography-secondary css-dev-only-do-not-override-1c0na6j"
+                      class="ant-typography ant-typography-secondary ant-web3-address css-dev-only-do-not-override-1c0na6j css-dev-only-do-not-override-1c0na6j"
                     >
                       <span>
                         0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B
@@ -222,7 +222,7 @@ exports[`ProfileModal > match snapshot without name 1`] = `
                     class="ant-space-item"
                   >
                     <span
-                      class="ant-typography css-dev-only-do-not-override-1c0na6j"
+                      class="ant-typography ant-web3-address css-dev-only-do-not-override-1c0na6j css-dev-only-do-not-override-1c0na6j"
                     >
                       <span>
                         0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B

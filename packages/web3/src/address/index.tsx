@@ -4,6 +4,7 @@ import { type Locale } from '@ant-design/web3-common';
 import type { TooltipProps } from 'antd';
 import { ConfigProvider, Tooltip, Typography } from 'antd';
 import type { TextProps } from 'antd/lib/typography/Text';
+import classNames from 'classnames';
 
 import { useProvider } from '../hooks';
 import useIntl from '../hooks/useIntl';
@@ -66,6 +67,7 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
     format = false,
     children,
     locale,
+    className,
     ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -121,6 +123,7 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
             }
           : false
       }
+      className={classNames(prefixCls, hashId, className)}
       {...restProps}
     >
       <Tooltip title={mergedTooltip()}>
