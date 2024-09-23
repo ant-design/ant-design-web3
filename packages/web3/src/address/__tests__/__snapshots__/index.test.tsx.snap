@@ -1,19 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Address > display address with default format 1`] = `
-<div
-  class="ant-space css-dev-only-do-not-override-1c0na6j ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-web3-address css-dev-only-do-not-override-1c0na6j"
+<span
+  class="ant-typography ant-web3-address css-dev-only-do-not-override-1c0na6j css-dev-only-do-not-override-1c0na6j"
 >
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-typography css-dev-only-do-not-override-1c0na6j"
-    >
-      <span>
-        0x 21CD f097 4d53 a6e9 6eF0 5d7B 324a 9803 735f Fd3B
-      </span>
-    </span>
-  </div>
-</div>
+  <span>
+    0x 21CD f097 4d53 a6e9 6eF0 5d7B 324a 9803 735f Fd3B
+  </span>
+</span>
 `;

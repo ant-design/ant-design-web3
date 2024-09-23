@@ -91,6 +91,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
             <Address
               ellipsis={false}
               address={address}
+              type={name ? 'secondary' : undefined}
               tooltip={false}
               addressPrefix={addressPrefix}
             >

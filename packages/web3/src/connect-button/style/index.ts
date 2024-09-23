@@ -110,9 +110,6 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
       [`${token.componentCls}-default-icon`]: {
         fontSize: token.sizeLG,
       },
-      [`${token.antCls}-web3-address`]: {
-        color: token.colorTextTertiary,
-      },
     },
 
     [`${token.componentCls}-tooltip`]: {
