@@ -78,11 +78,11 @@ importers:
         specifier: ^10.4.3
         version: 10.4.3
       dumi:
-        specifier: ^2.4.11
-        version: 2.4.11(@babel/core@7.24.3)(@types/node@22.1.0)(@types/react@18.3.5)(eslint@8.57.0)(prettier@3.3.3)(react-dom@18.3.1)(react@18.3.1)(stylelint@14.16.1)(typescript@5.5.4)(webpack@5.91.0)
+        specifier: ^2.4.7
+        version: 2.4.7(@babel/core@7.24.3)(@types/node@22.1.0)(@types/react@18.3.5)(eslint@8.57.0)(prettier@3.3.3)(react-dom@18.3.1)(react@18.3.1)(stylelint@14.16.1)(typescript@5.5.4)(webpack@5.91.0)
       dumi-theme-antd-web3:
         specifier: 0.4.3
-        version: 0.4.3(@babel/core@7.24.3)(@types/react@18.3.5)(antd@5.20.1)(dumi@2.4.11)(react-dom@18.3.1)(react-is@18.2.0)(react@18.3.1)
+        version: 0.4.3(@babel/core@7.24.3)(@types/react@18.3.5)(antd@5.20.1)(dumi@2.4.7)(react-dom@18.3.1)(react-is@18.2.0)(react@18.3.1)
       ethers:
         specifier: ^6.13.2
         version: 6.13.2
@@ -8923,6 +8923,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: false
     optional: true
@@ -8932,6 +8933,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: false
     optional: true
@@ -8941,6 +8943,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: false
     optional: true
@@ -8950,6 +8953,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: false
     optional: true
@@ -14520,7 +14524,7 @@ packages:
     resolution: {integrity: sha512-mM6UoGTgTNoo8lA4dwaIwoeSGT+4PeQeiFylr2+kCB5z3/7NEf7lIM4tqrAsEyzecE/HX0+w7Z78hnFZQ9k5vQ==}
     dev: false
 
-  /dumi-theme-antd-web3@0.4.3(@babel/core@7.24.3)(@types/react@18.3.5)(antd@5.20.1)(dumi@2.4.11)(react-dom@18.3.1)(react-is@18.2.0)(react@18.3.1):
+  /dumi-theme-antd-web3@0.4.3(@babel/core@7.24.3)(@types/react@18.3.5)(antd@5.20.1)(dumi@2.4.7)(react-dom@18.3.1)(react-is@18.2.0)(react@18.3.1):
     resolution: {integrity: sha512-HxoX+JCs7xzL0aOH8vbDymU+NxmKWdjpBQwLVo5eRc0AGS796Djaq7kcloNgJ6qoN0RxwUy6dOXR63Ib7X7yAw==}
     peerDependencies:
       antd: ~5.17.0
@@ -14540,7 +14544,7 @@ packages:
       antd-token-previewer: 2.0.0-alpha.6(@babel/core@7.24.3)(@types/react@18.3.5)(react-dom@18.3.1)(react-is@18.2.0)(react@18.3.1)
       classnames: 2.3.2
       dayjs: 1.11.7
-      dumi: 2.4.11(@babel/core@7.24.3)(@types/node@22.1.0)(@types/react@18.3.5)(eslint@8.57.0)(prettier@3.3.3)(react-dom@18.3.1)(react@18.3.1)(stylelint@14.16.1)(typescript@5.5.4)(webpack@5.91.0)
+      dumi: 2.4.7(@babel/core@7.24.3)(@types/node@22.1.0)(@types/react@18.3.5)(eslint@8.57.0)(prettier@3.3.3)(react-dom@18.3.1)(react@18.3.1)(stylelint@14.16.1)(typescript@5.5.4)(webpack@5.91.0)
       github-contributors-lists: 1.0.3(react@18.3.1)
       lodash.clonedeep: 4.5.0
       prism-react-renderer: 2.3.1(react@18.3.1)
@@ -14560,8 +14564,8 @@ packages:
       - react-is
     dev: false
 
-  /dumi@2.4.11(@babel/core@7.24.3)(@types/node@22.1.0)(@types/react@18.3.5)(eslint@8.57.0)(prettier@3.3.3)(react-dom@18.3.1)(react@18.3.1)(stylelint@14.16.1)(typescript@5.5.4)(webpack@5.91.0):
-    resolution: {integrity: sha512-ky7HInNiZfK63gQlja/vlBlW46dDtpTtmkHujr0vdRazKBVxIncLikl41bB16kfid4oo4NHo4MIBWZcEALfvcg==}
+  /dumi@2.4.7(@babel/core@7.24.3)(@types/node@22.1.0)(@types/react@18.3.5)(eslint@8.57.0)(prettier@3.3.3)(react-dom@18.3.1)(react@18.3.1)(stylelint@14.16.1)(typescript@5.5.4)(webpack@5.91.0):
+    resolution: {integrity: sha512-JkBq0/YxVjQkI4CA0dV8LucZ5xeTryXB+yjuMAFyK5jGEqbA7OFYkBXLfvaX5Fv960xkmB2xqp1K8YATGejxcQ==}
     hasBin: true
     peerDependencies:
       react: '>=16.8'
@@ -17229,7 +17233,6 @@ packages:
 
   /inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
-    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
     dependencies:
       once: 1.4.0
       wrappy: 1.0.2
