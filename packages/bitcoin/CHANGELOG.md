@@ -1,5 +1,13 @@
 # @ant-design/web3-bitcoin
 
+## 1.4.5
+
+### Patch Changes
+
+- Updated dependencies [8df88d9]
+- Updated dependencies [ebf33b3]
+  - @ant-design/web3-icons@1.10.0
+
 ## 1.4.4
 
 ### Patch Changes

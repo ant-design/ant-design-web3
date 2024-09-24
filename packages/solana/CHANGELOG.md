@@ -1,5 +1,15 @@
 # @ant-design/web3-solana
 
+## 1.2.0
+
+### Minor Changes
+
+- 903bda6: feat(solana): Add tiplink adapter
+
+### Patch Changes
+
+- @ant-design/web3-assets@1.11.2
+
 ## 1.1.12
 
 ### Patch Changes
