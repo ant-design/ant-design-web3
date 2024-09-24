@@ -6,7 +6,7 @@ import { Space } from 'antd';
 const App: React.FC = () => {
   return (
     <SolanaWeb3ConfigProvider
-      rpcProvider={() => `https://mainnet.helius-rpc.com/?api-key=${YOUR_HELIUS_API_KEY}`}
+      rpcProvider={() => `https://api.zan.top/node/v1/solana/mainnet/${YOUR_ZAN_API_KEY}`}
       wallets={[CoinbaseWallet()]}
     >
       <Space direction="vertical">
