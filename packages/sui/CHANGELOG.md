@@ -1,5 +1,11 @@
 # @ant-design/web3-sui
 
+## 1.0.3
+
+### Patch Changes
+
+- @ant-design/web3-assets@1.11.2
+
 ## 1.0.2
 
 ### Patch Changes
