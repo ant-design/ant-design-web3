@@ -1,5 +1,15 @@
 # @ant-design/web3-icons
 
+## 1.10.0
+
+### Minor Changes
+
+- 8df88d9: feat: add new icon ripple
+
+### Patch Changes
+
+- ebf33b3: feat: add colorful, circle colorful, filled, circle filled icon for Gemini
+
 ## 1.9.0
 
 ### Minor Changes
