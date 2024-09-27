@@ -34,6 +34,7 @@
 - 官网: https://web3.ant.design
 - 指南: https://web3.ant.design/guide/ant-design-web3-cn
 - 课程: https://web3.ant.design/course/introduction-cn
+- 水龙头: [获取测试网 ETH](https://zan.top/faucet?chInfo=ch_antdweb3)
 - 国内加速官网: https://web3.antdigital.dev
 
 ## 特性
@@ -57,6 +58,12 @@ export default () => {
   return <Address address="0x1234567890123456789012345678901234567890" />;
 };
 ```
+
+## 赞助商
+
+<a href="https://zan.top?chInfo=ch_antdweb3"><image src="https://mdn.alipayobjects.com/huamei_hsbbrh/afts/img/A*ybcRSrUPqhsAAAAAAAAAAAAADiOMAQ/original" /></a>
+
+ZAN 是一家 Web3 技术服务提供商，提供[节点服务](https://zan.top/home/node-service?chInfo=ch_antdweb3)、[测试网水龙头](https://zan.top/faucet?chInfo=ch_antdweb3)、[智能合约审计](https://zan.top/home/ai-scan?chInfo=ch_antdweb3)、[Web3 安全](https://zan.top/home/know-your-transaction?chInfo=ch_antdweb3)等服务。
 
 ## 开发
 
