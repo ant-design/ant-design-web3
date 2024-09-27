@@ -34,6 +34,7 @@ English · [中文](./README-zh_CN.md)
 - Home Page: https://web3.ant.design
 - Documentation: https://web3.ant.design/guide/ant-design-web3
 - Course: https://web3.ant.design/course/introduction
+- Faucet: [Get testnet Sepolia ETH](https://zan.top/faucet?chInfo=ch_antdweb3)
 - 国内加速官网: https://web3.antdigital.dev
 
 ## Features
@@ -57,6 +58,12 @@ export default () => {
   return <Address address="0x1234567890123456789012345678901234567890" />;
 };
 ```
+
+## Sponsor
+
+<a href="https://zan.top?chInfo=ch_antdweb3"><image src="https://mdn.alipayobjects.com/huamei_hsbbrh/afts/img/A*ybcRSrUPqhsAAAAAAAAAAAAADiOMAQ/original" /></a>
+
+ZAN is a Web3 technology service provider offering [node services](https://zan.top/home/node-service?chInfo=ch_antdweb3), [testnet faucet](https://zan.top/faucet?chInfo=ch_antdweb3), [smart contract auditing](https://zan.top/home/ai-scan?chInfo=ch_antdweb3), [Web3 security](https://zan.top/home/know-your-transaction?chInfo=ch_antdweb3), and other services.
 
 ## Development
 
