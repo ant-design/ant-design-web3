@@ -43,7 +43,7 @@ importers:
         version: link:packages/wagmi
       '@mysten/dapp-kit':
         specifier: ^0.14.11
-        version: 0.14.17(@tanstack/react-query@5.51.11)(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.5.4)
+        version: 0.14.17(@tanstack/react-query@5.56.2)(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.5.4)
       '@mysten/sui':
         specifier: ^1.9.0
         version: 1.9.0(typescript@5.5.4)
@@ -57,11 +57,11 @@ importers:
         specifier: ^5.51.9
         version: 5.52.0
       '@tanstack/react-query':
-        specifier: ^5.51.11
-        version: 5.51.11(react@18.3.1)
+        specifier: ^5.56.2
+        version: 5.56.2(react@18.3.1)
       '@tanstack/react-query-persist-client':
         specifier: ^5.56.2
-        version: 5.56.2(@tanstack/react-query@5.51.11)(react@18.3.1)
+        version: 5.56.2(@tanstack/react-query@5.56.2)(react@18.3.1)
       antd:
         specifier: ^5.20.1
         version: 5.20.1(react-dom@18.3.1)(react@18.3.1)
@@ -103,7 +103,7 @@ importers:
         version: 2.21.3(typescript@5.5.4)(zod@3.23.8)
       wagmi:
         specifier: ^2.12.13
-        version: 2.12.13(@tanstack/react-query@5.51.11)(@types/react@18.3.5)(react-dom@18.3.1)(react-native@0.73.6)(react@18.3.1)(typescript@5.5.4)(viem@2.21.3)(zod@3.23.8)
+        version: 2.12.13(@tanstack/react-query@5.56.2)(@types/react@18.3.5)(react-dom@18.3.1)(react-native@0.73.6)(react@18.3.1)(typescript@5.5.4)(viem@2.21.3)(zod@3.23.8)
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.8.3
@@ -391,8 +391,8 @@ importers:
         specifier: workspace:*
         version: link:../wagmi
       '@tanstack/react-query':
-        specifier: ^5.51.11
-        version: 5.51.11(react@18.3.1)
+        specifier: ^5.56.2
+        version: 5.56.2(react@18.3.1)
       debug:
         specifier: ^4.3.5
         version: 4.3.5(supports-color@5.5.0)
@@ -401,7 +401,7 @@ importers:
         version: 2.21.3(typescript@5.5.4)(zod@3.23.8)
       wagmi:
         specifier: ^2.12.13
-        version: 2.12.13(@tanstack/react-query@5.51.11)(@types/react@18.3.5)(react-dom@18.3.1)(react-native@0.73.6)(react@18.3.1)(typescript@5.5.4)(viem@2.21.3)(zod@3.23.8)
+        version: 2.12.13(@tanstack/react-query@5.56.2)(@types/react@18.3.5)(react-dom@18.3.1)(react-native@0.73.6)(react@18.3.1)(typescript@5.5.4)(viem@2.21.3)(zod@3.23.8)
     devDependencies:
       '@types/debug':
         specifier: ^4.1.12
@@ -428,8 +428,8 @@ importers:
         specifier: workspace:*
         version: link:../wagmi
       '@tanstack/react-query':
-        specifier: ^5.51.11
-        version: 5.51.11(react@18.3.1)
+        specifier: ^5.56.2
+        version: 5.56.2(react@18.3.1)
       debug:
         specifier: ^4.3.5
         version: 4.3.5(supports-color@5.5.0)
@@ -438,7 +438,7 @@ importers:
         version: 2.21.3(typescript@5.5.4)(zod@3.23.8)
       wagmi:
         specifier: ^2.12.13
-        version: 2.12.13(@tanstack/react-query@5.51.11)(@types/react@18.3.5)(react-dom@18.3.1)(react-native@0.73.6)(react@18.3.1)(typescript@5.5.4)(viem@2.21.3)(zod@3.23.8)
+        version: 2.12.13(@tanstack/react-query@5.56.2)(@types/react@18.3.5)(react-dom@18.3.1)(react-native@0.73.6)(react@18.3.1)(typescript@5.5.4)(viem@2.21.3)(zod@3.23.8)
     devDependencies:
       '@types/debug':
         specifier: ^4.1.12
@@ -468,8 +468,8 @@ importers:
         specifier: workspace:*
         version: link:../wagmi
       '@tanstack/react-query':
-        specifier: ^5.51.11
-        version: 5.51.11(react@18.3.1)
+        specifier: ^5.56.2
+        version: 5.56.2(react@18.3.1)
       debug:
         specifier: ^4.3.5
         version: 4.3.5(supports-color@5.5.0)
@@ -478,7 +478,7 @@ importers:
         version: 2.21.3(typescript@5.5.4)(zod@3.23.8)
       wagmi:
         specifier: ^2.12.13
-        version: 2.12.13(@tanstack/react-query@5.51.11)(@types/react@18.3.5)(react-dom@18.3.1)(react-native@0.73.6)(react@18.3.1)(typescript@5.5.4)(viem@2.21.3)(zod@3.23.8)
+        version: 2.12.13(@tanstack/react-query@5.56.2)(@types/react@18.3.5)(react-dom@18.3.1)(react-native@0.73.6)(react@18.3.1)(typescript@5.5.4)(viem@2.21.3)(zod@3.23.8)
     devDependencies:
       '@types/debug':
         specifier: ^4.1.12
@@ -605,13 +605,13 @@ importers:
     devDependencies:
       '@mysten/dapp-kit':
         specifier: ^0.14.11
-        version: 0.14.17(@tanstack/react-query@5.51.11)(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.5.4)
+        version: 0.14.17(@tanstack/react-query@5.56.2)(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.5.4)
       '@mysten/sui':
         specifier: ^1.9.0
         version: 1.9.0(typescript@5.5.4)
       '@tanstack/react-query':
-        specifier: ^5.40.1
-        version: 5.51.11(react@18.3.1)
+        specifier: ^5.56.2
+        version: 5.56.2(react@18.3.1)
       '@types/debug':
         specifier: ^4.1.12
         version: 4.1.12
@@ -654,8 +654,8 @@ importers:
         version: 4.3.5(supports-color@5.5.0)
     devDependencies:
       '@tanstack/react-query':
-        specifier: ^5.51.11
-        version: 5.51.11(react@18.3.1)
+        specifier: ^5.56.2
+        version: 5.56.2(react@18.3.1)
       '@types/debug':
         specifier: ^4.1.12
         version: 4.1.12
@@ -670,7 +670,7 @@ importers:
         version: 2.21.3(typescript@5.5.4)(zod@3.23.8)
       wagmi:
         specifier: ^2.12.13
-        version: 2.12.13(@tanstack/react-query@5.51.11)(@types/react@18.3.5)(react-dom@18.3.1)(react-native@0.73.6)(react@18.3.1)(typescript@5.5.4)(viem@2.21.3)(zod@3.23.8)
+        version: 2.12.13(@tanstack/react-query@5.56.2)(@types/react@18.3.5)(react-dom@18.3.1)(react-native@0.73.6)(react@18.3.1)(typescript@5.5.4)(viem@2.21.3)(zod@3.23.8)
 
   packages/web3:
     dependencies:
@@ -6347,7 +6347,7 @@ packages:
     dependencies:
       bs58: 6.0.0
 
-  /@mysten/dapp-kit@0.14.17(@tanstack/react-query@5.51.11)(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.5.4):
+  /@mysten/dapp-kit@0.14.17(@tanstack/react-query@5.56.2)(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.5.4):
     resolution: {integrity: sha512-1geq0vah/cqSprzVssKKFCkqDeOX30SDCa2TdqIO6ywR3gN6K78Jmq0aBZWepSvkA0ytaTcmATGY7E/lccTalw==}
     peerDependencies:
       '@tanstack/react-query': ^5.0.0
@@ -6359,7 +6359,7 @@ packages:
       '@radix-ui/react-dialog': 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)
       '@radix-ui/react-dropdown-menu': 2.1.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)
       '@radix-ui/react-slot': 1.1.0(@types/react@18.3.5)(react@18.3.1)
-      '@tanstack/react-query': 5.51.11(react@18.3.1)
+      '@tanstack/react-query': 5.56.2(react@18.3.1)
       '@vanilla-extract/css': 1.15.5
       '@vanilla-extract/dynamic': 2.1.2
       '@vanilla-extract/recipes': 0.5.5(@vanilla-extract/css@1.15.5)
@@ -9048,16 +9048,12 @@ packages:
       '@swc/counter': 0.1.3
     dev: false
 
-  /@tanstack/query-core@5.51.9:
-    resolution: {integrity: sha512-HsAwaY5J19MD18ykZDS3aVVh+bAt0i7m6uQlFC2b77DLV9djo+xEN7MWQAQQTR8IM+7r/zbozTQ7P0xr0bHuew==}
-
   /@tanstack/query-core@5.52.0:
     resolution: {integrity: sha512-U1DOEgltjUwalN6uWYTewSnA14b+tE7lSylOiASKCAO61ENJeCq9VVD/TXHA6O5u9+6v5+UgGYBSccTKDoyMqw==}
     dev: false
 
   /@tanstack/query-core@5.56.2:
     resolution: {integrity: sha512-gor0RI3/R5rVV3gXfddh1MM+hgl0Z4G7tj6Xxpq6p2I03NGPaJ8dITY9Gz05zYYb/EJq9vPas/T4wn9EaDPd4Q==}
-    dev: false
 
   /@tanstack/query-persist-client-core@5.52.0:
     resolution: {integrity: sha512-D6Ppz4/ofmcA7h/vksaYUVuMSlFRfBBWGE7JSa6AATy6JDO3cXhJoCXOHVRDEK0ScxV93A/wZ1fzawfIDHR6SQ==}
@@ -9078,23 +9074,23 @@ packages:
       '@tanstack/query-persist-client-core': 5.52.0
     dev: false
 
-  /@tanstack/react-query-persist-client@5.56.2(@tanstack/react-query@5.51.11)(react@18.3.1):
+  /@tanstack/react-query-persist-client@5.56.2(@tanstack/react-query@5.56.2)(react@18.3.1):
     resolution: {integrity: sha512-bVC0Io6ivxr3cJjOFYSeqPcwXyKBHWlhCPUuiriShvz+C4LPpYAGCExwkPke8Z8YV7RWiX0Le4kIbeIV9pzM+A==}
     peerDependencies:
       '@tanstack/react-query': ^5.56.2
       react: ^18 || ^19
     dependencies:
       '@tanstack/query-persist-client-core': 5.56.2
-      '@tanstack/react-query': 5.51.11(react@18.3.1)
+      '@tanstack/react-query': 5.56.2(react@18.3.1)
       react: 18.3.1
     dev: false
 
-  /@tanstack/react-query@5.51.11(react@18.3.1):
-    resolution: {integrity: sha512-4Kq2x0XpDlpvSnaLG+8pHNH60zEc3mBvb3B2tOMDjcPCi/o+Du3p/9qpPLwJOTliVxxPJAP27fuIhLrsRdCr7A==}
+  /@tanstack/react-query@5.56.2(react@18.3.1):
+    resolution: {integrity: sha512-SR0GzHVo6yzhN72pnRhkEFRAHMsUo5ZPzAxfTMvUxFIDVS6W9LYUp6nXW3fcHVdg0ZJl8opSH85jqahvm6DSVg==}
     peerDependencies:
-      react: ^18.0.0
+      react: ^18 || ^19
     dependencies:
-      '@tanstack/query-core': 5.51.9
+      '@tanstack/query-core': 5.56.2
       react: 18.3.1
 
   /@testing-library/dom@10.1.0:
@@ -26007,7 +26003,7 @@ packages:
       xml-name-validator: 5.0.0
     dev: true
 
-  /wagmi@2.12.13(@tanstack/react-query@5.51.11)(@types/react@18.3.5)(react-dom@18.3.1)(react-native@0.73.6)(react@18.3.1)(typescript@5.5.4)(viem@2.21.3)(zod@3.23.8):
+  /wagmi@2.12.13(@tanstack/react-query@5.56.2)(@types/react@18.3.5)(react-dom@18.3.1)(react-native@0.73.6)(react@18.3.1)(typescript@5.5.4)(viem@2.21.3)(zod@3.23.8):
     resolution: {integrity: sha512-zgTb2Sb8Yq69X5bxLLIRn2+HjjxU57d7mfCKA2kPo5+RSWsSstj57CncTeVjoR+gKhvLEEl2mmusSzQjT2p5lA==}
     peerDependencies:
       '@tanstack/react-query': '>=5.0.0'
@@ -26018,7 +26014,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@tanstack/react-query': 5.51.11(react@18.3.1)
+      '@tanstack/react-query': 5.56.2(react@18.3.1)
       '@wagmi/connectors': 5.1.12(@types/react@18.3.5)(@wagmi/core@2.13.6)(react-dom@18.3.1)(react-native@0.73.6)(react@18.3.1)(typescript@5.5.4)(viem@2.21.3)(zod@3.23.8)
       '@wagmi/core': 2.13.6(@types/react@18.3.5)(react@18.3.1)(typescript@5.5.4)(viem@2.21.3)
       react: 18.3.1
