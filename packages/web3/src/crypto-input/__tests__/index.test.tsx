@@ -99,6 +99,12 @@ describe('CryptoInput component', () => {
 
     const { baseElement } = render(<TestComponent onChange={handleChange} />);
 
+    fireEvent.change(baseElement.querySelector('.ant-input-number-input') as Element, {
+      target: { value: '10' },
+    });
+
+    expect(handleChange).toHaveBeenCalledWith({ inputString: '10' });
+
     fireEvent.mouseDown(baseElement.querySelector('.ant-select-selector') as Element);
 
     const selectOptions = baseElement.querySelectorAll('.ant-select-item');
@@ -106,10 +112,6 @@ describe('CryptoInput component', () => {
     fireEvent.click(selectOptions[0]);
 
     expect(handleChange).toHaveBeenCalledWith({ token: mockTokens[0] });
-
-    fireEvent.change(baseElement.querySelector('.ant-input-number-input') as Element, {
-      target: { value: '10' },
-    });
 
     expect(handleChange).toHaveBeenCalledWith({
       token: mockTokens[0],
