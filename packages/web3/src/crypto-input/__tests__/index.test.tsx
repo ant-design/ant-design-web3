@@ -80,7 +80,11 @@ describe('CryptoInput component', () => {
 
   it('should call onChange with selected token and amount input', () => {
     const TestComponent = (props: CryptoInputProps) => {
-      const [crypto, setCrypto] = useState<CryptoInputProps['value']>();
+      const [crypto, setCrypto] = useState<CryptoInputProps['value']>({
+        inputString: '10',
+        amount: 0n,
+        token: undefined,
+      });
 
       return (
         <CryptoInput
@@ -88,7 +92,7 @@ describe('CryptoInput component', () => {
           value={crypto}
           onChange={(newCrypto) => {
             setCrypto(newCrypto);
-
+            console.log('--->', newCrypto);
             props.onChange?.(newCrypto);
           }}
         />
@@ -98,6 +102,12 @@ describe('CryptoInput component', () => {
     const handleChange = vi.fn();
 
     const { baseElement } = render(<TestComponent onChange={handleChange} />);
+
+    fireEvent.change(baseElement.querySelector('.ant-input-number-input') as Element, {
+      target: { value: '' },
+    });
+
+    expect(handleChange).toHaveBeenCalledWith({});
 
     fireEvent.change(baseElement.querySelector('.ant-input-number-input') as Element, {
       target: { value: '10' },
@@ -110,8 +120,6 @@ describe('CryptoInput component', () => {
     const selectOptions = baseElement.querySelectorAll('.ant-select-item');
 
     fireEvent.click(selectOptions[0]);
-
-    expect(handleChange).toHaveBeenCalledWith({ token: mockTokens[0] });
 
     expect(handleChange).toHaveBeenCalledWith({
       token: mockTokens[0],
