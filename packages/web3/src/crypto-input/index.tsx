@@ -76,7 +76,7 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
       onChange?.({});
       return;
     } else if (!curToken) {
-      onChange?.({ inputString: amt || '' });
+      onChange?.({ inputString: amt! });
       return;
     } else if (!amt) {
       onChange?.({ token: curToken });
