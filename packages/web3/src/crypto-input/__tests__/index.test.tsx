@@ -92,7 +92,6 @@ describe('CryptoInput component', () => {
           value={crypto}
           onChange={(newCrypto) => {
             setCrypto(newCrypto);
-            console.log('--->', newCrypto);
             props.onChange?.(newCrypto);
           }}
         />
