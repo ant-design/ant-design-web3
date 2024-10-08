@@ -65,7 +65,7 @@ export default function App() {
         onDisconnected={() => {
           setSigned(false);
         }}
-        onConnected={(account) => signIn(account)}
+        onConnected={(a) => signIn(a)}
       >
         <ConnectButton />
       </Connector>
