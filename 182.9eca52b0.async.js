@@ -1,4 +1,4 @@
-(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[8506],{46532:function(t,n,o){"use strict";o.r(n),o.d(n,{BitcoinWeb3ConfigProvider:function(){return e.N},OkxWallet:function(){return r.Yw},UnisatWallet:function(){return r.Oq},XverseWallet:function(){return r.x5},useBitcoinWallet:function(){return u.i}});var e=o(16356),r=o(36035),a=o(96593),c=o.n(a),d={};for(var s in a)["default","useBitcoinWallet","BitcoinWeb3ConfigProvider","OkxWallet","UnisatWallet","XverseWallet"].indexOf(s)<0&&(d[s]=function(i){return a[i]}.bind(0,s));o.d(n,d);var u=o(32021)},96593:function(){},30658:function(t,n,o){"use strict";o.r(n),o.d(n,{CoinbaseWallet:function(){return a.G},EthersWeb3ConfigProvider:function(){return e.G},ImToken:function(){return i.V},MetaMask:function(){return r.M},OkxWallet:function(){return u.Y},SafeheronWallet:function(){return d.V},TokenPocket:function(){return c.g},UniversalWallet:function(){return s.M},clientToProvider:function(){return l.j},clientToSigner:function(){return p.r},useEthersProvider:function(){return l.Z},useEthersSigner:function(){return p.z}});var e=o(7872),r=o(54316),a=o(30532),c=o(19056),d=o(84273),s=o(61172),u=o(4755),i=o(94782),l=o(17863),p=o(44601)},23860:function(t,n,o){"use strict";o.r(n),o.d(n,{BaseError:function(){return e.BaseError},ChainNotConfiguredError:function(){return e.ChainNotConfiguredError},ConnectorAccountNotFoundError:function(){return e.ConnectorAccountNotFoundError},ConnectorAlreadyConnectedError:function(){return e.ConnectorAlreadyConnectedError},ConnectorChainMismatchError:function(){return e.ConnectorChainMismatchError},ConnectorNotFoundError:function(){return e.ConnectorNotFoundError},ConnectorUnavailableReconnectingError:function(){return e.ConnectorUnavailableReconnectingError},Context:function(){return e.Context},Hydrate:function(){return e.Hydrate},ProviderNotFoundError:function(){return e.ProviderNotFoundError},SwitchChainNotSupportedError:function(){return e.SwitchChainNotSupportedError},WagmiConfig:function(){return e.WagmiConfig},WagmiContext:function(){return e.WagmiContext},WagmiProvider:function(){return e.WagmiProvider},WagmiProviderNotFoundError:function(){return e.WagmiProviderNotFoundError},actions:function(){return r},chains:function(){return a},connectors:function(){return c},cookieStorage:function(){return e.cookieStorage},cookieToInitialState:function(){return e.cookieToInitialState},createConfig:function(){return e.createConfig},createConnector:function(){return e.createConnector},createStorage:function(){return e.createStorage},custom:function(){return e.custom},deepEqual:function(){return e.deepEqual},deserialize:function(){return e.deserialize},fallback:function(){return e.fallback},http:function(){return e.http},noopStorage:function(){return e.noopStorage},normalizeChainId:function(){return e.normalizeChainId},parseCookie:function(){return e.parseCookie},serialize:function(){return e.serialize},unstable_connector:function(){return e.unstable_connector},useAccount:function(){return e.useAccount},useAccountEffect:function(){return e.useAccountEffect},useBalance:function(){return e.useBalance},useBlock:function(){return e.useBlock},useBlockNumber:function(){return e.useBlockNumber},useBlockTransactionCount:function(){return e.useBlockTransactionCount},useBytecode:function(){return e.useBytecode},useCall:function(){return e.useCall},useChainId:function(){return e.useChainId},useChains:function(){return e.useChains},useClient:function(){return e.useClient},useConfig:function(){return e.useConfig},useConnect:function(){return e.useConnect},useConnections:function(){return e.useConnections},useConnectorClient:function(){return e.useConnectorClient},useConnectors:function(){return e.useConnectors},useContractInfiniteReads:function(){return e.useContractInfiniteReads},useContractRead:function(){return e.useContractRead},useContractReads:function(){return e.useContractReads},useContractWrite:function(){return e.useContractWrite},useDeployContract:function(){return e.useDeployContract},useDisconnect:function(){return e.useDisconnect},useEnsAddress:function(){return e.useEnsAddress},useEnsAvatar:function(){return e.useEnsAvatar},useEnsName:function(){return e.useEnsName},useEnsResolver:function(){return e.useEnsResolver},useEnsText:function(){return e.useEnsText},useEstimateFeesPerGas:function(){return e.useEstimateFeesPerGas},useEstimateGas:function(){return e.useEstimateGas},useEstimateMaxPriorityFeePerGas:function(){return e.useEstimateMaxPriorityFeePerGas},useFeeData:function(){return e.useFeeData},useFeeHistory:function(){return e.useFeeHistory},useGasPrice:function(){return e.useGasPrice},useInfiniteReadContracts:function(){return e.useInfiniteReadContracts},usePrepareTransactionRequest:function(){return e.usePrepareTransactionRequest},useProof:function(){return e.useProof},usePublicClient:function(){return e.usePublicClient},useReadContract:function(){return e.useReadContract},useReadContracts:function(){return e.useReadContracts},useReconnect:function(){return e.useReconnect},useSendTransaction:function(){return e.useSendTransaction},useSignMessage:function(){return e.useSignMessage},useSignTypedData:function(){return e.useSignTypedData},useSimulateContract:function(){return e.useSimulateContract},useStorageAt:function(){return e.useStorageAt},useSwitchAccount:function(){return e.useSwitchAccount},useSwitchChain:function(){return e.useSwitchChain},useToken:function(){return e.useToken},useTransaction:function(){return e.useTransaction},useTransactionConfirmations:function(){return e.useTransactionConfirmations},useTransactionCount:function(){return e.useTransactionCount},useTransactionReceipt:function(){return e.useTransactionReceipt},useVerifyMessage:function(){return e.useVerifyMessage},useVerifyTypedData:function(){return e.useVerifyTypedData},useWaitForTransactionReceipt:function(){return e.useWaitForTransactionReceipt},useWalletClient:function(){return e.useWalletClient},useWatchAsset:function(){return e.useWatchAsset},useWatchBlockNumber:function(){return e.useWatchBlockNumber},useWatchBlocks:function(){return e.useWatchBlocks},useWatchContractEvent:function(){return e.useWatchContractEvent},useWatchPendingTransactions:function(){return e.useWatchPendingTransactions},useWriteContract:function(){return e.useWriteContract},version:function(){return e.version},webSocket:function(){return e.webSocket}});var e=o(54548),r=o(61304),a=o(50868),c=o(42618)},79727:function(t,n,o){"use strict";o.r(n),o.d(n,{BackpackWallet:function(){return i.bS},CoinbaseWallet:function(){return i.GU},OKXWallet:function(){return i.D2},PhantomWallet:function(){return i.j1},SolanaWeb3ConfigProvider:function(){return d.G},StandardWalletFactory:function(){return u.Oy},TipLinkWallet:function(){return i.Tc},TrustWallet:function(){return i.d0},WalletAdapterNetwork:function(){return c.Q},WalletConnectWallet:function(){return i.eM},WalletConnectWalletFactory:function(){return u.Ho},WalletFactory:function(){return u.$d},solana:function(){return s.Zj},solanaDevnet:function(){return s.ol},solanaTestnet:function(){return s.Q6},useAnchorWallet:function(){return r.z},useConnection:function(){return a.R},useWallet:function(){return e.O}});var e=o(72652),r=o(45036),a=o(59340),c=o(87911),d=o(8428),s=o(21276),u=o(53042),i=o(24795)},47461:function(t,n,o){"use strict";o.r(n),o.d(n,{SuiWallet:function(){return a.t},SuiWeb3ConfigProvider:function(){return r.r},Suiet:function(){return a.h},WalletFactory:function(){return c.$},suiDevnet:function(){return e.d_},suiLocalnet:function(){return e.CW},suiMainnet:function(){return e.AS},suiTestnet:function(){return e.dJ}});var e=o(12148),r=o(87102),a=o(99321),c=o(22496)},5386:function(t,n,o){"use strict";o.r(n),o.d(n,{CHAIN:function(){return m.sX},TonConnectorContext:function(){return e.V},TonWeb3ConfigProvider:function(){return e.q},dewallet:function(){return l.a},myTonWallet:function(){return s.g},okxTonWallet:function(){return p.x},openmask:function(){return u.f},telegramWallet:function(){return d},tonhub:function(){return i.G},tonkeeper:function(){return r._},useTonConnector:function(){return f.B}});var e=o(59604),r=o(69550),a=o(10795),c=o(52676),d={key:"telegram-wallet",icon:(0,c.jsx)(a.u,{})},s=o(362),u=o(41928),i=o(80448),l=o(91022),p=o(42422),m=o(29634),f=o(42291)},35780:function(t,n,o){"use strict";o.r(n),o.d(n,{fillWithPrefix:function(){return r.fillWithPrefix},formatAddress:function(){return r.formatAddress},formatBalance:function(){return r.formatBalance},getPlatform:function(){return e.getPlatform},writeCopyText:function(){return e.writeCopyText}});var e=o(43242),r=o(17083)},24224:function(t,n){"use strict";n.Z=`import { Address } from '@ant-design/web3';
+(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[182],{46532:function(t,n,o){"use strict";o.r(n),o.d(n,{BitcoinWeb3ConfigProvider:function(){return e.N},OkxWallet:function(){return r.Yw},UnisatWallet:function(){return r.Oq},XverseWallet:function(){return r.x5},useBitcoinWallet:function(){return u.i}});var e=o(16356),r=o(36035),a=o(96593),c=o.n(a),d={};for(var s in a)["default","useBitcoinWallet","BitcoinWeb3ConfigProvider","OkxWallet","UnisatWallet","XverseWallet"].indexOf(s)<0&&(d[s]=function(i){return a[i]}.bind(0,s));o.d(n,d);var u=o(32021)},96593:function(){},30658:function(t,n,o){"use strict";o.r(n),o.d(n,{CoinbaseWallet:function(){return a.G},EthersWeb3ConfigProvider:function(){return e.G},ImToken:function(){return i.V},MetaMask:function(){return r.M},OkxWallet:function(){return u.Y},SafeheronWallet:function(){return d.V},TokenPocket:function(){return c.g},UniversalWallet:function(){return s.M},clientToProvider:function(){return l.j},clientToSigner:function(){return p.r},useEthersProvider:function(){return l.Z},useEthersSigner:function(){return p.z}});var e=o(7872),r=o(54316),a=o(30532),c=o(19056),d=o(84273),s=o(61172),u=o(4755),i=o(94782),l=o(17863),p=o(44601)},23860:function(t,n,o){"use strict";o.r(n),o.d(n,{BaseError:function(){return e.BaseError},ChainNotConfiguredError:function(){return e.ChainNotConfiguredError},ConnectorAccountNotFoundError:function(){return e.ConnectorAccountNotFoundError},ConnectorAlreadyConnectedError:function(){return e.ConnectorAlreadyConnectedError},ConnectorChainMismatchError:function(){return e.ConnectorChainMismatchError},ConnectorNotFoundError:function(){return e.ConnectorNotFoundError},ConnectorUnavailableReconnectingError:function(){return e.ConnectorUnavailableReconnectingError},Context:function(){return e.Context},Hydrate:function(){return e.Hydrate},ProviderNotFoundError:function(){return e.ProviderNotFoundError},SwitchChainNotSupportedError:function(){return e.SwitchChainNotSupportedError},WagmiConfig:function(){return e.WagmiConfig},WagmiContext:function(){return e.WagmiContext},WagmiProvider:function(){return e.WagmiProvider},WagmiProviderNotFoundError:function(){return e.WagmiProviderNotFoundError},actions:function(){return r},chains:function(){return a},connectors:function(){return c},cookieStorage:function(){return e.cookieStorage},cookieToInitialState:function(){return e.cookieToInitialState},createConfig:function(){return e.createConfig},createConnector:function(){return e.createConnector},createStorage:function(){return e.createStorage},custom:function(){return e.custom},deepEqual:function(){return e.deepEqual},deserialize:function(){return e.deserialize},fallback:function(){return e.fallback},http:function(){return e.http},noopStorage:function(){return e.noopStorage},normalizeChainId:function(){return e.normalizeChainId},parseCookie:function(){return e.parseCookie},serialize:function(){return e.serialize},unstable_connector:function(){return e.unstable_connector},useAccount:function(){return e.useAccount},useAccountEffect:function(){return e.useAccountEffect},useBalance:function(){return e.useBalance},useBlock:function(){return e.useBlock},useBlockNumber:function(){return e.useBlockNumber},useBlockTransactionCount:function(){return e.useBlockTransactionCount},useBytecode:function(){return e.useBytecode},useCall:function(){return e.useCall},useChainId:function(){return e.useChainId},useChains:function(){return e.useChains},useClient:function(){return e.useClient},useConfig:function(){return e.useConfig},useConnect:function(){return e.useConnect},useConnections:function(){return e.useConnections},useConnectorClient:function(){return e.useConnectorClient},useConnectors:function(){return e.useConnectors},useContractInfiniteReads:function(){return e.useContractInfiniteReads},useContractRead:function(){return e.useContractRead},useContractReads:function(){return e.useContractReads},useContractWrite:function(){return e.useContractWrite},useDeployContract:function(){return e.useDeployContract},useDisconnect:function(){return e.useDisconnect},useEnsAddress:function(){return e.useEnsAddress},useEnsAvatar:function(){return e.useEnsAvatar},useEnsName:function(){return e.useEnsName},useEnsResolver:function(){return e.useEnsResolver},useEnsText:function(){return e.useEnsText},useEstimateFeesPerGas:function(){return e.useEstimateFeesPerGas},useEstimateGas:function(){return e.useEstimateGas},useEstimateMaxPriorityFeePerGas:function(){return e.useEstimateMaxPriorityFeePerGas},useFeeData:function(){return e.useFeeData},useFeeHistory:function(){return e.useFeeHistory},useGasPrice:function(){return e.useGasPrice},useInfiniteReadContracts:function(){return e.useInfiniteReadContracts},usePrepareTransactionRequest:function(){return e.usePrepareTransactionRequest},useProof:function(){return e.useProof},usePublicClient:function(){return e.usePublicClient},useReadContract:function(){return e.useReadContract},useReadContracts:function(){return e.useReadContracts},useReconnect:function(){return e.useReconnect},useSendTransaction:function(){return e.useSendTransaction},useSignMessage:function(){return e.useSignMessage},useSignTypedData:function(){return e.useSignTypedData},useSimulateContract:function(){return e.useSimulateContract},useStorageAt:function(){return e.useStorageAt},useSwitchAccount:function(){return e.useSwitchAccount},useSwitchChain:function(){return e.useSwitchChain},useToken:function(){return e.useToken},useTransaction:function(){return e.useTransaction},useTransactionConfirmations:function(){return e.useTransactionConfirmations},useTransactionCount:function(){return e.useTransactionCount},useTransactionReceipt:function(){return e.useTransactionReceipt},useVerifyMessage:function(){return e.useVerifyMessage},useVerifyTypedData:function(){return e.useVerifyTypedData},useWaitForTransactionReceipt:function(){return e.useWaitForTransactionReceipt},useWalletClient:function(){return e.useWalletClient},useWatchAsset:function(){return e.useWatchAsset},useWatchBlockNumber:function(){return e.useWatchBlockNumber},useWatchBlocks:function(){return e.useWatchBlocks},useWatchContractEvent:function(){return e.useWatchContractEvent},useWatchPendingTransactions:function(){return e.useWatchPendingTransactions},useWriteContract:function(){return e.useWriteContract},version:function(){return e.version},webSocket:function(){return e.webSocket}});var e=o(3734),r=o(61304),a=o(50868),c=o(42618)},79727:function(t,n,o){"use strict";o.r(n),o.d(n,{BackpackWallet:function(){return i.bS},CoinbaseWallet:function(){return i.GU},OKXWallet:function(){return i.D2},PhantomWallet:function(){return i.j1},SolanaWeb3ConfigProvider:function(){return d.G},StandardWalletFactory:function(){return u.Oy},TipLinkWallet:function(){return i.Tc},TrustWallet:function(){return i.d0},WalletAdapterNetwork:function(){return c.Q},WalletConnectWallet:function(){return i.eM},WalletConnectWalletFactory:function(){return u.Ho},WalletFactory:function(){return u.$d},solana:function(){return s.Zj},solanaDevnet:function(){return s.ol},solanaTestnet:function(){return s.Q6},useAnchorWallet:function(){return r.z},useConnection:function(){return a.R},useWallet:function(){return e.O}});var e=o(72652),r=o(45036),a=o(59340),c=o(87911),d=o(8428),s=o(21276),u=o(53042),i=o(24795)},47461:function(t,n,o){"use strict";o.r(n),o.d(n,{SuiWallet:function(){return a.t},SuiWeb3ConfigProvider:function(){return r.r},Suiet:function(){return a.h},WalletFactory:function(){return c.$},suiDevnet:function(){return e.d_},suiLocalnet:function(){return e.CW},suiMainnet:function(){return e.AS},suiTestnet:function(){return e.dJ}});var e=o(12148),r=o(87102),a=o(99321),c=o(22496)},5386:function(t,n,o){"use strict";o.r(n),o.d(n,{CHAIN:function(){return m.sX},TonConnectorContext:function(){return e.V},TonWeb3ConfigProvider:function(){return e.q},dewallet:function(){return l.a},myTonWallet:function(){return s.g},okxTonWallet:function(){return p.x},openmask:function(){return u.f},telegramWallet:function(){return d},tonhub:function(){return i.G},tonkeeper:function(){return r._},useTonConnector:function(){return f.B}});var e=o(59604),r=o(69550),a=o(10795),c=o(52676),d={key:"telegram-wallet",icon:(0,c.jsx)(a.u,{})},s=o(362),u=o(41928),i=o(80448),l=o(91022),p=o(42422),m=o(29634),f=o(42291)},35780:function(t,n,o){"use strict";o.r(n),o.d(n,{fillWithPrefix:function(){return r.fillWithPrefix},formatAddress:function(){return r.formatAddress},formatBalance:function(){return r.formatBalance},getPlatform:function(){return e.getPlatform},writeCopyText:function(){return e.writeCopyText}});var e=o(43242),r=o(17083)},24224:function(t,n){"use strict";n.Z=`import { Address } from '@ant-design/web3';
 
 const App: React.FC = () => {
   return <Address ellipsis address={'3ea2cfd153b8d8505097b81c87c11f5d05097c18'} />;
@@ -2183,6 +2183,146 @@ const App: React.FC = () => {
 };
 
 export default App;
+`},86007:function(t,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+import {
+  Mainnet,
+  MetaMask,
+  OkxWallet,
+  TokenPocket,
+  WagmiWeb3ConfigProvider,
+  WalletConnect,
+} from '@ant-design/web3-wagmi';
+import { QueryClient } from '@tanstack/react-query';
+import { http } from 'wagmi';
+
+import SignBtn from './sign-btn';
+
+const queryClient = new QueryClient();
+
+const App: React.FC = () => {
+  return (
+    <WagmiWeb3ConfigProvider
+      eip6963={{
+        autoAddInjectedWallets: true,
+      }}
+      ens
+      chains={[Mainnet]}
+      transports={{
+        [Mainnet.id]: http(),
+      }}
+      walletConnect={{
+        projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
+      }}
+      wallets={[
+        MetaMask(),
+        WalletConnect(),
+        TokenPocket({
+          group: 'Popular',
+        }),
+        OkxWallet(),
+      ]}
+      queryClient={queryClient}
+    >
+      <SignBtn />
+    </WagmiWeb3ConfigProvider>
+  );
+};
+
+export default App;
+`},69040:function(t,n){"use strict";n.Z=`export async function getNonce(chainAddress: string) {
+  // mock getNonce
+  return 'PtZZs3w7ktHsbSFUcmwb';
+}
+
+export async function verifyMessage(message: string, signature: string) {
+  // mock verifyMessage
+  return true;
+}
+`},5174:function(t,n){"use strict";n.Z=`import { useCallback, useState } from 'react';
+import { Account, ConnectButton, Connector, useAccount } from '@ant-design/web3';
+import { Mainnet } from '@ant-design/web3-wagmi';
+import { Button, message, Space } from 'antd';
+import { createSiweMessage } from 'viem/siwe';
+import { useSignMessage } from 'wagmi';
+
+import { getNonce, verifyMessage } from './mock-api';
+
+export default function App() {
+  const { account } = useAccount();
+
+  const [signed, setSigned] = useState<boolean>(false);
+  const [signLoading, setSignLoading] = useState<boolean>(false);
+  const { signMessageAsync } = useSignMessage();
+
+  const signIn = useCallback(async (a?: Account) => {
+    const address = a?.address as \`0x\${string}\`;
+
+    if (!address) {
+      message.error('Please connect wallet first.');
+      return;
+    }
+
+    // get nonce
+    const nonce = await getNonce(address);
+    if (!nonce) {
+      message.error('Failed to get nonce.');
+      return;
+    }
+
+    let msg: string;
+    let signature: \`0x\${string}\`;
+
+    try {
+      msg = createSiweMessage({
+        domain: window.location.hostname,
+        address,
+        statement: 'Sign in with Ethereum',
+        uri: window.location.origin,
+        version: '1',
+        chainId: Mainnet.id,
+        nonce,
+      });
+      setSignLoading(true);
+      console.log('signing message');
+      signature = await signMessageAsync({ message: msg });
+      console.log('get signature', signature);
+      await verifyMessage(msg!, signature!);
+      message.success('Sign in successfully.');
+      setSigned(true);
+      setSignLoading(false);
+    } catch (error: any) {
+      message.error(error.message);
+      setSignLoading(false);
+    }
+  }, []);
+
+  return (
+    <Space>
+      <Connector
+        modalProps={{
+          mode: 'simple',
+        }}
+        onDisconnected={() => {
+          setSigned(false);
+        }}
+        onConnected={(a) => signIn(a)}
+      >
+        <ConnectButton />
+      </Connector>
+      {!signed && account && (
+        <Button
+          type="primary"
+          loading={signLoading}
+          onClick={() => {
+            signIn(account);
+          }}
+        >
+          Sign
+        </Button>
+      )}
+    </Space>
+  );
+}
 `},22839:function(t,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   MetaMask,
