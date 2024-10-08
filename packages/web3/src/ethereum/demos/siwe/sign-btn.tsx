@@ -69,7 +69,7 @@ export default function App() {
       >
         <ConnectButton />
       </Connector>
-      {!signed && account ? (
+      {!signed && account && (
         <Button
           type="primary"
           loading={signLoading}
@@ -79,7 +79,7 @@ export default function App() {
         >
           Sign
         </Button>
-      ) : undefined}
+      )}
     </Space>
   );
 }
