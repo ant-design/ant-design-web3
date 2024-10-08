@@ -68,7 +68,7 @@ export default defineConfig({
     coverage: {
       include: ['packages/*/src/**/*.{ts,tsx}'],
       exclude: [
-        '**/demos/*.{ts,tsx}',
+        '**/demos/**/*.{ts,tsx}',
         '**/src/index.ts',
         '**/__tests__/*.{ts,tsx}',
         '**/*.test.{ts,tsx}',

@@ -66,6 +66,12 @@ We have built-in `Mainnet`, and the remaining chains need to configure `chains` 
 
 <code src="./demos/chains.tsx"></code>
 
+## SIWE
+
+SIWE means Sign-In with Ethereum. Your website can verify user login through signatures. Below is an example where the backend interface is mocked. You need to implement it in your project.
+
+<code src="./demos/siwe/index.tsx"></code>
+
 ## Display ENS and Balance
 
 > You need to connect to an address containing ENS and balance to see the example effect.
