@@ -14,8 +14,8 @@ export default function App() {
   const [signLoading, setSignLoading] = useState<boolean>(false);
   const { signMessageAsync } = useSignMessage();
 
-  const signIn = useCallback(async (account?: Account) => {
-    const address = account?.address as `0x${string}`;
+  const signIn = useCallback(async (a?: Account) => {
+    const address = a?.address as `0x${string}`;
 
     if (!address) {
       message.error('Please connect wallet first.');
