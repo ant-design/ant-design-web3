@@ -70,6 +70,44 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
       : undefined,
   );
 
+  // 将 InputNumber 的 onChange 和 TokenSelect 的 onChange 合并
+  const handleChange = (amt: string | null, curToken?: Token) => {
+    if (!amt && !curToken) {
+      onChange?.({});
+      return;
+    } else if (!curToken) {
+      onChange?.({ inputString: amt! });
+      return;
+    } else if (!amt) {
+      onChange?.({ token: curToken });
+      return;
+    }
+
+    const [integers, decimals] = String(amt).split('.');
+
+    let inputAmt = amt;
+
+    // if precision is more than token decimal, cut it
+    if (decimals?.length > curToken.decimal) {
+      inputAmt = `${integers}.${decimals.slice(0, curToken.decimal)}`;
+    }
+
+    // covert string amt to bigint
+
+    const newAmt = BigInt(
+      new Decimal100(inputAmt)
+        .times(Decimal100.pow(10, curToken.decimal))
+        .toFixed(0, Decimal100.ROUND_DOWN),
+    );
+
+    onChange?.({
+      ...value,
+      amount: newAmt,
+      inputString: inputAmt,
+      token: curToken,
+    });
+  };
+
   return wrapSSR(
     <Flex vertical className={getClsName('wrapper')}>
       {header && <div className={getClsName('header')}>{header}</div>}
@@ -82,48 +120,13 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
         placeholder={messages.placeholder}
         value={inputString}
         // remove unnecessary 0 at the end of the number
-        onChange={(amt) => {
-          // if amount is null or token is not selected, clean the value
-          if (isNull(amt) || !token) {
-            onChange?.({
-              token,
-            });
-            return;
-          }
-
-          const [integers, decimals] = String(amt).split('.');
-
-          let inputAmt = amt;
-
-          // if precision is more than token decimal, cut it
-          if (decimals?.length > token.decimal) {
-            inputAmt = `${integers}.${decimals.slice(0, token.decimal)}`;
-          }
-
-          // covert string amt to bigint
-
-          const newAmt = BigInt(
-            new Decimal100(inputAmt)
-              .times(Decimal100.pow(10, token.decimal))
-              .toFixed(0, Decimal100.ROUND_DOWN),
-          );
-
-          onChange?.({
-            ...value,
-            amount: newAmt,
-            inputString: inputAmt,
-          });
-        }}
+        onChange={(amt) => handleChange(amt, token)}
         addonAfter={
           <TokenSelect
             variant="borderless"
             {...selectProps}
             value={value?.token}
-            onChange={(newToken) =>
-              onChange?.({
-                token: newToken,
-              })
-            }
+            onChange={(newToken) => handleChange(inputString || '', newToken)}
             size={size}
           />
         }
