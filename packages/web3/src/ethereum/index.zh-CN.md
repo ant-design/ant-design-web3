@@ -67,7 +67,7 @@ Ant Design Web3 官方提供了 `wagmi`、`ethers` 等多个框架的适配器�
 
 ## SIWE
 
-SIWE 是指 Sign With Ethereum，你的网站可以通过签名来验证用户的登录，下面是一个示例，其中后端接口做了 Mock，你需要在你的项目中自行实现。
+SIWE 是指 Sign-In with Ethereum，你的网站可以通过签名来验证用户的登录，下面是一个示例，其中后端接口做了 Mock，你需要在你的项目中自行实现。
 
 <code src="./demos/siwe/index.tsx"></code>
 
