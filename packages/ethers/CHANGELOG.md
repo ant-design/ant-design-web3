@@ -1,5 +1,12 @@
 # @ant-design/web3-ethers
 
+## 1.1.11
+
+### Patch Changes
+
+- @ant-design/web3-assets@1.11.3
+- @ant-design/web3-wagmi@2.9.2
+
 ## 1.1.10
 
 ### Patch Changes
