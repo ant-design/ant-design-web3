@@ -1,5 +1,14 @@
 # @ant-design/web3
 
+## 1.17.2
+
+### Patch Changes
+
+- d3786c8: feat: Optimize the input interaction of the CryptoInput component
+- Updated dependencies [d06f7b7]
+  - @ant-design/web3-icons@1.11.0
+  - @ant-design/web3-assets@1.11.3
+
 ## 1.17.1
 
 ### Patch Changes
