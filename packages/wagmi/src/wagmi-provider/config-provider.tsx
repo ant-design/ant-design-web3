@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  SWIEConfig,
   Web3ConfigProvider,
   type Account,
   type Chain,
@@ -34,6 +35,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   eip6963?: EIP6963Config;
   wagimConfig: WagmiConfig;
   useWalletConnectOfficialModal?: boolean;
+  swie?: SWIEConfig;
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
@@ -47,6 +49,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     eip6963,
     wagimConfig,
     useWalletConnectOfficialModal,
+    swie,
   } = props;
   const { address, isDisconnected, chain } = useAccount();
   const config = useConfig();
@@ -192,6 +195,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       availableChains={chainList}
       chain={currentChain}
       account={account}
+      swie={swie}
       balance={
         balance
           ? {

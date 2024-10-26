@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Locale } from '@ant-design/web3-common';
+import type { Locale, SWIEConfig } from '@ant-design/web3-common';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { Transport, Chain as WagmiChain } from 'viem';
 import { createConfig, http, WagmiProvider } from 'wagmi';
@@ -27,7 +27,7 @@ export interface WalletConnectOptions
   useWalletConnectOfficialModal?: boolean;
 }
 
-export type WagmiWeb3ConfigProviderProps = {
+export interface WagmiWeb3ConfigProviderProps {
   config?: Config;
   locale?: Locale;
   wallets?: WalletFactory[];
@@ -40,7 +40,8 @@ export type WagmiWeb3ConfigProviderProps = {
   reconnectOnMount?: boolean;
   walletConnect?: false | WalletConnectOptions;
   transports?: Record<number, Transport>;
-};
+  swie?: SWIEConfig;
+}
 
 export function WagmiWeb3ConfigProvider({
   children,
@@ -54,6 +55,7 @@ export function WagmiWeb3ConfigProvider({
   eip6963,
   walletConnect,
   transports,
+  swie,
   ...restProps
 }: React.PropsWithChildren<WagmiWeb3ConfigProviderProps>): React.ReactElement {
   // When user custom config, add Mainnet by default
@@ -63,7 +65,6 @@ export function WagmiWeb3ConfigProvider({
     : chains?.length
       ? chains
       : [Mainnet];
-
   const generateConfigFlag = () => {
     return `${JSON.stringify(walletConnect)}-${chains.map((item) => item.id).join(',')}-${wallets.map((item) => item.name).join(',')}`;
   };
@@ -138,6 +139,7 @@ export function WagmiWeb3ConfigProvider({
           balance={balance}
           eip6963={eip6963}
           wagimConfig={wagmiConfig}
+          swie={swie}
           useWalletConnectOfficialModal={
             typeof walletConnect === 'object' && walletConnect?.useWalletConnectOfficialModal
           }

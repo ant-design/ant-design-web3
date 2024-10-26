@@ -1,3 +1,5 @@
+import { type CreateSiweMessageParameters } from 'viem/siwe';
+
 export interface Account {
   address: string;
   name?: string;
@@ -119,6 +121,7 @@ export interface UniversalWeb3ProviderInterface {
 
   // For Bitcoin, tokenId is undefined.
   getNFTMetadata?: (params: { address: string; tokenId?: bigint }) => Promise<NFTMetadata>;
+  swie?: SWIEConfig;
 }
 
 export interface Wallet extends WalletMetadata {
@@ -327,3 +330,24 @@ export type Token = {
     contract?: string;
   }[];
 };
+
+export interface SignConfig {
+  // required
+  signIn: (options: { address: string; chainId: number }) => Promise<void>;
+  signOut: () => Promise<void>;
+
+  // WIP: optional
+  // signOutOnDisconnect?: boolean; // defaults true
+  // signOutOnAccountChange?: boolean; // defaults true
+  // signOutOnNetworkChange?: boolean; // defaults true
+}
+
+export interface SWIEConfig {
+  getNonce: (address: string, chainId?: number) => Promise<string>;
+  createMessage: (args: CreateSiweMessageParameters) => string;
+  verifyMessage: (message: string, signature: string) => Promise<boolean>;
+
+  // WIP: optional
+  // getSession?: () => Promise<SIWESession | null>;
+  // signOut?: () => Promise<boolean>;
+}
