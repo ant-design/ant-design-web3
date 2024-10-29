@@ -1,19 +1,15 @@
 import React from 'react';
 import type { ConnectModalProps } from '@ant-design/web3';
-import { ConnectButton, Connector } from '@ant-design/web3';
-import {
-  MetaMask,
-  OkxWallet,
-  TokenPocket,
-  WagmiWeb3ConfigProvider,
-  WalletConnect,
-} from '@ant-design/web3-wagmi';
 import { TinyColor } from '@ctrl/tinycolor';
-import { Col, ConfigProvider, Radio, Row, Select, Slider, Space, Switch } from 'antd';
+import { Col, ConfigProvider, Radio, Row, Select, Slider, Space, Switch, Tabs } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 
-import styles from './guide.module.less';
-import { themeList, type ThemeSetting, type ThemeValue } from './tokens';
+import { themeList, type ThemeSetting, type ThemeValue } from '../tokens';
+import EthereumApp from './ethereum';
+import styles from './index.module.less';
+import SolanaApp from './solana';
+import SuiApp from './sui';
+import TonApp from './ton';
 
 type SizeType = ConfigProviderProps['componentSize'];
 
@@ -52,23 +48,7 @@ const App: React.FC = () => {
   const currentTheme = themeList.find((t) => t.value === theme);
 
   return (
-    <WagmiWeb3ConfigProvider
-      eip6963={{
-        autoAddInjectedWallets: true,
-      }}
-      walletConnect={{
-        projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
-      }}
-      ens
-      wallets={[
-        MetaMask(),
-        WalletConnect(),
-        TokenPocket({
-          group: 'Popular',
-        }),
-        OkxWallet(),
-      ]}
-    >
+    <>
       <ConfigProvider
         theme={{
           ...currentTheme?.token,
@@ -78,22 +58,48 @@ const App: React.FC = () => {
           },
         }}
       >
-        <div className={styles.connectorContainer}>
-          <Connector
-            modalProps={{
-              mode,
-            }}
-          >
-            <ConnectButton
-              type="primary"
-              style={{
-                width: 'auto',
-              }}
-              size={size}
-              quickConnect={quickConnect}
-            />
-          </Connector>
-        </div>
+        <Tabs
+          defaultActiveKey="ethereum"
+          centered
+          items={[
+            {
+              label: 'Ethereum',
+              key: 'ethereum',
+              children: (
+                <div className={styles.connectorContainer}>
+                  <EthereumApp mode={mode} quickConnect={quickConnect} size={size} />
+                </div>
+              ),
+            },
+            {
+              label: 'Solana',
+              key: 'solana',
+              children: (
+                <div className={styles.connectorContainer}>
+                  <SolanaApp mode={mode} quickConnect={quickConnect} size={size} />
+                </div>
+              ),
+            },
+            {
+              label: 'Sui',
+              key: 'sui',
+              children: (
+                <div className={styles.connectorContainer}>
+                  <SuiApp mode={mode} quickConnect={quickConnect} size={size} />
+                </div>
+              ),
+            },
+            {
+              label: 'TON',
+              key: 'ton',
+              children: (
+                <div className={styles.connectorContainer}>
+                  <TonApp mode={mode} quickConnect={quickConnect} size={size} />
+                </div>
+              ),
+            },
+          ]}
+        />
       </ConfigProvider>
       <div className={styles.configContainer}>
         <Row>
@@ -163,7 +169,7 @@ const App: React.FC = () => {
           </Col>
         </Row>
       </div>
-    </WagmiWeb3ConfigProvider>
+    </>
   );
 };
 
