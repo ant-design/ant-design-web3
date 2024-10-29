@@ -1,5 +1,11 @@
 # @ant-design/web3-icons
 
+## 1.11.0
+
+### Minor Changes
+
+- d06f7b7: feat: add new icons for bnb, ton and usdt
+
 ## 1.10.0
 
 ### Minor Changes

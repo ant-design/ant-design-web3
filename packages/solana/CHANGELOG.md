@@ -1,5 +1,11 @@
 # @ant-design/web3-solana
 
+## 1.2.1
+
+### Patch Changes
+
+- @ant-design/web3-assets@1.11.3
+
 ## 1.2.0
 
 ### Minor Changes
