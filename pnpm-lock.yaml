@@ -20,6 +20,9 @@ importers:
       '@ant-design/web3-assets':
         specifier: workspace:*
         version: link:packages/assets
+      '@ant-design/web3-bitcoin':
+        specifier: workspace:*
+        version: link:packages/bitcoin
       '@ant-design/web3-common':
         specifier: workspace:*
         version: link:packages/common
@@ -9135,7 +9138,7 @@ packages:
     engines: {node: '>=18'}
     dependencies:
       '@babel/code-frame': 7.24.2
-      '@babel/runtime': 7.24.8
+      '@babel/runtime': 7.25.9
       '@types/aria-query': 5.0.4
       aria-query: 5.3.0
       chalk: 4.1.2
@@ -19535,7 +19538,7 @@ packages:
     resolution: {integrity: sha512-2oScjfv6Yb79PelU1+p8SVrCMW9ZjgEiipxq7jMRn8mbbtWzyv3g8Mkwr+KwOoDFI/61hYPUbY8cUnu278+x1g==}
     engines: {node: '>=18'}
     dependencies:
-      '@babel/runtime': 7.24.8
+      '@babel/runtime': 7.25.9
 
   /metro-source-map@0.80.8:
     resolution: {integrity: sha512-+OVISBkPNxjD4eEKhblRpBf463nTMk3KMEeYS8Z4xM/z3qujGJGSsWUGRtH27+c6zElaSGtZFiDMshEb8mMKQg==}

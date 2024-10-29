@@ -102,6 +102,7 @@
     "@ant-design/web3-icons": "workspace:*",
     "@ant-design/web3-solana": "workspace:*",
     "@ant-design/web3-sui": "workspace:*",
+    "@ant-design/web3-bitcoin": "workspace:*",
     "@ant-design/web3-ton": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
     "@mysten/dapp-kit": "^0.14.11",
