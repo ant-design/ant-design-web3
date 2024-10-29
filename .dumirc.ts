@@ -57,10 +57,9 @@ export default defineConfig({
   metas: [
     {
       name: 'keywords',
-      content:
-        'web3, Ant Design Web3, Ant Design, dapp, frontend, components,web3, admin , Ant Design, ant design, react, alibaba',
+      content: 'web3, Ant Design Web3, Ant Design, dapp, frontend, components, react, ui kit',
     },
-    { name: 'description', content: 'A Components for Web3, Based on Ant Design,' },
+    { name: 'description', content: 'A Components for Web3, Based on Ant Design.' },
     {
       property: 'og:site_name',
       content: 'Ant Design Web3',
@@ -73,7 +72,7 @@ export default defineConfig({
     {
       property: 'og:description',
       content:
-        'Ant Design Web3 是一个基于 Ant Design 的 Web3 React 组件库，它提供了一系列的组件，可以帮助你快速构建去中心化应用（DApp）。',
+        'Ant Design Web3 is a Web3 React component library based on Ant Design. It offers a suite of components that can help you quickly build decentralized applications (DApps).',
     },
     {
       name: 'apple-mobile-web-app-capable',
