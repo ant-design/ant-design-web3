@@ -4,7 +4,8 @@ import { TinyColor } from '@ctrl/tinycolor';
 import { Col, ConfigProvider, Radio, Row, Select, Slider, Space, Switch, Tabs } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 
-import { themeList, type ThemeSetting, type ThemeValue } from '../tokens';
+import { themeList } from '../tokens';
+import type { ThemeSetting, ThemeValue } from '../tokens';
 import BitcoinApp from './bitcoin';
 import EthereumApp from './ethereum';
 import styles from './index.module.less';
