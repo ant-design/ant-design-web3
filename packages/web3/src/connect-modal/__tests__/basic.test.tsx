@@ -241,6 +241,8 @@ describe('ConnectModal with guide', () => {
       />
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.ant-empty')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-empty-description')?.textContent).toBe(
+      'No wallet available',
+    );
   });
 });
