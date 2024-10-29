@@ -5,6 +5,7 @@ import { Col, ConfigProvider, Radio, Row, Select, Slider, Space, Switch, Tabs } 
 import type { ConfigProviderProps } from 'antd';
 
 import { themeList, type ThemeSetting, type ThemeValue } from '../tokens';
+import BitcoinApp from './bitcoin';
 import EthereumApp from './ethereum';
 import styles from './index.module.less';
 import SolanaApp from './solana';
@@ -68,6 +69,15 @@ const App: React.FC = () => {
               children: (
                 <div className={styles.connectorContainer}>
                   <EthereumApp mode={mode} quickConnect={quickConnect} size={size} />
+                </div>
+              ),
+            },
+            {
+              label: 'Bitcoin',
+              key: 'bitcoin',
+              children: (
+                <div className={styles.connectorContainer}>
+                  <BitcoinApp mode={mode} quickConnect={quickConnect} size={size} />
                 </div>
               ),
             },
