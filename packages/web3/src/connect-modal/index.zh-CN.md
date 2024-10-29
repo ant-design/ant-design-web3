@@ -44,6 +44,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAA
 
 <code src="./demos/footer.tsx"></code>
 
+## 空状态
+
+<code src="./demos/empty.tsx"></code>
+
 ## API
 
 ### ConnectModalProps

@@ -229,4 +229,18 @@ describe('ConnectModal with guide', () => {
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.ant-web3-connect-modal-group-title')).toBeNull();
   });
+
+  it('wallets empty', async () => {
+    const App = () => (
+      <ConnectModal
+        open
+        title="ConnectModal"
+        footer="Powered by AntChain"
+        walletList={[]}
+        guide={guide}
+      />
+    );
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.ant-empty')).toBeTruthy();
+  });
 });

@@ -43,6 +43,10 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 
 <code src="./demos/footer.tsx"></code>
 
+## Empty State
+
+<code src="./demos/empty.tsx"></code>
+
 ## API
 
 ### ConnectModalProps
