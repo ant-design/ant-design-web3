@@ -9,10 +9,13 @@ import { defaultGroupOrder } from '../utils';
 import PluginTag from './PluginTag';
 import WalletIcon from './WalletIcon';
 
-export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'group' | 'groupOrder'>;
+export type WalletListProps = Pick<
+  ConnectModalProps,
+  'walletList' | 'group' | 'groupOrder' | 'emptyProps'
+>;
 
 const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, ref) => {
-  const { walletList = [], group: internalGroup, groupOrder } = props;
+  const { walletList = [], group: internalGroup, groupOrder, emptyProps } = props;
   const { prefixCls, updateSelectedWallet, selectedWallet, localeMessage, updatePanelRoute } =
     useContext(connectModalContext);
   const dataSource: Record<string, Wallet[]> = useMemo(() => {
@@ -124,7 +127,11 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
   if (walletList.length === 0) {
     return (
       <div className={`${prefixCls}-wallets-empty`}>
-        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={localeMessage.walletListEmpty} />
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description={localeMessage.walletListEmpty}
+          {...emptyProps}
+        />
       </div>
     );
   }

@@ -245,4 +245,21 @@ describe('ConnectModal with guide', () => {
       'No wallet available',
     );
   });
+
+  it('wallets empty with emptyProps', async () => {
+    const App = () => (
+      <ConnectModal
+        open
+        title="ConnectModal"
+        footer="Powered by AntChain"
+        walletList={[]}
+        guide={guide}
+        emptyProps={{
+          description: 'NOTFINDWALLET',
+        }}
+      />
+    );
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.ant-empty-description')?.textContent).toBe('NOTFINDWALLET');
+  });
 });
