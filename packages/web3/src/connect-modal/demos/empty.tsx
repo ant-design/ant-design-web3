@@ -1,7 +1,8 @@
 import React from 'react';
 import type { ConnectModalProps } from '@ant-design/web3';
 import { ConnectModal } from '@ant-design/web3';
-import { Button, Space, type EmptyProps } from 'antd';
+import { Button, Space} from 'antd';
+import type  { EmptyProps } from 'antd';
 
 const App: React.FC<ConnectModalProps> = (props) => {
   const [open, setOpen] = React.useState(false);
