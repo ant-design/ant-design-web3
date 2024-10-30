@@ -6,7 +6,7 @@ import type  { EmptyProps } from 'antd';
 
 const App: React.FC<ConnectModalProps> = (props) => {
   const [open, setOpen] = React.useState(false);
-  const [emptyProps, setEmptyProps] = React.useState<EmptyProps | undefined>(undefined);
+  const [emptyProps, setEmptyProps] = React.useState<EmptyProps>();
 
   return (
     <>
