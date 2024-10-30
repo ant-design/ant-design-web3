@@ -27,7 +27,7 @@ const App: React.FC<ConnectModalProps> = (props) => {
               description: (
                 <>
                   Not find Wallet,{' '}
-                  <a href="https://www.tokenpocket.pro/" target="_blank">
+                  <a href="https://www.tokenpocket.pro/" target="_blank" rel="noreferrer">
                     Get TokenPocket
                   </a>
                 </>
