@@ -44,6 +44,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAA
 
 <code src="./demos/footer.tsx"></code>
 
+## 空状态
+
+<code src="./demos/empty.tsx"></code>
+
 ## API
 
 ### ConnectModalProps
@@ -62,6 +66,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAA
 | defaultSelectedWallet | 默认选中的钱包 | `Wallet` | - | - |
 | locale | 多语言设置 | `Locale["ConnectModal"]` | - | - |
 | connecting | 是否正在连接 | `boolean` | - | - |
+| emptyProps | 空状态属性 | `EmptyProps` | `{image: Empty.PRESENTED_IMAGE_SIMPLE, description: "未发现任何钱包"}` | `1.18.0` |
 
 其他弹框属性详见： [ModalProps](https://ant.design/components/modal-cn#api)
 

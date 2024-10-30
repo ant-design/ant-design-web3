@@ -41,6 +41,7 @@ const localeValues: RequiredLocale = {
     guideTipTitle: 'New to crypto wallets?',
     guideTipLearnMoreLinkText: 'Learn More',
     walletPanelPlugin: 'PLUGIN',
+    walletListEmpty: 'No wallet available',
     walletConnectSuccess: 'Wallet Connected!',
     getWalletTipsTitle: "Not what you're looking for?",
     getWalletTipsDesc:

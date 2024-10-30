@@ -1,6 +1,6 @@
 import React, { forwardRef, useContext, useImperativeHandle, useMemo } from 'react';
 import { QrcodeOutlined } from '@ant-design/icons';
-import { Button, List, Space, Typography } from 'antd';
+import { Button, Empty, List, Space, Typography } from 'antd';
 import classNames from 'classnames';
 
 import { connectModalContext } from '../context';
@@ -9,11 +9,14 @@ import { defaultGroupOrder } from '../utils';
 import PluginTag from './PluginTag';
 import WalletIcon from './WalletIcon';
 
-export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'group' | 'groupOrder'>;
+export type WalletListProps = Pick<
+  ConnectModalProps,
+  'walletList' | 'group' | 'groupOrder' | 'emptyProps'
+>;
 
 const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, ref) => {
-  const { walletList = [], group: internalGroup, groupOrder } = props;
-  const { prefixCls, updateSelectedWallet, selectedWallet, updatePanelRoute } =
+  const { walletList = [], group: internalGroup, groupOrder, emptyProps } = props;
+  const { prefixCls, updateSelectedWallet, selectedWallet, localeMessage, updatePanelRoute } =
     useContext(connectModalContext);
   const dataSource: Record<string, Wallet[]> = useMemo(() => {
     const result: Record<string, Wallet[]> = {};
@@ -120,6 +123,18 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
       />
     );
   };
+
+  if (walletList.length === 0) {
+    return (
+      <div className={`${prefixCls}-wallets-empty`}>
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description={localeMessage.walletListEmpty}
+          {...emptyProps}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={`${prefixCls}-wallet-list`}>

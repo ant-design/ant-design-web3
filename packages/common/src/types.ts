@@ -279,6 +279,7 @@ export interface RequiredLocale {
     guideTipLearnMoreLinkText: string;
     walletPanelPlugin: string;
     walletConnectSuccess: string;
+    walletListEmpty: string;
     getWalletTipsTitle: string;
     getWalletTipsDesc: string;
     linkWallet: string;

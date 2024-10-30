@@ -210,6 +210,10 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 },
               },
             },
+            [`${componentCls}-wallets-empty`]: {
+              marginTop: '50%',
+              transform: 'translateY(-50%)',
+            },
           },
           [`${componentCls}-footer-container`]: {
             position: 'relative',
