@@ -1010,8 +1010,8 @@ export default App;
 `},68159:function(t,n){n.Z=`import React from 'react';
 import type { ConnectModalProps } from '@ant-design/web3';
 import { ConnectModal } from '@ant-design/web3';
-import { Button, Space} from 'antd';
-import type  { EmptyProps } from 'antd';
+import { Button, Space } from 'antd';
+import type { EmptyProps } from 'antd';
 
 const App: React.FC<ConnectModalProps> = (props) => {
   const [open, setOpen] = React.useState(false);
@@ -2238,8 +2238,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},14107:function(t,n){n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
-import {
+`},14107:function(t,n){n.Z=`import {
   Mainnet,
   MetaMask,
   OkxWallet,
@@ -2294,7 +2293,8 @@ export async function verifyMessage(message: string, signature: string) {
   return true;
 }
 `},5174:function(t,n){n.Z=`import { useCallback, useState } from 'react';
-import { Account, ConnectButton, Connector, useAccount } from '@ant-design/web3';
+import type { Account } from '@ant-design/web3';
+import { ConnectButton, Connector, useAccount } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-wagmi';
 import { Button, message, Space } from 'antd';
 import { createSiweMessage } from 'viem/siwe';
