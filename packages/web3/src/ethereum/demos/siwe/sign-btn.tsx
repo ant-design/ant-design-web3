@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
-import { Account, ConnectButton, Connector, useAccount } from '@ant-design/web3';
+import type { Account } from '@ant-design/web3';
+import { ConnectButton, Connector, useAccount } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-wagmi';
 import { Button, message, Space } from 'antd';
 import { createSiweMessage } from 'viem/siwe';

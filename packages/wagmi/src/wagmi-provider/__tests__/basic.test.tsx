@@ -1,5 +1,6 @@
 import React from 'react';
 import { Connector, useProvider, type ConnectorTriggerProps } from '@ant-design/web3';
+import type { WalletConnectOptions, WalletFactory } from '@ant-design/web3-wagmi';
 import {
   Goerli,
   Mainnet,
@@ -9,14 +10,11 @@ import {
   TokenPocket,
   WagmiWeb3ConfigProvider,
   WalletConnect,
-  WalletFactory,
-  type WalletConnectOptions,
 } from '@ant-design/web3-wagmi';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { http } from 'wagmi';
 import { base } from 'wagmi/chains';
-import { walletConnect } from 'wagmi/connectors';
 
 describe('WagmiWeb3ConfigProvider', () => {
   it('mount correctly', () => {
