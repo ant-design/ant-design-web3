@@ -8,6 +8,19 @@
   ],
   "packageManager": "pnpm@8.9.0",
   "files": [],
+  "keywords": [
+    "ant",
+    "design",
+    "web3",
+    "antd",
+    "component",
+    "components",
+    "framework",
+    "frontend",
+    "react",
+    "react-component",
+    "ui"
+  ],
   "scripts": {
     "start": "dumi dev",
     "dev": "dumi dev",
