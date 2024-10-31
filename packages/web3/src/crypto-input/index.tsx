@@ -2,7 +2,6 @@ import React, { useDeferredValue } from 'react';
 import type { Token } from '@ant-design/web3-common';
 import { Flex, InputNumber, Typography } from 'antd';
 import Decimal from 'decimal.js';
-import { isNull } from 'lodash-es';
 
 import { CryptoPrice } from '../crypto-price';
 import useIntl from '../hooks/useIntl';

@@ -1,7 +1,6 @@
 import { useProvider } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
 import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
-import { QueryClient } from '@tanstack/react-query';
 import { render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import type * as Wagmi from 'wagmi';
