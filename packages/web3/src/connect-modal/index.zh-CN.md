@@ -59,7 +59,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAA
 | onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | `(e:React.SyntheticEvent) => void` | - | - |
 | footer | 自定义 footer | `React.ReactNode` | - | - |
 | walletList | 钱包列表 | [Wallet](./types#wallet)\[\] | - | - |
-| group | 钱包是否需要分组 | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | `true` | - |
+| group | 钱包是否需要分组 | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | 有多个分组情况下为 `true` | - |
 | mode | 弹窗模式 | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
 | guide | 新手指引内容 | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |
 | actionRef | 用于控制组件 | `MutableRefObject<ConnectModalActionType>` | - | - |

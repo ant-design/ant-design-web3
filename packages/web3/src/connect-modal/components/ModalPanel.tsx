@@ -23,7 +23,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     walletList = availableWallets,
     emptyProps,
     guide,
-    group = true,
+    group,
     groupOrder,
     mode,
     onWalletSelected,

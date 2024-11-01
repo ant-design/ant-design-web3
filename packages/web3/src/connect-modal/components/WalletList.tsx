@@ -40,6 +40,11 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
     return Object.keys(dataSource).sort(orderFn);
   }, [dataSource, internalGroup, groupOrder]);
 
+  const needGrouping =
+    internalGroup !== false && !(internalGroup === undefined && groupKeys.length <= 1);
+
+  console.log('needGrouping', needGrouping);
+
   const selectWallet = async (wallet: Wallet) => {
     const hasWalletReady = await wallet.hasWalletReady?.();
     if (hasWalletReady) {
@@ -77,7 +82,7 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
     return (
       <List<Wallet>
         itemLayout="horizontal"
-        dataSource={internalGroup ? dataSource[group!] : walletList}
+        dataSource={group ? dataSource[group!] : walletList}
         rowKey="key"
         renderItem={(item) => (
           <List.Item
@@ -138,7 +143,7 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
 
   return (
     <div className={`${prefixCls}-wallet-list`}>
-      {internalGroup ? (
+      {needGrouping ? (
         groupKeys.map((group) => (
           <div className={`${prefixCls}-group`} key={group}>
             <div className={`${prefixCls}-group-title`}>{group}</div>

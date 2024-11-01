@@ -91,7 +91,11 @@ describe('WagmiWeb3ConfigProvider with EIP6963 and custom wallets', () => {
         }}
         config={config}
       >
-        <Connector>
+        <Connector
+          modalProps={{
+            group: true,
+          }}
+        >
           <ConnectButton />
         </Connector>
       </WagmiWeb3ConfigProvider>
