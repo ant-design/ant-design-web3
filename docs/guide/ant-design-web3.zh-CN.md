@@ -23,7 +23,7 @@ Ant Design Web3 是一个基于 [Ant Design](https://ant.design/index-cn) 的 We
 
 <code compact src="./demos/try-it-out/index.tsx"></code>
 
-如果你想要尝试更精细的主题控制，你以尝试我们的[主题编辑器](/theme-editor)，或者查看[主题](./theme.zh-CN.md)文档。
+如果你想要尝试更精细的主题控制，你以尝试我们的[主题编辑器](/theme-editor-cn)，或者查看[主题](./theme.zh-CN.md)文档。
 
 如果你想要进一步学习如何在自己的项目中使用 Ant Design Web3，或者想要从 0 创建一个基于 Ant Design Web3 的项目，你可以继续阅读[快速开始](quick-start.zh-CN.md)，祝你在 Web3 冲浪愉快！🌊🌊🌊
 
