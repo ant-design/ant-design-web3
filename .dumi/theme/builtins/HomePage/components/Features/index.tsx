@@ -20,16 +20,16 @@ export const Features: React.FC = () => {
     {
       preview:
         curTheme.name === 'Dark'
-          ? 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*q8CHTZn_t9cAAAAAAAAAAAAADlrGAQ/original'
-          : 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*BGOrT7hmCK0AAAAAAAAAAAAADlrGAQ/original',
+          ? 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*c7xpS7iRaO0AAAAAAAAAAAAADlrGAQ/original'
+          : 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*lg4mQrmwvQMAAAAAAAAAAAAADlrGAQ/original',
       title: intl.formatMessage({ id: 'app.docs.site.features.0.title' }),
       description: intl.formatMessage({ id: 'app.docs.site.features.0.description' }),
     },
     {
       preview:
         curTheme.name === 'Dark'
-          ? 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*c7xpS7iRaO0AAAAAAAAAAAAADlrGAQ/original'
-          : 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*lg4mQrmwvQMAAAAAAAAAAAAADlrGAQ/original',
+          ? 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*q8CHTZn_t9cAAAAAAAAAAAAADlrGAQ/original'
+          : 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*BGOrT7hmCK0AAAAAAAAAAAAADlrGAQ/original',
       title: intl.formatMessage({ id: 'app.docs.site.features.1.title' }),
       description: intl.formatMessage({ id: 'app.docs.site.features.1.description' }),
     },
