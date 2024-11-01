@@ -43,8 +43,6 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
   const needGrouping =
     internalGroup !== false && !(internalGroup === undefined && groupKeys.length <= 1);
 
-  console.log('needGrouping', needGrouping);
-
   const selectWallet = async (wallet: Wallet) => {
     const hasWalletReady = await wallet.hasWalletReady?.();
     if (hasWalletReady) {
