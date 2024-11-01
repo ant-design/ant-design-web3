@@ -39,8 +39,8 @@ English · [中文](./README-zh_CN.md)
 
 ## Features
 
-- 🎨 Ant Design Friendly
 - 📦 Out-of-the-Box Experience
+- 🎨 Flexible Theme Customization
 - 🔌 Compatibility with Different Chains
 
 ## Installation
