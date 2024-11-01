@@ -1,5 +1,14 @@
 # @ant-design/web3-sui
 
+## 1.0.5
+
+### Patch Changes
+
+- 06aae9b: feat(sui): Returns addresses on connected
+- Updated dependencies [0b2a19d]
+  - @ant-design/web3-common@1.15.0
+  - @ant-design/web3-assets@1.11.4
+
 ## 1.0.4
 
 ### Patch Changes
