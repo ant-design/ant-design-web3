@@ -17,4 +17,6 @@ Ant Design Web3 has built-in support for dark mode, which inherits the configura
 
 You can also completely customize Ant Design's [Design Token](https://ant.design/docs/react/customize-theme#customize-design-token), which we will inherit and use in Ant Design Web3. If you find that the Design Token is not supported or used incorrectly, please [submit an issue](https://github.com/ant-design/ant-design-web3/issues) to tell us.
 
+We provide a [theme editor](/theme-editor) where you can modify the Design Token online and see the effects.
+
 <code src="./demos/custom-token.tsx"></code>
