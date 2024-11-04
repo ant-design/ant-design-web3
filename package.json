@@ -70,7 +70,7 @@
     "@ctrl/tinycolor": "^4.1.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@testing-library/react": "^16.0.1",
-    "@types/lodash": "^4.17.7",
+    "@types/lodash": "^4.17.13",
     "@types/node": "^22.1.0",
     "@types/react": "^18.3.5",
     "@types/react-copy-to-clipboard": "^5.0.7",
