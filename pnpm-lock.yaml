@@ -48,8 +48,8 @@ importers:
         specifier: ^0.14.11
         version: 0.14.17(@tanstack/react-query@5.51.11)(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.2)
       '@mysten/sui':
-        specifier: ^1.9.0
-        version: 1.9.0(typescript@5.6.2)
+        specifier: ^1.14.0
+        version: 1.14.0(typescript@5.6.2)
       '@solana/wallet-adapter-coinbase':
         specifier: ^0.1.19
         version: 0.1.19(@solana/web3.js@1.91.0)
@@ -610,8 +610,8 @@ importers:
         specifier: ^0.14.11
         version: 0.14.17(@tanstack/react-query@5.51.11)(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.2)
       '@mysten/sui':
-        specifier: ^1.9.0
-        version: 1.9.0(typescript@5.6.2)
+        specifier: ^1.14.0
+        version: 1.14.0(typescript@5.6.2)
       '@tanstack/react-query':
         specifier: ^5.40.1
         version: 5.51.11(react@18.3.1)
@@ -6358,6 +6358,11 @@ packages:
     dependencies:
       bs58: 6.0.0
 
+  /@mysten/bcs@1.1.0:
+    resolution: {integrity: sha512-yy9/1Y4d0FlRywS1+9ze/T7refCbrvwFwJIOKs9M3QBK1njbcHZp+LkVeLqBvIJA5eZ3ZCzmhQ1Xq4Sed5mEBA==}
+    dependencies:
+      bs58: 6.0.0
+
   /@mysten/dapp-kit@0.14.17(@tanstack/react-query@5.51.11)(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.2):
     resolution: {integrity: sha512-1geq0vah/cqSprzVssKKFCkqDeOX30SDCa2TdqIO6ywR3gN6K78Jmq0aBZWepSvkA0ytaTcmATGY7E/lccTalw==}
     peerDependencies:
@@ -6387,12 +6392,12 @@ packages:
       - react-dom
       - typescript
 
-  /@mysten/sui@1.7.0(typescript@5.6.2):
-    resolution: {integrity: sha512-g88beCeYH7WVZbNW541j+Vusdxn1yd9X9TiQ8kGHbXKNIPFmc0Pf26kPwlAVnCbXslFflUgN6q4CWpAsBUIA3A==}
+  /@mysten/sui@1.14.0(typescript@5.6.2):
+    resolution: {integrity: sha512-dVndFXe1YaiJdNMfO5ZqmcrKxqWaR8TLBd5PT7M3OQeud3wo1EXFSZhT2b2FUsLMa04t+kOYph7kKgqUrfWZyA==}
     engines: {node: '>=18'}
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.9.0)
-      '@mysten/bcs': 1.0.4
+      '@mysten/bcs': 1.1.0
       '@noble/curves': 1.5.0
       '@noble/hashes': 1.5.0
       '@scure/bip32': 1.4.0
@@ -6408,8 +6413,8 @@ packages:
       - '@gql.tada/vue-support'
       - typescript
 
-  /@mysten/sui@1.9.0(typescript@5.6.2):
-    resolution: {integrity: sha512-AcnwVK7ro8+GWAp/vz0V35naS1/PD1FkYlH6rglupKWvVIpnmEBgjr+XE7U4LvtAyoXPiE4uj/MhXLIx5rZuzw==}
+  /@mysten/sui@1.7.0(typescript@5.6.2):
+    resolution: {integrity: sha512-g88beCeYH7WVZbNW541j+Vusdxn1yd9X9TiQ8kGHbXKNIPFmc0Pf26kPwlAVnCbXslFflUgN6q4CWpAsBUIA3A==}
     engines: {node: '>=18'}
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.9.0)
