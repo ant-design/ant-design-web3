@@ -4,6 +4,12 @@ import type { AvatarProps, ButtonProps, GetProp, MenuProps, TooltipProps } from 
 import type { AddressProps } from '../address';
 import type { ProfileModalProps } from './profile-modal';
 
+export const enum ConnectButtonStatus {
+  Connected = 'connected',
+  Disconnected = 'disconnected',
+  Signed = 'signed',
+}
+
 export type MenuItemType = Extract<GetProp<MenuProps, 'items'>[number], { type?: 'item' }>;
 
 export type ConnectButtonTooltipProps = TooltipProps & {
@@ -18,6 +24,8 @@ export type ConnectButtonProps = ButtonProps &
     prefixCls?: string;
     locale?: Locale['ConnectButton'];
     avatar?: AvatarProps;
+    connectStatus?: ConnectButtonStatus;
+    onConnectStatusChange?: (status: ConnectButtonStatus) => void;
     onMenuItemClick?: (e: NonNullable<MenuProps['items']>[number]) => void;
     tooltip?: boolean | ConnectButtonTooltipProps;
     profileModal?: boolean | ProfileModalProps['modalProps'];

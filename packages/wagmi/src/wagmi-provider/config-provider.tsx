@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-  SWIEConfig,
   Web3ConfigProvider,
   type Account,
   type Chain,
   type Locale,
   type Wallet,
 } from '@ant-design/web3-common';
+import { message } from 'antd';
 import type { Config as WagmiConfig } from 'wagmi';
 import {
   useAccount,
@@ -15,15 +15,22 @@ import {
   useConnect,
   useEnsAvatar,
   useEnsName,
+  useSignMessage,
   useSwitchChain,
   type Connector as WagmiConnector,
 } from 'wagmi';
 import { disconnect, getAccount } from 'wagmi/actions';
 
-import type { EIP6963Config, WalletFactory, WalletUseInWagmiAdapter } from '../interface';
+import type {
+  EIP6963Config,
+  SIWEConfig,
+  WalletFactory,
+  WalletUseInWagmiAdapter,
+} from '../interface';
 import { isEIP6963Connector } from '../utils';
 import { EIP6963Wallet } from '../wallets/eip6963';
 import { getNFTMetadata } from './methods';
+import { Mainnet } from '/packages/assets/src';
 
 export interface AntDesignWeb3ConfigProviderProps {
   chainAssets: Chain[];
@@ -35,7 +42,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   eip6963?: EIP6963Config;
   wagimConfig: WagmiConfig;
   useWalletConnectOfficialModal?: boolean;
-  swie?: SWIEConfig;
+  siwe?: SIWEConfig;
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
@@ -49,7 +56,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     eip6963,
     wagimConfig,
     useWalletConnectOfficialModal,
-    swie,
+    siwe,
   } = props;
   const { address, isDisconnected, chain } = useAccount();
   const config = useConfig();
@@ -58,6 +65,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   const { data: balanceData } = useBalance({ address });
   const { data: ensName } = useEnsName({ address });
   const { data: ensAvatar } = useEnsAvatar({ name: ensName ?? undefined });
+  const { signMessageAsync } = useSignMessage();
+
   const account: Account | undefined =
     address && !isDisconnected
       ? {
@@ -189,13 +198,52 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     [chain?.id],
   );
 
+  const signIn = React.useCallback(
+    async (signAddress: string, currentChainId?: number) => {
+      if (!siwe) return;
+      const { getNonce, createMessage, verifyMessage } = siwe;
+      if (!signAddress) {
+        throw new Error('Please connect wallet first.');
+      }
+
+      // get nonce
+      const nonce = await getNonce?.(signAddress);
+      if (!nonce) {
+        throw new Error('Failed to get nonce.');
+      }
+
+      let msg: string;
+      let signature: `0x${string}`;
+
+      try {
+        msg = createMessage({
+          domain: window.location.hostname,
+          address: signAddress as `0x${string}`,
+          uri: window.location.origin,
+          nonce,
+          // Default config
+          version: '1',
+          chainId: currentChainId ?? Mainnet.id,
+        });
+        signature = await signMessageAsync({ message: msg });
+        console.log('get signature', signature);
+        await verifyMessage(msg!, signature!);
+      } catch (error: any) {
+        throw new Error(error.message);
+      }
+    },
+    [siwe, signMessageAsync],
+  );
+
   return (
     <Web3ConfigProvider
       locale={locale}
       availableChains={chainList}
       chain={currentChain}
       account={account}
-      swie={swie}
+      sign={{
+        signIn,
+      }}
       balance={
         balance
           ? {

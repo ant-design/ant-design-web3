@@ -1,5 +1,10 @@
 import React from 'react';
-import { ConnectModal, type ConnectModalActionType } from '@ant-design/web3';
+import {
+  ConfigContext,
+  ConnectButtonStatus,
+  ConnectModal,
+  type ConnectModalActionType,
+} from '@ant-design/web3';
 import type { Chain, ConnectOptions, ConnectorTriggerProps, Wallet } from '@ant-design/web3-common';
 import { message } from 'antd';
 
@@ -34,6 +39,11 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
   const actionRef = React.useRef<ConnectModalActionType>();
   const [messageApi, contextHolder] = message.useMessage();
 
+  const { sign } = React.useContext(ConfigContext);
+  const [connectStatus, setConnectStatus] = React.useState<ConnectButtonStatus>(
+    ConnectButtonStatus.Disconnected,
+  );
+
   const connectWallet = async (wallet?: Wallet, options?: ConnectOptions) => {
     onConnect?.();
     try {
@@ -43,6 +53,11 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       }
       const connectedAccount = await connect?.(wallet, options);
       onConnected?.(connectedAccount ? connectedAccount : undefined);
+      setConnectStatus(ConnectButtonStatus.Connected);
+      if (sign?.signIn && connectedAccount?.address) {
+        await sign.signIn(connectedAccount?.address, chain?.id);
+        setConnectStatus(ConnectButtonStatus.Signed);
+      }
       setOpen(false);
     } catch (e: any) {
       if (typeof onConnectError === 'function') {
@@ -103,7 +118,9 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         availableChains,
         availableWallets,
         chain,
+        connectStatus,
         addressPrefix,
+        onConnectStatusChange: setConnectStatus,
         onSwitchChain: async (c: Chain) => {
           await switchChain?.(c);
           onChainSwitched?.(c);

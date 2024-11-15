@@ -1,3 +1,4 @@
+import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   Mainnet,
   MetaMask,
@@ -7,18 +8,18 @@ import {
   WalletConnect,
 } from '@ant-design/web3-wagmi';
 import { QueryClient } from '@tanstack/react-query';
+import { Space } from 'antd';
 import { createSiweMessage } from 'viem/siwe';
 import { http } from 'wagmi';
 
 import { getNonce, verifyMessage } from './mock-api';
-import SignBtn from './sign-btn';
 
 const queryClient = new QueryClient();
 
 const App: React.FC = () => {
   return (
     <WagmiWeb3ConfigProvider
-      swie={{
+      siwe={{
         getNonce,
         createMessage: (props) => createSiweMessage({ ...props, statement: 'Ant Design Web3' }),
         verifyMessage: verifyMessage,
@@ -44,7 +45,15 @@ const App: React.FC = () => {
       ]}
       queryClient={queryClient}
     >
-      <SignBtn />
+      <Space>
+        <Connector
+          modalProps={{
+            mode: 'simple',
+          }}
+        >
+          <ConnectButton />
+        </Connector>
+      </Space>
     </WagmiWeb3ConfigProvider>
   );
 };
