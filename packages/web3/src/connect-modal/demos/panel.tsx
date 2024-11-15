@@ -73,4 +73,28 @@ const App: React.FC = () => {
   );
 };
 
+// use for theme editor
+export const SimpleApp: React.FC = () => {
+  return (
+    <Card
+      style={{
+        maxWidth: 400,
+      }}
+      styles={{
+        body: {
+          padding: 0,
+        },
+      }}
+    >
+      <ConnectModal.ModalPanel
+        group={{
+          groupOrder,
+        }}
+        mode="simple"
+        walletList={walletList}
+      />
+    </Card>
+  );
+};
+
 export default App;

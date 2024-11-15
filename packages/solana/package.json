@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-solana",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "main": "dist/lib/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
@@ -17,15 +17,16 @@
   ],
   "keywords": [
     "ant",
+    "design",
+    "web3",
+    "antd",
     "component",
     "components",
-    "design",
     "framework",
     "frontend",
     "react",
     "react-component",
     "ui",
-    "web3",
     "solana"
   ],
   "homepage": "https://web3.ant.design",
@@ -52,7 +53,7 @@
     "@walletconnect/core": "^2.16.0",
     "@walletconnect/universal-provider": "^2.14.0",
     "@walletconnect/utils": "^2.16.1",
-    "@walletconnect/web3wallet": "^1.14.0",
+    "@walletconnect/web3wallet": "^1.16.1",
     "bs58": "^6.0.0",
     "debug": "^4.3.5"
   },

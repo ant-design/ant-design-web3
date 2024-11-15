@@ -4,7 +4,6 @@ import { render, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import type * as Wagmi from 'wagmi';
 import { mainnet } from 'wagmi/chains';
-import type { Chain as WagmiChain } from 'wagmi/chains';
 
 import { MetaMask } from '../../wallets';
 import { AntDesignWeb3ConfigProvider } from '../config-provider';

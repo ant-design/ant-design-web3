@@ -1,5 +1,19 @@
 # @ant-design/web3
 
+## 1.18.0
+
+### Minor Changes
+
+- 0b2a19d: feat: ConnectModal show empty state when wallets list is empty
+
+### Patch Changes
+
+- Updated dependencies [0ac2be9]
+- Updated dependencies [0b2a19d]
+  - @ant-design/web3-icons@1.11.1
+  - @ant-design/web3-common@1.15.0
+  - @ant-design/web3-assets@1.11.4
+
 ## 1.17.2
 
 ### Patch Changes

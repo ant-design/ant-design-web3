@@ -1,11 +1,9 @@
 import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { Button } from 'antd';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { TonConnectorContext, TonWeb3ConfigProvider } from '../';
-import { CHAIN } from '../..';
 import { tonkeeper } from '../../wallets';
 
 global.fetch = vi.fn();

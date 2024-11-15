@@ -1,5 +1,11 @@
 # @ant-design/web3-icons
 
+## 1.11.1
+
+### Patch Changes
+
+- 0ac2be9: docs: update npm package README
+
 ## 1.11.0
 
 ### Minor Changes

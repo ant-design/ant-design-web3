@@ -44,6 +44,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAA
 
 <code src="./demos/footer.tsx"></code>
 
+## 空状态
+
+<code src="./demos/empty.tsx"></code>
+
 ## API
 
 ### ConnectModalProps
@@ -55,13 +59,14 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAA
 | onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | `(e:React.SyntheticEvent) => void` | - | - |
 | footer | 自定义 footer | `React.ReactNode` | - | - |
 | walletList | 钱包列表 | [Wallet](./types#wallet)\[\] | - | - |
-| group | 钱包是否需要分组 | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | `true` | - |
+| group | 钱包是否需要分组 | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | 有多个分组情况下为 `true` | - |
 | mode | 弹窗模式 | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
 | guide | 新手指引内容 | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |
 | actionRef | 用于控制组件 | `MutableRefObject<ConnectModalActionType>` | - | - |
 | defaultSelectedWallet | 默认选中的钱包 | `Wallet` | - | - |
 | locale | 多语言设置 | `Locale["ConnectModal"]` | - | - |
 | connecting | 是否正在连接 | `boolean` | - | - |
+| emptyProps | 空状态属性 | `EmptyProps` | `{image: Empty.PRESENTED_IMAGE_SIMPLE, description: "未发现任何钱包"}` | `1.18.0` |
 
 其他弹框属性详见： [ModalProps](https://ant.design/components/modal-cn#api)
 

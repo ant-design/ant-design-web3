@@ -12,6 +12,11 @@ describe('SuiWeb3ConfigProvider connect tests', () => {
       // fake address
       shortAddress: '0xa123...y123',
       address: '0xa123a123b123b123____a00aaf10c9c283aae9498684218____x123x123y123y123',
+      accounts: [
+        { address: '0xa123a123b123b123____a00aaf10c9c283aae9498684218____x123x123y123y123' },
+        { address: '0xa123a123b123b123____a00aaf10c9c283aae9498684218____x123x123y123y12a' },
+        { address: '0xa123a123b123b123____a00aaf10c9c283aae9498684218____x123x123y123y12b' },
+      ],
       WALLETS: [
         {
           name: 'Test Wallet',
@@ -41,6 +46,7 @@ describe('SuiWeb3ConfigProvider connect tests', () => {
           accountRef.value = mockedDatas.address;
 
           forceUpdate(accountRef.value);
+          return { accounts: mockedDatas.accounts };
         };
 
         return {
@@ -61,10 +67,16 @@ describe('SuiWeb3ConfigProvider connect tests', () => {
   });
 
   it('available connect', async () => {
+    const testOnConnectedAddresses = vi.fn();
+
     const App = () => {
       return (
         <SuiWeb3ConfigProvider>
-          <Connector>
+          <Connector
+            onConnected={(account) => {
+              testOnConnectedAddresses(account?.addresses?.join(','));
+            }}
+          >
             <ConnectButton />
           </Connector>
         </SuiWeb3ConfigProvider>
@@ -109,6 +121,13 @@ describe('SuiWeb3ConfigProvider connect tests', () => {
     // test connect-button has changed to short address
     await vi.waitFor(() => {
       expect(selector('.ant-web3-connect-button')?.textContent).toBe(mockedDatas.shortAddress);
+    });
+
+    // test onConnected callback passed `addresses`
+    await vi.waitFor(() => {
+      expect(testOnConnectedAddresses).toBeCalledWith(
+        mockedDatas.accounts.map((v) => v.address).join(','),
+      );
     });
   });
 
