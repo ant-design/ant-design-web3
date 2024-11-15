@@ -1,6 +1,6 @@
 import React, { forwardRef, useContext, useImperativeHandle, useMemo } from 'react';
 import { QrcodeOutlined } from '@ant-design/icons';
-import { Button, List, Space, Typography } from 'antd';
+import { Button, Empty, List, Space, Typography } from 'antd';
 import classNames from 'classnames';
 
 import { connectModalContext } from '../context';
@@ -9,11 +9,14 @@ import { defaultGroupOrder } from '../utils';
 import PluginTag from './PluginTag';
 import WalletIcon from './WalletIcon';
 
-export type WalletListProps = Pick<ConnectModalProps, 'walletList' | 'group' | 'groupOrder'>;
+export type WalletListProps = Pick<
+  ConnectModalProps,
+  'walletList' | 'group' | 'groupOrder' | 'emptyProps'
+>;
 
 const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, ref) => {
-  const { walletList = [], group: internalGroup, groupOrder } = props;
-  const { prefixCls, updateSelectedWallet, selectedWallet, updatePanelRoute } =
+  const { walletList = [], group: internalGroup, groupOrder, emptyProps } = props;
+  const { prefixCls, updateSelectedWallet, selectedWallet, localeMessage, updatePanelRoute } =
     useContext(connectModalContext);
   const dataSource: Record<string, Wallet[]> = useMemo(() => {
     const result: Record<string, Wallet[]> = {};
@@ -36,6 +39,9 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
     }
     return Object.keys(dataSource).sort(orderFn);
   }, [dataSource, internalGroup, groupOrder]);
+
+  const needGrouping =
+    internalGroup !== false && (internalGroup !== undefined || groupKeys.length > 1);
 
   const selectWallet = async (wallet: Wallet) => {
     const hasWalletReady = await wallet.hasWalletReady?.();
@@ -74,7 +80,7 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
     return (
       <List<Wallet>
         itemLayout="horizontal"
-        dataSource={internalGroup ? dataSource[group!] : walletList}
+        dataSource={group ? dataSource[group!] : walletList}
         rowKey="key"
         renderItem={(item) => (
           <List.Item
@@ -121,9 +127,21 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
     );
   };
 
+  if (walletList.length === 0) {
+    return (
+      <div className={`${prefixCls}-wallets-empty`}>
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description={localeMessage.walletListEmpty}
+          {...emptyProps}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className={`${prefixCls}-wallet-list`}>
-      {internalGroup ? (
+      {needGrouping ? (
         groupKeys.map((group) => (
           <div className={`${prefixCls}-group`} key={group}>
             <div className={`${prefixCls}-group-title`}>{group}</div>

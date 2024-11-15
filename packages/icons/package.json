@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-icons",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -18,15 +18,17 @@
   ],
   "keywords": [
     "ant",
+    "design",
+    "web3",
+    "antd",
     "component",
     "components",
-    "design",
     "framework",
     "frontend",
     "react",
     "react-component",
     "ui",
-    "web3"
+    "icon"
   ],
   "homepage": "https://web3.ant.design",
   "bugs": {
@@ -42,8 +44,8 @@
   },
   "devDependencies": {
     "@types/react": "^18.3.5",
-    "@types/react-dom": "^18.3.0",
-    "antd": "^5.20.1",
+    "@types/react-dom": "^18.3.1",
+    "antd": "^5.21.6",
     "father": "^4.4.4",
     "glob": "^11.0.0",
     "react": "18.3.1",
@@ -66,7 +68,7 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/icons": "^5.3.7",
+    "@ant-design/icons": "^5.5.1",
     "@inline-svg-unique-id/react": "^1.2.3",
     "classnames": "^2.5.1"
   }

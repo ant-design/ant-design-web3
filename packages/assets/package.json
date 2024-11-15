@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-assets",
-  "version": "1.11.3",
+  "version": "1.11.4",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -50,15 +50,16 @@
   ],
   "keywords": [
     "ant",
+    "design",
+    "web3",
+    "antd",
     "component",
     "components",
-    "design",
     "framework",
     "frontend",
     "react",
     "react-component",
-    "ui",
-    "web3"
+    "ui"
   ],
   "homepage": "https://web3.ant.design",
   "bugs": {
@@ -78,7 +79,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.3.5",
-    "@types/react-dom": "^18.3.0",
+    "@types/react-dom": "^18.3.1",
     "father": "^4.4.4",
     "react": "18.3.1",
     "react-dom": "18.3.1",

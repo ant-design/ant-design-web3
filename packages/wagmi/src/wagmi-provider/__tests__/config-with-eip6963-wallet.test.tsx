@@ -48,7 +48,11 @@ describe('WagmiWeb3ConfigProvider with EIP6963 Wallet', () => {
         }}
         config={config}
       >
-        <Connector>
+        <Connector
+          modalProps={{
+            group: true,
+          }}
+        >
           <ConnectButton />
         </Connector>
       </WagmiWeb3ConfigProvider>

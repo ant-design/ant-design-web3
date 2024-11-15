@@ -8,19 +8,19 @@ import * as cryptoPrice from './crypto-price';
 import * as nftCard from './nft-card';
 
 export const components: typeof defaultAntdComponents = {
+  ...connectModal.components,
+  ...nftCard.components,
   ...address.components,
   ...browserLink.components,
   ...connectButton.components,
-  ...connectModal.components,
   ...cryptoPrice.components,
-  ...nftCard.components,
 };
 
 export const demos: Record<string, ComponentDemo[]> = {
+  ...connectModal.demos,
   ...address.demos,
   ...browserLink.demos,
   ...connectButton.demos,
-  ...connectModal.demos,
   ...cryptoPrice.demos,
   ...nftCard.demos,
 };

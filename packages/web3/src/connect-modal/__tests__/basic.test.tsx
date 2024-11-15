@@ -229,4 +229,60 @@ describe('ConnectModal with guide', () => {
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.ant-web3-connect-modal-group-title')).toBeNull();
   });
+
+  it('Wallets are not grouped when on one group', async () => {
+    const App = () => (
+      <ConnectModal
+        open
+        title="ConnectModal"
+        footer="Powered by AntChain"
+        walletList={[
+          {
+            ...walletList[0],
+            group: 'Test',
+          },
+          {
+            ...walletList[1],
+            group: 'Test',
+          },
+        ]}
+        guide={guide}
+      />
+    );
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.ant-web3-connect-modal-group-title')).toBeNull();
+  });
+
+  it('wallets empty', async () => {
+    const App = () => (
+      <ConnectModal
+        open
+        title="ConnectModal"
+        footer="Powered by AntChain"
+        walletList={[]}
+        guide={guide}
+      />
+    );
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.ant-empty-description')?.textContent).toBe(
+      'No wallet available',
+    );
+  });
+
+  it('wallets empty with emptyProps', async () => {
+    const App = () => (
+      <ConnectModal
+        open
+        title="ConnectModal"
+        footer="Powered by AntChain"
+        walletList={[]}
+        guide={guide}
+        emptyProps={{
+          description: 'NOTFINDWALLET',
+        }}
+      />
+    );
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.ant-empty-description')?.textContent).toBe('NOTFINDWALLET');
+  });
 });

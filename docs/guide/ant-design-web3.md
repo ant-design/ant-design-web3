@@ -21,7 +21,9 @@ You can use Ant Design Web3 in any of the following ways:
 
 Here are examples of using Ant Design Web3 through `@ant-design/web3-wagmi`:
 
-<code compact src="./demos/guide.tsx"></code>
+<code compact src="./demos/try-it-out/index.tsx"></code>
+
+If you want to try more refined theme control, you can try our [Theme Editor](/theme-editor), or check out the [Theme](theme.md) documentation.
 
 If you want to further try how to use Ant Design Web3 in your own project, or want to create a project based on Ant Design Web3 from 0, you can continue reading [Quick Start](quick-start.md), wish you a pleasant surfing in Web3! 🌊🌊🌊
 

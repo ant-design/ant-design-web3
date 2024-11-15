@@ -43,6 +43,10 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 
 <code src="./demos/footer.tsx"></code>
 
+## Empty State
+
+<code src="./demos/empty.tsx"></code>
+
 ## API
 
 ### ConnectModalProps
@@ -54,13 +58,14 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 | onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | `(e:React.SyntheticEvent) => void` | - | - |
 | footer | Custom footer | `React.ReactNode` | - | - |
 | walletList | Wallet list | `Wallet[]` | - | - |
-| group | Does the wallet need to be grouped | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | `true` | - |
+| group | Does the wallet need to be grouped | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | `true` when there are multiple groups | - |
 | mode | Popup mode | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
 | guide | Newbie guide content | `DefaultGuide` | [DefaultGuide](#defaultguide) | - |
 | actionRef | Used to control the component | `MutableRefObject<ConnectModalActionType>` | - | - |
 | defaultSelectedWallet | Default selected wallet | `Wallet` | - | - |
 | locale | Multilingual settings | `Locale["ConnectModal"]` | - | - |
 | connecting | Whether it is connecting | `boolean` | - | - |
+| emptyProps | Empty state props | [EmptyProps](https://ant.design/components/empty#api) | `{image: Empty.PRESENTED_IMAGE_SIMPLE, description: "No wallet available"}` | `1.18.0` |
 
 Other modal properties see: [ModalProps](https://ant.design/components/modal#API)
 

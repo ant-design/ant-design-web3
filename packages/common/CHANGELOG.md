@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.15.0
+
+### Minor Changes
+
+- 0b2a19d: feat: ConnectModal show empty state when wallets list is empty
+
 ## 1.14.0
 
 ### Minor Changes

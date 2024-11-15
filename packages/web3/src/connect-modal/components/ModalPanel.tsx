@@ -21,8 +21,9 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     title,
     footer,
     walletList = availableWallets,
+    emptyProps,
     guide,
-    group = true,
+    group,
     groupOrder,
     mode,
     onWalletSelected,
@@ -121,6 +122,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
                   walletList={walletList}
                   group={group}
                   groupOrder={groupOrder}
+                  emptyProps={emptyProps}
                 />
               </div>
               <div className={`${prefixCls}-footer-container`}>

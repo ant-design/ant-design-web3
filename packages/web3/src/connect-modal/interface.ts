@@ -5,7 +5,7 @@ import type {
   Locale,
   Wallet,
 } from '@ant-design/web3-common';
-import type { ModalProps } from 'antd';
+import type { EmptyProps, ModalProps } from 'antd';
 
 export type { Wallet, WalletExtensionItem } from '@ant-design/web3-common';
 
@@ -142,6 +142,12 @@ export type ConnectModalProps = ModalProps &
      * @descEn connect status
      */
     connecting?: boolean;
+
+    /**
+     * @desc 空状态 Empty props
+     * @descEn Empty props
+     */
+    emptyProps?: EmptyProps;
   };
 
 export type PanelRoute = 'init' | 'guide' | 'wallet' | 'qrCode' | 'downloadQrCode' | 'link';
