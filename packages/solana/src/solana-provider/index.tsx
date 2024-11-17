@@ -31,7 +31,7 @@ export interface SolanaWeb3ConfigProviderProps {
   //#endregion
 
   //#region Solana WalletProvider specific
-  autoConnect?: boolean;
+  autoConnect?: WalletProviderProps['autoConnect'];
   walletProviderProps?: Omit<WalletProviderProps, 'wallets' | 'autoConnect' | 'children'>;
   //#endregion
 
@@ -88,8 +88,15 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
     [currentChain, endpoint, walletConnect, walletConnectProviderGetter, walletFactories],
   );
 
+  const connectionProviderProps = useMemo(() => {
+    return {
+      endpoint,
+      config: connectionConfig ?? { commitment: 'confirmed' },
+    } as ConnectionProviderProps;
+  }, [endpoint, connectionConfig]);
+
   return (
-    <ConnectionProvider endpoint={endpoint} config={connectionConfig}>
+    <ConnectionProvider {...connectionProviderProps}>
       <WalletProvider
         wallets={walletAdapters}
         autoConnect={autoConnect}
