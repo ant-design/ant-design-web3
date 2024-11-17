@@ -24,6 +24,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它
 - 默认添加 Phantom、OKX 钱包，在用户未安装钱包情况下提供下载引导。
 - 配置 `quickConnect`，提供快速连接入口，简化用户操作。
 - 使用 `simple` 模式，去掉钱包分组，简化界面。
+- 使用自定义的 RPC 提供商，提供更好的节点连接体验。
 
 ## 基本使用
 
