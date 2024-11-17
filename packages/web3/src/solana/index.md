@@ -23,6 +23,7 @@ The recommended configuration mainly includes:
 - Adds Phantom and OKX wallets by default, providing download guidance if the user has not installed a wallet.
 - Configure `quickConnect` to provide quick connection entry to simplify user operations.
 - Uses `simple` mode and disable group to simplify the interface.
+- Uses a custom RPC provider to provide a better node connection experience.
 
 ## Basic Usage
 
