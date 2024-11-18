@@ -1,4 +1,4 @@
-import { useState, type FC, type PropsWithChildren } from 'react';
+import { useEffect, useState } from 'react';
 import { Connector, useProvider, type ConnectorTriggerProps } from '@ant-design/web3';
 import type { ConnectionContextState } from '@solana/wallet-adapter-react';
 import { fireEvent, render } from '@testing-library/react';
@@ -9,9 +9,12 @@ import { SolanaWeb3ConfigProvider } from '../index';
 import { xrender } from './utils';
 
 type TestConnection = Partial<ConnectionContextState['connection']>;
+const mockCreateConnectionInstance = vi.fn();
 
 describe('SolanaWeb3ConfigProvider', () => {
   beforeEach(() => {
+    mockCreateConnectionInstance.mockClear();
+
     vi.resetAllMocks();
   });
 
@@ -46,15 +49,27 @@ describe('SolanaWeb3ConfigProvider', () => {
 
     const publicKey = new PublicKey(mockedData.address.value);
 
-    const ConnectionProvider: React.FC<React.PropsWithChildren<{ endpoint: string }>> = ({
+    const ConnectionProvider: React.FC<
+      React.PropsWithChildren<{ endpoint: string; config: any }>
+    > = ({
       children,
       endpoint,
-    }) => (
-      <div>
-        <div className="endpoint">{endpoint}</div>
-        {children}
-      </div>
-    );
+      // default value: copy from ConnectionProvider in @solana/wallet-adapter-react
+      config = { commitment: 'confirmed' },
+    }) => {
+      useEffect(() => {
+        mockCreateConnectionInstance(endpoint, config?.commitment);
+      }, [endpoint, config]);
+
+      return (
+        <div>
+          <div className="endpoint">{endpoint}</div>
+          <div className="commitment">{config?.commitment}</div>
+          {children}
+        </div>
+      );
+    };
+
     const WalletProvider: React.FC<React.PropsWithChildren> = ({ children }) => <>{children}</>;
 
     const connectedRef = remember(false);
@@ -138,7 +153,7 @@ describe('SolanaWeb3ConfigProvider', () => {
   });
 
   it('available custom trigger', () => {
-    const CustomButton: FC<PropsWithChildren<ConnectorTriggerProps>> = (props) => {
+    const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { chain, onSwitchChain } = props;
 
       return (
@@ -183,7 +198,7 @@ describe('SolanaWeb3ConfigProvider', () => {
     expect(mockRpcProvider).toBeCalled();
   });
 
-  it('ConnectionProvider', () => {
+  it('available endpoint', () => {
     const App = () => (
       <SolanaWeb3ConfigProvider rpcProvider={() => `https://main-beta.fake-domain.com/`}>
         <div className="content">test</div>
@@ -192,6 +207,34 @@ describe('SolanaWeb3ConfigProvider', () => {
 
     const { selector } = xrender(App);
     expect(selector('.endpoint')?.textContent).toBe('https://main-beta.fake-domain.com/');
+  });
+
+  it('available connectionConfig and is optimized by default when creating connection', async () => {
+    const connectionConfig = { commitment: 'processed' };
+
+    const App = ({ config }: { config?: any }) => (
+      <SolanaWeb3ConfigProvider
+        rpcProvider={() => `https://api.zan.top/node/v1/solana/mainnet/${'YOUR_ZAN_API_KEY'}`}
+        connectionConfig={config}
+      >
+        <div className="content">test</div>
+      </SolanaWeb3ConfigProvider>
+    );
+
+    const { selector, rerender } = xrender(App);
+    expect(selector('.commitment')?.textContent).toBe('confirmed');
+
+    // simulate multiple renderings
+    rerender(<App />);
+    rerender(<App />);
+
+    expect(mockCreateConnectionInstance).toBeCalledTimes(1);
+
+    // simulate re-render with different connectionConfig
+    rerender(<App config={connectionConfig} />);
+
+    expect(selector('.commitment')?.textContent).toBe('processed');
+    expect(mockCreateConnectionInstance).toBeCalledTimes(2);
   });
 
   it('available show account address', async () => {
@@ -244,7 +287,7 @@ describe('SolanaWeb3ConfigProvider', () => {
   });
 
   it('available disconnect', () => {
-    const CustomConnector: FC = () => {
+    const CustomConnector: React.FC = () => {
       const { disconnect } = useProvider();
       return (
         <div>
@@ -253,7 +296,7 @@ describe('SolanaWeb3ConfigProvider', () => {
       );
     };
 
-    const App: FC = () => {
+    const App: React.FC = () => {
       return (
         <SolanaWeb3ConfigProvider>
           <CustomConnector />

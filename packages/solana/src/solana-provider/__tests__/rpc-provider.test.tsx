@@ -1,4 +1,3 @@
-import type { FC, PropsWithChildren } from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -64,8 +63,8 @@ describe('SolanaWeb3ConfigProvider rpcProvider', () => {
     vi.resetAllMocks();
 
     vi.mock('../config-provider.tsx', () => {
-      const AntDesignWeb3ConfigProvider: FC<
-        PropsWithChildren<{ onCurrentChainChange: () => void }>
+      const AntDesignWeb3ConfigProvider: React.FC<
+        React.PropsWithChildren<{ onCurrentChainChange: () => void }>
       > = ({ children, onCurrentChainChange }) => {
         return (
           <div>
