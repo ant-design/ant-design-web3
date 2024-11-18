@@ -153,7 +153,7 @@ describe('SolanaWeb3ConfigProvider', () => {
   });
 
   it('available custom trigger', () => {
-    const CustomButton: FC<PropsWithChildren<ConnectorTriggerProps>> = (props) => {
+    const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { chain, onSwitchChain } = props;
 
       return (
@@ -287,7 +287,7 @@ describe('SolanaWeb3ConfigProvider', () => {
   });
 
   it('available disconnect', () => {
-    const CustomConnector: FC = () => {
+    const CustomConnector: React.FC = () => {
       const { disconnect } = useProvider();
       return (
         <div>
@@ -296,7 +296,7 @@ describe('SolanaWeb3ConfigProvider', () => {
       );
     };
 
-    const App: FC = () => {
+    const App: React.FC = () => {
       return (
         <SolanaWeb3ConfigProvider>
           <CustomConnector />

@@ -1,4 +1,3 @@
-import { type FC } from 'react';
 import { useProvider } from '@ant-design/web3';
 import type { ConnectionContextState } from '@solana/wallet-adapter-react';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -43,10 +42,10 @@ describe('SolanaWeb3ConfigProvider balance', () => {
 
     const publicKey = new PublicKey(mockedData.address.value);
 
-    const ConnectionProvider: FC<React.PropsWithChildren<{ endpoint: string }>> = ({
+    const ConnectionProvider: React.FC<React.PropsWithChildren<{ endpoint: string }>> = ({
       children,
     }) => <div>{children}</div>;
-    const WalletProvider: FC<React.PropsWithChildren> = ({ children }) => <>{children}</>;
+    const WalletProvider: React.FC<React.PropsWithChildren> = ({ children }) => <>{children}</>;
 
     return {
       ...originModules,
@@ -75,13 +74,13 @@ describe('SolanaWeb3ConfigProvider balance', () => {
   });
 
   it('availabel show balance', async () => {
-    const BalanceDisplay: FC = () => {
+    const BalanceDisplay: React.FC = () => {
       const { balance } = useProvider();
 
       return <div className="shown-balance">{balance?.value?.toString()}</div>;
     };
 
-    const App: FC = () => (
+    const App: React.FC = () => (
       <SolanaWeb3ConfigProvider balance>
         <div className="content">test</div>
         <BalanceDisplay />
