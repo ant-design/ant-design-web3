@@ -1,4 +1,4 @@
-import { useEffect, useState, type FC, type PropsWithChildren } from 'react';
+import { useEffect, useState } from 'react';
 import { Connector, useProvider, type ConnectorTriggerProps } from '@ant-design/web3';
 import type { ConnectionContextState } from '@solana/wallet-adapter-react';
 import { fireEvent, render } from '@testing-library/react';
