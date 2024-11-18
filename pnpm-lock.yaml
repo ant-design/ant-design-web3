@@ -48,8 +48,8 @@ importers:
         specifier: ^0.14.11
         version: 0.14.17(@tanstack/react-query@5.51.11)(@types/react-dom@18.3.1)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.2)
       '@mysten/sui':
-        specifier: ^1.14.0
-        version: 1.14.0(typescript@5.6.2)
+        specifier: ^1.14.3
+        version: 1.14.3(typescript@5.6.2)
       '@solana/wallet-adapter-coinbase':
         specifier: ^0.1.19
         version: 0.1.19(@solana/web3.js@1.91.0)
@@ -610,8 +610,8 @@ importers:
         specifier: ^0.14.11
         version: 0.14.17(@tanstack/react-query@5.51.11)(@types/react-dom@18.3.1)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.2)
       '@mysten/sui':
-        specifier: ^1.14.0
-        version: 1.14.0(typescript@5.6.2)
+        specifier: ^1.14.3
+        version: 1.14.3(typescript@5.6.2)
       '@tanstack/react-query':
         specifier: ^5.40.1
         version: 5.51.11(react@18.3.1)
@@ -6371,8 +6371,8 @@ packages:
       - react-dom
       - typescript
 
-  /@mysten/sui@1.14.0(typescript@5.6.2):
-    resolution: {integrity: sha512-dVndFXe1YaiJdNMfO5ZqmcrKxqWaR8TLBd5PT7M3OQeud3wo1EXFSZhT2b2FUsLMa04t+kOYph7kKgqUrfWZyA==}
+  /@mysten/sui@1.14.3(typescript@5.6.2):
+    resolution: {integrity: sha512-5vhOnbSAT/9daMIDPYOp7q9j+6DXqjPAYEJy7ZbR9viBsyAx4UMChCwaLyjoYcJKvhrkDn4LTdDTJEUvpj7TTg==}
     engines: {node: '>=18'}
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.9.0)
