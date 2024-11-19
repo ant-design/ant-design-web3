@@ -79,7 +79,9 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   }
 
   if (needSign) {
-    buttonText = (
+    buttonText = sign?.signBtnTextRender ? (
+      sign?.signBtnTextRender(account.address)
+    ) : (
       <>
         {`${intl.getMessage(intl.messages.sign)}: `}:{buttonText}
       </>

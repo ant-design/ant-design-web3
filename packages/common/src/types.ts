@@ -339,6 +339,7 @@ export interface SignConfig {
   signOut?: () => Promise<void>;
 
   // WIP: optional
+  signBtnTextRender?: (address: string) => React.ReactNode;
   // signOutOnDisconnect?: boolean; // defaults true
   // signOutOnAccountChange?: boolean; // defaults true
   // signOutOnNetworkChange?: boolean; // defaults true

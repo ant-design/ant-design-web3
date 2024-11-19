@@ -8,21 +8,45 @@ import {
   WalletConnect,
 } from '@ant-design/web3-wagmi';
 import { QueryClient } from '@tanstack/react-query';
-import { Space } from 'antd';
+import { Button, Space } from 'antd';
 import { createSiweMessage } from 'viem/siwe';
-import { http } from 'wagmi';
+import { http, useDisconnect } from 'wagmi';
 
 import { getNonce, verifyMessage } from './mock-api';
 
 const queryClient = new QueryClient();
 
+const DisconnectBtn: React.FC = () => {
+  const { disconnect } = useDisconnect();
+  return (
+    <Button
+      onClick={() => {
+        disconnect(undefined, {
+          onError: (e: any) => {
+            console.error(e?.shortMessage || 'Disconnect Failed');
+          },
+        });
+      }}
+      danger
+    >
+      Disconnect
+    </Button>
+  );
+};
+
 const App: React.FC = () => {
+  const renderSignBtnText = (address: string) => {
+    const ellipsisAddress = `${address.slice(0, 6)}...${address.slice(-6)}`;
+    return `Sign in as ${ellipsisAddress}`;
+  };
+
   return (
     <WagmiWeb3ConfigProvider
       siwe={{
         getNonce,
         createMessage: (props) => createSiweMessage({ ...props, statement: 'Ant Design Web3' }),
-        verifyMessage: verifyMessage,
+        verifyMessage,
+        signBtnTextRender: renderSignBtnText,
       }}
       eip6963={{
         autoAddInjectedWallets: true,
@@ -53,6 +77,7 @@ const App: React.FC = () => {
         >
           <ConnectButton />
         </Connector>
+        <DisconnectBtn />
       </Space>
     </WagmiWeb3ConfigProvider>
   );

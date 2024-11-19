@@ -243,6 +243,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       account={account}
       sign={{
         signIn,
+        signBtnTextRender: siwe?.signBtnTextRender,
       }}
       balance={
         balance
