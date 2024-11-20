@@ -130,13 +130,13 @@
     "antd-token-previewer-web3": "^2.0.8",
     "cross-env": "^7.0.3",
     "decimal.js": "^10.4.3",
-    "dumi": "^2.4.12",
+    "dumi": "^2.4.13",
     "dumi-theme-antd-web3": "0.4.3",
     "ethers": "^6.13.4",
     "github-contributors-lists": "^1.0.3",
-    "react": "18.3.1",
+    "react": "18.3.0-canary-c3048aab4-20240326",
     "react-copy-to-clipboard": "^5.1.0",
-    "react-dom": "18.3.1",
+    "react-dom": "18.3.0-canary-c3048aab4-20240326",
     "viem": "^2.21.3",
     "wagmi": "^2.12.13"
   }

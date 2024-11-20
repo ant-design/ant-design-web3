@@ -52,6 +52,12 @@ export default defineConfig({
     gtag('config', 'G-C31HWEY1D4');
     `,
   ],
+  ssr: {
+    // for improve seo
+    // 需要使用 React 18.3.0-canary-c3048aab4-20240326 版本，因为 umi 是基于整个 HTML 做的水合，在 18.3.1 版本有 bug，会导致浏览器插件的内容影响水合
+    // config useStream to false, 否则会导致 html 不是直接插入到 root 中的
+    useStream: false,
+  },
   mfsu: false,
   alias,
   metas: [

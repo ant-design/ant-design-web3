@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { theme as antdTheme, ConfigProvider, type ThemeConfig } from 'antd';
-import { ThemeProvider, useTheme, type ThemeProviderProps } from 'antd-style';
+import { ThemeProvider, type ThemeProviderProps } from 'antd-style';
 
 interface NewToken {
   bannerHeight: number;
