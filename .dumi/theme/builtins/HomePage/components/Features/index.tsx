@@ -53,7 +53,7 @@ export const Features: React.FC = () => {
     <div className={styles.container} style={themeStyle}>
       {features.map((feature) => (
         <div className={styles.item} key={feature.title}>
-          <div className={styles.title}>{feature.title}</div>
+          <h2 className={styles.title}>{feature.title}</h2>
           <div className={styles.desc}>{feature.description}</div>
           <img className={styles.preview} src={feature.preview} alt={feature.title} />
         </div>

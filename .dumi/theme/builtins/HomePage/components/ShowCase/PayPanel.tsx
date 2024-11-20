@@ -19,7 +19,7 @@ const GasRender: React.FC = () => {
   ];
   return (
     <div className={styles.cardBg}>
-      <span className={styles.title}>Pay Panel</span>
+      <h3 className={styles.title}>Pay Panel</h3>
       <Card style={{ maxWidth: 400 }}>
         <PayPanel
           target={{

@@ -25,7 +25,7 @@ export const ShowCase: React.FC = () => {
 
   return (
     <div className={styles.container} style={themeStyle}>
-      <h3 className={styles.headTitle}>{intl.formatMessage({ id: 'app.docs.site.case.title' })}</h3>
+      <h2 className={styles.headTitle}>{intl.formatMessage({ id: 'app.docs.site.case.title' })}</h2>
       <div className={styles.desc}>
         {intl.formatMessage({ id: 'app.docs.site.case.description' })}
       </div>
