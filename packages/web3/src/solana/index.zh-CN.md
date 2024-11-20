@@ -79,7 +79,7 @@ TipLink 是一个轻量级的钱包。我们通过内置的 TipLinkWallet 对其
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | rpcProvider | 连接节点的 RPC 提供商 | (chain?: [Chain](./types#chain)) => string | - | - |
-| connectionConfig | 连接节点的配置 | [ConnectionConfig](https://solana-labs.github.io/solana-web3.js/types/ConnectionConfig.html) | - | - |
+| connectionConfig | 连接节点的配置 | [ConnectionConfig](https://solana-labs.github.io/solana-web3.js/v1.x/types/ConnectionConfig.html) | - | - |
 | balance | 是否显示余额 | `boolean` | - | - |
 | chains | 可用的链 | SolanaChainConfig\[\] | - | - |
 | wallets | 可用的钱包 | WalletFactory\[\] | - | - |
