@@ -38,7 +38,7 @@ const App: React.FC = () => {
 
   return (
     <div className={styles.cardBg}>
-      <span className={styles.title}>Crypto Input</span>
+      <h3 className={styles.title}>Crypto Input</h3>
       <Card>
         <Flex vertical align="center" style={{ maxWidth: 400 }} gap={16}>
           <CryptoInput
