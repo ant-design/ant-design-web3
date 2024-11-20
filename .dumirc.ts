@@ -58,7 +58,7 @@ export default defineConfig({
     {
       name: 'keywords',
       content:
-        'Ethereum, Solana, Ton, Sui, Bitcoin, web3, Ant Design Web3, Ant Design, antd, dapp, frontend, components, react, ui kit, Connect Wallet',
+        'Ethereum, Solana, Ton, Sui, Bitcoin, web3, Ant Design Web3, Ant Design, antd, dapp, frontend, components, react, ui kit, Connect Wallet, web3 icons',
     },
     { name: 'description', content: 'A Components for Web3, Based on Ant Design.' },
     {
