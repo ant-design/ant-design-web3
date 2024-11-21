@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  ConfigContext,
-  ConnectButtonStatus,
-  ConnectModal,
-  type ConnectModalActionType,
-} from '@ant-design/web3';
+import { ConnectModal, type ConnectModalActionType } from '@ant-design/web3';
 import type { Chain, ConnectOptions, ConnectorTriggerProps, Wallet } from '@ant-design/web3-common';
 import { message } from 'antd';
 
@@ -32,17 +27,13 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     switchChain,
     balance,
     addressPrefix,
+    sign,
   } = useProvider(props);
   const [open, setOpen] = React.useState(false);
   const [connecting, setConnecting] = React.useState(false);
   const [defaultSelectedWallet, setDefaultSelectedWallet] = React.useState<Wallet>();
   const actionRef = React.useRef<ConnectModalActionType>();
   const [messageApi, contextHolder] = message.useMessage();
-
-  const { sign } = React.useContext(ConfigContext);
-  const [connectStatus, setConnectStatus] = React.useState<ConnectButtonStatus>(
-    ConnectButtonStatus.Disconnected,
-  );
 
   const connectWallet = async (wallet?: Wallet, options?: ConnectOptions) => {
     onConnect?.();
@@ -53,10 +44,8 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       }
       const connectedAccount = await connect?.(wallet, options);
       onConnected?.(connectedAccount ? connectedAccount : undefined);
-      setConnectStatus(ConnectButtonStatus.Connected);
       if (sign?.signIn && connectedAccount?.address) {
         await sign.signIn(connectedAccount?.address, chain?.id);
-        setConnectStatus(ConnectButtonStatus.Signed);
       }
       setOpen(false);
     } catch (e: any) {
@@ -118,9 +107,8 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         availableChains,
         availableWallets,
         chain,
-        connectStatus,
         addressPrefix,
-        onConnectStatusChange: setConnectStatus,
+        sign,
         onSwitchChain: async (c: Chain) => {
           await switchChain?.(c);
           onChainSwitched?.(c);

@@ -46,7 +46,6 @@ const App: React.FC = () => {
         getNonce,
         createMessage: (props) => createSiweMessage({ ...props, statement: 'Ant Design Web3' }),
         verifyMessage,
-        signBtnTextRender: renderSignBtnText,
       }}
       eip6963={{
         autoAddInjectedWallets: true,
@@ -75,7 +74,7 @@ const App: React.FC = () => {
             mode: 'simple',
           }}
         >
-          <ConnectButton />
+          <ConnectButton signBtnTextRender={renderSignBtnText} />
         </Connector>
         <DisconnectBtn />
       </Space>

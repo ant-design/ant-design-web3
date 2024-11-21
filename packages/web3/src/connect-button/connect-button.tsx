@@ -1,6 +1,6 @@
 import React, { useContext, useMemo, useState } from 'react';
 import { CopyOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
-import { ConfigContext, type Chain, type Wallet } from '@ant-design/web3-common';
+import { ConnectStatus, type Chain, type Wallet } from '@ant-design/web3-common';
 import type { ButtonProps } from 'antd';
 import { Avatar, ConfigProvider, Divider, Dropdown, message } from 'antd';
 import classNames from 'classnames';
@@ -14,7 +14,6 @@ import { ChainSelect } from './chain-select';
 import type { ChainSelectProps } from './chain-select';
 import { ConnectButtonInner } from './connect-button-inner';
 import {
-  ConnectButtonStatus,
   type ConnectButtonProps,
   type ConnectButtonTooltipProps,
   type MenuItemType,
@@ -45,8 +44,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     locale,
     quickConnect,
     addressPrefix: addressPrefixProp,
-    connectStatus,
-    onConnectStatusChange,
+    sign,
+    signBtnTextRender,
     ...restProps
   } = props;
   const intl = useIntl('ConnectButton', locale);
@@ -57,11 +56,10 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [messageApi, contextHolder] = message.useMessage();
   const [showMenu, setShowMenu] = useState(false);
-  const { sign } = React.useContext(ConfigContext);
 
-  const needSign = sign?.signIn && connectStatus === 'connected' && account;
+  const needSign = !!(sign?.signIn && account?.status === ConnectStatus.Connected && account);
   let buttonText: React.ReactNode = intl.getMessage(intl.messages.connect);
-
+  console.log(needSign, '##needSign');
   if (account) {
     buttonText =
       account?.name && !balance ? (
@@ -79,8 +77,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   }
 
   if (needSign) {
-    buttonText = sign?.signBtnTextRender ? (
-      sign?.signBtnTextRender(account.address)
+    buttonText = signBtnTextRender ? (
+      signBtnTextRender(account.address)
     ) : (
       <>
         {`${intl.getMessage(intl.messages.sign)}: `}:{buttonText}
@@ -105,7 +103,6 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       try {
         if (needSign) {
           await sign?.signIn?.(account?.address, chain?.id);
-          onConnectStatusChange?.(ConnectButtonStatus.Signed);
         }
       } catch (error: any) {
         messageApi.error(error.message);

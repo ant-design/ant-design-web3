@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ConnectStatus,
   Web3ConfigProvider,
   type Account,
   type Chain,
@@ -58,7 +59,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     useWalletConnectOfficialModal,
     siwe,
   } = props;
-  const { address, isDisconnected, chain } = useAccount();
+  const { address, isDisconnected, chain, addresses } = useAccount();
   const config = useConfig();
   const { connectAsync } = useConnect();
   const { switchChain } = useSwitchChain();
@@ -67,12 +68,20 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   const { data: ensAvatar } = useEnsAvatar({ name: ensName ?? undefined });
   const { signMessageAsync } = useSignMessage();
 
+  const [status, setStatus] = React.useState<ConnectStatus>(ConnectStatus.Disconnected);
+
+  React.useEffect(() => {
+    setStatus(isDisconnected ? ConnectStatus.Disconnected : ConnectStatus.Connected);
+  }, [isDisconnected]);
+
   const account: Account | undefined =
     address && !isDisconnected
       ? {
           address,
           name: ensName && ens ? ensName : undefined,
           avatar: ensAvatar ?? undefined,
+          addresses,
+          status: status,
         }
       : undefined;
 
@@ -228,6 +237,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         signature = await signMessageAsync({ message: msg });
         console.log('get signature', signature);
         await verifyMessage(msg!, signature!);
+        setStatus(ConnectStatus.Signed);
       } catch (error: any) {
         throw new Error(error.message);
       }
@@ -241,10 +251,11 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       availableChains={chainList}
       chain={currentChain}
       account={account}
-      sign={{
-        signIn,
-        signBtnTextRender: siwe?.signBtnTextRender,
-      }}
+      sign={
+        siwe && {
+          signIn,
+        }
+      }
       balance={
         balance
           ? {

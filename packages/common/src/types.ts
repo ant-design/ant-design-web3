@@ -1,8 +1,15 @@
+export const enum ConnectStatus {
+  Connected = 'connected',
+  Disconnected = 'disconnected',
+  Signed = 'signed',
+}
+
 export interface Account {
   address: string;
   name?: string;
   avatar?: string;
-  addresses?: readonly [`0x${string}`, ...`0x${string}`[]];
+  addresses?: [`0x${string}`, ...`0x${string}`[]] | readonly `0x${string}`[];
+  status?: ConnectStatus;
 }
 
 export enum ChainIds {
@@ -338,8 +345,6 @@ export interface SignConfig {
   signIn: (address: string, chain?: number) => Promise<void>;
   signOut?: () => Promise<void>;
 
-  // WIP: optional
-  signBtnTextRender?: (address: string) => React.ReactNode;
   // signOutOnDisconnect?: boolean; // defaults true
   // signOutOnAccountChange?: boolean; // defaults true
   // signOutOnNetworkChange?: boolean; // defaults true

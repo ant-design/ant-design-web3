@@ -38,8 +38,6 @@ export interface SIWEConfig {
   createMessage: (args: CreateSiweMessageParameters) => string;
   verifyMessage: (message: string, signature: string) => Promise<boolean>;
 
-  // optional
-  signBtnTextRender?: (address: string) => React.ReactNode;
   // WIP: optional
   // getSession?: () => Promise<SIWESession | null>;
   // signOut?: () => Promise<boolean>;
