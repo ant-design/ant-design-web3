@@ -17,6 +17,7 @@ import type {
   WalletFactory,
 } from '../interface';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
+import SiweConfigProvider from './siwe-provider';
 
 export interface WalletConnectOptions
   extends Pick<
@@ -136,21 +137,22 @@ export function WagmiWeb3ConfigProvider({
   return (
     <WagmiProvider config={wagmiConfig} {...restProps}>
       <QueryClientProvider client={mergedQueryClient}>
-        <AntDesignWeb3ConfigProvider
-          locale={locale}
-          chainAssets={chainAssets}
-          walletFactories={wallets}
-          ens={ens}
-          balance={balance}
-          eip6963={eip6963}
-          wagimConfig={wagmiConfig}
-          siwe={siwe}
-          useWalletConnectOfficialModal={
-            typeof walletConnect === 'object' && walletConnect?.useWalletConnectOfficialModal
-          }
-        >
-          {children}
-        </AntDesignWeb3ConfigProvider>
+        <SiweConfigProvider siwe={siwe}>
+          <AntDesignWeb3ConfigProvider
+            locale={locale}
+            chainAssets={chainAssets}
+            walletFactories={wallets}
+            ens={ens}
+            balance={balance}
+            eip6963={eip6963}
+            wagimConfig={wagmiConfig}
+            useWalletConnectOfficialModal={
+              typeof walletConnect === 'object' && walletConnect?.useWalletConnectOfficialModal
+            }
+          >
+            {children}
+          </AntDesignWeb3ConfigProvider>
+        </SiweConfigProvider>
       </QueryClientProvider>
     </WagmiProvider>
   );

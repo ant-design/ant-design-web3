@@ -7,7 +7,6 @@ import {
   type Locale,
   type Wallet,
 } from '@ant-design/web3-common';
-import { message } from 'antd';
 import type { Config as WagmiConfig } from 'wagmi';
 import {
   useAccount,
@@ -16,11 +15,11 @@ import {
   useConnect,
   useEnsAvatar,
   useEnsName,
-  useSignMessage,
   useSwitchChain,
   type Connector as WagmiConnector,
 } from 'wagmi';
 import { disconnect, getAccount } from 'wagmi/actions';
+import { type SignMessageMutateAsync } from 'wagmi/query';
 
 import type {
   EIP6963Config,
@@ -43,7 +42,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   eip6963?: EIP6963Config;
   wagimConfig: WagmiConfig;
   useWalletConnectOfficialModal?: boolean;
-  siwe?: SIWEConfig;
+  siwe?: SIWEConfig & { signMessage?: SignMessageMutateAsync<unknown> };
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
@@ -66,7 +65,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   const { data: balanceData } = useBalance({ address });
   const { data: ensName } = useEnsName({ address });
   const { data: ensAvatar } = useEnsAvatar({ name: ensName ?? undefined });
-  const { signMessageAsync } = useSignMessage();
 
   const [status, setStatus] = React.useState<ConnectStatus>(ConnectStatus.Disconnected);
 
@@ -234,15 +232,17 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           version: '1',
           chainId: currentChainId ?? Mainnet.id,
         });
-        signature = await signMessageAsync({ message: msg });
-        console.log('get signature', signature);
-        await verifyMessage(msg!, signature!);
-        setStatus(ConnectStatus.Signed);
+        if (siwe?.signMessage) {
+          signature = await siwe?.signMessage?.({ message: msg });
+          console.log('get signature', signature);
+          await verifyMessage(msg!, signature!);
+          setStatus(ConnectStatus.Signed);
+        }
       } catch (error: any) {
         throw new Error(error.message);
       }
     },
-    [siwe, signMessageAsync],
+    [siwe],
   );
 
   return (
