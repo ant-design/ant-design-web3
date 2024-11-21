@@ -59,7 +59,6 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
   const needSign = !!(sign?.signIn && account?.status === ConnectStatus.Connected && account);
   let buttonText: React.ReactNode = intl.getMessage(intl.messages.connect);
-  console.log(needSign, '##needSign');
   if (account) {
     buttonText =
       account?.name && !balance ? (
