@@ -22,10 +22,10 @@ export const ShowCase: React.FC = () => {
   } as React.CSSProperties;
 
   const caseList = [
-    <Connect key="connect" />,
-    <NFTCard key="nftcard" />,
-    <PayPanel key="paypanel" />,
-    <CryptoInput key="cryptoinput" />,
+    <Connect key="Connect" />,
+    <NFTCard key="NFTCard" />,
+    <PayPanel key="PayPanel" />,
+    <CryptoInput key="CryptoInput" />,
   ];
 
   return (
