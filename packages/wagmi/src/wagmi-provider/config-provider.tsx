@@ -42,7 +42,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   eip6963?: EIP6963Config;
   wagimConfig: WagmiConfig;
   useWalletConnectOfficialModal?: boolean;
-  siwe?: SIWEConfig & { signMessage?: SignMessageMutateAsync<unknown> };
+  siwe?: SIWEConfig & { signMessage: SignMessageMutateAsync<unknown> };
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
@@ -209,20 +209,12 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     async (signAddress: string, currentChainId?: number) => {
       if (!siwe) return;
       const { getNonce, createMessage, verifyMessage } = siwe;
-      if (!signAddress) {
-        throw new Error('Please connect wallet first.');
-      }
-
-      // get nonce
-      const nonce = await getNonce?.(signAddress);
-      if (!nonce) {
-        throw new Error('Failed to get nonce.');
-      }
-
       let msg: string;
       let signature: `0x${string}`;
 
       try {
+        // get nonce
+        const nonce = await getNonce?.(signAddress);
         msg = createMessage({
           domain: window.location.hostname,
           address: signAddress as `0x${string}`,

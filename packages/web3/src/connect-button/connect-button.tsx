@@ -80,7 +80,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       signBtnTextRender(account.address)
     ) : (
       <>
-        {`${intl.getMessage(intl.messages.sign)}: `}:{buttonText}
+        {`${intl.getMessage(intl.messages.sign)}: `}
+        {buttonText}
       </>
     );
   }
