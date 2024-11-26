@@ -26,7 +26,7 @@
     "dev": "dumi dev",
     "dev:lib": "pnpm run --parallel --if-present --recursive --filter \"@ant-design/*\" dev",
     "build": "pnpm run --if-present --recursive --filter \"@ant-design/*\" build",
-    "build:docs": "dumi build",
+    "build:docs": "pnpm i react@18.3.0-canary-c3048aab4-20240326 react-dom@18.3.0-canary-c3048aab4-20240326 && dumi build",
     "example:ethers": "pnpm run --filter \"@example/ethers\" dev",
     "example:ethers-v5": "pnpm run --filter \"@example/ethers-v5\" dev",
     "example:eth-web3js": "pnpm run --filter \"@example/eth-web3js\" dev",
@@ -134,9 +134,9 @@
     "dumi-theme-antd-web3": "0.4.3",
     "ethers": "^6.13.4",
     "github-contributors-lists": "^1.0.3",
-    "react": "18.3.0-canary-c3048aab4-20240326",
+    "react": "18.3.1",
     "react-copy-to-clipboard": "^5.1.0",
-    "react-dom": "18.3.0-canary-c3048aab4-20240326",
+    "react-dom": "18.3.1",
     "viem": "^2.21.3",
     "wagmi": "^2.12.13"
   }

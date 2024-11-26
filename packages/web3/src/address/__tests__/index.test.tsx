@@ -1,7 +1,10 @@
+import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Address } from '..';
+
+console.log(`get React version: ${React.version}`);
 
 describe('Address', () => {
   it('mount correctly', () => {
