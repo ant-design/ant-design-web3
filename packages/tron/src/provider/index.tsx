@@ -5,7 +5,6 @@ import { WalletProvider } from '@tronweb3/tronwallet-adapter-react-hooks';
 import {
   BitKeepAdapter,
   BybitWalletAdapter,
-  LedgerAdapter,
   OkxWalletAdapter,
   TronLinkAdapter,
 } from '@tronweb3/tronwallet-adapters';
@@ -29,13 +28,10 @@ export const TronWeb3ConfigProvider: React.FC<PropsWithChildren<TronWeb3ConfigPr
   const [connectionError, setConnectionError] = useState<WalletError>();
   const adapters = useMemo(function () {
     const tronLinkAdapter = new TronLinkAdapter();
-    const ledger = new LedgerAdapter({
-      accountNumber: 2,
-    });
     const bitKeepAdapter = new BitKeepAdapter();
     const okxwalletAdapter = new OkxWalletAdapter();
     const bybitWalletAdapter = new BybitWalletAdapter();
-    return [tronLinkAdapter, bitKeepAdapter, okxwalletAdapter, bybitWalletAdapter, ledger];
+    return [tronLinkAdapter, bitKeepAdapter, okxwalletAdapter, bybitWalletAdapter];
   }, []);
 
   return (
