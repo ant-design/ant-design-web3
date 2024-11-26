@@ -1,6 +1,7 @@
 node_modules
 coverage
 dist
+/server
 
 .umi
 .umi-test

@@ -53,7 +53,7 @@ export default defineConfig({
     `,
   ],
   ssr:
-    process.env.NODE_ENV === 'production'
+    process.env.SSR || process.env.NODE_ENV === 'production'
       ? {
           // for improve seo
           // 需要使用 React 18.3.0-canary-c3048aab4-20240326 版本，因为 umi 是基于整个 HTML 做的水合，在 18.3.1 版本有 bug，会导致浏览器插件的内容影响水合
