@@ -2,7 +2,7 @@ import { ConnectButton, Connector } from '@ant-design/web3';
 import { OkxTronWallet, TronlinkWallet, TronWeb3ConfigProvider } from '@ant-design/web3-tron';
 import { Flex } from 'antd';
 
-import { SignMessage } from './components/signMessage';
+import { SignMessage } from './components/message';
 
 const Message = () => {
   return (
