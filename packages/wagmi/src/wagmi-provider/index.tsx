@@ -2,7 +2,7 @@ import React from 'react';
 import type { Locale } from '@ant-design/web3-common';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { Transport, Chain as WagmiChain } from 'viem';
-import { createConfig, http, WagmiProvider } from 'wagmi';
+import { createConfig, http, useReadContract, WagmiProvider } from 'wagmi';
 import type { Config, State } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { walletConnect as wagmiWalletConnect } from 'wagmi/connectors';
@@ -26,6 +26,24 @@ export interface WalletConnectOptions
   > {
   useWalletConnectOfficialModal?: boolean;
 }
+
+const CallTest = () => {
+  const result = useReadContract({
+    abi: [
+      {
+        type: 'function',
+        name: 'balanceOf',
+        stateMutability: 'view',
+        outputs: [{ type: 'uint256' }],
+      },
+    ],
+    address: '0x12313',
+    functionName: 'balanceOf',
+    args: [],
+  });
+
+  return <div>xxx</div>;
+};
 
 export type WagmiWeb3ConfigProviderProps = {
   config?: Config;
@@ -142,6 +160,7 @@ export function WagmiWeb3ConfigProvider({
             typeof walletConnect === 'object' && walletConnect?.useWalletConnectOfficialModal
           }
         >
+          <CallTest />
           {children}
         </AntDesignWeb3ConfigProvider>
       </QueryClientProvider>

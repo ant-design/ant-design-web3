@@ -38,7 +38,7 @@ export default function App() {
         domain: window.location.hostname,
         address,
         statement: 'Sign in with Ethereum',
-        uri: window.location.origin,
+        uri: typeof window !== 'undefined' ? window.location.origin : '',
         version: '1',
         chainId: Mainnet.id,
         nonce,
