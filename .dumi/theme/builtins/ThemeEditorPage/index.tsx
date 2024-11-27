@@ -14,7 +14,13 @@ const ANT_DESIGN_WEB3_CUSTOM_THEME = 'ant-design-web3-custom-theme';
 const ThemeEditorPage: React.FC = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const initialThemeConfigRef = React.useRef(
-    parseThemeConfig(JSON.parse(localStorage.getItem(ANT_DESIGN_WEB3_CUSTOM_THEME) || '{}')),
+    parseThemeConfig(
+      JSON.parse(
+        (typeof localStorage !== 'undefined' &&
+          localStorage.getItem(ANT_DESIGN_WEB3_CUSTOM_THEME)) ||
+          '{}',
+      ),
+    ),
   );
   const locale = useLocale();
   const token = useTheme();
