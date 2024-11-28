@@ -5,16 +5,10 @@ import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persist
 import { QueryClient } from '@tanstack/react-query';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      gcTime: 1_000 * 60 * 60 * 24, // 24 hours
-    },
-  },
-});
+const queryClient = new QueryClient();
 
 const persister = createSyncStoragePersister({
-  storage: window.localStorage,
+  storage: typeof window !== 'undefined' ? window.localStorage : undefined,
 });
 
 const App: React.FC = () => {

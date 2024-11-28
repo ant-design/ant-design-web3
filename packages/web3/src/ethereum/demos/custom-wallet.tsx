@@ -30,7 +30,7 @@ const App: React.FC = () => {
                 return {
                   id: 'testWallet',
                   name: 'TestWallet',
-                  provider: window.ethereum,
+                  provider: typeof window !== 'undefined' && window.ethereum,
                 };
               },
             });

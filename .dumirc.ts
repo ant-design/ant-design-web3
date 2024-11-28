@@ -1,6 +1,8 @@
 import { existsSync, readdirSync } from 'fs';
-import { join } from 'path';
+import { join, resolve } from 'path';
 import { defineConfig } from 'dumi';
+
+const openSSR = process.env.SSR || process.env.NODE_ENV === 'production';
 
 // utils must build before core
 // runtime must build before renderer-react
@@ -34,7 +36,14 @@ const alias = pkgList.reduce(
 
     return pre;
   },
-  {} as Record<string, string>,
+  (openSSR
+    ? {
+        // 打开 SSR 的情况下需要配置 wagmi 的别名，因为安装了 18.3.0-canary-c3048aab4-20240326 版本的 react 会导致文档 demo 和 packages 中依赖不同版本的 wagmi（pnpm 的包管理机制的原因），导致出现类似下面这样的错误
+        // `useConfig` must be used within `WagmiProvider`. Docs: https://wagmi.sh/react/api/WagmiProvider.html Version: wagmi@2.12.13
+        wagmi: resolve('./node_modules/wagmi'),
+        '@tanstack/react-query': resolve('./node_modules/@tanstack/react-query'),
+      }
+    : {}) as Record<string, string>,
 );
 
 export default defineConfig({
@@ -52,6 +61,16 @@ export default defineConfig({
     gtag('config', 'G-C31HWEY1D4');
     `,
   ],
+  ssr: openSSR
+    ? {
+        // for improve seo
+        // 需要使用 React 18.3.0-canary-c3048aab4-20240326 版本，因为 umi 是基于整个 HTML 做的水合，在 18.3.1 版本有 bug，会导致浏览器插件的内容影响水合
+        // 在 pnpm run build:docs 修改 react 版本，不能在依赖中直接修改，一方面是为了组件开发环境尽可能和用户环境一致，另外一方面是为了避免 vitest 使用多个版本的 React 情况下报错
+        // config useStream to false, 否则会导致 html 不是直接插入到 root 中的
+        // 本地开发关闭 SSR，因为本地使用的是 18.3.1 版本，打开会因为水合失败报错，如果要调试，可以临时安装 React 18.3.0-canary-c3048aab4-20240326 版本，然后打开 ssr 调试
+        useStream: false,
+      }
+    : false,
   mfsu: false,
   alias,
   metas: [

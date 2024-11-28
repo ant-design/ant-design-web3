@@ -4,12 +4,12 @@ import classNames from 'classnames';
 import { usePrefersColor } from 'dumi';
 import SiteContext from 'dumi-theme-antd-web3/dist/slots/SiteContext';
 
-import { Banner } from './components/Banner';
-import { Features } from './components/Features';
-import { ShowCase } from './components/ShowCase';
-import { Theme } from './components/Theme';
-import { FullTheme, themes } from './components/Theme/components/Thumbnail';
-import { ThemeContext } from './components/ThemeContext';
+import { Banner } from '../../components/Banner';
+import { Features } from '../../components/Features';
+import { ShowCase } from '../../components/ShowCase';
+import { Theme } from '../../components/Theme';
+import { FullTheme, themes } from '../../components/Theme/components/Thumbnail';
+import { ThemeContext } from '../../components/ThemeContext';
 import styles from './index.module.less';
 
 export const HomePage: React.FC = () => {
