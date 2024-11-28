@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  solanaDevnet,
-  SolanaWeb3ConfigProvider,
-  useConnection,
-  useWallet,
-} from '@ant-design/web3-solana';
+import { solanaDevnet, SolanaWeb3ConfigProvider } from '@ant-design/web3-solana';
 
 import MemoTx from './solana-memo-call';
 
