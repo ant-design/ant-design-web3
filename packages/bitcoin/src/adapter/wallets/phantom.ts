@@ -1,0 +1,92 @@
+import type { Account } from '@ant-design/web3-common';
+import { fromHex, fromUtf8, toBase64, toHex } from 'uint8array-tools';
+
+import { NoAddressError, NoProviderError } from '../../error';
+import type { SignPsbtParams } from '../../types';
+import type { BitcoinWallet } from '../useBitcoinWallet';
+
+/**
+ * @link https://docs.phantom.app/bitcoin/provider-api-reference#options-parameters
+ */
+type PhantomSignPsbtOptions = {
+  sigHash?: number | undefined;
+  address: string;
+  signingIndexes: number[];
+}[];
+
+export class PhantomBitcoinWallet implements BitcoinWallet {
+  name: string;
+  provider?: any;
+  account?: Account;
+
+  constructor(name: string) {
+    this.name = name;
+    this.provider = window.phantom?.bitcoin;
+    this.account = undefined;
+  }
+
+  connect = async () => {
+    if (!this.provider) {
+      throw new NoProviderError();
+    }
+
+    try {
+      const accounts = await this.provider.requestAccounts();
+      this.account = { address: accounts[0].address };
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  signMessage = async (message: string) => {
+    if (!this.provider) {
+      throw new NoProviderError();
+    }
+
+    if (!this.account?.address) {
+      throw new NoAddressError();
+    }
+
+    const { signature } = await this.provider.signMessage(this.account.address, fromUtf8(message));
+
+    return toBase64(signature);
+  };
+
+  signPsbt = async ({ psbt, options = {} }: SignPsbtParams) => {
+    if (!this.provider) {
+      throw new NoProviderError();
+    }
+
+    if (!this.account?.address) {
+      throw new NoAddressError();
+    }
+
+    const serializedPsbt = fromHex(psbt);
+
+    const {
+      // Phantom not support
+      // eslint-disable-next-line unused-imports/no-unused-vars
+      broadcast,
+      signInputs,
+      signHash,
+    } = options;
+    const inputsToSign: PhantomSignPsbtOptions = [];
+
+    if (signInputs) {
+      for (const address in signInputs) {
+        inputsToSign.push({
+          sigHash: signHash,
+          address,
+          signingIndexes: signInputs[address],
+        });
+      }
+    }
+
+    const signedPsbt = await this.provider.signPSBT(serializedPsbt, { inputsToSign });
+    const hexPsbt = toHex(signedPsbt);
+
+    return {
+      psbt: hexPsbt,
+    };
+  };
+}
