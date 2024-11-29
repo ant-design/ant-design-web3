@@ -23,6 +23,8 @@ The wallets currently supported are as follows, and we also welcome you to submi
 
 ## SignMessage / SignPsbt
 
+> Phantom currently only provides partial support for PSBT, please test it fully before using it.
+
 <code src="./demos/sign.tsx"></code>
 
 ## SendTransfer
