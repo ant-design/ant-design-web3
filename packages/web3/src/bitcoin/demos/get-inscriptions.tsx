@@ -3,6 +3,7 @@ import { ConnectButton, Connector, NFTImage } from '@ant-design/web3';
 import {
   BitcoinWeb3ConfigProvider,
   OkxWallet,
+  PhantomWallet,
   UnisatWallet,
   useBitcoinWallet,
   XverseWallet,
@@ -22,11 +23,6 @@ const GetInscriptions: React.FC = () => {
     <Space direction="vertical">
       <Button
         onClick={async () => {
-          if (!getInscriptions) {
-            message.info('getInscriptions not supported');
-            return;
-          }
-
           try {
             const res = await getInscriptions();
             const { total, list } = res;
@@ -57,7 +53,9 @@ const GetInscriptions: React.FC = () => {
  */
 const App: React.FC = () => {
   return (
-    <BitcoinWeb3ConfigProvider wallets={[UnisatWallet(), XverseWallet(), OkxWallet()]}>
+    <BitcoinWeb3ConfigProvider
+      wallets={[UnisatWallet(), XverseWallet(), OkxWallet(), PhantomWallet()]}
+    >
       <Space direction="vertical">
         <Connector>
           <ConnectButton />

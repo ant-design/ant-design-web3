@@ -2,8 +2,8 @@ import type { Account } from '@ant-design/web3-common';
 import { fromHex, fromUtf8, toBase64, toHex } from 'uint8array-tools';
 
 import { NoAddressError, NoProviderError } from '../../error';
-import { getBalanceByMempool } from '../../helpers';
-import type { SignPsbtParams } from '../../types';
+import { getBalanceByMempool, getInscriptionsByAddress } from '../../helpers';
+import type { Inscription, SignPsbtParams } from '../../types';
 import type { BitcoinWallet } from '../useBitcoinWallet';
 
 type AccountType = {
@@ -110,5 +110,18 @@ export class PhantomBitcoinWallet implements BitcoinWallet {
     return {
       psbt: hexPsbt,
     };
+  };
+
+  getInscriptions = async (offset = 0, limit = 20) => {
+    if (!this.account?.address) {
+      throw new NoAddressError();
+    }
+
+    const inscriptions = await getInscriptionsByAddress({
+      address: this.account.address,
+      offset,
+      limit,
+    });
+    return inscriptions;
   };
 }
