@@ -24,6 +24,8 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 
 ## 签名 / PSBT
 
+> Phantom 目前仅对 PSBT 提供部分支持，使用之前请充分测试。
+
 <code src="./demos/sign.tsx"></code>
 
 ## 发送交易
