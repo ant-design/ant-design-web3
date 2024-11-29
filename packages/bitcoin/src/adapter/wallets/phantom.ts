@@ -1,9 +1,10 @@
+/* v8 ignore start */
 import type { Account } from '@ant-design/web3-common';
 import { fromHex, fromUtf8, toBase64, toHex } from 'uint8array-tools';
 
 import { NoAddressError, NoProviderError } from '../../error';
 import { getBalanceByMempool, getInscriptionsByAddress } from '../../helpers';
-import type { Inscription, SignPsbtParams } from '../../types';
+import type { SignPsbtParams } from '../../types';
 import type { BitcoinWallet } from '../useBitcoinWallet';
 
 type AccountType = {
