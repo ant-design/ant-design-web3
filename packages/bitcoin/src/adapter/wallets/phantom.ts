@@ -65,7 +65,7 @@ export class PhantomBitcoinWallet implements BitcoinWallet {
 
     const {
       // Phantom not support
-      // eslint-disable-next-line unused-imports/no-unused-vars
+      // eslint-disable-next-line unused-imports/no-unused-vars, @typescript-eslint/no-unused-vars
       broadcast,
       signInputs,
       signHash,
