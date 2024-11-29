@@ -2,8 +2,16 @@ import type { Account } from '@ant-design/web3-common';
 import { fromHex, fromUtf8, toBase64, toHex } from 'uint8array-tools';
 
 import { NoAddressError, NoProviderError } from '../../error';
+import { getBalanceByMempool } from '../../helpers';
 import type { SignPsbtParams } from '../../types';
 import type { BitcoinWallet } from '../useBitcoinWallet';
+
+type AccountType = {
+  address: string;
+  addressType: string;
+  publicKey: string;
+  purpose: string;
+};
 
 /**
  * @link https://docs.phantom.app/bitcoin/provider-api-reference#options-parameters
@@ -18,6 +26,7 @@ export class PhantomBitcoinWallet implements BitcoinWallet {
   name: string;
   provider?: any;
   account?: Account;
+  payment?: string;
 
   constructor(name: string) {
     this.name = name;
@@ -31,11 +40,24 @@ export class PhantomBitcoinWallet implements BitcoinWallet {
     }
 
     try {
-      const accounts = await this.provider.requestAccounts();
-      this.account = { address: accounts[0].address };
+      const accounts: AccountType[] = await this.provider.requestAccounts();
+      const ordinals = accounts.find((acc) => acc.purpose === 'ordinals');
+      const payment = accounts.find((acc) => acc.purpose === 'payment');
+
+      this.account = ordinals ? { address: ordinals.address } : undefined;
+      this.payment = payment?.address;
     } catch (error) {
       throw error;
     }
+  };
+
+  getBalance = async () => {
+    if (!this.payment) {
+      throw new NoAddressError();
+    }
+
+    const balance = await getBalanceByMempool(this.payment);
+    return balance;
   };
 
   signMessage = async (message: string) => {
