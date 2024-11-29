@@ -15,6 +15,7 @@ The wallets currently supported are as follows, and we also welcome you to submi
 - [Xverse](https://docs.xverse.app/sats-connect)
 - [OKX](https://www.okx.com/web3/build/docs/sdks/chains/bitcoin/provider)
 - [Unisat](https://docs.unisat.io/dev/unisat-developer-service/unisat-wallet)
+- [Phantom](https://docs.phantom.app/bitcoin/integrating-phantom)
 
 ## WalletConnect
 
