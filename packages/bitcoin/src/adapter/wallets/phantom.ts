@@ -9,7 +9,7 @@ import type { BitcoinWallet } from '../useBitcoinWallet';
  * @link https://docs.phantom.app/bitcoin/provider-api-reference#options-parameters
  */
 type PhantomSignPsbtOptions = {
-  sigHash?: number | undefined;
+  sigHash?: number;
   address: string;
   signingIndexes: number[];
 }[];
