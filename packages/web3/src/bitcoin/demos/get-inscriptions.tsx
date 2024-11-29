@@ -22,6 +22,11 @@ const GetInscriptions: React.FC = () => {
     <Space direction="vertical">
       <Button
         onClick={async () => {
+          if (!getInscriptions) {
+            message.info('getInscriptions not supported');
+            return;
+          }
+
           try {
             const res = await getInscriptions();
             const { total, list } = res;
