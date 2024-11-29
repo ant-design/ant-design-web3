@@ -2,6 +2,7 @@ declare interface Window {
   unisat?: Unisat.Provider;
   // TODO: 与其他 okx 冲突
   okxwallet?: any;
+  phantom?: any;
 }
 
 declare namespace Unisat {
