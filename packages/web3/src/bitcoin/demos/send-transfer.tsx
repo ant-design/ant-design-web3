@@ -20,7 +20,7 @@ const SendBitcoin: React.FC = () => {
       onClick={async () => {
         try {
           // Don't send in main network!!
-          await sendTransfer({
+          await sendTransfer?.({
             to: 'bc1pcdv3h6nuq705e3yk4pvdlqrcfchzvd9se9zwlhke3menvxlc58zshl0ryv',
             sats: 10000,
           });
