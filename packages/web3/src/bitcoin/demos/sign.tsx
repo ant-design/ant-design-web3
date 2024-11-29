@@ -26,11 +26,6 @@ const SignMessage: React.FC = () => {
   return account ? (
     <Button
       onClick={async () => {
-        if (!signMessage) {
-          console.log('sign message not supported');
-          return;
-        }
-
         try {
           const result = await signMessage?.('Hello World!');
           console.log('sign message success!', result);
