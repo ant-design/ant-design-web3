@@ -2,6 +2,7 @@ import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   BitcoinWeb3ConfigProvider,
   OkxWallet,
+  PhantomWallet,
   UnisatWallet,
   XverseWallet,
 } from '@ant-design/web3-bitcoin';
@@ -12,7 +13,9 @@ import {
  */
 const App: React.FC = () => {
   return (
-    <BitcoinWeb3ConfigProvider autoConnect wallets={[XverseWallet(), UnisatWallet(), OkxWallet()]}>
+    <BitcoinWeb3ConfigProvider
+      wallets={[XverseWallet(), UnisatWallet(), OkxWallet(), PhantomWallet()]}
+    >
       <Connector
         modalProps={{
           group: false,
