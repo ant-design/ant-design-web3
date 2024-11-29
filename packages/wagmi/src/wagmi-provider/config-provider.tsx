@@ -21,6 +21,7 @@ import {
 import { disconnect, getAccount } from 'wagmi/actions';
 import { type SignMessageMutateAsync } from 'wagmi/query';
 
+import { Mainnet } from '../chains';
 import type {
   EIP6963Config,
   SIWEConfig,
@@ -30,7 +31,6 @@ import type {
 import { isEIP6963Connector } from '../utils';
 import { EIP6963Wallet } from '../wallets/eip6963';
 import { getNFTMetadata } from './methods';
-import { Mainnet } from '/packages/assets/src';
 
 export interface AntDesignWeb3ConfigProviderProps {
   chainAssets: Chain[];
