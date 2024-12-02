@@ -12,7 +12,7 @@ import {
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 
 export interface TronWeb3ConfigProviderProps {
-  wallets?: Wallet[];
+  wallets: Wallet[];
   onError?: (error: Error) => void;
   autoConnect?: boolean;
   locale?: Locale;
