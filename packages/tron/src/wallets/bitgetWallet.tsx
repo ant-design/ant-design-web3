@@ -1,6 +1,7 @@
+import type { WalletMetadata } from '@ant-design/web3-common';
 import { BitgetWalletColorful, ChromeCircleColorful } from '@ant-design/web3-icons';
 
-export const BitgetWallet = {
+export const BitgetWallet: WalletMetadata = {
   icon: <BitgetWalletColorful />,
   name: 'Bitget',
   remark: 'Bitget',

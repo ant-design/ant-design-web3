@@ -1,6 +1,7 @@
+import type { WalletMetadata } from '@ant-design/web3-common';
 import { ChromeCircleColorful, TronlinkColorful } from '@ant-design/web3-icons';
 
-export const TronlinkWallet = {
+export const TronlinkWallet: WalletMetadata = {
   icon: <TronlinkColorful />,
   name: 'TronLink',
   remark: 'TronLink',
