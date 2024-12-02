@@ -206,15 +206,14 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   );
 
   const signIn = React.useCallback(
-    async (signAddress: string, currentChainId?: number) => {
-      if (!siwe) return;
-      const { getNonce, createMessage, verifyMessage } = siwe;
+    async (signAddress: string) => {
+      const { getNonce, createMessage, verifyMessage } = siwe!;
       let msg: string;
       let signature: `0x${string}`;
 
       try {
         // get nonce
-        const nonce = await getNonce?.(signAddress);
+        const nonce = await getNonce(signAddress);
         msg = createMessage({
           domain: window.location.hostname,
           address: signAddress as `0x${string}`,
@@ -222,7 +221,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           nonce,
           // Default config
           version: '1',
-          chainId: currentChainId ?? Mainnet.id,
+          chainId: currentChain?.id ?? Mainnet.id,
         });
         if (siwe?.signMessage) {
           signature = await siwe?.signMessage?.({ message: msg });
@@ -234,7 +233,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         throw new Error(error.message);
       }
     },
-    [siwe],
+    [siwe, currentChain],
   );
 
   return (

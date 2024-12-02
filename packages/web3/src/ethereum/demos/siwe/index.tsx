@@ -3,6 +3,7 @@ import {
   Mainnet,
   MetaMask,
   OkxWallet,
+  Sepolia,
   TokenPocket,
   WagmiWeb3ConfigProvider,
   WalletConnect,
@@ -44,16 +45,18 @@ const App: React.FC = () => {
     <WagmiWeb3ConfigProvider
       siwe={{
         getNonce,
-        createMessage: (props) => createSiweMessage({ ...props, statement: 'Ant Design Web3' }),
+        createMessage: (props) => {
+          return createSiweMessage({ ...props, statement: 'Ant Design Web3' });
+        },
         verifyMessage,
       }}
       eip6963={{
         autoAddInjectedWallets: true,
       }}
       ens
-      chains={[Mainnet]}
+      chains={[Sepolia]}
       transports={{
-        [Mainnet.id]: http(),
+        [Sepolia.id]: http(),
       }}
       walletConnect={{
         projectId: YOUR_WALLET_CONNECT_PROJECT_ID,

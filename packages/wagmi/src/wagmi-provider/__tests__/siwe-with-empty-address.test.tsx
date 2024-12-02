@@ -83,6 +83,10 @@ describe('sign after connect', () => {
           })}
           sign={{ signIn }}
           account={undefined}
+          chain={{
+            id: 2,
+            name: 'custom',
+          }}
         >
           <Connector>
             <CustomButton>Custom</CustomButton>
@@ -98,7 +102,7 @@ describe('sign after connect', () => {
     fireEvent.click(btn);
 
     await waitFor(() => {
-      expect(signIn).toBeCalled();
+      expect(signIn).toBeCalledWith('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
     });
   });
 });

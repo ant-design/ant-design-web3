@@ -342,7 +342,7 @@ export type Token = {
 
 export interface SignConfig {
   // required
-  signIn: (address: string, chain?: number) => Promise<void>;
+  signIn: (address: string) => Promise<void>;
   signOut?: () => Promise<void>;
 
   // signOutOnDisconnect?: boolean; // defaults true

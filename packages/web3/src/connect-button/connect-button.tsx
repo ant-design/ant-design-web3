@@ -102,7 +102,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
       try {
         if (needSign) {
-          await sign?.signIn?.(account?.address, chain?.id);
+          await sign?.signIn?.(account?.address);
         }
       } catch (error: any) {
         messageApi.error(error.message);

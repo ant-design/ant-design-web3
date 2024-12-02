@@ -19,7 +19,9 @@ vi.mock('wagmi', async (importOriginal) => {
     // https://wagmi.sh/react/hooks/useAccount
     useAccount: () => {
       return {
-        chain: mainnet,
+        chain: {
+          name: 'Ethereum',
+        },
         isDisconnected: false,
         address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
       };
@@ -96,8 +98,135 @@ describe('Wagmi siwe sign', () => {
 
     await waitFor(() => {
       expect(getNonce).toBeCalled();
-      expect(createMessage).toBeCalled();
+      expect(createMessage).toBeCalledWith({
+        chainId: 1,
+        address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        nonce: '1',
+        uri: 'http://localhost:3000',
+        domain: 'localhost',
+        version: '1',
+      });
       expect(verifyMessage).toBeCalled();
+    });
+  });
+
+  it('call with diff chainId', async () => {
+    const { createConfig, http } = await import('wagmi');
+
+    const getNonce = vi.fn(async () => '1');
+    const createMessage = vi.fn(() => 'message');
+    const verifyMessage = vi.fn(async () => true);
+
+    const config = createConfig({
+      chains: [
+        {
+          ...mainnet,
+          id: 2,
+        },
+      ],
+      transports: {
+        [2]: http(),
+      },
+      connectors: [],
+    });
+
+    const App = () => (
+      <SiweConfigProvider
+        siwe={{
+          getNonce,
+          createMessage,
+          verifyMessage,
+        }}
+      >
+        <AntDesignWeb3ConfigProvider
+          walletFactories={[MetaMask()]}
+          chainAssets={[
+            {
+              ...Mainnet,
+              id: 2,
+            },
+          ]}
+          wagimConfig={config}
+        >
+          <Connector>
+            <ConnectButton />
+          </Connector>
+        </AntDesignWeb3ConfigProvider>
+      </SiweConfigProvider>
+    );
+    const { baseElement } = render(<App />);
+
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button')!);
+
+    await waitFor(() => {
+      expect(createMessage).toBeCalledWith({
+        chainId: 2,
+        address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        nonce: '1',
+        uri: 'http://localhost:3000',
+        domain: 'localhost',
+        version: '1',
+      });
+    });
+  });
+
+  it('call with no chainId', async () => {
+    const { createConfig, http } = await import('wagmi');
+
+    const getNonce = vi.fn(async () => '1');
+    const createMessage = vi.fn(() => 'message');
+    const verifyMessage = vi.fn(async () => true);
+
+    const config = createConfig({
+      chains: [
+        {
+          ...mainnet,
+          id: undefined as any,
+        },
+      ],
+      transports: {
+        [2]: http(),
+      },
+      connectors: [],
+    });
+
+    const App = () => (
+      <SiweConfigProvider
+        siwe={{
+          getNonce,
+          createMessage,
+          verifyMessage,
+        }}
+      >
+        <AntDesignWeb3ConfigProvider
+          walletFactories={[MetaMask()]}
+          chainAssets={[
+            {
+              ...Mainnet,
+              id: undefined as any,
+            },
+          ]}
+          wagimConfig={config}
+        >
+          <Connector>
+            <ConnectButton />
+          </Connector>
+        </AntDesignWeb3ConfigProvider>
+      </SiweConfigProvider>
+    );
+    const { baseElement } = render(<App />);
+
+    fireEvent.click(baseElement.querySelector('.ant-web3-connect-button')!);
+
+    await waitFor(() => {
+      expect(createMessage).toBeCalledWith({
+        chainId: 1,
+        address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+        nonce: '1',
+        uri: 'http://localhost:3000',
+        domain: 'localhost',
+        version: '1',
+      });
     });
   });
 

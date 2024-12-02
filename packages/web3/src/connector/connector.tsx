@@ -45,7 +45,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       const connectedAccount = await connect?.(wallet, options);
       onConnected?.(connectedAccount ? connectedAccount : undefined);
       if (sign?.signIn && connectedAccount?.address) {
-        await sign.signIn(connectedAccount?.address, chain?.id);
+        await sign.signIn(connectedAccount?.address);
       }
       setOpen(false);
     } catch (e: any) {
