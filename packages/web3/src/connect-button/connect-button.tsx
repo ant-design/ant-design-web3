@@ -21,6 +21,7 @@ import { ConnectButtonTooltip } from './tooltip';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const {
+    showChainSelect = true,
     onConnectClick,
     onDisconnectClick,
     availableChains,
@@ -125,7 +126,9 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   };
 
   const chainSelect =
-    availableChains && availableChains.length > 1 ? <ChainSelect {...chainProps} /> : null;
+    showChainSelect && availableChains && availableChains.length > 1 ? (
+      <ChainSelect {...chainProps} />
+    ) : null;
 
   const buttonInnerText = (
     <div className={`${prefixCls}-content`}>
