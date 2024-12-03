@@ -1,5 +1,18 @@
 # @example/ethers-v5
 
+## 0.0.16
+
+### Patch Changes
+
+- e0db15a: chore: upgrade pnpm version from 8.9.0 to 9.14.4
+- Updated dependencies [e39064b]
+- Updated dependencies [14fae53]
+- Updated dependencies [e0db15a]
+  - @ant-design/web3@1.18.1
+  - @ant-design/web3-assets@1.11.5
+  - @ant-design/web3-common@1.15.1
+  - @ant-design/web3-ethers-v5@1.0.14
+
 ## 0.0.15
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @ant-design/web3-bitcoin
 
+## 1.4.8
+
+### Patch Changes
+
+- e0db15a: chore: upgrade pnpm version from 8.9.0 to 9.14.4
+- Updated dependencies [e0db15a]
+  - @ant-design/web3-common@1.15.1
+  - @ant-design/web3-icons@1.11.2
+
 ## 1.4.7
 
 ### Patch Changes
