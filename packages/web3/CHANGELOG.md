@@ -1,5 +1,17 @@
 # @ant-design/web3
 
+## 1.18.1
+
+### Patch Changes
+
+- e39064b: fix: hide group when only one group
+- e0db15a: chore: upgrade pnpm version from 8.9.0 to 9.14.4
+- Updated dependencies [14fae53]
+- Updated dependencies [e0db15a]
+  - @ant-design/web3-assets@1.11.5
+  - @ant-design/web3-common@1.15.1
+  - @ant-design/web3-icons@1.11.2
+
 ## 1.18.0
 
 ### Minor Changes
