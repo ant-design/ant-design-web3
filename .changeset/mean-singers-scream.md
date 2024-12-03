@@ -16,4 +16,4 @@
 '@ant-design/web3': patch
 ---
 
-chore: update pnpm version
+chore: update pnpm version from 8.9.0 to 9.14.4
