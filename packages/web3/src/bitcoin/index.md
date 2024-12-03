@@ -29,6 +29,8 @@ The wallets currently supported are as follows, and we also welcome you to submi
 
 ## SendTransfer
 
+> If the wallet does not yet support `sendTransfer`, a `NotImplementedError` will be thrown.
+
 <code src="./demos/send-transfer.tsx"></code>
 
 ## GetInscriptions

@@ -30,6 +30,8 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 
 ## 发送交易
 
+> 如果钱包暂未支持 `sendTransfer`，将会抛出 `NotImplementedError`。
+
 <code src="./demos/send-transfer.tsx"></code>
 
 ## 获取铭文信息展示
