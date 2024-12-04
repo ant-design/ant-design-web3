@@ -15,7 +15,7 @@ export default defineConfig({
         exportType: 'default',
       },
       include: ['**/*.svg'],
-    }),
+    }) as any,
   ],
   resolve: {
     alias: isDist
