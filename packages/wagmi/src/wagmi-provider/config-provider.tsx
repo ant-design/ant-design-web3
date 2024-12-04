@@ -216,9 +216,9 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         // get nonce
         const nonce = await getNonce(signAddress);
         msg = createMessage({
-          domain: window.location.hostname,
+          domain: typeof window !== undefined ? window.location.hostname : '',
           address: signAddress as `0x${string}`,
-          uri: window.location.origin,
+          uri: typeof window !== undefined ? window.location.origin : '',
           nonce,
           // Default config
           version: '1',

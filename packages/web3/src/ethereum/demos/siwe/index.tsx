@@ -1,6 +1,5 @@
 import { Account, ConnectButton, Connector } from '@ant-design/web3';
 import {
-  Mainnet,
   MetaMask,
   OkxWallet,
   Sepolia,
