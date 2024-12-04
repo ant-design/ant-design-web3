@@ -288,7 +288,6 @@ describe('Wagmi siwe sign', () => {
           getNonce,
           createMessage,
           verifyMessage,
-          signMessage,
         }}
       >
         <Connector>
@@ -333,7 +332,6 @@ describe('Wagmi siwe sign', () => {
           getNonce,
           createMessage,
           verifyMessage,
-          signMessage,
         }}
       >
         <Connector>

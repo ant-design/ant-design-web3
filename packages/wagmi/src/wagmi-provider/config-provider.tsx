@@ -15,11 +15,11 @@ import {
   useConnect,
   useEnsAvatar,
   useEnsName,
+  useSignMessage,
   useSwitchChain,
   type Connector as WagmiConnector,
 } from 'wagmi';
 import { disconnect, getAccount } from 'wagmi/actions';
-import { type SignMessageMutateAsync } from 'wagmi/query';
 
 import { Mainnet } from '../chains';
 import type {
@@ -42,7 +42,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   eip6963?: EIP6963Config;
   wagimConfig: WagmiConfig;
   useWalletConnectOfficialModal?: boolean;
-  siwe?: SIWEConfig & { signMessage: SignMessageMutateAsync<unknown> };
+  siwe?: SIWEConfig;
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
@@ -65,6 +65,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   const { data: balanceData } = useBalance({ address });
   const { data: ensName } = useEnsName({ address });
   const { data: ensAvatar } = useEnsAvatar({ name: ensName ?? undefined });
+  const { signMessageAsync } = useSignMessage();
 
   const [status, setStatus] = React.useState<ConnectStatus>(ConnectStatus.Disconnected);
 
@@ -223,8 +224,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           version: '1',
           chainId: currentChain?.id ?? Mainnet.id,
         });
-        if (siwe?.signMessage) {
-          signature = await siwe?.signMessage?.({ message: msg });
+        if (signMessageAsync) {
+          signature = await signMessageAsync?.({ message: msg });
           console.log('get signature', signature);
           await verifyMessage(msg!, signature!);
           setStatus(ConnectStatus.Signed);

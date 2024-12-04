@@ -137,22 +137,21 @@ export function WagmiWeb3ConfigProvider({
   return (
     <WagmiProvider config={wagmiConfig} {...restProps}>
       <QueryClientProvider client={mergedQueryClient}>
-        <SiweConfigProvider siwe={siwe}>
-          <AntDesignWeb3ConfigProvider
-            locale={locale}
-            chainAssets={chainAssets}
-            walletFactories={wallets}
-            ens={ens}
-            balance={balance}
-            eip6963={eip6963}
-            wagimConfig={wagmiConfig}
-            useWalletConnectOfficialModal={
-              typeof walletConnect === 'object' && walletConnect?.useWalletConnectOfficialModal
-            }
-          >
-            {children}
-          </AntDesignWeb3ConfigProvider>
-        </SiweConfigProvider>
+        <AntDesignWeb3ConfigProvider
+          locale={locale}
+          siwe={siwe}
+          chainAssets={chainAssets}
+          walletFactories={wallets}
+          ens={ens}
+          balance={balance}
+          eip6963={eip6963}
+          wagimConfig={wagmiConfig}
+          useWalletConnectOfficialModal={
+            typeof walletConnect === 'object' && walletConnect?.useWalletConnectOfficialModal
+          }
+        >
+          {children}
+        </AntDesignWeb3ConfigProvider>
       </QueryClientProvider>
     </WagmiProvider>
   );
