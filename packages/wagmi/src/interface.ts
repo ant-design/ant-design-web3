@@ -37,8 +37,4 @@ export interface SIWEConfig {
   getNonce: (address: string, chainId?: number) => Promise<string>;
   createMessage: (args: CreateSiweMessageParameters) => string;
   verifyMessage: (message: string, signature: string) => Promise<boolean>;
-
-  // WIP: optional
-  // getSession?: () => Promise<SIWESession | null>;
-  // signOut?: () => Promise<boolean>;
 }
