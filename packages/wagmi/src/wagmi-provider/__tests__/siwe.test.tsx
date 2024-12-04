@@ -232,9 +232,8 @@ describe('Wagmi siwe sign', () => {
     });
     const createMessage = vi.fn(() => 'message');
     const verifyMessage = vi.fn(async () => true);
-    const signMessage = vi.fn(async () => 'signMessage' as any);
 
-    const renderText = vi.fn((address: string) => `Custom Sign: ${address}`);
+    const renderText = vi.fn((account) => `Custom Sign: ${account.address}`);
 
     const config = createConfig({
       chains: [mainnet],
@@ -276,9 +275,8 @@ describe('Wagmi siwe sign', () => {
     const getNonce = vi.fn(async () => '1');
     const createMessage = vi.fn(() => 'message');
     const verifyMessage = vi.fn(async () => true);
-    const signMessage = vi.fn(async () => 'signMessage' as any);
 
-    const renderText = vi.fn((address: string) => `Custom Sign: ${address}`);
+    const renderText = () => {};
 
     const config = createConfig({
       chains: [mainnet],
@@ -300,14 +298,22 @@ describe('Wagmi siwe sign', () => {
         }}
       >
         <Connector>
-          <ConnectButton signBtnTextRender={renderText} />
+          <ConnectButton
+            signBtnTextRender={(account, defaultDom) => {
+              return (
+                <div className="custom-text">
+                  {defaultDom} & Custom Sign: {account?.address}
+                </div>
+              );
+            }}
+          />
         </Connector>
       </AntDesignWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
 
     expect(baseElement.querySelector('.ant-web3-connect-button-text')?.textContent).toBe(
-      'Custom Sign: 0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
+      '0x21CD...Fd3B & Custom Sign: 0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
     );
   });
 });
