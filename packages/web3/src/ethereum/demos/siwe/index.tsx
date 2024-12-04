@@ -1,4 +1,4 @@
-import { ConnectButton, Connector } from '@ant-design/web3';
+import { Account, ConnectButton, Connector } from '@ant-design/web3';
 import {
   Mainnet,
   MetaMask,
@@ -36,8 +36,9 @@ const DisconnectBtn: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  const renderSignBtnText = (address: string) => {
-    const ellipsisAddress = `${address.slice(0, 6)}...${address.slice(-6)}`;
+  const renderSignBtnText = (account?: Account) => {
+    const { address } = account ?? {};
+    const ellipsisAddress = address ? `${address.slice(0, 6)}...${address.slice(-6)}` : '';
     return `Sign in as ${ellipsisAddress}`;
   };
 

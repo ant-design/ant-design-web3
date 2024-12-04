@@ -75,17 +75,6 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       );
   }
 
-  if (needSign) {
-    buttonText = signBtnTextRender ? (
-      signBtnTextRender(account.address)
-    ) : (
-      <>
-        {`${intl.getMessage(intl.messages.sign)}: `}
-        {buttonText}
-      </>
-    );
-  }
-
   const buttonProps: ButtonProps = {
     style: props.style,
     size: props.size,
@@ -152,6 +141,17 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
   const chainSelect =
     availableChains && availableChains.length > 1 ? <ChainSelect {...chainProps} /> : null;
+
+  if (needSign) {
+    buttonText = signBtnTextRender ? (
+      signBtnTextRender(account, buttonText)
+    ) : (
+      <>
+        {`${intl.getMessage(intl.messages.sign)}: `}
+        {buttonText}
+      </>
+    );
+  }
 
   const buttonInnerText = (
     <div className={`${prefixCls}-content`}>

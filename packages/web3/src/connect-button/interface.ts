@@ -1,4 +1,4 @@
-import type { ConnectorTriggerProps, Locale, SignConfig } from '@ant-design/web3-common';
+import type { Account, ConnectorTriggerProps, Locale, SignConfig } from '@ant-design/web3-common';
 import type { AvatarProps, ButtonProps, GetProp, MenuProps, TooltipProps } from 'antd';
 
 import type { AddressProps } from '../address';
@@ -25,7 +25,7 @@ export type ConnectButtonProps = ButtonProps &
     locale?: Locale['ConnectButton'];
     avatar?: AvatarProps;
     sign?: SignConfig;
-    signBtnTextRender?: (address: string) => React.ReactNode;
+    signBtnTextRender?: (content: React.ReactNode, account: Account) => React.ReactNode;
     onMenuItemClick?: (e: NonNullable<MenuProps['items']>[number]) => void;
     tooltip?: boolean | ConnectButtonTooltipProps;
     profileModal?: boolean | ProfileModalProps['modalProps'];
