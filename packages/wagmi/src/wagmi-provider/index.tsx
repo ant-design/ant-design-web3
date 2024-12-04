@@ -17,7 +17,6 @@ import type {
   WalletFactory,
 } from '../interface';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
-import SiweConfigProvider from './siwe-provider';
 
 export interface WalletConnectOptions
   extends Pick<

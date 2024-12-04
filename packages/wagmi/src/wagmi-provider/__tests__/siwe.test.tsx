@@ -5,17 +5,15 @@ import { describe, expect, it, vi } from 'vitest';
 import type * as Wagmi from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 
+import { wagmiBaseMock } from '../__mocks__/wagmiBaseMock';
 import { MetaMask } from '../../wallets';
 import { AntDesignWeb3ConfigProvider } from '../config-provider';
-import SiweConfigProvider from '../siwe-provider';
 
 vi.mock('wagmi', async (importOriginal) => {
   const actual = await importOriginal<typeof Wagmi>();
   return {
     ...actual,
-    useConfig: () => {
-      return {};
-    },
+    ...wagmiBaseMock,
     // https://wagmi.sh/react/hooks/useAccount
     useAccount: () => {
       return {
@@ -26,30 +24,6 @@ vi.mock('wagmi', async (importOriginal) => {
         address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
       };
     },
-    useConnect: () => {
-      return {
-        connectors: [],
-        connectAsync: async () => {
-          return {};
-        },
-      };
-    },
-    useDisconnect: () => {
-      return {
-        disconnectAsync: () => {},
-      };
-    },
-    useSwitchChain: () => {
-      return {
-        switchChain: () => {},
-      };
-    },
-    useBalance: () => {
-      return {};
-    },
-    useEnsName: () => ({}),
-    useEnsAvatar: () => ({}),
-    useSignMessage: () => ({ signMessageAsync: async () => 'signMessage' }),
   };
 });
 
@@ -70,23 +44,20 @@ describe('Wagmi siwe sign', () => {
     });
 
     const App = () => (
-      <SiweConfigProvider
+      <AntDesignWeb3ConfigProvider
+        walletFactories={[MetaMask()]}
+        chainAssets={[Mainnet]}
+        wagimConfig={config}
         siwe={{
           getNonce,
           createMessage,
           verifyMessage,
         }}
       >
-        <AntDesignWeb3ConfigProvider
-          walletFactories={[MetaMask()]}
-          chainAssets={[Mainnet]}
-          wagimConfig={config}
-        >
-          <Connector>
-            <ConnectButton />
-          </Connector>
-        </AntDesignWeb3ConfigProvider>
-      </SiweConfigProvider>
+        <Connector>
+          <ConnectButton />
+        </Connector>
+      </AntDesignWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
 
@@ -131,28 +102,25 @@ describe('Wagmi siwe sign', () => {
     });
 
     const App = () => (
-      <SiweConfigProvider
+      <AntDesignWeb3ConfigProvider
         siwe={{
           getNonce,
           createMessage,
           verifyMessage,
         }}
+        walletFactories={[MetaMask()]}
+        chainAssets={[
+          {
+            ...Mainnet,
+            id: 2,
+          },
+        ]}
+        wagimConfig={config}
       >
-        <AntDesignWeb3ConfigProvider
-          walletFactories={[MetaMask()]}
-          chainAssets={[
-            {
-              ...Mainnet,
-              id: 2,
-            },
-          ]}
-          wagimConfig={config}
-        >
-          <Connector>
-            <ConnectButton />
-          </Connector>
-        </AntDesignWeb3ConfigProvider>
-      </SiweConfigProvider>
+        <Connector>
+          <ConnectButton />
+        </Connector>
+      </AntDesignWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
 
@@ -191,28 +159,25 @@ describe('Wagmi siwe sign', () => {
     });
 
     const App = () => (
-      <SiweConfigProvider
+      <AntDesignWeb3ConfigProvider
+        walletFactories={[MetaMask()]}
         siwe={{
           getNonce,
           createMessage,
           verifyMessage,
         }}
+        chainAssets={[
+          {
+            ...Mainnet,
+            id: undefined as any,
+          },
+        ]}
+        wagimConfig={config}
       >
-        <AntDesignWeb3ConfigProvider
-          walletFactories={[MetaMask()]}
-          chainAssets={[
-            {
-              ...Mainnet,
-              id: undefined as any,
-            },
-          ]}
-          wagimConfig={config}
-        >
-          <Connector>
-            <ConnectButton />
-          </Connector>
-        </AntDesignWeb3ConfigProvider>
-      </SiweConfigProvider>
+        <Connector>
+          <ConnectButton />
+        </Connector>
+      </AntDesignWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
 
