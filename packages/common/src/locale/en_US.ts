@@ -8,6 +8,7 @@ const localeValues: RequiredLocale = {
     copied: 'Copied!',
     walletAddress: 'Wallet address',
     moreWallets: 'More Wallets',
+    sign: 'Sign',
   },
   ConnectModal: {
     title: 'Connect Wallet',

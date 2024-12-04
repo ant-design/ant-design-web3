@@ -1,6 +1,6 @@
 import React, { useContext, useMemo, useState } from 'react';
 import { CopyOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
-import type { Chain, Wallet } from '@ant-design/web3-common';
+import { ConnectStatus, type Chain, type Wallet } from '@ant-design/web3-common';
 import type { ButtonProps } from 'antd';
 import { Avatar, ConfigProvider, Divider, Dropdown, message } from 'antd';
 import classNames from 'classnames';
@@ -13,7 +13,11 @@ import { fillWithPrefix, writeCopyText } from '../utils';
 import { ChainSelect } from './chain-select';
 import type { ChainSelectProps } from './chain-select';
 import { ConnectButtonInner } from './connect-button-inner';
-import type { ConnectButtonProps, ConnectButtonTooltipProps, MenuItemType } from './interface';
+import {
+  type ConnectButtonProps,
+  type ConnectButtonTooltipProps,
+  type MenuItemType,
+} from './interface';
 import type { ProfileModalProps } from './profile-modal';
 import { ProfileModal } from './profile-modal';
 import { useStyle } from './style';
@@ -40,6 +44,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     locale,
     quickConnect,
     addressPrefix: addressPrefixProp,
+    sign,
+    signBtnTextRender,
     ...restProps
   } = props;
   const intl = useIntl('ConnectButton', locale);
@@ -51,6 +57,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const [messageApi, contextHolder] = message.useMessage();
   const [showMenu, setShowMenu] = useState(false);
 
+  const needSign = !!(sign?.signIn && account?.status === ConnectStatus.Connected && account);
   let buttonText: React.ReactNode = intl.getMessage(intl.messages.connect);
   if (account) {
     buttonText =
@@ -75,12 +82,20 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     ghost: props.ghost,
     loading,
     className: classNames(className, prefixCls, hashId),
-    onClick: (e) => {
+    onClick: async (e) => {
       setShowMenu(false);
-      if (account && !profileOpen && profileModal) {
+      if (account && !profileOpen && profileModal && !needSign) {
         setProfileOpen(true);
       }
       onClick?.(e);
+
+      try {
+        if (needSign) {
+          await sign?.signIn?.(account?.address);
+        }
+      } catch (error: any) {
+        messageApi.error(error.message);
+      }
     },
     ...restProps,
   };
@@ -126,6 +141,17 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
   const chainSelect =
     availableChains && availableChains.length > 1 ? <ChainSelect {...chainProps} /> : null;
+
+  if (needSign) {
+    buttonText = signBtnTextRender ? (
+      signBtnTextRender(account, buttonText)
+    ) : (
+      <>
+        {`${intl.getMessage(intl.messages.sign)}: `}
+        {buttonText}
+      </>
+    );
+  }
 
   const buttonInnerText = (
     <div className={`${prefixCls}-content`}>

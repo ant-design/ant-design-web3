@@ -27,6 +27,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     switchChain,
     balance,
     addressPrefix,
+    sign,
   } = useProvider(props);
   const [open, setOpen] = React.useState(false);
   const [connecting, setConnecting] = React.useState(false);
@@ -43,6 +44,9 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       }
       const connectedAccount = await connect?.(wallet, options);
       onConnected?.(connectedAccount ? connectedAccount : undefined);
+      if (sign?.signIn && connectedAccount?.address) {
+        await sign.signIn(connectedAccount?.address);
+      }
       setOpen(false);
     } catch (e: any) {
       if (typeof onConnectError === 'function') {
@@ -104,6 +108,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
         availableWallets,
         chain,
         addressPrefix,
+        sign,
         onSwitchChain: async (c: Chain) => {
           await switchChain?.(c);
           onChainSwitched?.(c);

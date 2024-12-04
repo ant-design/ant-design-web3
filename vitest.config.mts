@@ -72,6 +72,7 @@ export default defineConfig({
         '**/src/index.ts',
         '**/__tests__/*.{ts,tsx}',
         '**/*.test.{ts,tsx}',
+        '**/__mocks__/*.{ts,tsx}',
       ],
       reporter: ['json-summary', ['text', { skipFull: true }], 'cobertura', 'html'],
     },
