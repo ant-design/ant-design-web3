@@ -341,10 +341,10 @@ importers:
         specifier: workspace:*
         version: link:../icons
       sats-connect:
-        specifier: ^2.4.0
-        version: 2.8.3(typescript@5.7.2)
+        specifier: ~2.4.0
+        version: 2.4.1(typescript@5.7.2)
       uint8array-tools:
-        specifier: ^0.0.9
+        specifier: ~0.0.9
         version: 0.0.9
     devDependencies:
       father:
@@ -3906,20 +3906,17 @@ packages:
     resolution: {integrity: sha512-Z7Z8w3GEJdJ/paF+NK23VN4AwqWPadq0AeRYjYLjIBiPWpRB2UO/FKq7ONABEq0YFgNPklazIV4IExQU1gavXA==}
     engines: {node: '>=16'}
 
-  '@sats-connect/core@0.3.1':
-    resolution: {integrity: sha512-xMOEYUdEcJn8skWmlJLzcJXW7LK0z/8x2oUoly4yWnohZp9ynoZqTYlAe3QtVq72aUjVaX0kzbdB58GUKsixCg==}
+  '@sats-connect/core@0.0.11':
+    resolution: {integrity: sha512-KeX0vdJ0aIpavpt/X8ZTlcoGzF/5vcuIoaeN/CV8KyjFuok/nFG6FY874uknI+p2SBQUv2okd0dqBj1YcQIfGQ==}
 
-  '@sats-connect/make-default-provider-config@0.0.9':
-    resolution: {integrity: sha512-7aNHrexYif5e4817YfMINgvUy1G8sKZJxwOSQ23kq4YTYze4wh+rsgJCl5oF1//sL3EXwheDVCn5NJe8tUH1rA==}
+  '@sats-connect/make-default-provider-config@0.0.5':
+    resolution: {integrity: sha512-b/v4IeDEde5DqFOdMbMmf3B0t/lxlKnY04f3YIUWe1khOg3S6VdcK9Mqva+WUOsJHBTIA5b4hK7CqfMjx1Ic+w==}
     peerDependencies:
-      '@sats-connect/core': ^0.3.0
-      typescript: ^5.0.0
+      '@sats-connect/core': '*'
+      typescript: 5.4.4
 
   '@sats-connect/ui@0.0.6':
     resolution: {integrity: sha512-H3bFFhr9CcY1oNosNi/QJszmMHSht4U19bUWfM3vzayAKgV4ebY6iUnRK5g3p2rVLLWVzlpaw1J9m+7JWwyBfA==}
-
-  '@sats-connect/ui@0.0.7':
-    resolution: {integrity: sha512-dq02JxvTSAkfgFzEz4iWDSamm6Dte1omzxK0F1yytRZbIrbjjz1KmlMHM+uuxnFN9+EzHIHNsA4aS2dEDwh0xw==}
 
   '@scure/base@1.1.9':
     resolution: {integrity: sha512-8YKhl8GHiNI/pU2VMaofa2Tor7PJRAjwQLBBuilkJ9L5+13yVbC7JO/wS7piioAvPSwR3JKM1IJ/u4xQzbcXKg==}
@@ -5670,8 +5667,8 @@ packages:
   axios@0.27.2:
     resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
 
-  axios@1.7.4:
-    resolution: {integrity: sha512-DukmaFRnY6AzAALSH4J2M3k6PkaC+MfaAGdEERRWcC9q3/TWQwLpHR8ZRLKTdQ3aBDL64EdluRDjJqKw+BPZEw==}
+  axios@1.6.8:
+    resolution: {integrity: sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==}
 
   axios@1.7.8:
     resolution: {integrity: sha512-Uu0wb7KNqK2t5K+YQyVCLM76prD5sRFjKHbJYCP1J7JFGEQ6nN7HWn9+04LAeiJ3ji54lgS/gZCH1oxyrf1SPw==}
@@ -9026,6 +9023,9 @@ packages:
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
+  lodash.omit@4.5.0:
+    resolution: {integrity: sha512-XeqSp49hNGmlkj2EJlfrQFIzQ6lXdNro9sddtQzcJY8QaoC2GO0DT7xaIokHeyM+mIT0mPMlPvkYzg2xCuHdZg==}
+
   lodash.startcase@4.4.0:
     resolution: {integrity: sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==}
 
@@ -11405,8 +11405,8 @@ packages:
     engines: {node: '>=14.0.0'}
     hasBin: true
 
-  sats-connect@2.8.3:
-    resolution: {integrity: sha512-9qQj4s/5Rj2OImygbs856AwWm7kAx6w19nUru43Dl4zDGv20uy3xHCBEUrKbBDcmE95bE5/SW+iAe89nU+irIw==}
+  sats-connect@2.4.1:
+    resolution: {integrity: sha512-aMqAWNhVXHYGFZHVQRYcnmaKrZTyA0yPYcqAvgIcx4KOLa1YlRiOvenlv3ePZHsxYGFNGrk3MwBbrfzlNc7poA==}
 
   sax@1.2.4:
     resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
@@ -12602,9 +12602,6 @@ packages:
 
   v8-compile-cache@2.3.0:
     resolution: {integrity: sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==}
-
-  valibot@0.33.2:
-    resolution: {integrity: sha512-ZpFWuI+bs5+PP66q4zVFn4e4t/s5jmMw5iPBZmGUoi8iQqXyU9YY/BLCAyk62Z/bNS8qdUNBEyx52952qdqW3w==}
 
   valibot@0.36.0:
     resolution: {integrity: sha512-CjF1XN4sUce8sBK9TixrDqFM7RwNkuXdJu174/AwmQUB62QbCQADg5lLe8ldBalFgtj1uKj+pKwDJiNo4Mn+eQ==}
@@ -17195,26 +17192,24 @@ snapshots:
 
   '@safe-global/safe-gateway-typescript-sdk@3.22.4': {}
 
-  '@sats-connect/core@0.3.1':
+  '@sats-connect/core@0.0.11':
     dependencies:
-      axios: 1.7.4
+      axios: 1.6.8
       bitcoin-address-validation: 2.2.3
       buffer: 6.0.3
       jsontokens: 4.0.1
-      valibot: 0.33.2
+      lodash.omit: 4.5.0
     transitivePeerDependencies:
       - debug
 
-  '@sats-connect/make-default-provider-config@0.0.9(@sats-connect/core@0.3.1)(typescript@5.7.2)':
+  '@sats-connect/make-default-provider-config@0.0.5(@sats-connect/core@0.0.11)(typescript@5.7.2)':
     dependencies:
-      '@sats-connect/core': 0.3.1
+      '@sats-connect/core': 0.0.11
       '@sats-connect/ui': 0.0.6
       bowser: 2.11.0
       typescript: 5.7.2
 
   '@sats-connect/ui@0.0.6': {}
-
-  '@sats-connect/ui@0.0.7': {}
 
   '@scure/base@1.1.9': {}
 
@@ -20360,11 +20355,11 @@ snapshots:
   axios@0.27.2(debug@4.3.7):
     dependencies:
       follow-redirects: 1.15.9(debug@4.3.7)
-      form-data: 4.0.0
+      form-data: 4.0.1
     transitivePeerDependencies:
       - debug
 
-  axios@1.7.4:
+  axios@1.6.8:
     dependencies:
       follow-redirects: 1.15.9(debug@4.3.7)
       form-data: 4.0.1
@@ -24714,6 +24709,8 @@ snapshots:
 
   lodash.merge@4.6.2: {}
 
+  lodash.omit@4.5.0: {}
+
   lodash.startcase@4.4.0: {}
 
   lodash.throttle@4.1.1: {}
@@ -25982,7 +25979,7 @@ snapshots:
     dependencies:
       '@adraffy/ens-normalize': 1.11.0
       '@noble/curves': 1.6.0
-      '@noble/hashes': 1.5.0
+      '@noble/hashes': 1.6.1
       '@scure/bip32': 1.5.0
       '@scure/bip39': 1.4.0
       abitype: 1.0.6(typescript@5.7.2)(zod@3.23.8)
@@ -27793,11 +27790,11 @@ snapshots:
     optionalDependencies:
       '@parcel/watcher': 2.5.0
 
-  sats-connect@2.8.3(typescript@5.7.2):
+  sats-connect@2.4.1(typescript@5.7.2):
     dependencies:
-      '@sats-connect/core': 0.3.1
-      '@sats-connect/make-default-provider-config': 0.0.9(@sats-connect/core@0.3.1)(typescript@5.7.2)
-      '@sats-connect/ui': 0.0.7
+      '@sats-connect/core': 0.0.11
+      '@sats-connect/make-default-provider-config': 0.0.5(@sats-connect/core@0.0.11)(typescript@5.7.2)
+      '@sats-connect/ui': 0.0.6
     transitivePeerDependencies:
       - debug
       - typescript
@@ -29217,8 +29214,6 @@ snapshots:
 
   v8-compile-cache@2.3.0: {}
 
-  valibot@0.33.2: {}
-
   valibot@0.36.0: {}
 
   validate-npm-package-license@3.0.4:
@@ -29673,7 +29668,7 @@ snapshots:
   webauthn-p256@0.0.10:
     dependencies:
       '@noble/curves': 1.6.0
-      '@noble/hashes': 1.5.0
+      '@noble/hashes': 1.6.1
 
   webextension-polyfill@0.10.0: {}
 
