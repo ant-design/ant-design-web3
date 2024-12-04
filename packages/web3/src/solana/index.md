@@ -23,6 +23,7 @@ The recommended configuration mainly includes:
 - Adds Phantom and OKX wallets by default, providing download guidance if the user has not installed a wallet.
 - Configure `quickConnect` to provide quick connection entry to simplify user operations.
 - Uses `simple` mode and disable group to simplify the interface.
+- Uses a custom RPC provider to provide a better node connection experience.
 
 ## Basic Usage
 
@@ -77,7 +78,7 @@ You can use more components together. The content related to the chain in the co
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | rpcProvider | RPC provider for connecting nodes | (chain?: [Chain](./types#chain)) => string | - | - |
-| connectionConfig | Configuration for instantiating a Connection | [ConnectionConfig](https://solana-labs.github.io/solana-web3.js/types/ConnectionConfig.html) | - | - |
+| connectionConfig | Configuration for instantiating a Connection | [ConnectionConfig](https://solana-labs.github.io/solana-web3.js/v1.x/types/ConnectionConfig.html) | - | - |
 | balance | Whether to display balance | `boolean` | - | - |
 | chains | Chains | SolanaChainConfig\[\] | - | - |
 | wallets | Wallets | WalletFactory\[\] | - | - |

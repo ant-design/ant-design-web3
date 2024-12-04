@@ -33,11 +33,11 @@ export const Banner: React.FC = () => {
             darkLogo ||
             'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*5kc-Ro7c1H8AAAAAAAAAAAAADlrGAQ/original'
           }
-          alt="title"
+          alt="Ant Design Web3"
         />
-        <div className={styles.slogan}>
+        <h2 className={styles.slogan}>
           {intl.formatMessage({ id: 'app.docs.site.index.banner.slogan' })}
-        </div>
+        </h2>
         <div className={styles.btn}>
           <Link to={`/guide/ant-design-web3${intl.locale === 'zh-CN' ? '-cn' : ''}`}>
             {intl.formatMessage({ id: 'app.docs.site.index.banner.button-text' })}

@@ -21,11 +21,16 @@ export const ShowCase: React.FC = () => {
     '--theme-text-color': curTheme.name === 'Dark' ? token.colorWhite : token.colorTextBase,
   } as React.CSSProperties;
 
-  const caseList = [<Connect />, <NFTCard />, <PayPanel />, <CryptoInput />];
+  const caseList = [
+    <Connect key="Connect" />,
+    <NFTCard key="NFTCard" />,
+    <PayPanel key="PayPanel" />,
+    <CryptoInput key="CryptoInput" />,
+  ];
 
   return (
     <div className={styles.container} style={themeStyle}>
-      <h3 className={styles.headTitle}>{intl.formatMessage({ id: 'app.docs.site.case.title' })}</h3>
+      <h2 className={styles.headTitle}>{intl.formatMessage({ id: 'app.docs.site.case.title' })}</h2>
       <div className={styles.desc}>
         {intl.formatMessage({ id: 'app.docs.site.case.description' })}
       </div>

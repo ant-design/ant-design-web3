@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.15.1
+
+### Patch Changes
+
+- e0db15a: chore: upgrade pnpm version from 8.9.0 to 9.14.4
+
 ## 1.15.0
 
 ### Minor Changes

@@ -24,6 +24,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它
 - 默认添加 Phantom、OKX 钱包，在用户未安装钱包情况下提供下载引导。
 - 配置 `quickConnect`，提供快速连接入口，简化用户操作。
 - 使用 `simple` 模式，去掉钱包分组，简化界面。
+- 使用自定义的 RPC 提供商，提供更好的节点连接体验。
 
 ## 基本使用
 
@@ -78,7 +79,7 @@ TipLink 是一个轻量级的钱包。我们通过内置的 TipLinkWallet 对其
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | rpcProvider | 连接节点的 RPC 提供商 | (chain?: [Chain](./types#chain)) => string | - | - |
-| connectionConfig | 连接节点的配置 | [ConnectionConfig](https://solana-labs.github.io/solana-web3.js/types/ConnectionConfig.html) | - | - |
+| connectionConfig | 连接节点的配置 | [ConnectionConfig](https://solana-labs.github.io/solana-web3.js/v1.x/types/ConnectionConfig.html) | - | - |
 | balance | 是否显示余额 | `boolean` | - | - |
 | chains | 可用的链 | SolanaChainConfig\[\] | - | - |
 | wallets | 可用的钱包 | WalletFactory\[\] | - | - |

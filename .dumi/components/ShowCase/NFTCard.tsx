@@ -5,7 +5,7 @@ import styles from './index.module.less';
 export default () => {
   return (
     <div className={styles.cardBg}>
-      <span className={styles.title}>NFT Card</span>
+      <h3 className={styles.title}>NFT Card</h3>
       <div className={styles.NTFCard}>
         <NFTCard
           name="My NFT"
