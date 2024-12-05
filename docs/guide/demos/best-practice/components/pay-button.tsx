@@ -62,12 +62,12 @@ export const EvmPayButtons: React.FC<PayButtonsProps> = ({
               ),
             }}
           >
-            <ConnectButton showChainSelect={false} />
+            <ConnectButton chainSelect={false} />
           </Connector>
           <EvmSignTransaction
             setTokenEcosystem={setTokenEcosystem}
             tokenEcosystem={tokenEcosystem}
-            signTransactionCallback={(signTransfer, address) => {
+            signTransaction={(signTransfer, address) => {
               payCallback(signTransfer, address);
             }}
             onRejectSwitchChain={onRejectSwitchChain}

@@ -5,10 +5,10 @@ group: Best Practice
 
 # Payment In USDT
 
-当你的项目需要支持 `USDT` 付款的时候，并且需要支持多个链的 `USDT` / `USDC` 时，下边这些可以帮到你。
+When your project needs to support `USDT` payments and needs to support `USDT/USDC` on multiple chains, the following can help you.
 
-你可以通过我们官方提供的适配器配合 `@ant-design/web3` 使用，快速连接各类区块链，以便于同时支持这些链的 `USDT` / `USDC` 支付。
+You can use our official adapter with `@ant-design/web3` to quickly connect to various blockchains to support `USDT/USDC` payments on these chains at the same time.
 
-你可以这样做：
+You can do this:
 
 <code compact src="./demos/best-practice/usdt.tsx"></code>

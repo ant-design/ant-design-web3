@@ -9,7 +9,7 @@ import { TOKEN_PAY_ADDRESS } from '../constants/tokenPayAddress';
 type SignTransactionProps = {
   setTokenEcosystem?: (token: string) => void;
   tokenEcosystem: string;
-  signTransactionCallback?: (signTransfer: string, address: string) => void;
+  signTransaction: (signTransfer: string, address: string) => void;
   renderSignButton: (
     signTransfer: (toAddress: string, amount: number) => void,
     disabled: boolean,
@@ -21,7 +21,7 @@ type SignTransactionProps = {
 const EvmSignTransaction: React.FC<SignTransactionProps> = ({
   setTokenEcosystem,
   tokenEcosystem,
-  signTransactionCallback,
+  signTransaction,
   renderSignButton,
   onRejectSwitchChain,
 }) => {
@@ -94,7 +94,7 @@ const EvmSignTransaction: React.FC<SignTransactionProps> = ({
         ],
       });
       setSignLoading(false);
-      signTransactionCallback?.(signTransferHash, account?.address || '');
+      signTransaction?.(signTransferHash, account?.address || '');
     } catch (error) {
       console.log('error', (error as any).message);
       setSignLoading(false);
