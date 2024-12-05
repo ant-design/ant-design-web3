@@ -1,5 +1,15 @@
 # @ant-design/web3-ton
 
+## 1.0.8
+
+### Patch Changes
+
+- e0db15a: chore: upgrade pnpm version from 8.9.0 to 9.14.4
+- Updated dependencies [14fae53]
+- Updated dependencies [e0db15a]
+  - @ant-design/web3-assets@1.11.5
+  - @ant-design/web3-common@1.15.1
+
 ## 1.0.7
 
 ### Patch Changes

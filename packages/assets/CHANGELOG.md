@@ -1,5 +1,15 @@
 # @ant-design/web3-assets
 
+## 1.11.5
+
+### Patch Changes
+
+- 14fae53: fix(assets): Solana testnet and devent browser URL is incorrect
+- e0db15a: chore: upgrade pnpm version from 8.9.0 to 9.14.4
+- Updated dependencies [e0db15a]
+  - @ant-design/web3-common@1.15.1
+  - @ant-design/web3-icons@1.11.2
+
 ## 1.11.4
 
 ### Patch Changes

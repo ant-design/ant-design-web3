@@ -42,6 +42,7 @@ const alias = pkgList.reduce(
         // `useConfig` must be used within `WagmiProvider`. Docs: https://wagmi.sh/react/api/WagmiProvider.html Version: wagmi@2.12.13
         wagmi: resolve('./node_modules/wagmi'),
         '@tanstack/react-query': resolve('./node_modules/@tanstack/react-query'),
+        '@ant-design/cssinjs': resolve('./node_modules/@ant-design/cssinjs'),
       }
     : {}) as Record<string, string>,
 );
