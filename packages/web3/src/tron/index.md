@@ -40,7 +40,7 @@ You can check the wallets supported by Tron in the [tronwallet-adapter](https://
 
 | Property | Description | Type | Default | Required |
 | --- | --- | --- | --- | --- |
-| wallets | Supported wallet list | WalletMetadata\[\] | - | Yes |
+| wallets | Supported wallet list | WalletMetadata\[\] | - | - |
 | autoConnect | Whether to connect automatically | `boolean` | `false` | - |
 | locale | Multilingual settings | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/en_US.ts) | - | - |
 | onError | onError | [WalletError](https://github.com/web3-geek/tronwallet-adapter/blob/main/packages/adapters/abstract-adapter/src/errors.ts#L1) | - | - |

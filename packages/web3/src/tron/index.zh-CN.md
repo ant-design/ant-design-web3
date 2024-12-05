@@ -41,7 +41,7 @@ Tron 支持的钱包可以在 [tronwallet-adapter](https://github.com/web3-geek/
 
 | 属性 | 描述 | 类型 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- |
-| wallets | 可用的钱包 | WalletFactory\[\] | - | 必填 |
+| wallets | 可用的钱包 | WalletFactory\[\] | - | - |
 | autoConnect | 是否自动连接 | `boolean` | `false` | - |
 | locale | 多语言设置 | [Locale](https://github.com/ant-design/ant-design-web3/blob/main/packages/common/src/locale/zh_CN.ts) | - | - |
 | onError | 异常方法 | [WalletError](https://github.com/web3-geek/tronwallet-adapter/blob/main/packages/adapters/abstract-adapter/src/errors.ts#L1) | - | - |
