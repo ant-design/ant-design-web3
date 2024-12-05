@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
 import { BrowserLink, ConnectButton, Connector, useAccount } from '@ant-design/web3';
 import { useConnection, useWallet } from '@ant-design/web3-solana';
-import { PublicKey, Transaction, TransactionInstruction } from '@solana/web3.js';
-import { Button, Card, ConfigProvider, Flex, Form, Input, message, Space } from 'antd';
+import {
+  LAMPORTS_PER_SOL,
+  PublicKey,
+  SystemProgram,
+  Transaction,
+  TransactionInstruction,
+} from '@solana/web3.js';
+import { Button, Card, ConfigProvider, Flex, Form, Input, InputNumber, message, Space } from 'antd';
+
+type FormModel = {
+  memo: string;
+  amount: number;
+};
 
 const MEMO_PROGRAM_ID = new PublicKey('MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr');
 
@@ -14,30 +25,37 @@ export default function MemoTx() {
   const { publicKey, sendTransaction } = useWallet();
   const [signatures, setSignatures] = useState<string[]>([]);
 
-  const writeMemo = async (memo: string) => {
+  const writeMemo = async (values: FormModel) => {
     if (!publicKey) {
       messageApi.error('Please connect wallet first');
       return;
     }
 
-    // Create a transaction instruction to write memo
-    const ins = new TransactionInstruction({
-      programId: MEMO_PROGRAM_ID,
-      keys: [{ pubkey: publicKey, isSigner: true, isWritable: false }],
-      data: Buffer.from(memo, 'utf-8'),
+    // Create a transaction instruction to transfer 0.1 SOL
+    const transferIns = SystemProgram.transfer({
+      fromPubkey: publicKey,
+      toPubkey: new PublicKey('4wztJ4CAH4GbAUopZrVk7nLvoAC3KAF6ttMMWfnBRG1t'),
+      lamports: values.amount * LAMPORTS_PER_SOL,
     });
 
-    const tx = new Transaction().add(ins);
+    // Create a transaction instruction to write memo
+    const memoIns = new TransactionInstruction({
+      programId: MEMO_PROGRAM_ID,
+      keys: [{ pubkey: publicKey, isSigner: true, isWritable: false }],
+      data: Buffer.from(values.memo, 'utf-8'),
+    });
+
+    const tx = new Transaction().add(transferIns, memoIns);
 
     // Send transaction via wallet （通过钱包发送交易）
-    // Once the transaction is sent, the signature will be returned （发送交易后会返回签名）
+    // Once the transaction is confirmed, the signature will be returned （交易确认后会返回签名）
     const signature = await sendTransaction?.(tx, connection);
 
     setSignatures([...signatures, signature]);
 
     messageApi.info(
       <Space>
-        <span>Memo sent with signature: </span>
+        <span>Transaction sent with signature: </span>
         <BrowserLink type="transaction" address={signature} ellipsis target="_blank" />
       </Space>,
       60,
@@ -46,16 +64,19 @@ export default function MemoTx() {
 
   return (
     <Flex gap={16} flex={1}>
-      <Form
+      <Form<FormModel>
         style={{ flex: 1 }}
         layout="vertical"
         disabled={!publicKey}
-        onFinish={(values) => {
-          writeMemo(values.memo);
-        }}
+        initialValues={{ amount: 0.1, memo: 'Hello, Solana!' }}
+        onFinish={writeMemo}
       >
+        <Form.Item name="amount" label="Amount" required rules={[{ required: true }]}>
+          <InputNumber min={0.1} precision={1} step={0.1} style={{ width: 400 }} />
+        </Form.Item>
+
         <Form.Item name="memo" label="Memo" required rules={[{ required: true }]}>
-          <Input.TextArea />
+          <Input.TextArea style={{ width: 400 }} />
         </Form.Item>
 
         <Space>

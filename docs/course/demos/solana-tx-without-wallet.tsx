@@ -18,7 +18,7 @@ const programId = new PublicKey('MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr');
 
 export default function App() {
   const [amount, setAmount] = useState(0.1);
-  const [memo, setMemo] = useState('Hello Ant Design Web3 - Solana!');
+  const [memo, setMemo] = useState('Hello, Web3!');
 
   const writeMemo = async () => {
     const keypair = Keypair.generate();
