@@ -23,20 +23,22 @@ const PaymentInUSDT: React.FC = () => {
 
   return (
     <Card title="Payment in USDT">
-      <Title level={3}>Select Chain</Title>
-      <ChainSelect ecosystem={tokenEcosystem} onChange={setTokenEcosystem} />
-      <EvmPayButtons
-        setTokenEcosystem={setTokenEcosystem}
-        tokenEcosystem={tokenEcosystem}
-        signCallback={onSubmitCashier}
-        payCallback={runPay}
-        onRejectSwitchChain={(id) => {
-          const oldTokenEcosystem = TOKEN_PAY_ADDRESS.chains.find(
-            (item) => item.id === id,
-          )?.ecosystem;
-          setTokenEcosystem(oldTokenEcosystem || '');
-        }}
-      />
+      <Space direction="vertical" size="middle">
+        <Title level={3}>Select Chain</Title>
+        <ChainSelect ecosystem={tokenEcosystem} onChange={setTokenEcosystem} />
+        <EvmPayButtons
+          setTokenEcosystem={setTokenEcosystem}
+          tokenEcosystem={tokenEcosystem}
+          signCallback={onSubmitCashier}
+          payCallback={runPay}
+          onRejectSwitchChain={(id) => {
+            const oldTokenEcosystem = TOKEN_PAY_ADDRESS.chains.find(
+              (item) => item.id === id,
+            )?.ecosystem;
+            setTokenEcosystem(oldTokenEcosystem || '');
+          }}
+        />
+      </Space>
     </Card>
   );
 };
