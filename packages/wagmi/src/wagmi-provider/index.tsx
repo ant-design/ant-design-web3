@@ -58,11 +58,7 @@ export function WagmiWeb3ConfigProvider({
 }: React.PropsWithChildren<WagmiWeb3ConfigProviderProps>): React.ReactElement {
   // When user custom config, add Mainnet by default
   // When user not provide config, auto generate config, chains use user provided chains
-  const chainAssets: ChainAssetWithWagmiChain[] = config
-    ? [Mainnet, ...chains]
-    : chains?.length
-      ? chains
-      : [Mainnet];
+  const chainAssets: ChainAssetWithWagmiChain[] = config || chains?.length ? chains : [Mainnet];
 
   const generateConfigFlag = () => {
     return `${JSON.stringify(walletConnect)}-${chains.map((item) => item.id).join(',')}-${wallets.map((item) => item.name).join(',')}`;
