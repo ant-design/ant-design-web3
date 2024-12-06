@@ -34,20 +34,14 @@ describe('TronWeb3ConfigProvider', () => {
     };
   });
 
-  vi.mock('@solana/wallet-adapter-react', async () => {
-    const originModules = await vi.importActual('@solana/wallet-adapter-react');
+  vi.mock('@tronweb3/tronwallet-adapter-react-hooks', async () => {
     const { remember } = await import('./utils');
 
     const address = mockedData.address.value;
 
     const ConnectionProvider: React.FC<
       React.PropsWithChildren<{ endpoint: string; config: any }>
-    > = ({
-      children,
-      endpoint,
-      // default value: copy from ConnectionProvider in @solana/wallet-adapter-react
-      config = { commitment: 'confirmed' },
-    }) => {
+    > = ({ children, endpoint, config = { commitment: 'confirmed' } }) => {
       useEffect(() => {
         mockCreateConnectionInstance(endpoint, config?.commitment);
       }, [endpoint, config]);
@@ -67,7 +61,6 @@ describe('TronWeb3ConfigProvider', () => {
     const currentWalletRef = remember<any>(null);
 
     return {
-      ...originModules,
       useWallet: () => {
         // provide a state to emit re-render
         const [, setConnected] = useState(connectedRef.value);

@@ -22,8 +22,7 @@ const mockSelectWalletFn = vi.fn();
 const mockWalletChanged = vi.fn();
 const mockSelectWalletFnNotWalletName = vi.fn();
 
-vi.mock('@solana/wallet-adapter-react', async () => {
-  const originModules = await vi.importActual('@solana/wallet-adapter-react');
+vi.mock('@tronweb3/tronwallet-adapter-react-hooks', async () => {
   const { remember } = await import('./utils');
 
   const publicKey = mockedData.address.value;
@@ -107,14 +106,13 @@ vi.mock('@solana/wallet-adapter-react', async () => {
   };
 
   return {
-    ...originModules,
     useWallet,
     ConnectionProvider,
     WalletProvider,
   };
 });
 
-describe('Solana Connect', () => {
+describe('Tron Connect', () => {
   beforeEach(() => {
     vi.resetAllMocks();
   });
