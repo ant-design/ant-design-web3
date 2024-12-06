@@ -2,7 +2,7 @@
 import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
-import { Button, Flex } from 'antd';
+import { Button, Space } from 'antd';
 import { createConfig, http } from 'wagmi';
 import { arbitrum, mainnet, optimism, polygon } from 'wagmi/chains';
 import { injected } from 'wagmi/connectors';
@@ -17,21 +17,6 @@ type PayButtonsProps = {
   onRejectSwitchChain?: (id: number) => void;
 };
 
-const config = createConfig({
-  chains: [mainnet, polygon, arbitrum, optimism],
-  transports: {
-    [mainnet.id]: http(),
-    [polygon.id]: http(),
-    [arbitrum.id]: http(),
-    [optimism.id]: http(),
-  },
-  connectors: [
-    injected({
-      target: 'metaMask',
-    }),
-  ],
-});
-
 export const EvmPayButtons: React.FC<PayButtonsProps> = ({
   setTokenEcosystem,
   tokenEcosystem,
@@ -39,6 +24,21 @@ export const EvmPayButtons: React.FC<PayButtonsProps> = ({
   payCallback,
   onRejectSwitchChain,
 }) => {
+  const config = createConfig({
+    chains: [mainnet, polygon, arbitrum, optimism],
+    transports: {
+      [mainnet.id]: http(),
+      [polygon.id]: http(),
+      [arbitrum.id]: http(),
+      [optimism.id]: http(),
+    },
+    connectors: [
+      injected({
+        target: 'metaMask',
+      }),
+    ],
+  });
+
   return (
     <div>
       <WagmiWeb3ConfigProvider
@@ -49,7 +49,7 @@ export const EvmPayButtons: React.FC<PayButtonsProps> = ({
         wallets={[MetaMask()]}
         chains={[mainnet, polygon, arbitrum, optimism]}
       >
-        <Flex justify="space-between" style={{ width: 400, marginTop: 20 }}>
+        <Space size="middle">
           <Connector
             modalProps={{
               footer: (
@@ -64,7 +64,21 @@ export const EvmPayButtons: React.FC<PayButtonsProps> = ({
           >
             <ConnectButton chainSelect={false} />
           </Connector>
-          <EvmSignTransaction
+          <Connector
+            modalProps={{
+              footer: (
+                <>
+                  Powered by{' '}
+                  <a href="https://web3.ant.design/" target="_blank" rel="noreferrer">
+                    Ant Design Web3
+                  </a>
+                </>
+              ),
+            }}
+          >
+            <ConnectButton chainSelect={false} />
+          </Connector>
+          {/* <EvmSignTransaction
             setTokenEcosystem={setTokenEcosystem}
             tokenEcosystem={tokenEcosystem}
             signTransaction={(signTransfer, address) => {
@@ -84,8 +98,8 @@ export const EvmPayButtons: React.FC<PayButtonsProps> = ({
                 Pay
               </Button>
             )}
-          />
-        </Flex>
+          /> */}
+        </Space>
       </WagmiWeb3ConfigProvider>
     </div>
   );

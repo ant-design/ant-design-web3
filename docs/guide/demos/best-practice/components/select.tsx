@@ -13,7 +13,7 @@ const ChainSelect: React.FC<ChainSelectGroupProps> = (props) => {
   const chainList = TOKEN_PAY_ADDRESS.chains;
 
   return (
-    <Space size={16}>
+    <Space size="middle">
       <Radio.Group
         onChange={(e) => {
           props.onChange(e.target.value);
