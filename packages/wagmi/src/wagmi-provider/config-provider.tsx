@@ -145,6 +145,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   const chainList: Chain[] = React.useMemo(() => {
     return wagimConfig.chains
       .map((item) => {
+        if (!chainAssets.length) return null;
+
         const c = chainAssets?.find((asset) => {
           return asset.id === item.id;
         });
