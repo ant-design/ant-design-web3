@@ -145,7 +145,7 @@ describe('WagmiWeb3ConfigProvider config', () => {
       </WagmiWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Ethereum');
+    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Polygon,Goerli,Ethereum');
   });
 
   it('avaliable chains with assets', () => {
@@ -186,7 +186,9 @@ describe('WagmiWeb3ConfigProvider config', () => {
       </WagmiWeb3ConfigProvider>
     );
     const { baseElement } = render(<App />);
-    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Polygon,Ethereum,Base');
+    expect(baseElement.querySelector('.chains-name')?.textContent).toBe(
+      'Polygon,Ethereum,Base,Goerli',
+    );
   });
 
   it('empty connectors', () => {
