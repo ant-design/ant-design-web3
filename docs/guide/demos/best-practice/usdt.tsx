@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Button, Card, Flex, message, Radio, Space, Typography } from 'antd';
 
-import { EvmPayButtons } from './components/pay-button';
+import { EvmPayButton } from './components/pay-button';
 import ChainSelect from './components/select';
 import { TOKEN_PAY_ADDRESS } from './constants/tokenPayAddress';
 
@@ -26,7 +26,7 @@ const PaymentInUSDT: React.FC = () => {
       <Space direction="vertical" size="middle">
         <Title level={3}>Select Chain</Title>
         <ChainSelect ecosystem={tokenEcosystem} onChange={setTokenEcosystem} />
-        <EvmPayButtons
+        <EvmPayButton
           setTokenEcosystem={setTokenEcosystem}
           tokenEcosystem={tokenEcosystem}
           signCallback={onSubmitCashier}

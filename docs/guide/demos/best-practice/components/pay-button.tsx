@@ -17,7 +17,7 @@ type PayButtonsProps = {
   onRejectSwitchChain?: (id: number) => void;
 };
 
-export const EvmPayButtons: React.FC<PayButtonsProps> = ({
+export const EvmPayButton: React.FC<PayButtonsProps> = ({
   setTokenEcosystem,
   tokenEcosystem,
   signCallback,
