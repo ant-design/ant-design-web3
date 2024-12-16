@@ -1,96 +1,20 @@
-import { useEffect, useState } from 'react';
-import { useProvider } from '@ant-design/web3';
-import { fireEvent, render } from '@testing-library/react';
+import React from 'react';
+import { ConnectButton, Connector } from '@ant-design/web3';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { TronWeb3ConfigProvider } from '../index';
-import { xrender } from './utils';
-
-const mockCreateConnectionInstance = vi.fn();
+import { TronWeb3ConfigProvider } from '../';
+import { OkxTronWallet, TronlinkWallet } from '../../wallets';
 
 describe('TronWeb3ConfigProvider', () => {
-  beforeEach(() => {
-    mockCreateConnectionInstance.mockClear();
-
-    vi.resetAllMocks();
-  });
-
   afterAll(() => {
+    vi.restoreAllMocks();
     vi.resetModules();
-  });
-
-  const mockedData = vi.hoisted(() => {
-    const mockAddress = 'TUguNkmfvjeHanGyQZLGJfj28w1tMtvNDT';
-    const balance = 10002;
-
-    const mockedDisconnect = vi.fn();
-
-    return {
-      address: {
-        value: mockAddress,
-      },
-      balance,
-      mockedDisconnect,
-    };
-  });
-
-  vi.mock('@tronweb3/tronwallet-adapter-react-hooks', async () => {
-    const { remember } = await import('./utils');
-
-    const address = mockedData.address.value;
-
-    const ConnectionProvider: React.FC<
-      React.PropsWithChildren<{ endpoint: string; config: any }>
-    > = ({ children, endpoint, config = { commitment: 'confirmed' } }) => {
-      useEffect(() => {
-        mockCreateConnectionInstance(endpoint, config?.commitment);
-      }, [endpoint, config]);
-
-      return (
-        <div>
-          <div className="endpoint">{endpoint}</div>
-          <div className="commitment">{config?.commitment}</div>
-          {children}
-        </div>
-      );
-    };
-
-    const WalletProvider: React.FC<React.PropsWithChildren> = ({ children }) => <>{children}</>;
-
-    const connectedRef = remember(false);
-    const currentWalletRef = remember<any>(null);
-
-    return {
-      useWallet: () => {
-        // provide a state to emit re-render
-        const [, setConnected] = useState(connectedRef.value);
-        const [, setCurrentWallet] = useState(currentWalletRef.value);
-
-        return {
-          address,
-          connected: connectedRef.value,
-          connect: () => {
-            connectedRef.value = true;
-            setConnected(true);
-          },
-          select: (_wallet: any) => {
-            currentWalletRef.value = _wallet;
-            setCurrentWallet(_wallet);
-          },
-          disconnect: () => {
-            mockedData.mockedDisconnect();
-          },
-          wallet: currentWalletRef.value,
-        };
-      },
-      ConnectionProvider,
-      WalletProvider,
-    };
   });
 
   it('mount correctly', () => {
     const App = () => (
-      <TronWeb3ConfigProvider>
+      <TronWeb3ConfigProvider wallets={[TronlinkWallet]}>
         <div className="content">test</div>
       </TronWeb3ConfigProvider>
     );
@@ -99,80 +23,95 @@ describe('TronWeb3ConfigProvider', () => {
     expect(baseElement.querySelector('.content')?.textContent).toBe('test');
   });
 
-  it('available show account address', async () => {
-    const { useWallet } = await import('@tronweb3/tronwallet-adapter-react-hooks');
-    const connectRunned = vi.fn();
-
-    const Address: React.FC = () => {
-      const { account } = useProvider();
-      return <div className="address">{account?.address}</div>;
+  it('show address', async () => {
+    const Address = () => {
+      return <div className="address">TUguNkmfvjeHanGyQZLGJfj28w1tMtvNDT</div>;
     };
 
     const App = () => {
-      const { connect } = useWallet();
       return (
-        <TronWeb3ConfigProvider>
-          <div>
-            <div className="content">test</div>
-            <button
-              className="connect"
-              onClick={async () => {
-                await connect();
-                connectRunned();
-              }}
-            >
-              Connect
-            </button>
-            <Address />
-          </div>
+        <TronWeb3ConfigProvider wallets={[TronlinkWallet]}>
+          <Connector>
+            <ConnectButton className="connect" />
+          </Connector>
+          <Address />
         </TronWeb3ConfigProvider>
       );
     };
 
-    const { selector } = xrender(App);
-    expect(selector('.content')?.textContent).toBe('test');
-
-    const connectBtn = selector('.connect')!;
-    const address = selector('.address');
-
-    expect(connectBtn).not.toBeNull();
-
-    // default address is empty
-    expect(address?.textContent).toBe('');
-
-    fireEvent.click(connectBtn);
+    const { baseElement } = render(<App />);
+    const modalBtn = baseElement.querySelector('.connect') as HTMLButtonElement;
+    fireEvent.click(modalBtn);
+    await vi.waitFor(() => {
+      const connectBtn = baseElement.querySelector('.ant-list-item')!;
+      fireEvent.click(connectBtn);
+      expect(connectBtn).toBeTruthy();
+    });
 
     await vi.waitFor(() => {
-      expect(connectRunned).toBeCalled();
-      expect(address?.textContent).toBe(mockedData.address.value);
+      expect(baseElement.querySelector('.address')?.textContent).toBe(
+        'TUguNkmfvjeHanGyQZLGJfj28w1tMtvNDT',
+      );
     });
   });
 
-  it('available disconnect', () => {
-    const CustomConnector: React.FC = () => {
-      const { disconnect } = useProvider();
+  it('disconnect', async () => {
+    const App = () => {
       return (
-        <div>
-          <button onClick={async () => await disconnect?.()}>Disconnect</button>
-        </div>
-      );
-    };
-
-    const App: React.FC = () => {
-      return (
-        <TronWeb3ConfigProvider>
-          <CustomConnector />
+        <TronWeb3ConfigProvider wallets={[TronlinkWallet]}>
+          <Connector>
+            <ConnectButton className="connect" />
+          </Connector>
         </TronWeb3ConfigProvider>
       );
     };
 
-    const { selector } = xrender(App);
+    const { baseElement } = render(<App />);
+    const modalBtn = baseElement.querySelector('.connect') as HTMLButtonElement;
+    fireEvent.click(modalBtn);
+    await waitFor(() => {
+      const connectBtn = baseElement.querySelector('.ant-list-item')!;
+      expect(connectBtn).toBeTruthy();
+      fireEvent.click(connectBtn);
+    });
 
-    const btn = selector('button')!;
+    await waitFor(() => {
+      expect(baseElement.querySelector('.connect')?.textContent);
+    });
 
-    expect(btn?.textContent).toBe('Disconnect');
-    fireEvent.click(btn);
+    fireEvent.click(modalBtn);
 
-    expect(mockedData.mockedDisconnect).toBeCalled();
+    await waitFor(() => {
+      const disconnect = screen.getByText('Disconnect');
+      expect(disconnect).toBeTruthy();
+      fireEvent.click(screen.getByText('Disconnect'));
+    });
+    expect(baseElement.querySelector('.connect')?.textContent).toBe('Connect Wallet');
+  });
+
+  it('show icon', async () => {
+    const App = () => {
+      return (
+        <TronWeb3ConfigProvider wallets={[TronlinkWallet, OkxTronWallet]}>
+          <Connector>
+            <ConnectButton className="connect" />
+          </Connector>
+        </TronWeb3ConfigProvider>
+      );
+    };
+
+    const { baseElement } = render(<App />);
+    const modalBtn = baseElement.querySelector('.connect') as HTMLButtonElement;
+    fireEvent.click(modalBtn);
+    await waitFor(() => {
+      const icons = baseElement.querySelector('.ant-web3-icon-okx-wallet-colorful')!;
+      expect(icons).toBeTruthy();
+    });
+    await waitFor(() => {
+      const items = baseElement.querySelectorAll('.ant-list-item')!;
+      expect(items.length).toBe(2);
+      const item = baseElement.querySelector('.ant-web3-connect-modal-img')!;
+      expect(item.getAttribute('src')).toBeTruthy();
+    });
   });
 });
