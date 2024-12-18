@@ -69,6 +69,8 @@ Ant Design Web3 官方提供了 `wagmi`、`ethers` 等多个框架的适配器�
 
 SIWE 是指 Sign-In with Ethereum，你的网站可以通过签名来验证用户的登录，下面是一个示例，其中后端接口做了 Mock，你需要在你的项目中自行实现。
 
+要想要快速使用 SIWE 需要设置三个关键的方法，获取 Nonce 值、构建签名以及验证签名。
+
 <code src="./demos/siwe/index.tsx"></code>
 
 ## 显示 ENS 和余额
@@ -101,6 +103,7 @@ SIWE 是指 Sign-In with Ethereum，你的网站可以通过签名来验证用�
 | reconnectOnMount | 是否在组件挂载时重新连接之前已连接的[连接器](https://wagmi.sh/react/api/createConfig#connectors) | `boolean` \| `undefined` | `true` | - |
 | walletConnect | walletConnect 的配置 | `false` \| [WalletConnectOptions](#walletconnectoptions) | - | `2.8.0` |
 | transports | [Transport](https://wagmi.sh/core/api/createConfig#transports) 网关配置 | `Record<number, Transport>;` | - | `2.8.0` |
+| siwe | [SIWEConfig](#siweconfig) | CreateSiweMessageParameters | - | - |
 
 ### EIP6963Config
 
@@ -144,3 +147,13 @@ export interface WalletConnectOptions
   useWalletConnectOfficialModal?: boolean;
 }
 ```
+
+### SIWEConfig
+
+`CreateSiweMessageParameters` 参考了 `viem/siwe` 的[定义](https://viem.sh/docs/siwe/utilities/createSiweMessage)。
+
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| getNonce | 获取 Nonce 值 | `(address: string, chainId?: number) => Promise<string>` | - | - |
+| createMessage | 构建签名信息 | `(args: CreateSiweMessageParameters) => string` | - | - |
+| verifyMessage | 验证签名信息 | `(message: string, signature: string) => Promise<boolean>` | - | - |
