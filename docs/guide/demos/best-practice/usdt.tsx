@@ -1,6 +1,6 @@
 // /usdt.tsx
 import React, { useState } from 'react';
-import { Button, Card, Flex, message, Radio, Space, Typography } from 'antd';
+import { Card, message, Space, Typography } from 'antd';
 
 import { EvmPayButton } from './components/pay-button';
 import ChainSelect from './components/select';
