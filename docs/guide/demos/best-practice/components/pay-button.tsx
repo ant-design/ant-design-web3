@@ -78,7 +78,7 @@ export const EvmPayButton: React.FC<PayButtonsProps> = ({
           >
             <ConnectButton chainSelect={false} />
           </Connector>
-          {/* <EvmSignTransaction
+          <EvmSignTransaction
             setTokenEcosystem={setTokenEcosystem}
             tokenEcosystem={tokenEcosystem}
             signTransaction={(signTransfer, address) => {
@@ -98,7 +98,7 @@ export const EvmPayButton: React.FC<PayButtonsProps> = ({
                 Pay
               </Button>
             )}
-          /> */}
+          />
         </Space>
       </WagmiWeb3ConfigProvider>
     </div>

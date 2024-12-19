@@ -72,6 +72,7 @@ After configuring the `quickConnect` property, the installed wallets and univers
 | availableWallets | List of available wallets | [Wallet](../types/index.md#wallet)\[] | - | - |
 | quickConnect | Quick connect | `boolean` | `false` | - |
 | locale | Multilingual settings | `Locale["ConnectButton"]` | - | - |
+| chainSelect | Selection chain | `boolean` | `true` | - |
 
 ### Balance
 
