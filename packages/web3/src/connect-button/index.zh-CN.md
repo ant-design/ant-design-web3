@@ -73,6 +73,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*S4cyQ7OCxDUAAA
 | availableWallets | 可用的钱包列表 | [Wallet](../types/index.zh-CN.md#wallet)\[] | - | - |
 | quickConnect | 快速连接钱包 | `boolean` | `false` | - |
 | locale | 多语言设置 | `Locale["ConnectButton"]` | - | - |
+| chainSelect | 是否显示选择链 | `boolean` | `true` | - |
 
 ### Balance
 

@@ -21,6 +21,7 @@ import { ConnectButtonTooltip } from './tooltip';
 
 export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const {
+    chainSelect = true,
     onConnectClick,
     onDisconnectClick,
     availableChains,
@@ -124,8 +125,10 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     size: props.size,
   };
 
-  const chainSelect =
-    availableChains && availableChains.length > 1 ? <ChainSelect {...chainProps} /> : null;
+  const chainSelectRender =
+    chainSelect && availableChains && availableChains.length > 1 ? (
+      <ChainSelect {...chainProps} />
+    ) : null;
 
   const buttonInnerText = (
     <div className={`${prefixCls}-content`}>
@@ -147,7 +150,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     <ConnectButtonInner
       intl={intl}
       {...buttonProps}
-      preContent={chainSelect}
+      preContent={chainSelectRender}
       showQuickConnect={quickConnect && !account}
       availableWallets={availableWallets}
       onConnectClick={(wallet?: Wallet) => {
