@@ -35,3 +35,12 @@ export class NoInscriptionError extends Error {
     this.name = this.constructor.name;
   }
 }
+
+export class NotImplementedError extends Error {
+  name: string;
+
+  constructor(message = 'Not implemented') {
+    super(message);
+    this.name = this.constructor.name;
+  }
+}
