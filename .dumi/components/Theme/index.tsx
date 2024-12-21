@@ -29,6 +29,8 @@ export const Theme: React.FC = () => {
     setIsDark(color === 'dark');
   }, [color]);
 
+  console.log('curTheme', curTheme, isDark, color);
+
   const walletList: Wallet[] = [
     {
       ...metadata_MetaMask,
