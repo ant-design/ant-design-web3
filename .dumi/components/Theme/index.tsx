@@ -29,8 +29,6 @@ export const Theme: React.FC = () => {
     setIsDark(color === 'dark');
   }, [color]);
 
-  console.log('curTheme', curTheme, isDark, color);
-
   const walletList: Wallet[] = [
     {
       ...metadata_MetaMask,
@@ -96,7 +94,7 @@ export const Theme: React.FC = () => {
       <div className={styles.desc}>
         {intl.formatMessage({ id: 'app.docs.site.theme.description' })}
       </div>
-      <ConfigProvider
+      {/* <ConfigProvider
         theme={{
           algorithm: isDark ? theme.darkAlgorithm : undefined,
           token:
@@ -106,18 +104,18 @@ export const Theme: React.FC = () => {
                   colorPrimary: curTheme.color,
                 },
         }}
+      > */}
+      <Card
+        className={styles.card}
+        styles={{
+          body: {
+            padding: 0,
+          },
+        }}
       >
-        <Card
-          className={styles.card}
-          styles={{
-            body: {
-              padding: 0,
-            },
-          }}
-        >
-          <ConnectModal.ModalPanel walletList={walletList} />
-        </Card>
-      </ConfigProvider>
+        <ConnectModal.ModalPanel walletList={walletList} />
+      </Card>
+      {/* </ConfigProvider> */}
       <div className={styles.thumbnailBox}>
         <Thumbnail selectedTheme={curTheme} onSelect={(theme) => updateTheme(theme)} />
       </div>
