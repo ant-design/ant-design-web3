@@ -144,11 +144,11 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
   if (needSign) {
     buttonText = signBtnTextRender ? (
-      signBtnTextRender(account, buttonText)
+      signBtnTextRender(buttonText, account)
     ) : (
       <>
         {`${intl.getMessage(intl.messages.sign)}: `}
-        {buttonText}
+        {account?.address.slice(0, 6)}...{account?.address.slice(-4)}
       </>
     );
   }

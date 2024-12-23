@@ -25,7 +25,7 @@ export type ConnectButtonProps = ButtonProps &
     locale?: Locale['ConnectButton'];
     avatar?: AvatarProps;
     sign?: SignConfig;
-    signBtnTextRender?: (account?: Account, content?: React.ReactNode) => React.ReactNode;
+    signBtnTextRender?: (signText?: React.ReactNode, account?: Account) => React.ReactNode;
     onMenuItemClick?: (e: NonNullable<MenuProps['items']>[number]) => void;
     tooltip?: boolean | ConnectButtonTooltipProps;
     profileModal?: boolean | ProfileModalProps['modalProps'];

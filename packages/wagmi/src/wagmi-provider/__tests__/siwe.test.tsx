@@ -241,7 +241,7 @@ describe('Wagmi siwe sign', () => {
     });
     const verifyMessage = vi.fn(async () => true);
 
-    const renderText = vi.fn((account) => `Custom Sign: ${account.address}`);
+    const renderText = vi.fn((defaultDom, account) => `Custom Sign: ${account.address}`);
 
     const config = createConfig({
       chains: [mainnet],
@@ -304,7 +304,7 @@ describe('Wagmi siwe sign', () => {
       >
         <Connector>
           <ConnectButton
-            signBtnTextRender={(account, defaultDom) => {
+            signBtnTextRender={(defaultDom, account) => {
               return (
                 <div className="custom-text">
                   {defaultDom} & Custom Sign: {account?.address}

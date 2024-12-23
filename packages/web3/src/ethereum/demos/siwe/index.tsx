@@ -35,7 +35,7 @@ const DisconnectBtn: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  const renderSignBtnText = (account?: Account) => {
+  const renderSignBtnText = (defaultDom: React.ReactNode, account?: Account) => {
     const { address } = account ?? {};
     const ellipsisAddress = address ? `${address.slice(0, 6)}...${address.slice(-6)}` : '';
     return `Sign in as ${ellipsisAddress}`;
