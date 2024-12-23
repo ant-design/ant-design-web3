@@ -63,7 +63,7 @@ export default () => {
 
 <a href="https://zan.top?chInfo=ch_antdweb3"><image src="https://mdn.alipayobjects.com/huamei_hsbbrh/afts/img/A*ybcRSrUPqhsAAAAAAAAAAAAADiOMAQ/original" /></a>
 
-ZAN is a Web3 technology service provider offering [node services](https://zan.top/home/node-service?chInfo=ch_antdweb3), [testnet faucet](https://zan.top/faucet?chInfo=ch_antdweb3), [smart contract auditing](https://zan.top/home/ai-scan?chInfo=ch_antdweb3), [Web3 security](https://zan.top/home/know-your-transaction?chInfo=ch_antdweb3), and other services.
+ZAN is a Web3 technology service provider offering [node services](https://zan.top/home/node-service?chInfo=ch_antdweb3), [testnet faucet](https://zan.top/faucet?chInfo=ch_antdweb3), [smart contract auditing](https://zan.top/home/ai-scan?chInfo=ch_antdweb3) and other services.
 
 ## Development
 
