@@ -1,5 +1,5 @@
 ---
-nav: 用USDT支付
+nav: 用 USDT 支付
 group: 最佳实践
 ---
 
