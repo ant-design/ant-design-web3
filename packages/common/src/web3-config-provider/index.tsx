@@ -8,7 +8,6 @@ const ProviderChildren: React.FC<
   ConfigConsumerProps & { children?: React.ReactNode; parentContext?: ConfigConsumerProps }
 > = (props) => {
   const { children, parentContext, ...rest } = props;
-
   const config = { ...parentContext };
 
   Object.keys(rest).forEach((key) => {

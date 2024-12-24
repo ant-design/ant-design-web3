@@ -70,6 +70,8 @@ We have built-in `Mainnet`, and the remaining chains need to configure `chains` 
 
 SIWE means Sign-In with Ethereum. Your website can verify user login through signatures. Below is an example where the backend interface is mocked. You need to implement it in your project.
 
+To quickly use SIWE, you need to set three key methods: get the nonce value, construct the signature, and verify the signature.
+
 <code src="./demos/siwe/index.tsx"></code>
 
 ## Display ENS and Balance
@@ -102,6 +104,7 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 | reconnectOnMount | Whether or not to reconnect previously connected [connectors](https://wagmi.sh/react/api/createConfig#connectors) on mount. | `boolean` \| `undefined` | `true` | - |
 | walletConnect | WalletConnect configuration | `false` \| [WalletConnectOptions](#walletconnectoptions) | - | `2.8.0` |
 | transports | [Transport](https://wagmi.sh/core/api/createConfig#transports) configuration | `Transport` | - | `2.8.0` |
+| siwe | [SIWEConfig](#siweconfig) | CreateSiweMessageParameters | - | - |
 
 ### WalletFactory
 
@@ -139,3 +142,13 @@ export interface WalletConnectOptions
   useWalletConnectOfficialModal?: boolean;
 }
 ```
+
+### SIWEConfig
+
+`CreateSiweMessageParameters` refers to the [definition](https://viem.sh/docs/siwe/utilities/createSiweMessage) in `viem/siwe`.
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| getNonce | Get Nonce value | `(address: string, chainId?: number) => Promise<string>` | - | - |
+| createMessage | Construct signature message | `(args: CreateSiweMessageParameters) => string` | - | - |
+| verifyMessage | Verify signature message | `(message: string, signature: string) => Promise<boolean>` | - | - |
