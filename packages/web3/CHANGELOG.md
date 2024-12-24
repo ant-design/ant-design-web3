@@ -1,5 +1,18 @@
 # @ant-design/web3
 
+## 1.19.0
+
+### Minor Changes
+
+- 2ee466c: feat: Add chainSelect argument
+
+### Patch Changes
+
+- 703f16a: fix: useAccount and useConnection hooks ts type bug
+- Updated dependencies [1072532]
+  - @ant-design/web3-icons@1.11.3
+  - @ant-design/web3-assets@1.11.6
+
 ## 1.18.1
 
 ### Patch Changes

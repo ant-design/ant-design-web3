@@ -1,5 +1,11 @@
 # @ant-design/web3-wagmi
 
+## 2.9.5
+
+### Patch Changes
+
+- @ant-design/web3-assets@1.11.6
+
 ## 2.9.4
 
 ### Patch Changes
