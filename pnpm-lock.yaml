@@ -223,8 +223,8 @@ importers:
         specifier: ^4.1.5
         version: 4.1.5(@babel/core@7.26.0)(@types/node@22.9.1)(@types/react@18.3.5)(eslint@8.57.1)(lightningcss@1.22.1)(prettier@3.3.3)(react-dom@18.1.0(react@18.1.0))(react@18.1.0)(rollup@3.29.5)(sass@1.69.5)(stylelint@15.11.0(typescript@5.6.2))(terser@5.36.0)(type-fest@1.4.0)(typescript@5.6.2)(webpack@5.96.1(@swc/core@1.4.2(@swc/helpers@0.5.15)))
       web3:
-        specifier: ^4.11.1
-        version: 4.11.1(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
+        specifier: ^4.16.0
+        version: 4.16.0(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
     devDependencies:
       '@types/react':
         specifier: ^18.3.5
@@ -416,8 +416,8 @@ importers:
         specifier: ^5.6.2
         version: 5.6.2
       web3:
-        specifier: ^4.11.1
-        version: 4.11.1(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
+        specifier: ^4.16.0
+        version: 4.16.0(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
 
   packages/ethers:
     dependencies:
@@ -13706,24 +13706,24 @@ packages:
     resolution: {integrity: sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==}
     engines: {node: '>= 8'}
 
-  web3-core@4.5.0:
-    resolution: {integrity: sha512-Q8LIAqmF7vkRydBPiU+OC7wI44nEU6JEExolFaOakqrjMtQ1CWFHRUQMNJRDsk5bRirjyShuAsuqLeYByvvXhg==}
+  web3-core@4.7.1:
+    resolution: {integrity: sha512-9KSeASCb/y6BG7rwhgtYC4CvYY66JfkmGNEYb7q1xgjt9BWfkf09MJPaRyoyT5trdOxYDHkT9tDlypvQWaU8UQ==}
     engines: {node: '>=14', npm: '>=6.12.0'}
 
-  web3-errors@1.2.1:
-    resolution: {integrity: sha512-dIsi8SFC9TCAWpPmacXeVMk/F8tDNa1Bvg8/Cc2cvJo8LRSWd099szEyb+/SiMYcLlEbwftiT9Rpukz7ql4hBg==}
+  web3-errors@1.3.1:
+    resolution: {integrity: sha512-w3NMJujH+ZSW4ltIZZKtdbkbyQEvBzyp3JRn59Ckli0Nz4VMsVq8aF1bLWM7A2kuQ+yVEm3ySeNU+7mSRwx7RQ==}
     engines: {node: '>=14', npm: '>=6.12.0'}
 
-  web3-eth-abi@4.2.3:
-    resolution: {integrity: sha512-rPVwTn0O1CzbtfXwEfIjUP0W5Y7u1OFjugwKpSqJzPQE6+REBg6OELjomTGZBu+GThxHnv0rp15SOxvqp+tyXA==}
+  web3-eth-abi@4.4.1:
+    resolution: {integrity: sha512-60ecEkF6kQ9zAfbTY04Nc9q4eEYM0++BySpGi8wZ2PD1tw/c0SDvsKhV6IKURxLJhsDlb08dATc3iD6IbtWJmg==}
     engines: {node: '>=14', npm: '>=6.12.0'}
 
-  web3-eth-accounts@4.1.3:
-    resolution: {integrity: sha512-61Nb7xCXy6Vw/6xUZMM5ITtXetXmaP0F8oKRxika4GO4fRfKZLAwBZtshMyrdAORPZYq77ENiqXJVU+hTmtUaQ==}
+  web3-eth-accounts@4.3.1:
+    resolution: {integrity: sha512-rTXf+H9OKze6lxi7WMMOF1/2cZvJb2AOnbNQxPhBDssKOllAMzLhg1FbZ4Mf3lWecWfN6luWgRhaeSqO1l+IBQ==}
     engines: {node: '>=14', npm: '>=6.12.0'}
 
-  web3-eth-contract@4.6.0:
-    resolution: {integrity: sha512-mgQ/WUUlgW9BVKKVGU/Q7KrQEbEGI98h8ppox7fT964wY9ITFMDuRCvYk50WTWnFMdjFtOBqt1xRJ0+B1ekCHg==}
+  web3-eth-contract@4.7.2:
+    resolution: {integrity: sha512-3ETqs2pMNPEAc7BVY/C3voOhTUeJdkf2aM3X1v+edbngJLHAxbvxKpOqrcO0cjXzC4uc2Q8Zpf8n8zT5r0eLnA==}
     engines: {node: '>=14', npm: '>=6.12.0'}
 
   web3-eth-ens@4.4.0:
@@ -13734,20 +13734,20 @@ packages:
     resolution: {integrity: sha512-8weKLa9KuKRzibC87vNLdkinpUE30gn0IGY027F8doeJdcPUfsa4IlBgNC4k4HLBembBB2CTU0Kr/HAOqMeYVQ==}
     engines: {node: '>=14', npm: '>=6.12.0'}
 
-  web3-eth-personal@4.0.8:
-    resolution: {integrity: sha512-sXeyLKJ7ddQdMxz1BZkAwImjqh7OmKxhXoBNF3isDmD4QDpMIwv/t237S3q4Z0sZQamPa/pHebJRWVuvP8jZdw==}
+  web3-eth-personal@4.1.0:
+    resolution: {integrity: sha512-RFN83uMuvA5cu1zIwwJh9A/bAj0OBxmGN3tgx19OD/9ygeUZbifOL06jgFzN0t+1ekHqm3DXYQM8UfHpXi7yDQ==}
     engines: {node: '>=14', npm: '>=6.12.0'}
 
-  web3-eth@4.8.2:
-    resolution: {integrity: sha512-DLV/fIMG6gBp/B0gv0+G4FzxZ4YCDQsY3lzqqv7avwh3uU7/O27aifCUcFd7Ye+3ixTqCjAvLEl9wYSeyG3zQw==}
+  web3-eth@4.11.1:
+    resolution: {integrity: sha512-q9zOkzHnbLv44mwgLjLXuyqszHuUgZWsQayD2i/rus2uk0G7hMn11bE2Q3hOVnJS4ws4VCtUznlMxwKQ+38V2w==}
     engines: {node: '>=14', npm: '>=6.12.0'}
 
   web3-net@4.1.0:
     resolution: {integrity: sha512-WWmfvHVIXWEoBDWdgKNYKN8rAy6SgluZ0abyRyXOL3ESr7ym7pKWbfP4fjApIHlYTh8tNqkrdPfM4Dyi6CA0SA==}
     engines: {node: '>=14', npm: '>=6.12.0'}
 
-  web3-providers-http@4.1.0:
-    resolution: {integrity: sha512-6qRUGAhJfVQM41E5t+re5IHYmb5hSaLc02BE2MaRQsz2xKA6RjmHpOA5h/+ojJxEpI9NI2CrfDKOAgtJfoUJQg==}
+  web3-providers-http@4.2.0:
+    resolution: {integrity: sha512-IPMnDtHB7dVwaB7/mMxAZzyq7d5ezfO1+Vw0bNfAeIi7gaDlJiggp85SdyAfOgov8AMUA/dyiY72kQ0KmjXKvQ==}
     engines: {node: '>=14', npm: '>=6.12.0'}
 
   web3-providers-ipc@4.0.7:
@@ -13762,28 +13762,28 @@ packages:
     resolution: {integrity: sha512-/CHmzGN+IYgdBOme7PdqzF+FNeMleefzqs0LVOduncSaqsppeOEoskLXb2anSpzmQAP3xZJPaTrkQPWSJMORig==}
     engines: {node: '>=14', npm: '>=6.12.0'}
 
-  web3-rpc-providers@1.0.0-rc.1:
-    resolution: {integrity: sha512-N7AgGB+ilKPFQohnlI1vNHWmQ5Wh5vlGdYKWCWJc9kisKxxGtOsqN3W8tOj6/898sHZIXU9i/IAOyreGDIybmw==}
+  web3-rpc-providers@1.0.0-rc.4:
+    resolution: {integrity: sha512-PXosCqHW0EADrYzgmueNHP3Y5jcSmSwH+Dkqvn7EYD0T2jcsdDAIHqk6szBiwIdhumM7gv9Raprsu/s/f7h1fw==}
     engines: {node: '>=14', npm: '>=6.12.0'}
 
-  web3-types@1.7.0:
-    resolution: {integrity: sha512-nhXxDJ7a5FesRw9UG5SZdP/C/3Q2EzHGnB39hkAV+YGXDMgwxBXFWebQLfEzZzuArfHnvC0sQqkIHNwSKcVjdA==}
+  web3-types@1.10.0:
+    resolution: {integrity: sha512-0IXoaAFtFc8Yin7cCdQfB9ZmjafrbP6BO0f0KT/khMhXKUpoJ6yShrVhiNpyRBo8QQjuOagsWzwSK2H49I7sbw==}
     engines: {node: '>=14', npm: '>=6.12.0'}
 
   web3-utils@1.10.3:
     resolution: {integrity: sha512-OqcUrEE16fDBbGoQtZXWdavsPzbGIDc5v3VrRTZ0XrIpefC/viZ1ZU9bGEemazyS0catk/3rkOOxpzTfY+XsyQ==}
     engines: {node: '>=8.0.0'}
 
-  web3-utils@4.3.1:
-    resolution: {integrity: sha512-kGwOk8FxOLJ9DQC68yqNQc7AzN+k9YDLaW+ZjlAXs3qORhf8zXk5SxWAAGLbLykMs3vTeB0FTb1Exut4JEYfFA==}
+  web3-utils@4.3.3:
+    resolution: {integrity: sha512-kZUeCwaQm+RNc2Bf1V3BYbF29lQQKz28L0y+FA4G0lS8IxtJVGi5SeDTUkpwqqkdHHC7JcapPDnyyzJ1lfWlOw==}
     engines: {node: '>=14', npm: '>=6.12.0'}
 
   web3-validator@2.0.6:
     resolution: {integrity: sha512-qn9id0/l1bWmvH4XfnG/JtGKKwut2Vokl6YXP5Kfg424npysmtRLe9DgiNBM9Op7QL/aSiaA0TVXibuIuWcizg==}
     engines: {node: '>=14', npm: '>=6.12.0'}
 
-  web3@4.11.1:
-    resolution: {integrity: sha512-KUntBtnc+cj9ur/yNcdTok9MpCI9dHf8h1hRmLPVICF5wyKyHbR4t+51vqUnK5bI6UxVfRPT++qCcP7KhDACVA==}
+  web3@4.16.0:
+    resolution: {integrity: sha512-SgoMSBo6EsJ5GFCGar2E/pR2lcR/xmUSuQ61iK6yDqzxmm42aPPxSqZfJz2z/UCR6pk03u77pU8TGV6lgMDdIQ==}
     engines: {node: '>=14.0.0', npm: '>=6.12.0'}
 
   webauthn-p256@0.0.5:
@@ -18064,7 +18064,7 @@ snapshots:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 22.1.0
+      '@types/node': 22.9.1
       '@types/yargs': 17.0.32
       chalk: 4.1.2
 
@@ -18342,7 +18342,7 @@ snapshots:
     dependencies:
       '@ethereumjs/tx': 4.2.0
       '@noble/hashes': 1.5.0
-      '@scure/base': 1.1.8
+      '@scure/base': 1.1.9
       '@types/debug': 4.1.12
       debug: 4.3.7(supports-color@5.5.0)
       pony-cause: 2.1.10
@@ -18357,7 +18357,7 @@ snapshots:
       '@ethereumjs/tx': 4.2.0
       '@metamask/superstruct': 3.1.0
       '@noble/hashes': 1.5.0
-      '@scure/base': 1.1.8
+      '@scure/base': 1.1.9
       '@types/debug': 4.1.12
       debug: 4.3.7(supports-color@5.5.0)
       pony-cause: 2.1.10
@@ -19940,7 +19940,7 @@ snapshots:
     dependencies:
       '@noble/curves': 1.3.0
       '@noble/hashes': 1.3.3
-      '@scure/base': 1.1.8
+      '@scure/base': 1.1.9
 
   '@scure/bip32@1.4.0':
     dependencies:
@@ -19956,7 +19956,7 @@ snapshots:
   '@scure/bip39@1.2.2':
     dependencies:
       '@noble/hashes': 1.3.3
-      '@scure/base': 1.1.8
+      '@scure/base': 1.1.9
 
   '@scure/bip39@1.4.0':
     dependencies:
@@ -20963,7 +20963,7 @@ snapshots:
 
   '@types/graceful-fs@4.1.9':
     dependencies:
-      '@types/node': 22.7.5
+      '@types/node': 22.9.1
 
   '@types/hapi__joi@17.1.9': {}
 
@@ -20997,11 +20997,11 @@ snapshots:
 
   '@types/jsonfile@6.1.4':
     dependencies:
-      '@types/node': 22.7.5
+      '@types/node': 22.9.1
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 22.7.5
+      '@types/node': 22.9.1
 
   '@types/lodash-es@4.17.12':
     dependencies:
@@ -21076,7 +21076,7 @@ snapshots:
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 22.7.5
+      '@types/node': 22.9.1
 
   '@types/sax@1.2.7':
     dependencies:
@@ -21084,7 +21084,7 @@ snapshots:
 
   '@types/secp256k1@4.0.6':
     dependencies:
-      '@types/node': 22.1.0
+      '@types/node': 22.9.1
 
   '@types/semver@7.5.6': {}
 
@@ -21110,7 +21110,7 @@ snapshots:
 
   '@types/ws@8.5.3':
     dependencies:
-      '@types/node': 22.1.0
+      '@types/node': 22.9.1
 
   '@types/yargs-parser@21.0.3': {}
 
@@ -27998,7 +27998,7 @@ snapshots:
     dependencies:
       '@jest/types': 29.6.3
       '@types/graceful-fs': 4.1.9
-      '@types/node': 22.1.0
+      '@types/node': 22.9.1
       anymatch: 3.1.3
       fb-watchman: 2.0.2
       graceful-fs: 4.2.11
@@ -28033,7 +28033,7 @@ snapshots:
   jest-util@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.1.0
+      '@types/node': 22.9.1
       chalk: 4.1.2
       ci-info: 3.9.0
       graceful-fs: 4.2.11
@@ -28063,7 +28063,7 @@ snapshots:
 
   jest-worker@29.7.0:
     dependencies:
-      '@types/node': 22.7.5
+      '@types/node': 22.9.1
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
@@ -34051,15 +34051,15 @@ snapshots:
 
   web-streams-polyfill@3.2.1: {}
 
-  web3-core@4.5.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10):
+  web3-core@4.7.1(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10):
     dependencies:
-      web3-errors: 1.2.1
-      web3-eth-accounts: 4.1.3
+      web3-errors: 1.3.1
+      web3-eth-accounts: 4.3.1
       web3-eth-iban: 4.0.7
-      web3-providers-http: 4.1.0(encoding@0.1.13)
+      web3-providers-http: 4.2.0(encoding@0.1.13)
       web3-providers-ws: 4.0.8(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      web3-types: 1.7.0
-      web3-utils: 4.3.1
+      web3-types: 1.10.0
+      web3-utils: 4.3.3
       web3-validator: 2.0.6
     optionalDependencies:
       web3-providers-ipc: 4.0.7
@@ -34068,40 +34068,40 @@ snapshots:
       - encoding
       - utf-8-validate
 
-  web3-errors@1.2.1:
+  web3-errors@1.3.1:
     dependencies:
-      web3-types: 1.7.0
+      web3-types: 1.10.0
 
-  web3-eth-abi@4.2.3(typescript@5.6.2)(zod@3.23.8):
+  web3-eth-abi@4.4.1(typescript@5.6.2)(zod@3.23.8):
     dependencies:
       abitype: 0.7.1(typescript@5.6.2)(zod@3.23.8)
-      web3-errors: 1.2.1
-      web3-types: 1.7.0
-      web3-utils: 4.3.1
+      web3-errors: 1.3.1
+      web3-types: 1.10.0
+      web3-utils: 4.3.3
       web3-validator: 2.0.6
     transitivePeerDependencies:
       - typescript
       - zod
 
-  web3-eth-accounts@4.1.3:
+  web3-eth-accounts@4.3.1:
     dependencies:
       '@ethereumjs/rlp': 4.0.1
       crc-32: 1.2.2
       ethereum-cryptography: 2.1.3
-      web3-errors: 1.2.1
-      web3-types: 1.7.0
-      web3-utils: 4.3.1
+      web3-errors: 1.3.1
+      web3-types: 1.10.0
+      web3-utils: 4.3.3
       web3-validator: 2.0.6
 
-  web3-eth-contract@4.6.0(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8):
+  web3-eth-contract@4.7.2(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8):
     dependencies:
       '@ethereumjs/rlp': 5.0.2
-      web3-core: 4.5.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
-      web3-errors: 1.2.1
-      web3-eth: 4.8.2(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
-      web3-eth-abi: 4.2.3(typescript@5.6.2)(zod@3.23.8)
-      web3-types: 1.7.0
-      web3-utils: 4.3.1
+      web3-core: 4.7.1(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
+      web3-errors: 1.3.1
+      web3-eth: 4.11.1(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
+      web3-eth-abi: 4.4.1(typescript@5.6.2)(zod@3.23.8)
+      web3-types: 1.10.0
+      web3-utils: 4.3.3
       web3-validator: 2.0.6
     transitivePeerDependencies:
       - bufferutil
@@ -34113,13 +34113,13 @@ snapshots:
   web3-eth-ens@4.4.0(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8):
     dependencies:
       '@adraffy/ens-normalize': 1.10.1
-      web3-core: 4.5.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
-      web3-errors: 1.2.1
-      web3-eth: 4.8.2(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
-      web3-eth-contract: 4.6.0(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
+      web3-core: 4.7.1(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
+      web3-errors: 1.3.1
+      web3-eth: 4.11.1(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
+      web3-eth-contract: 4.7.2(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
       web3-net: 4.1.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
-      web3-types: 1.7.0
-      web3-utils: 4.3.1
+      web3-types: 1.10.0
+      web3-utils: 4.3.3
       web3-validator: 2.0.6
     transitivePeerDependencies:
       - bufferutil
@@ -34130,18 +34130,18 @@ snapshots:
 
   web3-eth-iban@4.0.7:
     dependencies:
-      web3-errors: 1.2.1
-      web3-types: 1.7.0
-      web3-utils: 4.3.1
+      web3-errors: 1.3.1
+      web3-types: 1.10.0
+      web3-utils: 4.3.3
       web3-validator: 2.0.6
 
-  web3-eth-personal@4.0.8(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8):
+  web3-eth-personal@4.1.0(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8):
     dependencies:
-      web3-core: 4.5.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
-      web3-eth: 4.8.2(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
+      web3-core: 4.7.1(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
+      web3-eth: 4.11.1(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
       web3-rpc-methods: 1.3.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
-      web3-types: 1.7.0
-      web3-utils: 4.3.1
+      web3-types: 1.10.0
+      web3-utils: 4.3.3
       web3-validator: 2.0.6
     transitivePeerDependencies:
       - bufferutil
@@ -34150,18 +34150,18 @@ snapshots:
       - utf-8-validate
       - zod
 
-  web3-eth@4.8.2(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8):
+  web3-eth@4.11.1(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8):
     dependencies:
       setimmediate: 1.0.5
-      web3-core: 4.5.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
-      web3-errors: 1.2.1
-      web3-eth-abi: 4.2.3(typescript@5.6.2)(zod@3.23.8)
-      web3-eth-accounts: 4.1.3
+      web3-core: 4.7.1(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
+      web3-errors: 1.3.1
+      web3-eth-abi: 4.4.1(typescript@5.6.2)(zod@3.23.8)
+      web3-eth-accounts: 4.3.1
       web3-net: 4.1.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
       web3-providers-ws: 4.0.8(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       web3-rpc-methods: 1.3.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
-      web3-types: 1.7.0
-      web3-utils: 4.3.1
+      web3-types: 1.10.0
+      web3-utils: 4.3.3
       web3-validator: 2.0.6
     transitivePeerDependencies:
       - bufferutil
@@ -34172,38 +34172,38 @@ snapshots:
 
   web3-net@4.1.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10):
     dependencies:
-      web3-core: 4.5.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
+      web3-core: 4.7.1(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
       web3-rpc-methods: 1.3.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
-      web3-types: 1.7.0
-      web3-utils: 4.3.1
+      web3-types: 1.10.0
+      web3-utils: 4.3.3
     transitivePeerDependencies:
       - bufferutil
       - encoding
       - utf-8-validate
 
-  web3-providers-http@4.1.0(encoding@0.1.13):
+  web3-providers-http@4.2.0(encoding@0.1.13):
     dependencies:
       cross-fetch: 4.0.0(encoding@0.1.13)
-      web3-errors: 1.2.1
-      web3-types: 1.7.0
-      web3-utils: 4.3.1
+      web3-errors: 1.3.1
+      web3-types: 1.10.0
+      web3-utils: 4.3.3
     transitivePeerDependencies:
       - encoding
 
   web3-providers-ipc@4.0.7:
     dependencies:
-      web3-errors: 1.2.1
-      web3-types: 1.7.0
-      web3-utils: 4.3.1
+      web3-errors: 1.3.1
+      web3-types: 1.10.0
+      web3-utils: 4.3.3
     optional: true
 
   web3-providers-ws@4.0.8(bufferutil@4.0.8)(utf-8-validate@5.0.10):
     dependencies:
       '@types/ws': 8.5.3
       isomorphic-ws: 5.0.0(ws@8.18.0(bufferutil@4.0.8)(utf-8-validate@5.0.10))
-      web3-errors: 1.2.1
-      web3-types: 1.7.0
-      web3-utils: 4.3.1
+      web3-errors: 1.3.1
+      web3-types: 1.10.0
+      web3-utils: 4.3.3
       ws: 8.18.0(bufferutil@4.0.8)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - bufferutil
@@ -34211,28 +34211,28 @@ snapshots:
 
   web3-rpc-methods@1.3.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10):
     dependencies:
-      web3-core: 4.5.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
-      web3-types: 1.7.0
+      web3-core: 4.7.1(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
+      web3-types: 1.10.0
       web3-validator: 2.0.6
     transitivePeerDependencies:
       - bufferutil
       - encoding
       - utf-8-validate
 
-  web3-rpc-providers@1.0.0-rc.1(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10):
+  web3-rpc-providers@1.0.0-rc.4(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10):
     dependencies:
-      web3-errors: 1.2.1
-      web3-providers-http: 4.1.0(encoding@0.1.13)
+      web3-errors: 1.3.1
+      web3-providers-http: 4.2.0(encoding@0.1.13)
       web3-providers-ws: 4.0.8(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      web3-types: 1.7.0
-      web3-utils: 4.3.1
+      web3-types: 1.10.0
+      web3-utils: 4.3.3
       web3-validator: 2.0.6
     transitivePeerDependencies:
       - bufferutil
       - encoding
       - utf-8-validate
 
-  web3-types@1.7.0: {}
+  web3-types@1.10.0: {}
 
   web3-utils@1.10.3:
     dependencies:
@@ -34245,40 +34245,40 @@ snapshots:
       randombytes: 2.1.0
       utf8: 3.0.0
 
-  web3-utils@4.3.1:
+  web3-utils@4.3.3:
     dependencies:
       ethereum-cryptography: 2.1.3
       eventemitter3: 5.0.1
-      web3-errors: 1.2.1
-      web3-types: 1.7.0
+      web3-errors: 1.3.1
+      web3-types: 1.10.0
       web3-validator: 2.0.6
 
   web3-validator@2.0.6:
     dependencies:
       ethereum-cryptography: 2.1.3
       util: 0.12.5
-      web3-errors: 1.2.1
-      web3-types: 1.7.0
+      web3-errors: 1.3.1
+      web3-types: 1.10.0
       zod: 3.23.8
 
-  web3@4.11.1(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8):
+  web3@4.16.0(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8):
     dependencies:
-      web3-core: 4.5.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
-      web3-errors: 1.2.1
-      web3-eth: 4.8.2(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
-      web3-eth-abi: 4.2.3(typescript@5.6.2)(zod@3.23.8)
-      web3-eth-accounts: 4.1.3
-      web3-eth-contract: 4.6.0(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
+      web3-core: 4.7.1(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
+      web3-errors: 1.3.1
+      web3-eth: 4.11.1(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
+      web3-eth-abi: 4.4.1(typescript@5.6.2)(zod@3.23.8)
+      web3-eth-accounts: 4.3.1
+      web3-eth-contract: 4.7.2(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
       web3-eth-ens: 4.4.0(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
       web3-eth-iban: 4.0.7
-      web3-eth-personal: 4.0.8(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
+      web3-eth-personal: 4.1.0(bufferutil@4.0.8)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.23.8)
       web3-net: 4.1.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
-      web3-providers-http: 4.1.0(encoding@0.1.13)
+      web3-providers-http: 4.2.0(encoding@0.1.13)
       web3-providers-ws: 4.0.8(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       web3-rpc-methods: 1.3.0(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
-      web3-rpc-providers: 1.0.0-rc.1(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
-      web3-types: 1.7.0
-      web3-utils: 4.3.1
+      web3-rpc-providers: 1.0.0-rc.4(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
+      web3-types: 1.10.0
+      web3-utils: 4.3.3
       web3-validator: 2.0.6
     transitivePeerDependencies:
       - bufferutil
