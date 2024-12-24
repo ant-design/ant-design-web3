@@ -126,7 +126,7 @@
     "@tanstack/query-sync-storage-persister": "^5.59.16",
     "@tanstack/react-query": "^5.51.11",
     "@tanstack/react-query-persist-client": "^5.56.2",
-    "antd": "^5.21.6",
+    "antd": "^5.22.5",
     "antd-style": "^3.6.2",
     "antd-token-previewer-web3": "^2.0.8",
     "cross-env": "^7.0.3",
