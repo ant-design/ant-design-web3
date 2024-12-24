@@ -1,5 +1,11 @@
 # @ant-design/web3-ton
 
+## 1.0.9
+
+### Patch Changes
+
+- @ant-design/web3-assets@1.11.6
+
 ## 1.0.8
 
 ### Patch Changes

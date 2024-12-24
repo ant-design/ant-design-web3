@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-wagmi",
-  "version": "2.9.4",
+  "version": "2.9.5",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",

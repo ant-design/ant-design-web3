@@ -1,5 +1,11 @@
 # @ant-design/web3-icons
 
+## 1.11.3
+
+### Patch Changes
+
+- 1072532: chore: replace sui icon
+
 ## 1.11.2
 
 ### Patch Changes
