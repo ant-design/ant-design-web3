@@ -69,4 +69,18 @@ describe('ConnectButton chains', () => {
       ),
     ).toBeTruthy();
   });
+
+  it('without chain select', async () => {
+    const App: React.FC = () => {
+      return (
+        <ConnectButton
+          availableChains={[Mainnet, Polygon]}
+          chainSelect={false}
+          account={{ address: '3ea2cfd153b8d8505097b81c87c11f5d05097c18' }}
+        />
+      );
+    };
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('.ant-web3-connect-button-chain-select-button')).toBeNull();
+  });
 });

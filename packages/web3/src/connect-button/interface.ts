@@ -15,6 +15,7 @@ export type ConnectButtonTooltipProps = TooltipProps & {
 
 export type ConnectButtonProps = ButtonProps &
   ConnectorTriggerProps & {
+    chainSelect?: boolean | true;
     prefixCls?: string;
     locale?: Locale['ConnectButton'];
     avatar?: AvatarProps;
