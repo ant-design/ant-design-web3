@@ -1,6 +1,6 @@
 import path from 'path';
 import svgr from 'vite-plugin-svgr';
-import { defineConfig } from 'vitest/config';
+import { defineConfig, ViteUserConfig } from 'vitest/config';
 
 const resolve = (src: string) => {
   return path.resolve(__dirname, src);
@@ -16,7 +16,7 @@ export default defineConfig({
       },
       include: ['**/*.svg'],
     }),
-  ],
+  ] as ViteUserConfig["plugins"],
   resolve: {
     alias: isDist
       ? {
