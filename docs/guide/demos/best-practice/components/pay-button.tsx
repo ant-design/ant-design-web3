@@ -64,20 +64,6 @@ export const EvmPayButton: React.FC<PayButtonsProps> = ({
           >
             <ConnectButton chainSelect={false} />
           </Connector>
-          <Connector
-            modalProps={{
-              footer: (
-                <>
-                  Powered by{' '}
-                  <a href="https://web3.ant.design/" target="_blank" rel="noreferrer">
-                    Ant Design Web3
-                  </a>
-                </>
-              ),
-            }}
-          >
-            <ConnectButton chainSelect={false} />
-          </Connector>
           <EvmSignTransaction
             setTokenEcosystem={setTokenEcosystem}
             tokenEcosystem={tokenEcosystem}
