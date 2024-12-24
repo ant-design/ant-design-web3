@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, theme } from 'antd';
 import classNames from 'classnames';
 import { usePrefersColor } from 'dumi';
 import SiteContext from 'dumi-theme-antd-web3/dist/slots/SiteContext';
@@ -51,6 +51,7 @@ export const HomePage: React.FC = () => {
       <ConfigProvider
         theme={{
           ...displayTheme?.token,
+          algorithm: color === 'dark' ? theme.darkAlgorithm : undefined,
         }}
       >
         <div className={classNames(styles.container)} style={themeStyle}>
