@@ -6,7 +6,8 @@ import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
 import { ConfigProvider } from 'antd';
 import classnames from 'classnames';
 
-import { eraseDefaultProps } from '../utils';import SVGComponent from '../svgs/gbyte-circle-colorful.svg';
+import { eraseDefaultProps } from '../utils';
+import SVGComponent from '../svgs/gbyte-circle-colorful.svg';
 
 /**![GbyteCircleColorful](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IiNjYWNhY2EiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiMzMDJDMkMiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjExIiBmaWxsPSIjRkZGIi8+PC9nPjwvc3ZnPg==) */
 export const GbyteCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
