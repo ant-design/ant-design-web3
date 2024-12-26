@@ -50,9 +50,9 @@ describe('Connect spin', async () => {
               },
             ]}
             connect={async () => {
-              const account = await connectPromise;
-              setAccount(account);
-              return account;
+              const a = await connectPromise;
+              setAccount(a);
+              return a;
             }}
             account={account}
             modalProps={{
