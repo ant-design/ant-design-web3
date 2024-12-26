@@ -104,7 +104,7 @@ When the `showQrModal` configuration is not `false`, the built-in [web3modal](ht
 | reconnectOnMount | Whether or not to reconnect previously connected [connectors](https://wagmi.sh/react/api/createConfig#connectors) on mount. | `boolean` \| `undefined` | `true` | - |
 | walletConnect | WalletConnect configuration | `false` \| [WalletConnectOptions](#walletconnectoptions) | - | `2.8.0` |
 | transports | [Transport](https://wagmi.sh/core/api/createConfig#transports) configuration | `Transport` | - | `2.8.0` |
-| siwe | [SIWEConfig](#siweconfig) | CreateSiweMessageParameters | - | - |
+| siwe | [SIWEConfig](#siweconfig) | CreateSiweMessageParameters | - | `2.10.0` |
 
 ### WalletFactory
 

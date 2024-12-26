@@ -64,7 +64,7 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 | actionRef | Used to control the component | `MutableRefObject<ConnectModalActionType>` | - | - |
 | defaultSelectedWallet | Default selected wallet | `Wallet` | - | - |
 | locale | Multilingual settings | `Locale["ConnectModal"]` | - | - |
-| connecting | Whether it is connecting | `boolean` | - | - |
+| connecting | Whether it is connecting | `boolean` \| `{ status: 'connecting \| 'signing'}` | - | - |
 | emptyProps | Empty state props | [EmptyProps](https://ant.design/components/empty#api) | `{image: Empty.PRESENTED_IMAGE_SIMPLE, description: "No wallet available"}` | `1.18.0` |
 
 Other modal properties see: [ModalProps](https://ant.design/components/modal#API)
