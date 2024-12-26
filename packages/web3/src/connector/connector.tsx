@@ -1,6 +1,12 @@
 import React from 'react';
 import { ConnectModal, type ConnectModalActionType } from '@ant-design/web3';
-import type { Chain, ConnectOptions, ConnectorTriggerProps, Wallet } from '@ant-design/web3-common';
+import type {
+  Chain,
+  ConnectingStatusConfig,
+  ConnectOptions,
+  ConnectorTriggerProps,
+  Wallet,
+} from '@ant-design/web3-common';
 import { message } from 'antd';
 
 import useProvider from '../hooks/useProvider';
@@ -30,7 +36,7 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
     sign,
   } = useProvider(props);
   const [open, setOpen] = React.useState(false);
-  const [connecting, setConnecting] = React.useState(false);
+  const [connecting, setConnecting] = React.useState<ConnectingStatusConfig>(false);
   const [defaultSelectedWallet, setDefaultSelectedWallet] = React.useState<Wallet>();
   const actionRef = React.useRef<ConnectModalActionType>();
   const [messageApi, contextHolder] = message.useMessage();
@@ -45,6 +51,9 @@ export const Connector: React.FC<ConnectorProps> = (props) => {
       const connectedAccount = await connect?.(wallet, options);
       onConnected?.(connectedAccount ? connectedAccount : undefined);
       if (sign?.signIn && connectedAccount?.address) {
+        setConnecting({
+          status: 'signing',
+        });
         await sign.signIn(connectedAccount?.address);
       }
       setOpen(false);

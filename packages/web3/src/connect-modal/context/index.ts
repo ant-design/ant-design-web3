@@ -4,7 +4,7 @@ import type { ConnectOptions } from '@ant-design/web3-common';
 import { defaultLocale } from '@ant-design/web3-common';
 
 import type { IntlType } from '../../hooks/useIntl';
-import type { PanelRoute, Wallet } from '../interface';
+import type { ConnectingStatusConfig, PanelRoute, Wallet } from '../interface';
 
 export type ConnectModalContext = {
   prefixCls: string;
@@ -17,7 +17,7 @@ export type ConnectModalContext = {
   canBack: boolean;
   localeMessage: IntlType<'ConnectModal'>['messages'];
   getMessage: IntlType<'ConnectModal'>['getMessage'];
-  connecting?: boolean;
+  connecting?: ConnectingStatusConfig;
 };
 
 export const connectModalContext = React.createContext<ConnectModalContext>({

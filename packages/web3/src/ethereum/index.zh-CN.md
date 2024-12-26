@@ -103,7 +103,7 @@ SIWE 是指 Sign-In with Ethereum，你的网站可以通过签名来验证用�
 | reconnectOnMount | 是否在组件挂载时重新连接之前已连接的[连接器](https://wagmi.sh/react/api/createConfig#connectors) | `boolean` \| `undefined` | `true` | - |
 | walletConnect | walletConnect 的配置 | `false` \| [WalletConnectOptions](#walletconnectoptions) | - | `2.8.0` |
 | transports | [Transport](https://wagmi.sh/core/api/createConfig#transports) 网关配置 | `Record<number, Transport>;` | - | `2.8.0` |
-| siwe | [SIWEConfig](#siweconfig) | CreateSiweMessageParameters | - | - |
+| siwe | [SIWEConfig](#siweconfig) | CreateSiweMessageParameters | - | `2.10.0` |
 
 ### EIP6963Config
 
