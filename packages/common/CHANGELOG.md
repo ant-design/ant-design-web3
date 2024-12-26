@@ -1,5 +1,15 @@
 # @ant-design/web3-common
 
+## 1.16.0
+
+### Minor Changes
+
+- ad278cd: feat: wagmi add siwe config
+
+### Patch Changes
+
+- 8b857d3: chore: update wagmi version
+
 ## 1.15.1
 
 ### Patch Changes

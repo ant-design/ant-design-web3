@@ -1,5 +1,16 @@
 # @ant-design/web3-assets
 
+## 1.11.7
+
+### Patch Changes
+
+- 8b857d3: chore: update wagmi version
+- Updated dependencies [ad278cd]
+- Updated dependencies [8b857d3]
+- Updated dependencies [9a6dc16]
+  - @ant-design/web3-common@1.16.0
+  - @ant-design/web3-icons@1.11.4
+
 ## 1.11.6
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @ant-design/web3-solana
 
+## 1.2.5
+
+### Patch Changes
+
+- 8b857d3: chore: update wagmi version
+- Updated dependencies [ad278cd]
+- Updated dependencies [8b857d3]
+  - @ant-design/web3-common@1.16.0
+  - @ant-design/web3-assets@1.11.7
+
 ## 1.2.4
 
 ### Patch Changes
