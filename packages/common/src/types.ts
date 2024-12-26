@@ -295,6 +295,7 @@ export interface RequiredLocale {
     getWalletTipsDesc: string;
     linkWallet: string;
     walletConnecting: string;
+    walletSigning: string;
   };
   NFTCard: {
     actionText: string;
@@ -349,3 +350,11 @@ export interface SignConfig {
   // signOutOnAccountChange?: boolean; // defaults true
   // signOutOnNetworkChange?: boolean; // defaults true
 }
+
+export type ConnectingStatus = 'signing' | 'connecting';
+
+export type ConnectingStatusConfig =
+  | boolean
+  | {
+      status: ConnectingStatus;
+    };
