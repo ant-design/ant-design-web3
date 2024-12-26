@@ -1,5 +1,16 @@
 # @ant-design/web3-eth-web3js
 
+## 1.1.15
+
+### Patch Changes
+
+- 8b857d3: chore: update wagmi version
+- Updated dependencies [ad278cd]
+- Updated dependencies [8b857d3]
+  - @ant-design/web3-common@1.16.0
+  - @ant-design/web3-wagmi@2.10.0
+  - @ant-design/web3-assets@1.11.7
+
 ## 1.1.14
 
 ### Patch Changes

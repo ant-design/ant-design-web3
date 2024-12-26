@@ -1,5 +1,12 @@
 # @ant-design/web3-icons
 
+## 1.11.4
+
+### Patch Changes
+
+- 8b857d3: chore: update wagmi version
+- 9a6dc16: fix: svg icon defaultProps warning
+
 ## 1.11.3
 
 ### Patch Changes
