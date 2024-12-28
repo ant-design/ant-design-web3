@@ -43,6 +43,12 @@ const alias = pkgList.reduce(
         wagmi: resolve('./node_modules/wagmi'),
         '@tanstack/react-query': resolve('./node_modules/@tanstack/react-query'),
         '@ant-design/cssinjs': resolve('./node_modules/@ant-design/cssinjs'),
+        react: resolve(
+          './node_modules/.pnpm/react@18.3.0-canary-c3048aab4-20240326/node_modules/react',
+        ),
+        'react-dom': resolve(
+          './node_modules/.pnpm/react-dom@18.3.0-canary-c3048aab4-20240326_react@18.3.0-canary-c3048aab4-20240326/node_modules/react-dom',
+        ),
       }
     : {}) as Record<string, string>,
 );
