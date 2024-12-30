@@ -45,7 +45,7 @@
   "dependencies": {
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
-    "debug": "^4.3.5"
+    "debug": "^4.4.0"
   },
   "devDependencies": {
     "@tanstack/react-query": "^5.51.11",

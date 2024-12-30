@@ -44,7 +44,7 @@
   "dependencies": {
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
-    "debug": "^4.3.4"
+    "debug": "^4.4.0"
   },
   "devDependencies": {
     "@mysten/dapp-kit": "^0.14.11",

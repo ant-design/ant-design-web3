@@ -55,7 +55,7 @@
     "@walletconnect/utils": "^2.16.1",
     "@walletconnect/web3wallet": "^1.16.1",
     "bs58": "^6.0.0",
-    "debug": "^4.3.5"
+    "debug": "^4.4.0"
   },
   "devDependencies": {
     "@solana/wallet-adapter-phantom": "^0.9.24",
