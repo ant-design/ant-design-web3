@@ -67,7 +67,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
     "@changesets/changelog-git": "^0.2.0",
-    "@changesets/cli": "^2.27.7",
+    "@changesets/cli": "^2.27.11",
     "@ctrl/tinycolor": "^4.1.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@testing-library/react": "^16.0.1",
