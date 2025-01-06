@@ -115,7 +115,7 @@ We use [MetaMask](https://metamask.io/) as an example to see how to configure th
 
 export default function Web3() {
   return (
--   <WagmiWeb3ConfigProvider config={config}>
+-   <WagmiWeb3ConfigProvider>
 +    <WagmiWeb3ConfigProvider
 +      eip6963={{
 +        autoAddInjectedWallets: true,
