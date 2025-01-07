@@ -8,6 +8,7 @@ const localeValues: RequiredLocale = {
     copied: '复制成功！',
     walletAddress: '钱包地址',
     moreWallets: '更多钱包',
+    sign: '签名',
   },
   ConnectModal: {
     title: '连接钱包',
@@ -45,6 +46,7 @@ const localeValues: RequiredLocale = {
     getWalletTipsDesc: '在左侧选择一个新的钱包开始吧',
     linkWallet: '连接',
     walletConnecting: '连接中...',
+    walletSigning: '签名中...',
   },
   NFTCard: {
     actionText: '立即购买',

@@ -1,5 +1,7 @@
 import type React from 'react';
 import type {
+  ConnectingStatus,
+  ConnectingStatusConfig,
   ConnectOptions,
   ConnectorTriggerProps,
   Locale,
@@ -7,7 +9,12 @@ import type {
 } from '@ant-design/web3-common';
 import type { EmptyProps, ModalProps } from 'antd';
 
-export type { Wallet, WalletExtensionItem } from '@ant-design/web3-common';
+export type {
+  Wallet,
+  WalletExtensionItem,
+  ConnectingStatusConfig,
+  ConnectingStatus,
+} from '@ant-design/web3-common';
 
 /**
  * @desc 新手指引面板的信息项
@@ -141,7 +148,7 @@ export type ConnectModalProps = ModalProps &
      * @desc 连接状态
      * @descEn connect status
      */
-    connecting?: boolean;
+    connecting?: ConnectingStatusConfig;
 
     /**
      * @desc 空状态 Empty props

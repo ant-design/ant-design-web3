@@ -16,6 +16,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 - [Xverse](https://docs.xverse.app/sats-connect)
 - [OKX](https://www.okx.com/web3/build/docs/sdks/chains/bitcoin/provider)
 - [Unisat](https://docs.unisat.io/dev/unisat-developer-service/unisat-wallet)
+- [Phantom](https://docs.phantom.app/bitcoin/integrating-phantom)
 
 ## 连接钱包
 
@@ -23,9 +24,13 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 
 ## 签名 / PSBT
 
+> Phantom 目前仅对 PSBT 提供部分支持，使用之前请充分测试。
+
 <code src="./demos/sign.tsx"></code>
 
 ## 发送交易
+
+> 如果钱包暂未支持 `sendTransfer`，将会抛出 `NotImplementedError`。
 
 <code src="./demos/send-transfer.tsx"></code>
 

@@ -6,7 +6,7 @@ import {
   type WagmiWeb3ConfigProviderProps,
 } from '@ant-design/web3-wagmi';
 import type { Chain } from 'viem';
-import { createConfig, http, type CreateConfigParameters, type Storage } from 'wagmi';
+import { createConfig, http, type CreateConnectorFn, type Storage } from 'wagmi';
 import * as wagmiChains from 'wagmi/chains';
 import * as wagmiConnectors from 'wagmi/connectors';
 
@@ -40,7 +40,7 @@ export const EthWeb3jsConfigProvider: React.FC<
 
   const wagmiConfig = React.useMemo(() => {
     const transports = Object.fromEntries(chains.map((chain) => [chain.id, http()]));
-    const connectors: CreateConfigParameters['connectors'] = [wagmiConnectors.injected()];
+    const connectors: CreateConnectorFn[] = [wagmiConnectors.injected()];
 
     (props.wallets ?? []).forEach((wallet) => {
       if (wallet.name) {

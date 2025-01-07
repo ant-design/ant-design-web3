@@ -1,5 +1,35 @@
 # @ant-design/web3
 
+## 1.20.0
+
+### Minor Changes
+
+- ad278cd: feat: wagmi add siwe config
+
+### Patch Changes
+
+- 4c57fe4: fix: Show signing status when signing
+- 8b857d3: chore: update wagmi version
+- Updated dependencies [ad278cd]
+- Updated dependencies [8b857d3]
+- Updated dependencies [9a6dc16]
+  - @ant-design/web3-common@1.16.0
+  - @ant-design/web3-assets@1.11.7
+  - @ant-design/web3-icons@1.11.4
+
+## 1.19.0
+
+### Minor Changes
+
+- 2ee466c: feat: Add chainSelect argument
+
+### Patch Changes
+
+- 703f16a: fix: useAccount and useConnection hooks ts type bug
+- Updated dependencies [1072532]
+  - @ant-design/web3-icons@1.11.3
+  - @ant-design/web3-assets@1.11.6
+
 ## 1.18.1
 
 ### Patch Changes

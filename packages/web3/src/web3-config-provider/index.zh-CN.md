@@ -35,3 +35,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*DuEdT5NT9nwAAA
 | disconnect | 断开连接 | `() => Promise<void>` | - |  |
 | switchChain | 切换链 | `(chain: Chain) => Promise<void>` | - |  |
 | getNFTMetadata | 获取 NFT 元数据 | `(params: { address: string; tokenId: bigint }) => Promise<NFTMetadata>;` | - |  |
+| sign | 签名登录配置 | [SignConfig](/components/types-cn#signconfig) | - | `1.20.0` |
+
+`Web3ConfigProvider` 的 API 继承了 [UniversalWeb3ProviderInterface](/components/types-cn#universalweb3providerinterface)，为 UI 组件提供链相关交互接口。

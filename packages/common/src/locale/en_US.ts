@@ -8,6 +8,7 @@ const localeValues: RequiredLocale = {
     copied: 'Copied!',
     walletAddress: 'Wallet address',
     moreWallets: 'More Wallets',
+    sign: 'Sign',
   },
   ConnectModal: {
     title: 'Connect Wallet',
@@ -48,6 +49,7 @@ const localeValues: RequiredLocale = {
       'Select a wallet on the left to get started with a different wallet provider.',
     linkWallet: 'Link',
     walletConnecting: 'Connecting...',
+    walletSigning: 'Signing...',
   },
   NFTCard: {
     actionText: 'Buy Now',

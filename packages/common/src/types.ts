@@ -1,8 +1,15 @@
+export const enum ConnectStatus {
+  Connected = 'connected',
+  Disconnected = 'disconnected',
+  Signed = 'signed',
+}
+
 export interface Account {
   address: string;
   name?: string;
   avatar?: string;
-  addresses?: readonly [`0x${string}`, ...`0x${string}`[]];
+  addresses?: [`0x${string}`, ...`0x${string}`[]] | readonly `0x${string}`[];
+  status?: ConnectStatus;
 }
 
 export enum ChainIds {
@@ -119,6 +126,9 @@ export interface UniversalWeb3ProviderInterface {
 
   // For Bitcoin, tokenId is undefined.
   getNFTMetadata?: (params: { address: string; tokenId?: bigint }) => Promise<NFTMetadata>;
+
+  // For Sign
+  sign?: SignConfig;
 }
 
 export interface Wallet extends WalletMetadata {
@@ -247,6 +257,7 @@ export interface RequiredLocale {
     copied: string;
     walletAddress: string;
     moreWallets: string;
+    sign: string;
   };
   ConnectModal: {
     title: string;
@@ -284,6 +295,7 @@ export interface RequiredLocale {
     getWalletTipsDesc: string;
     linkWallet: string;
     walletConnecting: string;
+    walletSigning: string;
   };
   NFTCard: {
     actionText: string;
@@ -328,3 +340,21 @@ export type Token = {
     contract?: string;
   }[];
 };
+
+export interface SignConfig {
+  // required
+  signIn: (address: string) => Promise<void>;
+  signOut?: () => Promise<void>;
+
+  // signOutOnDisconnect?: boolean; // defaults true
+  // signOutOnAccountChange?: boolean; // defaults true
+  // signOutOnNetworkChange?: boolean; // defaults true
+}
+
+export type ConnectingStatus = 'signing' | 'connecting';
+
+export type ConnectingStatusConfig =
+  | boolean
+  | {
+      status: ConnectingStatus;
+    };
