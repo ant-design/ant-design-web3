@@ -1,8 +1,8 @@
 ---
 nav: 课程
 group:
-  title: DApp 是什么？
-order: 4
+  title: 进阶
+order: 2
 ---
 
 # 与 Solana 合约交互
