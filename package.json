@@ -69,7 +69,7 @@
     "@changesets/changelog-git": "^0.2.0",
     "@changesets/cli": "^2.27.11",
     "@ctrl/tinycolor": "^4.1.0",
-    "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
     "@testing-library/react": "^16.0.1",
     "@types/lodash": "^4.17.13",
     "@types/node": "^22.10.5",
