@@ -99,7 +99,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
 
   // connect/disconnect wallet
   useEffect(() => {
-    // 初始化时跳过，避免与 WalletProvider 的自动连接逻辑冲突
+    // 初始化时跳过，避免与 wallet-adapter 的自动连接逻辑冲突
     if (!mountRef.current) {
       return;
     }
