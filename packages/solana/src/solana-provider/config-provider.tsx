@@ -34,6 +34,8 @@ export interface AntDesignWeb3ConfigProviderProps {
 export const AntDesignWeb3ConfigProvider: React.FC<
   React.PropsWithChildren<AntDesignWeb3ConfigProviderProps>
 > = (props) => {
+  const mountRef = useRef(false);
+
   const {
     publicKey,
     connected,
@@ -45,7 +47,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<
   } = useWallet();
 
   const { connection } = useConnection();
-
   const connectAsyncRef = useRef<ConnectAsync>();
 
   const [balanceData, setBalanceData] = useState<bigint>();
@@ -98,6 +99,11 @@ export const AntDesignWeb3ConfigProvider: React.FC<
 
   // connect/disconnect wallet
   useEffect(() => {
+    // 初始化时跳过，避免与 WalletProvider 的自动连接逻辑冲突
+    if (!mountRef.current) {
+      return;
+    }
+
     if (wallet?.adapter?.name) {
       // if wallet is not ready, need clear selected wallet
       if (!hasWalletReady(wallet.adapter.readyState)) {
@@ -112,6 +118,12 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       }
     }
   }, [wallet?.adapter?.name, connected]);
+
+  useEffect(() => {
+    if (!mountRef.current) {
+      mountRef.current = true;
+    }
+  }, []);
 
   const chainList = useMemo(() => {
     return props.availableChains
