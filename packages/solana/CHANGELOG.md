@@ -1,5 +1,11 @@
 # @ant-design/web3-solana
 
+## 1.2.6
+
+### Patch Changes
+
+- c8aaacc: fix(solana): Some wallets cannot connect again
+
 ## 1.2.5
 
 ### Patch Changes
