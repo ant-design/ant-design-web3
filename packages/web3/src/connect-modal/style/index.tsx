@@ -12,10 +12,6 @@ import { isDarkTheme } from '../utils';
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
-}
-
-export interface ConnectModalToken extends Web3AliasToken {
-  // Custom token here
   selectedBg: string;
   selectedColor: string;
   hoverBg: string;
@@ -29,6 +25,10 @@ export interface ConnectModalToken extends Web3AliasToken {
   simpleGuideBg: string;
   walletListWidth: number;
   modalMinHeight: number;
+}
+
+export interface ConnectModalToken extends Web3AliasToken, ComponentToken {
+  // Custom token here
 }
 
 const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
@@ -569,6 +569,7 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
 
 export function useStyle(prefixCls: string): UseStyleResult {
   return useAntdStyle('ConnectModal', (token) => {
+    console.log('get token', token);
     const isDark = isDarkTheme(token);
     const hoverBg = new TinyColor(isDark ? token.colorWhite : '#000')
       .setAlpha(0.08)
@@ -579,7 +580,7 @@ export function useStyle(prefixCls: string): UseStyleResult {
       ...token,
       selectedColor: token.colorBgContainer,
       hoverBg,
-      selectedBg: hoverBg,
+      selectWalletBg: hoverBg,
       splitColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
       modalTitleStartColor: token.colorPrimary,
       modalTitleEndColor: new TinyColor(token.colorText).setAlpha(0.85).toRgbString(),
@@ -591,6 +592,7 @@ export function useStyle(prefixCls: string): UseStyleResult {
       simpleGuideBg: new TinyColor(token.colorText).complement().setAlpha(0.06).toRgbString(),
       walletListWidth: 328,
       modalMinHeight: 518,
+      ...token.ConnectModal,
     };
     return [genModalStyle(connectModalToken)];
   });
