@@ -53,7 +53,8 @@ const App: React.FC = () => {
       theme={{
         web3Components: {
           ConnectModal: {
-            hoverBg: 'green',
+            walletGroupTextColor: 'red',
+            descriptionColor: 'blue',
           },
         },
       }}
