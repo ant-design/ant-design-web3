@@ -25,6 +25,6 @@ Ant Design Web3 内置了对暗黑模式的支持，继承自 Ant Design 的配�
 
 ### 自定义更多 Ant Design Web3 的 Design Token
 
-除了 Ant Design 的 Design Token，Ant Design Web3 还提供了一些额外的 Design Token，你也可以自定义这些 Design Token。如果你发现不支持或者使用有误的 Design Token，请[提交 issue](https://github.com/ant-design/ant-design-web3/issues) 告诉我们。
+除了 Ant Design 的 Design Token，Ant Design Web3 还提供了一些额外的 Design Token，你也可以自定义这些 Design Token。组件的 Design Token 在持续的补充中，你可以在对应的组件文档页面查看支持的 Design Token。如果你发现不支持或者使用有误的 Design Token，请[提交 issue](https://github.com/ant-design/ant-design-web3/issues) 告诉我们。
 
 <code src="./demos/custom-token-web3.tsx"></code>
