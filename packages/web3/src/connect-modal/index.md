@@ -90,3 +90,21 @@ Other modal properties see: [ModalProps](https://ant.design/components/modal#API
 ### ConnectModal.ModalPanel
 
 Besides properties related to controlling pop-ups, it is the same as `ConnectModal`.
+
+## Design Token
+
+| Token Name           | Description                                | Type     |
+| -------------------- | ------------------------------------------ | -------- |
+| selectedWalletBg     | Background color of selected wallet        | `string` |
+| selectedWalletColor  | Color of selected wallet                   | `string` |
+| hoverWalletBg        | Background color when hovering over wallet | `string` |
+| panelSplitLineColor  | Color of panel split line                  | `string` |
+| modalTitleStartColor | Start color of modal title                 | `string` |
+| modalTitleEndColor   | End color of modal title                   | `string` |
+| walletGroupTextColor | Text color of wallet group                 | `string` |
+| descriptionColor     | Color of description text                  | `string` |
+| getWalletCardBg      | Background color of get wallet card        | `string` |
+| walletIconSize       | Size of wallet icon                        | `number` |
+| simpleGuideBg        | Background color of simple guide           | `string` |
+| walletListWidth      | Width of wallet list                       | `number` |
+| modalMinHeight       | Minimum height of modal                    | `number` |

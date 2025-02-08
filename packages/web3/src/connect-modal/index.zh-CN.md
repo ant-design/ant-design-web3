@@ -91,3 +91,21 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAA
 ### ConnectModal.ModalPanel
 
 除了和控制弹窗相关属性外，其它和 `ConnectModal` 相同。
+
+## 主题变量（Design Token）
+
+| Token 名称           | 描述               | 类型     |
+| -------------------- | ------------------ | -------- |
+| selectedWalletBg     | 选中钱包的背景色   | `string` |
+| selectedWalletColor  | 选中钱包的颜色     | `string` |
+| hoverWalletBg        | 悬停钱包的背景色   | `string` |
+| panelSplitLineColor  | 面板分割线颜色     | `string` |
+| modalTitleStartColor | 弹窗标题起始颜色   | `string` |
+| modalTitleEndColor   | 弹窗标题结束颜色   | `string` |
+| walletGroupTextColor | 钱包分组文字颜色   | `string` |
+| descriptionColor     | 描述文字颜色       | `string` |
+| getWalletCardBg      | 获取钱包卡片背景色 | `string` |
+| walletIconSize       | 钱包图标大小       | `number` |
+| simpleGuideBg        | 简易指引背景色     | `string` |
+| walletListWidth      | 钱包列表宽度       | `number` |
+| modalMinHeight       | 弹窗最小高度       | `number` |

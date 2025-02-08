@@ -35,30 +35,26 @@ const App: React.FC = () => {
             descriptionColor: 'blue',
           },
         },
+        components: {
+          Button: {
+            borderRadius: 20,
+            borderRadiusLG: 24,
+          },
+        },
       }}
     >
-      <ConfigProvider
-        theme={{
-          components: {
-            Alert: {
-              defaultPadding: 56,
+      <Space>
+        <Card
+          styles={{
+            body: {
+              padding: 0,
+              maxWidth: 795,
             },
-          },
-        }}
-      >
-        <Space>
-          <Card
-            styles={{
-              body: {
-                padding: 0,
-                maxWidth: 795,
-              },
-            }}
-          >
-            <ConnectModal.ModalPanel walletList={walletList} />
-          </Card>
-        </Space>
-      </ConfigProvider>
+          }}
+        >
+          <ConnectModal.ModalPanel walletList={walletList} />
+        </Card>
+      </Space>
     </Web3ConfigProvider>
   );
 };
