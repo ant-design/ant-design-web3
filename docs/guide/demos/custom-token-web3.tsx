@@ -1,9 +1,7 @@
 import React from 'react';
-import { ConnectModal, type Wallet } from '@ant-design/web3';
+import { ConnectModal, Web3ConfigProvider, type Wallet } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import { Card, ConfigProvider, Space } from 'antd';
-
-import { customToken } from './tokens';
 
 const App: React.FC = () => {
   const walletList: Wallet[] = [
@@ -29,7 +27,22 @@ const App: React.FC = () => {
   ];
 
   return (
-    <ConfigProvider theme={customToken}>
+    <Web3ConfigProvider
+      theme={{
+        web3Components: {
+          ConnectModal: {
+            walletGroupTextColor: 'red',
+            descriptionColor: 'blue',
+          },
+        },
+        components: {
+          Button: {
+            borderRadius: 20,
+            borderRadiusLG: 24,
+          },
+        },
+      }}
+    >
       <Space>
         <Card
           styles={{
@@ -42,7 +55,7 @@ const App: React.FC = () => {
           <ConnectModal.ModalPanel walletList={walletList} />
         </Card>
       </Space>
-    </ConfigProvider>
+    </Web3ConfigProvider>
   );
 };
 

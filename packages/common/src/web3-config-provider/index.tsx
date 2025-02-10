@@ -48,6 +48,6 @@ const Web3ConfigProvider: React.FC<Web3ConfigProviderProps> = (props) => {
   );
 };
 
-export { Web3ConfigProvider };
+export { Web3ConfigProvider, Web3ConfigProviderProps };
 
 export * from './context';

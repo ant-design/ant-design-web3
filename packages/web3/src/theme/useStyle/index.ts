@@ -6,6 +6,8 @@ import { TinyColor } from '@ctrl/tinycolor';
 import { ConfigProvider as AntdConfigProvider, theme as AntTheme } from 'antd';
 import type { GlobalToken } from 'antd';
 
+import { ComponentToken as ConnectModalComponentToken } from '../../connect-modal/style';
+
 const { useToken } = AntTheme;
 
 /**
@@ -53,6 +55,12 @@ export type Web3AliasToken = GlobalToken & {
    * @example .ant
    */
   antCls: string;
+  /**
+   * 自定义 ConnectModal 的 token
+   * @type {Partial<ConnectModalComponentToken>}
+   * @example { hoverBg: 'red' }
+   */
+  ConnectModal?: Partial<ConnectModalComponentToken>;
 };
 
 /**
@@ -67,7 +75,7 @@ export function useStyle(
 ) {
   const { theme, token, hashId } = useToken();
   const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
-  const web3Token = {
+  const web3Token: Web3AliasToken = {
     ...token,
     web3ComponentsCls: `.${getPrefixCls('web3')}`,
     antCls: `.${getPrefixCls()}`,
@@ -81,7 +89,7 @@ export function useStyle(
         hashId,
         path: [componentName],
       },
-      () => styleFn(web3Token as Web3AliasToken),
+      () => styleFn(web3Token),
     ),
     hashId,
   };
