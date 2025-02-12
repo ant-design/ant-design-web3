@@ -1,10 +1,6 @@
 import { ConnectModal, type Wallet } from '@ant-design/web3';
-import {
-  metadata_CoinbaseWallet,
-  metadata_MetaMask,
-  metadata_WalletConnect,
-} from '@ant-design/web3-assets';
-import { ConfigProvider, theme } from 'antd';
+import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
+import { Card, ConfigProvider, theme } from 'antd';
 import classNames from 'classnames';
 import { usePrefersColor } from 'dumi';
 
@@ -40,7 +36,14 @@ export default () => {
     >
       <div className={classNames(styles.cardBg, styles.connectModalCardBg)}>
         <h3 className={styles.title}>Connect Modal</h3>
-        <div className={classNames(styles.connectContainer, styles.connectModalContainer)}>
+        <Card
+          style={{ width: 400 }}
+          styles={{
+            body: {
+              padding: 0,
+            },
+          }}
+        >
           <ConnectModal.ModalPanel
             locale={{
               guideTipTitle: 'New to Web3?',
@@ -50,7 +53,7 @@ export default () => {
             footer="Powered by AntChain"
             walletList={walletList}
           />
-        </div>
+        </Card>
       </div>
     </ConfigProvider>
   );

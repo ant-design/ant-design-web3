@@ -12,7 +12,7 @@ export interface NFTCardToken extends Web3AliasToken {
   componentCls: string;
 }
 
-const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
+const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token: NFTCardToken) => {
   const {
     componentCls,
     nftCardWidth,
@@ -41,7 +41,7 @@ const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
   return {
     [`${componentCls}-container`]: {
       width: nftCardWidth,
-      backgroundColor: colorWhite,
+      backgroundColor: token.colorBgContainer,
       borderRadius: nftCardBorderRadius,
       border: `1px solid ${colorBorder}`,
       overflow: 'hidden',

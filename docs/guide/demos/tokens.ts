@@ -108,19 +108,18 @@ export const themeList: ThemeSetting[] = [
       token: {
         colorPrimary: '#000000',
         colorLink: '#8b837d',
+        colorBgContainer: '#f3eae4',
       },
       components: {
         Button: {
           defaultShadow: '-4px 4px 0px #000000,inset 0 0 0 2px #000000',
           defaultHoverBg: '#f3eae4',
+          defaultBg: '#fff',
           defaultBorderColor: '#000000',
         },
         Modal: {
           boxShadow: '-10px 10px 0px #000000,inset 0 0 0 2px #000000',
           contentBg: '#eadcd1',
-        },
-        QRCode: {
-          colorBgContainer: '#f3eae4',
         },
       },
       web3Components: {

@@ -1,9 +1,10 @@
-import type { ThemeConfig } from 'antd';
+import React from 'react';
+import type { Web3ThemeConfig } from '@ant-design/web3';
 import { theme } from 'antd';
 
-export type ThemeValue = 'default' | 'violet' | 'dark' | 'green' | 'pink';
+export type ThemeValue = 'default' | 'retro' | 'violet' | 'dark' | 'green' | 'pink';
 
-export const customToken: ThemeConfig = {
+export const customToken: Web3ThemeConfig = {
   token: {
     borderRadius: 16,
     wireframe: false,
@@ -64,7 +65,8 @@ export type ThemeSetting = {
   color: string;
   value: ThemeValue;
   name: string;
-  token: ThemeConfig;
+  token: Web3ThemeConfig;
+  style?: React.CSSProperties;
 };
 
 // 部分参考 antd 官网的主题 https://github.com/ant-design/ant-design/blob/master/.dumi/pages/index/components/Theme/index.tsx#L305
@@ -98,6 +100,36 @@ export const themeList: ThemeSetting[] = [
       algorithm: theme.darkAlgorithm,
     },
   },
+  // 需要设计师那边给一下配套的整个网站对应的风格图片配置到 Thumbnail.tsx 里面，先不放开
+  // {
+  //   color: '#796d6f',
+  //   value: 'retro',
+  //   name: 'Retro',
+  //   style: {
+  //     boxShadow: '-10px 10px 0px #000000,inset 0 0 0 2px #000000',
+  //     border: 'none',
+  //   },
+  //   token: {
+  //     token: {
+  //       colorPrimary: '#000000',
+  //       colorLink: '#8b837d',
+  //       colorBgContainer: '#eadcd1',
+  //     },
+  //     components: {
+  //       Button: {
+  //         defaultShadow: '-4px 4px 0px #000000,inset 0 0 0 2px #000000',
+  //         defaultHoverBg: '#f3eae4',
+  //         defaultBorderColor: '#000000',
+  //         defaultBg: '#fff',
+  //       },
+  //     },
+  //     web3Components: {
+  //       ConnectModal: {
+  //         hoverWalletBg: '#f3eae4',
+  //       },
+  //     },
+  //   },
+  // },
   {
     value: 'green',
     name: 'Forest green',
