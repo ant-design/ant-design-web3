@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[862],{61461:function(i,e,m){m.r(e),m.d(e,{TinyColor:function(){return d.C},bounds:function(){return h},cmykToRgb:function(){return s.JT},convertDecimalToHex:function(){return s.Wl},convertHexToDecimal:function(){return s.T6},fromRatio:function(){return R},hslToRgb:function(){return s.ve},hsvToRgb:function(){return s.WE},inputToRGB:function(){return b.uA},isReadable:function(){return k},isValidCSSUnit:function(){return b.ky},legacyRandom:function(){return _},mostReadable:function(){return S},names:function(){return P.R},numberInputToObject:function(){return s.Yt},parseIntFromHex:function(){return s.VD},random:function(){return v},readability:function(){return g},rgbToCmyk:function(){return s.D5},rgbToHex:function(){return s.vq},rgbToHsl:function(){return s.lC},rgbToHsv:function(){return s.py},rgbToRgb:function(){return s.rW},rgbaToArgbHex:function(){return s.GC},rgbaToHex:function(){return s.s},stringInputToObject:function(){return b.uz},toMsFilter:function(){return A}});var d=m(11899),P=m(23375);function g(n,a){const t=new d.C(n),o=new d.C(a);return(Math.max(t.getLuminance(),o.getLuminance())+.05)/(Math.min(t.getLuminance(),o.getLuminance())+.05)}function k(n,a,t={level:"AA",size:"small"}){const o=g(n,a);switch((t.level??"AA")+(t.size??"small")){case"AAsmall":case"AAAlarge":return o>=4.5;case"AAlarge":return o>=3;case"AAAsmall":return o>=7;default:return!1}}function S(n,a,t={includeFallbackColors:!1,level:"AA",size:"small"}){let o=null,r=0;const{includeFallbackColors:u,level:c,size:y}=t;for(const l of a){const f=g(n,l);f>r&&(r=f,o=new d.C(l))}return k(n,o,{level:c,size:y})||!u?o:(t.includeFallbackColors=!1,S(n,["#fff","#000"],t))}var s=m(79158);function A(n,a){const t=new d.C(n),o="#"+(0,s.GC)(t.r,t.g,t.b,t.a);let r=o;const u=t.gradientType?"GradientType = 1, ":"";if(a){const c=new d.C(a);r="#"+(0,s.GC)(c.r,c.g,c.b,c.a)}return`progid:DXImageTransform.Microsoft.gradient(${u}startColorstr=${o},endColorstr=${r})`}var C=m(70979);function R(n,a){const t={r:(0,C.JX)(n.r),g:(0,C.JX)(n.g),b:(0,C.JX)(n.b)};return n.a!==void 0&&(t.a=Number(n.a)),new d.C(t,a)}function _(){return new d.C({r:Math.random(),g:Math.random(),b:Math.random()})}var b=m(41587);function v(n={}){if(n.count!==void 0&&n.count!==null){const u=n.count,c=[];for(n.count=void 0;u>c.length;)n.count=null,n.seed&&(n.seed+=1),c.push(v(n));return n.count=u,c}const a=B(n.hue,n.seed),t=M(a,n),o=W(a,t,n),r={h:a,s:t,v:o};return n.alpha!==void 0&&(r.a=n.alpha),new d.C(r)}function B(n,a){const t=x(n);let o=p(t,a);return o<0&&(o=360+o),o}function M(n,a){if(a.hue==="monochrome")return 0;if(a.luminosity==="random")return p([0,100],a.seed);const{saturationRange:t}=w(n);let o=t[0],r=t[1];switch(a.luminosity){case"bright":o=55;break;case"dark":o=r-10;break;case"light":r=55;break;default:break}return p([o,r],a.seed)}function W(n,a,t){let o=E(n,a),r=100;switch(t.luminosity){case"dark":r=o+20;break;case"light":o=(r+o)/2;break;case"random":o=0,r=100;break;default:break}return p([o,r],t.seed)}function E(n,a){const{lowerBounds:t}=w(n);for(let o=0;o<t.length-1;o++){const r=t[o][0],u=t[o][1],c=t[o+1][0],y=t[o+1][1];if(a>=r&&a<=c){const l=(y-u)/(c-r),f=u-l*r;return l*a+f}}return 0}function x(n){const a=parseInt(n,10);if(!Number.isNaN(a)&&a<360&&a>0)return[a,a];if(typeof n=="string"){const t=h.find(r=>r.name===n);if(t){const r=T(t);if(r.hueRange)return r.hueRange}const o=new d.C(n);if(o.isValid){const r=o.toHsv().h;return[r,r]}}return[0,360]}function w(n){n>=334&&n<=360&&(n-=360);for(const a of h){const t=T(a);if(t.hueRange&&n>=t.hueRange[0]&&n<=t.hueRange[1])return t}throw Error("Color not found")}function p(n,a){if(a===void 0)return Math.floor(n[0]+Math.random()*(n[1]+1-n[0]));const t=n[1]||1,o=n[0]||0;a=(a*9301+49297)%233280;const r=a/233280;return Math.floor(o+r*(t-o))}function T(n){const a=n.lowerBounds[0][0],t=n.lowerBounds[n.lowerBounds.length-1][0],o=n.lowerBounds[n.lowerBounds.length-1][1],r=n.lowerBounds[0][1];return{name:n.name,hueRange:n.hueRange,lowerBounds:n.lowerBounds,saturationRange:[a,t],brightnessRange:[o,r]}}const h=[{name:"monochrome",hueRange:null,lowerBounds:[[0,0],[100,0]]},{name:"red",hueRange:[-26,18],lowerBounds:[[20,100],[30,92],[40,89],[50,85],[60,78],[70,70],[80,60],[90,55],[100,50]]},{name:"orange",hueRange:[19,46],lowerBounds:[[20,100],[30,93],[40,88],[50,86],[60,85],[70,70],[100,70]]},{name:"yellow",hueRange:[47,62],lowerBounds:[[25,100],[40,94],[50,89],[60,86],[70,84],[80,82],[90,80],[100,75]]},{name:"green",hueRange:[63,178],lowerBounds:[[30,100],[40,90],[50,85],[60,81],[70,74],[80,64],[90,50],[100,40]]},{name:"blue",hueRange:[179,257],lowerBounds:[[20,100],[30,86],[40,80],[50,74],[60,60],[70,52],[80,44],[90,39],[100,35]]},{name:"purple",hueRange:[258,282],lowerBounds:[[20,100],[30,87],[40,79],[50,70],[60,65],[70,59],[80,52],[90,45],[100,42]]},{name:"pink",hueRange:[283,334],lowerBounds:[[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73]]}]},81874:function(i,e){e.Z=`import React, { useEffect } from 'react';
+"use strict";(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[862],{61461:function(i,e,m){m.r(e),m.d(e,{TinyColor:function(){return d.C},bounds:function(){return y},cmykToRgb:function(){return s.JT},convertDecimalToHex:function(){return s.Wl},convertHexToDecimal:function(){return s.T6},fromRatio:function(){return R},hslToRgb:function(){return s.ve},hsvToRgb:function(){return s.WE},inputToRGB:function(){return b.uA},isReadable:function(){return k},isValidCSSUnit:function(){return b.ky},legacyRandom:function(){return B},mostReadable:function(){return S},names:function(){return P.R},numberInputToObject:function(){return s.Yt},parseIntFromHex:function(){return s.VD},random:function(){return T},readability:function(){return g},rgbToCmyk:function(){return s.D5},rgbToHex:function(){return s.vq},rgbToHsl:function(){return s.lC},rgbToHsv:function(){return s.py},rgbToRgb:function(){return s.rW},rgbaToArgbHex:function(){return s.GC},rgbaToHex:function(){return s.s},stringInputToObject:function(){return b.uz},toMsFilter:function(){return A}});var d=m(11899),P=m(23375);function g(n,a){const t=new d.C(n),o=new d.C(a);return(Math.max(t.getLuminance(),o.getLuminance())+.05)/(Math.min(t.getLuminance(),o.getLuminance())+.05)}function k(n,a,t={level:"AA",size:"small"}){const o=g(n,a);switch((t.level??"AA")+(t.size??"small")){case"AAsmall":case"AAAlarge":return o>=4.5;case"AAlarge":return o>=3;case"AAAsmall":return o>=7;default:return!1}}function S(n,a,t={includeFallbackColors:!1,level:"AA",size:"small"}){let o=null,r=0;const{includeFallbackColors:u,level:c,size:h}=t;for(const l of a){const f=g(n,l);f>r&&(r=f,o=new d.C(l))}return k(n,o,{level:c,size:h})||!u?o:(t.includeFallbackColors=!1,S(n,["#fff","#000"],t))}var s=m(79158);function A(n,a){const t=new d.C(n),o="#"+(0,s.GC)(t.r,t.g,t.b,t.a);let r=o;const u=t.gradientType?"GradientType = 1, ":"";if(a){const c=new d.C(a);r="#"+(0,s.GC)(c.r,c.g,c.b,c.a)}return`progid:DXImageTransform.Microsoft.gradient(${u}startColorstr=${o},endColorstr=${r})`}var C=m(70979);function R(n,a){const t={r:(0,C.JX)(n.r),g:(0,C.JX)(n.g),b:(0,C.JX)(n.b)};return n.a!==void 0&&(t.a=Number(n.a)),new d.C(t,a)}function B(){return new d.C({r:Math.random(),g:Math.random(),b:Math.random()})}var b=m(41587);function T(n={}){if(n.count!==void 0&&n.count!==null){const u=n.count,c=[];for(n.count=void 0;u>c.length;)n.count=null,n.seed&&(n.seed+=1),c.push(T(n));return n.count=u,c}const a=_(n.hue,n.seed),t=x(a,n),o=W(a,t,n),r={h:a,s:t,v:o};return n.alpha!==void 0&&(r.a=n.alpha),new d.C(r)}function _(n,a){const t=E(n);let o=p(t,a);return o<0&&(o=360+o),o}function x(n,a){if(a.hue==="monochrome")return 0;if(a.luminosity==="random")return p([0,100],a.seed);const{saturationRange:t}=v(n);let o=t[0],r=t[1];switch(a.luminosity){case"bright":o=55;break;case"dark":o=r-10;break;case"light":r=55;break;default:break}return p([o,r],a.seed)}function W(n,a,t){let o=M(n,a),r=100;switch(t.luminosity){case"dark":r=o+20;break;case"light":o=(r+o)/2;break;case"random":o=0,r=100;break;default:break}return p([o,r],t.seed)}function M(n,a){const{lowerBounds:t}=v(n);for(let o=0;o<t.length-1;o++){const r=t[o][0],u=t[o][1],c=t[o+1][0],h=t[o+1][1];if(a>=r&&a<=c){const l=(h-u)/(c-r),f=u-l*r;return l*a+f}}return 0}function E(n){const a=parseInt(n,10);if(!Number.isNaN(a)&&a<360&&a>0)return[a,a];if(typeof n=="string"){const t=y.find(r=>r.name===n);if(t){const r=w(t);if(r.hueRange)return r.hueRange}const o=new d.C(n);if(o.isValid){const r=o.toHsv().h;return[r,r]}}return[0,360]}function v(n){n>=334&&n<=360&&(n-=360);for(const a of y){const t=w(a);if(t.hueRange&&n>=t.hueRange[0]&&n<=t.hueRange[1])return t}throw Error("Color not found")}function p(n,a){if(a===void 0)return Math.floor(n[0]+Math.random()*(n[1]+1-n[0]));const t=n[1]||1,o=n[0]||0;a=(a*9301+49297)%233280;const r=a/233280;return Math.floor(o+r*(t-o))}function w(n){const a=n.lowerBounds[0][0],t=n.lowerBounds[n.lowerBounds.length-1][0],o=n.lowerBounds[n.lowerBounds.length-1][1],r=n.lowerBounds[0][1];return{name:n.name,hueRange:n.hueRange,lowerBounds:n.lowerBounds,saturationRange:[a,t],brightnessRange:[o,r]}}const y=[{name:"monochrome",hueRange:null,lowerBounds:[[0,0],[100,0]]},{name:"red",hueRange:[-26,18],lowerBounds:[[20,100],[30,92],[40,89],[50,85],[60,78],[70,70],[80,60],[90,55],[100,50]]},{name:"orange",hueRange:[19,46],lowerBounds:[[20,100],[30,93],[40,88],[50,86],[60,85],[70,70],[100,70]]},{name:"yellow",hueRange:[47,62],lowerBounds:[[25,100],[40,94],[50,89],[60,86],[70,84],[80,82],[90,80],[100,75]]},{name:"green",hueRange:[63,178],lowerBounds:[[30,100],[40,90],[50,85],[60,81],[70,74],[80,64],[90,50],[100,40]]},{name:"blue",hueRange:[179,257],lowerBounds:[[20,100],[30,86],[40,80],[50,74],[60,60],[70,52],[80,44],[90,39],[100,35]]},{name:"purple",hueRange:[258,282],lowerBounds:[[20,100],[30,87],[40,79],[50,70],[60,65],[70,59],[80,52],[90,45],[100,42]]},{name:"pink",hueRange:[283,334],lowerBounds:[[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73]]}]},81874:function(i,e){e.Z=`import React, { useEffect } from 'react';
 import { Address, ConnectButton, Connector, NFTCard, useAccount } from '@ant-design/web3';
 import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { Button, message } from 'antd';
@@ -835,7 +835,7 @@ export default PaymentInUSDT;
 `},46435:function(i,e){e.Z=`import React from 'react';
 import { ConnectModal, Web3ConfigProvider, type Wallet } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
-import { Card, ConfigProvider, Space } from 'antd';
+import { Card, Space } from 'antd';
 
 const App: React.FC = () => {
   const walletList: Wallet[] = [
@@ -863,22 +863,32 @@ const App: React.FC = () => {
   return (
     <Web3ConfigProvider
       theme={{
-        web3Components: {
-          ConnectModal: {
-            walletGroupTextColor: 'red',
-            descriptionColor: 'blue',
-          },
+        token: {
+          colorPrimary: '#000000',
+          colorLink: '#8b837d',
+          colorBgContainer: '#eadcd1',
         },
         components: {
           Button: {
-            borderRadius: 20,
-            borderRadiusLG: 24,
+            defaultShadow: '-4px 4px 0px #000000,inset 0 0 0 2px #000000',
+            defaultHoverBg: '#f3eae4',
+            defaultBorderColor: '#000000',
+            defaultBg: '#fff',
+          },
+        },
+        web3Components: {
+          ConnectModal: {
+            hoverWalletBg: '#f3eae4',
           },
         },
       }}
     >
       <Space>
         <Card
+          style={{
+            boxShadow: '-10px 10px 0px #000000,inset 0 0 0 2px #000000',
+            border: 'none',
+          }}
           styles={{
             body: {
               padding: 0,
@@ -1080,12 +1090,12 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},84679:function(i,e){e.Z=`import type { ThemeConfig } from 'antd';
+`},84679:function(i,e){e.Z=`import type { Web3ThemeConfig } from '@ant-design/web3';
 import { theme } from 'antd';
 
-export type ThemeValue = 'default' | 'violet' | 'dark' | 'green' | 'pink';
+export type ThemeValue = 'default' | 'violet' | 'dark' | 'green' | 'pink' | 'retro';
 
-export const customToken: ThemeConfig = {
+export const customToken: Web3ThemeConfig = {
   token: {
     borderRadius: 16,
     wireframe: false,
@@ -1146,7 +1156,8 @@ export type ThemeSetting = {
   color: string;
   value: ThemeValue;
   name: string;
-  token: ThemeConfig;
+  token: Web3ThemeConfig;
+  buttonType?: 'primary' | 'dashed' | 'link' | 'text' | 'default';
 };
 
 // \u90E8\u5206\u53C2\u8003 antd \u5B98\u7F51\u7684\u4E3B\u9898 https://github.com/ant-design/ant-design/blob/master/.dumi/pages/index/components/Theme/index.tsx#L305
@@ -1178,6 +1189,36 @@ export const themeList: ThemeSetting[] = [
         },
       },
       algorithm: theme.darkAlgorithm,
+    },
+  },
+  {
+    color: '#796d6f',
+    value: 'retro',
+    name: 'Retro',
+    buttonType: 'default',
+    token: {
+      token: {
+        colorPrimary: '#000000',
+        colorLink: '#8b837d',
+        colorBgContainer: '#f3eae4',
+      },
+      components: {
+        Button: {
+          defaultShadow: '-4px 4px 0px #000000,inset 0 0 0 2px #000000',
+          defaultHoverBg: '#f3eae4',
+          defaultBg: '#fff',
+          defaultBorderColor: '#000000',
+        },
+        Modal: {
+          boxShadow: '-10px 10px 0px #000000,inset 0 0 0 2px #000000',
+          contentBg: '#eadcd1',
+        },
+      },
+      web3Components: {
+        ConnectModal: {
+          hoverWalletBg: '#f3eae4',
+        },
+      },
     },
   },
   {
@@ -1228,9 +1269,10 @@ interface Props {
   mode: ConnectModalProps['mode'];
   size: SizeType;
   quickConnect: boolean;
+  buttonType: 'primary' | 'dashed' | 'link' | 'text' | 'default';
 }
 
-const App: React.FC<Props> = ({ mode, size, quickConnect }) => {
+const App: React.FC<Props> = ({ mode, size, quickConnect, buttonType }) => {
   return (
     <BitcoinWeb3ConfigProvider autoConnect wallets={[XverseWallet(), UnisatWallet(), OkxWallet()]}>
       <Connector
@@ -1239,7 +1281,7 @@ const App: React.FC<Props> = ({ mode, size, quickConnect }) => {
         }}
       >
         <ConnectButton
-          type="primary"
+          type={buttonType}
           style={{
             width: 'auto',
           }}
@@ -1270,9 +1312,10 @@ interface Props {
   mode: ConnectModalProps['mode'];
   size: SizeType;
   quickConnect: boolean;
+  buttonType: 'primary' | 'dashed' | 'link' | 'text' | 'default';
 }
 
-const App: React.FC<Props> = ({ mode, size, quickConnect }) => {
+const App: React.FC<Props> = ({ mode, size, quickConnect, buttonType }) => {
   return (
     <WagmiWeb3ConfigProvider
       eip6963={{
@@ -1297,7 +1340,7 @@ const App: React.FC<Props> = ({ mode, size, quickConnect }) => {
         }}
       >
         <ConnectButton
-          type="primary"
+          type={buttonType}
           style={{
             width: 'auto',
           }}
@@ -1311,9 +1354,10 @@ const App: React.FC<Props> = ({ mode, size, quickConnect }) => {
 
 export default App;
 `},41715:function(i,e){e.Z=`import React from 'react';
+import { Web3ConfigProvider } from '@ant-design/web3';
 import type { ConnectModalProps } from '@ant-design/web3';
 import { TinyColor } from '@ctrl/tinycolor';
-import { Col, ConfigProvider, Radio, Row, Select, Slider, Space, Switch, Tabs } from 'antd';
+import { Col, Radio, Row, Select, Slider, Space, Switch, Tabs } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 
 import { themeList } from '../tokens';
@@ -1361,9 +1405,11 @@ const App: React.FC = () => {
   const [radius, setRadius] = React.useState<number>(defaultRadius);
   const currentTheme = themeList.find((t) => t.value === theme);
 
+  const buttonType = currentTheme?.buttonType || 'primary';
+
   return (
     <>
-      <ConfigProvider
+      <Web3ConfigProvider
         theme={{
           ...currentTheme?.token,
           token: {
@@ -1381,7 +1427,12 @@ const App: React.FC = () => {
               key: 'ethereum',
               children: (
                 <div className={styles.connectorContainer}>
-                  <EthereumApp mode={mode} quickConnect={quickConnect} size={size} />
+                  <EthereumApp
+                    mode={mode}
+                    quickConnect={quickConnect}
+                    size={size}
+                    buttonType={buttonType}
+                  />
                 </div>
               ),
             },
@@ -1390,7 +1441,12 @@ const App: React.FC = () => {
               key: 'bitcoin',
               children: (
                 <div className={styles.connectorContainer}>
-                  <BitcoinApp mode={mode} quickConnect={quickConnect} size={size} />
+                  <BitcoinApp
+                    mode={mode}
+                    quickConnect={quickConnect}
+                    size={size}
+                    buttonType={buttonType}
+                  />
                 </div>
               ),
             },
@@ -1399,7 +1455,12 @@ const App: React.FC = () => {
               key: 'solana',
               children: (
                 <div className={styles.connectorContainer}>
-                  <SolanaApp mode={mode} quickConnect={quickConnect} size={size} />
+                  <SolanaApp
+                    mode={mode}
+                    quickConnect={quickConnect}
+                    size={size}
+                    buttonType={buttonType}
+                  />
                 </div>
               ),
             },
@@ -1408,7 +1469,12 @@ const App: React.FC = () => {
               key: 'sui',
               children: (
                 <div className={styles.connectorContainer}>
-                  <SuiApp mode={mode} quickConnect={quickConnect} size={size} />
+                  <SuiApp
+                    mode={mode}
+                    quickConnect={quickConnect}
+                    size={size}
+                    buttonType={buttonType}
+                  />
                 </div>
               ),
             },
@@ -1417,13 +1483,18 @@ const App: React.FC = () => {
               key: 'ton',
               children: (
                 <div className={styles.connectorContainer}>
-                  <TonApp mode={mode} quickConnect={quickConnect} size={size} />
+                  <TonApp
+                    mode={mode}
+                    quickConnect={quickConnect}
+                    size={size}
+                    buttonType={buttonType}
+                  />
                 </div>
               ),
             },
           ]}
         />
-      </ConfigProvider>
+      </Web3ConfigProvider>
       <div className={styles.configContainer}>
         <Row>
           <Col xs={24} sm={12}>
@@ -1509,9 +1580,10 @@ interface Props {
   mode: ConnectModalProps['mode'];
   size: SizeType;
   quickConnect: boolean;
+  buttonType: 'primary' | 'dashed' | 'link' | 'text' | 'default';
 }
 
-const App: React.FC<Props> = ({ mode, size, quickConnect }) => {
+const App: React.FC<Props> = ({ mode, size, quickConnect, buttonType }) => {
   return (
     <SolanaWeb3ConfigProvider wallets={[CoinbaseWallet(), PhantomWallet()]}>
       <Connector
@@ -1520,7 +1592,7 @@ const App: React.FC<Props> = ({ mode, size, quickConnect }) => {
         }}
       >
         <ConnectButton
-          type="primary"
+          type={buttonType}
           style={{
             width: 'auto',
           }}
@@ -1545,9 +1617,10 @@ interface Props {
   mode: ConnectModalProps['mode'];
   size: SizeType;
   quickConnect: boolean;
+  buttonType: 'primary' | 'dashed' | 'link' | 'text' | 'default';
 }
 
-const App: React.FC<Props> = ({ mode, size, quickConnect }) => {
+const App: React.FC<Props> = ({ mode, size, quickConnect, buttonType }) => {
   return (
     <SuiWeb3ConfigProvider balance autoConnect wallets={[Suiet(), SuiWallet()]}>
       <Connector
@@ -1556,7 +1629,7 @@ const App: React.FC<Props> = ({ mode, size, quickConnect }) => {
         }}
       >
         <ConnectButton
-          type="primary"
+          type={buttonType}
           style={{
             width: 'auto',
           }}
@@ -1581,9 +1654,10 @@ interface Props {
   mode: ConnectModalProps['mode'];
   size: SizeType;
   quickConnect: boolean;
+  buttonType: 'primary' | 'dashed' | 'link' | 'text' | 'default';
 }
 
-const App: React.FC<Props> = ({ mode, size, quickConnect }) => {
+const App: React.FC<Props> = ({ mode, size, quickConnect, buttonType }) => {
   return (
     <TonWeb3ConfigProvider wallets={[tonkeeper, okxTonWallet, { key: 'safepalwallet' }]}>
       <Connector
@@ -1592,7 +1666,7 @@ const App: React.FC<Props> = ({ mode, size, quickConnect }) => {
         }}
       >
         <ConnectButton
-          type="primary"
+          type={buttonType}
           style={{
             width: 'auto',
           }}
