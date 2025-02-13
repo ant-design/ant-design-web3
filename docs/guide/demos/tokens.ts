@@ -1,7 +1,7 @@
 import type { Web3ThemeConfig } from '@ant-design/web3';
 import { theme } from 'antd';
 
-export type ThemeValue = 'default' | 'violet' | 'dark' | 'green' | 'pink' | 'retro';
+export type ThemeValue = 'default' | 'violet' | 'dark' | 'green' | 'pink' | 'retro' | 'win95';
 
 export const customToken: Web3ThemeConfig = {
   token: {
@@ -97,6 +97,37 @@ export const themeList: ThemeSetting[] = [
         },
       },
       algorithm: theme.darkAlgorithm,
+    },
+  },
+  {
+    color: '#008080',
+    value: 'win95',
+    name: 'Windows 95',
+    buttonType: 'default',
+    token: {
+      token: {
+        colorPrimary: '#008080',
+        colorLink: '#0000FF',
+        colorBgContainer: '#C0C0C0',
+        borderRadius: 0,
+      },
+      components: {
+        Button: {
+          defaultBg: '#C0C0C0',
+          defaultBorderColor: '#FFFFFF #808080 #808080 #FFFFFF',
+          defaultHoverBg: '#C0C0C0',
+          defaultShadow: 'inset -1px -1px #0a0a0a,inset 1px 1px #fff',
+        },
+        Modal: {
+          contentBg: '#C0C0C0',
+          boxShadow: 'inset -1px -1px #0a0a0a,inset 1px 1px #fff',
+        },
+      },
+      web3Components: {
+        ConnectModal: {
+          hoverWalletBg: '#DFDFDF',
+        },
+      },
     },
   },
   {
