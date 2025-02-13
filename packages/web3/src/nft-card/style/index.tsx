@@ -41,7 +41,7 @@ const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
   return {
     [`${componentCls}-container`]: {
       width: nftCardWidth,
-      backgroundColor: colorWhite,
+      backgroundColor: token.colorBgContainer,
       borderRadius: nftCardBorderRadius,
       border: `1px solid ${colorBorder}`,
       overflow: 'hidden',

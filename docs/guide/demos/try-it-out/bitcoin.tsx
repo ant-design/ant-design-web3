@@ -15,9 +15,10 @@ interface Props {
   mode: ConnectModalProps['mode'];
   size: SizeType;
   quickConnect: boolean;
+  buttonType: 'primary' | 'dashed' | 'link' | 'text' | 'default';
 }
 
-const App: React.FC<Props> = ({ mode, size, quickConnect }) => {
+const App: React.FC<Props> = ({ mode, size, quickConnect, buttonType }) => {
   return (
     <BitcoinWeb3ConfigProvider autoConnect wallets={[XverseWallet(), UnisatWallet(), OkxWallet()]}>
       <Connector
@@ -26,7 +27,7 @@ const App: React.FC<Props> = ({ mode, size, quickConnect }) => {
         }}
       >
         <ConnectButton
-          type="primary"
+          type={buttonType}
           style={{
             width: 'auto',
           }}

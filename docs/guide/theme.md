@@ -25,6 +25,6 @@ We provide a [theme editor](/theme-editor-cn) where you can modify Design Tokens
 
 ### Customize More Design Tokens for Ant Design Web3
 
-In addition to Ant Design's Design Tokens, Ant Design Web3 also offers some additional Design Tokens that you can customize. The Design Tokens for components are continuously being supplemented, and you can view the supported Design Tokens on the corresponding component documentation pages. If you find any unsupported or incorrectly used Design Tokens, please [submit an issue](https://github.com/ant-design/ant-design-web3/issues) to let us know.
+In addition to Ant Design's Design Tokens, Ant Design Web3 also offers some additional Design Tokens that you can customize. The Design Tokens for components are continuously being supplemented, and you can view the supported Design Tokens on the corresponding component documentation pages. If you find any unsupported or incorrectly used Design Tokens, please [submit an issue](https://github.com/ant-design/ant-design-web3/issues) to let us know. Below is a specific example, you can customize the Design Tokens of Ant Design and Ant Design Web3 to achieve flexible custom styles. More examples can be viewed by visiting [Try It Out](/guide/ant-design-web3-cn#try-it-out).
 
 <code src="./demos/custom-token-web3.tsx"></code>

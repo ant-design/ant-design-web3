@@ -50,13 +50,11 @@ const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
 
 const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
   const { web3ComponentsCls: componentCls } = token;
+
   return [
     {
       [`${componentCls}`]: {
         paddingBlockEnd: 0,
-        '.ant-modal-content': {
-          background: token.colorBgContainer,
-        },
       },
 
       [`${componentCls}-body`]: {
@@ -186,18 +184,21 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                         [`${componentCls}-plugin-tag:not(:disabled)`]: {
                           color: token.colorPrimaryTextHover,
                           borderColor: token.colorPrimaryTextHover,
+                          background: token.Button?.defaultHoverBg,
                         },
                       },
                       [`&:not(:has(${componentCls}-plugin-tag))`]: {
                         [`${componentCls}-qr-btn`]: {
                           color: token.colorPrimaryTextHover,
                           borderColor: token.colorPrimaryTextHover,
+                          background: token.Button?.defaultHoverBg,
                         },
                       },
                       [`&:has(${componentCls}-plugin-tag:disabled)`]: {
                         [`${componentCls}-qr-btn`]: {
                           color: token.colorPrimaryTextHover,
                           borderColor: token.colorPrimaryTextHover,
+                          background: token.Button?.defaultHoverBg,
                         },
                       },
                     },
@@ -223,9 +224,11 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               left: '50%',
               transform: 'translateX(-50%)',
               height: token.controlHeightLG,
-              backgroundImage: `linear-gradient(to bottom, ${new TinyColor(token.colorBgContainer)
+              backgroundImage: `linear-gradient(to bottom, ${new TinyColor(
+                token.Modal?.contentBg || token.colorBgContainer,
+              )
                 .setAlpha(0)
-                .toRgbString()}, ${new TinyColor(token.colorBgContainer)
+                .toRgbString()}, ${new TinyColor(token.Modal?.contentBg || token.colorBgContainer)
                 .setAlpha(1)
                 .toRgbString()})`,
               pointerEvents: 'none',
@@ -570,12 +573,12 @@ export function useStyle(prefixCls: string): UseStyleResult {
     const isDark = isDarkTheme(token);
     const hoverWalletBg = new TinyColor(isDark ? token.colorWhite : '#000')
       .setAlpha(0.08)
-      .onBackground(token.colorBgContainer)
+      .onBackground(token.Modal?.contentBg || token.colorBgContainer)
       .toRgbString();
 
     const connectModalToken: ConnectModalToken = {
       ...token,
-      selectedWalletColor: token.colorBgContainer,
+      selectedWalletColor: token.Modal?.contentBg || token.colorBgContainer,
       hoverWalletBg,
       selectedWalletBg: hoverWalletBg,
       panelSplitLineColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
