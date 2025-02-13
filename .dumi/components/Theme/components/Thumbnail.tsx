@@ -7,7 +7,7 @@ import { ThemeContext } from '../../ThemeContext';
 import styles from './Thumbnail.module.less';
 import { themeList, ThemeSetting } from './tokens';
 
-export type ThemeType = 'default' | 'dark' | 'retro' | 'green' | 'pink' | 'violet';
+export type ThemeType = 'default' | 'dark' | 'green' | 'pink' | 'violet';
 
 export type ThemeItem = {
   /**
