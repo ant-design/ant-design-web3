@@ -2,7 +2,7 @@ import React from 'react';
 import type { Web3ThemeConfig } from '@ant-design/web3';
 import { theme } from 'antd';
 
-export type ThemeValue = 'default' | 'retro' | 'violet' | 'dark' | 'green' | 'pink';
+export type ThemeValue = 'default' | 'violet' | 'dark' | 'green' | 'pink';
 
 export const customToken: Web3ThemeConfig = {
   token: {

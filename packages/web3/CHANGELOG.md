@@ -1,5 +1,18 @@
 # @ant-design/web3
 
+## 1.21.0
+
+### Minor Changes
+
+- f896044: feat: Support custom ConnectModal design token with Web3ConfigProvider
+
+### Patch Changes
+
+- 78c7d7b: fix: design token for custom style
+- Updated dependencies [f896044]
+  - @ant-design/web3-common@1.17.0
+  - @ant-design/web3-assets@1.11.8
+
 ## 1.20.0
 
 ### Minor Changes

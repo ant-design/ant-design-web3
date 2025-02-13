@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.17.0
+
+### Minor Changes
+
+- f896044: feat: Support custom ConnectModal design token with Web3ConfigProvider
+
 ## 1.16.0
 
 ### Minor Changes
