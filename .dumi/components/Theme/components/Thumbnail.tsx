@@ -73,7 +73,7 @@ const ThumbnailItem: React.FC<ThumbnailItemProps> = (item) => {
   );
 };
 
-export const sizeThemes: Themes = {
+export const siteThemes: Themes = {
   default: {
     mainBg: '#fbfdff',
     bannerBg:
@@ -125,10 +125,8 @@ export const sizeThemes: Themes = {
 
 export const themes: FullTheme[] = themeList.map((item) => ({
   ...item,
-  ...sizeThemes[item.value],
+  ...siteThemes[item.value],
 }));
-
-// const themesArray = Object.values(themes);
 
 export type ThumbnailProps = {
   selectedTheme: FullTheme;

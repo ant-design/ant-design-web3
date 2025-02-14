@@ -15,19 +15,11 @@ import { ThemeContext } from '../ThemeContext';
 import { Thumbnail } from './components/Thumbnail';
 import styles from './index.module.less';
 
-const defaultColor = 'auto';
-
-const colors = [defaultColor, '#1677FF', '#9E339F', '#F2BD27', '#00B96B'];
-
 export const Theme: React.FC = () => {
   const intl = useIntl();
-  const [isDark, setIsDark] = React.useState(false);
   const [color] = usePrefersColor();
+  const isDark = color === 'dark';
   const { curTheme, updateTheme } = useContext(ThemeContext);
-
-  useEffect(() => {
-    setIsDark(color === 'dark');
-  }, [color]);
 
   const walletList: Wallet[] = [
     {
@@ -118,7 +110,18 @@ export const Theme: React.FC = () => {
         </Card>
       </Web3ConfigProvider>
       <div className={styles.thumbnailBox}>
-        <Thumbnail selectedTheme={curTheme} onSelect={(theme) => updateTheme(theme)} />
+        <Thumbnail
+          selectedTheme={curTheme}
+          onSelect={(theme) => {
+            updateTheme(theme);
+            // 触发全局主题变化事件
+            window.dispatchEvent(
+              new CustomEvent('site-theme-change', {
+                detail: theme.name === 'Dark' ? 'dark' : 'light',
+              }),
+            );
+          }}
+        />
       </div>
     </div>
   );

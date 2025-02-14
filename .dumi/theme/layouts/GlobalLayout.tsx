@@ -38,13 +38,13 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
   });
 
 const isThemeDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
-const getSiteState = (siteState: any) => {
+const getSiteState = (siteState: SiteState) => {
   const localSiteState = siteState;
   const isDark = isThemeDark(); // 系统默认主题
   const theme = localSiteState?.theme || [];
-  const isAutoTheme = theme.filter((item: any) => item === 'auto').length > 0;
+  const isAutoTheme = theme.filter((item: string) => item === 'auto').length > 0;
   if (isAutoTheme) {
-    const nextTheme = theme.filter((item: any) => item !== 'auto');
+    const nextTheme = theme.filter((item: string) => item !== 'auto');
     nextTheme.push(isDark ? 'dark' : 'light');
     localSiteState.theme = nextTheme;
   }
@@ -102,10 +102,21 @@ const GlobalLayout: FC = () => {
     // set data-prefers-color
     setPrefersColor((theme ?? []).indexOf('dark') > -1 ? 'dark' : 'light');
     window.addEventListener('resize', updateMobileMode);
+
+    // 监听主题变化事件
+    const handleThemeChange = (event: CustomEvent) => {
+      const newTheme = event.detail;
+      if (newTheme === 'dark' || newTheme === 'light') {
+        updateSiteConfig({ theme: [newTheme] });
+      }
+    };
+    window.addEventListener('site-theme-change', handleThemeChange as EventListener);
+
     return () => {
       window.removeEventListener('resize', updateMobileMode);
+      window.removeEventListener('site-theme-change', handleThemeChange as EventListener);
     };
-  }, [theme, updateMobileMode, setPrefersColor]);
+  }, [theme, updateMobileMode, setPrefersColor, updateSiteConfig]);
 
   const siteContextValue = useMemo(
     () => ({
