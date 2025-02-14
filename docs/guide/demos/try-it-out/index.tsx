@@ -192,7 +192,7 @@ const App: React.FC = () => {
                   }}
                   defaultValue={defaultRadius}
                   min={0}
-                  max={16}
+                  max={24}
                   onChange={setRadius}
                 />
               </Space>
