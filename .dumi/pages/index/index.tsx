@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import { usePrefersColor } from 'dumi';
-import SiteContext from 'dumi-theme-antd-web3/dist/slots/SiteContext';
+import SiteContext from 'dumi-theme-antd/dist/slots/SiteContext';
 
 import { Banner } from '../../components/Banner';
 import { Features } from '../../components/Features';

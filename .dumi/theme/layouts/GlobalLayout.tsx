@@ -1,40 +1,179 @@
-import React from 'react';
-import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
-import { en_US, Web3ConfigProvider, zh_CN } from '@ant-design/web3-common';
-import { useIntl, useLocation, useOutlet, usePrefersColor, useServerInsertedHTML } from 'dumi';
-import { GlobalLayout as ThemeGlobalLayout } from 'dumi-theme-antd-web3';
+import type { FC } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import {
+  createCache,
+  extractStyle,
+  legacyNotSelectorLinter,
+  logicalPropertiesLinter,
+  parentSelectorLinter,
+  StyleProvider,
+} from '@ant-design/cssinjs';
+import { theme as antdTheme, ConfigProvider } from 'antd';
+import { Outlet, usePrefersColor, useServerInsertedHTML } from 'dumi';
 
-import SiteThemeProvider from '../SiteThemeProvider';
+import type { ThemeName } from '../common/ThemeSwitch';
+import ThemeSwitch from '../common/ThemeSwitch';
+import useAdditionalThemeConfig from '../hooks/useAdditionalThemeConfig';
+import type { SiteContextProps } from '../slots/SiteContext';
+import SiteContext from '../slots/SiteContext';
 
-const GlobalLayout: React.FC = () => {
-  const outlet = useOutlet();
-  const { pathname } = useLocation();
-  const [color] = usePrefersColor();
-  const { locale } = useIntl();
+type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
+const RESPONSIVE_MOBILE = 768;
+const SITE_STATE_LOCALSTORAGE_KEY = 'dumi-theme-antd-site-state';
 
-  // 参考 antd 服务端渲染文档 https://ant-design.antgroup.com/docs/react/server-side-rendering-cn#%E5%86%85%E8%81%94%E6%A0%B7%E5%BC%8F
-  // https://github.com/ant-design/ant-design/blob/a4c884cb3d0ddc3560801e851d3cbf363de686dd/.dumi/theme/layouts/GlobalLayout.tsx#L217
-  const [cssCache] = React.useState(() => createCache());
-
-  useServerInsertedHTML(() => {
-    const styleText = extractStyle(cssCache, { plain: true });
-    return <style id="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }}></style>;
+const defaultSiteState: SiteState = {
+  theme: ['light'],
+  isMobile: false,
+  direction: 'ltr',
+};
+const getAlgorithm = (themes: ThemeName[] = []) =>
+  themes.map((theme) => {
+    if (theme === 'dark') {
+      return antdTheme.darkAlgorithm;
+    }
+    if (theme === 'compact') {
+      return antdTheme.compactAlgorithm;
+    }
+    return antdTheme.defaultAlgorithm;
   });
 
-  return (
-    <StyleProvider cache={cssCache}>
-      {/*@ts-ignore */}
-      <ThemeGlobalLayout>
-        <Web3ConfigProvider locale={locale === 'zh-CN' ? zh_CN : en_US}>
-          <SiteThemeProvider themeMode={color || 'auto'}>
-            <div className={pathname === '/' || pathname === '/index-cn' ? 'home' : ''}>
-              {outlet}
-            </div>
-          </SiteThemeProvider>
-        </Web3ConfigProvider>
-      </ThemeGlobalLayout>
+const isThemeDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
+const getSiteState = (siteState: any) => {
+  const localSiteState = siteState;
+  const isDark = isThemeDark(); // 系统默认主题
+  const theme = localSiteState?.theme || [];
+  const isAutoTheme = theme.filter((item: any) => item === 'auto').length > 0;
+  if (isAutoTheme) {
+    const nextTheme = theme.filter((item: any) => item !== 'auto');
+    nextTheme.push(isDark ? 'dark' : 'light');
+    localSiteState.theme = nextTheme;
+  }
+  return Object.assign(defaultSiteState, localSiteState);
+};
+
+const GlobalLayout: FC = () => {
+  const [, , setPrefersColor] = usePrefersColor();
+  const { theme: configTheme, ssr, prefersColor } = useAdditionalThemeConfig();
+  const [{ theme, isMobile, direction }, setSiteState] = useState<SiteState>(defaultSiteState);
+
+  // 基于 localStorage 实现
+  const updateSiteConfig = useCallback((props: SiteState) => {
+    try {
+      const localSiteState = JSON.parse(
+        window.localStorage.getItem(SITE_STATE_LOCALSTORAGE_KEY) || '{}',
+      );
+      const nextLocalSiteState = Object.assign(localSiteState, props);
+      window.localStorage.setItem(SITE_STATE_LOCALSTORAGE_KEY, JSON.stringify(nextLocalSiteState));
+      setSiteState((prev) => ({
+        ...prev,
+        ...props,
+      }));
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    }
+  }, []);
+
+  const updateMobileMode = useCallback(() => {
+    updateSiteConfig({
+      isMobile: window.innerWidth < RESPONSIVE_MOBILE,
+    });
+  }, [updateSiteConfig]);
+
+  useEffect(() => {
+    try {
+      const localSiteState = JSON.parse(
+        window.localStorage.getItem(SITE_STATE_LOCALSTORAGE_KEY) || '{}',
+      );
+      // 首次设置主题样式
+      if (!localSiteState?.theme) {
+        localSiteState.theme = [prefersColor.default];
+      }
+      const siteConfig = getSiteState(localSiteState);
+      updateSiteConfig(siteConfig);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    }
+  }, [prefersColor, updateSiteConfig]);
+
+  useEffect(() => {
+    updateMobileMode();
+    // set data-prefers-color
+    setPrefersColor((theme ?? []).indexOf('dark') > -1 ? 'dark' : 'light');
+    window.addEventListener('resize', updateMobileMode);
+    return () => {
+      window.removeEventListener('resize', updateMobileMode);
+    };
+  }, [theme, updateMobileMode, setPrefersColor]);
+
+  const siteContextValue = useMemo(
+    () => ({
+      direction,
+      isMobile: isMobile!,
+      theme: theme!,
+      updateSiteConfig,
+    }),
+    [isMobile, theme, direction, updateSiteConfig],
+  );
+
+  const [styleCache] = React.useState(() => createCache());
+
+  useServerInsertedHTML(() => {
+    const styleText = extractStyle(styleCache, {
+      plain: true,
+      types: 'style',
+    });
+    return <style data-type="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }} />;
+  });
+
+  useServerInsertedHTML(() => {
+    const styleText = extractStyle(styleCache, {
+      plain: true,
+      types: ['cssVar', 'token'],
+    });
+    return (
+      <style
+        data-type="antd-css-var"
+        data-rc-order="prepend"
+        data-rc-priority="-9999"
+        dangerouslySetInnerHTML={{ __html: styleText }}
+      />
+    );
+  });
+
+  const BaseGlobalLayoutJSX = (
+    <SiteContext.Provider value={siteContextValue}>
+      <ConfigProvider
+        theme={{
+          ...configTheme,
+          algorithm: getAlgorithm(theme),
+        }}
+      >
+        <Outlet />
+        {prefersColor.switch && (
+          <ThemeSwitch
+            value={theme}
+            onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
+          />
+        )}
+      </ConfigProvider>
+    </SiteContext.Provider>
+  );
+
+  const SSRGlobalLayoutJSX = (
+    <StyleProvider
+      cache={styleCache}
+      linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
+    >
+      {BaseGlobalLayoutJSX}
     </StyleProvider>
   );
+  if (ssr) {
+    (global as any).styleCache = styleCache;
+    return SSRGlobalLayoutJSX;
+  }
+  return BaseGlobalLayoutJSX;
 };
 
 export default GlobalLayout;
