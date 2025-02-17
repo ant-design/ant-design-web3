@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[862],{61461:function(i,e,m){m.r(e),m.d(e,{TinyColor:function(){return d.C},bounds:function(){return y},cmykToRgb:function(){return s.JT},convertDecimalToHex:function(){return s.Wl},convertHexToDecimal:function(){return s.T6},fromRatio:function(){return R},hslToRgb:function(){return s.ve},hsvToRgb:function(){return s.WE},inputToRGB:function(){return b.uA},isReadable:function(){return k},isValidCSSUnit:function(){return b.ky},legacyRandom:function(){return B},mostReadable:function(){return S},names:function(){return P.R},numberInputToObject:function(){return s.Yt},parseIntFromHex:function(){return s.VD},random:function(){return v},readability:function(){return g},rgbToCmyk:function(){return s.D5},rgbToHex:function(){return s.vq},rgbToHsl:function(){return s.lC},rgbToHsv:function(){return s.py},rgbToRgb:function(){return s.rW},rgbaToArgbHex:function(){return s.GC},rgbaToHex:function(){return s.s},stringInputToObject:function(){return b.uz},toMsFilter:function(){return A}});var d=m(11899),P=m(23375);function g(n,a){const t=new d.C(n),o=new d.C(a);return(Math.max(t.getLuminance(),o.getLuminance())+.05)/(Math.min(t.getLuminance(),o.getLuminance())+.05)}function k(n,a,t={level:"AA",size:"small"}){const o=g(n,a);switch((t.level??"AA")+(t.size??"small")){case"AAsmall":case"AAAlarge":return o>=4.5;case"AAlarge":return o>=3;case"AAAsmall":return o>=7;default:return!1}}function S(n,a,t={includeFallbackColors:!1,level:"AA",size:"small"}){let o=null,r=0;const{includeFallbackColors:u,level:c,size:h}=t;for(const l of a){const f=g(n,l);f>r&&(r=f,o=new d.C(l))}return k(n,o,{level:c,size:h})||!u?o:(t.includeFallbackColors=!1,S(n,["#fff","#000"],t))}var s=m(79158);function A(n,a){const t=new d.C(n),o="#"+(0,s.GC)(t.r,t.g,t.b,t.a);let r=o;const u=t.gradientType?"GradientType = 1, ":"";if(a){const c=new d.C(a);r="#"+(0,s.GC)(c.r,c.g,c.b,c.a)}return`progid:DXImageTransform.Microsoft.gradient(${u}startColorstr=${o},endColorstr=${r})`}var C=m(70979);function R(n,a){const t={r:(0,C.JX)(n.r),g:(0,C.JX)(n.g),b:(0,C.JX)(n.b)};return n.a!==void 0&&(t.a=Number(n.a)),new d.C(t,a)}function B(){return new d.C({r:Math.random(),g:Math.random(),b:Math.random()})}var b=m(41587);function v(n={}){if(n.count!==void 0&&n.count!==null){const u=n.count,c=[];for(n.count=void 0;u>c.length;)n.count=null,n.seed&&(n.seed+=1),c.push(v(n));return n.count=u,c}const a=x(n.hue,n.seed),t=_(a,n),o=W(a,t,n),r={h:a,s:t,v:o};return n.alpha!==void 0&&(r.a=n.alpha),new d.C(r)}function x(n,a){const t=E(n);let o=p(t,a);return o<0&&(o=360+o),o}function _(n,a){if(a.hue==="monochrome")return 0;if(a.luminosity==="random")return p([0,100],a.seed);const{saturationRange:t}=T(n);let o=t[0],r=t[1];switch(a.luminosity){case"bright":o=55;break;case"dark":o=r-10;break;case"light":r=55;break;default:break}return p([o,r],a.seed)}function W(n,a,t){let o=M(n,a),r=100;switch(t.luminosity){case"dark":r=o+20;break;case"light":o=(r+o)/2;break;case"random":o=0,r=100;break;default:break}return p([o,r],t.seed)}function M(n,a){const{lowerBounds:t}=T(n);for(let o=0;o<t.length-1;o++){const r=t[o][0],u=t[o][1],c=t[o+1][0],h=t[o+1][1];if(a>=r&&a<=c){const l=(h-u)/(c-r),f=u-l*r;return l*a+f}}return 0}function E(n){const a=parseInt(n,10);if(!Number.isNaN(a)&&a<360&&a>0)return[a,a];if(typeof n=="string"){const t=y.find(r=>r.name===n);if(t){const r=w(t);if(r.hueRange)return r.hueRange}const o=new d.C(n);if(o.isValid){const r=o.toHsv().h;return[r,r]}}return[0,360]}function T(n){n>=334&&n<=360&&(n-=360);for(const a of y){const t=w(a);if(t.hueRange&&n>=t.hueRange[0]&&n<=t.hueRange[1])return t}throw Error("Color not found")}function p(n,a){if(a===void 0)return Math.floor(n[0]+Math.random()*(n[1]+1-n[0]));const t=n[1]||1,o=n[0]||0;a=(a*9301+49297)%233280;const r=a/233280;return Math.floor(o+r*(t-o))}function w(n){const a=n.lowerBounds[0][0],t=n.lowerBounds[n.lowerBounds.length-1][0],o=n.lowerBounds[n.lowerBounds.length-1][1],r=n.lowerBounds[0][1];return{name:n.name,hueRange:n.hueRange,lowerBounds:n.lowerBounds,saturationRange:[a,t],brightnessRange:[o,r]}}const y=[{name:"monochrome",hueRange:null,lowerBounds:[[0,0],[100,0]]},{name:"red",hueRange:[-26,18],lowerBounds:[[20,100],[30,92],[40,89],[50,85],[60,78],[70,70],[80,60],[90,55],[100,50]]},{name:"orange",hueRange:[19,46],lowerBounds:[[20,100],[30,93],[40,88],[50,86],[60,85],[70,70],[100,70]]},{name:"yellow",hueRange:[47,62],lowerBounds:[[25,100],[40,94],[50,89],[60,86],[70,84],[80,82],[90,80],[100,75]]},{name:"green",hueRange:[63,178],lowerBounds:[[30,100],[40,90],[50,85],[60,81],[70,74],[80,64],[90,50],[100,40]]},{name:"blue",hueRange:[179,257],lowerBounds:[[20,100],[30,86],[40,80],[50,74],[60,60],[70,52],[80,44],[90,39],[100,35]]},{name:"purple",hueRange:[258,282],lowerBounds:[[20,100],[30,87],[40,79],[50,70],[60,65],[70,59],[80,52],[90,45],[100,42]]},{name:"pink",hueRange:[283,334],lowerBounds:[[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73]]}]},81874:function(i,e){e.Z=`import React, { useEffect } from 'react';
+"use strict";(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[862],{61461:function(i,e,l){l.r(e),l.d(e,{TinyColor:function(){return d.C},bounds:function(){return y},cmykToRgb:function(){return s.JT},convertDecimalToHex:function(){return s.Wl},convertHexToDecimal:function(){return s.T6},fromRatio:function(){return R},hslToRgb:function(){return s.ve},hsvToRgb:function(){return s.WE},inputToRGB:function(){return b.uA},isReadable:function(){return k},isValidCSSUnit:function(){return b.ky},legacyRandom:function(){return B},mostReadable:function(){return S},names:function(){return P.R},numberInputToObject:function(){return s.Yt},parseIntFromHex:function(){return s.VD},random:function(){return v},readability:function(){return g},rgbToCmyk:function(){return s.D5},rgbToHex:function(){return s.vq},rgbToHsl:function(){return s.lC},rgbToHsv:function(){return s.py},rgbToRgb:function(){return s.rW},rgbaToArgbHex:function(){return s.GC},rgbaToHex:function(){return s.s},stringInputToObject:function(){return b.uz},toMsFilter:function(){return A}});var d=l(11899),P=l(23375);function g(n,a){const t=new d.C(n),o=new d.C(a);return(Math.max(t.getLuminance(),o.getLuminance())+.05)/(Math.min(t.getLuminance(),o.getLuminance())+.05)}function k(n,a,t={level:"AA",size:"small"}){const o=g(n,a);switch((t.level??"AA")+(t.size??"small")){case"AAsmall":case"AAAlarge":return o>=4.5;case"AAlarge":return o>=3;case"AAAsmall":return o>=7;default:return!1}}function S(n,a,t={includeFallbackColors:!1,level:"AA",size:"small"}){let o=null,r=0;const{includeFallbackColors:u,level:c,size:h}=t;for(const m of a){const f=g(n,m);f>r&&(r=f,o=new d.C(m))}return k(n,o,{level:c,size:h})||!u?o:(t.includeFallbackColors=!1,S(n,["#fff","#000"],t))}var s=l(79158);function A(n,a){const t=new d.C(n),o="#"+(0,s.GC)(t.r,t.g,t.b,t.a);let r=o;const u=t.gradientType?"GradientType = 1, ":"";if(a){const c=new d.C(a);r="#"+(0,s.GC)(c.r,c.g,c.b,c.a)}return`progid:DXImageTransform.Microsoft.gradient(${u}startColorstr=${o},endColorstr=${r})`}var C=l(70979);function R(n,a){const t={r:(0,C.JX)(n.r),g:(0,C.JX)(n.g),b:(0,C.JX)(n.b)};return n.a!==void 0&&(t.a=Number(n.a)),new d.C(t,a)}function B(){return new d.C({r:Math.random(),g:Math.random(),b:Math.random()})}var b=l(41587);function v(n={}){if(n.count!==void 0&&n.count!==null){const u=n.count,c=[];for(n.count=void 0;u>c.length;)n.count=null,n.seed&&(n.seed+=1),c.push(v(n));return n.count=u,c}const a=x(n.hue,n.seed),t=_(a,n),o=M(a,t,n),r={h:a,s:t,v:o};return n.alpha!==void 0&&(r.a=n.alpha),new d.C(r)}function x(n,a){const t=E(n);let o=p(t,a);return o<0&&(o=360+o),o}function _(n,a){if(a.hue==="monochrome")return 0;if(a.luminosity==="random")return p([0,100],a.seed);const{saturationRange:t}=T(n);let o=t[0],r=t[1];switch(a.luminosity){case"bright":o=55;break;case"dark":o=r-10;break;case"light":r=55;break;default:break}return p([o,r],a.seed)}function M(n,a,t){let o=W(n,a),r=100;switch(t.luminosity){case"dark":r=o+20;break;case"light":o=(r+o)/2;break;case"random":o=0,r=100;break;default:break}return p([o,r],t.seed)}function W(n,a){const{lowerBounds:t}=T(n);for(let o=0;o<t.length-1;o++){const r=t[o][0],u=t[o][1],c=t[o+1][0],h=t[o+1][1];if(a>=r&&a<=c){const m=(h-u)/(c-r),f=u-m*r;return m*a+f}}return 0}function E(n){const a=parseInt(n,10);if(!Number.isNaN(a)&&a<360&&a>0)return[a,a];if(typeof n=="string"){const t=y.find(r=>r.name===n);if(t){const r=w(t);if(r.hueRange)return r.hueRange}const o=new d.C(n);if(o.isValid){const r=o.toHsv().h;return[r,r]}}return[0,360]}function T(n){n>=334&&n<=360&&(n-=360);for(const a of y){const t=w(a);if(t.hueRange&&n>=t.hueRange[0]&&n<=t.hueRange[1])return t}throw Error("Color not found")}function p(n,a){if(a===void 0)return Math.floor(n[0]+Math.random()*(n[1]+1-n[0]));const t=n[1]||1,o=n[0]||0;a=(a*9301+49297)%233280;const r=a/233280;return Math.floor(o+r*(t-o))}function w(n){const a=n.lowerBounds[0][0],t=n.lowerBounds[n.lowerBounds.length-1][0],o=n.lowerBounds[n.lowerBounds.length-1][1],r=n.lowerBounds[0][1];return{name:n.name,hueRange:n.hueRange,lowerBounds:n.lowerBounds,saturationRange:[a,t],brightnessRange:[o,r]}}const y=[{name:"monochrome",hueRange:null,lowerBounds:[[0,0],[100,0]]},{name:"red",hueRange:[-26,18],lowerBounds:[[20,100],[30,92],[40,89],[50,85],[60,78],[70,70],[80,60],[90,55],[100,50]]},{name:"orange",hueRange:[19,46],lowerBounds:[[20,100],[30,93],[40,88],[50,86],[60,85],[70,70],[100,70]]},{name:"yellow",hueRange:[47,62],lowerBounds:[[25,100],[40,94],[50,89],[60,86],[70,84],[80,82],[90,80],[100,75]]},{name:"green",hueRange:[63,178],lowerBounds:[[30,100],[40,90],[50,85],[60,81],[70,74],[80,64],[90,50],[100,40]]},{name:"blue",hueRange:[179,257],lowerBounds:[[20,100],[30,86],[40,80],[50,74],[60,60],[70,52],[80,44],[90,39],[100,35]]},{name:"purple",hueRange:[258,282],lowerBounds:[[20,100],[30,87],[40,79],[50,70],[60,65],[70,59],[80,52],[90,45],[100,42]]},{name:"pink",hueRange:[283,334],lowerBounds:[[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73]]}]},81874:function(i,e){e.Z=`import React, { useEffect } from 'react';
 import { Address, ConnectButton, Connector, NFTCard, useAccount } from '@ant-design/web3';
 import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { Button, message } from 'antd';
@@ -1093,7 +1093,15 @@ export default App;
 `},84679:function(i,e){e.Z=`import type { Web3ThemeConfig } from '@ant-design/web3';
 import { theme } from 'antd';
 
-export type ThemeValue = 'default' | 'violet' | 'dark' | 'green' | 'pink' | 'retro' | 'win95';
+export type ThemeValue =
+  | 'default'
+  | 'violet'
+  | 'dark'
+  | 'green'
+  | 'pink'
+  | 'retro'
+  | 'win95'
+  | 'material';
 
 export const customToken: Web3ThemeConfig = {
   token: {
@@ -1248,6 +1256,37 @@ export const themeList: ThemeSetting[] = [
       web3Components: {
         ConnectModal: {
           hoverWalletBg: '#f3eae4',
+        },
+      },
+    },
+  },
+  {
+    color: '#6750A4',
+    value: 'material',
+    name: 'Material Design 3',
+    buttonType: 'primary',
+    token: {
+      token: {
+        colorPrimary: '#6750a4',
+        colorBorderBg: '',
+        colorLink: '#6750a4',
+        colorBgBase: '#fdfbff',
+        colorBgContainer: '#fdfbff',
+        colorBgMask: 'rgba(0, 0, 0, 0.32)',
+        controlHeight: 40,
+      },
+      components: {
+        Button: {
+          colorBorder: 'transparent',
+          colorText: '#6750a4',
+          colorPrimaryBg: '#6750a4',
+          primaryShadow: 'none',
+          dangerShadow: 'none',
+          defaultShadow: 'none',
+        },
+        Modal: {
+          contentBg: '#fffbfe',
+          boxShadow: 'none',
         },
       },
     },
@@ -1578,7 +1617,7 @@ const App: React.FC = () => {
                   }}
                   defaultValue={defaultRadius}
                   min={0}
-                  max={16}
+                  max={24}
                   onChange={setRadius}
                 />
               </Space>
