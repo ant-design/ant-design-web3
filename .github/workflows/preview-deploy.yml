@@ -4,7 +4,7 @@ name: Preview Deploy
 
 on:
   workflow_run:
-    workflows: ["Preview Build"]
+    workflows: ['Preview Build']
     types:
       - completed
 
@@ -14,14 +14,14 @@ permissions:
 jobs:
   deploy-site:
     permissions:
-      actions: read  # for dawidd6/action-download-artifact to query and download artifacts
-      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
-      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
+      actions: read # for dawidd6/action-download-artifact to query and download artifacts
+      issues: write # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write # for actions-cool/maintain-one-comment to modify or create PR comments
     name: deploy preview
     runs-on: ubuntu-latest
     if: >
-      github.event.workflow_run.event == 'pull_request' &&
-      github.event.workflow_run.conclusion == 'success'
+      github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success'
+
     steps:
       # We need get PR id first
       - name: download pr artifact
@@ -31,10 +31,16 @@ jobs:
           run_id: ${{ github.event.workflow_run.id }}
           name: pr
 
-      # Save PR id to output
+      # Save PR id to output and validate it's a number
       - name: save PR id
         id: pr
-        run: echo "id=$(<pr-id.txt)" >> $GITHUB_OUTPUT
+        run: |
+          PR_ID=$(cat pr-id.txt)
+          if ! [[ "$PR_ID" =~ ^[0-9]+$ ]]; then
+            echo "Invalid PR ID: Not a number"
+            exit 1
+          fi
+          echo "id=$PR_ID" >> $GITHUB_OUTPUT
 
       # Download site artifact
       - name: download site artifact
@@ -46,9 +52,11 @@ jobs:
 
       - name: upload surge service
         id: deploy
+        env:
+          PR_ID: ${{ steps.pr.outputs.id }}
         run: |
-          export DEPLOY_DOMAIN=https://preview-${{ steps.pr.outputs.id }}-ant-design-web3.surge.sh
-          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          DEPLOY_DOMAIN="https://preview-${PR_ID}-ant-design-web3.surge.sh"
+          npx surge --project ./ --domain "${DEPLOY_DOMAIN}" --token ${{ secrets.SURGE_TOKEN }}
 
       - name: update status comment
         uses: actions-cool/maintain-one-comment@v3
@@ -73,14 +81,14 @@ jobs:
 
   build-site-failed:
     permissions:
-      actions: read  # for dawidd6/action-download-artifact to query and download artifacts
-      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
-      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
+      actions: read # for dawidd6/action-download-artifact to query and download artifacts
+      issues: write # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write # for actions-cool/maintain-one-comment to modify or create PR comments
     name: build preview failed
     runs-on: ubuntu-latest
     if: >
-      github.event.workflow_run.event == 'pull_request' &&
-      github.event.workflow_run.conclusion == 'failure'
+      github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'failure'
+
     steps:
       # We need get PR id first
       - name: download pr artifact
@@ -90,10 +98,16 @@ jobs:
           run_id: ${{ github.event.workflow_run.id }}
           name: pr
 
-      # Save PR id to output
+      # Save PR id to output and validate it's a number
       - name: save PR id
         id: pr
-        run: echo "id=$(<pr-id.txt)" >> $GITHUB_OUTPUT
+        run: |
+          PR_ID=$(cat pr-id.txt)
+          if ! [[ "$PR_ID" =~ ^[0-9]+$ ]]; then
+            echo "Invalid PR ID: Not a number"
+            exit 1
+          fi
+          echo "id=$PR_ID" >> $GITHUB_OUTPUT
 
       - name: The job has failed
         uses: actions-cool/maintain-one-comment@v3
