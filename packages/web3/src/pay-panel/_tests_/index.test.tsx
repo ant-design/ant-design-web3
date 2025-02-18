@@ -16,7 +16,9 @@ import { type PayPanelProps } from '../PayPanelContext';
 
 vi.mock('../ChainList', () => ({
   ChainList: ({ onChainSelected }: any) => (
-    <button onClick={() => onChainSelected(BSC.id)}>Select Chain</button>
+    <button type="button" onClick={() => onChainSelected(BSC.id)}>
+      Select Chain
+    </button>
   ),
 }));
 
@@ -24,7 +26,9 @@ vi.mock('../ShowCode', () => ({
   ShowCode: ({ selectedChainId, onReturn }: any) => (
     <div>
       <span>Selected Chain ID: {selectedChainId}</span>
-      <button onClick={onReturn}>Return</button>
+      <button type="button" onClick={onReturn}>
+        Return
+      </button>
     </div>
   ),
 }));

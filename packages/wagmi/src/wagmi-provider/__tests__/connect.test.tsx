@@ -1,4 +1,4 @@
-import EventEmitter from 'events';
+import EventEmitter from 'node:events';
 import React, { useEffect } from 'react';
 import { useProvider } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
@@ -82,7 +82,8 @@ describe('WagmiWeb3ConfigProvider connect', () => {
       const { connect, account, disconnect } = useProvider();
       return (
         <div>
-          <div
+          <button
+            type="button"
             className="custom-text"
             onClick={async () => {
               if (account) {
@@ -94,7 +95,7 @@ describe('WagmiWeb3ConfigProvider connect', () => {
             }}
           >
             {account ? account?.address : 'Connect'}
-          </div>
+          </button>
         </div>
       );
     };
@@ -151,7 +152,8 @@ describe('WagmiWeb3ConfigProvider connect', () => {
       const [error, setError] = React.useState<Error | undefined>();
       return (
         <div>
-          <div
+          <button
+            type="button"
             className="custom-text"
             onClick={async () => {
               if (account) {
@@ -168,7 +170,7 @@ describe('WagmiWeb3ConfigProvider connect', () => {
             }}
           >
             {error ? error.message : account?.name}
-          </div>
+          </button>
         </div>
       );
     };

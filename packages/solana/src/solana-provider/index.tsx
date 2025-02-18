@@ -8,11 +8,11 @@ import {
   type ConnectionProviderProps,
   type WalletProviderProps,
 } from '@solana/wallet-adapter-react';
-import { type UniversalProviderOpts } from '@walletconnect/universal-provider';
+import type { UniversalProviderOpts } from '@walletconnect/universal-provider';
 
 import { solana, type SolanaChainConfig } from '../chains';
 import { isAdapterWalletFactory, isWalletConnectFactory } from '../utils';
-import { type WalletFactory } from '../wallets/types';
+import type { WalletFactory } from '../wallets/types';
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 import { useWalletConnectProvider } from './useWalletConnectProvider';
 

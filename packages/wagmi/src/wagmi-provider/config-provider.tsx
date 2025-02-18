@@ -226,7 +226,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         });
         if (signMessageAsync) {
           signature = await signMessageAsync?.({ message: msg });
-          console.log('get signature', signature);
           await verifyMessage(msg!, signature!);
           setStatus(ConnectStatus.Signed);
         }

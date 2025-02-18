@@ -144,6 +144,7 @@ describe('SuiWeb3ConfigProvider connect tests', () => {
       return (
         <div>
           <button
+            type="button"
             className="connect-btn-non"
             onClick={async () => {
               try {
@@ -156,6 +157,7 @@ describe('SuiWeb3ConfigProvider connect tests', () => {
             connect
           </button>
           <button
+            type="button"
             className="connect-btn-mistake"
             onClick={async () => {
               try {
@@ -193,7 +195,7 @@ describe('SuiWeb3ConfigProvider connect tests', () => {
     fireEvent.click(connectBtnNon!);
 
     await vi.waitFor(() => {
-      expect(errorDom?.textContent).toBe(`Can not find wallet undefined`);
+      expect(errorDom?.textContent).toBe('Can not find wallet undefined');
     });
 
     fireEvent.click(connectBtnMistake!);

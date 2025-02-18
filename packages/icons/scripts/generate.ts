@@ -1,6 +1,6 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import { promisify } from 'util';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
+import { promisify } from 'node:util';
 import pkg from 'lodash';
 
 const __dirname = new URL(import.meta.url).pathname;

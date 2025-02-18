@@ -37,10 +37,10 @@ const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
         '.ant-modal-content': {
           padding: 0,
         },
-        ['.ant-list-split .ant-list-item']: {
+        '.ant-list-split .ant-list-item': {
           borderBlockEnd: 'none',
         },
-        ['.ant-list .ant-list-item']: {
+        '.ant-list .ant-list-item': {
           paddingBlock: 5,
         },
       },
@@ -216,7 +216,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           },
           [`${componentCls}-footer-container`]: {
             position: 'relative',
-            [`&::before`]: {
+            '&::before': {
               content: '""',
               position: 'absolute',
               bottom: '100%',
@@ -337,7 +337,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             fontSize: token.fontSizeLG,
             textAlign: 'center',
             marginBlockStart: token.margin,
-            ['&:hover']: {
+            '&:hover': {
               opacity: 1,
             },
           },
@@ -409,7 +409,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               background: token.getWalletCardBg,
               borderRadius: token.borderRadiusSM,
               cursor: 'pointer',
-              border: `1px solid transparent`,
+              border: '1px solid transparent',
               transition: 'border-color .3s',
               '&:hover': {
                 borderColor: token.colorPrimary,
@@ -512,7 +512,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           height: '100%',
           flexDirection: 'column',
 
-          ['@keyframes ripple']: {
+          '@keyframes ripple': {
             from: {
               transform: 'scale(1)',
               opacity: '1',

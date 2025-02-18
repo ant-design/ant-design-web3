@@ -43,6 +43,7 @@ const IconSearchFallback = () => {
         {Array(24)
           .fill(1)
           .map((_, index) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey:
             <div key={index} className={styles.skeletonWrapper}>
               <Skeleton.Node active style={{ height: 110, width: '100%' }}>
                 {' '}

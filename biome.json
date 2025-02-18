@@ -7,11 +7,41 @@
       "./es/**/*",
       "./lib/**/*",
       "_site/**/*",
-      "./packages/icons/src/components/*"
+      "./packages/icons/src/components/*",
+      "./coverage/*",
+      "*/.umi/**/*"
     ],
     "indentStyle": "space",
     "lineWidth": 100,
     "indentWidth": 2
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "ignore": [
+      "./coverage/**/*",
+      "./.umi/**/*",
+      "./.dumi/tmp/**/*",
+      "./.dumi/pages/tonconnect-manifest.json",
+      ".vscode/*",
+      "*/dist/**/*"
+    ],
+    "rules": {
+      "style": {
+        "useImportType": "off",
+        "noNonNullAssertion": "off"
+      },
+      "complexity": {
+        "noForEach": "off"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "off"
+      }
+    }
   },
   "javascript": {
     "formatter": {

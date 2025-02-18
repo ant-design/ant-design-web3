@@ -32,6 +32,7 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
 
   const groupKeys = useMemo(() => {
     let orderFn = defaultGroupOrder;
+    // biome-ignore lint/suspicious/noPrototypeBuiltins: <explanation>
     if (typeof internalGroup === 'object' && internalGroup.hasOwnProperty('groupOrder')) {
       orderFn = internalGroup.groupOrder!;
     } else if (groupOrder) {
@@ -80,7 +81,7 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
     return (
       <List<Wallet>
         itemLayout="horizontal"
-        dataSource={group ? dataSource[group!] : walletList}
+        dataSource={group ? dataSource[group] : walletList}
         rowKey="key"
         renderItem={(item) => (
           <List.Item
