@@ -37,6 +37,7 @@ export default () => {
       <div className={classNames(styles.cardBg, styles.connectModalCardBg)}>
         <h3 className={styles.title}>Connect Modal</h3>
         <Card
+          className={styles.card}
           style={{ width: 400 }}
           styles={{
             body: {
