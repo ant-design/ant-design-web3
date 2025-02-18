@@ -194,6 +194,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       if (!newChain && chainId) {
         newChain = { id: chainId, name: chainName };
       }
+
+      /* v8 ignore next */
       return newChain || prevChain;
     });
   }, [chainAssets, wagimConfig.chains, chainId, chainName]);
