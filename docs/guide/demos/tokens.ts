@@ -1,7 +1,15 @@
 import type { Web3ThemeConfig } from '@ant-design/web3';
 import { theme } from 'antd';
 
-export type ThemeValue = 'default' | 'violet' | 'dark' | 'green' | 'pink' | 'retro' | 'win95';
+export type ThemeValue =
+  | 'default'
+  | 'violet'
+  | 'dark'
+  | 'green'
+  | 'pink'
+  | 'retro'
+  | 'win95'
+  | 'material';
 
 export const customToken: Web3ThemeConfig = {
   token: {
@@ -156,6 +164,37 @@ export const themeList: ThemeSetting[] = [
       web3Components: {
         ConnectModal: {
           hoverWalletBg: '#f3eae4',
+        },
+      },
+    },
+  },
+  {
+    color: '#6750A4',
+    value: 'material',
+    name: 'Material Design 3',
+    buttonType: 'primary',
+    token: {
+      token: {
+        colorPrimary: '#6750a4',
+        colorBorderBg: '',
+        colorLink: '#6750a4',
+        colorBgBase: '#fdfbff',
+        colorBgContainer: '#fdfbff',
+        colorBgMask: 'rgba(0, 0, 0, 0.32)',
+        controlHeight: 40,
+      },
+      components: {
+        Button: {
+          colorBorder: 'transparent',
+          colorText: '#6750a4',
+          colorPrimaryBg: '#6750a4',
+          primaryShadow: 'none',
+          dangerShadow: 'none',
+          defaultShadow: 'none',
+        },
+        Modal: {
+          contentBg: '#fffbfe',
+          boxShadow: 'none',
         },
       },
     },
