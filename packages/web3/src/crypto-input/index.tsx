@@ -74,10 +74,12 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
     if (!amt && !curToken) {
       onChange?.({});
       return;
-    } else if (!curToken) {
+    }
+    if (!curToken) {
       onChange?.({ inputString: amt! });
       return;
-    } else if (!amt) {
+    }
+    if (!amt) {
       onChange?.({ token: curToken });
       return;
     }
@@ -153,6 +155,7 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
                   <a
                     className={getClsName('max-button')}
                     role="button"
+                    // biome-ignore lint/a11y/useValidAnchor: by design
                     onClick={() => {
                       onChange?.({
                         ...value,

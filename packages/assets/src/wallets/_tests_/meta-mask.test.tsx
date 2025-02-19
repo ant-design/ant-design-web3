@@ -21,7 +21,7 @@ describe('transferQRCodeFormatter', () => {
     const expectedValue = `ethereum:${paramsWithTokenAddress.tokenAddress}@${
       commonParams.chainId
     }/transfer?address=${commonParams.toAddress}&uint256=${
-      paramsWithTokenAddress.amount * Math.pow(10, 18 - commonParams.decimal)
+      paramsWithTokenAddress.amount * 10 ** (18 - commonParams.decimal)
     }`;
     expect(result).toBe(expectedValue);
   });

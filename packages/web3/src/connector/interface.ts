@@ -17,6 +17,7 @@ export interface ConnectorProps {
   availableChains?: Chain[];
   availableWallets?: Wallet[];
 
+  // biome-ignore lint/suspicious/noConfusingVoidType: by design
   connect?: (wallet?: Wallet) => Promise<void | Account>;
   disconnect?: () => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;

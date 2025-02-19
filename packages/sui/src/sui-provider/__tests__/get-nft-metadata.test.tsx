@@ -130,6 +130,7 @@ describe('SuiWeb3ConfigProvider get-nft-metadata tests', () => {
 
       return (
         <button
+          type="button"
           className="get-nft-metadata"
           onClick={async () => {
             const nftMetadata = await getNFTMetadata?.({

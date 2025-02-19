@@ -69,6 +69,7 @@ describe('SolanaWeb3ConfigProvider rpcProvider', () => {
         return (
           <div>
             <button
+              type="button"
               className="btn"
               onClick={() => {
                 mockFn();

@@ -43,12 +43,12 @@ const useStyle = createStyles(({ token, css }, { dark }: { dark: boolean }) => (
     border-radius: 36px;
     font-size: 44px;
     background-image: ${dark
-      ? `linear-gradient(175deg, #262525 -8%, #363535 32%)`
-      : `linear-gradient(175deg, #f5f8fc -8%, #ffffff 32%)`};
+      ? 'linear-gradient(175deg, #262525 -8%, #363535 32%)'
+      : 'linear-gradient(175deg, #f5f8fc -8%, #ffffff 32%)'};
     border-image-slice: 1;
     box-shadow: ${dark
-      ? `0px 0 14px 2px rgba(210, 198, 255, 0.25), inset 0px -2px 0 0 #525355`
-      : `0px 25px 14px 2px rgba(210, 198, 255, 0.25), inset 0px -4px 0 0 #e6ebf3`};
+      ? '0px 0 14px 2px rgba(210, 198, 255, 0.25), inset 0px -2px 0 0 #525355'
+      : '0px 25px 14px 2px rgba(210, 198, 255, 0.25), inset 0px -4px 0 0 #e6ebf3'};
   `,
   componentsOverviewCard: css`
     cursor: pointer;

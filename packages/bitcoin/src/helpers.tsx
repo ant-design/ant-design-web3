@@ -21,9 +21,9 @@ export const getBalanceByMempool = async (address: string): Promise<Balance> => 
     const { chain_stats } = data;
     const { funded_txo_sum, spent_txo_sum } = chain_stats;
     return getBalanceObject(funded_txo_sum - spent_txo_sum);
-  } else {
-    throw new NoBalanceError();
   }
+
+  throw new NoBalanceError();
 };
 
 export const getInscriptionsByAddress = async ({
@@ -69,9 +69,9 @@ export const getInscriptionsByAddress = async ({
       }),
     );
     return { list, total };
-  } else {
-    throw new NoInscriptionError();
   }
+
+  throw new NoInscriptionError();
 };
 
 export const getInscriptionContentById = async (inscriptionId: string): Promise<string> => {
@@ -79,7 +79,7 @@ export const getInscriptionContentById = async (inscriptionId: string): Promise<
   if (res.ok) {
     const { id } = await res.json();
     return `${ORDINALS_URL}/content/${id}`;
-  } else {
-    throw new NoInscriptionError();
   }
+
+  throw new NoInscriptionError();
 };

@@ -61,7 +61,6 @@ describe('sign after connect', () => {
             if (account) {
               onDisconnectClick?.();
             } else {
-              debugger;
               onConnectClick?.({
                 name: 'Custom',
                 remark: 'Custom',

@@ -19,6 +19,7 @@ export const ChainList: React.FC<ChainListProps> = ({ onChainSelected }) => {
       <div className={`${prefixCls}-title`}>Select network</div>
       {Object.entries(target).map(([chainId]) => {
         return (
+          // biome-ignore lint/a11y/useKeyWithClickEvents: by design
           <div
             key={chainId}
             onClick={() => {

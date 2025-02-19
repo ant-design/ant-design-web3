@@ -4,7 +4,7 @@
  * @param prefixContext addressPrefix from context
  */
 export const fillWithPrefix = (
-  address: string = '',
+  address = '',
   prefixProp?: string | false,
   prefixContext?: string | false,
 ): string => {
@@ -33,7 +33,7 @@ export const fillWithPrefix = (
   return address.startsWith(prefix) ? address : `${prefix}${address}`;
 };
 
-export const formatAddress = (address: string = '', groupSize = 4): string => {
+export const formatAddress = (address = '', groupSize = 4): string => {
   const formattedGroups = [];
 
   const has0x = address.startsWith('0x');

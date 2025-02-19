@@ -1,5 +1,5 @@
-import { existsSync, readdirSync } from 'fs';
-import { join, resolve } from 'path';
+import { existsSync, readdirSync } from 'node:fs';
+import { join, resolve } from 'node:path';
 import { defineConfig } from 'dumi';
 
 const openSSR = process.env.SSR || process.env.NODE_ENV === 'production';

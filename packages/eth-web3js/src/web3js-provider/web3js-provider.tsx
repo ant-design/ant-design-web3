@@ -34,6 +34,7 @@ export const EthWeb3jsConfigProvider: React.FC<
 
   const wallets = React.useMemo(() => {
     const targetWallets = [...(props.wallets ?? [])];
+    // biome-ignore lint/complexity/useOptionalChain: <explanation>
     if (walletConnect && walletConnect.projectId) targetWallets.push(WalletConnect());
     return targetWallets;
   }, [props.wallets, walletConnect]);
@@ -48,6 +49,7 @@ export const EthWeb3jsConfigProvider: React.FC<
       }
     });
 
+    // biome-ignore lint/complexity/useOptionalChain: <explanation>
     if (walletConnect && walletConnect.projectId) {
       connectors.push(
         wagmiConnectors.walletConnect({

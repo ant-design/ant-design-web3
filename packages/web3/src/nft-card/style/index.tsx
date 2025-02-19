@@ -156,7 +156,7 @@ const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
         },
       },
       [`${componentCls}-skeleton`]: {
-        [`&-wrap`]: {
+        '&-wrap': {
           borderRadius: `${nftCardBorderRadius}px ${nftCardBorderRadius}px 0 0`,
           boxSizing: 'border-box',
           overflow: 'hidden',
@@ -169,7 +169,7 @@ const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
             borderRadius: nftCardBorderRadius,
           },
         },
-        ['&-body']: {
+        '&-body': {
           width: `calc(100% - ${padding * 2}px)`,
         },
       },
@@ -189,7 +189,7 @@ const genNFTCardStyle: GenerateStyle<NFTCardToken> = (token) => {
               borderRadius: 0,
             },
           },
-          ['&-body']: {
+          '&-body': {
             marginInline: padding,
           },
           [`&-button${antCls}-skeleton-element`]: {

@@ -7,7 +7,7 @@ interface NormalInstallProps {
 
 const NormalInstallDependencies: React.FC<NormalInstallProps> = (props) => {
   const { packageNames, save } = props;
-  let realSave: boolean = false;
+  let realSave = false;
   if (save === 'true') {
     realSave = true;
   } else if (save !== 'false') {

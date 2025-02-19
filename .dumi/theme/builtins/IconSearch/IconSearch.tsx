@@ -92,7 +92,7 @@ const IconSearch: React.FC = () => {
         let iconList = categories[key as CategoriesKeys];
         if (searchKey) {
           const matchKey = searchKey
-            .replace(new RegExp(`^<([a-zA-Z]*)\\s/>$`, 'gi'), (_, name) => name)
+            .replace(/^<([a-zA-Z]*)\s\/>$/gi, (_, name) => name)
             .replace(/(Colorful|Filled|CircleFilled|CircleColorful)$/gi, '')
             .toLowerCase();
           iconList = iconList.filter((iconName) => iconName.toLowerCase().includes(matchKey));

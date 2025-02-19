@@ -54,6 +54,7 @@ const App: React.FC = () => {
             }}
             options={[ETH, USDT]}
           />
+          {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
           <span
             style={{
               width: 30,

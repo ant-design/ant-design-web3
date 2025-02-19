@@ -31,7 +31,7 @@ export type WalletConnectConfig = {
 };
 
 export const WalletConnectChainID: Record<string, string> = {
-  ['mainnet-beta']: 'solana:4sGjMW1sUnHzSxGspuhpqLDx6wiyjNtZ',
+  'mainnet-beta': 'solana:4sGjMW1sUnHzSxGspuhpqLDx6wiyjNtZ',
   devnet: 'solana:8E9rvCKLFQia2Y35HXjjpWzj8weVo44K',
 };
 

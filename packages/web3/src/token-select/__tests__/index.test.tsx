@@ -134,10 +134,10 @@ describe('TokenSelect component', () => {
     expect(baseElement.querySelectorAll('.ant-select-selection-overflow-item').length).toBe(3);
 
     expect(
-      baseElement.querySelectorAll(`.ant-select-selector .ant-web3-token-select-token-icon`).length,
+      baseElement.querySelectorAll('.ant-select-selector .ant-web3-token-select-token-icon').length,
     ).toBe(2);
     expect(
-      baseElement.querySelectorAll(`.ant-select-selector .ant-web3-token-select-token-name`).length,
+      baseElement.querySelectorAll('.ant-select-selector .ant-web3-token-select-token-name').length,
     ).toBe(0);
   });
 });

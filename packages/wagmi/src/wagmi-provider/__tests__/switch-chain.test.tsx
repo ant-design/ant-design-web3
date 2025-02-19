@@ -1,4 +1,4 @@
-import EventEmitter from 'events';
+import EventEmitter from 'node:events';
 import React, { useEffect } from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { Mainnet, Polygon } from '@ant-design/web3-assets';

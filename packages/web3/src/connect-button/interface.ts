@@ -4,6 +4,7 @@ import type { AvatarProps, ButtonProps, GetProp, MenuProps, TooltipProps } from 
 import type { AddressProps } from '../address';
 import type { ProfileModalProps } from './profile-modal';
 
+// biome-ignore lint/suspicious/noConstEnum: <explanation>
 export const enum ConnectButtonStatus {
   Connected = 'connected',
   Disconnected = 'disconnected',
@@ -46,4 +47,4 @@ export type ConnectButtonProps = ButtonProps &
         };
   };
 
-export { ConnectorTriggerProps };
+export type { ConnectorTriggerProps };

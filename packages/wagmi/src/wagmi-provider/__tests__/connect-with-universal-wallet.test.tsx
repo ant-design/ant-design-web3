@@ -1,4 +1,4 @@
-import EventEmitter from 'events';
+import EventEmitter from 'node:events';
 import React, { useEffect } from 'react';
 import { useProvider } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
@@ -80,7 +80,8 @@ describe('WagmiWeb3ConfigProvider connect with UniversalWallet', () => {
       const { connect, account, disconnect, availableWallets } = useProvider();
       return (
         <div>
-          <div
+          <button
+            type="button"
             className="custom-text"
             onClick={() => {
               if (account) {
@@ -91,7 +92,7 @@ describe('WagmiWeb3ConfigProvider connect with UniversalWallet', () => {
             }}
           >
             {account ? account?.address : 'Connect'}
-          </div>
+          </button>
         </div>
       );
     };
@@ -149,7 +150,8 @@ describe('WagmiWeb3ConfigProvider connect with UniversalWallet', () => {
       const { connect, account, disconnect, availableWallets } = useProvider();
       return (
         <div>
-          <div
+          <button
+            type="button"
             className="custom-text"
             onClick={() => {
               if (account) {
@@ -160,7 +162,7 @@ describe('WagmiWeb3ConfigProvider connect with UniversalWallet', () => {
             }}
           >
             {account ? account?.address : 'Connect'}
-          </div>
+          </button>
         </div>
       );
     };

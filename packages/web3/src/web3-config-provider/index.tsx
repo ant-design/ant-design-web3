@@ -4,7 +4,7 @@ import {
 } from '@ant-design/web3-common';
 import { ConfigProvider, type ThemeConfig } from 'antd';
 
-import { ComponentToken as ConnectModalComponentToken } from '../connect-modal/style/index';
+import type { ComponentToken as ConnectModalComponentToken } from '../connect-modal/style/index';
 
 interface Web3ThemeConfig extends ThemeConfig {
   web3Components?: {
@@ -31,4 +31,4 @@ const Web3ConfigProvider: React.FC<{ theme?: Web3ThemeConfig } & Web3ConfigProvi
   );
 };
 
-export { Web3ConfigProvider, Web3ThemeConfig };
+export { Web3ConfigProvider, type Web3ThemeConfig };

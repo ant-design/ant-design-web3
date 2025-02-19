@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 import svgr from 'vite-plugin-svgr';
 import { defineConfig, ViteUserConfig } from 'vitest/config';
 

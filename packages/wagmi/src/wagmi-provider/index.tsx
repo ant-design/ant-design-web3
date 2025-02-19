@@ -77,6 +77,7 @@ export function WagmiWeb3ConfigProvider({
   const generateConfig = () => {
     // Auto generate config
     const connectors = [];
+    // biome-ignore lint/complexity/useOptionalChain: <explanation>
     if (walletConnect && walletConnect.projectId) {
       connectors.push(
         wagmiWalletConnect({
