@@ -139,7 +139,7 @@ const GetInscriptions: React.FC = () => {
       {!inscription ? null : inscription.contentType.includes('image') ? (
         <NFTImage src={inscription.content} width={200} />
       ) : (
-        <iframe src={inscription.content} width={200} height={200} />
+        <iframe title="Inscription" src={inscription.content} width={200} height={200} />
       )}
     </Space>
   ) : null;
@@ -1751,6 +1751,7 @@ const App: React.FC = () => {
         }}
         options={[ETH, USDT]}
       />
+      {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
       <span
         style={{
           width: 30,
@@ -1917,7 +1918,7 @@ const App: React.FC = () => {
   React.useEffect(() => {
     web3?.eth.getBlockNumber().then((num) => {
       console.log('current block number:', num);
-      setBlockNum('0x' + num.toString(16));
+      setBlockNum(\`0x\${num.toString(16)}\`);
     });
   }, [web3]);
 
@@ -3386,15 +3387,17 @@ export const getPlatform = () => {
   const userAgent = navigator.userAgent.toLowerCase();
   if (userAgent.includes('chrome')) {
     return 'Chrome';
-  } else if (userAgent.includes('firefox')) {
-    return 'Firefox';
-  } else if (userAgent.includes('edge')) {
-    return 'Edge';
-  } else if (userAgent.includes('safari')) {
-    return 'Safari';
-  } else {
-    return 'Other';
   }
+  if (userAgent.includes('firefox')) {
+    return 'Firefox';
+  }
+  if (userAgent.includes('edge')) {
+    return 'Edge';
+  }
+  if (userAgent.includes('safari')) {
+    return 'Safari';
+  }
+  return 'Other';
 };
 
 export const writeCopyText = async (text: string): Promise<boolean> => {
@@ -3406,7 +3409,7 @@ export const writeCopyText = async (text: string): Promise<boolean> => {
  * @param prefixContext addressPrefix from context
  */
 export const fillWithPrefix = (
-  address: string = '',
+  address = '',
   prefixProp?: string | false,
   prefixContext?: string | false,
 ): string => {
@@ -3435,7 +3438,7 @@ export const fillWithPrefix = (
   return address.startsWith(prefix) ? address : \`\${prefix}\${address}\`;
 };
 
-export const formatAddress = (address: string = '', groupSize = 4): string => {
+export const formatAddress = (address = '', groupSize = 4): string => {
   const formattedGroups = [];
 
   const has0x = address.startsWith('0x');
