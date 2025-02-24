@@ -46,8 +46,12 @@
     "@tronweb3/tronwallet-abstract-adapter": "^1.1.8",
     "@tronweb3/tronwallet-adapter-react-hooks": "^1.1.9",
     "@tronweb3/tronwallet-adapter-walletconnect": "^2.0.2",
-    "@tronweb3/tronwallet-adapters": "^1.2.6",
-    "tronweb": "^6.0.0"
+    "@tronweb3/tronwallet-adapter-tronlink": "^1.1.11",
+    "@tronweb3/tronwallet-adapter-bitkeep": "^1.1.3",
+    "@tronweb3/tronwallet-adapter-okxwallet": "^1.0.5",
+    "@tronweb3/tronwallet-adapter-bybit": "^1.0.0",
+    "@tronweb3/tronwallet-adapters": "^1.2.7",
+    "tronweb": "^6.0.1"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",

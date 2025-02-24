@@ -1,13 +1,10 @@
 import React, { useMemo, useState, type PropsWithChildren } from 'react';
 import type { Locale, Wallet } from '@ant-design/web3-common';
-import { WalletError } from '@tronweb3/tronwallet-abstract-adapter';
+import type { WalletError } from '@tronweb3/tronwallet-abstract-adapter';
+import { BybitWalletAdapter } from '@tronweb3/tronwallet-adapter-bybit';
+import { OkxWalletAdapter } from '@tronweb3/tronwallet-adapter-okxwallet';
 import { WalletProvider } from '@tronweb3/tronwallet-adapter-react-hooks';
-import {
-  BitKeepAdapter,
-  BybitWalletAdapter,
-  OkxWalletAdapter,
-  TronLinkAdapter,
-} from '@tronweb3/tronwallet-adapters';
+import { TronLinkAdapter } from '@tronweb3/tronwallet-adapter-tronlink';
 
 import { AntDesignWeb3ConfigProvider } from './config-provider';
 
@@ -26,12 +23,18 @@ export const TronWeb3ConfigProvider: React.FC<PropsWithChildren<TronWeb3ConfigPr
   children,
 }) => {
   const [connectionError, setConnectionError] = useState<WalletError>();
-  const adapters = useMemo(function () {
+  const adapters = useMemo(() => {
     const tronLinkAdapter = new TronLinkAdapter();
-    const bitKeepAdapter = new BitKeepAdapter();
+    // const bitKeepAdapter = new BitKeepAdapter();
     const okxwalletAdapter = new OkxWalletAdapter();
     const bybitWalletAdapter = new BybitWalletAdapter();
-    return [tronLinkAdapter, bitKeepAdapter, okxwalletAdapter, bybitWalletAdapter];
+    return [
+      //
+      tronLinkAdapter,
+      // bitKeepAdapter,
+      okxwalletAdapter,
+      bybitWalletAdapter,
+    ];
   }, []);
 
   return (
