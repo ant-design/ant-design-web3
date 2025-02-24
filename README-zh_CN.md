@@ -63,7 +63,7 @@ export default () => {
 
 <a href="https://zan.top?chInfo=ch_antdweb3"><image src="https://mdn.alipayobjects.com/huamei_hsbbrh/afts/img/A*ybcRSrUPqhsAAAAAAAAAAAAADiOMAQ/original" /></a>
 
-ZAN 是一家 Web3 技术服务提供商，提供[节点服务](https://zan.top/home/node-service?chInfo=ch_antdweb3)、[测试网水龙头](https://zan.top/faucet?chInfo=ch_antdweb3)、[智能合约审计](https://zan.top/home/ai-scan?chInfo=ch_antdweb3)、[Web3 安全](https://zan.top/home/know-your-transaction?chInfo=ch_antdweb3)等服务。
+ZAN 是一家 Web3 技术服务提供商，提供[节点服务](https://zan.top/home/node-service?chInfo=ch_antdweb3)、[测试网水龙头](https://zan.top/faucet?chInfo=ch_antdweb3)、[智能合约审计](https://zan.top/home/ai-scan?chInfo=ch_antdweb3)等服务。
 
 ## 开发
 

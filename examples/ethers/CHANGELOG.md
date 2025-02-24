@@ -1,5 +1,52 @@
 # @example/ethers
 
+## 0.0.19
+
+### Patch Changes
+
+- Updated dependencies [f896044]
+- Updated dependencies [78c7d7b]
+  - @ant-design/web3-common@1.17.0
+  - @ant-design/web3@1.21.0
+  - @ant-design/web3-assets@1.11.8
+  - @ant-design/web3-ethers@1.1.16
+
+## 0.0.18
+
+### Patch Changes
+
+- 8b857d3: chore: update wagmi version
+- Updated dependencies [4c57fe4]
+- Updated dependencies [ad278cd]
+- Updated dependencies [8b857d3]
+  - @ant-design/web3@1.20.0
+  - @ant-design/web3-common@1.16.0
+  - @ant-design/web3-assets@1.11.7
+  - @ant-design/web3-ethers@1.1.15
+
+## 0.0.17
+
+### Patch Changes
+
+- Updated dependencies [2ee466c]
+- Updated dependencies [703f16a]
+  - @ant-design/web3@1.19.0
+  - @ant-design/web3-assets@1.11.6
+  - @ant-design/web3-ethers@1.1.14
+
+## 0.0.16
+
+### Patch Changes
+
+- e0db15a: chore: upgrade pnpm version from 8.9.0 to 9.14.4
+- Updated dependencies [e39064b]
+- Updated dependencies [14fae53]
+- Updated dependencies [e0db15a]
+  - @ant-design/web3@1.18.1
+  - @ant-design/web3-assets@1.11.5
+  - @ant-design/web3-common@1.15.1
+  - @ant-design/web3-ethers@1.1.13
+
 ## 0.0.15
 
 ### Patch Changes

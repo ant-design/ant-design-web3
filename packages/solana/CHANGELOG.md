@@ -1,5 +1,46 @@
 # @ant-design/web3-solana
 
+## 1.2.7
+
+### Patch Changes
+
+- Updated dependencies [f896044]
+  - @ant-design/web3-common@1.17.0
+  - @ant-design/web3-assets@1.11.8
+
+## 1.2.6
+
+### Patch Changes
+
+- c8aaacc: fix(solana): Some wallets cannot connect again
+
+## 1.2.5
+
+### Patch Changes
+
+- 8b857d3: chore: update wagmi version
+- Updated dependencies [ad278cd]
+- Updated dependencies [8b857d3]
+  - @ant-design/web3-common@1.16.0
+  - @ant-design/web3-assets@1.11.7
+
+## 1.2.4
+
+### Patch Changes
+
+- @ant-design/web3-assets@1.11.6
+
+## 1.2.3
+
+### Patch Changes
+
+- e0db15a: chore: upgrade pnpm version from 8.9.0 to 9.14.4
+- 1161b63: perf(solana): Optimize rendering times when using default connectionConfig
+- Updated dependencies [14fae53]
+- Updated dependencies [e0db15a]
+  - @ant-design/web3-assets@1.11.5
+  - @ant-design/web3-common@1.15.1
+
 ## 1.2.2
 
 ### Patch Changes

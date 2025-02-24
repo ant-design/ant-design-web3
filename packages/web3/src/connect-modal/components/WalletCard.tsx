@@ -28,6 +28,7 @@ const CardItem: React.FC<{
       {content}
     </a>
   ) : (
+    // biome-ignore lint/a11y/useKeyWithClickEvents: by design
     <div className={`${prefixCls}-card-item`} onClick={onClick}>
       {content}
     </div>

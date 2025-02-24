@@ -1,4 +1,4 @@
-import EventEmitter from 'events';
+import EventEmitter from 'node:events';
 import React, { useEffect } from 'react';
 import { useProvider } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
@@ -8,6 +8,7 @@ import type { Connector, Config as WagmiConfig } from 'wagmi';
 import type * as Wagmi from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 
+import { wagmiBaseMock } from '../__mocks__/wagmiBaseMock';
 import { MetaMask } from '../../wallets';
 import { AntDesignWeb3ConfigProvider } from '../config-provider';
 
@@ -32,9 +33,7 @@ vi.mock('wagmi', async (importOriginal) => {
   const actual = await importOriginal<typeof Wagmi>();
   return {
     ...actual,
-    useConfig: () => {
-      return {};
-    },
+    ...wagmiBaseMock,
     // https://wagmi.sh/react/hooks/useAccount
     useAccount: () => {
       const [connected, setConnected] = React.useState(false);
@@ -73,16 +72,6 @@ vi.mock('wagmi', async (importOriginal) => {
         },
       };
     },
-    useSwitchChain: () => {
-      return {
-        switchChain: () => {},
-      };
-    },
-    useBalance: () => {
-      return {};
-    },
-    useEnsName: () => ({}),
-    useEnsAvatar: () => ({}),
   };
 });
 
@@ -93,7 +82,8 @@ describe('WagmiWeb3ConfigProvider connect', () => {
       const { connect, account, disconnect } = useProvider();
       return (
         <div>
-          <div
+          <button
+            type="button"
             className="custom-text"
             onClick={async () => {
               if (account) {
@@ -105,7 +95,7 @@ describe('WagmiWeb3ConfigProvider connect', () => {
             }}
           >
             {account ? account?.address : 'Connect'}
-          </div>
+          </button>
         </div>
       );
     };
@@ -162,7 +152,8 @@ describe('WagmiWeb3ConfigProvider connect', () => {
       const [error, setError] = React.useState<Error | undefined>();
       return (
         <div>
-          <div
+          <button
+            type="button"
             className="custom-text"
             onClick={async () => {
               if (account) {
@@ -179,7 +170,7 @@ describe('WagmiWeb3ConfigProvider connect', () => {
             }}
           >
             {error ? error.message : account?.name}
-          </div>
+          </button>
         </div>
       );
     };

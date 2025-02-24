@@ -5,6 +5,7 @@ import { describe, expect, it, vi } from 'vitest';
 import type * as Wagmi from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 
+import { wagmiBaseMock } from '../__mocks__/wagmiBaseMock';
 import { MetaMask } from '../../wallets';
 import { AntDesignWeb3ConfigProvider } from '../config-provider';
 
@@ -21,32 +22,8 @@ vi.mock('wagmi', async (importOriginal) => {
   const actual = await importOriginal<typeof Wagmi>();
   return {
     ...actual,
-    useConfig: () => {
-      return {};
-    },
+    ...wagmiBaseMock,
     // https://wagmi.sh/react/hooks/useAccount
-    useAccount: () => {
-      return {
-        chain: mainnet,
-        address: '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
-        connector: mockConnector,
-      };
-    },
-    useConnect: () => {
-      return {
-        connectors: [mockConnector],
-      };
-    },
-    useDisconnect: () => {
-      return {
-        disconnectAsync: () => {},
-      };
-    },
-    useSwitchChain: () => {
-      return {
-        switchChain: () => {},
-      };
-    },
     useBalance: () => {
       return {
         data: {
@@ -56,8 +33,6 @@ vi.mock('wagmi', async (importOriginal) => {
         },
       };
     },
-    useEnsName: () => ({}),
-    useEnsAvatar: () => ({}),
   };
 });
 

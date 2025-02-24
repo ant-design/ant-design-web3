@@ -1,6 +1,6 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import { promisify } from 'util';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
+import { promisify } from 'node:util';
 import pkg from 'lodash';
 
 const __dirname = new URL(import.meta.url).pathname;
@@ -131,6 +131,7 @@ import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
 import { ConfigProvider } from 'antd';
 import classnames from 'classnames';
 
+import { eraseDefaultProps } from '../utils';
 import SVGComponent from '../svgs/<%= svgIdentifier %>.svg';
 
 <% if (svgCamelPath) { %>/**![<%= svgCamelPath %>](<%= svgBase64 %>) */<% }%>
@@ -143,7 +144,7 @@ export const <%= svgCamelPath %> = React.forwardRef<HTMLSpanElement, IconBasePro
       {...props}
       className={classnames(prefixCls, props.className)}
       ref={ref}
-      component={SVGComponent}
+      component={eraseDefaultProps(SVGComponent)}
     />
   );
 });

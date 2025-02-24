@@ -74,13 +74,6 @@ import { WagmiWeb3ConfigProvider } from "@ant-design/web3-wagmi";
 - import { Address } from "@ant-design/web3";
 + import { Address, NFTCard } from "@ant-design/web3";
 
-const config = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
-});
-
 export default function Web3() {
   return (
     <WagmiWeb3ConfigProvider>
@@ -120,7 +113,7 @@ export default function Web3() {
 
 export default function Web3() {
   return (
--   <WagmiWeb3ConfigProvider config={config}>
+-   <WagmiWeb3ConfigProvider>
 +    <WagmiWeb3ConfigProvider
 +      eip6963={{
 +        autoAddInjectedWallets: true,

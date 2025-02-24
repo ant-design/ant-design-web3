@@ -1,5 +1,43 @@
 # @ant-design/web3-bitcoin
 
+## 1.5.1
+
+### Patch Changes
+
+- Updated dependencies [f896044]
+  - @ant-design/web3-common@1.17.0
+
+## 1.5.0
+
+### Minor Changes
+
+- 80f0dc2: feat(bitcoin): Add phantom wallet adapter
+
+### Patch Changes
+
+- 8b857d3: chore: update wagmi version
+- Updated dependencies [ad278cd]
+- Updated dependencies [8b857d3]
+- Updated dependencies [9a6dc16]
+  - @ant-design/web3-common@1.16.0
+  - @ant-design/web3-icons@1.11.4
+
+## 1.4.9
+
+### Patch Changes
+
+- Updated dependencies [1072532]
+  - @ant-design/web3-icons@1.11.3
+
+## 1.4.8
+
+### Patch Changes
+
+- e0db15a: chore: upgrade pnpm version from 8.9.0 to 9.14.4
+- Updated dependencies [e0db15a]
+  - @ant-design/web3-common@1.15.1
+  - @ant-design/web3-icons@1.11.2
+
 ## 1.4.7
 
 ### Patch Changes

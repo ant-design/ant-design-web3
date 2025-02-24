@@ -18,7 +18,8 @@ const GlobalLayout: React.FC = () => {
 
   useServerInsertedHTML(() => {
     const styleText = extractStyle(cssCache, { plain: true });
-    return <style id="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }}></style>;
+    // biome-ignore lint/security/noDangerouslySetInnerHtml: by design
+    return <style id="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }} />;
   });
 
   return (

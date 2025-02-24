@@ -74,6 +74,7 @@ describe('GetNFTMetadata', () => {
       const { getNFTMetadata } = useProvider();
       return (
         <button
+          type="button"
           className="btn"
           onClick={async () => {
             nftMetadata = await getNFTMetadata?.({

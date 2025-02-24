@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-eth-web3js",
-  "version": "1.1.12",
+  "version": "1.1.16",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -53,15 +53,15 @@
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
     "@tanstack/react-query": "^5.51.11",
-    "debug": "^4.3.5",
+    "debug": "^4.4.0",
     "viem": "^2.21.3",
-    "wagmi": "^2.12.13"
+    "wagmi": "^2.14.6"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
     "father": "^4.4.4",
     "typescript": "^5.6.2",
-    "web3": "^4.11.1"
+    "web3": "^4.16.0"
   },
   "peerDependencies": {
     "web3": "^4.0.0"

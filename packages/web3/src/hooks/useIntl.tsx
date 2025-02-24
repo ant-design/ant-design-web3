@@ -31,4 +31,4 @@ export default function useIntl<T extends ComponentName = any>(
   };
 }
 
-export { IntlType };
+export type { IntlType };

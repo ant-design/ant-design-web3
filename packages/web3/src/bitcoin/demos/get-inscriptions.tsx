@@ -3,6 +3,7 @@ import { ConnectButton, Connector, NFTImage } from '@ant-design/web3';
 import {
   BitcoinWeb3ConfigProvider,
   OkxWallet,
+  PhantomWallet,
   UnisatWallet,
   useBitcoinWallet,
   XverseWallet,
@@ -40,7 +41,7 @@ const GetInscriptions: React.FC = () => {
       {!inscription ? null : inscription.contentType.includes('image') ? (
         <NFTImage src={inscription.content} width={200} />
       ) : (
-        <iframe src={inscription.content} width={200} height={200} />
+        <iframe title="Inscription" src={inscription.content} width={200} height={200} />
       )}
     </Space>
   ) : null;
@@ -52,7 +53,9 @@ const GetInscriptions: React.FC = () => {
  */
 const App: React.FC = () => {
   return (
-    <BitcoinWeb3ConfigProvider wallets={[UnisatWallet(), XverseWallet(), OkxWallet()]}>
+    <BitcoinWeb3ConfigProvider
+      wallets={[UnisatWallet(), XverseWallet(), OkxWallet(), PhantomWallet()]}
+    >
       <Space direction="vertical">
         <Connector>
           <ConnectButton />

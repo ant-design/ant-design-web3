@@ -8,7 +8,6 @@ const ProviderChildren: React.FC<
   ConfigConsumerProps & { children?: React.ReactNode; parentContext?: ConfigConsumerProps }
 > = (props) => {
   const { children, parentContext, ...rest } = props;
-
   const config = { ...parentContext };
 
   Object.keys(rest).forEach((key) => {
@@ -49,6 +48,6 @@ const Web3ConfigProvider: React.FC<Web3ConfigProviderProps> = (props) => {
   );
 };
 
-export { Web3ConfigProvider };
+export { Web3ConfigProvider, type Web3ConfigProviderProps };
 
 export * from './context';

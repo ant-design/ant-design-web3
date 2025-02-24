@@ -1,5 +1,40 @@
 # @ant-design/web3-assets
 
+## 1.11.8
+
+### Patch Changes
+
+- Updated dependencies [f896044]
+  - @ant-design/web3-common@1.17.0
+
+## 1.11.7
+
+### Patch Changes
+
+- 8b857d3: chore: update wagmi version
+- Updated dependencies [ad278cd]
+- Updated dependencies [8b857d3]
+- Updated dependencies [9a6dc16]
+  - @ant-design/web3-common@1.16.0
+  - @ant-design/web3-icons@1.11.4
+
+## 1.11.6
+
+### Patch Changes
+
+- Updated dependencies [1072532]
+  - @ant-design/web3-icons@1.11.3
+
+## 1.11.5
+
+### Patch Changes
+
+- 14fae53: fix(assets): Solana testnet and devent browser URL is incorrect
+- e0db15a: chore: upgrade pnpm version from 8.9.0 to 9.14.4
+- Updated dependencies [e0db15a]
+  - @ant-design/web3-common@1.15.1
+  - @ant-design/web3-icons@1.11.2
+
 ## 1.11.4
 
 ### Patch Changes

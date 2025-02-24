@@ -70,7 +70,7 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
   const onWalletSelect = (activeKey: string) => {
     const selectWalletInfo = availableWallets.find((wallet) => wallet.name === activeKey);
     let links = toAddress;
-    if (selectWalletInfo && selectWalletInfo.transferQRCodeFormatter) {
+    if (selectWalletInfo?.transferQRCodeFormatter) {
       links = returnLinks(selectWalletInfo.transferQRCodeFormatter);
     }
     setPaymentLink(links);
@@ -84,7 +84,7 @@ export const ShowCode: React.FC<ShowCodeProps> = ({ selectedChainId, onReturn })
 
       <Statistic
         className={`${prefixCls}-amount`}
-        value={Number(amount) / Math.pow(10, token.decimal)}
+        value={Number(amount) / 10 ** token.decimal}
         precision={4}
         valueStyle={{ fontSize: 38 }}
       />

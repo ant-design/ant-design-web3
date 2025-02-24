@@ -31,14 +31,15 @@ describe('WagmiWeb3ConfigProvider', () => {
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { chain, onSwitchChain } = props;
       return (
-        <div
+        <button
+          type="button"
+          className="content"
           onClick={() => {
             onSwitchChain?.(Mainnet);
           }}
-          className="content"
         >
           {chain?.name}
-        </div>
+        </button>
       );
     };
 
@@ -67,14 +68,15 @@ describe('WagmiWeb3ConfigProvider', () => {
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { chain, onSwitchChain } = props;
       return (
-        <div
+        <button
+          type="button"
+          className="content"
           onClick={() => {
             onSwitchChain?.(Polygon);
           }}
-          className="content"
         >
           {chain?.name}
-        </div>
+        </button>
       );
     };
 
@@ -170,9 +172,9 @@ describe('WagmiWeb3ConfigProvider', () => {
     }> = ({ onClick }) => {
       const { availableWallets } = useProvider();
       return (
-        <div className="wallets-name" onClick={onClick}>
+        <button type="button" className="wallets-name" onClick={onClick}>
           {availableWallets?.map((item) => item.name).join(',')}
-        </div>
+        </button>
       );
     };
 
@@ -290,9 +292,9 @@ describe('WagmiWeb3ConfigProvider', () => {
     }> = ({ onClick }) => {
       const { availableWallets } = useProvider();
       return (
-        <div className="wallets-qrcode" onClick={onClick}>
+        <button type="button" className="wallets-qrcode" onClick={onClick}>
           {availableWallets?.map((item) => (item.getQrCode ? 'qrcode' : 'noqrcode')).join(',')}
-        </div>
+        </button>
       );
     };
 

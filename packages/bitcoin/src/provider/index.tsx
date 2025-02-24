@@ -35,7 +35,7 @@ export const BitcoinWeb3ConfigProvider: FC<PropsWithChildren<BitcoinWeb3ConfigPr
   const selectWallet = async (wallet?: Wallet | null) => {
     if (!wallet) {
       // disconnect
-      if (!!adapter) setAdapter({} as BitcoinWallet);
+      if (adapter) setAdapter({} as BitcoinWallet);
       cacheSelectedWallet();
       return;
     }

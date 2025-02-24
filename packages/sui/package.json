@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-sui",
-  "version": "1.0.5",
+  "version": "1.0.9",
   "main": "dist/lib/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
@@ -44,7 +44,7 @@
   "dependencies": {
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
-    "debug": "^4.3.4"
+    "debug": "^4.4.0"
   },
   "devDependencies": {
     "@mysten/dapp-kit": "^0.14.11",

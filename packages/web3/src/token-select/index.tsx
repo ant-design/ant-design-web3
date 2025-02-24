@@ -114,7 +114,7 @@ export const TokenSelect: React.FC<TokenSelectProps> = ({
         return [
           nameLower,
           symbolLower,
-          ...availableChains?.map(({ contract }) => contract?.toLowerCase()),
+          ...availableChains.map(({ contract }) => contract?.toLowerCase()),
         ].some((content) => content?.includes(keywordLower));
       }}
       optionRender={({ data }) => {

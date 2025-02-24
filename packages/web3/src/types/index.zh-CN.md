@@ -93,6 +93,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*n4F2RK3AVTsAAA
 | ----------- | -------- | ------------------------- | ------ | ---- |
 | connectType | 连接类型 | `'extension' \| 'qrCode'` | -      | -    |
 
+## SignConfig
+
+| 属性    | 描述     | 类型                                  | 默认值 | 版本 |
+| ------- | -------- | ------------------------------------- | ------ | ---- |
+| signIn  | 签名登录 | `(address: string) => Promise<void>;` | -      | -    |
+| signOut | 签名登出 | `() => Promise<void>;`                | -      | -    |
+
 ## UniversalWeb3ProviderInterface
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
@@ -105,6 +112,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*n4F2RK3AVTsAAA
 | disconnect | 断开钱包连接 | `() => Promise<void>` | - | - |
 | switchChain | 切换链 | `(chain: Chain) => Promise<void>` | - | - |
 | getNFTMetadata | 获取 NFT 的元数据 | `(params: { address: string; tokenId?: bigint \| number }) => Promise<NFTMetadata>` | - | - |
+| sign | 签名登录相关配置 | `SignConfig` | - | `1.20.0` |
 
 ## Token
 

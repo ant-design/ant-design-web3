@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useProvider } from '@ant-design/web3';
 import { WalletReadyState } from '@solana/wallet-adapter-base';
 import type { ConnectionContextState } from '@solana/wallet-adapter-react';
@@ -66,7 +66,7 @@ vi.mock('@solana/wallet-adapter-react', async () => {
         connectedRef.value = true;
         setConnected((p) => p + 1);
       }
-    }, [currentWallet]);
+    }, [currentWallet?.adapter?.name]);
 
     useEffect(() => {
       if (connecting) {
@@ -76,22 +76,34 @@ vi.mock('@solana/wallet-adapter-react', async () => {
       }
     }, [connecting]);
 
+    const selectCallback = useCallback((walletName: string | null) => {
+      mockSelectWalletFnNotWalletName(walletName);
+      const mockWalletAdapter = {
+        adapter: { name: walletName, readyState: WalletReadyState.Installed },
+      };
+      currentWalletRef.value = mockWalletAdapter;
+      setCurrentWallet(mockWalletAdapter);
+      mockSelectWalletFn();
+    }, []);
+
+    const connectCallback = useCallback(async () => {
+      setConnected(0);
+      setConnecting(true);
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(0);
+        }, 100);
+      });
+      setConnecting(false);
+      setConnected((p) => p + 1);
+    }, []);
+
     return {
       publicKey,
       connecting,
-      connected: connected,
-      connect: async () => {
-        setConnecting(true);
-      },
-      select: (walletName: string | null) => {
-        mockSelectWalletFnNotWalletName(walletName);
-        const mockWalletAdapter = {
-          adapter: { name: walletName, readyState: WalletReadyState.Installed },
-        };
-        currentWalletRef.value = mockWalletAdapter;
-        setCurrentWallet(mockWalletAdapter);
-        mockSelectWalletFn();
-      },
+      connected: !!connected,
+      connect: connectCallback,
+      select: selectCallback,
       disconnect: () => {},
       wallet: currentWalletRef.value,
       wallets: [
@@ -161,6 +173,7 @@ describe('Solana Connect', () => {
         <div className="custom-connectbtn">
           <button
             className="btn-switchwallet"
+            type="button"
             onClick={() => {
               switchWalletRunned();
             }}
@@ -169,6 +182,7 @@ describe('Solana Connect', () => {
           </button>
           <button
             className="btn-connect"
+            type="button"
             onClick={async () => {
               await connectWallet();
               // mock connect twice
@@ -226,20 +240,16 @@ describe('Solana Connect', () => {
       expect(mockSelectWalletFn).toBeCalledTimes(3);
     });
 
-    await vi.waitFor(
-      () => {
-        expect(connectRunned).toBeCalled();
-        expect(shownConnectRunDone.textContent).toBe('true');
-        expect(gotAddressAfterConnect).toBeCalledWith(mockedData.address.value);
-      },
-      {
-        timeout: 5000,
-      },
-    );
+    await vi.waitFor(() => {
+      expect(connectRunned).toBeCalled();
+      expect(shownConnectRunDone.textContent).toBe('true');
+      expect(gotAddressAfterConnect).toBeCalledWith(mockedData.address.value);
+    });
   });
 
   it('call connect but not provide wallet', async () => {
     const { useWallet } = await import('@solana/wallet-adapter-react');
+    const prepareConnectRunned = vi.fn();
     const connectRunned = vi.fn();
 
     const CustomConnectBtn: React.FC = () => {
@@ -250,13 +260,15 @@ describe('Solana Connect', () => {
         <div className="custom-connectbtn">
           <button
             className="btn-connect"
+            type="button"
             onClick={async () => {
+              prepareConnectRunned();
               await connectWallet();
               connect?.();
               connectRunned();
             }}
           >
-            Connect
+            Connect1
           </button>
         </div>
       );
@@ -281,7 +293,11 @@ describe('Solana Connect', () => {
 
     fireEvent.click(connectBtn);
     await vi.waitFor(() => {
-      expect(connectRunned).toBeCalled();
+      expect(prepareConnectRunned).toBeCalled();
+      expect(connectRunned).not.toBeCalled();
+    });
+
+    await vi.waitFor(() => {
       expect(mockSelectWalletFnNotWalletName).toBeCalledWith(null);
     });
   });

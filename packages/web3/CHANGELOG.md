@@ -1,5 +1,60 @@
 # @ant-design/web3
 
+## 1.21.0
+
+### Minor Changes
+
+- f896044: feat: Support custom ConnectModal design token with Web3ConfigProvider
+
+### Patch Changes
+
+- 78c7d7b: fix: design token for custom style
+- Updated dependencies [f896044]
+  - @ant-design/web3-common@1.17.0
+  - @ant-design/web3-assets@1.11.8
+
+## 1.20.0
+
+### Minor Changes
+
+- ad278cd: feat: wagmi add siwe config
+
+### Patch Changes
+
+- 4c57fe4: fix: Show signing status when signing
+- 8b857d3: chore: update wagmi version
+- Updated dependencies [ad278cd]
+- Updated dependencies [8b857d3]
+- Updated dependencies [9a6dc16]
+  - @ant-design/web3-common@1.16.0
+  - @ant-design/web3-assets@1.11.7
+  - @ant-design/web3-icons@1.11.4
+
+## 1.19.0
+
+### Minor Changes
+
+- 2ee466c: feat: Add chainSelect argument
+
+### Patch Changes
+
+- 703f16a: fix: useAccount and useConnection hooks ts type bug
+- Updated dependencies [1072532]
+  - @ant-design/web3-icons@1.11.3
+  - @ant-design/web3-assets@1.11.6
+
+## 1.18.1
+
+### Patch Changes
+
+- e39064b: fix: hide group when only one group
+- e0db15a: chore: upgrade pnpm version from 8.9.0 to 9.14.4
+- Updated dependencies [14fae53]
+- Updated dependencies [e0db15a]
+  - @ant-design/web3-assets@1.11.5
+  - @ant-design/web3-common@1.15.1
+  - @ant-design/web3-icons@1.11.2
+
 ## 1.18.0
 
 ### Minor Changes

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import util from 'util';
+import util from 'node:util';
 import { cleanup } from '@testing-library/react';
 import { afterEach, vi } from 'vitest';
 

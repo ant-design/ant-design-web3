@@ -25,14 +25,15 @@ describe('SuiWeb3ConfigProvider basic tests', () => {
       onSwitchChain,
     }) => {
       return (
-        <div
+        <button
+          type="button"
+          className="content"
           onClick={() => {
             onSwitchChain?.(suiMainnet);
           }}
-          className="content"
         >
           {chain?.name}
-        </div>
+        </button>
       );
     };
 

@@ -34,3 +34,6 @@ Provide global configuration and states for components.
 | disconnect | Disconnect from the chain | `() => Promise<void>` | - |  |
 | switchChain | Switch to another chain | `(chain: Chain) => Promise<void>` | - |  |
 | getNFTMetadata | Get the metadata of the NFT | `(params: { address: string; tokenId: bigint }) => Promise<NFTMetadata>;` | - |  |
+| sign | Sign-in configuration | [SignConfig](/components/types#signconfig) | - | `1.20.0` |
+
+`Web3ConfigProvider` API inherits from [UniversalWeb3ProviderInterface](/components/types#universalweb3providerinterface), providing chain-related interaction interfaces for UI components.

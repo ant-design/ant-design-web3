@@ -1,5 +1,27 @@
 # @ant-design/web3-common
 
+## 1.17.0
+
+### Minor Changes
+
+- f896044: feat: Support custom ConnectModal design token with Web3ConfigProvider
+
+## 1.16.0
+
+### Minor Changes
+
+- ad278cd: feat: wagmi add siwe config
+
+### Patch Changes
+
+- 8b857d3: chore: update wagmi version
+
+## 1.15.1
+
+### Patch Changes
+
+- e0db15a: chore: upgrade pnpm version from 8.9.0 to 9.14.4
+
 ## 1.15.0
 
 ### Minor Changes

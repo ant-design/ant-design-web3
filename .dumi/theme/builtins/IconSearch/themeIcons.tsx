@@ -23,6 +23,7 @@ export const FilledIcon: CustomIconComponent = (props) => {
     ' 12 12v680c0 6.6-5.4 12-12 12z';
   return (
     <svg {...props} viewBox="0 0 1024 1024">
+      <title>Filled icons</title>
       <path d={path} />
     </svg>
   );
@@ -36,6 +37,7 @@ export const CircleFilledIcon: CustomIconComponent = (props) => {
     '68 368 0 203.41-164.622 368-368 368z';
   return (
     <svg {...props} viewBox="0 0 1024 1024">
+      <title>CircleFilled icons</title>
       <path d={path} />
     </svg>
   );

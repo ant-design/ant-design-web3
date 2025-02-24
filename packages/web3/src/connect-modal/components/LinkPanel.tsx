@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Avatar } from 'antd';
 
 import { connectModalContext } from '../context';
+import { ConnectingStatus } from '../interface';
 import MainPanelHeader from './MainPanelHeader';
 import WalletIcon from './WalletIcon';
 
@@ -15,6 +16,9 @@ const LinkPanel: React.FC = () => {
     }
   }, [connecting]);
 
+  const status: ConnectingStatus =
+    typeof connecting === 'object' ? connecting.status : 'connecting';
+
   return (
     <>
       <MainPanelHeader title={`${localeMessage.linkWallet} ${selectedWallet!.name}`} />
@@ -25,7 +29,9 @@ const LinkPanel: React.FC = () => {
           <div className={`${prefixCls}-ripple`} />
           <Avatar size={56} icon={<WalletIcon wallet={selectedWallet!} />} />
         </div>
-        <div className={`${prefixCls}-wallet-connecting`}>{localeMessage.walletConnecting}</div>
+        <div className={`${prefixCls}-wallet-connecting`}>
+          {status === 'connecting' ? localeMessage.walletConnecting : localeMessage.walletSigning}
+        </div>
       </div>
     </>
   );

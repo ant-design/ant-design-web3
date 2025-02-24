@@ -1,4 +1,4 @@
-import EventEmitter from 'events';
+import EventEmitter from 'node:events';
 import React, { useEffect } from 'react';
 import { useProvider } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
@@ -8,6 +8,7 @@ import type { Connector, Config as WagmiConfig } from 'wagmi';
 import type * as Wagmi from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 
+import { wagmiBaseMock } from '../__mocks__/wagmiBaseMock';
 import { TokenPocket } from '../../wallets';
 import { AntDesignWeb3ConfigProvider } from '../config-provider';
 
@@ -37,9 +38,7 @@ vi.mock('wagmi', async (importOriginal) => {
   const actual = await importOriginal<typeof Wagmi>();
   return {
     ...actual,
-    useConfig: () => {
-      return {};
-    },
+    ...wagmiBaseMock,
     useAccount: () => {
       const [connected, setConnected] = React.useState(false);
       useEffect(() => {
@@ -72,16 +71,6 @@ vi.mock('wagmi', async (importOriginal) => {
         },
       };
     },
-    useSwitchChain: () => {
-      return {
-        switchChain: () => {},
-      };
-    },
-    useBalance: () => {
-      return { data: {} };
-    },
-    useEnsName: () => ({ data: null }),
-    useEnsAvatar: () => ({ data: null }),
   };
 });
 
@@ -91,7 +80,8 @@ describe('WagmiWeb3ConfigProvider connect with UniversalWallet', () => {
       const { connect, account, disconnect, availableWallets } = useProvider();
       return (
         <div>
-          <div
+          <button
+            type="button"
             className="custom-text"
             onClick={() => {
               if (account) {
@@ -102,7 +92,7 @@ describe('WagmiWeb3ConfigProvider connect with UniversalWallet', () => {
             }}
           >
             {account ? account?.address : 'Connect'}
-          </div>
+          </button>
         </div>
       );
     };
@@ -160,7 +150,8 @@ describe('WagmiWeb3ConfigProvider connect with UniversalWallet', () => {
       const { connect, account, disconnect, availableWallets } = useProvider();
       return (
         <div>
-          <div
+          <button
+            type="button"
             className="custom-text"
             onClick={() => {
               if (account) {
@@ -171,7 +162,7 @@ describe('WagmiWeb3ConfigProvider connect with UniversalWallet', () => {
             }}
           >
             {account ? account?.address : 'Connect'}
-          </div>
+          </button>
         </div>
       );
     };

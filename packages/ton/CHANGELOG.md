@@ -1,5 +1,39 @@
 # @ant-design/web3-ton
 
+## 1.0.11
+
+### Patch Changes
+
+- Updated dependencies [f896044]
+  - @ant-design/web3-common@1.17.0
+  - @ant-design/web3-assets@1.11.8
+
+## 1.0.10
+
+### Patch Changes
+
+- 8b857d3: chore: update wagmi version
+- Updated dependencies [ad278cd]
+- Updated dependencies [8b857d3]
+  - @ant-design/web3-common@1.16.0
+  - @ant-design/web3-assets@1.11.7
+
+## 1.0.9
+
+### Patch Changes
+
+- @ant-design/web3-assets@1.11.6
+
+## 1.0.8
+
+### Patch Changes
+
+- e0db15a: chore: upgrade pnpm version from 8.9.0 to 9.14.4
+- Updated dependencies [14fae53]
+- Updated dependencies [e0db15a]
+  - @ant-design/web3-assets@1.11.5
+  - @ant-design/web3-common@1.15.1
+
 ## 1.0.7
 
 ### Patch Changes

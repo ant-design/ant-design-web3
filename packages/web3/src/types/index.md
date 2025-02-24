@@ -86,11 +86,18 @@ This is an enum type that contains the IDs of some commonly used chains. Its val
 | trait_type | The type of the attribute representing the characteristic type of the NFT. | `string` | - | - |
 | value | The value of the attribute representing the characteristic of the NFT. | `string` | - | - |
 
-## ConnectOptions
+### ConnectOptions
 
 | Property    | Description     | Type                      | Default | Version |
 | ----------- | --------------- | ------------------------- | ------- | ------- |
 | connectType | Connection type | `'extension' \| 'qrCode'` | -       | -       |
+
+## SignConfig
+
+| Property | Description | Type                                  | Default | Version |
+| -------- | ----------- | ------------------------------------- | ------- | ------- |
+| signIn   | Sign In     | `(address: string) => Promise<void>;` | -       | -       |
+| signOut  | Sign Out    | `() => Promise<void>;`                | -       | -       |
 
 ## UniversalWeb3ProviderInterface
 
@@ -104,6 +111,7 @@ This is an enum type that contains the IDs of some commonly used chains. Its val
 | disconnect | Disconnect from the chain | `() => Promise<void>` | - | - |
 | switchChain | Switch to another chain | `(chainId: ChainIds) => Promise<void>` | - | - |
 | getNFTMetadata | Get the metadata of the NFT | `(contractAddress: string, tokenId?: string) => Promise<NFTMetadata>` | - | - |
+| sign | Sign-in configuration | [SignConfig](#signconfig) | - | `1.20.0` |
 
 ## Token
 

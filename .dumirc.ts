@@ -1,5 +1,5 @@
-import { existsSync, readdirSync } from 'fs';
-import { join, resolve } from 'path';
+import { existsSync, readdirSync } from 'node:fs';
+import { join, resolve } from 'node:path';
 import { defineConfig } from 'dumi';
 
 const openSSR = process.env.SSR || process.env.NODE_ENV === 'production';
@@ -41,7 +41,10 @@ const alias = pkgList.reduce(
         // 打开 SSR 的情况下需要配置 wagmi 的别名，因为安装了 18.3.0-canary-c3048aab4-20240326 版本的 react 会导致文档 demo 和 packages 中依赖不同版本的 wagmi（pnpm 的包管理机制的原因），导致出现类似下面这样的错误
         // `useConfig` must be used within `WagmiProvider`. Docs: https://wagmi.sh/react/api/WagmiProvider.html Version: wagmi@2.12.13
         wagmi: resolve('./node_modules/wagmi'),
+        // 指定 antd 版本，避免 antd 多版本下官网 design token 不生效的问题
+        antd: resolve('./node_modules/antd'),
         '@tanstack/react-query': resolve('./node_modules/@tanstack/react-query'),
+        '@ant-design/cssinjs': resolve('./node_modules/@ant-design/cssinjs'),
       }
     : {}) as Record<string, string>,
 );

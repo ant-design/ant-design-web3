@@ -36,6 +36,7 @@ const SBT: React.FC = () => {
           '-webkit-box-reflect': 'below 2px linear-gradient(transparent, rgba(0, 0, 0, 15%))',
         }}
         src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*brRjT72GJPIAAAAAAAAAAAAADlrGAQ/original"
+        aria-label="Ant Design Meetup 2024"
       />
       <div
         style={{

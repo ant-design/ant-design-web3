@@ -6,6 +6,7 @@ import type {
   WalletMetadata,
 } from '@ant-design/web3-common';
 import type { Chain as WagmiChain } from 'viem';
+import type { CreateSiweMessageParameters } from 'viem/siwe';
 import type { Connector, CreateConnectorFn } from 'wagmi';
 
 export interface WalletUseInWagmiAdapter extends Wallet {
@@ -31,3 +32,9 @@ export interface WalletFactory {
 export type EIP6963Config = boolean | UniversalEIP6963Config;
 
 export type ChainAssetWithWagmiChain = Chain & { wagmiChain?: WagmiChain };
+
+export interface SIWEConfig {
+  getNonce: (address: string, chainId?: number) => Promise<string>;
+  createMessage: (args: CreateSiweMessageParameters) => string;
+  verifyMessage: (message: string, signature: string) => Promise<boolean>;
+}
