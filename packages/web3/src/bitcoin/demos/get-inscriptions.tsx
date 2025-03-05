@@ -41,7 +41,7 @@ const GetInscriptions: React.FC = () => {
       {!inscription ? null : inscription.contentType.includes('image') ? (
         <NFTImage src={inscription.content} width={200} />
       ) : (
-        <iframe src={inscription.content} width={200} height={200} />
+        <iframe title="Inscription" src={inscription.content} width={200} height={200} />
       )}
     </Space>
   ) : null;

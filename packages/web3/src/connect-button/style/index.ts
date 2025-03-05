@@ -58,7 +58,7 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
       padding: 0,
     },
     [`${token.componentCls}-chain-select-placeholder`]: {
-      padding: `4px 15px`,
+      padding: '4px 15px',
     },
 
     [`${token.componentCls}-quick-connect`]: {
@@ -92,7 +92,7 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
         width: token.sizeXXL,
         height: token.sizeXXL,
       },
-      [`&-footer`]: {
+      '&-footer': {
         display: 'flex',
         marginTop: token.margin,
         gap: token.marginXS,
@@ -100,7 +100,7 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
           flex: 1,
         },
       },
-      [`&-name`]: {
+      '&-name': {
         color: token.colorTextHeading,
         fontSize: token.fontSizeLG,
       },

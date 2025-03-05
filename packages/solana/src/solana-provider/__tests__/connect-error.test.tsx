@@ -77,7 +77,7 @@ vi.mock('@solana/wallet-adapter-react', async () => {
         mockThrowWalletConnectionError();
         onError?.(new WalletConnectionError('mock error'));
       }
-    }, [mockThrowError, onError]);
+    }, [mockThrowError]);
     return <>{children}</>;
   };
 
@@ -165,6 +165,7 @@ describe('Solana Connect Errors', () => {
       return (
         <div className="custom-connectbtn">
           <button
+            type="button"
             className="btn-switchwallet"
             onClick={() => {
               switchWalletRunned();
@@ -173,6 +174,7 @@ describe('Solana Connect Errors', () => {
             Switch Wallet
           </button>
           <button
+            type="button"
             className="btn-connect"
             onClick={async () => {
               await connectWallet();

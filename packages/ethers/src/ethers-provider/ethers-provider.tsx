@@ -35,6 +35,7 @@ export const EthersWeb3ConfigProvider: React.FC<
 
   const wallets = React.useMemo(() => {
     const targetWallets = [...(props.wallets ?? [])];
+    // biome-ignore lint/complexity/useOptionalChain: <explanation>
     if (walletConnect && walletConnect.projectId) targetWallets.push(WalletConnect());
     return targetWallets;
   }, [props.wallets, walletConnect]);
@@ -49,6 +50,7 @@ export const EthersWeb3ConfigProvider: React.FC<
       }
     });
 
+    // biome-ignore lint/complexity/useOptionalChain: <explanation>
     if (walletConnect && walletConnect.projectId) {
       connectors.push(
         wagmiConnectors.walletConnect({

@@ -184,6 +184,7 @@ const NFTCard: React.FC<NFTCardProps> = (props) => {
           )}
           {likeConfig && (
             <div className={`${prefixCls}-likes`}>
+              {/* biome-ignore lint/a11y/useKeyWithClickEvents: by design */}
               <div
                 className={classNames(`${prefixCls}-like-icon`, {
                   [`${prefixCls}-like-icon-liked`]: like,

@@ -37,14 +37,15 @@ describe('WagmiWeb3ConfigProvider with UniversalWallet', () => {
     const CustomConnector: React.FC = () => {
       const { availableWallets, connect } = useProvider();
       return (
-        <div
+        <button
+          type="button"
           className="wallets-name"
           onClick={() => {
             connect?.();
           }}
         >
           {availableWallets?.map((item) => item.name).join(',')}
-        </div>
+        </button>
       );
     };
 
@@ -93,14 +94,15 @@ describe('WagmiWeb3ConfigProvider with UniversalWallet', () => {
     const CustomConnector: React.FC = () => {
       const { availableWallets, connect } = useProvider();
       return (
-        <div
+        <button
+          type="button"
           className="wallets-name"
           onClick={() => {
             connect?.();
           }}
         >
           {availableWallets?.map((item) => `${item.name}-${item.group}`).join(',')}
-        </div>
+        </button>
       );
     };
 

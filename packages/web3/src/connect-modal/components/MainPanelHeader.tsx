@@ -6,6 +6,7 @@ import { connectModalContext } from '../context';
 export type MainPanelHeaderProps = {
   back?: boolean;
   title?: React.ReactNode;
+  // biome-ignore lint/suspicious/noConfusingVoidType: by design
   onBack?: () => boolean | void | Promise<boolean | void>;
 };
 
@@ -27,6 +28,7 @@ const MainPanelHeader: React.FC<MainPanelHeaderProps> = (props) => {
   return (
     <div className={`${prefixCls}-main-panel-header`}>
       {back && canBack && (
+        // biome-ignore lint/a11y/useKeyWithClickEvents: by design
         <div className={`${prefixCls}-main-panel-header-back`} onClick={handleBack}>
           <LeftOutlined />
         </div>

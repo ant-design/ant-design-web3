@@ -53,7 +53,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     (node) => <h2 className={`${prefixCls}-title`}>{node}</h2>,
   );
 
-  const updatePanelRoute = React.useCallback((route: PanelRoute, clear: boolean = false) => {
+  const updatePanelRoute = React.useCallback((route: PanelRoute, clear = false) => {
     if (clear) {
       routeStack.current = ['init'];
     }

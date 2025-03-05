@@ -9,7 +9,7 @@ const App: React.FC = () => {
   React.useEffect(() => {
     web3?.eth.getBlockNumber().then((num) => {
       console.log('current block number:', num);
-      setBlockNum('0x' + num.toString(16));
+      setBlockNum(`0x${num.toString(16)}`);
     });
   }, [web3]);
 

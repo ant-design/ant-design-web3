@@ -23,7 +23,7 @@ export const SolanaDevnet: SolanaChain = {
   browser: {
     icon: <SolanaColorful />,
     getBrowserLink: (address, type) =>
-      createGetBrowserLink('https://explorer.solana.com')(address, type) + '?cluster=devnet',
+      `${createGetBrowserLink('https://explorer.solana.com')(address, type)}?cluster=devnet`,
   },
   nativeCurrency: { name: 'Solana', symbol: 'SOL', decimals: 9 },
 };
@@ -35,7 +35,7 @@ export const SolanaTestnet: SolanaChain = {
   browser: {
     icon: <SolanaColorful />,
     getBrowserLink: (address, type) =>
-      createGetBrowserLink('https://explorer.solana.com')(address, type) + '?cluster=testnet',
+      `${createGetBrowserLink('https://explorer.solana.com')(address, type)}?cluster=testnet`,
   },
   nativeCurrency: { name: 'Solana', symbol: 'SOL', decimals: 9 },
 };

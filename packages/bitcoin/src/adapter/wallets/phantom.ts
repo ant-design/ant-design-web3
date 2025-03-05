@@ -4,7 +4,7 @@ import { fromHex, fromUtf8, toBase64, toHex } from 'uint8array-tools';
 
 import { NoAddressError, NoProviderError, NotImplementedError } from '../../error';
 import { getBalanceByMempool, getInscriptionsByAddress } from '../../helpers';
-import type { SignPsbtParams, TransferParams } from '../../types';
+import type { SignPsbtParams } from '../../types';
 import type { BitcoinWallet } from '../useBitcoinWallet';
 
 type AccountType = {
@@ -48,6 +48,7 @@ export class PhantomBitcoinWallet implements BitcoinWallet {
       this.account = ordinals ? { address: ordinals.address } : undefined;
       this.payment = payment?.address;
     } catch (error) {
+      // biome-ignore lint/complexity/noUselessCatch: re-throw error
       throw error;
     }
   };
@@ -112,7 +113,7 @@ export class PhantomBitcoinWallet implements BitcoinWallet {
     };
   };
 
-  sendTransfer = async (params: TransferParams) => {
+  sendTransfer = async () => {
     throw new NotImplementedError();
   };
 

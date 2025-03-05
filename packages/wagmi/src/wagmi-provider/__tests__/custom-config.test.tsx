@@ -40,14 +40,15 @@ describe('WagmiWeb3ConfigProvider config', () => {
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { chain, onSwitchChain } = props;
       return (
-        <div
+        <button
+          type="button"
+          className="content"
           onClick={() => {
             onSwitchChain?.(Mainnet);
           }}
-          className="content"
         >
           {chain?.name}
-        </div>
+        </button>
       );
     };
 
@@ -79,14 +80,15 @@ describe('WagmiWeb3ConfigProvider config', () => {
     const CustomButton: React.FC<React.PropsWithChildren<ConnectorTriggerProps>> = (props) => {
       const { chain, onSwitchChain } = props;
       return (
-        <div
+        <button
+          type="button"
+          className="content"
           onClick={() => {
             onSwitchChain?.(polygon);
           }}
-          className="content"
         >
           {chain?.name}
-        </div>
+        </button>
       );
     };
 

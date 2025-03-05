@@ -22,11 +22,11 @@ export const metadata_MetaMask: WalletMetadata = {
     const { toAddress, chainId, amount, tokenAddress = '', decimal } = params;
     if (tokenAddress) {
       return `ethereum:${tokenAddress}@${chainId}/transfer?address=${toAddress}&uint256=${
-        Number(amount) * Math.pow(10, 18 - decimal)
+        Number(amount) * 10 ** (18 - decimal)
       }`;
-    } else {
-      return `ethereum:${toAddress}@${chainId}?value=${amount}`;
     }
+
+    return `ethereum:${toAddress}@${chainId}?value=${amount}`;
   },
   supportChainTypes: [ChainType.EVM],
 };

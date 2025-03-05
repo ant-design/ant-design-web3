@@ -194,6 +194,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       if (!newChain && chainId) {
         newChain = { id: chainId, name: chainName };
       }
+
+      /* v8 ignore next */
       return newChain || prevChain;
     });
   }, [chainAssets, wagimConfig.chains, chainId, chainName]);
@@ -226,7 +228,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         });
         if (signMessageAsync) {
           signature = await signMessageAsync?.({ message: msg });
-          console.log('get signature', signature);
           await verifyMessage(msg!, signature!);
           setStatus(ConnectStatus.Signed);
         }

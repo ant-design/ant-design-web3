@@ -157,14 +157,15 @@ describe('SolanaWeb3ConfigProvider', () => {
       const { chain, onSwitchChain } = props;
 
       return (
-        <div
+        <button
+          type="button"
           onClick={() => {
             onSwitchChain?.(solana);
           }}
           className="content"
         >
           {chain?.name}
-        </div>
+        </button>
       );
     };
 
@@ -200,7 +201,7 @@ describe('SolanaWeb3ConfigProvider', () => {
 
   it('available endpoint', () => {
     const App = () => (
-      <SolanaWeb3ConfigProvider rpcProvider={() => `https://main-beta.fake-domain.com/`}>
+      <SolanaWeb3ConfigProvider rpcProvider={() => 'https://main-beta.fake-domain.com/'}>
         <div className="content">test</div>
       </SolanaWeb3ConfigProvider>
     );
@@ -253,6 +254,7 @@ describe('SolanaWeb3ConfigProvider', () => {
           <div>
             <div className="content">test</div>
             <button
+              type="button"
               className="connect"
               onClick={async () => {
                 await connect();
@@ -291,7 +293,9 @@ describe('SolanaWeb3ConfigProvider', () => {
       const { disconnect } = useProvider();
       return (
         <div>
-          <button onClick={async () => await disconnect?.()}>Disconnect</button>
+          <button type="button" onClick={async () => await disconnect?.()}>
+            Disconnect
+          </button>
         </div>
       );
     };

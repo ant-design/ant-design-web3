@@ -4,15 +4,17 @@ export const getPlatform = () => {
   const userAgent = navigator.userAgent.toLowerCase();
   if (userAgent.includes('chrome')) {
     return 'Chrome';
-  } else if (userAgent.includes('firefox')) {
-    return 'Firefox';
-  } else if (userAgent.includes('edge')) {
-    return 'Edge';
-  } else if (userAgent.includes('safari')) {
-    return 'Safari';
-  } else {
-    return 'Other';
   }
+  if (userAgent.includes('firefox')) {
+    return 'Firefox';
+  }
+  if (userAgent.includes('edge')) {
+    return 'Edge';
+  }
+  if (userAgent.includes('safari')) {
+    return 'Safari';
+  }
+  return 'Other';
 };
 
 export const writeCopyText = async (text: string): Promise<boolean> => {

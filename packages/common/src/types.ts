@@ -1,3 +1,4 @@
+// biome-ignore lint/suspicious/noConstEnum: <explanation>
 export const enum ConnectStatus {
   Connected = 'connected',
   Disconnected = 'disconnected',
@@ -120,6 +121,7 @@ export interface UniversalWeb3ProviderInterface {
   /** Such as `0x` */
   addressPrefix?: string | false;
 
+  // biome-ignore lint/suspicious/noConfusingVoidType: by design
   connect?: (wallet?: Wallet, options?: ConnectOptions) => Promise<void | Account>;
   disconnect?: () => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;

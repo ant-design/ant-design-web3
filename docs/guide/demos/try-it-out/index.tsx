@@ -1,7 +1,8 @@
 import React from 'react';
+import { Web3ConfigProvider } from '@ant-design/web3';
 import type { ConnectModalProps } from '@ant-design/web3';
 import { TinyColor } from '@ctrl/tinycolor';
-import { Col, ConfigProvider, Radio, Row, Select, Slider, Space, Switch, Tabs } from 'antd';
+import { Col, Radio, Row, Select, Slider, Space, Switch, Tabs } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 
 import { themeList } from '../tokens';
@@ -49,9 +50,11 @@ const App: React.FC = () => {
   const [radius, setRadius] = React.useState<number>(defaultRadius);
   const currentTheme = themeList.find((t) => t.value === theme);
 
+  const buttonType = currentTheme?.buttonType || 'primary';
+
   return (
     <>
-      <ConfigProvider
+      <Web3ConfigProvider
         theme={{
           ...currentTheme?.token,
           token: {
@@ -69,7 +72,12 @@ const App: React.FC = () => {
               key: 'ethereum',
               children: (
                 <div className={styles.connectorContainer}>
-                  <EthereumApp mode={mode} quickConnect={quickConnect} size={size} />
+                  <EthereumApp
+                    mode={mode}
+                    quickConnect={quickConnect}
+                    size={size}
+                    buttonType={buttonType}
+                  />
                 </div>
               ),
             },
@@ -78,7 +86,12 @@ const App: React.FC = () => {
               key: 'bitcoin',
               children: (
                 <div className={styles.connectorContainer}>
-                  <BitcoinApp mode={mode} quickConnect={quickConnect} size={size} />
+                  <BitcoinApp
+                    mode={mode}
+                    quickConnect={quickConnect}
+                    size={size}
+                    buttonType={buttonType}
+                  />
                 </div>
               ),
             },
@@ -87,7 +100,12 @@ const App: React.FC = () => {
               key: 'solana',
               children: (
                 <div className={styles.connectorContainer}>
-                  <SolanaApp mode={mode} quickConnect={quickConnect} size={size} />
+                  <SolanaApp
+                    mode={mode}
+                    quickConnect={quickConnect}
+                    size={size}
+                    buttonType={buttonType}
+                  />
                 </div>
               ),
             },
@@ -96,7 +114,12 @@ const App: React.FC = () => {
               key: 'sui',
               children: (
                 <div className={styles.connectorContainer}>
-                  <SuiApp mode={mode} quickConnect={quickConnect} size={size} />
+                  <SuiApp
+                    mode={mode}
+                    quickConnect={quickConnect}
+                    size={size}
+                    buttonType={buttonType}
+                  />
                 </div>
               ),
             },
@@ -105,13 +128,18 @@ const App: React.FC = () => {
               key: 'ton',
               children: (
                 <div className={styles.connectorContainer}>
-                  <TonApp mode={mode} quickConnect={quickConnect} size={size} />
+                  <TonApp
+                    mode={mode}
+                    quickConnect={quickConnect}
+                    size={size}
+                    buttonType={buttonType}
+                  />
                 </div>
               ),
             },
           ]}
         />
-      </ConfigProvider>
+      </Web3ConfigProvider>
       <div className={styles.configContainer}>
         <Row>
           <Col xs={24} sm={12}>
@@ -164,7 +192,7 @@ const App: React.FC = () => {
                   }}
                   defaultValue={defaultRadius}
                   min={0}
-                  max={16}
+                  max={24}
                   onChange={setRadius}
                 />
               </Space>

@@ -54,9 +54,9 @@ export class XverseBitcoinWallet implements BitcoinWallet {
     });
     if (response.status === 'success') {
       return response.result.signature;
-    } else {
-      throw new Error(response.error.message);
     }
+
+    throw new Error(response.error.message);
   };
 
   sendTransfer = async ({ to, sats }: TransferParams): Promise<string> => {
@@ -89,9 +89,9 @@ export class XverseBitcoinWallet implements BitcoinWallet {
     });
     if (response.status === 'success') {
       return response.result as SignPsbtResult;
-    } else {
-      throw new Error(response.error.message);
     }
+
+    throw new Error(response.error.message);
   };
 
   getInscriptions = async (offset = 0, limit = 20) => {
