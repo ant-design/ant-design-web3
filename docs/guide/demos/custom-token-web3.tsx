@@ -1,9 +1,7 @@
 import React from 'react';
-import { ConnectModal, type Wallet } from '@ant-design/web3';
+import { ConnectModal, Web3ConfigProvider, type Wallet } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
-import { Card, ConfigProvider, Space } from 'antd';
-
-import { customToken } from './tokens';
+import { Card, Space } from 'antd';
 
 const App: React.FC = () => {
   const walletList: Wallet[] = [
@@ -29,9 +27,34 @@ const App: React.FC = () => {
   ];
 
   return (
-    <ConfigProvider theme={customToken}>
+    <Web3ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: '#000000',
+          colorLink: '#8b837d',
+          colorBgContainer: '#eadcd1',
+        },
+        components: {
+          Button: {
+            defaultShadow: '-4px 4px 0px #000000,inset 0 0 0 2px #000000',
+            defaultHoverBg: '#f3eae4',
+            defaultBorderColor: '#000000',
+            defaultBg: '#fff',
+          },
+        },
+        web3Components: {
+          ConnectModal: {
+            hoverWalletBg: '#f3eae4',
+          },
+        },
+      }}
+    >
       <Space>
         <Card
+          style={{
+            boxShadow: '-10px 10px 0px #000000,inset 0 0 0 2px #000000',
+            border: 'none',
+          }}
           styles={{
             body: {
               padding: 0,
@@ -42,7 +65,7 @@ const App: React.FC = () => {
           <ConnectModal.ModalPanel walletList={walletList} />
         </Card>
       </Space>
-    </ConfigProvider>
+    </Web3ConfigProvider>
   );
 };
 

@@ -6,7 +6,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { groupOrder, walletList } from './mock';
 
 describe('ConnectModal without guide', () => {
-  it.each(['light', 'dark'] as const)(`should render in %s mode`, async (theme) => {
+  it.each(['light', 'dark'] as const)('should render in %s mode', async (theme) => {
     const App = () => (
       <ConfigProvider
         theme={{

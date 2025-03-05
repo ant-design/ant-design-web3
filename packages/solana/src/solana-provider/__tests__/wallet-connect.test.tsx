@@ -68,7 +68,7 @@ describe('SolanaWeb3ConfigProvider WalletConnect', () => {
 
       const checkGetWalletConnectConfigGetter = useCallback(async () => {
         const wcConfig = await walletConnectAdapter?._getWalletConnectConfigGetter();
-        if (wcConfig && wcConfig.walletConnect && wcConfig.currentChain) {
+        if (wcConfig?.walletConnect && wcConfig.currentChain) {
           mockWalletConnectConfig(true);
         } else {
           mockWalletConnectConfig(false);
@@ -138,6 +138,7 @@ describe('SolanaWeb3ConfigProvider WalletConnect', () => {
       const { connect, availableWallets } = useProvider();
       return (
         <button
+          type="button"
           onClick={() => {
             connect?.(availableWallets![0], { connectType: 'qrCode' });
           }}

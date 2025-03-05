@@ -164,6 +164,7 @@ describe('Switch network', () => {
       return (
         <div>
           <button
+            type="button"
             className="btn-switch"
             onClick={() => {
               switchChain?.(solanaTestnet);

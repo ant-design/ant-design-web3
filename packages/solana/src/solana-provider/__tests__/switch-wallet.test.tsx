@@ -108,6 +108,7 @@ describe('AntDesignWeb3ConfigProvider wallet', () => {
       return (
         <div className="customconnector">
           <button
+            type="button"
             className="btn-switchchain"
             onClick={() => {
               switchChain?.(solanaDevnet);

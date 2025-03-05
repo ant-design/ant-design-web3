@@ -26,6 +26,7 @@ export class OkxBitcoinWallet implements BitcoinWallet {
       const accounts = await this.provider.requestAccounts();
       this.account = { address: accounts[0] };
     } catch (error) {
+      // biome-ignore lint/complexity/noUselessCatch: re-throw error
       throw error;
     }
   };
@@ -56,6 +57,7 @@ export class OkxBitcoinWallet implements BitcoinWallet {
     try {
       txid = await this.provider.sendBitcoin(to, sats, options);
     } catch (error) {
+      // biome-ignore lint/complexity/noUselessCatch: re-throw error
       throw error;
     }
     return txid;

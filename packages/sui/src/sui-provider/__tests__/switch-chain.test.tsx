@@ -50,6 +50,7 @@ describe('SuiWeb3ConfigProvider switch-chain tests', () => {
         <div>
           <div className="current-chain">{chain?.name}</div>
           <button
+            type="button"
             className="switch-chain-btn"
             onClick={() => {
               if (availableChains) {

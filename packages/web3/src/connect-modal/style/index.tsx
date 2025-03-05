@@ -12,24 +12,22 @@ import { isDarkTheme } from '../utils';
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
-}
-
-export interface ConnectModalToken extends Web3AliasToken {
-  // Custom token here
-  selectedBg: string;
-  selectedColor: string;
-  hoverBg: string;
-  splitColor: string;
+  selectedWalletBg: string;
+  selectedWalletColor: string;
+  hoverWalletBg: string;
+  panelSplitLineColor: string;
   modalTitleStartColor: string;
   modalTitleEndColor: string;
-  groupTextColor: string;
-  listItemDescriptionColor: string;
-  cardBg: string;
-  iconSize: number;
+  walletGroupTextColor: string;
+  descriptionColor: string;
+  getWalletCardBg: string;
+  walletIconSize: number;
   simpleGuideBg: string;
   walletListWidth: number;
   modalMinHeight: number;
 }
+
+type ConnectModalToken = Web3AliasToken & ComponentToken;
 
 const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
   const { web3ComponentsCls: componentCls } = token;
@@ -39,10 +37,10 @@ const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
         '.ant-modal-content': {
           padding: 0,
         },
-        ['.ant-list-split .ant-list-item']: {
+        '.ant-list-split .ant-list-item': {
           borderBlockEnd: 'none',
         },
-        ['.ant-list .ant-list-item']: {
+        '.ant-list .ant-list-item': {
           paddingBlock: 5,
         },
       },
@@ -52,13 +50,11 @@ const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
 
 const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
   const { web3ComponentsCls: componentCls } = token;
+
   return [
     {
       [`${componentCls}`]: {
         paddingBlockEnd: 0,
-        '.ant-modal-content': {
-          background: token.colorBgContainer,
-        },
       },
 
       [`${componentCls}-body`]: {
@@ -87,7 +83,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           paddingBottom: token.paddingContentVerticalLG,
           width: token.walletListWidth,
           flexShrink: 0,
-          borderRight: `1px solid ${token.splitColor}`,
+          borderRight: `1px solid ${token.panelSplitLineColor}`,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
@@ -118,7 +114,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               [`${componentCls}-group`]: {
                 marginBlockEnd: token.marginSM,
                 [`${componentCls}-group-title`]: {
-                  color: token.groupTextColor,
+                  color: token.walletGroupTextColor,
                   fontSize: token.fontSizeSM,
                   paddingInline: token.paddingXS,
                 },
@@ -141,17 +137,17 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                       [`${componentCls}-icon`]: {
                         borderRadius: 8,
                         overflow: 'hidden',
-                        width: token.iconSize,
-                        height: token.iconSize,
-                        fontSize: token.iconSize,
-                        lineHeight: `${token.iconSize}px`,
+                        width: token.walletIconSize,
+                        height: token.walletIconSize,
+                        fontSize: token.walletIconSize,
+                        lineHeight: `${token.walletIconSize}px`,
                         flexShrink: 0,
                       },
                       [`${componentCls}-img`]: {
                         borderRadius: 8,
                         overflow: 'hidden',
-                        width: token.iconSize,
-                        height: token.iconSize,
+                        width: token.walletIconSize,
+                        height: token.walletIconSize,
                         flexShrink: 0,
                       },
                       [`${componentCls}-name`]: {
@@ -183,28 +179,31 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                       marginBlockEnd: 0,
                     },
                     '&:hover': {
-                      background: token.hoverBg,
+                      background: token.hoverWalletBg,
                       [`&:has(${componentCls}-qr-btn:not(:hover))`]: {
                         [`${componentCls}-plugin-tag:not(:disabled)`]: {
                           color: token.colorPrimaryTextHover,
                           borderColor: token.colorPrimaryTextHover,
+                          background: token.Button?.defaultHoverBg,
                         },
                       },
                       [`&:not(:has(${componentCls}-plugin-tag))`]: {
                         [`${componentCls}-qr-btn`]: {
                           color: token.colorPrimaryTextHover,
                           borderColor: token.colorPrimaryTextHover,
+                          background: token.Button?.defaultHoverBg,
                         },
                       },
                       [`&:has(${componentCls}-plugin-tag:disabled)`]: {
                         [`${componentCls}-qr-btn`]: {
                           color: token.colorPrimaryTextHover,
                           borderColor: token.colorPrimaryTextHover,
+                          background: token.Button?.defaultHoverBg,
                         },
                       },
                     },
                     '&.selected': {
-                      background: token.selectedBg,
+                      background: token.selectedWalletBg,
                     },
                   },
                 },
@@ -217,7 +216,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           },
           [`${componentCls}-footer-container`]: {
             position: 'relative',
-            [`&::before`]: {
+            '&::before': {
               content: '""',
               position: 'absolute',
               bottom: '100%',
@@ -225,17 +224,19 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               left: '50%',
               transform: 'translateX(-50%)',
               height: token.controlHeightLG,
-              backgroundImage: `linear-gradient(to bottom, ${new TinyColor(token.colorBgContainer)
+              backgroundImage: `linear-gradient(to bottom, ${new TinyColor(
+                token.Modal?.contentBg || token.colorBgContainer,
+              )
                 .setAlpha(0)
-                .toRgbString()}, ${new TinyColor(token.colorBgContainer)
+                .toRgbString()}, ${new TinyColor(token.Modal?.contentBg || token.colorBgContainer)
                 .setAlpha(1)
                 .toRgbString()})`,
               pointerEvents: 'none',
             },
           },
           [`${componentCls}-footer`]: {
-            color: token.listItemDescriptionColor,
-            borderBlockStart: `1px solid ${token.splitColor}`,
+            color: token.descriptionColor,
+            borderBlockStart: `1px solid ${token.panelSplitLineColor}`,
             paddingInline: token.paddingMD,
             paddingBlockStart: token.padding,
           },
@@ -243,7 +244,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            color: token.listItemDescriptionColor,
+            color: token.descriptionColor,
             margin: `${token.marginSM}px ${token.marginMD}px`,
             padding: `${token.paddingXS}px ${token.paddingMD}px`,
             borderRadius: 18,
@@ -270,7 +271,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               textAlign: 'center',
               color: token.colorText,
               '&:hover': {
-                background: token.hoverBg,
+                background: token.hoverWalletBg,
               },
             },
             [`${componentCls}-main-panel-header-title`]: {
@@ -324,7 +325,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 },
                 [`${componentCls}-guide-item-description`]: {
                   fontSize: token.fontSizeSM,
-                  color: token.listItemDescriptionColor,
+                  color: token.descriptionColor,
                   marginBlockStart: token.marginXXS,
                   wordBreak: 'break-word',
                 },
@@ -336,7 +337,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             fontSize: token.fontSizeLG,
             textAlign: 'center',
             marginBlockStart: token.margin,
-            ['&:hover']: {
+            '&:hover': {
               opacity: 1,
             },
           },
@@ -363,7 +364,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                   color: token.colorText,
                 },
                 '.ant-list-item-meta-description': {
-                  color: token.listItemDescriptionColor,
+                  color: token.descriptionColor,
                 },
                 [`${componentCls}-get-wallet-btn`]: {
                   borderColor: token.colorPrimary,
@@ -387,7 +388,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               },
               p: {
                 fontSize: token.fontSizeSM,
-                color: token.groupTextColor,
+                color: token.walletGroupTextColor,
                 lineHeight: 1.5,
               },
             },
@@ -405,10 +406,10 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               marginBlockEnd: token.margin,
               boxSizing: 'border-box',
               paddingInline: token.paddingXL,
-              background: token.cardBg,
+              background: token.getWalletCardBg,
               borderRadius: token.borderRadiusSM,
               cursor: 'pointer',
-              border: `1px solid transparent`,
+              border: '1px solid transparent',
               transition: 'border-color .3s',
               '&:hover': {
                 borderColor: token.colorPrimary,
@@ -433,7 +434,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                 },
                 [`${componentCls}-card-description`]: {
                   fontSize: token.fontSize,
-                  color: token.listItemDescriptionColor,
+                  color: token.descriptionColor,
                 },
               },
               '&:last-child': {
@@ -447,7 +448,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             },
             [`${componentCls}-card-list-tips-description`]: {
               fontSize: token.fontSize,
-              color: token.listItemDescriptionColor,
+              color: token.descriptionColor,
             },
           },
           [`${componentCls}-qr-code-container`]: {
@@ -475,7 +476,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
               color: token.colorTextDisabled,
             },
             [`${componentCls}-qr-code-tips`]: {
-              color: token.listItemDescriptionColor,
+              color: token.descriptionColor,
               fontSize: token.fontSizeLG,
               position: 'relative',
               width: '100%',
@@ -511,7 +512,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           height: '100%',
           flexDirection: 'column',
 
-          ['@keyframes ripple']: {
+          '@keyframes ripple': {
             from: {
               transform: 'scale(1)',
               opacity: '1',
@@ -570,27 +571,28 @@ const genModalStyle: GenerateStyle<ConnectModalToken> = (token) => {
 export function useStyle(prefixCls: string): UseStyleResult {
   return useAntdStyle('ConnectModal', (token) => {
     const isDark = isDarkTheme(token);
-    const hoverBg = new TinyColor(isDark ? token.colorWhite : '#000')
+    const hoverWalletBg = new TinyColor(isDark ? token.colorWhite : '#000')
       .setAlpha(0.08)
-      .onBackground(token.colorBgContainer)
+      .onBackground(token.Modal?.contentBg || token.colorBgContainer)
       .toRgbString();
 
     const connectModalToken: ConnectModalToken = {
       ...token,
-      selectedColor: token.colorBgContainer,
-      hoverBg,
-      selectedBg: hoverBg,
-      splitColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
+      selectedWalletColor: token.Modal?.contentBg || token.colorBgContainer,
+      hoverWalletBg,
+      selectedWalletBg: hoverWalletBg,
+      panelSplitLineColor: new TinyColor(token.colorText).setAlpha(0.06).toRgbString(),
       modalTitleStartColor: token.colorPrimary,
       modalTitleEndColor: new TinyColor(token.colorText).setAlpha(0.85).toRgbString(),
-      groupTextColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
-      listItemDescriptionColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
-      cardBg: new TinyColor(token.colorText).setAlpha(0.03).toRgbString(),
-      iconSize: token.sizeXL,
+      walletGroupTextColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
+      descriptionColor: new TinyColor(token.colorText).setAlpha(0.65).toRgbString(),
+      getWalletCardBg: new TinyColor(token.colorText).setAlpha(0.03).toRgbString(),
+      walletIconSize: token.sizeXL,
       web3ComponentsCls: `.${prefixCls}`,
       simpleGuideBg: new TinyColor(token.colorText).complement().setAlpha(0.06).toRgbString(),
       walletListWidth: 328,
       modalMinHeight: 518,
+      ...token.ConnectModal,
     };
     return [genModalStyle(connectModalToken)];
   });

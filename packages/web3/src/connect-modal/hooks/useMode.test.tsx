@@ -11,7 +11,7 @@ describe('useMode', () => {
     });
     const App = () => {
       const { isSimple } = useMode('simple');
-      return <div>{'' + isSimple}</div>;
+      return <div>{`${isSimple}`}</div>;
     };
     const { baseElement } = render(<App />);
 
@@ -24,7 +24,7 @@ describe('useMode', () => {
     });
     const App = () => {
       const { isSimple } = useMode('simple');
-      return <div>{'' + isSimple}</div>;
+      return <div>{`${isSimple}`}</div>;
     };
     const { baseElement } = render(<App />);
 
@@ -37,7 +37,7 @@ describe('useMode', () => {
     });
     const App = () => {
       const { isSimple } = useMode('normal');
-      return <div>{'' + isSimple}</div>;
+      return <div>{`${isSimple}`}</div>;
     };
     const { baseElement } = render(<App />);
 
@@ -50,7 +50,7 @@ describe('useMode', () => {
     });
     const App = () => {
       const { isSimple } = useMode('normal');
-      return <div>{'' + isSimple}</div>;
+      return <div>{`${isSimple}`}</div>;
     };
     const { baseElement } = render(<App />);
 
@@ -63,7 +63,7 @@ describe('useMode', () => {
     });
     const App = () => {
       const { isSimple } = useMode('auto');
-      return <div>{'' + isSimple}</div>;
+      return <div>{`${isSimple}`}</div>;
     };
     const { baseElement } = render(<App />);
 
@@ -76,7 +76,7 @@ describe('useMode', () => {
     });
     const App = () => {
       const { isSimple } = useMode('auto');
-      return <div>{'' + isSimple}</div>;
+      return <div>{`${isSimple}`}</div>;
     };
     const { baseElement } = render(<App />);
 
@@ -89,7 +89,7 @@ describe('useMode', () => {
     });
     const App = () => {
       const { isSimple } = useMode();
-      return <div>{'' + isSimple}</div>;
+      return <div>{`${isSimple}`}</div>;
     };
     const { baseElement } = render(<App />);
 
@@ -102,7 +102,7 @@ describe('useMode', () => {
     });
     const App = () => {
       const { isSimple } = useMode();
-      return <div>{'' + isSimple}</div>;
+      return <div>{`${isSimple}`}</div>;
     };
     const { baseElement } = render(<App />);
 

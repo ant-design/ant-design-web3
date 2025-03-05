@@ -1,5 +1,12 @@
 # @ant-design/web3-assets
 
+## 1.11.8
+
+### Patch Changes
+
+- Updated dependencies [f896044]
+  - @ant-design/web3-common@1.17.0
+
 ## 1.11.7
 
 ### Patch Changes

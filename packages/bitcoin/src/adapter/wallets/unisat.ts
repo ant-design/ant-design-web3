@@ -25,6 +25,7 @@ export class UnisatBitcoinWallet implements BitcoinWallet {
       const accounts = await this.provider.requestAccounts();
       this.account = { address: accounts[0] };
     } catch (e) {
+      // biome-ignore lint/complexity/noUselessCatch: re-throw error
       throw e;
     }
   };
@@ -54,6 +55,7 @@ export class UnisatBitcoinWallet implements BitcoinWallet {
     try {
       txid = await this.provider.sendBitcoin(to, sats, options);
     } catch (e) {
+      // biome-ignore lint/complexity/noUselessCatch: re-throw error
       throw e;
     }
     return txid;

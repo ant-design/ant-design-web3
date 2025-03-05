@@ -58,6 +58,7 @@ const ThumbnailItem: React.FC<ThumbnailItemProps> = (item) => {
       curTheme.name === 'Dark' ? token.colorWhite : token.colorTextBase,
   } as React.CSSProperties;
   return (
+    // biome-ignore lint/a11y/useKeyWithClickEvents: by design
     <div
       className={classNames(styles.thumbnailItem, {
         [styles.selected]: selected,
@@ -138,9 +139,9 @@ export type ThumbnailProps = {
 export const Thumbnail: React.FC<ThumbnailProps> = ({ selectedTheme, onSelect }) => {
   return (
     <div className={styles.thumbnail}>
-      {themes.map((theme, index) => (
+      {themes.map((theme) => (
         <ThumbnailItem
-          key={index}
+          key={theme.value}
           {...theme}
           selected={theme.name === selectedTheme.name}
           onSelect={onSelect}

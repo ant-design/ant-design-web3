@@ -193,7 +193,7 @@ describe('SolanaWeb3ConfigProvider Standard wallet', () => {
 
     // check wallet-connect config can be created
     await vi.waitFor(async () => {
-      expect(namesDom.textContent).toBe(`Phantom, OKX Wallet`);
+      expect(namesDom.textContent).toBe('Phantom, OKX Wallet');
 
       expect(readyDom.textContent).toBe('true');
       expect(extInstalledDom.textContent).toBe('true');

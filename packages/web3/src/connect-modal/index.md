@@ -90,3 +90,21 @@ Other modal properties see: [ModalProps](https://ant.design/components/modal#API
 ### ConnectModal.ModalPanel
 
 Besides properties related to controlling pop-ups, it is the same as `ConnectModal`.
+
+## Design Token
+
+| Token Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| selectedWalletBg | Background color of selected wallet | `string` | `rgb(39, 39, 39)` |
+| selectedWalletColor | Color of selected wallet | `string` | `#141414` |
+| hoverWalletBg | Background color when hovering over wallet | `string` | `rgb(39, 39, 39)` |
+| panelSplitLineColor | Color of panel split line | `string` | `rgba(255, 255, 255, 0.06)` |
+| modalTitleStartColor | Start color of modal title | `string` | `#1668dc` |
+| modalTitleEndColor | End color of modal title | `string` | `rgba(255, 255, 255, 0.85)` |
+| walletGroupTextColor | Text color of wallet group | `string` | `rgba(255, 255, 255, 0.65)` |
+| descriptionColor | Color of description text | `string` | `rgba(255, 255, 255, 0.65)` |
+| getWalletCardBg | Background color of get wallet card | `string` | `rgba(255, 255, 255, 0.03)` |
+| walletIconSize | Size of wallet icon | `number` | `32` |
+| simpleGuideBg | Background color of simple guide | `string` | `rgba(255, 255, 255, 0.06)` |
+| walletListWidth | Width of wallet list | `number` | `328` |
+| modalMinHeight | Minimum height of modal | `number` | `518` |

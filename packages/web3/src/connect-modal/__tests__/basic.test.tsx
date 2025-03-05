@@ -18,7 +18,7 @@ describe('ConnectModal with guide', () => {
     vi.useRealTimers();
   });
   mockBrowser('Chrome');
-  it.each(['light', 'dark'] as const)(`should render in %s mode`, (theme) => {
+  it.each(['light', 'dark'] as const)('should render in %s mode', (theme) => {
     vi.spyOn(Grid, 'useBreakpoint').mockReturnValue({
       md: true, // ≥ 768px, mock PC
     });

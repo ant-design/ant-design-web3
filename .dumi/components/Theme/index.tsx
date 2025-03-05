@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { ConnectModal, type Wallet } from '@ant-design/web3';
+import { ConnectModal, Web3ConfigProvider, type Wallet } from '@ant-design/web3';
 import {
   metadata_CoinbaseWallet,
   metadata_MetaMask,
@@ -7,7 +7,7 @@ import {
   metadata_TokenPocket,
   metadata_WalletConnect,
 } from '@ant-design/web3-assets';
-import { Card, ConfigProvider, theme } from 'antd';
+import { Card, theme } from 'antd';
 import { useTheme } from 'antd-style';
 import { useIntl, usePrefersColor } from 'dumi';
 
@@ -94,7 +94,7 @@ export const Theme: React.FC = () => {
       <div className={styles.desc}>
         {intl.formatMessage({ id: 'app.docs.site.theme.description' })}
       </div>
-      <ConfigProvider
+      <Web3ConfigProvider
         theme={{
           algorithm: isDark ? theme.darkAlgorithm : undefined,
           token:
@@ -107,6 +107,7 @@ export const Theme: React.FC = () => {
       >
         <Card
           className={styles.card}
+          style={curTheme.style}
           styles={{
             body: {
               padding: 0,
@@ -115,7 +116,7 @@ export const Theme: React.FC = () => {
         >
           <ConnectModal.ModalPanel walletList={walletList} />
         </Card>
-      </ConfigProvider>
+      </Web3ConfigProvider>
       <div className={styles.thumbnailBox}>
         <Thumbnail selectedTheme={curTheme} onSelect={(theme) => updateTheme(theme)} />
       </div>
