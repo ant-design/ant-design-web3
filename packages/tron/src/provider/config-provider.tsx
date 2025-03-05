@@ -39,17 +39,17 @@ export const AntDesignWeb3ConfigProvider: React.FC<
     }
   }, [address]);
 
-  const walletsList = useMemo(
-    () => [
-      ...wallets.filter((a: any) => a.state !== AdapterState.NotFound),
-      ...wallets.filter((a: any) => a.state === AdapterState.NotFound),
-    ],
-    [wallets],
-  );
+  // const walletsList = useMemo(
+  //   () => [
+  //     ...wallets.filter((a) => a.state !== AdapterState.NotFound),
+  //     ...wallets.filter((a) => a.state === AdapterState.NotFound),
+  //   ],
+  //   [wallets],
+  // );
 
   const allWallets = useMemo<Wallet[]>(() => {
     const providedWallets = availableWallets?.map<Wallet>((w) => {
-      const adapter = walletsList?.find((item) => item.adapter.name === w.name)?.adapter;
+      const adapter = wallets?.find((item) => item.adapter.name === w.name)?.adapter;
 
       return {
         ...w,
@@ -67,7 +67,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       };
     });
     return providedWallets || [];
-  }, [availableWallets, walletsList]);
+  }, [availableWallets, wallets]);
 
   useEffect(() => {
     if (connectionError) {
