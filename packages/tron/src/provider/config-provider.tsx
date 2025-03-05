@@ -30,6 +30,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
   const connectAsyncRef = useRef<ConnectAsync>();
 
   const [account, setAccount] = useState<Account>();
+
   useEffect(() => {
     if (address) {
       setAccount({
