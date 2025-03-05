@@ -13,6 +13,7 @@ export interface TronWeb3ConfigProviderProps {
   onError?: (error: Error) => void;
   autoConnect?: boolean;
   locale?: Locale;
+  walletProviderProps?: Omit<React.PropsWithChildren<TronWeb3ConfigProviderProps>, 'children'>;
 }
 
 export const TronWeb3ConfigProvider: React.FC<PropsWithChildren<TronWeb3ConfigProviderProps>> = ({
@@ -21,17 +22,16 @@ export const TronWeb3ConfigProvider: React.FC<PropsWithChildren<TronWeb3ConfigPr
   locale,
   autoConnect,
   children,
+  walletProviderProps,
 }) => {
   const [connectionError, setConnectionError] = useState<WalletError>();
   const adapters = useMemo(() => {
     const tronLinkAdapter = new TronLinkAdapter();
-    // const bitKeepAdapter = new BitKeepAdapter();
     const okxwalletAdapter = new OkxWalletAdapter();
     const bybitWalletAdapter = new BybitWalletAdapter();
     return [
       //
       tronLinkAdapter,
-      // bitKeepAdapter,
       okxwalletAdapter,
       bybitWalletAdapter,
     ];
@@ -45,6 +45,7 @@ export const TronWeb3ConfigProvider: React.FC<PropsWithChildren<TronWeb3ConfigPr
       }}
       adapters={adapters}
       autoConnect={autoConnect}
+      {...walletProviderProps}
     >
       <AntDesignWeb3ConfigProvider
         locale={locale}
