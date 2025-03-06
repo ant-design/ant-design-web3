@@ -9,6 +9,7 @@ import type { ConnectModalActionType, ConnectModalProps, Wallet } from '../inter
 import { defaultGroupOrder } from '../utils';
 import PluginTag from './PluginTag';
 import WalletIcon from './WalletIcon';
+import WalletItem from './WalletItem';
 
 export type WalletListProps = Pick<
   ConnectModalProps,
@@ -99,45 +100,18 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
         dataSource={group ? dataSource[group] : walletList}
         rowKey="key"
         renderItem={(item) => (
-          <List.Item
-            className={classNames(`${prefixCls}-wallet-item`, {
-              selected:
-                item.key !== undefined
-                  ? selectedWallet?.key === item.key
-                  : selectedWallet?.name === item.name,
-            })}
-            onClick={() => {
-              selectWallet(item);
+          <WalletItem
+            wallet={item}
+            prefixCls={prefixCls}
+            selectedWallet={selectedWallet}
+            onSelect={selectWallet}
+            onQrCodeSelect={(wallet) => {
+              updateSelectedWallet(wallet, {
+                connectType: 'qrCode',
+              });
             }}
-          >
-            <div className={`${prefixCls}-content`}>
-              <WalletIcon wallet={item} />
-              <Typography.Text ellipsis={{ tooltip: true }} className={`${prefixCls}-name`}>
-                {item.name}
-              </Typography.Text>
-            </div>
-            <Space>
-              <PluginTag wallet={item} />
-              {item.getQrCode ? (
-                <Button
-                  size="small"
-                  className={`${prefixCls}-qr-btn`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    updateSelectedWallet(item, {
-                      connectType: 'qrCode',
-                    });
-                  }}
-                >
-                  <QrcodeOutlined />
-                </Button>
-              ) : (
-                walletList.some((w) => w.getQrCode) && (
-                  <div className={`${prefixCls}-qr-icon-empty`} />
-                )
-              )}
-            </Space>
-          </List.Item>
+            showQrPlaceholder={walletList.some((w) => w.getQrCode)}
+          />
         )}
       />
     );
