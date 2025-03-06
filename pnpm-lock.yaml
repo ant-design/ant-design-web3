@@ -45,8 +45,8 @@ importers:
         specifier: workspace:*
         version: link:packages/wagmi
       '@mysten/dapp-kit':
-        specifier: ^0.14.11
-        version: 0.14.17(@tanstack/react-query@5.51.11(react@18.3.1))(@types/react-dom@18.3.1)(@types/react@18.3.5)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
+        specifier: ^0.14.50
+        version: 0.14.50(@tanstack/react-query@5.51.11(react@18.3.1))(@types/react-dom@18.3.1)(@types/react@18.3.5)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
       '@mysten/sui':
         specifier: ^1.14.3
         version: 1.14.3(typescript@5.6.2)
@@ -613,8 +613,8 @@ importers:
         version: 4.4.0(supports-color@5.5.0)
     devDependencies:
       '@mysten/dapp-kit':
-        specifier: ^0.14.11
-        version: 0.14.17(@tanstack/react-query@5.51.11(react@18.3.1))(@types/react-dom@18.3.1)(@types/react@18.3.5)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
+        specifier: ^0.14.50
+        version: 0.14.50(@tanstack/react-query@5.51.11(react@18.3.1))(@types/react-dom@18.3.1)(@types/react@18.3.5)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
       '@mysten/sui':
         specifier: ^1.14.3
         version: 1.14.3(typescript@5.6.2)
@@ -3555,14 +3555,14 @@ packages:
     resolution: {integrity: sha512-z10PF9JV6SbjFq+/rYabM+8CVlMokgl8RFGvieSGNTmrkQanfHn+15XBrhG3BgUfvmTeSeyShfOHpG0i9zEdcg==}
     deprecated: Motion One for Vue is deprecated. Use Oku Motion instead https://oku-ui.com/motion
 
-  '@mysten/bcs@1.0.4':
-    resolution: {integrity: sha512-6JoQi59GN/dVEBCNq8Rj4uOR0niDrJqDx/2gNQWXANwJakHIGH0AMniHrXP41B2dF+mZ3HVmh9Hi3otiEVQTrQ==}
-
   '@mysten/bcs@1.1.0':
     resolution: {integrity: sha512-yy9/1Y4d0FlRywS1+9ze/T7refCbrvwFwJIOKs9M3QBK1njbcHZp+LkVeLqBvIJA5eZ3ZCzmhQ1Xq4Sed5mEBA==}
 
-  '@mysten/dapp-kit@0.14.17':
-    resolution: {integrity: sha512-1geq0vah/cqSprzVssKKFCkqDeOX30SDCa2TdqIO6ywR3gN6K78Jmq0aBZWepSvkA0ytaTcmATGY7E/lccTalw==}
+  '@mysten/bcs@1.4.0':
+    resolution: {integrity: sha512-YwDYspceLt8b7v6ohPvy8flQEi+smtfSG5d2A98CbUA48XBmOqTSPNmpw9wsZVVnrH2avr+BS5uVhDZT+EquYA==}
+
+  '@mysten/dapp-kit@0.14.50':
+    resolution: {integrity: sha512-zoTonryNUozeVmdg6oCRVwxvwC3k9iMm8aRHSCPOjYJFf3NPvnEli9ykM09OGLrz1T/W5hfEFt7FarUIYd8UNA==}
     peerDependencies:
       '@tanstack/react-query': ^5.0.0
       react: '*'
@@ -3571,15 +3571,15 @@ packages:
     resolution: {integrity: sha512-5vhOnbSAT/9daMIDPYOp7q9j+6DXqjPAYEJy7ZbR9viBsyAx4UMChCwaLyjoYcJKvhrkDn4LTdDTJEUvpj7TTg==}
     engines: {node: '>=18'}
 
-  '@mysten/sui@1.7.0':
-    resolution: {integrity: sha512-g88beCeYH7WVZbNW541j+Vusdxn1yd9X9TiQ8kGHbXKNIPFmc0Pf26kPwlAVnCbXslFflUgN6q4CWpAsBUIA3A==}
+  '@mysten/sui@1.21.2':
+    resolution: {integrity: sha512-8AesvczokAUv796XiOo8af2+1IYA9bRon11Ra+rwehvqhz+sMRT8A+Cw5sDnlSc9/aQwM51JQKUnvMczNbpfYA==}
     engines: {node: '>=18'}
 
-  '@mysten/wallet-standard@0.13.2':
-    resolution: {integrity: sha512-f6PheDGUv8lIMZG2ugboFvxMqfjV//iwoi9OPPwViQbJLumnv0CMD9xFO9+iYPAd7FSW4M3bBNdQIb8IjUi7UA==}
+  '@mysten/wallet-standard@0.13.26':
+    resolution: {integrity: sha512-0fRHmQ5RS0WEeSyfzdqrOWLssrZwDgR9Mw7Qhsfzq1UyDlS/GXYoL+dKpH+Uqfan33lt6hROPeXFyqw/vmF9Zg==}
 
-  '@mysten/zksend@0.10.6':
-    resolution: {integrity: sha512-yc6PplNUFXf3uiq0ntFPs8UWq1GTwgVK2q3LR8ro3GQGkoZd3bmxntNMkVtRE2rpJfOW8TZ93tfy+KwlVAgq0w==}
+  '@mysten/zksend@0.12.16':
+    resolution: {integrity: sha512-DmO3CS+mIQ4t4VeHEpu4uD3VxpImWzcM60HZMLhrn1yO2yP2FJky6Wwa58au2ziGDlY4OZoYuHsUS+7Dx2TUlw==}
 
   '@napi-rs/nice-android-arm-eabi@1.0.1':
     resolution: {integrity: sha512-5qpvOu5IGwDo7MEKVqqyAxF90I6aLj4n07OzpARdgDRfz8UbBztTByBp0RC59r3J1Ij8uzYi6jI7r5Lws7nn6w==}
@@ -5737,20 +5737,45 @@ packages:
     resolution: {integrity: sha512-LnLYq2Vy2guTZ8GQKKSXQK3+FRGPil75XEdkZqE6fiLixJhZJoJa5hT7lXxwe0ykVTt9LEThdTbOpT7KadS26Q==}
     engines: {node: '>=16'}
 
+  '@wallet-standard/app@1.1.0':
+    resolution: {integrity: sha512-3CijvrO9utx598kjr45hTbbeeykQrQfKmSnxeWOgU25TOEpvcipD/bYDQWIqUv1Oc6KK4YStokSMu/FBNecGUQ==}
+    engines: {node: '>=16'}
+
   '@wallet-standard/base@1.0.1':
     resolution: {integrity: sha512-1To3ekMfzhYxe0Yhkpri+Fedq0SYcfrOfJi3vbLjMwF2qiKPjTGLwZkf2C9ftdQmxES+hmxhBzTwF4KgcOwf8w==}
+    engines: {node: '>=16'}
+
+  '@wallet-standard/base@1.1.0':
+    resolution: {integrity: sha512-DJDQhjKmSNVLKWItoKThJS+CsJQjR9AOBOirBVT1F9YpRyC9oYHE+ZnSf8y8bxUphtKqdQMPVQ2mHohYdRvDVQ==}
     engines: {node: '>=16'}
 
   '@wallet-standard/core@1.0.3':
     resolution: {integrity: sha512-Jb33IIjC1wM1HoKkYD7xQ6d6PZ8EmMZvyc8R7dFgX66n/xkvksVTW04g9yLvQXrLFbcIjHrCxW6TXMhvpsAAzg==}
     engines: {node: '>=16'}
 
+  '@wallet-standard/core@1.1.0':
+    resolution: {integrity: sha512-v2W5q/NlX1qkn2q/JOXQT//pOAdrhz7+nOcO2uiH9+a0uvreL+sdWWqkhFmMcX+HEBjaibdOQMUoIfDhOGX4XA==}
+    engines: {node: '>=16'}
+
+  '@wallet-standard/errors@0.1.0':
+    resolution: {integrity: sha512-ag0eq5ixy7rz8M5YUWGi/EoIJ69KJ+KILFNunoufgmXVkiISC7+NIZXJYTJrapni4f9twE1hfT+8+IV2CYCvmg==}
+    engines: {node: '>=16'}
+    hasBin: true
+
   '@wallet-standard/features@1.0.3':
     resolution: {integrity: sha512-m8475I6W5LTatTZuUz5JJNK42wFRgkJTB0I9tkruMwfqBF2UN2eomkYNVf9RbrsROelCRzSFmugqjKZBFaubsA==}
     engines: {node: '>=16'}
 
+  '@wallet-standard/features@1.1.0':
+    resolution: {integrity: sha512-hiEivWNztx73s+7iLxsuD1sOJ28xtRix58W7Xnz4XzzA/pF0+aicnWgjOdA10doVDEDZdUuZCIIqG96SFNlDUg==}
+    engines: {node: '>=16'}
+
   '@wallet-standard/wallet@1.0.1':
     resolution: {integrity: sha512-qkhJeuQU2afQTZ02yMZE5SFc91Fo3hyFjFkpQglHudENNyiSG0oUKcIjky8X32xVSaumgTZSQUAzpXnCTWHzKQ==}
+    engines: {node: '>=16'}
+
+  '@wallet-standard/wallet@1.1.0':
+    resolution: {integrity: sha512-Gt8TnSlDZpAl+RWOOAB/kuvC7RpcdWAlFbHNoi4gsXsfaWa1QCT6LBcfIYTPdOZC9OVZUDwqGuGAcqZejDmHjg==}
     engines: {node: '>=16'}
 
   '@walletconnect/auth-client@2.1.2':
@@ -9417,6 +9442,9 @@ packages:
   jju@1.4.0:
     resolution: {integrity: sha512-8wb9Yw966OSxApiCt0K3yNJL8pnNeIv+OEq2YMidz4FKP6nonSRoOXc80iXY4JaN2FC11B9qsNmDsm+ZOfMROA==}
 
+  jose@5.10.0:
+    resolution: {integrity: sha512-s+3Al/p9g32Iq+oqXxkW//7jk2Vig6FF1CFqzVXoTUXt2qz89YWbL+OwS17NFYEvxC35n0FKeGO2LGYSxeM2Gg==}
+
   js-base64@3.7.6:
     resolution: {integrity: sha512-NPrWuHFxFUknr1KqJRDgUQPexQF0uIJWjeT+2KjEePhitQxQEx5EJBG1lVn5/hc8aLycTpXrDOgPQ6Zq+EDiTA==}
 
@@ -10895,6 +10923,9 @@ packages:
   pony-cause@2.1.11:
     resolution: {integrity: sha512-M7LhCsdNbNgiLYiP4WjsfLUuFmCfnjdF6jKe2R9NKl4WFN+HZPGHJZ9lnLP7f9ZnKe3U9nuWD0szirmj+migUg==}
     engines: {node: '>=12.0.0'}
+
+  poseidon-lite@0.2.1:
+    resolution: {integrity: sha512-xIr+G6HeYfOhCuswdqcFpSX47SPhm0EpisWJ6h7fHlWwaVIvH3dLnejpatrtw6Xc6HaLrpq05y7VRfvDmDGIog==}
 
   postcss-attribute-case-insensitive@5.0.2:
     resolution: {integrity: sha512-XIidXV8fDr0kKt28vqki84fRK8VW8eTuIa4PChv2MqKuT6C9UjmSKzen6KaWhWEoYvwxFCa7n/tC1SZ3tyq4SQ==}
@@ -17668,19 +17699,19 @@ snapshots:
       '@motionone/dom': 10.16.4
       tslib: 2.8.1
 
-  '@mysten/bcs@1.0.4':
-    dependencies:
-      bs58: 6.0.0
-
   '@mysten/bcs@1.1.0':
     dependencies:
       bs58: 6.0.0
 
-  '@mysten/dapp-kit@0.14.17(@tanstack/react-query@5.51.11(react@18.3.1))(@types/react-dom@18.3.1)(@types/react@18.3.5)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)':
+  '@mysten/bcs@1.4.0':
     dependencies:
-      '@mysten/sui': 1.7.0(typescript@5.6.2)
-      '@mysten/wallet-standard': 0.13.2(typescript@5.6.2)
-      '@mysten/zksend': 0.10.6(typescript@5.6.2)
+      bs58: 6.0.0
+
+  '@mysten/dapp-kit@0.14.50(@tanstack/react-query@5.51.11(react@18.3.1))(@types/react-dom@18.3.1)(@types/react@18.3.5)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)':
+    dependencies:
+      '@mysten/sui': 1.21.2(typescript@5.6.2)
+      '@mysten/wallet-standard': 0.13.26(typescript@5.6.2)
+      '@mysten/zksend': 0.12.16(typescript@5.6.2)
       '@radix-ui/react-dialog': 1.1.1(@types/react-dom@18.3.1)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-dropdown-menu': 2.1.1(@types/react-dom@18.3.1)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-slot': 1.1.0(@types/react@18.3.5)(react@18.3.1)
@@ -17720,38 +17751,39 @@ snapshots:
       - '@gql.tada/vue-support'
       - typescript
 
-  '@mysten/sui@1.7.0(typescript@5.6.2)':
+  '@mysten/sui@1.21.2(typescript@5.6.2)':
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.9.0)
-      '@mysten/bcs': 1.0.4
-      '@noble/curves': 1.5.0
-      '@noble/hashes': 1.5.0
+      '@mysten/bcs': 1.4.0
+      '@noble/curves': 1.8.1
+      '@noble/hashes': 1.7.1
       '@scure/bip32': 1.4.0
       '@scure/bip39': 1.4.0
       '@suchipi/femver': 1.0.0
       bech32: 2.0.0
       gql.tada: 1.8.6(graphql@16.9.0)(typescript@5.6.2)
       graphql: 16.9.0
-      tweetnacl: 1.0.3
+      jose: 5.10.0
+      poseidon-lite: 0.2.1
       valibot: 0.36.0
     transitivePeerDependencies:
       - '@gql.tada/svelte-support'
       - '@gql.tada/vue-support'
       - typescript
 
-  '@mysten/wallet-standard@0.13.2(typescript@5.6.2)':
+  '@mysten/wallet-standard@0.13.26(typescript@5.6.2)':
     dependencies:
-      '@mysten/sui': 1.7.0(typescript@5.6.2)
-      '@wallet-standard/core': 1.0.3
+      '@mysten/sui': 1.21.2(typescript@5.6.2)
+      '@wallet-standard/core': 1.1.0
     transitivePeerDependencies:
       - '@gql.tada/svelte-support'
       - '@gql.tada/vue-support'
       - typescript
 
-  '@mysten/zksend@0.10.6(typescript@5.6.2)':
+  '@mysten/zksend@0.12.16(typescript@5.6.2)':
     dependencies:
-      '@mysten/sui': 1.7.0(typescript@5.6.2)
-      '@mysten/wallet-standard': 0.13.2(typescript@5.6.2)
+      '@mysten/sui': 1.21.2(typescript@5.6.2)
+      '@mysten/wallet-standard': 0.13.26(typescript@5.6.2)
       mitt: 3.0.1
       nanostores: 0.10.3
       valibot: 0.36.0
@@ -20619,7 +20651,7 @@ snapshots:
       lru-cache: 10.4.3
       media-query-parser: 2.0.2
       modern-ahocorasick: 1.0.1
-      picocolors: 1.0.0
+      picocolors: 1.1.1
     transitivePeerDependencies:
       - babel-plugin-macros
 
@@ -20765,7 +20797,13 @@ snapshots:
     dependencies:
       '@wallet-standard/base': 1.0.1
 
+  '@wallet-standard/app@1.1.0':
+    dependencies:
+      '@wallet-standard/base': 1.1.0
+
   '@wallet-standard/base@1.0.1': {}
+
+  '@wallet-standard/base@1.1.0': {}
 
   '@wallet-standard/core@1.0.3':
     dependencies:
@@ -20774,13 +20812,34 @@ snapshots:
       '@wallet-standard/features': 1.0.3
       '@wallet-standard/wallet': 1.0.1
 
+  '@wallet-standard/core@1.1.0':
+    dependencies:
+      '@wallet-standard/app': 1.1.0
+      '@wallet-standard/base': 1.1.0
+      '@wallet-standard/errors': 0.1.0
+      '@wallet-standard/features': 1.1.0
+      '@wallet-standard/wallet': 1.1.0
+
+  '@wallet-standard/errors@0.1.0':
+    dependencies:
+      chalk: 5.4.1
+      commander: 12.1.0
+
   '@wallet-standard/features@1.0.3':
     dependencies:
       '@wallet-standard/base': 1.0.1
 
+  '@wallet-standard/features@1.1.0':
+    dependencies:
+      '@wallet-standard/base': 1.1.0
+
   '@wallet-standard/wallet@1.0.1':
     dependencies:
       '@wallet-standard/base': 1.0.1
+
+  '@wallet-standard/wallet@1.1.0':
+    dependencies:
+      '@wallet-standard/base': 1.1.0
 
   '@walletconnect/auth-client@2.1.2(@react-native-async-storage/async-storage@1.24.0(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.5)(bufferutil@4.0.9)(encoding@0.1.13)(react@18.3.1)(utf-8-validate@5.0.10)))(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@5.0.10)':
     dependencies:
@@ -26322,6 +26381,8 @@ snapshots:
 
   jju@1.4.0: {}
 
+  jose@5.10.0: {}
+
   js-base64@3.7.6: {}
 
   js-sha256@0.9.0: {}
@@ -28269,6 +28330,8 @@ snapshots:
   point-in-polygon@1.1.0: {}
 
   pony-cause@2.1.11: {}
+
+  poseidon-lite@0.2.1: {}
 
   postcss-attribute-case-insensitive@5.0.2(postcss@8.4.32):
     dependencies:
