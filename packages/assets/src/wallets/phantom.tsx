@@ -17,4 +17,7 @@ export const metadata_Phantom: WalletMetadata = {
       description: 'Access your wallet right from your favorite web browser.',
     },
   ],
+  deeplink: {
+    urlTemplate: 'https://phantom.com/ul/browse/${url}?ref=${ref}',
+  },
 };
