@@ -56,6 +56,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*n4F2RK3AVTsAAA
 | getQrCode | 获取钱包的二维码 | `() => { uri: string }` | - | - |
 | customQrCodePanel | 自定义二维码展示的面板 | `boolean` | `false` | `1.17.0` |
 | universalProtocol | 通用协议配置 | `{ link: string }` | - | - |
+| deeplink | 移动端跳转到钱包的 deeplink 配置 | `{ urlTemplate: string }` | - | `1.22.0` |
 
 ### ExtensionItem
 

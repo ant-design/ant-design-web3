@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3",
-  "version": "1.21.0",
+  "version": "1.22.0",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -54,6 +54,7 @@
     "classnames": "^2.5.1",
     "copy-to-clipboard": "^3.3.3",
     "decimal.js": "^10.4.3",
+    "is-mobile": "^5.0.0",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
@@ -62,14 +63,14 @@
     "@ant-design/web3-ethers": "workspace:*",
     "@ant-design/web3-solana": "workspace:*",
     "@ant-design/web3-sui": "workspace:*",
-    "@ant-design/web3-wagmi": "workspace:*",
     "@ant-design/web3-ton": "workspace:*",
     "@ant-design/web3-tron": "workspace:*",
+    "@ant-design/web3-wagmi": "workspace:*",
+    "@types/lodash-es": "^4.17.12",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.1",
     "father": "^4.4.4",
-    "typescript": "^5.6.2",
-    "@types/lodash-es": "^4.17.12"
+    "typescript": "^5.6.2"
   },
   "peerDependencies": {
     "antd": ">=5.0.0",

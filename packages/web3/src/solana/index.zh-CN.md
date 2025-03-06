@@ -44,6 +44,12 @@ Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它
 
 <code src="./demos/wallet-connect.tsx"></code>
 
+## 自定义钱包信息
+
+当内置的钱包不满足要求时，你也可以自定义钱包信息，也欢迎提交 PR 帮我们完善内置钱包。
+
+<code src="./demos/custom.tsx"></code>
+
 ## 支持切换网络
 
 我们内置了 Solana 主网 `mainnet-beta`，其余的网络需要配置 `chains`，并引入相关资源才可支持。引入方式和钱包类似。
