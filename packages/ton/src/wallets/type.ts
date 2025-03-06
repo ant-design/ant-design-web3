@@ -3,7 +3,7 @@ import type { WalletInfo } from '@tonconnect/sdk';
 
 export type TonBasicWallet = TonWalletMetadata &
   WalletInfo & {
-    universalLink?: string;
+    deeplink?: string;
   };
 
 export type TonWallet = Wallet & WalletInfo;

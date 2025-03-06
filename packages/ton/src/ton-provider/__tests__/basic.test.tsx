@@ -20,7 +20,7 @@ vi.mock('../TonConnectSdk', async () => {
     tondns: 'tonkeeper.ton',
     platforms: ['ios', 'android', 'chrome', 'firefox', 'macos'],
     bridgeUrl: 'https://bridge.tonapi.io/bridge',
-    universalLink: 'https://app.tonkeeper.com/ton-connect',
+    deeplink: 'https://app.tonkeeper.com/ton-connect',
     deepLink: 'tonkeeper-tc://',
     jsBridgeKey: 'tonkeeper',
     injected: true,

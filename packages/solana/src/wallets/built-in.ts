@@ -4,9 +4,11 @@ import {
   metadata_CoinbaseWallet,
   metadata_OkxWallet,
   metadata_Phantom,
+  metadata_Solflare,
   metadata_Trust,
   metadata_WalletConnect,
 } from '@ant-design/web3-assets';
+import { WalletMetadata } from '@ant-design/web3-common';
 import { CoinbaseWalletAdapter } from '@solana/wallet-adapter-coinbase';
 import { TrustWalletAdapter } from '@solana/wallet-adapter-trust';
 import { TipLinkWalletAdapter } from '@tiplink/wallet-adapter';
@@ -32,9 +34,19 @@ export const TipLinkWallet = (config: TipLinkWalletConfig) => {
   });
 };
 
-export const PhantomWallet = () => StandardWalletFactory(metadata_Phantom);
-export const OKXWallet = () => StandardWalletFactory(metadata_OkxWallet);
-export const BackpackWallet = () => StandardWalletFactory(metadata_Backpack);
+export const PhantomWallet = (metadata: WalletMetadata) =>
+  StandardWalletFactory({ ...metadata_Phantom, ...metadata });
+export const OKXWallet = (metadata: WalletMetadata) =>
+  StandardWalletFactory({ ...metadata_OkxWallet, ...metadata });
+export const BackpackWallet = (metadata: WalletMetadata) =>
+  StandardWalletFactory({ ...metadata_Backpack, ...metadata });
+export const SolflareWallet = (metadata: WalletMetadata) =>
+  StandardWalletFactory({ ...metadata_Solflare, ...metadata });
 
-export const WalletConnectWallet = () =>
-  WalletConnectWalletFactory(new WalletConnectWalletAdapter(), metadata_WalletConnect);
+export const WalletConnectWallet = (metadata: WalletMetadata) =>
+  WalletConnectWalletFactory(new WalletConnectWalletAdapter(), {
+    ...metadata_WalletConnect,
+    ...metadata,
+  });
+
+export { StandardWalletFactory };

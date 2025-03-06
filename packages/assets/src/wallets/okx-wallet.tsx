@@ -17,4 +17,5 @@ export const metadata_OkxWallet: WalletMetadata = {
       description: 'Access your wallet right from your favorite web browser.',
     },
   ],
+  // TODO suport deeplink
 };

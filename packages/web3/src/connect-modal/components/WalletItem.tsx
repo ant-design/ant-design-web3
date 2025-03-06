@@ -25,7 +25,7 @@ const WalletItem: React.FC<WalletItemProps> = ({
   onQrCodeSelect,
   showQrPlaceholder,
 }) => {
-  const useUniversalLink: boolean = !!(mobile() && wallet.universalLink);
+  const useUniversalLink: boolean = !!(mobile() && wallet.deeplink);
   const [showPluginTag, setShowPluginTag] = useState(!useUniversalLink);
   // Check if the wallet is ready (installed) to determine whether to show the plugin tag
   React.useEffect(() => {

@@ -43,10 +43,12 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
     internalGroup !== false && (internalGroup !== undefined || groupKeys.length > 1);
 
   const openInUniversalLink = (wallet: Wallet) => {
-    const url = wallet.universalLink?.urlTemplate
+    const url = wallet.deeplink?.urlTemplate
       .replace('${url}', encodeURIComponent(window.location.href))
       .replace('${ref}', encodeURIComponent(window.location.href));
-    window.open(url);
+    if (url) {
+      window.location.href = url;
+    }
   };
 
   const selectWallet = async (wallet: Wallet) => {
@@ -72,7 +74,7 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
       }
       return;
     }
-    if (mobile() && wallet.universalLink) {
+    if (mobile() && wallet.deeplink) {
       // open in universal link
       openInUniversalLink(wallet);
     } else {

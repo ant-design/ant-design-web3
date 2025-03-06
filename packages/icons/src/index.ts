@@ -505,6 +505,7 @@ export * from './components/solana-circle-colorful';
 export * from './components/solana-circle-filled';
 export * from './components/solana-colorful';
 export * from './components/solana-filled';
+export * from './components/solflare-colorful';
 export * from './components/soul-colorful';
 export * from './components/srm-colorful';
 export * from './components/srn-circle-colorful';

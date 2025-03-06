@@ -237,7 +237,7 @@ export type WalletMetadata = {
    * @desc 钱包支持的 Universal Link 配置
    * @descEn Wallet Universal Link configuration
    */
-  universalLink?: {
+  deeplink?: {
     /**
      * @desc Universal Link 的 URL 模板，用于构建钱包的通用链接
      * @descEn URL template for Universal Link, used to build universal links for the wallet
