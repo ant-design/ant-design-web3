@@ -1,14 +1,10 @@
-import React, { forwardRef, useContext, useImperativeHandle, useMemo } from 'react';
-import { QrcodeOutlined } from '@ant-design/icons';
-import { Button, Empty, List, Space, Typography } from 'antd';
-import classNames from 'classnames';
+import { forwardRef, useContext, useImperativeHandle, useMemo } from 'react';
+import { Empty, List } from 'antd';
 import mobile from 'is-mobile';
 
 import { connectModalContext } from '../context';
 import type { ConnectModalActionType, ConnectModalProps, Wallet } from '../interface';
 import { defaultGroupOrder } from '../utils';
-import PluginTag from './PluginTag';
-import WalletIcon from './WalletIcon';
 import WalletItem from './WalletItem';
 
 export type WalletListProps = Pick<
@@ -110,7 +106,7 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
                 connectType: 'qrCode',
               });
             }}
-            showQrPlaceholder={walletList.some((w) => w.getQrCode)}
+            showQrPlaceholder={walletList.some((w) => w.getQrCode && w.hasExtensionInstalled)}
           />
         )}
       />

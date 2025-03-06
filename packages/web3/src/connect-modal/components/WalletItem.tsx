@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { QrcodeOutlined } from '@ant-design/icons';
 import { Button, List, Space, Typography } from 'antd';
 import classNames from 'classnames';
+import mobile from 'is-mobile';
 
 import type { Wallet } from '../interface';
 import PluginTag from './PluginTag';
@@ -24,6 +25,18 @@ const WalletItem: React.FC<WalletItemProps> = ({
   onQrCodeSelect,
   showQrPlaceholder,
 }) => {
+  const useUniversalLink: boolean = !!(mobile() && wallet.universalLink);
+  const [showPluginTag, setShowPluginTag] = useState(!useUniversalLink);
+  // Check if the wallet is ready (installed) to determine whether to show the plugin tag
+  React.useEffect(() => {
+    const checkWalletInstalled = async () => {
+      const isWalletInstalled = await wallet.hasExtensionInstalled?.();
+      const hidePluginTag = !isWalletInstalled && useUniversalLink;
+      setShowPluginTag(!hidePluginTag);
+    };
+    checkWalletInstalled();
+  }, [wallet, useUniversalLink]);
+
   return (
     <List.Item
       className={classNames(`${prefixCls}-wallet-item`, {
@@ -41,7 +54,7 @@ const WalletItem: React.FC<WalletItemProps> = ({
         </Typography.Text>
       </div>
       <Space>
-        <PluginTag wallet={wallet} />
+        {showPluginTag && <PluginTag wallet={wallet} />}
         {wallet.getQrCode ? (
           <Button
             size="small"
