@@ -44,8 +44,8 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
 
   const openInUniversalLink = (wallet: Wallet) => {
     const url = wallet.universalLink?.urlTemplate
-      .replace('${url}', window.location.href)
-      .replace('${ref}', window.location.href);
+      .replace('${url}', encodeURIComponent(window.location.href))
+      .replace('${ref}', encodeURIComponent(window.location.href));
     window.open(url);
   };
 
