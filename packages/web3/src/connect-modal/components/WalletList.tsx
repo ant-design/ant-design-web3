@@ -1,4 +1,10 @@
-import { forwardRef, useContext, useImperativeHandle, useMemo } from 'react';
+import {
+  forwardRef,
+  ForwardRefRenderFunction,
+  useContext,
+  useImperativeHandle,
+  useMemo,
+} from 'react';
 import { Empty, List } from 'antd';
 import mobile from 'is-mobile';
 
@@ -12,7 +18,10 @@ export type WalletListProps = Pick<
   'walletList' | 'group' | 'groupOrder' | 'emptyProps'
 >;
 
-const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, ref) => {
+const WalletList: ForwardRefRenderFunction<ConnectModalActionType, WalletListProps> = (
+  props,
+  ref,
+) => {
   const { walletList = [], group: internalGroup, groupOrder, emptyProps } = props;
   const { prefixCls, updateSelectedWallet, selectedWallet, localeMessage, updatePanelRoute } =
     useContext(connectModalContext);
@@ -147,6 +156,14 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
       )}
     </div>
   );
-});
+};
 
-export default WalletList;
+type WalletListComponent = {
+  (props: WalletListProps & { ref?: React.Ref<ConnectModalActionType> }): React.ReactNode;
+  displayName?: string;
+};
+
+const ForwardRefWalletList: WalletListComponent = forwardRef(WalletList);
+ForwardRefWalletList.displayName = 'WalletList';
+
+export default ForwardRefWalletList;
