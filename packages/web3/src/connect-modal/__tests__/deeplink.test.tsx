@@ -54,6 +54,33 @@ describe('ConnectModal deeplink test', () => {
     });
   });
 
+  it('should open deeplink when clicking wallet on mobile witho extension', async () => {
+    const testWallet = {
+      icon: 'https://example.com/icon.png',
+      name: 'Test Mobile Wallet',
+      remark: 'Mobile Wallet',
+      deeplink: {
+        urlTemplate: 'testwallet://connect',
+      },
+      hasExtensionInstalled: () => Promise.resolve(false),
+      hasWalletReady: () => Promise.resolve(true),
+    };
+
+    const App = () => <ConnectModal open walletList={[testWallet]} />;
+
+    const { baseElement } = render(<App />);
+
+    // Find and click the wallet item
+    const walletItem = baseElement.querySelector('.ant-web3-connect-modal-wallet-item');
+    fireEvent.click(walletItem!);
+
+    // Wait for the deeplink to be processed
+    await vi.waitFor(() => {
+      // Verify deeplink was opened via window.location.href
+      expect(locationHref).toBe('testwallet://connect');
+    });
+  });
+
   it('should replace URL template variables in deeplink', async () => {
     const testWallet = {
       icon: 'https://example.com/icon.png',
