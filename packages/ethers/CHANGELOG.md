@@ -1,5 +1,14 @@
 # @ant-design/web3-ethers
 
+## 1.1.17
+
+### Patch Changes
+
+- Updated dependencies [b6f1f1d]
+  - @ant-design/web3-assets@1.12.0
+  - @ant-design/web3-common@1.18.0
+  - @ant-design/web3-wagmi@2.10.2
+
 ## 1.1.16
 
 ### Patch Changes

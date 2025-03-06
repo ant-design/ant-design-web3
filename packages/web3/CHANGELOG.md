@@ -1,5 +1,19 @@
 # @ant-design/web3
 
+## 1.22.0
+
+### Minor Changes
+
+- b6f1f1d: feat: support UniversalLink for support connect some wallet in mobile
+
+### Patch Changes
+
+- Updated dependencies [b6f1f1d]
+- Updated dependencies [b6f1f1d]
+  - @ant-design/web3-assets@1.12.0
+  - @ant-design/web3-common@1.18.0
+  - @ant-design/web3-icons@1.12.0
+
 ## 1.21.0
 
 ### Minor Changes

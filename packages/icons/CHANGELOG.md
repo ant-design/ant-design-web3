@@ -1,5 +1,11 @@
 # @ant-design/web3-icons
 
+## 1.12.0
+
+### Minor Changes
+
+- b6f1f1d: feat: support SolflareWallet
+
 ## 1.11.4
 
 ### Patch Changes
