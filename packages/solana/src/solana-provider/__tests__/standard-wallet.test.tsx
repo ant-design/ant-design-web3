@@ -4,7 +4,7 @@ import { WalletReadyState } from '@solana/wallet-adapter-base';
 import { type ConnectionContextState } from '@solana/wallet-adapter-react';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { OKXWallet, PhantomWallet } from '../../wallets/built-in';
+import { OKXWallet, PhantomWallet, SolflareWallet } from '../../wallets/built-in';
 import { SolanaWeb3ConfigProvider } from '../index';
 import { xrender } from './utils';
 
@@ -124,7 +124,7 @@ describe('SolanaWeb3ConfigProvider Standard wallet', () => {
 
     const App = () => {
       return (
-        <SolanaWeb3ConfigProvider wallets={[OKXWallet()]}>
+        <SolanaWeb3ConfigProvider wallets={[OKXWallet(), SolflareWallet()]}>
           <WalletReady />
         </SolanaWeb3ConfigProvider>
       );
