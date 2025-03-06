@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.18.0
+
+### Minor Changes
+
+- b6f1f1d: feat: support UniversalLink for support connect some wallet in mobile
+
 ## 1.17.0
 
 ### Minor Changes
