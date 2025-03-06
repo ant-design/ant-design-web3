@@ -2,6 +2,7 @@ import React, { forwardRef, useContext, useImperativeHandle, useMemo } from 'rea
 import { QrcodeOutlined } from '@ant-design/icons';
 import { Button, Empty, List, Space, Typography } from 'antd';
 import classNames from 'classnames';
+import mobile from 'is-mobile';
 
 import { connectModalContext } from '../context';
 import type { ConnectModalActionType, ConnectModalProps, Wallet } from '../interface';
@@ -44,6 +45,13 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
   const needGrouping =
     internalGroup !== false && (internalGroup !== undefined || groupKeys.length > 1);
 
+  const openInUniversalLink = (wallet: Wallet) => {
+    const url = wallet.universalLink?.urlTemplate
+      .replace('${url}', window.location.href)
+      .replace('${ref}', window.location.href);
+    window.open(url);
+  };
+
   const selectWallet = async (wallet: Wallet) => {
     const hasWalletReady = await wallet.hasWalletReady?.();
     if (hasWalletReady) {
@@ -53,6 +61,9 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
         updateSelectedWallet(wallet, {
           connectType: 'extension',
         });
+      } else if (mobile()) {
+        // open in universal link
+        openInUniversalLink(wallet);
       } else if (wallet.getQrCode) {
         // Extension not installed and can use qr code to connect
         updateSelectedWallet(wallet, {
@@ -64,11 +75,15 @@ const WalletList = forwardRef<ConnectModalActionType, WalletListProps>((props, r
       }
       return;
     }
-
-    // wallet not ready
-    // go to wallet page
-    updateSelectedWallet(wallet);
-    updatePanelRoute('wallet', true);
+    if (mobile() && wallet.universalLink) {
+      // open in universal link
+      openInUniversalLink(wallet);
+    } else {
+      // wallet not ready
+      // go to wallet page
+      updateSelectedWallet(wallet);
+      updatePanelRoute('wallet', true);
+    }
   };
 
   useImperativeHandle(ref, () => {
