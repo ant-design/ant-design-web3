@@ -34,16 +34,16 @@ export const TipLinkWallet = (config: TipLinkWalletConfig) => {
   });
 };
 
-export const PhantomWallet = (metadata?: WalletMetadata) =>
+export const PhantomWallet = (metadata?: Partial<WalletMetadata>) =>
   StandardWalletFactory({ ...metadata_Phantom, ...metadata });
-export const OKXWallet = (metadata?: WalletMetadata) =>
+export const OKXWallet = (metadata?: Partial<WalletMetadata>) =>
   StandardWalletFactory({ ...metadata_OkxWallet, ...metadata });
-export const BackpackWallet = (metadata?: WalletMetadata) =>
+export const BackpackWallet = (metadata?: Partial<WalletMetadata>) =>
   StandardWalletFactory({ ...metadata_Backpack, ...metadata });
-export const SolflareWallet = (metadata?: WalletMetadata) =>
+export const SolflareWallet = (metadata?: Partial<WalletMetadata>) =>
   StandardWalletFactory({ ...metadata_Solflare, ...metadata });
 
-export const WalletConnectWallet = (metadata?: WalletMetadata) =>
+export const WalletConnectWallet = (metadata?: Partial<WalletMetadata>) =>
   WalletConnectWalletFactory(new WalletConnectWalletAdapter(), {
     ...metadata_WalletConnect,
     ...metadata,

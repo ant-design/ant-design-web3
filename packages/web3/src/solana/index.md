@@ -43,6 +43,12 @@ Available adapters can be found here: [wallet-adapters](https://github.com/anza-
 
 <code src="./demos/wallet-connect.tsx"></code>
 
+## Customize wallet information
+
+When the built-in wallets do not meet your requirements, you can also customize the wallet information, and we welcome you to submit PRs to help us improve the built-in wallets.
+
+<code src="./demos/custom.tsx"></code>
+
 ## Support switch chains
 
 We have built-in support for the Solana mainnet (`mainnet-beta`). To support other networks, you need to configure the `chains` and import the relevant resources. The import process is similar to that for wallets.
