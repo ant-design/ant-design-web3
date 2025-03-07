@@ -4,7 +4,7 @@ import { SolanaWeb3ConfigProvider } from '@ant-design/web3-solana';
 
 export default function App() {
   return (
-    <SolanaWeb3ConfigProvider>
+    <SolanaWeb3ConfigProvider autoAddRegisteredWallets>
       <Connector>
         <ConnectButton />
       </Connector>
