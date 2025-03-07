@@ -180,6 +180,23 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       .map<Wallet>((w) => {
         const adapter = w.adapter;
 
+        // Mobile Wallet Adapter is a special case, it's always ready
+        if (adapter.name === 'Mobile Wallet Adapter') {
+          return {
+            name: adapter.name,
+            icon: adapter.icon,
+            remark: adapter.name,
+            _standardWallet: adapter,
+
+            hasExtensionInstalled: async () => {
+              return true;
+            },
+            hasWalletReady: async () => {
+              return hasWalletReady(adapter.readyState);
+            },
+          };
+        }
+
         return {
           name: adapter.name,
           icon: adapter.icon,
