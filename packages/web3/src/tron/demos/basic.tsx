@@ -1,6 +1,5 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
-  BitgetWallet,
   BybitWallet,
   OkxTronWallet,
   TronlinkWallet,
@@ -9,7 +8,7 @@ import {
 
 const Basic = () => {
   return (
-    <TronWeb3ConfigProvider wallets={[TronlinkWallet, OkxTronWallet, BitgetWallet, BybitWallet]}>
+    <TronWeb3ConfigProvider wallets={[TronlinkWallet, OkxTronWallet, BybitWallet]}>
       <Connector>
         <ConnectButton />
       </Connector>
