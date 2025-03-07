@@ -2,10 +2,9 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import type { Account, Locale, Wallet } from '@ant-design/web3-common';
 import { Web3ConfigProvider } from '@ant-design/web3-common';
 import {
-  AdapterName,
-  AdapterState,
-  WalletError,
   WalletReadyState,
+  type AdapterName,
+  type WalletError,
 } from '@tronweb3/tronwallet-abstract-adapter';
 import { useWallet } from '@tronweb3/tronwallet-adapter-react-hooks';
 
@@ -38,14 +37,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       });
     }
   }, [address]);
-
-  // const walletsList = useMemo(
-  //   () => [
-  //     ...wallets.filter((a) => a.state !== AdapterState.NotFound),
-  //     ...wallets.filter((a) => a.state === AdapterState.NotFound),
-  //   ],
-  //   [wallets],
-  // );
 
   const allWallets = useMemo<Wallet[]>(() => {
     const providedWallets = availableWallets?.map<Wallet>((w) => {
