@@ -1,12 +1,12 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { OkxTronWallet, TronlinkWallet, TronWeb3ConfigProvider } from '@ant-design/web3-tron';
+import { TronlinkWallet, TronWeb3ConfigProvider } from '@ant-design/web3-tron';
 import { Flex } from 'antd';
 
 import { SignTransaction } from './components/SignTransaction';
 
 const Transaction = () => {
   return (
-    <TronWeb3ConfigProvider wallets={[TronlinkWallet, OkxTronWallet]}>
+    <TronWeb3ConfigProvider wallets={[TronlinkWallet]}>
       <Flex justify="space-between" style={{ width: 386 }}>
         <Connector>
           <ConnectButton />
