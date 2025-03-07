@@ -1,6 +1,6 @@
-// TODO: fix bitget wallet
+// TODO: Enable after fixing build issues
 // export * from './bitgetWallet';
+// export * from './okxTronWallet';
 
 export * from './bybitWallet';
-export * from './okxTronWallet';
 export * from './tronlinkWallet';

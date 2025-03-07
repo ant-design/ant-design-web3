@@ -1,8 +1,7 @@
-import React, { useEffect, useState, type PropsWithChildren } from 'react';
+import React, { useMemo, useState, type PropsWithChildren } from 'react';
 import type { Locale, Wallet } from '@ant-design/web3-common';
-import type { Adapter, WalletError } from '@tronweb3/tronwallet-abstract-adapter';
+import type { WalletError } from '@tronweb3/tronwallet-abstract-adapter';
 import { BybitWalletAdapter } from '@tronweb3/tronwallet-adapter-bybit';
-import { OkxWalletAdapter } from '@tronweb3/tronwallet-adapter-okxwallet';
 import { WalletProvider } from '@tronweb3/tronwallet-adapter-react-hooks';
 import { TronLinkAdapter } from '@tronweb3/tronwallet-adapter-tronlink';
 
@@ -25,14 +24,12 @@ export const TronWeb3ConfigProvider: React.FC<PropsWithChildren<TronWeb3ConfigPr
   walletProviderProps,
 }) => {
   const [connectionError, setConnectionError] = useState<WalletError>();
-  const [adapters, setAdapters] = useState<Adapter[]>();
 
-  useEffect(() => {
+  const adapters = useMemo(() => {
     const tronLinkAdapter = new TronLinkAdapter();
-    const okxwalletAdapter = new OkxWalletAdapter();
     const bybitWalletAdapter = new BybitWalletAdapter();
 
-    setAdapters([tronLinkAdapter, okxwalletAdapter, bybitWalletAdapter]);
+    return [tronLinkAdapter, bybitWalletAdapter];
   }, []);
 
   return (
