@@ -53,7 +53,7 @@
     "father": "^4.4.4",
     "typescript": "^5.6.2",
     "viem": "^2.21.3",
-    "wagmi": "^2.14.6"
+    "wagmi": "^2.14.12"
   },
   "peerDependencies": {
     "@tanstack/react-query": "^5.51.11",
