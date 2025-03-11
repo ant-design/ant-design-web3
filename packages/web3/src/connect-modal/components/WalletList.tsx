@@ -61,24 +61,41 @@ const WalletList: ForwardRefRenderFunction<ConnectModalActionType, WalletListPro
   };
 
   const selectWallet = async (wallet: Wallet) => {
+    console.log('selectWallet:', wallet);
     const hasWalletReady = await wallet.hasWalletReady?.();
     if (hasWalletReady) {
       // wallet is ready, call ConnectModal's onWalletSelected
       const hasExtensionInstalled = await wallet?.hasExtensionInstalled?.();
-      if (hasExtensionInstalled) {
+
+      // first check if the wallet has custom handler
+      if (wallet.hasCustomHandler) {
+        wallet.hasCustomHandler();
+        updateSelectedWallet(wallet, {
+          connectType: 'custom',
+        });
+      }
+
+      // use extension to connect
+      else if (hasExtensionInstalled) {
         updateSelectedWallet(wallet, {
           connectType: 'extension',
         });
-      } else if (mobile()) {
-        // open in universal link
+      }
+
+      // open in universal link
+      else if (mobile()) {
         openInUniversalLink(wallet);
-      } else if (wallet.getQrCode) {
-        // Extension not installed and can use qr code to connect
+      }
+
+      // Extension not installed and can use qr code to connect
+      else if (wallet.getQrCode) {
         updateSelectedWallet(wallet, {
           connectType: 'qrCode',
         });
-      } else {
-        // use the default connect
+      }
+
+      // use the default connect
+      else {
         updateSelectedWallet(wallet, {});
       }
       return;

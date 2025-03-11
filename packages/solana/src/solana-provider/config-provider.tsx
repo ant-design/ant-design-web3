@@ -49,6 +49,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<
   const { connection } = useConnection();
   const connectAsyncRef = useRef<ConnectAsync>();
 
+  console.log('wallets:', wallets);
+
   const [balanceData, setBalanceData] = useState<bigint>();
   const [account, setAccount] = useState<Account>();
   const [currentWalletName, setCurrentWalletName] = useState(() => wallet?.adapter?.name ?? null);
@@ -188,11 +190,14 @@ export const AntDesignWeb3ConfigProvider: React.FC<
             remark: adapter.name,
             _standardWallet: adapter,
 
-            hasExtensionInstalled: async () => {
-              return true;
-            },
+            hasCustomHandler: () => {},
+
+            // hasExtensionInstalled: async () => {
+            //   return true;
+            // },
             hasWalletReady: async () => {
-              return hasWalletReady(adapter.readyState);
+              // return hasWalletReady(adapter.readyState);
+              return true;
             },
           };
         }
@@ -245,6 +250,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         selectWallet(currentWalletName);
       }}
       connect={async (_wallet, options) => {
+        console.log('connect_wallet:', _wallet, options);
         let resolve: any;
         let reject: any;
 

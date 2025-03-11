@@ -102,7 +102,7 @@ export interface NFTMetadata {
 }
 
 export interface ConnectOptions {
-  connectType?: 'extension' | 'qrCode';
+  connectType?: 'extension' | 'qrCode' | 'custom';
 }
 
 export interface UniversalWeb3ProviderInterface {
@@ -137,6 +137,7 @@ export interface Wallet extends WalletMetadata {
   _standardWallet?: any;
   hasWalletReady?: () => Promise<boolean>;
   hasExtensionInstalled?: () => Promise<boolean>;
+  hasCustomHandler?: () => boolean;
   getQrCode?: () => Promise<{ uri: string }>;
   customQrCodePanel?: boolean;
 }
