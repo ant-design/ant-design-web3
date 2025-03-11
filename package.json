@@ -70,7 +70,7 @@
     "@changesets/cli": "^2.27.11",
     "@ctrl/tinycolor": "^4.1.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
-    "@testing-library/react": "^16.0.1",
+    "@testing-library/react": "^16.2.0",
     "@types/lodash": "^4.17.13",
     "@types/node": "^22.10.5",
     "@types/react": "^18.3.5",
@@ -95,7 +95,7 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2",
     "vite-plugin-svgr": "^4.3.0",
-    "vitest": "~2.1.5"
+    "vitest": "~3.0.8"
   },
   "ci": {
     "type": "aci",
