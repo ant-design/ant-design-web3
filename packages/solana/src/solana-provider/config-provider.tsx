@@ -51,8 +51,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<
   const { connection } = useConnection();
   const connectAsyncRef = useRef<ConnectAsync>();
 
-  console.log('wallets:', wallets);
-
   const [balanceData, setBalanceData] = useState<bigint>();
   const [account, setAccount] = useState<Account>();
   const [currentWalletName, setCurrentWalletName] = useState(() => wallet?.adapter?.name ?? null);
@@ -101,8 +99,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<
     getBalance();
   }, [connection, publicKey, props.balance]);
 
-  console.log('__wallet__:', wallet?.adapter.name);
-
   // connect/disconnect wallet
   useEffect(() => {
     // 初始化时跳过，避免与 wallet-adapter 的自动连接逻辑冲突
@@ -110,7 +106,6 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       return;
     }
 
-    console.log('wallet:', wallet?.adapter?.name, connected, wallet?.adapter);
     if (wallet?.adapter?.name) {
       // if wallet is not ready, need clear selected wallet
       if (!hasWalletReady(wallet.adapter.readyState)) {
@@ -194,15 +189,10 @@ export const AntDesignWeb3ConfigProvider: React.FC<
             name: adapter.name,
             icon: adapter.icon,
             remark: adapter.name,
+            isMobileWallet: true,
             _standardWallet: adapter,
 
-            hasCustomHandler: () => {},
-
-            hasExtensionInstalled: async () => {
-              return true;
-            },
             hasWalletReady: async () => {
-              // return hasWalletReady(adapter.readyState);
               return true;
             },
           };
@@ -256,7 +246,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         selectWallet(currentWalletName);
       }}
       connect={async (_wallet, options) => {
-        console.log('connect_wallet:', _wallet, options);
+        // if the wallet is MWA, just call `connect`, it will pop up the mobile wallet immediately
         if (_wallet?.name === MWA_WALLET_NAME) {
           _wallet._standardWallet?.connect();
           return;

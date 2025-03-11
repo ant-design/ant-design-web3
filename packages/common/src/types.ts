@@ -102,7 +102,7 @@ export interface NFTMetadata {
 }
 
 export interface ConnectOptions {
-  connectType?: 'extension' | 'qrCode' | 'custom';
+  connectType?: 'extension' | 'qrCode' | 'openMobile';
 }
 
 export interface UniversalWeb3ProviderInterface {
@@ -137,8 +137,8 @@ export interface Wallet extends WalletMetadata {
   _standardWallet?: any;
   hasWalletReady?: () => Promise<boolean>;
   hasExtensionInstalled?: () => Promise<boolean>;
-  hasCustomHandler?: () => boolean;
   getQrCode?: () => Promise<{ uri: string }>;
+  isMobileWallet?: boolean;
   customQrCodePanel?: boolean;
 }
 

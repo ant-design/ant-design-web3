@@ -61,22 +61,21 @@ const WalletList: ForwardRefRenderFunction<ConnectModalActionType, WalletListPro
   };
 
   const selectWallet = async (wallet: Wallet) => {
-    console.log('selectWallet:', wallet);
     const hasWalletReady = await wallet.hasWalletReady?.();
     if (hasWalletReady) {
       // wallet is ready, call ConnectModal's onWalletSelected
       const hasExtensionInstalled = await wallet?.hasExtensionInstalled?.();
 
-      // first check if the wallet has custom handler
-      if (wallet.hasCustomHandler) {
-        wallet.hasCustomHandler();
+      // pop up the mobile wallet
+      if (wallet.isMobileWallet) {
         updateSelectedWallet(wallet, {
-          connectType: 'custom',
+          connectType: 'openMobile',
         });
+        return;
       }
 
       // use extension to connect
-      else if (hasExtensionInstalled) {
+      if (hasExtensionInstalled) {
         updateSelectedWallet(wallet, {
           connectType: 'extension',
         });
