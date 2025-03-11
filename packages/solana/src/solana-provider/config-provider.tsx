@@ -31,6 +31,8 @@ export interface AntDesignWeb3ConfigProviderProps {
   onCurrentChainChange?: (chain?: SolanaChainConfig) => void;
 }
 
+const MWA_WALLET_NAME = 'Mobile Wallet Adapter';
+
 export const AntDesignWeb3ConfigProvider: React.FC<
   React.PropsWithChildren<AntDesignWeb3ConfigProviderProps>
 > = (props) => {
@@ -99,6 +101,8 @@ export const AntDesignWeb3ConfigProvider: React.FC<
     getBalance();
   }, [connection, publicKey, props.balance]);
 
+  console.log('__wallet__:', wallet?.adapter.name);
+
   // connect/disconnect wallet
   useEffect(() => {
     // 初始化时跳过，避免与 wallet-adapter 的自动连接逻辑冲突
@@ -106,6 +110,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       return;
     }
 
+    console.log('wallet:', wallet?.adapter?.name, connected, wallet?.adapter);
     if (wallet?.adapter?.name) {
       // if wallet is not ready, need clear selected wallet
       if (!hasWalletReady(wallet.adapter.readyState)) {
@@ -177,13 +182,14 @@ export const AntDesignWeb3ConfigProvider: React.FC<
 
     const providedWalletNames = providedWallets.map((w) => w.name);
 
+    // standard wallets
     const autoRegisteredWallets = wallets
       .filter((w) => !providedWalletNames.includes(w.adapter.name))
       .map<Wallet>((w) => {
         const adapter = w.adapter;
 
-        // Mobile Wallet Adapter is a special case, it's always ready
-        if (adapter.name === 'Mobile Wallet Adapter') {
+        // MWA is a special case, it's always ready
+        if (adapter.name === MWA_WALLET_NAME) {
           return {
             name: adapter.name,
             icon: adapter.icon,
@@ -192,9 +198,9 @@ export const AntDesignWeb3ConfigProvider: React.FC<
 
             hasCustomHandler: () => {},
 
-            // hasExtensionInstalled: async () => {
-            //   return true;
-            // },
+            hasExtensionInstalled: async () => {
+              return true;
+            },
             hasWalletReady: async () => {
               // return hasWalletReady(adapter.readyState);
               return true;
@@ -251,6 +257,11 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       }}
       connect={async (_wallet, options) => {
         console.log('connect_wallet:', _wallet, options);
+        if (_wallet?.name === MWA_WALLET_NAME) {
+          _wallet._standardWallet?.connect();
+          return;
+        }
+
         let resolve: any;
         let reject: any;
 
