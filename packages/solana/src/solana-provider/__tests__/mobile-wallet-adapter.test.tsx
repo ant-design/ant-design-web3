@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useProvider } from '@ant-design/web3';
 import { WalletReadyState } from '@solana/wallet-adapter-base';
 import { type ConnectionContextState } from '@solana/wallet-adapter-react';
+import { fireEvent } from '@testing-library/react';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { OKXWallet, PhantomWallet, SolflareWallet } from '../../wallets/built-in';
 import { MWA_WALLET_NAME } from '../config-provider';
 import { SolanaWeb3ConfigProvider } from '../index';
 import { xrender } from './utils';
@@ -12,6 +12,7 @@ import { xrender } from './utils';
 type TestConnection = Partial<ConnectionContextState['connection']>;
 
 const mockSelectFn = vi.fn();
+const mockConnectFn = vi.fn();
 
 describe('SolanaWeb3ConfigProvider standard mobile wallet adapter', () => {
   beforeEach(() => {
@@ -73,6 +74,7 @@ describe('SolanaWeb3ConfigProvider standard mobile wallet adapter', () => {
           publicKey,
           connected: connectedRef.value,
           connect: () => {
+            mockConnectFn();
             connectedRef.value = true;
             setConnected(true);
           },
@@ -105,45 +107,14 @@ describe('SolanaWeb3ConfigProvider standard mobile wallet adapter', () => {
         return { connection };
       },
       ConnectionProvider,
-      // WalletProvider,
     };
   });
 
-  // it('available standard wallet ready state', async () => {
-  //   const WalletReady = () => {
-  //     const { availableWallets } = useProvider();
-  //     const [walletReady, setWalletReady] = useState(false);
+  it('available handle mobile wallet adapter', async () => {
+    const mockMobileWalletAdapterConnectFn = vi.fn();
 
-  //     useEffect(() => {
-  //       availableWallets![0]?.hasWalletReady?.().then((v) => {
-  //         setWalletReady(v);
-  //       });
-  //     }, [availableWallets]);
-
-  //     return <div className="is-ready">ready:{walletReady ? 'true' : 'false'}</div>;
-  //   };
-
-  //   const App = () => {
-  //     return (
-  //       <SolanaWeb3ConfigProvider wallets={[OKXWallet(), SolflareWallet()]}>
-  //         <WalletReady />
-  //       </SolanaWeb3ConfigProvider>
-  //     );
-  //   };
-
-  //   const { selector } = xrender(App);
-
-  //   const readyDom = selector('.is-ready')!;
-
-  //   // check wallet-connect config can be created
-  //   await vi.waitFor(async () => {
-  //     expect(readyDom.textContent).toBe('ready:true');
-  //   });
-  // });
-
-  it('available handle `autoAddRegisteredWallets`', async () => {
     const WalletReady = () => {
-      const { availableWallets } = useProvider();
+      const { availableWallets, connect } = useProvider();
       const [autoAddedReady, setAutoAddedReady] = useState(false);
       const [autoAddedExtInstalled, setAddedExtInstalled] = useState(false);
 
@@ -173,6 +144,23 @@ describe('SolanaWeb3ConfigProvider standard mobile wallet adapter', () => {
           <div className="wallet-names">{walletNames}</div>
           <div className="added-ready">{autoAddedReady ? 'true' : 'false'}</div>
           <div className="added-ext-installed">{autoAddedExtInstalled ? 'true' : 'false'}</div>
+          <button
+            type="button"
+            className="connect-wallet-btn"
+            onClick={() => {
+              connect?.({
+                name: MWA_WALLET_NAME,
+                remark: MWA_WALLET_NAME,
+                _standardWallet: {
+                  connect: () => {
+                    mockMobileWalletAdapterConnectFn();
+                  },
+                },
+              });
+            }}
+          >
+            connect
+          </button>
         </div>
       );
     };
@@ -190,6 +178,9 @@ describe('SolanaWeb3ConfigProvider standard mobile wallet adapter', () => {
     const namesDom = selector('.wallet-names')!;
     const readyDom = selector('.added-ready')!;
     const extInstalledDom = selector('.added-ext-installed')!;
+    const connectBtnDom = selector('.connect-wallet-btn')!;
+
+    expect(connectBtnDom).not.toBeNull();
 
     // check wallet-connect config can be created
     await vi.waitFor(async () => {
@@ -199,6 +190,17 @@ describe('SolanaWeb3ConfigProvider standard mobile wallet adapter', () => {
 
       // MWA is not a browser extension
       expect(extInstalledDom.textContent).toBe('false');
+    });
+
+    fireEvent.click(connectBtnDom);
+
+    await vi.waitFor(() => {
+      // It will call connect function of MWA directly
+      expect(mockMobileWalletAdapterConnectFn).toBeCalled();
+
+      // In fact, it will never call
+      expect(mockConnectFn).not.toBeCalled();
+      expect(mockSelectFn).not.toBeCalled();
     });
   });
 });
