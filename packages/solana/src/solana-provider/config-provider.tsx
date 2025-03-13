@@ -189,7 +189,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
             name: adapter.name,
             icon: adapter.icon,
             remark: adapter.name,
-            isMobileWallet: true,
+            _isMobileWallet: true,
             _standardWallet: adapter,
 
             hasWalletReady: async () => {

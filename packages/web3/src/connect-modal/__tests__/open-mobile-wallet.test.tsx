@@ -9,7 +9,7 @@ describe('ConnectModal open Solana Nobile Wallet Adapter(MWA) test', () => {
       const testWallet: GetProp<typeof ConnectModal, 'walletList'>[number] = {
         name: 'Mobile Wallet Adapter',
         remark: 'Solana Mobile Wallet Adapter',
-        isMobileWallet: true,
+        _isMobileWallet: true,
         _standardWallet: {},
         hasWalletReady: async () => {
           return true;

@@ -67,7 +67,7 @@ const WalletList: ForwardRefRenderFunction<ConnectModalActionType, WalletListPro
       const hasExtensionInstalled = await wallet?.hasExtensionInstalled?.();
 
       // pop up the mobile wallet
-      if (wallet.isMobileWallet) {
+      if (wallet._isMobileWallet) {
         updateSelectedWallet(wallet, {
           connectType: 'openMobile',
         });
