@@ -31,7 +31,7 @@ export interface AntDesignWeb3ConfigProviderProps {
   onCurrentChainChange?: (chain?: SolanaChainConfig) => void;
 }
 
-const MWA_WALLET_NAME = 'Mobile Wallet Adapter';
+export const MWA_WALLET_NAME = 'Mobile Wallet Adapter';
 
 export const AntDesignWeb3ConfigProvider: React.FC<
   React.PropsWithChildren<AntDesignWeb3ConfigProviderProps>
