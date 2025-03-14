@@ -77,10 +77,6 @@ You can use more components together. The content related to the chain in the co
 
 <code src="./demos/more-components.tsx"></code>
 
-## Wallet Standard
-
-<code src="./demos/wallet-standard.tsx"></code>
-
 ## API
 
 ### SolanaWeb3ConfigProvider
