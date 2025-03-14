@@ -69,6 +69,8 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
           updatePanelRoute('qrCode', true);
         } else if (connectOptions.connectType === 'extension') {
           updatePanelRoute('link', true);
+        } else if (connectOptions.connectType === 'openMobile') {
+          updatePanelRoute('link', true);
         } else {
           setPanelRoute('init');
         }
@@ -77,6 +79,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     },
     [onWalletSelected],
   );
+
   const panelRouteBack = React.useCallback(() => {
     routeStack.current.pop();
     const route = routeStack.current[routeStack.current.length - 1];
