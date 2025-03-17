@@ -83,7 +83,7 @@
     "babel-plugin-react-inline-svg-unique-id": "^1.5.0",
     "classnames": "^2.5.1",
     "eslint": "^8.57.0",
-    "eslint-plugin-unused-imports": "^4.1.3",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "father": "^4.4.4",
     "husky": "^9.1.5",
     "jsdom": "^25.0.0",
