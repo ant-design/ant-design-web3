@@ -44,7 +44,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*eDQZSopLDxEAAA
 | options | selectable token options | [Token](/components/types-cn#token)[] | - | - |
 | balance | selected token balance, includes amount and unit price | [TokenBalance](#tokenbalance) | - | - |
 | header | custom render for header | (value?: [CryptoInputValue](#cryptoinputvalue)) => React.ReactNode | - | - |
-| footer | custom render for footer | (value?: [CryptoInputValue](#cryptoinputvalue)) => React.ReactNode | - | - |
+| footer | custom render for footer | false \| (value?: [CryptoInputValue](#cryptoinputvalue)) => React.ReactNode \| [FooterProps](#FooterProps) | - | - |
 | ...props | Others please ref `TokenSelect` | [TokenSelect](/components/token-select#api) | - | - |
 
 ### CryptoInputValue
@@ -62,3 +62,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*eDQZSopLDxEAAA
 | amount   | user had token amount              | `bigint`           | -       | -       |
 | price    | token price                        | `string \| number` | -       | -       |
 | unit     | token price display unit, like "$" | `bigint`           | -       | -       |
+
+### FooterProps
+
+| Property           | Description           | Type      | Default | Version |
+| ------------------ | --------------------- | --------- | ------- | ------- |
+| hideQuickSetButton | hide quick set button | `boolean` | `false` | -       |
