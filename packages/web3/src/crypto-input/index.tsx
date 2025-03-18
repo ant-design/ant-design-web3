@@ -10,7 +10,7 @@ import { useCryptoInputStyle } from './style';
 
 // get CryptoInput self decimal instance with precision 100
 const Decimal100 = Decimal.clone({ precision: 100 });
-
+type FooterProps = { hideQuickSetButton?: boolean };
 export interface CryptoInputProps extends Omit<TokenSelectProps, 'value' | 'onChange'> {
   /**
    * token amount
@@ -40,7 +40,7 @@ export interface CryptoInputProps extends Omit<TokenSelectProps, 'value' | 'onCh
   /**
    * custom render for footer
    */
-  footer?: false | React.ReactNode;
+  footer?: FooterProps | React.ReactNode | false;
   /**
    * size of the input
    */
@@ -51,7 +51,7 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
   value,
   onChange,
   header,
-  footer,
+  footer = true,
   balance,
   size = 'middle',
   ...selectProps
@@ -134,7 +134,9 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
       />
       {footer !== false && (
         <div className={getClsName('footer')}>
-          {footer || (
+          {React.isValidElement(footer) ? (
+            footer
+          ) : (
             <Flex className={getClsName('default-footer')} justify="space-between">
               <Typography.Text
                 ellipsis={{ tooltip: tokenTotalPrice }}
@@ -151,7 +153,7 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
                     value={balance?.amount}
                   />
                 )}
-                {!!balance?.amount && (
+                {!!balance?.amount && footer && !(footer as FooterProps)?.hideQuickSetButton && (
                   <a
                     className={getClsName('max-button')}
                     role="button"
