@@ -30,6 +30,12 @@ Ant Design Web3 官方提供了 `@ant-design/web3-solana` 来适配 Solana，它
 
 <code src="./demos/basic.tsx"></code>
 
+## Mobile Wallet Adapter
+
+`autoAddRegisteredWallets` 为 `true` 时，在移动端也会自动添加名为 `Mobile Wallet Adapter` 的钱包。
+
+<code src="./demos/mobile-wallet-adapter.tsx"></code>
+
 ## 添加更多钱包
 
 为了降低引入包的大小，你需要手动配置 `wallets` 引入相关钱包。你可以从 `@ant-design/web3-assets` 和 `@solana/wallet-adapter-ADAPTER_YOUR_NEED` 中导出相关资源，如果没有你需要的资源，你可以通过提交 [GitHub issue](https://github.com/ant-design/ant-design-web3/issues) 告诉我们。当然，你也可以自己配置或者给我们提交 PR 支持。
