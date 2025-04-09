@@ -10,7 +10,9 @@ import { useCryptoInputStyle } from './style';
 
 // get CryptoInput self decimal instance with precision 100
 const Decimal100 = Decimal.clone({ precision: 100 });
-type FooterProps = { hideQuickSetButton?: boolean };
+interface FooterProps {
+  setMaxButton?: boolean;
+}
 export interface CryptoInputProps extends Omit<TokenSelectProps, 'value' | 'onChange'> {
   /**
    * token amount
@@ -153,7 +155,7 @@ export const CryptoInput: React.FC<CryptoInputProps> = ({
                     value={balance?.amount}
                   />
                 )}
-                {!!balance?.amount && footer && !(footer as FooterProps)?.hideQuickSetButton && (
+                {!!balance?.amount && footer && !(footer as FooterProps)?.setMaxButton && (
                   <a
                     className={getClsName('max-button')}
                     role="button"

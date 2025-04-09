@@ -72,6 +72,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*eDQZSopLDxEAAA
 
 ### FooterProps
 
-| 属性               | 描述             | 类型      | 默认值  | 版本 |
-| ------------------ | ---------------- | --------- | ------- | ---- |
-| hideQuickSetButton | 隐藏快速设置按钮 | `boolean` | `false` | -    |
+| 属性         | 描述                   | 类型      | 默认值  | 版本 |
+| ------------ | ---------------------- | --------- | ------- | ---- |
+| setMaxButton | 设置快速按钮是否可以见 | `boolean` | `false` | -    |

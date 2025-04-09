@@ -65,6 +65,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*eDQZSopLDxEAAA
 
 ### FooterProps
 
-| Property           | Description           | Type      | Default | Version |
-| ------------------ | --------------------- | --------- | ------- | ------- |
-| hideQuickSetButton | hide quick set button | `boolean` | `false` | -       |
+| Property     | Description            | Type      | Default | Version |
+| ------------ | ---------------------- | --------- | ------- | ------- |
+| setMaxButton | set max button visible | `boolean` | `false` | -       |

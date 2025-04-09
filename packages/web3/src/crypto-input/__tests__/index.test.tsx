@@ -240,10 +240,10 @@ describe('CryptoInput component', () => {
   });
 
   it('do not show max button when set quickSetAmount to false', () => {
-    const { baseElement, rerender } = render(
+    const { baseElement } = render(
       <CryptoInput
         value={{ amount: BigInt(1000), inputString: '10', token: USDC }}
-        footer={{ hideQuickSetButton: true }}
+        footer={{ setMaxButton: true }}
       />,
     );
     expect(baseElement.querySelector('web3-crypto-input-max-button')).toBeNull();
