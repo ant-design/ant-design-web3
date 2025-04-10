@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ETH, USDT } from '@ant-design/web3-assets/tokens';
+import { ETH, USDC, USDT } from '@ant-design/web3-assets/tokens';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -237,5 +237,15 @@ describe('CryptoInput component', () => {
     // change token balance to undefined
     rerender(<TestComponent balance={undefined} />);
     expect(baseElement.querySelector('.web3-crypto-input-total-price')?.textContent).toBe('-');
+  });
+
+  it('do not show max button when set quickSetAmount to false', () => {
+    const { baseElement } = render(
+      <CryptoInput
+        value={{ amount: BigInt(1000), inputString: '10', token: USDC }}
+        footer={{ setMaxButton: true }}
+      />,
+    );
+    expect(baseElement.querySelector('web3-crypto-input-max-button')).toBeNull();
   });
 });
