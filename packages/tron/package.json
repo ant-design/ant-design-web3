@@ -43,14 +43,12 @@
   "dependencies": {
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
-    "@tronweb3/tronwallet-abstract-adapter": "^1.1.8",
-    "@tronweb3/tronwallet-adapter-react-hooks": "^1.1.9",
-    "@tronweb3/tronwallet-adapter-walletconnect": "^2.0.2",
-    "@tronweb3/tronwallet-adapter-tronlink": "^1.1.11",
-    "@tronweb3/tronwallet-adapter-bitkeep": "^1.1.3",
-    "@tronweb3/tronwallet-adapter-okxwallet": "^1.0.5",
-    "@tronweb3/tronwallet-adapter-bybit": "^1.0.0",
-    "@tronweb3/tronwallet-adapters": "^1.2.7",
+    "@tronweb3/tronwallet-abstract-adapter": "^1.1.9",
+    "@tronweb3/tronwallet-adapter-react-hooks": "^1.1.10",
+    "@tronweb3/tronwallet-adapter-walletconnect": "^2.0.3",
+    "@tronweb3/tronwallet-adapter-tronlink": "^1.1.12",
+    "@tronweb3/tronwallet-adapter-okxwallet": "^1.0.6",
+    "@tronweb3/tronwallet-adapter-bybit": "^1.0.1",
     "tronweb": "^6.0.1"
   },
   "devDependencies": {
