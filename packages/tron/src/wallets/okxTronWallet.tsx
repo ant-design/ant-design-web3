@@ -1,3 +1,4 @@
+/* v8 ignore start */
 import { metadata_OkxWallet } from '@ant-design/web3-assets';
 import type { WalletMetadata } from '@ant-design/web3-common';
 
