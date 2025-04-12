@@ -14,7 +14,7 @@ export const TronlinkWallet: WalletMetadata = {
       key: 'Chrome',
       browserIcon: <ChromeCircleColorful />,
       browserName: 'Chrome',
-      link: 'https://chrome.google.com/webstore/detail/ibnejdfjmmkpcnlpebklmnkoeoihofec',
+      link: 'https://chromewebstore.google.com/detail/tronlink/ibnejdfjmmkpcnlpebklmnkoeoihofec',
       description: 'The first and most popular TRON wallet. Recommended by TRON Foundation.',
     },
   ],

@@ -14,7 +14,7 @@ export const BitgetWallet: WalletMetadata = {
       key: 'Chrome',
       browserIcon: <ChromeCircleColorful />,
       browserName: 'Chrome',
-      link: 'https://chrome.google.com/webstore/detail/jiidiaalihmmhddjgbnbgdfflelocpak',
+      link: 'https://chromewebstore.google.com/detail/bitget-wallet-crypto-web3/jiidiaalihmmhddjgbnbgdfflelocpak',
       description:
         "Bitget Wallet, formerly known as BitKeep, is one of the world's largest non-custodial  multi-chain crypto wallets.",
     },

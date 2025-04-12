@@ -14,7 +14,7 @@ export const BybitWallet: WalletMetadata = {
       key: 'Chrome',
       browserIcon: <ChromeCircleColorful />,
       browserName: 'Chrome',
-      link: 'https://chrome.google.com/webstore/detail/pdliaogehgdbhbnmkklieghmmjkpigpa',
+      link: 'https://chromewebstore.google.com/detail/bybit-wallet/pdliaogehgdbhbnmkklieghmmjkpigpa',
       description:
         'Bybit Wallet connects you to the world of Web3 with best-in-class reliability and security.',
     },
