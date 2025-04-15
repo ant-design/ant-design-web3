@@ -62,7 +62,7 @@ describe('WagmiWeb3ConfigProvider balance', () => {
     );
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.ant-web3-connect-button-text')?.textContent).toBe(
-      ' 1.23 WETH',
+      '0x21CD...Fd3B 1.23 WETH',
     );
     expect(baseElement.querySelector('.ant-web3-icon-ethereum-filled')).toBeTruthy();
   });
