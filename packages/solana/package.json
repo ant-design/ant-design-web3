@@ -47,7 +47,7 @@
     "@metaplex-foundation/js": "^0.20.1",
     "@solana/wallet-adapter-base": "^0.9.23",
     "@solana/wallet-adapter-coinbase": "^0.1.19",
-    "@solana/wallet-adapter-react": "^0.15.35",
+    "@solana/wallet-adapter-react": "^0.15.37",
     "@solana/wallet-adapter-trust": "^0.1.13",
     "@tiplink/wallet-adapter": "^2.1.21",
     "@walletconnect/core": "^2.17.3",
