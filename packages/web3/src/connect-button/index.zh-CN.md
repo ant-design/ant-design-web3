@@ -82,7 +82,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*S4cyQ7OCxDUAAA
 | value        | 余额     | `bigint \| number` | -      | -    |
 | symbol       | 代币符号 | `string`           | -      | -    |
 | decimals     | 代币精度 | `number`           | -      | -    |
-| coverAddress | 覆盖地址 | `boolean`          | -      | -    |
+| coverAddress | 覆盖地址 | `boolean`          | `true` | -    |
 
 ### ConnectButtonTooltipProps
 

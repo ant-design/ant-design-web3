@@ -81,7 +81,7 @@ After configuring the `quickConnect` property, the installed wallets and univers
 | value        | Balance         | `bigint \| number` | -       | -       |
 | symbol       | Token symbol    | `string`           | -       | -       |
 | decimals     | Token decimals  | `number`           | -       | -       |
-| coverAddress | Covered address | `boolean`          | -       | -       |
+| coverAddress | Covered address | `boolean`          | `true`  | -       |
 
 ### ConnectButtonTooltipProps
 
