@@ -1,11 +1,11 @@
-"use strict";(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[3253],{72851:function(o,n,e){e.r(n),e.d(n,{CoinbaseWallet:function(){return g.G},EthWeb3jsConfigProvider:function(){return O},ImToken:function(){return W.V},MetaMask:function(){return S.M},OkxWallet:function(){return E.Y},SafeheronWallet:function(){return L.V},TokenPocket:function(){return T.g},UniversalWallet:function(){return k.M},clientToWeb3js:function(){return Z},useWeb3js:function(){return h}});var t=e(26068),a=e.n(t),p=e(15558),s=e.n(p),m=e(67825),f=e.n(m),i=e(1735),r=e(12989),d=e(46637),c=e(49221),A=e(70307),u=e(82859),_=e(4708),b=e(39069),C=e(40542),y=e(72152),B=["children","walletConnect","storage"],O=function(l){var w,x=l.children,R=l.walletConnect,H=l.storage,I=f()(l,B),z=i.useMemo(function(){var P;return((P=I.chains)!==null&&P!==void 0?P:[r.ny]).map(function(M){var F,D=(F=Object.values(_).find(function(N){return N.id===M.id}))!==null&&F!==void 0?F:null;return D!=null&&D.id||console.warn("Chain ".concat(M.id," is not supported")),D}).filter(function(M){return M!==null})},[(w=I.chains)===null||w===void 0?void 0:w.map(function(P){return P.id}).join()]),K=i.useMemo(function(){var P,M=s()((P=I.wallets)!==null&&P!==void 0?P:[]);return R&&R.projectId&&M.push((0,d.b)()),M},[I.wallets,R]),G=i.useMemo(function(){var P,M=Object.fromEntries(z.map(function(N){return[N.id,(0,A.d)()]})),F=[b.L()];if(((P=I.wallets)!==null&&P!==void 0?P:[]).forEach(function(N){N.name&&F.push(b.L({target:N.name}))}),R&&R.projectId){var D;F.push(C.a(a()(a()({},R),{},{showQrModal:(D=R.useWalletConnectOfficialModal)!==null&&D!==void 0?D:!1})))}return(0,u._)({chains:z,transports:M,connectors:F,storage:H===!1?null:H})},[z,R,I.wallets,H]);return(0,y.jsx)(c.h,a()(a()({},I),{},{config:G,wallets:K,children:x}))},S=e(74702),g=e(90911),T=e(73607),L=e(66700),k=e(31427),E=e(93893),W=e(19764),U=e(15368),j=e(15478),Z=function(l){var w=l.transport;return w.type==="fallback"?new j.BvB(w.transports[0].value.url):new j.BvB(w)};function h(){var v=(0,U.L)(),l=v.data;return(0,i.useMemo)(function(){return l?Z(l):null},[l])}},53688:function(o,n,e){e.d(n,{G:function(){return O}});var t=e(26068),a=e.n(t),p=e(15558),s=e.n(p),m=e(67825),f=e.n(m),i=e(1735),r=e(12989),d=e(46637),c=e(49221),A=e(70307),u=e(82859),_=e(4708),b=e(39069),C=e(40542),y=e(72152),B=["children","walletConnect","storage"],O=function(g){var T,L=g.children,k=g.walletConnect,E=g.storage,W=f()(g,B),U=i.useMemo(function(){var h;return((h=W.chains)!==null&&h!==void 0?h:[r.ny]).map(function(v){var l,w=(l=Object.values(_).find(function(x){return x.id===v.id}))!==null&&l!==void 0?l:null;return w!=null&&w.id||console.warn("Chain ".concat(v.id," is not supported")),w}).filter(function(v){return v!==null})},[(T=W.chains)===null||T===void 0?void 0:T.map(function(h){return h.id}).join()]),j=i.useMemo(function(){var h,v=s()((h=W.wallets)!==null&&h!==void 0?h:[]);return k&&k.projectId&&v.push((0,d.b)()),v},[W.wallets,k]),Z=i.useMemo(function(){var h,v=Object.fromEntries(U.map(function(x){return[x.id,(0,A.d)()]})),l=[b.L()];if(((h=W.wallets)!==null&&h!==void 0?h:[]).forEach(function(x){x.name&&l.push(b.L({target:x.name}))}),k&&k.projectId){var w;l.push(C.a(a()(a()({},k),{},{showQrModal:(w=k.useWalletConnectOfficialModal)!==null&&w!==void 0?w:!1})))}return(0,u._)({chains:U,transports:v,connectors:l,storage:E===!1?null:E})},[U,k,W.wallets,E]);return(0,y.jsx)(c.h,a()(a()({},W),{},{config:Z,wallets:j,children:L}))}},63936:function(o,n,e){e.d(n,{Z:function(){return f},j:function(){return m}});var t=e(1735),a=e(78735),p=e(53729),s=e(75426);function m(i){var r,d=i.chain,c=i.transport,A={chainId:d.id,name:d.name,ensAddress:(r=d.contracts)===null||r===void 0||(r=r.ensRegistry)===null||r===void 0?void 0:r.address};if(c.type==="fallback"){var u=c.transports.map(function(_){var b=_.value;return new a.r6(b==null?void 0:b.url,A)});return u.length===1?u[0]:new p.H(u)}return new a.r6(c.url,A)}function f(){var i=(0,s.m)();return(0,t.useMemo)(function(){return i?m(i):null},[i])}},5497:function(o,n,e){e.d(n,{r:function(){return m},z:function(){return f}});var t=e(1735),a=e(95336),p=e(78735),s=e(15368);function m(i){var r,d=i.account,c=i.chain,A=i.transport,u=c?{chainId:c.id,name:c.name,ensAddress:(r=c.contracts)===null||r===void 0||(r=r.ensRegistry)===null||r===void 0?void 0:r.address}:void 0,_=new a.Q(A,u),b=new p.C1(_,d.address);return b}function f(){var i=(0,s.L)(),r=i.data;return(0,t.useMemo)(function(){return r?m(r):null},[r])}},30650:function(o,n,e){e.r(n),e.d(n,{CoinbaseWallet:function(){return p.G},EthersWeb3ConfigProvider:function(){return t.G},ImToken:function(){return r.V},MetaMask:function(){return a.M},OkxWallet:function(){return i.Y},SafeheronWallet:function(){return m.V},TokenPocket:function(){return s.g},UniversalWallet:function(){return f.M},clientToProvider:function(){return d.j},clientToSigner:function(){return c.r},useEthersProvider:function(){return d.Z},useEthersSigner:function(){return c.z}});var t=e(53688),a=e(74702),p=e(90911),s=e(73607),m=e(66700),f=e(31427),i=e(93893),r=e(19764),d=e(63936),c=e(5497)},79791:function(o,n,e){e.r(n),e.d(n,{BaseError:function(){return t.BaseError},ChainNotConfiguredError:function(){return t.ChainNotConfiguredError},ConnectorAccountNotFoundError:function(){return t.ConnectorAccountNotFoundError},ConnectorAlreadyConnectedError:function(){return t.ConnectorAlreadyConnectedError},ConnectorChainMismatchError:function(){return t.ConnectorChainMismatchError},ConnectorNotFoundError:function(){return t.ConnectorNotFoundError},ConnectorUnavailableReconnectingError:function(){return t.ConnectorUnavailableReconnectingError},Context:function(){return t.Context},Hydrate:function(){return t.Hydrate},ProviderNotFoundError:function(){return t.ProviderNotFoundError},SwitchChainNotSupportedError:function(){return t.SwitchChainNotSupportedError},WagmiConfig:function(){return t.WagmiConfig},WagmiContext:function(){return t.WagmiContext},WagmiProvider:function(){return t.WagmiProvider},WagmiProviderNotFoundError:function(){return t.WagmiProviderNotFoundError},actions:function(){return a},chains:function(){return p},connectors:function(){return s},cookieStorage:function(){return t.cookieStorage},cookieToInitialState:function(){return t.cookieToInitialState},createConfig:function(){return t.createConfig},createConnector:function(){return t.createConnector},createStorage:function(){return t.createStorage},custom:function(){return t.custom},deepEqual:function(){return t.deepEqual},deserialize:function(){return t.deserialize},fallback:function(){return t.fallback},http:function(){return t.http},injected:function(){return t.injected},mock:function(){return t.mock},noopStorage:function(){return t.noopStorage},normalizeChainId:function(){return t.normalizeChainId},parseCookie:function(){return t.parseCookie},serialize:function(){return t.serialize},unstable_connector:function(){return t.unstable_connector},useAccount:function(){return t.useAccount},useAccountEffect:function(){return t.useAccountEffect},useBalance:function(){return t.useBalance},useBlock:function(){return t.useBlock},useBlockNumber:function(){return t.useBlockNumber},useBlockTransactionCount:function(){return t.useBlockTransactionCount},useBytecode:function(){return t.useBytecode},useCall:function(){return t.useCall},useChainId:function(){return t.useChainId},useChains:function(){return t.useChains},useClient:function(){return t.useClient},useConfig:function(){return t.useConfig},useConnect:function(){return t.useConnect},useConnections:function(){return t.useConnections},useConnectorClient:function(){return t.useConnectorClient},useConnectors:function(){return t.useConnectors},useContractInfiniteReads:function(){return t.useContractInfiniteReads},useContractRead:function(){return t.useContractRead},useContractReads:function(){return t.useContractReads},useContractWrite:function(){return t.useContractWrite},useDeployContract:function(){return t.useDeployContract},useDisconnect:function(){return t.useDisconnect},useEnsAddress:function(){return t.useEnsAddress},useEnsAvatar:function(){return t.useEnsAvatar},useEnsName:function(){return t.useEnsName},useEnsResolver:function(){return t.useEnsResolver},useEnsText:function(){return t.useEnsText},useEstimateFeesPerGas:function(){return t.useEstimateFeesPerGas},useEstimateGas:function(){return t.useEstimateGas},useEstimateMaxPriorityFeePerGas:function(){return t.useEstimateMaxPriorityFeePerGas},useFeeData:function(){return t.useFeeData},useFeeHistory:function(){return t.useFeeHistory},useGasPrice:function(){return t.useGasPrice},useInfiniteReadContracts:function(){return t.useInfiniteReadContracts},usePrepareTransactionRequest:function(){return t.usePrepareTransactionRequest},useProof:function(){return t.useProof},usePublicClient:function(){return t.usePublicClient},useReadContract:function(){return t.useReadContract},useReadContracts:function(){return t.useReadContracts},useReconnect:function(){return t.useReconnect},useSendTransaction:function(){return t.useSendTransaction},useSignMessage:function(){return t.useSignMessage},useSignTypedData:function(){return t.useSignTypedData},useSimulateContract:function(){return t.useSimulateContract},useStorageAt:function(){return t.useStorageAt},useSwitchAccount:function(){return t.useSwitchAccount},useSwitchChain:function(){return t.useSwitchChain},useToken:function(){return t.useToken},useTransaction:function(){return t.useTransaction},useTransactionConfirmations:function(){return t.useTransactionConfirmations},useTransactionCount:function(){return t.useTransactionCount},useTransactionReceipt:function(){return t.useTransactionReceipt},useVerifyMessage:function(){return t.useVerifyMessage},useVerifyTypedData:function(){return t.useVerifyTypedData},useWaitForTransactionReceipt:function(){return t.useWaitForTransactionReceipt},useWalletClient:function(){return t.useWalletClient},useWatchAsset:function(){return t.useWatchAsset},useWatchBlockNumber:function(){return t.useWatchBlockNumber},useWatchBlocks:function(){return t.useWatchBlocks},useWatchContractEvent:function(){return t.useWatchContractEvent},useWatchPendingTransactions:function(){return t.useWatchPendingTransactions},useWriteContract:function(){return t.useWriteContract},version:function(){return t.version},webSocket:function(){return t.webSocket}});var t=e(67527),a=e(27523),p=e(4708),s=e(2713)},51869:function(o,n,e){e.r(n);var t=e(48305),a=e.n(t),p=e(26068),s=e.n(p),m=e(1735),f=e(50515),i=e(63299),r=e(44667),d=e(78028),c=e(48454),A=e(23715),u=e(49866),_=e(99865),b=e(11275),C=e(72152),y=[i.Z,r.F,s()(s()({},d.T),{},{getQrCode:function(){return new Promise(function(g){return setTimeout(function(){return g({uri:"https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=".concat(Date.now(),"&random=").concat(Math.random())})},2e3)})}}),{icon:"https://xsgames.co/randomusers/avatar.php?g=pixel&key=3",name:"Test Wallet3",remark:"remark 3",app:{link:"https://test.com/xxx"},getQrCode:function(){return new Promise(function(g){return setTimeout(function(){return g({uri:"https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=".concat(Date.now(),"&random=").concat(Math.random())})},2e3)})}},{icon:"https://xsgames.co/randomusers/avatar.php?g=pixel&key=3",name:"Test Wallet3 Has a Long Name",remark:"remark 3",app:{link:"https://test.com/xxx"}},c.t,A.m,u.e,_.I],B=function(g,T){return g==="Popular"?-1:T==="Popular"?1:g.localeCompare(T)},O=function(g){var T=m.useState(!1),L=a()(T,2),k=L[0],E=L[1];return(0,C.jsxs)(C.Fragment,{children:[(0,C.jsx)(b.ZP,{type:"primary",onClick:function(){return E(!0)},children:"Open with basic"}),(0,C.jsx)(f.ConnectModal,s()({open:k,group:{groupOrder:B},walletList:y,onCancel:function(){return E(!1)}},g))]})};n.default=O},95397:function(o,n,e){e.r(n);var t=e(48305),a=e.n(t),p=e(26068),s=e.n(p),m=e(1735),f=e(50515),i=e(63299),r=e(78028),d=e(11275),c=e(72152),A=[i.Z,s()(s()({},r.T),{},{getQrCode:function(){return new Promise(function(C){return setTimeout(function(){return C({uri:"https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=".concat(Date.now(),"&random=").concat(Math.random())})},2e3)})}}),{icon:"https://xsgames.co/randomusers/avatar.php?g=pixel&key=3",name:"Test Wallet3",remark:"remark 3",app:{link:"https://test.com/xxx"},getQrCode:function(){return new Promise(function(C){return setTimeout(function(){return C({uri:"https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=".concat(Date.now(),"&random=").concat(Math.random())})},2e3)})}}],u=function(C,y){return C==="Popular"?-1:y==="Popular"?1:C.localeCompare(y)},_=function(C){var y=m.useState(!1),B=a()(y,2),O=B[0],S=B[1];return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsx)(d.ZP,{type:"primary",onClick:function(){return S(!0)},children:"Open with simple"}),(0,c.jsx)(f.ConnectModal,s()({open:O,group:{groupOrder:u},walletList:A,onCancel:function(){return S(!1)},mode:"simple"},C))]})};n.default=_},97377:function(o,n,e){e.r(n),e.d(n,{customToken:function(){return t}});var t={token:{wireframe:!1,padding:24,paddingSM:16,paddingXS:12,fontSize:16,fontSizeLG:18,fontSizeHeading4:24,fontSizeHeading5:20,fontSizeHeading2:36,fontSizeXL:24,borderRadius:6,colorPrimary:"#8442ff",colorInfo:"#8442ff"},components:{Button:{borderRadius:16,borderRadiusLG:24,borderRadiusSM:8,controlHeight:44,marginXS:8,paddingContentHorizontal:24,fontSizeLG:18,controlHeightLG:52,controlHeightSM:36,paddingXS:16},List:{paddingLG:24,marginLG:24,marginXXL:48,paddingContentHorizontalLG:24,fontSizeLG:20,padding:16,borderRadiusLG:10,paddingContentVertical:24,paddingXS:8,paddingSM:12},Modal:{controlHeightLG:44,fontSizeHeading5:20,fontSizeLG:18,marginSM:12,margin:16,marginLG:24,marginXS:8,padding:16,paddingContentHorizontalLG:24,paddingLG:24,paddingMD:20,paddingXS:12,borderRadiusLG:24,borderRadiusSM:10}}}},1622:function(o,n,e){e.r(n),e.d(n,{getNonce:function(){return m},verifyMessage:function(){return i}});var t=e(90228),a=e.n(t),p=e(87999),s=e.n(p);function m(d){return f.apply(this,arguments)}function f(){return f=s()(a()().mark(function d(c){return a()().wrap(function(u){for(;;)switch(u.prev=u.next){case 0:return u.abrupt("return","PtZZs3w7ktHsbSFUcmwb");case 1:case"end":return u.stop()}},d)})),f.apply(this,arguments)}function i(d,c){return r.apply(this,arguments)}function r(){return r=s()(a()().mark(function d(c,A){return a()().wrap(function(_){for(;;)switch(_.prev=_.next){case 0:return _.abrupt("return",!0);case 1:case"end":return _.stop()}},d)})),r.apply(this,arguments)}},8710:function(o,n,e){e.r(n),e.d(n,{fillWithPrefix:function(){return a.fillWithPrefix},formatAddress:function(){return a.formatAddress},formatBalance:function(){return a.formatBalance},getPlatform:function(){return t.getPlatform},writeCopyText:function(){return t.writeCopyText}});var t=e(5367),a=e(74283)},81486:function(o,n){n.Z=`import { Address } from '@ant-design/web3';
+(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[7679],{30650:function(e,n,o){"use strict";o.r(n),o.d(n,{CoinbaseWallet:function(){return s.G},EthersWeb3ConfigProvider:function(){return t.G},ImToken:function(){return m.V},MetaMask:function(){return a.M},OkxWallet:function(){return p.Y},SafeheronWallet:function(){return d.V},TokenPocket:function(){return r.g},UniversalWallet:function(){return u.M},clientToProvider:function(){return f.j},clientToSigner:function(){return l.r},useEthersProvider:function(){return f.Z},useEthersSigner:function(){return l.z}});var t=o(53688),a=o(74702),s=o(90911),r=o(73607),d=o(66700),u=o(31427),p=o(93893),m=o(19764),f=o(63936),l=o(5497)},79791:function(e,n,o){"use strict";o.r(n),o.d(n,{BaseError:function(){return t.BaseError},ChainNotConfiguredError:function(){return t.ChainNotConfiguredError},ConnectorAccountNotFoundError:function(){return t.ConnectorAccountNotFoundError},ConnectorAlreadyConnectedError:function(){return t.ConnectorAlreadyConnectedError},ConnectorChainMismatchError:function(){return t.ConnectorChainMismatchError},ConnectorNotFoundError:function(){return t.ConnectorNotFoundError},ConnectorUnavailableReconnectingError:function(){return t.ConnectorUnavailableReconnectingError},Context:function(){return t.Context},Hydrate:function(){return t.Hydrate},ProviderNotFoundError:function(){return t.ProviderNotFoundError},SwitchChainNotSupportedError:function(){return t.SwitchChainNotSupportedError},WagmiConfig:function(){return t.WagmiConfig},WagmiContext:function(){return t.WagmiContext},WagmiProvider:function(){return t.WagmiProvider},WagmiProviderNotFoundError:function(){return t.WagmiProviderNotFoundError},actions:function(){return a},chains:function(){return s},connectors:function(){return r},cookieStorage:function(){return t.cookieStorage},cookieToInitialState:function(){return t.cookieToInitialState},createConfig:function(){return t.createConfig},createConnector:function(){return t.createConnector},createStorage:function(){return t.createStorage},custom:function(){return t.custom},deepEqual:function(){return t.deepEqual},deserialize:function(){return t.deserialize},fallback:function(){return t.fallback},http:function(){return t.http},injected:function(){return t.injected},mock:function(){return t.mock},noopStorage:function(){return t.noopStorage},normalizeChainId:function(){return t.normalizeChainId},parseCookie:function(){return t.parseCookie},serialize:function(){return t.serialize},unstable_connector:function(){return t.unstable_connector},useAccount:function(){return t.useAccount},useAccountEffect:function(){return t.useAccountEffect},useBalance:function(){return t.useBalance},useBlock:function(){return t.useBlock},useBlockNumber:function(){return t.useBlockNumber},useBlockTransactionCount:function(){return t.useBlockTransactionCount},useBytecode:function(){return t.useBytecode},useCall:function(){return t.useCall},useChainId:function(){return t.useChainId},useChains:function(){return t.useChains},useClient:function(){return t.useClient},useConfig:function(){return t.useConfig},useConnect:function(){return t.useConnect},useConnections:function(){return t.useConnections},useConnectorClient:function(){return t.useConnectorClient},useConnectors:function(){return t.useConnectors},useContractInfiniteReads:function(){return t.useContractInfiniteReads},useContractRead:function(){return t.useContractRead},useContractReads:function(){return t.useContractReads},useContractWrite:function(){return t.useContractWrite},useDeployContract:function(){return t.useDeployContract},useDisconnect:function(){return t.useDisconnect},useEnsAddress:function(){return t.useEnsAddress},useEnsAvatar:function(){return t.useEnsAvatar},useEnsName:function(){return t.useEnsName},useEnsResolver:function(){return t.useEnsResolver},useEnsText:function(){return t.useEnsText},useEstimateFeesPerGas:function(){return t.useEstimateFeesPerGas},useEstimateGas:function(){return t.useEstimateGas},useEstimateMaxPriorityFeePerGas:function(){return t.useEstimateMaxPriorityFeePerGas},useFeeData:function(){return t.useFeeData},useFeeHistory:function(){return t.useFeeHistory},useGasPrice:function(){return t.useGasPrice},useInfiniteReadContracts:function(){return t.useInfiniteReadContracts},usePrepareTransactionRequest:function(){return t.usePrepareTransactionRequest},useProof:function(){return t.useProof},usePublicClient:function(){return t.usePublicClient},useReadContract:function(){return t.useReadContract},useReadContracts:function(){return t.useReadContracts},useReconnect:function(){return t.useReconnect},useSendTransaction:function(){return t.useSendTransaction},useSignMessage:function(){return t.useSignMessage},useSignTypedData:function(){return t.useSignTypedData},useSimulateContract:function(){return t.useSimulateContract},useStorageAt:function(){return t.useStorageAt},useSwitchAccount:function(){return t.useSwitchAccount},useSwitchChain:function(){return t.useSwitchChain},useToken:function(){return t.useToken},useTransaction:function(){return t.useTransaction},useTransactionConfirmations:function(){return t.useTransactionConfirmations},useTransactionCount:function(){return t.useTransactionCount},useTransactionReceipt:function(){return t.useTransactionReceipt},useVerifyMessage:function(){return t.useVerifyMessage},useVerifyTypedData:function(){return t.useVerifyTypedData},useWaitForTransactionReceipt:function(){return t.useWaitForTransactionReceipt},useWalletClient:function(){return t.useWalletClient},useWatchAsset:function(){return t.useWatchAsset},useWatchBlockNumber:function(){return t.useWatchBlockNumber},useWatchBlocks:function(){return t.useWatchBlocks},useWatchContractEvent:function(){return t.useWatchContractEvent},useWatchPendingTransactions:function(){return t.useWatchPendingTransactions},useWriteContract:function(){return t.useWriteContract},version:function(){return t.version},webSocket:function(){return t.webSocket}});var t=o(67527),a=o(27523),s=o(4708),r=o(2713)},57003:function(e,n,o){"use strict";o.r(n),o.d(n,{BybitWallet:function(){return u.bZ},OkxTronWallet:function(){return u.$P},TronWeb3ConfigProvider:function(){return t.o},TronlinkWallet:function(){return u.Xw},useWallet:function(){return p.O}});var t=o(14652),a=o(16853),s=o.n(a),r={};for(var d in a)["default","useWallet","TronWeb3ConfigProvider"].indexOf(d)<0&&(r[d]=function(m){return a[m]}.bind(0,d));o.d(n,r);var u=o(57283),p=o(53246)},57283:function(e,n,o){"use strict";o.d(n,{$P:function(){return t.$},Xw:function(){return s.X},bZ:function(){return a.b}});var t=o(79410),a=o(54106),s=o(74784)},16853:function(){},51869:function(e,n,o){"use strict";o.r(n);var t=o(48305),a=o.n(t),s=o(26068),r=o.n(s),d=o(1735),u=o(50515),p=o(63299),m=o(44667),f=o(78028),l=o(48454),A=o(23715),k=o(49866),h=o(99865),C=o(11275),i=o(72152),b=[p.Z,m.F,r()(r()({},f.T),{},{getQrCode:function(){return new Promise(function(c){return setTimeout(function(){return c({uri:"https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=".concat(Date.now(),"&random=").concat(Math.random())})},2e3)})}}),{icon:"https://xsgames.co/randomusers/avatar.php?g=pixel&key=3",name:"Test Wallet3",remark:"remark 3",app:{link:"https://test.com/xxx"},getQrCode:function(){return new Promise(function(c){return setTimeout(function(){return c({uri:"https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=".concat(Date.now(),"&random=").concat(Math.random())})},2e3)})}},{icon:"https://xsgames.co/randomusers/avatar.php?g=pixel&key=3",name:"Test Wallet3 Has a Long Name",remark:"remark 3",app:{link:"https://test.com/xxx"}},l.t,A.m,k.e,h.I],_=function(c,w){return c==="Popular"?-1:w==="Popular"?1:c.localeCompare(w)},P=function(c){var w=d.useState(!1),W=a()(w,2),T=W[0],v=W[1];return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(C.ZP,{type:"primary",onClick:function(){return v(!0)},children:"Open with basic"}),(0,i.jsx)(u.ConnectModal,r()({open:T,group:{groupOrder:_},walletList:b,onCancel:function(){return v(!1)}},c))]})};n.default=P},95397:function(e,n,o){"use strict";o.r(n);var t=o(48305),a=o.n(t),s=o(26068),r=o.n(s),d=o(1735),u=o(50515),p=o(63299),m=o(78028),f=o(11275),l=o(72152),A=[p.Z,r()(r()({},m.T),{},{getQrCode:function(){return new Promise(function(i){return setTimeout(function(){return i({uri:"https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=".concat(Date.now(),"&random=").concat(Math.random())})},2e3)})}}),{icon:"https://xsgames.co/randomusers/avatar.php?g=pixel&key=3",name:"Test Wallet3",remark:"remark 3",app:{link:"https://test.com/xxx"},getQrCode:function(){return new Promise(function(i){return setTimeout(function(){return i({uri:"https://ant.design/docs/react/migrate-less-variables-cn#avatar-%E5%A4%B4%E5%83%8F?timestamp=".concat(Date.now(),"&random=").concat(Math.random())})},2e3)})}}],k=function(i,b){return i==="Popular"?-1:b==="Popular"?1:i.localeCompare(b)},h=function(i){var b=d.useState(!1),_=a()(b,2),P=_[0],g=_[1];return(0,l.jsxs)(l.Fragment,{children:[(0,l.jsx)(f.ZP,{type:"primary",onClick:function(){return g(!0)},children:"Open with simple"}),(0,l.jsx)(u.ConnectModal,r()({open:P,group:{groupOrder:k},walletList:A,onCancel:function(){return g(!1)},mode:"simple"},i))]})};n.default=h},97377:function(e,n,o){"use strict";o.r(n),o.d(n,{customToken:function(){return t}});var t={token:{wireframe:!1,padding:24,paddingSM:16,paddingXS:12,fontSize:16,fontSizeLG:18,fontSizeHeading4:24,fontSizeHeading5:20,fontSizeHeading2:36,fontSizeXL:24,borderRadius:6,colorPrimary:"#8442ff",colorInfo:"#8442ff"},components:{Button:{borderRadius:16,borderRadiusLG:24,borderRadiusSM:8,controlHeight:44,marginXS:8,paddingContentHorizontal:24,fontSizeLG:18,controlHeightLG:52,controlHeightSM:36,paddingXS:16},List:{paddingLG:24,marginLG:24,marginXXL:48,paddingContentHorizontalLG:24,fontSizeLG:20,padding:16,borderRadiusLG:10,paddingContentVertical:24,paddingXS:8,paddingSM:12},Modal:{controlHeightLG:44,fontSizeHeading5:20,fontSizeLG:18,marginSM:12,margin:16,marginLG:24,marginXS:8,padding:16,paddingContentHorizontalLG:24,paddingLG:24,paddingMD:20,paddingXS:12,borderRadiusLG:24,borderRadiusSM:10}}}},8710:function(e,n,o){"use strict";o.r(n),o.d(n,{fillWithPrefix:function(){return a.fillWithPrefix},formatAddress:function(){return a.formatAddress},formatBalance:function(){return a.formatBalance},getPlatform:function(){return t.getPlatform},writeCopyText:function(){return t.writeCopyText}});var t=o(5367),a=o(74283)},81486:function(e,n){"use strict";n.Z=`import { Address } from '@ant-design/web3';
 
 const App: React.FC = () => {
   return <Address ellipsis address={'3ea2cfd153b8d8505097b81c87c11f5d05097c18'} />;
 };
 
 export default App;
-`},43192:function(o,n){n.Z=`import { Address } from '@ant-design/web3';
+`},43192:function(e,n){"use strict";n.Z=`import { Address } from '@ant-design/web3';
 
 const App: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},67578:function(o,n){n.Z=`import { Address } from '@ant-design/web3';
+`},67578:function(e,n){"use strict";n.Z=`import { Address } from '@ant-design/web3';
 import { Space } from 'antd';
 
 const App: React.FC = () => {
@@ -40,7 +40,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},4983:function(o,n){n.Z=`import { Address } from '@ant-design/web3';
+`},4983:function(e,n){"use strict";n.Z=`import { Address } from '@ant-design/web3';
 import { Space } from 'antd';
 
 import { formatAddress } from '../../utils';
@@ -65,7 +65,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},72668:function(o,n){n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},72668:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   BitcoinWeb3ConfigProvider,
   OkxWallet,
@@ -96,7 +96,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},73832:function(o,n){n.Z=`import React, { useState } from 'react';
+`},73832:function(e,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { ConnectButton, Connector, NFTImage } from '@ant-design/web3';
 import {
   BitcoinWeb3ConfigProvider,
@@ -165,7 +165,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},14499:function(o,n){n.Z=`import { NFTCard } from '@ant-design/web3';
+`},14499:function(e,n){"use strict";n.Z=`import { NFTCard } from '@ant-design/web3';
 import { BitcoinWeb3ConfigProvider } from '@ant-design/web3-bitcoin';
 import { Space } from 'antd';
 
@@ -196,7 +196,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},95886:function(o,n){n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},95886:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   BitcoinWeb3ConfigProvider,
   NotImplementedError,
@@ -260,7 +260,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},2710:function(o,n){n.Z=`import React from 'react';
+`},2710:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { metadata_Phantom } from '@ant-design/web3-assets';
 import {
@@ -346,7 +346,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},54697:function(o,n){n.Z=`import { BrowserLink } from '@ant-design/web3';
+`},54697:function(e,n){"use strict";n.Z=`import { BrowserLink } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
 
 const App: React.FC = () => {
@@ -361,7 +361,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},49573:function(o,n){n.Z=`import { BrowserLink } from '@ant-design/web3';
+`},49573:function(e,n){"use strict";n.Z=`import { BrowserLink } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
 import { Space } from 'antd';
 
@@ -388,7 +388,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},21442:function(o,n){n.Z=`import { LinkOutlined } from '@ant-design/icons';
+`},21442:function(e,n){"use strict";n.Z=`import { LinkOutlined } from '@ant-design/icons';
 import { BrowserLink } from '@ant-design/web3';
 
 const App: React.FC = () => {
@@ -404,7 +404,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},99361:function(o,n){n.Z=`import { BrowserLink } from '@ant-design/web3';
+`},99361:function(e,n){"use strict";n.Z=`import { BrowserLink } from '@ant-design/web3';
 
 const App: React.FC = () => {
   return (
@@ -424,7 +424,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},89236:function(o,n){n.Z=`import { ConnectButton } from '@ant-design/web3';
+`},89236:function(e,n){"use strict";n.Z=`import { ConnectButton } from '@ant-design/web3';
 import { Space } from 'antd';
 
 const App: React.FC = () => {
@@ -467,7 +467,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},77257:function(o,n){n.Z=`import { ConnectButton } from '@ant-design/web3';
+`},77257:function(e,n){"use strict";n.Z=`import { ConnectButton } from '@ant-design/web3';
 import { Space } from 'antd';
 
 const App: React.FC = () => {
@@ -489,7 +489,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},6045:function(o,n){n.Z=`import React from 'react';
+`},6045:function(e,n){"use strict";n.Z=`import React from 'react';
 import type { Account } from '@ant-design/web3';
 import { ConnectButton } from '@ant-design/web3';
 
@@ -510,7 +510,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},27796:function(o,n){n.Z=`import React from 'react';
+`},27796:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, type Chain } from '@ant-design/web3';
 import { Mainnet, Polygon } from '@ant-design/web3-assets';
 import { Space } from 'antd';
@@ -548,7 +548,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},98712:function(o,n){n.Z=`import { ConnectButton } from '@ant-design/web3';
+`},98712:function(e,n){"use strict";n.Z=`import { ConnectButton } from '@ant-design/web3';
 import { WalletColorful, WalletWhiteColorful } from '@ant-design/web3-icons';
 import { Space } from 'antd';
 
@@ -571,7 +571,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},61228:function(o,n){n.Z=`import { ConnectButton } from '@ant-design/web3';
+`},61228:function(e,n){"use strict";n.Z=`import { ConnectButton } from '@ant-design/web3';
 import { Space } from 'antd';
 
 import type { MenuItemType } from '../interface';
@@ -638,7 +638,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},18429:function(o,n){n.Z=`import { ConnectButton } from '@ant-design/web3';
+`},18429:function(e,n){"use strict";n.Z=`import { ConnectButton } from '@ant-design/web3';
 
 const App: React.FC = () => {
   return (
@@ -653,7 +653,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},24920:function(o,n){n.Z=`import { ConnectButton } from '@ant-design/web3';
+`},24920:function(e,n){"use strict";n.Z=`import { ConnectButton } from '@ant-design/web3';
 import { Alert, Space } from 'antd';
 
 const App: React.FC = () => {
@@ -690,7 +690,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},53804:function(o,n){n.Z=`import React from 'react';
+`},53804:function(e,n){"use strict";n.Z=`import React from 'react';
 import type { Wallet } from '@ant-design/web3';
 import { ConnectButton } from '@ant-design/web3';
 import {
@@ -735,7 +735,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},24540:function(o,n){n.Z=`import { ConnectButton } from '@ant-design/web3';
+`},24540:function(e,n){"use strict";n.Z=`import { ConnectButton } from '@ant-design/web3';
 import { Space } from 'antd';
 
 const App: React.FC = () => {
@@ -768,7 +768,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},59808:function(o,n){n.Z=`import { ConnectButton } from '@ant-design/web3';
+`},59808:function(e,n){"use strict";n.Z=`import { ConnectButton } from '@ant-design/web3';
 import { ConfigProvider, Space } from 'antd';
 
 const App: React.FC = () => {
@@ -809,7 +809,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},97383:function(o,n){n.Z=`import React from 'react';
+`},97383:function(e,n){"use strict";n.Z=`import React from 'react';
 import type { ConnectModalProps } from '@ant-design/web3';
 import { ConnectModal } from '@ant-design/web3';
 import {
@@ -905,7 +905,7 @@ const App: React.FC<ConnectModalProps> = (props) => {
 };
 
 export default App;
-`},20919:function(o,n){n.Z=`import React from 'react';
+`},20919:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectModal } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import { Button } from 'antd';
@@ -1009,7 +1009,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},63839:function(o,n){n.Z=`import React from 'react';
+`},63839:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConfigProvider, Space, theme } from 'antd';
 
 import BasiceDemo from './basic';
@@ -1031,7 +1031,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},945:function(o,n){n.Z=`import React from 'react';
+`},945:function(e,n){"use strict";n.Z=`import React from 'react';
 import type { ConnectModalProps } from '@ant-design/web3';
 import { ConnectModal } from '@ant-design/web3';
 import { Button, Space } from 'antd';
@@ -1086,7 +1086,7 @@ const App: React.FC<ConnectModalProps> = (props) => {
 };
 
 export default App;
-`},88087:function(o,n){n.Z=`import React from 'react';
+`},88087:function(e,n){"use strict";n.Z=`import React from 'react';
 import { Space } from 'antd';
 
 import BasiceDemo from './basic';
@@ -1114,7 +1114,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},96956:function(o,n){n.Z=`import React from 'react';
+`},96956:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectModal } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import { Card } from 'antd';
@@ -1214,7 +1214,7 @@ export const SimpleApp: React.FC = () => {
 };
 
 export default App;
-`},70318:function(o,n){n.Z=`import React from 'react';
+`},70318:function(e,n){"use strict";n.Z=`import React from 'react';
 import type { ConnectModalProps } from '@ant-design/web3';
 import { ConnectModal } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
@@ -1291,7 +1291,7 @@ const App: React.FC<ConnectModalProps> = (props) => {
 };
 
 export default App;
-`},75615:function(o,n){n.Z=`import React from 'react';
+`},75615:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConfigProvider, Space } from 'antd';
 
 import BasiceDemo from './basic';
@@ -1312,7 +1312,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},1541:function(o,n){n.Z=`import type { ThemeConfig } from 'antd';
+`},1541:function(e,n){"use strict";n.Z=`import type { ThemeConfig } from 'antd';
 
 export const customToken: ThemeConfig = {
   token: {
@@ -1374,7 +1374,7 @@ export const customToken: ThemeConfig = {
     },
   },
 };
-`},89439:function(o,n){n.Z=`import React from 'react';
+`},89439:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectModal } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
 import { Button } from 'antd';
@@ -1441,7 +1441,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},24797:function(o,n){n.Z=`import React from 'react';
+`},24797:function(e,n){"use strict";n.Z=`import React from 'react';
 import type { Account } from '@ant-design/web3';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
@@ -1485,7 +1485,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},24902:function(o,n){n.Z=`import React from 'react';
+`},24902:function(e,n){"use strict";n.Z=`import React from 'react';
 import type { Account, ConnectorTriggerProps } from '@ant-design/web3';
 import { Connector } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
@@ -1536,7 +1536,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},46904:function(o,n){n.Z=`import React, { useState } from 'react';
+`},46904:function(e,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { CryptoInput, type CryptoInputProps, type Token } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 
@@ -1579,7 +1579,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},43425:function(o,n){n.Z=`import React, { useState } from 'react';
+`},43425:function(e,n){"use strict";n.Z=`import React, { useState } from 'react';
 import type { CryptoInputProps } from '@ant-design/web3';
 import { CryptoInput } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
@@ -1600,7 +1600,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},57041:function(o,n){n.Z=`import React, { useState } from 'react';
+`},57041:function(e,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { CryptoInput, type CryptoInputProps } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 
@@ -1620,7 +1620,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},97590:function(o,n){n.Z=`import React, { useState } from 'react';
+`},97590:function(e,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { CryptoInput, type CryptoInputProps } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 
@@ -1635,7 +1635,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},63580:function(o,n){n.Z=`import React, { useState } from 'react';
+`},63580:function(e,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { CryptoInput, type CryptoInputProps, type Token } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 import { Radio } from 'antd';
@@ -1702,7 +1702,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},91286:function(o,n){n.Z=`import React, { useState } from 'react';
+`},91286:function(e,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { SwapOutlined } from '@ant-design/icons';
 import { CryptoInput, type CryptoInputProps, type Token } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
@@ -1807,14 +1807,14 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},52541:function(o,n){n.Z=`import { CryptoPrice } from '@ant-design/web3';
+`},52541:function(e,n){"use strict";n.Z=`import { CryptoPrice } from '@ant-design/web3';
 
 const App: React.FC = () => {
   return <CryptoPrice value={1230000000000000000n} />;
 };
 
 export default App;
-`},45264:function(o,n){n.Z=`import { CryptoPrice } from '@ant-design/web3';
+`},45264:function(e,n){"use strict";n.Z=`import { CryptoPrice } from '@ant-design/web3';
 import { EthereumCircleFilled } from '@ant-design/web3-icons';
 
 const App: React.FC = () => {
@@ -1837,7 +1837,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},75104:function(o,n){n.Z=`import { CryptoPrice } from '@ant-design/web3';
+`},75104:function(e,n){"use strict";n.Z=`import { CryptoPrice } from '@ant-design/web3';
 
 function formatMoney(value: number) {
   // \u4F7F\u7528\u5343\u5206\u7B26\u5206\u9694\u91D1\u989D
@@ -1855,7 +1855,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},24649:function(o,n){n.Z=`import { CryptoPrice } from '@ant-design/web3';
+`},24649:function(e,n){"use strict";n.Z=`import { CryptoPrice } from '@ant-design/web3';
 import { BitcoinCircleColorful } from '@ant-design/web3-icons';
 import { Space } from 'antd';
 
@@ -1869,7 +1869,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},63071:function(o,n){n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},63071:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   EthersWeb3ConfigProvider,
   MetaMask,
@@ -1907,7 +1907,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},5750:function(o,n){n.Z=`import React from 'react';
+`},5750:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
 import { EthWeb3jsConfigProvider, useWeb3js } from '@ant-design/web3-eth-web3js';
@@ -1935,7 +1935,7 @@ export default () => {
     </EthWeb3jsConfigProvider>
   );
 };
-`},29412:function(o,n){n.Z=`import React from 'react';
+`},29412:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
 import { EthWeb3jsConfigProvider, useWeb3js } from '@ant-design/web3-eth-web3js';
@@ -1992,7 +1992,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},75273:function(o,n){n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},75273:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   Hardhat,
   Localhost,
@@ -2030,7 +2030,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},31799:function(o,n){n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},31799:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import { EthereumCircleColorful } from '@ant-design/web3-icons';
 import {
   MetaMask,
@@ -2084,7 +2084,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},86492:function(o,n){n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},86492:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { message } from 'antd';
 
@@ -2110,7 +2110,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},95453:function(o,n){n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},95453:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   CoinbaseWallet,
   ImToken,
@@ -2166,7 +2166,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},37498:function(o,n){n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},37498:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   CoinbaseWallet,
   ImToken,
@@ -2223,7 +2223,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},78815:function(o,n){n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},78815:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import { MetaMask, WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 
 const App: React.FC = () => {
@@ -2237,7 +2237,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},12945:function(o,n){n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},12945:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   Mainnet,
   MetaMask,
@@ -2287,7 +2287,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},65845:function(o,n){n.Z=`import { Account, ConnectButton, Connector } from '@ant-design/web3';
+`},65845:function(e,n){"use strict";n.Z=`import { Account, ConnectButton, Connector } from '@ant-design/web3';
 import {
   MetaMask,
   OkxWallet,
@@ -2375,7 +2375,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},45281:function(o,n){n.Z=`export async function getNonce(chainAddress: string) {
+`},45281:function(e,n){"use strict";n.Z=`export async function getNonce(chainAddress: string) {
   // mock getNonce
   return 'PtZZs3w7ktHsbSFUcmwb';
 }
@@ -2384,7 +2384,7 @@ export async function verifyMessage(message: string, signature: string) {
   // mock verifyMessage
   return true;
 }
-`},71337:function(o,n){n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},71337:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   MetaMask,
   OkxWallet,
@@ -2442,7 +2442,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},33173:function(o,n){n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},33173:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import { MetaMask, WagmiWeb3ConfigProvider, WalletConnect } from '@ant-design/web3-wagmi';
 
 const App: React.FC = () => {
@@ -2462,7 +2462,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},84586:function(o,n){n.Z=`import React from 'react';
+`},84586:function(e,n){"use strict";n.Z=`import React from 'react';
 import { useAccount } from '@ant-design/web3';
 import { Space } from 'antd';
 
@@ -2475,7 +2475,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},1938:function(o,n){n.Z=`import React from 'react';
+`},1938:function(e,n){"use strict";n.Z=`import React from 'react';
 import { useAccount, useConnection, Web3ConfigProvider, type Account } from '@ant-design/web3';
 import { Button } from 'antd';
 
@@ -2522,7 +2522,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},56526:function(o,n){n.Z=`import React from 'react';
+`},56526:function(e,n){"use strict";n.Z=`import React from 'react';
 import { useNFT } from '@ant-design/web3';
 import { Spin } from 'antd';
 
@@ -2535,7 +2535,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},4710:function(o,n){n.Z=`import { BitcoinCircleColorful, EthereumFilled } from '@ant-design/web3-icons';
+`},4710:function(e,n){"use strict";n.Z=`import { BitcoinCircleColorful, EthereumFilled } from '@ant-design/web3-icons';
 import { Space } from 'antd';
 
 const App: React.FC = () => {
@@ -2548,7 +2548,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},87631:function(o,n){n.Z=`import { BitcoinCircleColorful, EthereumFilled } from '@ant-design/web3-icons';
+`},87631:function(e,n){"use strict";n.Z=`import { BitcoinCircleColorful, EthereumFilled } from '@ant-design/web3-icons';
 import { Space } from 'antd';
 
 const App: React.FC = () => {
@@ -2571,7 +2571,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},90559:function(o,n){n.Z=`import React from 'react';
+`},90559:function(e,n){"use strict";n.Z=`import React from 'react';
 import { NFTCard } from '@ant-design/web3';
 import { Space } from 'antd';
 
@@ -2612,7 +2612,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},60070:function(o,n){n.Z=`import { NFTCard } from '@ant-design/web3';
+`},60070:function(e,n){"use strict";n.Z=`import { NFTCard } from '@ant-design/web3';
 import { ConfigProvider, Space, theme } from 'antd';
 
 const { darkAlgorithm } = theme;
@@ -2656,7 +2656,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},62111:function(o,n){n.Z=`import React from 'react';
+`},62111:function(e,n){"use strict";n.Z=`import React from 'react';
 import { NFTCard } from '@ant-design/web3';
 import { Space } from 'antd';
 
@@ -2697,7 +2697,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},11758:function(o,n){n.Z=`import { NFTCard } from '@ant-design/web3';
+`},11758:function(e,n){"use strict";n.Z=`import { NFTCard } from '@ant-design/web3';
 import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
@@ -2719,7 +2719,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},92344:function(o,n){n.Z=`import { NFTImage } from '@ant-design/web3';
+`},92344:function(e,n){"use strict";n.Z=`import { NFTImage } from '@ant-design/web3';
 
 const App: React.FC = () => {
   return (
@@ -2731,7 +2731,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},68093:function(o,n){n.Z=`import { NFTImage } from '@ant-design/web3';
+`},68093:function(e,n){"use strict";n.Z=`import { NFTImage } from '@ant-design/web3';
 
 const App: React.FC = () => {
   return (
@@ -2751,7 +2751,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},14078:function(o,n){n.Z=`import { NFTImage } from '@ant-design/web3';
+`},14078:function(e,n){"use strict";n.Z=`import { NFTImage } from '@ant-design/web3';
 import { BitcoinWeb3ConfigProvider } from '@ant-design/web3-bitcoin';
 
 const App: React.FC = () => {
@@ -2767,7 +2767,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},51563:function(o,n){n.Z=`import { NFTImage } from '@ant-design/web3';
+`},51563:function(e,n){"use strict";n.Z=`import { NFTImage } from '@ant-design/web3';
 import { WagmiWeb3ConfigProvider } from '@ant-design/web3-wagmi';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
@@ -2788,7 +2788,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},98716:function(o,n){n.Z=`import React from 'react';
+`},98716:function(e,n){"use strict";n.Z=`import React from 'react';
 import { PayPanel } from '@ant-design/web3';
 import {
   BSC,
@@ -2822,7 +2822,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},21696:function(o,n){n.Z=`import React, { useState } from 'react';
+`},21696:function(e,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { PayPanel } from '@ant-design/web3';
 import {
   BSC,
@@ -2872,7 +2872,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},28586:function(o,n){n.Z=`import React from 'react';
+`},28586:function(e,n){"use strict";n.Z=`import React from 'react';
 import { PayPanel } from '@ant-design/web3';
 import {
   BSC,
@@ -2909,7 +2909,7 @@ const GasRender: React.FC = () => {
   );
 };
 export default GasRender;
-`},22611:function(o,n){n.Z=`import React from 'react';
+`},22611:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { CoinbaseWallet, SolanaWeb3ConfigProvider } from '@ant-design/web3-solana';
 
@@ -2924,7 +2924,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},69728:function(o,n){n.Z=`import React from 'react';
+`},69728:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { CoinbaseWallet, PhantomWallet, SolanaWeb3ConfigProvider } from '@ant-design/web3-solana';
 
@@ -2939,7 +2939,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},2538:function(o,n){n.Z=`import React from 'react';
+`},2538:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import type { WalletMetadata } from '@ant-design/web3-common';
 import { ChromeCircleColorful, SolflareColorful } from '@ant-design/web3-icons';
@@ -2992,7 +2992,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},99591:function(o,n){n.Z=`import React from 'react';
+`},99591:function(e,n){"use strict";n.Z=`import React from 'react';
 import { Address, BrowserLink, NFTCard } from '@ant-design/web3';
 import { CoinbaseWallet, SolanaWeb3ConfigProvider } from '@ant-design/web3-solana';
 import { Space } from 'antd';
@@ -3013,7 +3013,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},51320:function(o,n){n.Z=`import React from 'react';
+`},51320:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   CoinbaseWallet,
@@ -3036,7 +3036,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},71678:function(o,n){n.Z=`import React from 'react';
+`},71678:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   CoinbaseWallet,
@@ -3061,7 +3061,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},40027:function(o,n){n.Z=`import React from 'react';
+`},40027:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   OKXWallet,
@@ -3089,7 +3089,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},85533:function(o,n){n.Z=`import React from 'react';
+`},85533:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   PhantomWallet,
@@ -3146,7 +3146,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},44811:function(o,n){n.Z=`import React from 'react';
+`},44811:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { PhantomWallet, SolanaWeb3ConfigProvider, TipLinkWallet } from '@ant-design/web3-solana';
 
@@ -3171,7 +3171,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},63171:function(o,n){n.Z=`import React from 'react';
+`},63171:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { SolanaWeb3ConfigProvider, WalletConnectWallet } from '@ant-design/web3-solana';
 
@@ -3191,7 +3191,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},76058:function(o,n){n.Z=`import React from 'react';
+`},76058:function(e,n){"use strict";n.Z=`import React from 'react';
 import { NFTCard, NFTImage } from '@ant-design/web3';
 import { Suiet, SuiWeb3ConfigProvider } from '@ant-design/web3-sui';
 import { Space } from 'antd';
@@ -3208,7 +3208,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},98280:function(o,n){n.Z=`import React from 'react';
+`},98280:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { Suiet, SuiWeb3ConfigProvider } from '@ant-design/web3-sui';
 import { createNetworkConfig } from '@mysten/dapp-kit';
@@ -3229,7 +3229,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},66134:function(o,n){n.Z=`import React from 'react';
+`},66134:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { Suiet, SuiWeb3ConfigProvider } from '@ant-design/web3-sui';
 import { createNetworkConfig } from '@mysten/dapp-kit';
@@ -3258,7 +3258,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},10464:function(o,n){n.Z=`import React from 'react';
+`},10464:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { Suiet, SuiWeb3ConfigProvider } from '@ant-design/web3-sui';
 import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister';
@@ -3284,7 +3284,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},36206:function(o,n){n.Z=`import React from 'react';
+`},36206:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { Suiet, SuiWallet, SuiWeb3ConfigProvider } from '@ant-design/web3-sui';
 
@@ -3299,7 +3299,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},36348:function(o,n){n.Z=`import React, { useState } from 'react';
+`},36348:function(e,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { TokenSelect, type Token } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 
@@ -3310,7 +3310,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},37638:function(o,n){n.Z=`import React, { useState } from 'react';
+`},37638:function(e,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { TokenSelect, type Token } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 
@@ -3337,7 +3337,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},54265:function(o,n){n.Z=`import React, { useState } from 'react';
+`},54265:function(e,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { TokenSelect, type Token } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 
@@ -3348,7 +3348,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},15819:function(o,n){n.Z=`import React, { useState } from 'react';
+`},15819:function(e,n){"use strict";n.Z=`import React, { useState } from 'react';
 import { TokenSelect, type Token } from '@ant-design/web3';
 import { ETH, USDT } from '@ant-design/web3-assets/tokens';
 
@@ -3367,7 +3367,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},48278:function(o,n){n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},48278:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import { okxTonWallet, tonkeeper, TonWeb3ConfigProvider } from '@ant-design/web3-ton';
 
 const Basic = () => {
@@ -3381,7 +3381,7 @@ const Basic = () => {
 };
 
 export default Basic;
-`},64012:function(o,n){n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+`},64012:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
 import {
   CHAIN,
   dewallet,
@@ -3438,7 +3438,180 @@ const Basic = () => {
 };
 
 export default Basic;
-`},96212:function(o,n){n.Z=`import copy from 'copy-to-clipboard';
+`},39663:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+import {
+  BybitWallet,
+  OkxTronWallet,
+  TronlinkWallet,
+  TronWeb3ConfigProvider,
+} from '@ant-design/web3-tron';
+
+const Basic = () => {
+  return (
+    <TronWeb3ConfigProvider wallets={[TronlinkWallet, BybitWallet, OkxTronWallet]}>
+      <Connector>
+        <ConnectButton />
+      </Connector>
+    </TronWeb3ConfigProvider>
+  );
+};
+
+export default Basic;
+`},61947:function(e,n){"use strict";n.Z=`import React, { useState } from 'react';
+import { useWallet } from '@ant-design/web3-tron';
+import { Button } from 'antd';
+
+type SignTransactionProps = {
+  signMessageCallback?: (signMessageResult: string, address: string) => void;
+};
+
+export const SignMessage: React.FC<SignTransactionProps> = ({ signMessageCallback }) => {
+  const { connected, signMessage, address } = useWallet();
+
+  const [signLoading, setSignLoading] = useState<boolean>(false);
+
+  const signTransfer = async () => {
+    try {
+      setSignLoading(true);
+      // \u7B7E\u540D
+      const signature = await signMessage('sign transfer message');
+      setSignLoading(false);
+      signMessageCallback?.(signature, address || '');
+    } catch (error) {
+      setSignLoading(false);
+    }
+  };
+  return (
+    <Button
+      type="primary"
+      style={{ width: 200 }}
+      loading={signLoading}
+      disabled={!connected}
+      onClick={() => {
+        signTransfer();
+      }}
+    >
+      Sign Message
+    </Button>
+  );
+};
+`},92842:function(e,n){"use strict";n.Z=`import React, { useState } from 'react';
+import { useWallet } from '@ant-design/web3-tron';
+import { Button } from 'antd';
+import { parseUnits } from 'viem';
+
+type SignTransactionProps = {
+  toAddress: string;
+  contractAddress: string;
+  amount: number;
+  signTransactionCallback?: (signTransferResult: string, address: string) => void;
+};
+
+export const SignTransaction: React.FC<SignTransactionProps> = ({
+  toAddress,
+  contractAddress,
+  amount,
+  signTransactionCallback,
+}) => {
+  const { connected, signTransaction, address } = useWallet();
+
+  const [signLoading, setSignLoading] = useState<boolean>(false);
+
+  const signTransfer = async () => {
+    try {
+      setSignLoading(true);
+      // \u6784\u5EFA\u4EA4\u6613\u4F53
+      const functionSelector = 'transfer(address,uint256)';
+      const parameter = [
+        { type: 'address', value: toAddress },
+        { type: 'uint256', value: parseUnits(amount.toString(), 6) },
+      ];
+      const tron = (window as any).tron;
+      const tronWeb = tron.tronWeb;
+      const tx = await tronWeb.transactionBuilder.triggerSmartContract(
+        contractAddress,
+        functionSelector,
+        {},
+        parameter,
+      );
+      // \u4E3A\u6253\u5305\u597D\u7684\u4EA4\u6613\u7B7E\u540D
+      const transfer = await signTransaction(tx.transaction);
+      // \u53D1\u9001\u8FD9\u7B14\u5DF2\u7ECF\u7B7E\u540D\u8FC7\u7684\u4EA4\u6613
+      const result = await tronWeb.trx.sendRawTransaction(transfer);
+      setSignLoading(false);
+      signTransactionCallback?.(result.txid, address || '');
+    } catch (error) {
+      setSignLoading(false);
+    }
+  };
+  return (
+    <Button
+      type="primary"
+      style={{ width: 200 }}
+      loading={signLoading}
+      disabled={!connected}
+      onClick={() => {
+        signTransfer();
+      }}
+    >
+      Pay
+    </Button>
+  );
+};
+`},97833:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+import { TronlinkWallet, TronWeb3ConfigProvider } from '@ant-design/web3-tron';
+import { Flex } from 'antd';
+
+import { SignMessage } from './components/SignMessage';
+
+const Message = () => {
+  return (
+    <TronWeb3ConfigProvider wallets={[TronlinkWallet]}>
+      <Flex justify="space-between" style={{ width: 386 }}>
+        <Connector>
+          <ConnectButton />
+        </Connector>
+        <SignMessage
+          signMessageCallback={(signMessageResult, address) => {
+            console.log('signMessageResult', signMessageResult);
+            console.log('useAddress', address);
+          }}
+        />
+      </Flex>
+    </TronWeb3ConfigProvider>
+  );
+};
+
+export default Message;
+`},78348:function(e,n){"use strict";n.Z=`import { ConnectButton, Connector } from '@ant-design/web3';
+import { TronlinkWallet, TronWeb3ConfigProvider } from '@ant-design/web3-tron';
+import { Flex } from 'antd';
+
+import { SignTransaction } from './components/SignTransaction';
+
+const Transaction = () => {
+  return (
+    <TronWeb3ConfigProvider wallets={[TronlinkWallet]}>
+      <Flex justify="space-between" style={{ width: 386 }}>
+        <Connector>
+          <ConnectButton />
+        </Connector>
+        <SignTransaction
+          contractAddress="TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t"
+          toAddress="TUguNkmfvjeHanGyQZLGJfj28w1tMtvNDT"
+          amount={1}
+          signTransactionCallback={(signTransferResult, address) => {
+            console.log('signTransferResult', signTransferResult);
+            console.log('useAddress', address);
+          }}
+        />
+      </Flex>
+    </TronWeb3ConfigProvider>
+  );
+};
+
+export default Transaction;
+`},96212:function(e,n){"use strict";n.Z=`import copy from 'copy-to-clipboard';
 
 export const getPlatform = () => {
   const userAgent = navigator.userAgent.toLowerCase();
@@ -3460,7 +3633,7 @@ export const getPlatform = () => {
 export const writeCopyText = async (text: string): Promise<boolean> => {
   return copy(text);
 };
-`},81802:function(o,n){n.Z=`/**
+`},81802:function(e,n){"use strict";n.Z=`/**
  * @param address address
  * @param prefixProp addressPrefix from props
  * @param prefixContext addressPrefix from context
@@ -3530,9 +3703,9 @@ export const formatBalance = (value: bigint | number, decimals: number, fixed?: 
   fractionStr = fractionStr.substring(0, fixed).padEnd(fixed, '0');
   return \`\${displayValue}.\${fractionStr}\`;
 };
-`},94382:function(o,n){n.Z=`export * from './browser';
+`},94382:function(e,n){"use strict";n.Z=`export * from './browser';
 export * from './format';
-`},75772:function(o,n){n.Z=`import React from 'react';
+`},75772:function(e,n){"use strict";n.Z=`import React from 'react';
 import { ConnectButton, Web3ConfigProvider } from '@ant-design/web3';
 
 const App: React.FC = () => {
@@ -3550,7 +3723,7 @@ const App: React.FC = () => {
 };
 
 export default App;
-`},9827:function(o,n){n.Z=`import React from 'react';
+`},9827:function(e,n){"use strict";n.Z=`import React from 'react';
 import { useProvider, Web3ConfigProvider, type Account } from '@ant-design/web3';
 import { Button } from 'antd';
 
