@@ -45,7 +45,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*eDQZSopLDxEAAA
 | options | 可选择的代币列表 | [Token](/components/types-cn#token)[] | - | - |
 | balance | 代币的余额相关信息，包含数量和单价 | [TokenBalance](#tokenbalance) | - | - |
 | header | 自定义渲染的头部 | (value?: [CryptoInputValue](#cryptoinputvalue)) => React.ReactNode | - | - |
-| footer | 自定义渲染的底部，不传递时使用默认底部 | (value?: [CryptoInputValue](#cryptoinputvalue)) => React.ReactNode | - | - |
+
+# Start of Selection
+
+| footer | 自定义渲染的底部 | false \| (value?: [CryptoInputValue](#cryptoinputvalue)) => React.ReactNode \| [FooterProps](#FooterProps) | - | - |
+
+# End of Selection
+
 | ...props | 其它参数请参照 `TokenSelect` 组件 | [TokenSelect](/components/token-select#api) | - | - |
 
 ### CryptoInputValue
@@ -63,3 +69,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*eDQZSopLDxEAAA
 | amount | 用户拥有的代币数量       | `bigint`           | -      | -    |
 | price  | 代币的价格               | `string \| number` | -      | -    |
 | unit   | 代币价格的单位，比如 "$" | `string`           | -      | -    |
+
+### FooterProps
+
+| 属性         | 描述                   | 类型      | 默认值  | 版本 |
+| ------------ | ---------------------- | --------- | ------- | ---- |
+| setMaxButton | 设置快速按钮是否可以见 | `boolean` | `false` | -    |
