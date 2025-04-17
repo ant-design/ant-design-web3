@@ -1,5 +1,20 @@
 # @ant-design/web3
 
+## 1.23.0
+
+### Minor Changes
+
+- 6e33d17: feat: add cropyto-input footer config
+- 0f83657: feat(connect-button): Added wallet address and balance co-display mode
+
+### Patch Changes
+
+- Updated dependencies [1f08bd4]
+- Updated dependencies [0f83657]
+  - @ant-design/web3-icons@1.13.0
+  - @ant-design/web3-common@1.19.0
+  - @ant-design/web3-assets@1.12.1
+
 ## 1.22.0
 
 ### Minor Changes
