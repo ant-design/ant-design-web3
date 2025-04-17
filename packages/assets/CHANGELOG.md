@@ -1,5 +1,14 @@
 # @ant-design/web3-assets
 
+## 1.12.1
+
+### Patch Changes
+
+- Updated dependencies [1f08bd4]
+- Updated dependencies [0f83657]
+  - @ant-design/web3-icons@1.13.0
+  - @ant-design/web3-common@1.19.0
+
 ## 1.12.0
 
 ### Minor Changes
