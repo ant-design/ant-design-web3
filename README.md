@@ -131,6 +131,11 @@ $ pnpm start
   </table>
 </a>
 
+<a href="https://openomy.app/github/ant-design/ant-design-web3" target="_blank" style="display: block; width: 100%;" align="center">
+  <img src="https://openomy.app/svg?repo=ant-design/ant-design-web3&chart=bubble&latestMonth=12" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
+ </a>
+
+
 <!-- Made with [OSS Insight](https://ossinsight.io/) -->
 
 Any type of contribution is welcome, here are some examples of how you may contribute to this project:

@@ -131,6 +131,11 @@ $ pnpm start
   </table>
 </a>
 
+<a href="https://openomy.app/github/ant-design/ant-design-web3" target="_blank" style="display: block; width: 100%;" align="center">
+  <img src="https://openomy.app/svg?repo=ant-design/ant-design-web3&chart=bubble&latestMonth=12" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
+ </a>
+
+
 我们欢迎任何类型的贡献，以下是一些您可以为本项目做出贡献的例子：
 
 - 在日常工作中使用 Ant Design Web3.
