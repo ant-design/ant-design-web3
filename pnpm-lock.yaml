@@ -12,8 +12,8 @@ importers:
         specifier: ^1.21.1
         version: 1.21.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/icons':
-        specifier: ^5.5.1
-        version: 5.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^6.0.0
+        version: 6.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/web3':
         specifier: workspace:*
         version: link:packages/web3
@@ -508,8 +508,8 @@ importers:
   packages/icons:
     dependencies:
       '@ant-design/icons':
-        specifier: ^5.5.1
-        version: 5.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^6.0.0
+        version: 6.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@inline-svg-unique-id/react':
         specifier: ^1.2.3
         version: 1.2.3(react@18.3.1)
@@ -730,8 +730,8 @@ importers:
         specifier: ^1.21.1
         version: 1.21.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/icons':
-        specifier: ^5.5.1
-        version: 5.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^6.0.0
+        version: 6.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/web3-assets':
         specifier: workspace:*
         version: link:../assets
@@ -861,6 +861,12 @@ packages:
   '@ant-design/colors@7.1.0':
     resolution: {integrity: sha512-MMoDGWn1y9LdQJQSHiCC20x3uZ3CwQnv9QMz6pCmJOrqdgM9YxsoVVY0wtrdXbmfSgnV0KNk6zi09NAhMR2jvg==}
 
+  '@ant-design/colors@7.2.0':
+    resolution: {integrity: sha512-bjTObSnZ9C/O8MB/B4OUtd/q9COomuJAR2SYfhxLyHvCKn4EKwCN3e+fWGMo7H5InAyV0wL17jdE9ALrdOW/6A==}
+
+  '@ant-design/colors@8.0.0':
+    resolution: {integrity: sha512-6YzkKCw30EI/E9kHOIXsQDHmMvTllT8STzjMb4K2qzit33RW2pqCJP0sk+hidBntXxE+Vz4n1+RvCTfBw6OErw==}
+
   '@ant-design/cssinjs-utils@1.1.3':
     resolution: {integrity: sha512-nOoQMLW1l+xR1Co8NFVYiP8pZp3VjIIzqV6D6ShYF2ljtdwWJn5WSsH+7kvCktXL/yhEtWURKOfH5Xz/gzlwsg==}
     peerDependencies:
@@ -883,11 +889,15 @@ packages:
     resolution: {integrity: sha512-y2217gk4NqL35giHl72o6Zzqji9O7vHh9YmhUVkPtAOpoTCH4uWxo/pr4VE8t0+ChEPs0qo4eJRC5Q1eXWo3vA==}
     engines: {node: '>=8.x'}
 
+  '@ant-design/fast-color@3.0.0':
+    resolution: {integrity: sha512-eqvpP7xEDm2S7dUzl5srEQCBTXZMmY3ekf97zI+M2DHOYyKdJGH0qua0JACHTqbkRnD/KHFQP9J1uMJ/XWVzzA==}
+    engines: {node: '>=8.x'}
+
   '@ant-design/icons-svg@4.4.2':
     resolution: {integrity: sha512-vHbT+zJEVzllwP+CM+ul7reTEfBR0vgxFe7+lREAsAA7YGsYpboiq2sQNeQeRvh09GfQgs/GyFEvZpJ9cLXpXA==}
 
-  '@ant-design/icons@4.8.1':
-    resolution: {integrity: sha512-JRAuiqllnMsiZIO8OvBOeFconprC3cnMpJ9MvXrHh+H5co9rlg8/aSHQfLf5jKKe18lUgRaIwC2pz8YxH9VuCA==}
+  '@ant-design/icons@4.8.3':
+    resolution: {integrity: sha512-HGlIQZzrEbAhpJR6+IGdzfbPym94Owr6JZkJ2QCCnOkPVIWMO2xgIVcOKnl8YcpijIo39V7l2qQL5fmtw56cMw==}
     engines: {node: '>=8'}
     peerDependencies:
       react: '>=16.0.0'
@@ -900,15 +910,22 @@ packages:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
 
-  '@ant-design/icons@5.5.1':
-    resolution: {integrity: sha512-0UrM02MA2iDIgvLatWrj6YTCYe0F/cwXvVE0E2SqGrL7PZireQwgEKTKBisWpZyal5eXZLvuM98kju6YtYne8w==}
+  '@ant-design/icons@5.5.2':
+    resolution: {integrity: sha512-xc53rjVBl9v2BqFxUjZGti/RfdDeA8/6KYglmInM2PNqSXc/WfuGDTifJI/ZsokJK0aeKvOIbXc9y2g8ILAhEA==}
     engines: {node: '>=8'}
     peerDependencies:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
 
-  '@ant-design/icons@5.5.2':
-    resolution: {integrity: sha512-xc53rjVBl9v2BqFxUjZGti/RfdDeA8/6KYglmInM2PNqSXc/WfuGDTifJI/ZsokJK0aeKvOIbXc9y2g8ILAhEA==}
+  '@ant-design/icons@5.6.1':
+    resolution: {integrity: sha512-0/xS39c91WjPAZOWsvi1//zjx6kAp4kxWwctR6kuU6p133w8RU0D2dSCvZC19uQyharg/sAvYxGYWl01BbZZfg==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      react: '>=16.0.0'
+      react-dom: '>=16.0.0'
+
+  '@ant-design/icons@6.0.0':
+    resolution: {integrity: sha512-o0aCCAlHc1o4CQcapAwWzHeaW2x9F49g7P3IDtvtNXgHowtRWYb7kiubt8sQPFvfVIVU/jLw2hzeSlNt0FU+Uw==}
     engines: {node: '>=8'}
     peerDependencies:
       react: '>=16.0.0'
@@ -3126,8 +3143,8 @@ packages:
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
 
-  '@eslint-community/eslint-utils@4.6.0':
-    resolution: {integrity: sha512-WhCn7Z7TauhBtmzhvKpoQs0Wwb/kBcy4CwpuI0/eEIr2Lx2auxmulAzLr91wVZJaz47iUZdkXOK7WlAfxGKCnA==}
+  '@eslint-community/eslint-utils@4.6.1':
+    resolution: {integrity: sha512-KTsJMmobmbrFLe3LDh0PC2FXpcSYJt/MLjlkh/9LEnmKYLSYmT/0EW9JWANjeoemiuZrmogti0tW5Ch+qNUYDw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
@@ -4366,6 +4383,12 @@ packages:
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
+
+  '@rc-component/util@1.2.1':
+    resolution: {integrity: sha512-AUVu6jO+lWjQnUOOECwu8iR0EdElQgWW5NBv5vP/Uf9dWbAX3udhMutRlkVXjuac2E40ghkFy+ve00mc/3Fymg==}
+    peerDependencies:
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
 
   '@react-native-async-storage/async-storage@1.24.0':
     resolution: {integrity: sha512-W4/vbwUOYOjco0x3toB8QCr7EjIP6nE9G7o8PMguvvjYT5Awg09lyV4enACRx4s++PPulBiBSjL0KTFx2u0Z/g==}
@@ -6917,6 +6940,9 @@ packages:
   bignumber.js@9.2.1:
     resolution: {integrity: sha512-+NzaKgOUvInq9TIUZ1+DRspzf/HApkCwD4btfuasFTdrfnOxqx853TgDpMolp+uv4RpRp7bPcEU2zKr9+fRmyw==}
 
+  bignumber.js@9.3.0:
+    resolution: {integrity: sha512-EM7aMFTXbptt/wZdMlBv2t8IViwQL+h6SLHosp8Yf0dqJMTnY6iL32opnAB6kAdL0SZPuvcAzFr31o0c/R3/RA==}
+
   binary-extensions@2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
@@ -8625,8 +8651,8 @@ packages:
   flow-enums-runtime@0.0.6:
     resolution: {integrity: sha512-3PYnM29RFXwvAN6Pc/scUfkI7RwhQ/xqyLUyPNlXUp9S40zI8nup9tUSrTLSVnWGBN38FNiGWbwZOB6uR4OGdw==}
 
-  flow-parser@0.267.0:
-    resolution: {integrity: sha512-eBgyFHiT/CHevT225CVQbwnAwRKLjqgtkkpDBMvNGV2C/Tz8x4Zr9FZeWed/cSWhRTiUhH7MXpIWSHkrzvaqdA==}
+  flow-parser@0.268.0:
+    resolution: {integrity: sha512-URZmPy/jKDDIJUHUfC+5KNwaPcfONTL3R8xltQWVEoCKLWowVebEBg89nbAnYHNo6ev8KzKWFpOROfHZdaCoxA==}
     engines: {node: '>=0.4.0'}
 
   follow-redirects@1.15.6:
@@ -10671,6 +10697,7 @@ packages:
   node-domexception@1.0.0:
     resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
     engines: {node: '>=10.5.0'}
+    deprecated: Use your platform's native DOMException instead
 
   node-fetch-native@1.4.1:
     resolution: {integrity: sha512-NsXBU0UgBxo2rQLOeWNZqS3fvflWePMECr8CoSWoSTqCqGbVVsvl9vZu1HfQicYN0g5piV9Gh8RTEvo/uP752w==}
@@ -14380,6 +14407,14 @@ snapshots:
     dependencies:
       '@ctrl/tinycolor': 3.6.1
 
+  '@ant-design/colors@7.2.0':
+    dependencies:
+      '@ant-design/fast-color': 2.0.6
+
+  '@ant-design/colors@8.0.0':
+    dependencies:
+      '@ant-design/fast-color': 3.0.0
+
   '@ant-design/cssinjs-utils@1.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@ant-design/cssinjs': 1.21.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -14416,9 +14451,11 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.26.9
 
+  '@ant-design/fast-color@3.0.0': {}
+
   '@ant-design/icons-svg@4.4.2': {}
 
-  '@ant-design/icons@4.8.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@ant-design/icons@4.8.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@ant-design/colors': 6.0.0
       '@ant-design/icons-svg': 4.4.2
@@ -14431,21 +14468,11 @@ snapshots:
 
   '@ant-design/icons@5.3.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@ant-design/colors': 7.1.0
+      '@ant-design/colors': 7.2.0
       '@ant-design/icons-svg': 4.4.2
       '@babel/runtime': 7.26.9
       classnames: 2.5.1
       rc-util: 5.44.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
-  '@ant-design/icons@5.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@ant-design/colors': 7.1.0
-      '@ant-design/icons-svg': 4.4.2
-      '@babel/runtime': 7.25.9
-      classnames: 2.5.1
-      rc-util: 5.43.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
@@ -14456,6 +14483,25 @@ snapshots:
       '@babel/runtime': 7.26.0
       classnames: 2.5.1
       rc-util: 5.44.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@ant-design/icons@5.6.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@ant-design/colors': 7.2.0
+      '@ant-design/icons-svg': 4.4.2
+      '@babel/runtime': 7.25.9
+      classnames: 2.5.1
+      rc-util: 5.43.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@ant-design/icons@6.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@ant-design/colors': 8.0.0
+      '@ant-design/icons-svg': 4.4.2
+      '@rc-component/util': 1.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      classnames: 2.5.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
@@ -17916,7 +17962,7 @@ snapshots:
       eslint: 8.57.1
       eslint-visitor-keys: 3.4.3
 
-  '@eslint-community/eslint-utils@4.6.0(eslint@8.57.1)':
+  '@eslint-community/eslint-utils@4.6.1(eslint@8.57.1)':
     dependencies:
       eslint: 8.57.1
       eslint-visitor-keys: 3.4.3
@@ -19797,6 +19843,12 @@ snapshots:
       rc-util: 5.44.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+
+  '@rc-component/util@1.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-is: 18.3.1
 
   '@react-native-async-storage/async-storage@1.24.0(react-native@0.76.3(@babel/core@7.23.6)(@babel/preset-env@7.26.0(@babel/core@7.23.6))(@types/react@18.3.5)(bufferutil@4.0.9)(encoding@0.1.13)(react@18.3.1)(utf-8-validate@5.0.10))':
     dependencies:
@@ -24385,7 +24437,7 @@ snapshots:
     dependencies:
       '@ant-design/colors': 6.0.0
       '@ant-design/cssinjs': 1.21.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@ant-design/icons': 5.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@ant-design/icons': 5.6.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@arvinxu/layout-kit': 1.4.0(@babel/core@7.23.6)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)
       '@babel/runtime': 7.24.0
       '@ctrl/tinycolor': 3.6.1
@@ -24408,7 +24460,7 @@ snapshots:
     dependencies:
       '@ant-design/colors': 6.0.0
       '@ant-design/cssinjs': 1.21.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@ant-design/icons': 4.8.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@ant-design/icons': 4.8.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@arvinxu/layout-kit': 1.4.0(@babel/core@7.23.6)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)
       '@babel/runtime': 7.26.9
       '@ctrl/tinycolor': 3.6.1
@@ -24645,7 +24697,7 @@ snapshots:
       arconnect: 0.4.2
       asn1.js: 5.4.1
       base64-js: 1.5.1
-      bignumber.js: 9.2.1
+      bignumber.js: 9.3.0
     optional: true
 
   asap@2.0.6: {}
@@ -25126,6 +25178,9 @@ snapshots:
   bignumber.js@9.1.2: {}
 
   bignumber.js@9.2.1: {}
+
+  bignumber.js@9.3.0:
+    optional: true
 
   binary-extensions@2.2.0: {}
 
@@ -27060,7 +27115,7 @@ snapshots:
 
   eslint@8.57.1:
     dependencies:
-      '@eslint-community/eslint-utils': 4.6.0(eslint@8.57.1)
+      '@eslint-community/eslint-utils': 4.6.1(eslint@8.57.1)
       '@eslint-community/regexpp': 4.12.1
       '@eslint/eslintrc': 2.1.4
       '@eslint/js': 8.57.1
@@ -27657,7 +27712,7 @@ snapshots:
 
   flow-enums-runtime@0.0.6: {}
 
-  flow-parser@0.267.0: {}
+  flow-parser@0.268.0: {}
 
   follow-redirects@1.15.6(debug@4.4.0):
     optionalDependencies:
@@ -29047,7 +29102,7 @@ snapshots:
       '@babel/register': 7.25.9(@babel/core@7.26.10)
       babel-core: 7.0.0-bridge.0(@babel/core@7.26.10)
       chalk: 4.1.2
-      flow-parser: 0.267.0
+      flow-parser: 0.268.0
       graceful-fs: 4.2.11
       micromatch: 4.0.8
       neo-async: 2.6.2
@@ -29073,7 +29128,7 @@ snapshots:
       '@babel/register': 7.25.9(@babel/core@7.26.10)
       babel-core: 7.0.0-bridge.0(@babel/core@7.26.10)
       chalk: 4.1.2
-      flow-parser: 0.267.0
+      flow-parser: 0.268.0
       graceful-fs: 4.2.11
       micromatch: 4.0.8
       neo-async: 2.6.2

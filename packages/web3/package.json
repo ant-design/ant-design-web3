@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.21.1",
-    "@ant-design/icons": "^5.5.1",
+    "@ant-design/icons": "^6.0.0",
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
