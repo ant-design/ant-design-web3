@@ -85,6 +85,7 @@ export class OkxBitcoinWallet implements BitcoinWallet {
       }
     }
 
+    // API: https://web3.okx.com/zh-hans/build/docs/sdks/chains/bitcoin/provider#signpsbt
     const signedPsbt = await this.provider.signPsbt(psbt, {
       autoFinalized: broadcast,
       toSignInputs: toSignInputs.length === 0 ? undefined : toSignInputs,
