@@ -85,7 +85,6 @@ export class XverseBitcoinWallet implements BitcoinWallet {
       psbt,
       signInputs: options?.signInputs ?? {},
       broadcast: !!options?.broadcast,
-      allowedSignHash: options?.signHash,
     });
     if (response.status === 'success') {
       return response.result as SignPsbtResult;
