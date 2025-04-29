@@ -58,22 +58,27 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const [messageApi, contextHolder] = message.useMessage();
   const [showMenu, setShowMenu] = useState(false);
 
+  const { coverAddress = true } = typeof balance !== 'object' ? { coverAddress: true } : balance;
   const needSign = !!(sign?.signIn && account?.status === ConnectStatus.Connected && account);
   let buttonText: React.ReactNode = intl.getMessage(intl.messages.connect);
   if (account) {
-    buttonText =
-      account?.name && !balance ? (
-        account?.name
-      ) : (
-        <Address
-          tooltip={false}
-          ellipsis
-          address={account.address}
-          addressPrefix={addressPrefixProp}
-        >
-          {balance ? <CryptoPrice icon {...balance} /> : undefined}
-        </Address>
-      );
+    buttonText = (
+      <>
+        {(!balance || !coverAddress) &&
+          (account?.name ? (
+            account.name
+          ) : (
+            <Address
+              tooltip={false}
+              ellipsis
+              address={account.address}
+              addressPrefix={addressPrefixProp}
+            />
+          ))}
+        {balance && !coverAddress && <Divider type="vertical" />}
+        {balance && <CryptoPrice icon {...balance} />}
+      </>
+    );
   }
 
   const buttonProps: ButtonProps = {

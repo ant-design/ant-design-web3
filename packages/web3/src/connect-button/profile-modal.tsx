@@ -87,17 +87,16 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
         <Space align="center" direction="vertical">
           {avatar ? <Avatar {...avatar} /> : null}
           {name ? <div className={classNames(`${prefixCls}-name`, __hashId__)}>{name}</div> : null}
-          {address ? (
+          {balance && <CryptoPrice {...balance} />}
+          {address && (
             <Address
               ellipsis={false}
               address={address}
               type={name ? 'secondary' : undefined}
               tooltip={false}
               addressPrefix={addressPrefix}
-            >
-              {balance && <CryptoPrice {...balance} />}
-            </Address>
-          ) : null}
+            />
+          )}
         </Space>
       </Modal>
     </>

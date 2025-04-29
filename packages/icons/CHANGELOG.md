@@ -1,5 +1,11 @@
 # @ant-design/web3-icons
 
+## 1.13.0
+
+### Minor Changes
+
+- 1f08bd4: feat: Add support for Tron
+
 ## 1.12.0
 
 ### Minor Changes

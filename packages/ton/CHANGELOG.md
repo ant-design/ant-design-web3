@@ -1,5 +1,17 @@
 # @ant-design/web3-ton
 
+## 1.1.0
+
+### Minor Changes
+
+- 09565b3: feat: update wallet extension info
+
+### Patch Changes
+
+- Updated dependencies [0f83657]
+  - @ant-design/web3-common@1.19.0
+  - @ant-design/web3-assets@1.12.1
+
 ## 1.0.12
 
 ### Patch Changes

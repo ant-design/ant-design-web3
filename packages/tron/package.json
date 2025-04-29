@@ -1,0 +1,69 @@
+{
+  "name": "@ant-design/web3-tron",
+  "version": "1.0.0",
+  "main": "dist/lib/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/lib/index.js",
+    "types": "./dist/esm/index.d.ts"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "keywords": [
+    "ant",
+    "component",
+    "components",
+    "design",
+    "framework",
+    "frontend",
+    "react",
+    "react-component",
+    "ui",
+    "web3",
+    "tron"
+  ],
+  "homepage": "https://web3.ant.design",
+  "bugs": {
+    "url": "https://github.com/ant-design/ant-design-web3/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/ant-design-web3"
+  },
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build"
+  },
+  "dependencies": {
+    "@ant-design/web3-assets": "workspace:*",
+    "@ant-design/web3-common": "workspace:*",
+    "@tronweb3/tronwallet-abstract-adapter": "^1.1.9",
+    "@tronweb3/tronwallet-adapter-react-hooks": "^1.1.10",
+    "@tronweb3/tronwallet-adapter-walletconnect": "^2.0.3",
+    "@tronweb3/tronwallet-adapter-tronlink": "^1.1.12",
+    "@tronweb3/tronwallet-adapter-okxwallet": "^1.0.6",
+    "@tronweb3/tronwallet-adapter-bybit": "^1.0.1",
+    "tronweb": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.12",
+    "father": "^4.4.4",
+    "typescript": "^5.6.2"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
+}

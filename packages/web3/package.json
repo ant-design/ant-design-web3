@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3",
-  "version": "1.22.0",
+  "version": "1.23.0",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -64,6 +64,7 @@
     "@ant-design/web3-solana": "workspace:*",
     "@ant-design/web3-sui": "workspace:*",
     "@ant-design/web3-ton": "workspace:*",
+    "@ant-design/web3-tron": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
     "@types/lodash-es": "^4.17.12",
     "@types/react": "^18.3.5",

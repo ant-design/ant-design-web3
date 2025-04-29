@@ -251,6 +251,7 @@ export type WalletMetadata = {
 
 export type Balance = BalanceMetadata & {
   value?: bigint;
+  coverAddress?: boolean;
 };
 
 export interface ConnectorTriggerProps {

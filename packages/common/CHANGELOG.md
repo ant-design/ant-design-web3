@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.19.0
+
+### Minor Changes
+
+- 0f83657: feat(connect-button): Added wallet address and balance co-display mode
+
 ## 1.18.0
 
 ### Minor Changes

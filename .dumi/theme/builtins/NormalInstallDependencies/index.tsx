@@ -19,7 +19,8 @@ const NormalInstallDependencies: React.FC<NormalInstallProps> = (props) => {
   const npm = `npm install ${packageNames} ${saveArg}`;
   const yarn = `yarn add ${packageNames}`;
   const pnpm = `pnpm add ${packageNames} ${saveArg}`;
-  return <InstallDependencies npm={npm} yarn={yarn} pnpm={pnpm} />;
+  const bun = `bun add ${packageNames}`;
+  return <InstallDependencies npm={npm} yarn={yarn} pnpm={pnpm} bun={bun} />;
 };
 
 export default NormalInstallDependencies;

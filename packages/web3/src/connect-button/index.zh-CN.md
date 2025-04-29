@@ -77,11 +77,12 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*S4cyQ7OCxDUAAA
 
 ### Balance
 
-| 属性     | 描述     | 类型               | 默认值 | 版本 |
-| -------- | -------- | ------------------ | ------ | ---- |
-| value    | 余额     | `bigint \| number` | -      | -    |
-| symbol   | 代币符号 | `string`           | -      | -    |
-| decimals | 代币精度 | `number`           | -      | -    |
+| 属性         | 描述     | 类型               | 默认值 | 版本 |
+| ------------ | -------- | ------------------ | ------ | ---- |
+| value        | 余额     | `bigint \| number` | -      | -    |
+| symbol       | 代币符号 | `string`           | -      | -    |
+| decimals     | 代币精度 | `number`           | -      | -    |
+| coverAddress | 覆盖地址 | `boolean`          | `true` | -    |
 
 ### ConnectButtonTooltipProps
 
