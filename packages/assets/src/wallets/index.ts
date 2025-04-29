@@ -4,6 +4,7 @@ export * from './coinbase-wallet';
 export * from './token-pocket';
 export * from './safeheron';
 export * from './okx-wallet';
+export * from './rainbow-wallet';
 export * from './phantom';
 export * from './im-token';
 export * from './xverse';

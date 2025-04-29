@@ -452,6 +452,7 @@ export * from './components/qrl-colorful';
 export * from './components/qsp-circle-colorful';
 export * from './components/qtum-circle-colorful';
 export * from './components/qua-colorful';
+export * from './components/rainbow-wallet-colorful';
 export * from './components/ramp-colorful';
 export * from './components/rcn-circle-colorful';
 export * from './components/rdd-colorful';
