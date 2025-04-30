@@ -13,7 +13,7 @@ export const metadata_RainbowWallet: WalletMetadata = {
       key: 'Chrome',
       browserIcon: <ChromeCircleColorful />,
       browserName: 'Chrome',
-      link: 'https://chromewebstore.google.com/detail/opfgelmcmbiajamepnmloijbpoleiama?utm_source=item-share-cb',
+      link: 'https://chromewebstore.google.com/detail/opfgelmcmbiajamepnmloijbpoleiama',
       description: 'Access your wallet right from your favorite web browser.',
     },
   ],
