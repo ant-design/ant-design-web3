@@ -76,61 +76,6 @@ $ pnpm start
 
 ## 参与共建
 
-<a href="https://github.com/ant-design/ant-design-web3/graphs/contributors" target="_blank">
-  <table>
-    <tr>
-      <th colspan="2">
-        <br/>
-        <img
-          alt="Contributors of ant-design/ant-design-web3"
-          src="https://contrib.rocks/image?repo=ant-design/ant-design-web3"
-        />
-        <br/><br/>
-      </th>
-    </tr>
-    <tr>
-      <td>
-        <picture>
-          <source 
-            media="(prefers-color-scheme: dark)" 
-            srcset="https://next.ossinsight.io/widgets/official/compose-org-active-contributors/thumbnail.png?activity=active&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=2x3&color_scheme=dark"
-          />
-          <img 
-            alt="Contributors of ant-design/ant-design-web3" 
-            src="https://next.ossinsight.io/widgets/official/compose-org-active-contributors/thumbnail.png?activity=active&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=2x3&color_scheme=light"
-          />
-        </picture>
-      </td>
-      <td rowspan="2">
-        <picture>
-          <source 
-            media="(prefers-color-scheme: dark)" 
-            srcset="https://next.ossinsight.io/widgets/official/compose-org-participants-growth/thumbnail.png?activity=active&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=4x7&color_scheme=dark"
-          />
-          <img 
-            alt="Contributors of ant-design/ant-design-web3" 
-            src="https://next.ossinsight.io/widgets/official/compose-org-participants-growth/thumbnail.png?activity=active&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=4x7&color_scheme=light"
-          />
-        </picture>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <picture>
-          <source 
-            media="(prefers-color-scheme: dark)" 
-            srcset="https://next.ossinsight.io/widgets/official/compose-org-active-contributors/thumbnail.png?activity=new&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=2x3&color_scheme=dark"
-          />
-          <img 
-            alt="Contributors of ant-design/ant-design-web3" 
-            src="https://next.ossinsight.io/widgets/official/compose-org-active-contributors/thumbnail.png?activity=new&period=past_28_days&owner_id=12101536&repo_ids=680030799&image_size=2x3&color_scheme=light"
-          />
-        </picture>
-      </td>
-    </tr>
-  </table>
-</a>
-
 <a href="https://openomy.app/github/ant-design/ant-design-web3" target="_blank" style="display: block; width: 100%;" align="center">
   <img src="https://openomy.app/svg?repo=ant-design/ant-design-web3&chart=bubble&latestMonth=12" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
  </a>

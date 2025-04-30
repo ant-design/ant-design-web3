@@ -4,6 +4,7 @@ import { ConfigProvider, Tabs } from 'antd';
 import { createStyles, css } from 'antd-style';
 import SourceCode from 'dumi/theme-default/builtins/SourceCode';
 
+import BunLogo from './bun';
 import NpmLogo from './npm';
 import PnpmLogo from './pnpm';
 import YarnLogo from './yarn';
@@ -12,6 +13,7 @@ interface InstallProps {
   npm?: string;
   yarn?: string;
   pnpm?: string;
+  bun?: string;
 }
 
 const useStyle = createStyles(() => ({
@@ -26,7 +28,7 @@ const useStyle = createStyles(() => ({
 }));
 
 const InstallDependencies: React.FC<InstallProps> = (props) => {
-  const { npm, yarn, pnpm } = props;
+  const { npm, yarn, pnpm, bun } = props;
   const { styles } = useStyle();
 
   const items = React.useMemo<TabsProps['items']>(
@@ -62,8 +64,18 @@ const InstallDependencies: React.FC<InstallProps> = (props) => {
             </div>
           ),
         },
+        {
+          key: 'bun',
+          children: bun ? <SourceCode lang="bash">{bun}</SourceCode> : null,
+          label: (
+            <div className={styles.packageManager}>
+              <BunLogo />
+              <span>bun</span>
+            </div>
+          ),
+        },
       ].filter((item) => item.children),
-    [npm, yarn, pnpm],
+    [npm, yarn, pnpm, bun],
   );
 
   return (
