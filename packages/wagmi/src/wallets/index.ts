@@ -7,3 +7,4 @@ export * from './universal-wallet';
 export * from './okx-wallet';
 export * from './im-token';
 export * from './mobile-wallet';
+export * from './rainbow-wallet';
