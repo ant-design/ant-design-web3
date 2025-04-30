@@ -82,6 +82,7 @@ export class UnisatBitcoinWallet implements BitcoinWallet {
         });
       }
     }
+    // API: https://docs.unisat.io/dev/unisat-developer-center/unisat-wallet#signpsbt
     const signedPsbt = await this.provider.signPsbt(psbt, {
       autoFinalized: broadcast,
       toSignInputs: toSignInputs.length === 0 ? undefined : toSignInputs,

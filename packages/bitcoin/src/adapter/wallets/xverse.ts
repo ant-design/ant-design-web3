@@ -81,11 +81,11 @@ export class XverseBitcoinWallet implements BitcoinWallet {
     if (!this.provider) {
       throw new NoProviderError();
     }
+    // API: https://docs.xverse.app/sats-connect/bitcoin-methods/signpsbt
     const response = await request('signPsbt', {
       psbt,
       signInputs: options?.signInputs ?? {},
       broadcast: !!options?.broadcast,
-      allowedSignHash: options?.signHash,
     });
     if (response.status === 'success') {
       return response.result as SignPsbtResult;
