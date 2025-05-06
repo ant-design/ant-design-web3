@@ -14,8 +14,8 @@ English · [中文](./README-zh_CN.md)
 
 [github-action-image]: https://github.com/ant-design/ant-design-web3/workflows/Test/badge.svg
 [github-action-url]: https://github.com/ant-design/ant-design-web3/actions/workflows/test.yml
-[codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design-web3/master.svg?style=flat-square
-[codecov-url]: https://codecov.io/gh/ant-design/ant-design-web3/branch/master
+[codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design-web3/main.svg?style=flat-square
+[codecov-url]: https://codecov.io/gh/ant-design/ant-design-web3/branch/main
 [npm-image]: https://img.shields.io/npm/v/@ant-design/web3.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/@ant-design/web3
 [download-image]: https://img.shields.io/npm/dm/@ant-design/web3.svg?style=flat-square
