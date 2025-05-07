@@ -13,7 +13,7 @@ describe('Get wallet', () => {
         footer="Powered by AntChain"
         walletList={[
           {
-            icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
+            icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
             name: 'Test Wallet',
             remark: '备注',
             app: {
@@ -30,7 +30,7 @@ describe('Get wallet', () => {
           },
           {
             // not has app and extensions
-            icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
+            icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
             name: 'Test Wallet',
             remark: '备注',
           },
@@ -92,7 +92,7 @@ describe('Get wallet', () => {
         footer="Powered by AntChain"
         walletList={[
           {
-            icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
+            icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
             name: 'Test Wallect',
             remark: '备注',
             app: {
@@ -155,7 +155,7 @@ describe('Get wallet', () => {
         mode="normal"
         walletList={[
           {
-            icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
+            icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
             name: 'Test Wallet',
             remark: '备注',
             universalProtocol: {
@@ -172,7 +172,7 @@ describe('Get wallet', () => {
           },
           {
             // not has app and extensions
-            icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
+            icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
             name: 'Test Wallet',
             remark: '备注',
           },
