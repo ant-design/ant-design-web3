@@ -3,7 +3,7 @@ import type { DefaultGuide } from '@ant-design/web3';
 
 export const walletList = [
   {
-    icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
+    icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
     name: 'Test Wallet',
     remark: '备注',
     app: {
@@ -30,7 +30,7 @@ export const walletList = [
     group: 'Popular',
   },
   {
-    icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=1',
+    icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
     name: 'Test Wallet2',
     remark: '备注2',
     app: {
@@ -48,7 +48,7 @@ export const walletList = [
     ],
   },
   {
-    icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
+    icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
     name: 'Test Wallet3',
     remark: 'remark 3',
     group: 'Popular',
@@ -115,25 +115,25 @@ export const guide: DefaultGuide = {
       title: 'A Home for your Digital Assets',
       description:
         'Wallets are used to send, receive, store, and display digital assets like Ethereum and NFTs.',
-      icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=4',
+      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
     },
     {
       title: 'A New Way to Log In',
       description:
         'Instead of creating new accounts and passwords on every website, just connect your wallet.',
-      icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=5',
+      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
     },
     {
       title: 'A New Way to Log In2',
       description:
         'Instead of creating new accounts and passwords on every website, just connect your wallet.',
-      icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=5',
+      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
     },
     {
       title: 'A New Way to Log In3',
       description:
         'Instead of creating new accounts and passwords on every website, just connect your wallet.',
-      icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=5',
+      icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
     },
   ],
   moreLink: 'https://test.com/xxx',

@@ -116,7 +116,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                           <img
                                             alt="Test Wallet"
                                             class="ant-web3-connect-modal-img"
-                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                            src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
                                             class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-10tp9dk"
@@ -141,7 +141,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                           <img
                                             alt="Test Wallet3"
                                             class="ant-web3-connect-modal-img"
-                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                            src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
                                             class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-10tp9dk"
@@ -195,7 +195,7 @@ exports[`ConnectModal without guide > should render in dark mode 1`] = `
                                           <img
                                             alt="Test Wallet2"
                                             class="ant-web3-connect-modal-img"
-                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                            src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
                                             class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-10tp9dk"
@@ -470,7 +470,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                           <img
                                             alt="Test Wallet"
                                             class="ant-web3-connect-modal-img"
-                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                                            src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
                                             class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
@@ -495,7 +495,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                           <img
                                             alt="Test Wallet3"
                                             class="ant-web3-connect-modal-img"
-                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                                            src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
                                             class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
@@ -549,7 +549,7 @@ exports[`ConnectModal without guide > should render in light mode 1`] = `
                                           <img
                                             alt="Test Wallet2"
                                             class="ant-web3-connect-modal-img"
-                                            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                                            src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
                                             class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"

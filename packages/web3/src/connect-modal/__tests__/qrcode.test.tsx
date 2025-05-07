@@ -14,7 +14,7 @@ describe('ConnectModal with qrcode', () => {
         footer="Powered by AntChain"
         walletList={[
           {
-            icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
+            icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
             name: 'Wallect Connect',
             remark: '备注',
             app: {
@@ -58,7 +58,7 @@ describe('ConnectModal with qrcode', () => {
       <QrCode
         download
         wallet={{
-          icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
+          icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
           name: 'Wallect Connect',
           remark: '备注',
           group: 'Popular',
@@ -83,7 +83,7 @@ describe('ConnectModal with qrcode', () => {
         footer="Powered by AntChain"
         walletList={[
           {
-            icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
+            icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
             name: 'Wallect Connect',
             remark: '备注',
             app: {
