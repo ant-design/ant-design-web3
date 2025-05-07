@@ -31,6 +31,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     defaultSelectedWallet,
     locale,
     connecting,
+    disabled = false,
   } = props;
   const intl = useIntl('ConnectModal', locale);
   const showQRCoodByDefault = defaultSelectedWallet?.getQrCode;
@@ -123,6 +124,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
                   group={group}
                   groupOrder={groupOrder}
                   emptyProps={emptyProps}
+                  disabled={disabled}
                 />
               </div>
               <div className={`${prefixCls}-footer-container`}>

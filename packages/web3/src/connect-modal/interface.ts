@@ -155,6 +155,13 @@ export type ConnectModalProps = ModalProps &
      * @descEn Empty props
      */
     emptyProps?: EmptyProps;
+
+    /**
+     * @desc 是否禁用钱包连接功能
+     * @descEn Whether to disable wallet connection functionality
+     * @default false
+     */
+    disabled?: boolean;
   };
 
 export type PanelRoute = 'init' | 'guide' | 'wallet' | 'qrCode' | 'downloadQrCode' | 'link';

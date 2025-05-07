@@ -205,6 +205,13 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     '&.selected': {
                       background: token.selectedWalletBg,
                     },
+                    '&.disabled': {
+                      cursor: 'not-allowed',
+                      opacity: 0.65,
+                      '&:hover': {
+                        background: 'transparent',
+                      },
+                    },
                   },
                 },
               },

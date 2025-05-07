@@ -47,6 +47,10 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 
 <code src="./demos/empty.tsx"></code>
 
+## Disabled State
+
+<code src="./demos/disabled.tsx"></code>
+
 ## API
 
 ### ConnectModalProps
@@ -66,6 +70,7 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 | locale | Multilingual settings | `Locale["ConnectModal"]` | - | - |
 | connecting | Whether it is connecting | `boolean` \| `{ status: 'connecting \| 'signing'}` | - | - |
 | emptyProps | Empty state props | [EmptyProps](https://ant.design/components/empty#api) | `{image: Empty.PRESENTED_IMAGE_SIMPLE, description: "No wallet available"}` | `1.18.0` |
+| disabled | Whether to disable wallet connection functionality | `boolean` | `false` | - |
 
 Other modal properties see: [ModalProps](https://ant.design/components/modal#API)
 
