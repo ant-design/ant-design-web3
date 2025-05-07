@@ -72,7 +72,7 @@ describe('ConnectModal with ConnectModal', () => {
         footer="Powered by AntChain"
         walletList={[
           {
-            icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=0',
+            icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
             name: 'Test Wallet',
             remark: '备注',
             app: {
