@@ -31,6 +31,8 @@ export interface AntDesignWeb3ConfigProviderProps {
   onCurrentChainChange?: (chain?: SolanaChainConfig) => void;
 }
 
+export const MWA_WALLET_NAME = 'Mobile Wallet Adapter';
+
 export const AntDesignWeb3ConfigProvider: React.FC<
   React.PropsWithChildren<AntDesignWeb3ConfigProviderProps>
 > = (props) => {
@@ -175,10 +177,26 @@ export const AntDesignWeb3ConfigProvider: React.FC<
 
     const providedWalletNames = providedWallets.map((w) => w.name);
 
+    // standard wallets
     const autoRegisteredWallets = wallets
       .filter((w) => !providedWalletNames.includes(w.adapter.name))
       .map<Wallet>((w) => {
         const adapter = w.adapter;
+
+        // MWA is a special case, it's always ready
+        if (adapter.name === MWA_WALLET_NAME) {
+          return {
+            name: adapter.name,
+            icon: adapter.icon,
+            remark: adapter.name,
+            _isMobileWallet: true,
+            _standardWallet: adapter,
+
+            hasWalletReady: async () => {
+              return true;
+            },
+          };
+        }
 
         return {
           name: adapter.name,
@@ -228,6 +246,12 @@ export const AntDesignWeb3ConfigProvider: React.FC<
         selectWallet(currentWalletName);
       }}
       connect={async (_wallet, options) => {
+        // if the wallet is MWA, just call `connect`, it will pop up the mobile wallet immediately
+        if (_wallet?.name === MWA_WALLET_NAME) {
+          _wallet._standardWallet?.connect();
+          return;
+        }
+
         let resolve: any;
         let reject: any;
 
