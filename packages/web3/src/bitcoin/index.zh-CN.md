@@ -92,6 +92,8 @@ Ant Design Web3 官方提供了 `@ant-design/web3-bitcoin` 来适配比特币，
 | broadcast | 签名 PSBT 后是否广播交易 | `boolean` | false | - |
 | signHash | [签名哈希类型](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/src/transaction.d.ts#L21)，默认与输入相同 | `number` | - | - |
 
+> 需要注意的是，signHash 在 Xverse 钱包中不生效，如果要指定签名类型，建议直接在签名数据中包含签名类型。参考链接 [#43](https://github.com/secretkeylabs/sats-connect-core/pull/43)，[signPsbt](https://docs.xverse.app/sats-connect/bitcoin-methods/signpsbt)。
+
 ##### SignPsbtResult
 
 | 属性 | 描述                                            | 类型     | 默认值 | 版本 |

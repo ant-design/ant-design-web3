@@ -91,6 +91,8 @@ The wallets currently supported are as follows, and we also welcome you to submi
 | broadcast | Whether to broadcast the transaction after signing | `boolean` | false | - |
 | signHash | The [sigHash type](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/src/transaction.d.ts#L21) to use for signing. Will default to the sighash type of the input if not provided. | `number` | - | - |
 
+> Note: The `signHash` option is not effective in the Xverse wallet. If you want to specify the signature type, it is recommended to directly include the signature type in the signature data. Reference link [#43](https://github.com/secretkeylabs/sats-connect-core/pull/43), [signPsbt](https://docs.xverse.app/sats-connect/bitcoin-methods/signpsbt).
+
 ##### SignPsbtResult
 
 | Property | Description | Type | Default | Version |

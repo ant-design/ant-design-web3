@@ -25,7 +25,7 @@ const walletList: Wallet[] = [
     },
   },
   {
-    icon: 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=3',
+    icon: 'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp',
     name: 'Test Wallet3',
     remark: 'remark 3',
     app: {

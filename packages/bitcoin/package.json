@@ -44,7 +44,7 @@
   "dependencies": {
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
-    "sats-connect": "~2.4.0",
+    "sats-connect": "~3.4.0",
     "uint8array-tools": "~0.0.9"
   },
   "devDependencies": {

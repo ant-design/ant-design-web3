@@ -1,0 +1,25 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Ant Design Web3 project basic rules
+
+## Project Introduction  
+- This project is a React component built on the Ant Design component library, primarily designed to provide Web3 projects with wallet connection capabilities and some common DApp UI components.  
+- It is a multi-package project. The UI components are located under `packages/web3`, while other packages include adapters for different blockchains or some foundational packages.  
+
+## Style  
+- The styles for each component are located in the `style/index.ts` or `style/index.tsx` directory within the component's folder.  
+- The styling is implemented based on `@ant-design/cssinjs` and utilizes Ant Design's Design Tokens to better support custom styling.  
+
+## Demo and Documents  
+- The styles and documentation for the entire project are located in the `packages/web3` directory, with some special notes as follows:  
+  - The documentation for `packages/wagmi` is located under `packages/web3/ethereum`.  
+- Demos can be found in the `packages/web3/*/demos` directories.  
+- Documentation is available in `packages/web3/*/index.md` and `packages/web3/*/index.zh-CN.md`.
+
+## Unit Test
+- Unit tests are based on Vitest.  
+- Test code is located in the `__tests__` folder, which may contain unit tests.
