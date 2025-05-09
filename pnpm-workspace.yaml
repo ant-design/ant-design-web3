@@ -1,6 +1,3 @@
 packages:
   - 'packages/*'
   - 'examples/*'
-peerDependenciesMeta:
-  wagmi:
-    optional: true
