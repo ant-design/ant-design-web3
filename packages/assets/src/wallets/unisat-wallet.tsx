@@ -13,7 +13,7 @@ export const metadata_Unisat: WalletMetadata = {
       key: 'Chrome',
       browserIcon: <ChromeCircleColorful />,
       browserName: 'Chrome',
-      link: 'https://chrome.google.com/webstore/detail/unisat/ppbibelpcjmhbdihakflkdcoccbgbkpo',
+      link: 'https://chromewebstore.google.com/detail/unisat/ppbibelpcjmhbdihakflkdcoccbgbkpo',
       description: 'Access your wallet right from your favorite web browser.',
     },
   ],
