@@ -27,7 +27,7 @@ const walletList: Wallet[] = [
 
 const App: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const [disabled, setDisabled] = useState(false);
+  const [disabled, setDisabled] = useState(true);
 
   return (
     <div>
