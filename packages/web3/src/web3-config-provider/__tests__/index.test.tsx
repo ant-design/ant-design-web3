@@ -23,7 +23,7 @@ const baseProps: Web3ConfigProviderProps = {
           browserIcon:
             'https://github.com/ant-design/ant-design/assets/10286961/0d4e4ac7-8f89-4147-a06a-de72c02e85cb',
           browserName: 'Chrome',
-          link: 'https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn',
+          link: 'https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn',
           description: 'Access your wallet right from your favorite web browser.',
         },
       ],
