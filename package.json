@@ -123,7 +123,7 @@
     "@ant-design/web3-wagmi": "workspace:*",
     "@mysten/dapp-kit": "^0.14.50",
     "@mysten/sui": "^1.14.3",
-    "@solana/wallet-adapter-coinbase": "^0.1.19",
+    "@solana/wallet-adapter-coinbase": "^0.1.22",
     "@solana/wallet-adapter-trust": "^0.1.13",
     "@solana/web3.js": "^1.98.0",
     "@tanstack/query-sync-storage-persister": "^5.74.3",
@@ -141,7 +141,7 @@
     "react": "18.3.1",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.3.1",
-    "viem": "^2.21.3",
+    "viem": "^2.29.2",
     "wagmi": "^2.14.16"
   }
 }

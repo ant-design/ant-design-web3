@@ -29,6 +29,12 @@ The recommended configuration mainly includes:
 
 <code src="./demos/basic.tsx"></code>
 
+## Mobile Wallet Adapter
+
+When `autoAddRegisteredWallets` is `true`, the `Mobile Wallet Adapter` wallet will also be automatically added on mobile.
+
+<code src="./demos/mobile-wallet-adapter.tsx"></code>
+
 ## Add more wallets
 
 To reduce the size of the package you're including, you need to manually configure the `wallets` to import the relevant wallets. You can export the necessary resources from `@ant-design/web3-assets` and `@solana/wallet-adapter-ADAPTER_YOUR_NEED`. If you don't find the resources you need, you can let us know by submitting a [GitHub issue](https://github.com/ant-design/ant-design-web3/issues). You can also configure it yourself or submit a Pull Request to us for support.
