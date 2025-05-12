@@ -178,7 +178,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     '&:last-child': {
                       marginBlockEnd: 0,
                     },
-                    '&:hover': {
+                    '&:hover:not(.disabled)': {
                       background: token.hoverWalletBg,
                       [`&:has(${componentCls}-qr-btn:not(:hover))`]: {
                         [`${componentCls}-plugin-tag:not(:disabled)`]: {
