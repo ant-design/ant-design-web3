@@ -65,20 +65,36 @@ const WalletList: ForwardRefRenderFunction<ConnectModalActionType, WalletListPro
     if (hasWalletReady) {
       // wallet is ready, call ConnectModal's onWalletSelected
       const hasExtensionInstalled = await wallet?.hasExtensionInstalled?.();
+
+      // pop up the mobile wallet
+      if (wallet._isMobileWallet) {
+        updateSelectedWallet(wallet, {
+          connectType: 'openMobile',
+        });
+        return;
+      }
+
+      // use extension to connect
       if (hasExtensionInstalled) {
         updateSelectedWallet(wallet, {
           connectType: 'extension',
         });
-      } else if (mobile()) {
-        // open in universal link
+      }
+
+      // open in universal link
+      else if (mobile()) {
         openInUniversalLink(wallet);
-      } else if (wallet.getQrCode) {
-        // Extension not installed and can use qr code to connect
+      }
+
+      // Extension not installed and can use qr code to connect
+      else if (wallet.getQrCode) {
         updateSelectedWallet(wallet, {
           connectType: 'qrCode',
         });
-      } else {
-        // use the default connect
+      }
+
+      // use the default connect
+      else {
         updateSelectedWallet(wallet, {});
       }
       return;
