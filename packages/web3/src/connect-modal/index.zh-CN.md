@@ -71,7 +71,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAA
 | locale | 多语言设置 | `Locale["ConnectModal"]` | - | - |
 | connecting | 是否正在连接 | `boolean` \| `{ status: 'connecting \| 'signing'}` | - | - |
 | emptyProps | 空状态属性 | `EmptyProps` | `{image: Empty.PRESENTED_IMAGE_SIMPLE, description: "未发现任何钱包"}` | `1.18.0` |
-| disabled | 是否禁用钱包连接功能 | `boolean` | `false` | - |
+| disabled | 是否禁用钱包连接功能 | `boolean` | `false` | `1.24.0` |
 
 其他弹框属性详见： [ModalProps](https://ant.design/components/modal-cn#api)
 
