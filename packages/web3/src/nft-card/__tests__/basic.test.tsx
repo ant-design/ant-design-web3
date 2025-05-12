@@ -4,7 +4,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 describe('NFTCard', () => {
   const imageUrl =
-    'https://api.our-metaverse.xyz/ourms/6_pnghash_0cecc6d080015b34f60bdd253081f36e277ce20ceaf7a6340de3b06d2defad6a_26958469.webp';
+    'https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*jlrDRrBXZiEAAAAAAAAAAAAADlrGAQ/original';
 
   it('renders correctly with valid address and tokenId', () => {
     const address = '0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B';
