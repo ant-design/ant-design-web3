@@ -93,8 +93,8 @@ importers:
         specifier: 0.4.3
         version: 0.4.3(@babel/core@7.26.0)(@types/react@18.3.5)(antd@5.22.7(date-fns@2.30.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(date-fns@2.30.0)(dumi@2.4.20(@babel/core@7.26.0)(@swc/helpers@0.5.15)(@types/node@22.10.5)(@types/react@18.3.5)(eslint@8.57.0)(lightningcss@1.22.1)(prettier@3.5.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.40.0)(stylelint@15.11.0(typescript@5.6.2))(terser@5.39.0)(type-fest@1.4.0)(typescript@5.6.2)(webpack@5.96.1(@swc/core@1.9.2(@swc/helpers@0.5.15))))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)
       ethers:
-        specifier: ^6.13.4
-        version: 6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+        specifier: ^6.14.0
+        version: 6.14.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       github-contributors-lists:
         specifier: ^1.0.3
         version: 1.0.3(react@18.3.1)
@@ -263,8 +263,8 @@ importers:
         specifier: ^5.22.7
         version: 5.22.7(date-fns@2.30.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       ethers:
-        specifier: ^6.11.1
-        version: 6.11.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+        specifier: ^6.14.0
+        version: 6.14.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       umi:
         specifier: ^4.4.10
         version: 4.4.10(@babel/core@7.26.10)(@types/node@22.15.17)(@types/react@18.3.5)(eslint@8.57.1)(lightningcss@1.22.1)(prettier@3.5.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@3.29.5)(sass@1.86.3)(stylelint@15.11.0(typescript@5.6.2))(terser@5.39.0)(type-fest@1.4.0)(typescript@5.6.2)(webpack@5.96.1(@swc/core@1.9.2(@swc/helpers@0.5.15)))
@@ -297,8 +297,8 @@ importers:
         specifier: ^5.22.7
         version: 5.22.7(date-fns@2.30.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       ethers:
-        specifier: ^5.7.2
-        version: 5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+        specifier: ^6.14.0
+        version: 6.14.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       umi:
         specifier: ^4.4.10
         version: 4.4.10(@babel/core@7.26.10)(@types/node@22.15.17)(@types/react@18.3.5)(eslint@8.57.1)(lightningcss@1.22.1)(prettier@3.5.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@3.29.5)(sass@1.86.3)(stylelint@15.11.0(typescript@5.6.2))(terser@5.39.0)(type-fest@1.4.0)(typescript@5.6.2)(webpack@5.96.1(@swc/core@1.9.2(@swc/helpers@0.5.15)))
@@ -459,8 +459,8 @@ importers:
         specifier: ^4.1.12
         version: 4.1.12
       ethers:
-        specifier: ^6.11.1
-        version: 6.11.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+        specifier: ^6.14.0
+        version: 6.14.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       father:
         specifier: ^4.4.4
         version: 4.4.4(@babel/core@7.26.10)(@types/node@22.15.17)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(type-fest@1.4.0)(webpack@5.96.1(@swc/core@1.9.2(@swc/helpers@0.5.15)))
@@ -499,8 +499,8 @@ importers:
         specifier: ^4.1.12
         version: 4.1.12
       ethers:
-        specifier: ^5.7.2
-        version: 5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+        specifier: ^6.14.0
+        version: 6.14.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       father:
         specifier: ^4.4.4
         version: 4.4.4(@babel/core@7.26.10)(@types/node@22.15.17)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(type-fest@1.4.0)(webpack@5.96.1(@swc/core@1.9.2(@swc/helpers@0.5.15)))
@@ -3278,17 +3278,11 @@ packages:
   '@ethersproject/signing-key@5.7.0':
     resolution: {integrity: sha512-MZdy2nL3wO0u7gkB4nA/pEf8lu1TlFswPNmy8AiYkfKTdO6eXBJyUdmHO/ehm/htHw9K/qF8ujnTyUAD+Ry54Q==}
 
-  '@ethersproject/solidity@5.7.0':
-    resolution: {integrity: sha512-HmabMd2Dt/raavyaGukF4XxizWKhKQ24DoLtdNbBmNKUOPqwjsKQSdV9GQtj9CBEea9DlzETlVER1gYeXXBGaA==}
-
   '@ethersproject/strings@5.7.0':
     resolution: {integrity: sha512-/9nu+lj0YswRNSH0NXYqrh8775XNyEdUQAuf3f+SmOrnVewcJ5SBNAjF7lpgehKi4abvNNXyf+HX86czCdJ8Mg==}
 
   '@ethersproject/transactions@5.7.0':
     resolution: {integrity: sha512-kmcNicCp1lp8qanMTC3RIikGgoJ80ztTyvtsFvCYpSCfkjhD0jZ2LOrnbcuxuToLIUYYf+4XwD1rP+B/erDIhQ==}
-
-  '@ethersproject/units@5.7.0':
-    resolution: {integrity: sha512-pD3xLMy3SJu9kG5xDGI7+xhTEmGXlEqXU4OfNapmfnxLVY4EMSSRp7j1k7eezutBPH7RBN/7QPnwR7hzNlEFeg==}
 
   '@ethersproject/wallet@5.7.0':
     resolution: {integrity: sha512-MhmXlJXEJFBFVKrDLB4ZdDzxcBxQ3rLyCkhNqVu3CDYvR97E+8r01UgrI+TI99Le+aYm/in/0vp86guJuM7FCA==}
@@ -3913,8 +3907,8 @@ packages:
     resolution: {integrity: sha512-warwspo+UYUPep0Q+vtdVB4Ugn8GGQj8iyB3gnRWsztmUHTI3S1nhdiWNsPUGL0vud7JlRRk1XEu7Lq1KGTnMQ==}
     engines: {node: ^14.21.3 || >=16}
 
-  '@noble/curves@1.8.2':
-    resolution: {integrity: sha512-vnI7V6lFNe0tLAuJMu+2sX+FcL14TaCWy1qiczg1VwRmPrpQCdq5ESXQMqUc2tluRNf6irBXrWbl1mGN8uaU/g==}
+  '@noble/curves@1.9.0':
+    resolution: {integrity: sha512-7YDlXiNMdO1YZeH6t/kvopHHbIZzlxrCV9WLqCY6QhcXOoXiNCMDqJIglZ9Yjx5+w7Dz30TITFrlTjnRg7sKEg==}
     engines: {node: ^14.21.3 || >=16}
 
   '@noble/ed25519@1.7.3':
@@ -3950,8 +3944,8 @@ packages:
     resolution: {integrity: sha512-B8XBPsn4vT/KJAGqDzbwztd+6Yte3P4V7iafm24bxgDe/mlRuK6xmWPuCNrKt2vDafZ8MfJLlchDG/vYafQEjQ==}
     engines: {node: ^14.21.3 || >=16}
 
-  '@noble/hashes@1.7.2':
-    resolution: {integrity: sha512-biZ0NUSxyjLLqo6KxEJ1b+C2NAx0wtDoFvCaXHGgUkeHzf3Xc1xKumFKREuT7f7DARNZ/slvYUwFG6B0f2b6hQ==}
+  '@noble/hashes@1.8.0':
+    resolution: {integrity: sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A==}
     engines: {node: ^14.21.3 || >=16}
 
   '@noble/secp256k1@1.7.1':
@@ -5489,23 +5483,11 @@ packages:
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
 
-  '@types/node@18.15.13':
-    resolution: {integrity: sha512-N+0kuo9KgrUQ1Sn/ifDXsvg0TTleP7rIy4zOBGECxAljqvqfqpTfzx0Q1NUedOixRMBfe2Whhb056a42cWs26Q==}
-
-  '@types/node@22.10.2':
-    resolution: {integrity: sha512-Xxr6BBRCAOQixvonOye19wnzyDiUtTeqldOOmj3CkeblonbccA12PFwlufvRdrpjXxqnmUaeiU5EOA+7s5diUQ==}
-
   '@types/node@22.10.5':
     resolution: {integrity: sha512-F8Q+SeGimwOo86fiovQh8qiXfFEh2/ocYv7tU5pJ3EXMSSxk1Joj5wefpFK2fHTf/N6HKGSxIDBT9f3gCxXPkQ==}
 
-  '@types/node@22.14.1':
-    resolution: {integrity: sha512-u0HuPQwe/dHrItgHHpmw3N2fYCR6x4ivMNbPHRkBVP4CvN+kiRrKHWk3i8tXiO/joPwXLMYvF9TTF0eqgHIuOw==}
-
   '@types/node@22.15.17':
     resolution: {integrity: sha512-wIX2aSZL5FE+MR0JlvF87BNVrtFWf6AE6rxSE9X7OwnVvoyCQjpzSRJ+M87se/4QCkCiebQAqrJ0y6fwIyi7nw==}
-
-  '@types/node@22.15.3':
-    resolution: {integrity: sha512-lX7HFZeHf4QG/J7tBZqrCAXwz9J5RD56Y6MpP0eJkka8p+K0RY/yBTW7CYFJ4VGCclxqOLKmiGP5juQc6MKgcw==}
 
   '@types/node@22.7.5':
     resolution: {integrity: sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==}
@@ -8379,15 +8361,8 @@ packages:
   ethereum-cryptography@2.2.1:
     resolution: {integrity: sha512-r/W8lkHSiTLxUxW8Rf3u4HGB0xQweG2RyETjywylKZSzLWoWAijRz8WCuOtJ6wah+avllXBqZuk29HCCvhEIRg==}
 
-  ethers@5.7.2:
-    resolution: {integrity: sha512-wswUsmWo1aOK8rR7DIKiWSw9DbLWe6x98Jrn8wcTflTVvaXhAMaB5zGAXy0GYQEQp9iO1iSHWVyARQm11zUtyg==}
-
-  ethers@6.11.1:
-    resolution: {integrity: sha512-mxTAE6wqJQAbp5QAe/+o+rXOID7Nw91OZXvgpjDa1r4fAbq2Nu314oEZSbjoRLacuCzs7kUC3clEvkCQowffGg==}
-    engines: {node: '>=14.0.0'}
-
-  ethers@6.13.4:
-    resolution: {integrity: sha512-21YtnZVg4/zKkCQPjrDj38B1r4nQvTZLopUGMLQ1ePU2zV/joCfDC3t3iKQjWRzjjjbzR+mdAIoikeBRNkdllA==}
+  ethers@6.14.0:
+    resolution: {integrity: sha512-KgHwltNSMdbrGWEyKkM0Rt2s+u1nDH/5BVDQakLinzGEJi4bWindBzZSCC4gKsbZjwDTI6ex/8suR9Ihbmz4IQ==}
     engines: {node: '>=14.0.0'}
 
   ethjs-unit@0.1.6:
@@ -13242,9 +13217,6 @@ packages:
   tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
 
-  tslib@2.4.0:
-    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
-
   tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
@@ -14188,12 +14160,12 @@ packages:
       utf-8-validate:
         optional: true
 
-  ws@8.5.0:
-    resolution: {integrity: sha512-BWX0SWVgLPzYwF8lTzEy1egjhS4S4OEAHfsO8o65WOVsrnSRGaSiUaa9e0ggGlkMTtBlmOpEXiie9RUcBO86qg==}
+  ws@8.18.2:
+    resolution: {integrity: sha512-DMricUmwGZUVr++AEAe2uiVM7UoO9MAVZMDu05UQOaUII0lp+zOzLLU4Xqh/JvTqklB1T4uELaaPBKyjE1r4fQ==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
-      utf-8-validate: ^5.0.2
+      utf-8-validate: '>=5.0.2'
     peerDependenciesMeta:
       bufferutil:
         optional: true
@@ -17216,7 +17188,7 @@ snapshots:
 
   '@coinbase/wallet-sdk@4.3.0':
     dependencies:
-      '@noble/hashes': 1.7.1
+      '@noble/hashes': 1.8.0
       clsx: 1.2.1
       eventemitter3: 5.0.1
       preact: 10.26.5
@@ -18011,15 +17983,6 @@ snapshots:
       elliptic: 6.5.4
       hash.js: 1.1.7
 
-  '@ethersproject/solidity@5.7.0':
-    dependencies:
-      '@ethersproject/bignumber': 5.7.0
-      '@ethersproject/bytes': 5.7.0
-      '@ethersproject/keccak256': 5.7.0
-      '@ethersproject/logger': 5.7.0
-      '@ethersproject/sha2': 5.7.0
-      '@ethersproject/strings': 5.7.0
-
   '@ethersproject/strings@5.7.0':
     dependencies:
       '@ethersproject/bytes': 5.7.0
@@ -18037,12 +18000,6 @@ snapshots:
       '@ethersproject/properties': 5.7.0
       '@ethersproject/rlp': 5.7.0
       '@ethersproject/signing-key': 5.7.0
-
-  '@ethersproject/units@5.7.0':
-    dependencies:
-      '@ethersproject/bignumber': 5.7.0
-      '@ethersproject/constants': 5.7.0
-      '@ethersproject/logger': 5.7.0
 
   '@ethersproject/wallet@5.7.0':
     dependencies:
@@ -18354,7 +18311,7 @@ snapshots:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 22.15.3
+      '@types/node': 22.15.17
       '@types/yargs': 16.0.9
       chalk: 4.1.2
 
@@ -18363,7 +18320,7 @@ snapshots:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 22.15.3
+      '@types/node': 22.15.17
       '@types/yargs': 17.0.33
       chalk: 4.1.2
 
@@ -18567,7 +18524,7 @@ snapshots:
     dependencies:
       '@ethereumjs/tx': 4.2.0
       '@metamask/superstruct': 3.2.1
-      '@noble/hashes': 1.7.2
+      '@noble/hashes': 1.8.0
       '@scure/base': 1.2.4
       '@types/debug': 4.1.12
       debug: 4.4.0(supports-color@5.5.0)
@@ -18581,7 +18538,7 @@ snapshots:
     dependencies:
       '@ethereumjs/tx': 4.2.0
       '@metamask/superstruct': 3.2.1
-      '@noble/hashes': 1.7.2
+      '@noble/hashes': 1.8.0
       '@scure/base': 1.2.4
       '@types/debug': 4.1.12
       debug: 4.4.0(supports-color@5.5.0)
@@ -18958,8 +18915,8 @@ snapshots:
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.9.0)
       '@mysten/bcs': 1.4.0
-      '@noble/curves': 1.8.1
-      '@noble/hashes': 1.7.1
+      '@noble/curves': 1.9.0
+      '@noble/hashes': 1.8.0
       '@scure/bip32': 1.4.0
       '@scure/bip39': 1.4.0
       '@suchipi/femver': 1.0.0
@@ -19199,9 +19156,9 @@ snapshots:
     dependencies:
       '@noble/hashes': 1.7.1
 
-  '@noble/curves@1.8.2':
+  '@noble/curves@1.9.0':
     dependencies:
-      '@noble/hashes': 1.7.2
+      '@noble/hashes': 1.8.0
 
   '@noble/ed25519@1.7.3': {}
 
@@ -19221,7 +19178,7 @@ snapshots:
 
   '@noble/hashes@1.7.1': {}
 
-  '@noble/hashes@1.7.2': {}
+  '@noble/hashes@1.8.0': {}
 
   '@noble/secp256k1@1.7.1': {}
 
@@ -20190,14 +20147,14 @@ snapshots:
 
   '@scure/bip32@1.4.0':
     dependencies:
-      '@noble/curves': 1.4.0
+      '@noble/curves': 1.4.2
       '@noble/hashes': 1.4.0
       '@scure/base': 1.1.8
 
   '@scure/bip32@1.6.2':
     dependencies:
       '@noble/curves': 1.8.1
-      '@noble/hashes': 1.7.2
+      '@noble/hashes': 1.7.1
       '@scure/base': 1.2.4
 
   '@scure/bip39@1.1.0':
@@ -20232,7 +20189,7 @@ snapshots:
 
   '@scure/bip39@1.5.4':
     dependencies:
-      '@noble/hashes': 1.7.2
+      '@noble/hashes': 1.7.1
       '@scure/base': 1.2.4
 
   '@selderee/plugin-htmlparser2@0.11.0':
@@ -20454,13 +20411,13 @@ snapshots:
 
   '@solana/wallet-standard-util@1.1.1':
     dependencies:
-      '@noble/curves': 1.5.0
+      '@noble/curves': 1.9.0
       '@solana/wallet-standard-chains': 1.1.0
       '@solana/wallet-standard-features': 1.2.0
 
   '@solana/wallet-standard-util@1.1.2':
     dependencies:
-      '@noble/curves': 1.8.2
+      '@noble/curves': 1.9.0
       '@solana/wallet-standard-chains': 1.1.1
       '@solana/wallet-standard-features': 1.3.0
 
@@ -21100,7 +21057,7 @@ snapshots:
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 22.10.5
+      '@types/node': 22.15.17
 
   '@types/d3-array@3.2.1': {}
 
@@ -21249,13 +21206,13 @@ snapshots:
   '@types/fs-extra@11.0.1':
     dependencies:
       '@types/jsonfile': 6.1.4
-      '@types/node': 22.14.1
+      '@types/node': 22.15.17
 
   '@types/geojson@7946.0.14': {}
 
   '@types/graceful-fs@4.1.9':
     dependencies:
-      '@types/node': 22.15.3
+      '@types/node': 22.15.17
 
   '@types/hapi__joi@17.1.9': {}
 
@@ -21289,7 +21246,7 @@ snapshots:
 
   '@types/jsonfile@6.1.4':
     dependencies:
-      '@types/node': 22.15.3
+      '@types/node': 22.15.17
 
   '@types/lodash-es@4.17.12':
     dependencies:
@@ -21317,25 +21274,11 @@ snapshots:
 
   '@types/node@17.0.45': {}
 
-  '@types/node@18.15.13': {}
-
-  '@types/node@22.10.2':
-    dependencies:
-      undici-types: 6.20.0
-
   '@types/node@22.10.5':
     dependencies:
       undici-types: 6.20.0
 
-  '@types/node@22.14.1':
-    dependencies:
-      undici-types: 6.21.0
-
   '@types/node@22.15.17':
-    dependencies:
-      undici-types: 6.21.0
-
-  '@types/node@22.15.3':
     dependencies:
       undici-types: 6.21.0
 
@@ -21376,7 +21319,7 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 22.14.1
+      '@types/node': 22.15.17
 
   '@types/semver@7.5.6': {}
 
@@ -21392,15 +21335,15 @@ snapshots:
 
   '@types/ws@7.4.7':
     dependencies:
-      '@types/node': 22.10.5
+      '@types/node': 22.15.17
 
   '@types/ws@8.5.13':
     dependencies:
-      '@types/node': 22.10.5
+      '@types/node': 22.15.17
 
   '@types/ws@8.5.3':
     dependencies:
-      '@types/node': 22.10.2
+      '@types/node': 22.15.17
 
   '@types/yargs-parser@21.0.3': {}
 
@@ -26150,8 +26093,8 @@ snapshots:
     dependencies:
       '@ecies/ciphers': 0.2.3(@noble/ciphers@1.2.1)
       '@noble/ciphers': 1.2.1
-      '@noble/curves': 1.8.1
-      '@noble/hashes': 1.7.2
+      '@noble/curves': 1.9.0
+      '@noble/hashes': 1.8.0
 
   editions@2.3.1:
     dependencies:
@@ -26170,7 +26113,7 @@ snapshots:
 
   elliptic@6.5.4:
     dependencies:
-      bn.js: 4.12.1
+      bn.js: 4.12.2
       brorand: 1.1.0
       hash.js: 1.1.7
       hmac-drbg: 1.0.1
@@ -26894,56 +26837,7 @@ snapshots:
       '@scure/bip32': 1.4.0
       '@scure/bip39': 1.3.0
 
-  ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10):
-    dependencies:
-      '@ethersproject/abi': 5.7.0
-      '@ethersproject/abstract-provider': 5.7.0
-      '@ethersproject/abstract-signer': 5.7.0
-      '@ethersproject/address': 5.7.0
-      '@ethersproject/base64': 5.7.0
-      '@ethersproject/basex': 5.7.0
-      '@ethersproject/bignumber': 5.7.0
-      '@ethersproject/bytes': 5.7.0
-      '@ethersproject/constants': 5.7.0
-      '@ethersproject/contracts': 5.7.0
-      '@ethersproject/hash': 5.7.0
-      '@ethersproject/hdnode': 5.7.0
-      '@ethersproject/json-wallets': 5.7.0
-      '@ethersproject/keccak256': 5.7.0
-      '@ethersproject/logger': 5.7.0
-      '@ethersproject/networks': 5.7.1
-      '@ethersproject/pbkdf2': 5.7.0
-      '@ethersproject/properties': 5.7.0
-      '@ethersproject/providers': 5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10)
-      '@ethersproject/random': 5.7.0
-      '@ethersproject/rlp': 5.7.0
-      '@ethersproject/sha2': 5.7.0
-      '@ethersproject/signing-key': 5.7.0
-      '@ethersproject/solidity': 5.7.0
-      '@ethersproject/strings': 5.7.0
-      '@ethersproject/transactions': 5.7.0
-      '@ethersproject/units': 5.7.0
-      '@ethersproject/wallet': 5.7.0
-      '@ethersproject/web': 5.7.1
-      '@ethersproject/wordlists': 5.7.0
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-
-  ethers@6.11.1(bufferutil@4.0.9)(utf-8-validate@5.0.10):
-    dependencies:
-      '@adraffy/ens-normalize': 1.10.1
-      '@noble/curves': 1.2.0
-      '@noble/hashes': 1.3.2
-      '@types/node': 18.15.13
-      aes-js: 4.0.0-beta.5
-      tslib: 2.4.0
-      ws: 8.5.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-
-  ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10):
+  ethers@6.14.0(bufferutil@4.0.9)(utf-8-validate@5.0.10):
     dependencies:
       '@adraffy/ens-normalize': 1.10.1
       '@noble/curves': 1.2.0
@@ -28479,9 +28373,9 @@ snapshots:
     dependencies:
       ws: 8.12.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
 
-  isomorphic-ws@5.0.0(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)):
+  isomorphic-ws@5.0.0(ws@8.18.2(bufferutil@4.0.9)(utf-8-validate@5.0.10)):
     dependencies:
-      ws: 8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      ws: 8.18.2(bufferutil@4.0.9)(utf-8-validate@5.0.10)
 
   isows@1.0.3(ws@8.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)):
     dependencies:
@@ -28587,7 +28481,7 @@ snapshots:
     dependencies:
       '@jest/types': 29.6.3
       '@types/graceful-fs': 4.1.9
-      '@types/node': 22.15.3
+      '@types/node': 22.15.17
       anymatch: 3.1.3
       fb-watchman: 2.0.2
       graceful-fs: 4.2.11
@@ -28622,7 +28516,7 @@ snapshots:
   jest-util@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.15.3
+      '@types/node': 22.15.17
       chalk: 4.1.2
       ci-info: 3.9.0
       graceful-fs: 4.2.11
@@ -28645,14 +28539,14 @@ snapshots:
 
   jest-worker@29.4.3:
     dependencies:
-      '@types/node': 22.15.3
+      '@types/node': 22.15.17
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
   jest-worker@29.7.0:
     dependencies:
-      '@types/node': 22.15.3
+      '@types/node': 22.15.17
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
@@ -28824,7 +28718,7 @@ snapshots:
 
   jsontokens@4.0.1:
     dependencies:
-      '@noble/hashes': 1.7.2
+      '@noble/hashes': 1.8.0
       '@noble/secp256k1': 1.7.1
       base64-js: 1.5.1
 
@@ -30256,8 +30150,8 @@ snapshots:
   ox@0.6.7(typescript@5.6.2)(zod@3.24.3):
     dependencies:
       '@adraffy/ens-normalize': 1.11.0
-      '@noble/curves': 1.8.1
-      '@noble/hashes': 1.7.2
+      '@noble/curves': 1.9.0
+      '@noble/hashes': 1.8.0
       '@scure/bip32': 1.6.2
       '@scure/bip39': 1.5.4
       abitype: 1.0.8(typescript@5.6.2)(zod@3.24.3)
@@ -32251,7 +32145,7 @@ snapshots:
       buffer: 6.0.3
       eventemitter3: 5.0.1
       uuid: 8.3.2
-      ws: 8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      ws: 8.18.2(bufferutil@4.0.9)(utf-8-validate@5.0.10)
     optionalDependencies:
       bufferutil: 4.0.9
       utf-8-validate: 5.0.10
@@ -33222,7 +33116,7 @@ snapshots:
       axios: 1.8.4(debug@4.4.0)
       bignumber.js: 9.2.1
       ethereum-cryptography: 2.2.1
-      ethers: 6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      ethers: 6.14.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       eventemitter3: 3.1.2
       google-protobuf: 3.21.4
       semver: 5.7.2
@@ -33265,8 +33159,6 @@ snapshots:
       strip-bom: 3.0.0
 
   tslib@1.14.1: {}
-
-  tslib@2.4.0: {}
 
   tslib@2.6.2: {}
 
@@ -34171,7 +34063,7 @@ snapshots:
 
   web3-eth-ens@4.4.0(bufferutil@4.0.9)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.24.3):
     dependencies:
-      '@adraffy/ens-normalize': 1.10.1
+      '@adraffy/ens-normalize': 1.11.0
       web3-core: 4.7.1(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@5.0.10)
       web3-errors: 1.3.1
       web3-eth: 4.11.1(bufferutil@4.0.9)(encoding@0.1.13)(typescript@5.6.2)(utf-8-validate@5.0.10)(zod@3.24.3)
@@ -34259,11 +34151,11 @@ snapshots:
   web3-providers-ws@4.0.8(bufferutil@4.0.9)(utf-8-validate@5.0.10):
     dependencies:
       '@types/ws': 8.5.3
-      isomorphic-ws: 5.0.0(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      isomorphic-ws: 5.0.0(ws@8.18.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       web3-errors: 1.3.1
       web3-types: 1.10.0
       web3-utils: 4.3.3
-      ws: 8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      ws: 8.18.2(bufferutil@4.0.9)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -34348,8 +34240,8 @@ snapshots:
 
   webauthn-p256@0.0.5:
     dependencies:
-      '@noble/curves': 1.5.0
-      '@noble/hashes': 1.5.0
+      '@noble/curves': 1.9.0
+      '@noble/hashes': 1.8.0
 
   webextension-polyfill@0.10.0: {}
 
@@ -34572,7 +34464,7 @@ snapshots:
       bufferutil: 4.0.9
       utf-8-validate: 5.0.10
 
-  ws@8.5.0(bufferutil@4.0.9)(utf-8-validate@5.0.10):
+  ws@8.18.2(bufferutil@4.0.9)(utf-8-validate@5.0.10):
     optionalDependencies:
       bufferutil: 4.0.9
       utf-8-validate: 5.0.10
