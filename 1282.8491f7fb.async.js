@@ -2728,7 +2728,7 @@ import { mainnet } from 'wagmi/chains';
 const config = createConfig({
   chains: [mainnet],
   transports: {
-    [mainnet.id]: http(),
+    [mainnet.id]: http(\`https://api.zan.top/node/v1/eth/mainnet/\${YOUR_ZAN_API_KEY}\`),
   },
   connectors: [],
 });
