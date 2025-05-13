@@ -126,7 +126,7 @@
     "@solana/wallet-adapter-coinbase": "^0.1.22",
     "@solana/wallet-adapter-trust": "^0.1.13",
     "@solana/web3.js": "^1.98.0",
-    "@tanstack/query-sync-storage-persister": "^5.74.3",
+    "@tanstack/query-sync-storage-persister": "^5.76.0",
     "@tanstack/react-query": "^5.51.11",
     "@tanstack/react-query-persist-client": "^5.56.2",
     "antd": "^5.22.7",
