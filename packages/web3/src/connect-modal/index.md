@@ -51,6 +51,10 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 
 <code src="./demos/disabled.tsx"></code>
 
+## With Custom Banner
+
+<code src="./demos/banner.tsx"></code>
+
 ## API
 
 ### ConnectModalProps
@@ -61,6 +65,7 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 | onWalletSelected | Callback when the wallet is selected | `(wallet: Walle, options?: ConnectOptions) => void` | - | - |
 | onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | `(e:React.SyntheticEvent) => void` | - | - |
 | footer | Custom footer | `React.ReactNode` | - | - |
+| banner | Custom banner | `React.ReactNode` | - | - |
 | walletList | Wallet list | `Wallet[]` | - | - |
 | group | Does the wallet need to be grouped | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | `true` when there are multiple groups | - |
 | mode | Popup mode | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |

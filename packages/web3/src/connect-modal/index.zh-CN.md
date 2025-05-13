@@ -52,6 +52,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAA
 
 <code src="./demos/disabled.tsx"></code>
 
+## 自定义 Banner
+
+<code src="./demos/banner.tsx"></code>
+
 ## API
 
 ### ConnectModalProps
@@ -62,6 +66,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAA
 | onWalletSelected | 选中钱包回调 | `(wallet: Wallet, options?: ConnectOptions) => void` | - | - |
 | onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | `(e:React.SyntheticEvent) => void` | - | - |
 | footer | 自定义 footer | `React.ReactNode` | - | - |
+| banner | 自定义 banner | `React.ReactNode` | - | - |
 | walletList | 钱包列表 | [Wallet](./types#wallet)\[\] | - | - |
 | group | 钱包是否需要分组 | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | 有多个分组情况下为 `true` | - |
 | mode | 弹窗模式 | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |

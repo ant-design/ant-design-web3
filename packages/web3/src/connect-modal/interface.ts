@@ -92,6 +92,11 @@ export type ConnectModalProps = ModalProps &
      */
     footer?: React.ReactNode;
     /**
+     * @desc 自定义 banner
+     * @descEn Custom banner
+     */
+    banner?: React.ReactNode;
+    /**
      * @desc 用于触发操作的引用
      * @descEn ref for action
      */
