@@ -1,6 +1,5 @@
 import React from 'react';
-import type { ConnectModalProps } from '@ant-design/web3';
-import { ConnectModal } from '@ant-design/web3';
+import { ConnectModal, Web3ConfigProvider } from '@ant-design/web3';
 import {
   metadata_MetaMask,
   metadata_TokenPocket,
@@ -21,7 +20,15 @@ const walletList: Wallet[] = [
 const App: React.FC = () => {
   const [open, setOpen] = React.useState(false);
   return (
-    <>
+    <Web3ConfigProvider
+      theme={{
+        web3Components: {
+          ConnectModal: {
+            walletListHeight: 436,
+          },
+        },
+      }}
+    >
       <Button type="primary" onClick={() => setOpen(true)}>
         Open with custom banner
       </Button>
@@ -39,7 +46,7 @@ const App: React.FC = () => {
           />
         }
       />
-    </>
+    </Web3ConfigProvider>
   );
 };
 

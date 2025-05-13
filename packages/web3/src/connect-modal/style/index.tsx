@@ -24,6 +24,7 @@ export interface ComponentToken {
   walletIconSize: number;
   simpleGuideBg: string;
   walletListWidth: number;
+  walletListHeight: number;
   modalMinHeight: number;
 }
 
@@ -96,7 +97,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             display: 'flex',
             flexDirection: 'column',
             marginBlockStart: token.marginSM,
-            height: 436,
+            height: token.walletListHeight,
           },
           [`${componentCls}-list-container`]: {
             paddingInline: token.paddingMD,
@@ -598,6 +599,7 @@ export function useStyle(prefixCls: string): UseStyleResult {
       web3ComponentsCls: `.${prefixCls}`,
       simpleGuideBg: new TinyColor(token.colorText).complement().setAlpha(0.06).toRgbString(),
       walletListWidth: 328,
+      walletListHeight: 436,
       modalMinHeight: 518,
       ...token.ConnectModal,
     };
