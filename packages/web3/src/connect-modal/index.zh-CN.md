@@ -66,7 +66,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAA
 | onWalletSelected | 选中钱包回调 | `(wallet: Wallet, options?: ConnectOptions) => void` | - | - |
 | onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | `(e:React.SyntheticEvent) => void` | - | - |
 | footer | 自定义 footer | `React.ReactNode` | - | - |
-| banner | 自定义 banner | `React.ReactNode` | - | - |
+| banner | 自定义 banner | `React.ReactNode` | - | `1.24.0` |
 | walletList | 钱包列表 | [Wallet](./types#wallet)\[\] | - | - |
 | group | 钱包是否需要分组 | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | 有多个分组情况下为 `true` | - |
 | mode | 弹窗模式 | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
@@ -118,4 +118,5 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAA
 | walletIconSize       | 钱包图标大小       | `number` | `32`                        |
 | simpleGuideBg        | 简易指引背景色     | `string` | `rgba(255, 255, 255, 0.06)` |
 | walletListWidth      | 钱包列表宽度       | `number` | `328`                       |
+| walletListHeight     | 钱包列表高度       | `number` | `436`                       |
 | modalMinHeight       | 弹窗最小高度       | `number` | `518`                       |

@@ -65,7 +65,7 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 | onWalletSelected | Callback when the wallet is selected | `(wallet: Walle, options?: ConnectOptions) => void` | - | - |
 | onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | `(e:React.SyntheticEvent) => void` | - | - |
 | footer | Custom footer | `React.ReactNode` | - | - |
-| banner | Custom banner | `React.ReactNode` | - | - |
+| banner | Custom banner | `React.ReactNode` | - | `1.24.0` |
 | walletList | Wallet list | `Wallet[]` | - | - |
 | group | Does the wallet need to be grouped | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | `true` when there are multiple groups | - |
 | mode | Popup mode | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
@@ -117,4 +117,5 @@ Besides properties related to controlling pop-ups, it is the same as `ConnectMod
 | walletIconSize | Size of wallet icon | `number` | `32` |
 | simpleGuideBg | Background color of simple guide | `string` | `rgba(255, 255, 255, 0.06)` |
 | walletListWidth | Width of wallet list | `number` | `328` |
+| walletListHeight | Height of wallet list | `number` | `436` |
 | modalMinHeight | Minimum height of modal | `number` | `518` |
