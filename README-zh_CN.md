@@ -88,11 +88,3 @@ $ pnpm start
 - 提交 [pull requests](https://github.com/ant-design/ant-design-web3/pulls) 改进我们的代码.
 
 为了更好地参与和贡献，请阅读我们的 [贡献指南](https://web3.ant.design/guide/contributing-cn).
-
-## Star 趋势
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ant-design/ant-design-web3&type=Date&theme=dark" />
-  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ant-design/ant-design-web3&type=Date" />
-  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ant-design/ant-design-web3&type=Date" />
-</picture>
