@@ -90,11 +90,3 @@ Any type of contribution is welcome, here are some examples of how you may contr
 - Propose [pull requests](https://github.com/ant-design/ant-design-web3/pulls) to improve our code.
 
 To better participate and contribute, please read our [contribution guidelines](https://web3.ant.design/guide/contributing).
-
-## Star History
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ant-design/ant-design-web3&type=Date&theme=dark" />
-  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ant-design/ant-design-web3&type=Date" />
-  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ant-design/ant-design-web3&type=Date" />
-</picture>
