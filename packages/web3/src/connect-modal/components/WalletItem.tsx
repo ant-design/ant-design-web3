@@ -15,6 +15,7 @@ export interface WalletItemProps {
   onSelect: (wallet: Wallet) => void;
   onQrCodeSelect: (wallet: Wallet) => void;
   showQrPlaceholder?: boolean;
+  disabled?: boolean;
 }
 
 const WalletItem: React.FC<WalletItemProps> = ({
@@ -24,6 +25,7 @@ const WalletItem: React.FC<WalletItemProps> = ({
   onSelect,
   onQrCodeSelect,
   showQrPlaceholder,
+  disabled = false,
 }) => {
   const useUniversalLink: boolean = !!(mobile() && wallet.deeplink);
   const [showPluginTag, setShowPluginTag] = useState(!useUniversalLink);
@@ -44,8 +46,9 @@ const WalletItem: React.FC<WalletItemProps> = ({
           wallet.key !== undefined
             ? selectedWallet?.key === wallet.key
             : selectedWallet?.name === wallet.name,
+        disabled,
       })}
-      onClick={() => onSelect(wallet)}
+      onClick={disabled ? undefined : () => onSelect(wallet)}
     >
       <div className={`${prefixCls}-content`}>
         <WalletIcon wallet={wallet} />
@@ -61,8 +64,11 @@ const WalletItem: React.FC<WalletItemProps> = ({
             className={`${prefixCls}-qr-btn`}
             onClick={(e) => {
               e.stopPropagation();
-              onQrCodeSelect(wallet);
+              if (!disabled) {
+                onQrCodeSelect(wallet);
+              }
             }}
+            disabled={disabled}
           >
             <QrcodeOutlined />
           </Button>

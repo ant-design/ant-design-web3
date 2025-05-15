@@ -14,7 +14,8 @@ export const ConnectModal: React.FC<ConnectModalProps> & {
   ModalPanel: typeof ModalPanel;
 } = (props) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, unused-imports/no-unused-vars
-  const { title, footer, open, className, mode, rootClassName, onCancel, ...restProps } = props;
+  const { title, footer, open, className, mode, rootClassName, onCancel, disabled, ...restProps } =
+    props;
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
 
   const { isSimple } = useMode(mode);

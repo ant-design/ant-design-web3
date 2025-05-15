@@ -15,14 +15,14 @@ import WalletItem from './WalletItem';
 
 export type WalletListProps = Pick<
   ConnectModalProps,
-  'walletList' | 'group' | 'groupOrder' | 'emptyProps'
+  'walletList' | 'group' | 'groupOrder' | 'emptyProps' | 'disabled'
 >;
 
 const WalletList: ForwardRefRenderFunction<ConnectModalActionType, WalletListProps> = (
   props,
   ref,
 ) => {
-  const { walletList = [], group: internalGroup, groupOrder, emptyProps } = props;
+  const { walletList = [], group: internalGroup, groupOrder, emptyProps, disabled = false } = props;
   const { prefixCls, updateSelectedWallet, selectedWallet, localeMessage, updatePanelRoute } =
     useContext(connectModalContext);
   const dataSource: Record<string, Wallet[]> = useMemo(() => {
@@ -134,6 +134,7 @@ const WalletList: ForwardRefRenderFunction<ConnectModalActionType, WalletListPro
               });
             }}
             showQrPlaceholder={walletList.some((w) => w.getQrCode && w.hasExtensionInstalled)}
+            disabled={disabled}
           />
         )}
       />

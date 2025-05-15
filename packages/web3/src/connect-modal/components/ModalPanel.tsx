@@ -31,6 +31,8 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     defaultSelectedWallet,
     locale,
     connecting,
+    disabled = false,
+    banner,
   } = props;
   const intl = useIntl('ConnectModal', locale);
   const showQRCoodByDefault = defaultSelectedWallet?.getQrCode;
@@ -118,6 +120,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
         {(panelRoute === 'init' || !isSimple) && (
           <div className={classNames(`${prefixCls}-list-panel`)}>
             <div className={`${prefixCls}-header`}>{mergedTitle}</div>
+            {banner && <div className={`${prefixCls}-banner`}>{banner}</div>}
             <div className={`${prefixCls}-list`}>
               <div className={`${prefixCls}-list-container`}>
                 <WalletList
@@ -126,6 +129,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
                   group={group}
                   groupOrder={groupOrder}
                   emptyProps={emptyProps}
+                  disabled={disabled}
                 />
               </div>
               <div className={`${prefixCls}-footer-container`}>

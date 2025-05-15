@@ -92,6 +92,11 @@ export type ConnectModalProps = ModalProps &
      */
     footer?: React.ReactNode;
     /**
+     * @desc 自定义 banner
+     * @descEn Custom banner
+     */
+    banner?: React.ReactNode;
+    /**
      * @desc 用于触发操作的引用
      * @descEn ref for action
      */
@@ -155,6 +160,13 @@ export type ConnectModalProps = ModalProps &
      * @descEn Empty props
      */
     emptyProps?: EmptyProps;
+
+    /**
+     * @desc 是否禁用钱包连接功能
+     * @descEn Whether to disable wallet connection functionality
+     * @default false
+     */
+    disabled?: boolean;
   };
 
 export type PanelRoute = 'init' | 'guide' | 'wallet' | 'qrCode' | 'downloadQrCode' | 'link';

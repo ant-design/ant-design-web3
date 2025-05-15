@@ -47,6 +47,14 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 
 <code src="./demos/empty.tsx"></code>
 
+## Disabled State
+
+<code src="./demos/disabled.tsx"></code>
+
+## With Custom Banner
+
+<code src="./demos/banner.tsx"></code>
+
 ## API
 
 ### ConnectModalProps
@@ -57,6 +65,7 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 | onWalletSelected | Callback when the wallet is selected | `(wallet: Walle, options?: ConnectOptions) => void` | - | - |
 | onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | `(e:React.SyntheticEvent) => void` | - | - |
 | footer | Custom footer | `React.ReactNode` | - | - |
+| banner | Custom banner | `React.ReactNode` | - | `1.24.0` |
 | walletList | Wallet list | `Wallet[]` | - | - |
 | group | Does the wallet need to be grouped | `boolean` \| `{groupOrder: (a: string, b: string) => number}` | `true` when there are multiple groups | - |
 | mode | Popup mode | `'simple' \| 'normal' \| 'auto'` | `'auto'` | - |
@@ -66,6 +75,7 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 | locale | Multilingual settings | `Locale["ConnectModal"]` | - | - |
 | connecting | Whether it is connecting | `boolean` \| `{ status: 'connecting \| 'signing'}` | - | - |
 | emptyProps | Empty state props | [EmptyProps](https://ant.design/components/empty#api) | `{image: Empty.PRESENTED_IMAGE_SIMPLE, description: "No wallet available"}` | `1.18.0` |
+| disabled | Whether to disable wallet connection functionality | `boolean` | `false` | `1.24.0` |
 
 Other modal properties see: [ModalProps](https://ant.design/components/modal#API)
 
@@ -107,4 +117,5 @@ Besides properties related to controlling pop-ups, it is the same as `ConnectMod
 | walletIconSize | Size of wallet icon | `number` | `32` |
 | simpleGuideBg | Background color of simple guide | `string` | `rgba(255, 255, 255, 0.06)` |
 | walletListWidth | Width of wallet list | `number` | `328` |
+| walletListHeight | Height of wallet list | `number` | `436` |
 | modalMinHeight | Minimum height of modal | `number` | `518` |

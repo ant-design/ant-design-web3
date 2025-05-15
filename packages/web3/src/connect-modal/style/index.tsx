@@ -24,6 +24,7 @@ export interface ComponentToken {
   walletIconSize: number;
   simpleGuideBg: string;
   walletListWidth: number;
+  walletListHeight: number;
   modalMinHeight: number;
 }
 
@@ -96,7 +97,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             display: 'flex',
             flexDirection: 'column',
             marginBlockStart: token.marginSM,
-            height: 436,
+            height: token.walletListHeight,
           },
           [`${componentCls}-list-container`]: {
             paddingInline: token.paddingMD,
@@ -178,7 +179,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     '&:last-child': {
                       marginBlockEnd: 0,
                     },
-                    '&:hover': {
+                    '&:hover:not(.disabled)': {
                       background: token.hoverWalletBg,
                       [`&:has(${componentCls}-qr-btn:not(:hover))`]: {
                         [`${componentCls}-plugin-tag:not(:disabled)`]: {
@@ -204,6 +205,13 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
                     },
                     '&.selected': {
                       background: token.selectedWalletBg,
+                    },
+                    '&.disabled': {
+                      cursor: 'not-allowed',
+                      opacity: 0.65,
+                      '&:hover': {
+                        background: 'transparent',
+                      },
                     },
                   },
                 },
@@ -591,6 +599,7 @@ export function useStyle(prefixCls: string): UseStyleResult {
       web3ComponentsCls: `.${prefixCls}`,
       simpleGuideBg: new TinyColor(token.colorText).complement().setAlpha(0.06).toRgbString(),
       walletListWidth: 328,
+      walletListHeight: 436,
       modalMinHeight: 518,
       ...token.ConnectModal,
     };
