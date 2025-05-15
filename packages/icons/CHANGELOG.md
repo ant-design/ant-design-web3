@@ -1,5 +1,12 @@
 # @ant-design/web3-icons
 
+## 1.14.0
+
+### Minor Changes
+
+- 02abdcd: chore: update okxWallet icon
+- 98dc8ef: feat: Support wallet Rainbow
+
 ## 1.13.0
 
 ### Minor Changes

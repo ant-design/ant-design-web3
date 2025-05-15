@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-ethers-v5",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",

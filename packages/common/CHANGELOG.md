@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.20.0
+
+### Minor Changes
+
+- b309635: feat(common): Add 'openMobile' connect type fix(solana): Support Mobile Wallet Adapter(MWA)
+
 ## 1.19.0
 
 ### Minor Changes
