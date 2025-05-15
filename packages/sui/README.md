@@ -12,7 +12,7 @@ npm install @ant-design/web3 @ant-design/web3-sui --save
 
 ```tsx
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { SuiWallet, SuiWeb3ConfigProvider } from '@ant-design/web3-sui';
+import { Slush, SuiWeb3ConfigProvider } from '@ant-design/web3-sui';
 
 const App: React.FC = () => {
   return (
