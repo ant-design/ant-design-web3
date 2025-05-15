@@ -1,5 +1,19 @@
 # @ant-design/web3-bitcoin
 
+## 2.0.0
+
+### Major Changes
+
+- 8aa26fa: feat: upgrade sats-connect to 3.4.0 for Xverse wallet
+
+### Patch Changes
+
+- Updated dependencies [02abdcd]
+- Updated dependencies [98dc8ef]
+- Updated dependencies [b309635]
+  - @ant-design/web3-icons@1.14.0
+  - @ant-design/web3-common@1.20.0
+
 ## 1.5.3
 
 ### Patch Changes

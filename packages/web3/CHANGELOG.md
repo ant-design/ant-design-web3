@@ -1,5 +1,23 @@
 # @ant-design/web3
 
+## 1.24.0
+
+### Minor Changes
+
+- 7b9a13f: feat: ConnectModal support new prop disabled
+- 7b9a13f: feat: ConnectModal support banner prop
+- b309635: feat(common): Add 'openMobile' connect type fix(solana): Support Mobile Wallet Adapter(MWA)
+
+### Patch Changes
+
+- Updated dependencies [02abdcd]
+- Updated dependencies [98dc8ef]
+- Updated dependencies [b309635]
+- Updated dependencies [d9629ed]
+  - @ant-design/web3-icons@1.14.0
+  - @ant-design/web3-assets@1.13.0
+  - @ant-design/web3-common@1.20.0
+
 ## 1.23.0
 
 ### Minor Changes

@@ -1,7 +1,7 @@
 {
   "name": "@example/ethers",
   "private": true,
-  "version": "0.0.21",
+  "version": "0.0.22",
   "author": "Jeason <me@cowpoke.cc>",
   "type": "module",
   "scripts": {

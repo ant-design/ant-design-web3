@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-assets",
-  "version": "1.12.1",
+  "version": "1.13.0",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
