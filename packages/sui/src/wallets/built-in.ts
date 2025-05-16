@@ -5,3 +5,6 @@ import { WalletFactory } from './factory';
 
 export const Suiet = () => WalletFactory(metadata_Suiet);
 export const Slush = () => WalletFactory(metadata_Slush);
+
+/** @deprecated Please use `Slush()` instead */
+export const SuiWallet = () => WalletFactory(metadata_Slush);

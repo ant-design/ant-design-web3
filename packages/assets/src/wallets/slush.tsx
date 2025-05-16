@@ -1,10 +1,10 @@
 import type { WalletMetadata } from '@ant-design/web3-common';
-import { ChromeCircleColorful, SuiColorful } from '@ant-design/web3-icons';
+import { ChromeCircleColorful, SlishCircleFilled } from '@ant-design/web3-icons';
 
 export const metadata_Slush: WalletMetadata = {
   name: 'Slush',
   remark: 'Slush',
-  icon: <SuiColorful />,
+  icon: <SlishCircleFilled />,
   app: {
     link: 'https://slush.app/',
   },
@@ -13,7 +13,7 @@ export const metadata_Slush: WalletMetadata = {
       key: 'Chrome',
       browserIcon: <ChromeCircleColorful />,
       browserName: 'Chrome',
-      link: 'https://chromewebstore.google.com/detail/slush-%E2%80%94-a-sui-wallet/opcgpfmipidbgpenhmajoajpbobppdil',
+      link: 'chromewebstore.google.com/detail/opcgpfmipidbgpenhmajoajpbobppdil',
       description: 'Access your wallet right from your favorite web browser.',
     },
   ],
