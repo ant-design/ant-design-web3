@@ -1,10 +1,10 @@
 import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { metadata_SuiWallet } from '@ant-design/web3-assets';
+import { metadata_Slush } from '@ant-design/web3-assets';
 import { fireEvent } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { SuiWallet, SuiWeb3ConfigProvider } from '../../';
+import { Slush, SuiWeb3ConfigProvider } from '../../';
 import { xrender } from './utils';
 
 describe('SuiWeb3ConfigProvider wallets tests', () => {
@@ -69,7 +69,7 @@ describe('SuiWeb3ConfigProvider wallets tests', () => {
   it('available provide `wallets`', async () => {
     const App = () => {
       return (
-        <SuiWeb3ConfigProvider wallets={[SuiWallet()]}>
+        <SuiWeb3ConfigProvider wallets={[Slush()]}>
           <Connector>
             <ConnectButton />
           </Connector>
@@ -94,8 +94,8 @@ describe('SuiWeb3ConfigProvider wallets tests', () => {
         .map((item) => item.textContent)
         .join(',');
 
-      // [Sui Wallet, Test Wallet, Test2 Wallet]
-      const walletNames = [metadata_SuiWallet.name].concat(mockedDatas.WALLETS.map((v) => v.name));
+      // [Slush, Test Wallet, Test2 Wallet]
+      const walletNames = [metadata_Slush.name].concat(mockedDatas.WALLETS.map((v) => v.name));
 
       expect(walletTexts).toBe(walletNames.join(','));
     });
