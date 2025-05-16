@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { MoreOutlined } from '@ant-design/icons';
-import type { Wallet } from '@ant-design/web3-common';
+import { ConnectStatus, type Account, type Wallet } from '@ant-design/web3-common';
 import type { ButtonProps, MenuProps } from 'antd';
 import { Button, ConfigProvider, Dropdown, Space } from 'antd';
 import classNames from 'classnames';
@@ -13,7 +13,10 @@ export interface ConnectButtonInnerProps extends ButtonProps {
   preContent: React.ReactNode;
   showQuickConnect?: boolean;
   availableWallets?: Wallet[];
+  needSign?: boolean;
   onConnectClick?: (wallet?: Wallet) => void;
+  onDisconnectClick?: () => void;
+  onOpenProfileClick?: () => void;
   intl: IntlType;
 }
 
@@ -26,9 +29,12 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
     children,
     onClick,
     onConnectClick,
+    onDisconnectClick,
+    onOpenProfileClick,
     intl,
     __hashId__,
     className,
+    needSign,
     ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -36,15 +42,18 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
   const [firstInstallWallet, setFirstInstallWallet] = useState<Wallet | undefined>(undefined);
   const [items, setItems] = useState<MenuProps['items']>([]);
 
-  const getWalletIcon = (wallet: Wallet) => {
-    const icon = wallet.icon;
+  const getWalletIcon = useCallback(
+    (wallet: Wallet) => {
+      const icon = wallet.icon;
 
-    return (
-      <span className={classNames(__hashId__, `${prefixCls}-quick-connect-icon`)}>
-        {typeof icon === 'string' ? <img src={icon} alt={`${wallet.name} Icon`} /> : icon}
-      </span>
-    );
-  };
+      return (
+        <span className={classNames(__hashId__, `${prefixCls}-quick-connect-icon`)}>
+          {typeof icon === 'string' ? <img src={icon} alt={`${wallet.name} Icon`} /> : icon}
+        </span>
+      );
+    },
+    [__hashId__, prefixCls],
+  );
 
   const generateQuickConnectItems = async (wallets: Wallet[] = []) => {
     if (!showQuickConnect) {
@@ -100,23 +109,45 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
     generateQuickConnectItems(availableWallets);
   }, [availableWallets, showQuickConnect]);
 
-  const buttonContent =
-    showQuickConnect && firstInstallWallet ? (
-      <Dropdown.Button
-        {...restProps}
-        menu={{
-          items,
-        }}
-        className={classNames(className, `${prefixCls}-quick-connect`)}
-        onClick={(e) => {
-          onClick?.(e);
-          onConnectClick?.(firstInstallWallet);
-        }}
-      >
-        {children}
-        {getWalletIcon(firstInstallWallet)}
-      </Dropdown.Button>
-    ) : (
+  const buttonContent = useMemo(() => {
+    // if ( account?.status === ConnectStatus.Connected) {
+    if (needSign) {
+      return (
+        <Dropdown.Button
+          menu={{
+            items: [
+              { key: 'profile', label: '我的资料', onClick: onOpenProfileClick },
+              { key: 'disconnect', label: '断开', onClick: onDisconnectClick },
+            ],
+          }}
+          {...restProps}
+          className={className}
+        >
+          {children}
+        </Dropdown.Button>
+      );
+    }
+
+    if (showQuickConnect && firstInstallWallet) {
+      return (
+        <Dropdown.Button
+          {...restProps}
+          menu={{
+            items,
+          }}
+          className={classNames(className, `${prefixCls}-quick-connect`)}
+          onClick={(e) => {
+            onClick?.(e);
+            onConnectClick?.(firstInstallWallet);
+          }}
+        >
+          {children}
+          {getWalletIcon(firstInstallWallet)}
+        </Dropdown.Button>
+      );
+    }
+
+    return (
       <Button
         {...restProps}
         className={className}
@@ -128,6 +159,16 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
         {children}
       </Button>
     );
+  }, [
+    firstInstallWallet,
+    items,
+    needSign,
+    onClick,
+    onConnectClick,
+    onOpenProfileClick,
+    onDisconnectClick,
+    showQuickConnect,
+  ]);
 
   return preContent ? (
     <Space.Compact>
