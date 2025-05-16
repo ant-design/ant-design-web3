@@ -2,7 +2,7 @@ import React, { useContext, useMemo, useState } from 'react';
 import { CopyOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
 import { ConnectStatus, type Chain, type Wallet } from '@ant-design/web3-common';
 import type { ButtonProps } from 'antd';
-import { Avatar, ConfigProvider, Divider, Dropdown, message } from 'antd';
+import { Avatar, Badge, ConfigProvider, Divider, Dropdown, message } from 'antd';
 import classNames from 'classnames';
 
 import { Address } from '../address';
@@ -59,7 +59,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const { coverAddress = true } = typeof balance !== 'object' ? { coverAddress: true } : balance;
-  const needSign = !!(sign?.signIn && account?.status === ConnectStatus.Connected && account);
+  const needSign = !!sign?.signIn && account?.status === ConnectStatus.Connected;
+
   let buttonText: React.ReactNode = intl.getMessage(intl.messages.connect);
   if (account) {
     buttonText = (
@@ -164,6 +165,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const buttonInnerText = (
     <div className={`${prefixCls}-content`}>
       <div className={`${prefixCls}-content-inner`}>
+        {needSign && account.status !== ConnectStatus.Signed && <Badge status="error" />}
         <div className={`${prefixCls}-text`}>{buttonText}</div>
         {(account?.avatar || avatar) && (
           <>
@@ -177,6 +179,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     </div>
   );
 
+  console.log('signIn:', typeof sign?.signIn, account?.status);
+
   const buttonContent = (
     <ConnectButtonInner
       intl={intl}
@@ -184,11 +188,14 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       preContent={chainSelectRender}
       showQuickConnect={quickConnect && !account}
       availableWallets={availableWallets}
+      needSign={needSign}
       onConnectClick={(wallet?: Wallet) => {
         if (!account) {
           onConnectClick?.(wallet);
         }
       }}
+      onDisconnectClick={onDisconnectClick}
+      onOpenProfileClick={() => setProfileOpen(true)}
       __hashId__={hashId}
     >
       {buttonInnerText}
