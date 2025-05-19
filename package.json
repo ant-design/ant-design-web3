@@ -72,7 +72,7 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
     "@inline-svg-unique-id/react": "^1.2.3",
     "@testing-library/react": "^16.2.0",
-    "@types/lodash": "^4.17.13",
+    "@types/lodash": "^4.17.16",
     "@types/node": "^22.10.5",
     "@types/react": "^18.3.5",
     "@types/react-copy-to-clipboard": "^5.0.7",
