@@ -1,0 +1,27 @@
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+import * as React from 'react';
+import AntdIcon from '@ant-design/icons';
+import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
+import { ConfigProvider } from 'antd';
+import classnames from 'classnames';
+
+import { eraseDefaultProps } from '../utils';
+import SVGComponent from '../svgs/slush-circle-filled.svg';
+
+/**![SlushCircleFilled](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IiNjYWNhY2EiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgNDggNDgiIGZpbGw9Im5vbmUiPgo8cGF0aCBkPSJNMCAyNEMwIDEwLjc0NTIgMTAuNzQ1MiAwIDI0IDBDMzcuMjU0OCAwIDQ4IDEwLjc0NTIgNDggMjRDNDggMzcuMjU0OCAzNy4yNTQ4IDQ4IDI0IDQ4QzEwLjc0NTIgNDggMCAzNy4yNTQ4IDAgMjRaIiBmaWxsPSIjMEMwQTFGIi8+CjxwYXRoIGQ9Ik0xMy4xMzU4IDMyLjEwODVDMTQuMTcwMSAzNS45NjgzIDE4LjAzMzEgMzkuNDYyNCAyNi4wMjU1IDM3LjMyMDhDMzMuNjUxNSAzNS4yNzc0IDM4LjQzMDkgMjkuMDA0IDM3LjE5MTYgMjQuMzc4OUMzNi43NjM2IDIyLjc4MTcgMzUuNDc0NiAyMS43MDA2IDMzLjQ4NzIgMjEuODc2NUwxNS43MTY1IDIzLjM1NzJDMTQuNTk3MyAyMy40NDMgMTQuMDg0MiAyMy4yNTk2IDEzLjc4ODEgMjIuNTU0M0MxMy41MDEgMjEuODgyMyAxMy42NjQ2IDIxLjE2MDkgMTUuMDE2MyAyMC40Nzc3TDI4LjU0MDEgMTMuNTM3NEMyOS41NzY3IDEzLjAxIDMwLjI2NzEgMTIuNzg5MyAzMC44OTggMTMuMDEyNkMzMS4yOTM0IDEzLjE1NjMgMzEuNTUzOCAxMy43Mjg0IDMxLjMxNDcgMTQuNDM0NEwzMC40Mzc4IDE3LjAyMzJDMjkuMzYxNyAyMC4yMDAyIDMxLjY2NTMgMjAuOTM4MiAzMi45NjQxIDIwLjU5MDJDMzQuOTI4OSAyMC4wNjM3IDM1LjM5MTEgMTguMTkyMyAzNC43NTgxIDE1LjgyOTlDMzMuMTUzMyA5Ljg0MDU0IDI2Ljc5OSA4LjkwNDExIDIxLjAzNzggMTAuNDQ3OEMxNS4xNzY3IDEyLjAxODMgMTAuMDk2IDE2Ljc2NzYgMTEuNjQ3NCAyMi41NTczQzEyLjAxMjkgMjMuOTIxNiAxMy4yNjg3IDI1LjAxMTYgMTQuNzIzMiAyNC45Nzg1TDE2Ljk0MzggMjQuOTczMUMxNy40MDA0IDI0Ljk2MjUgMTcuMjM2IDI1IDE4LjExNyAyNC45MjcxQzE4Ljk5OCAyNC44NTQxIDIxLjM1MDkgMjQuNTY0NiAyMS4zNTA5IDI0LjU2NDZMMzIuODk2MiAyMy4yNThMMzMuMTkzNyAyMy4yMTQ4QzMzLjg2ODkgMjMuMDk5NyAzNC4zNzkyIDIzLjI3NSAzNC44MTA2IDI0LjAxODNDMzUuNDU2MyAyNS4xMzA0IDM0LjQ3MTIgMjUuOTY5MSAzMy4yOTIgMjYuOTczMUMzMy4yNjA1IDI3IDMzLjIyODggMjcuMDI3IDMzLjE5NyAyNy4wNTQxTDIzLjA0ODIgMzUuODAwNUMyMS4zMDg3IDM3LjMwMDggMjAuMDg2NyAzNi43MzY3IDE5LjY1ODggMzUuMTM5NUwxOC4xNDMxIDI5LjQ4MjlDMTcuNzY4NyAyOC4wODU0IDE2LjQwNDEgMjYuOTg4OSAxNC44MDU2IDI3LjQxNzJDMTIuODA3NSAyNy45NTI2IDEyLjY0NTUgMzAuMjc4NCAxMy4xMzU4IDMyLjEwODVaIiBmaWxsPSIjRkJGQUZGIi8+Cjwvc3ZnPgo=) */
+export const SlushCircleFilled = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('web3-icon-slush-circle-filled');
+
+  return (
+    <AntdIcon
+      {...props}
+      className={classnames(prefixCls, props.className)}
+      ref={ref}
+      component={eraseDefaultProps(SVGComponent)}
+    />
+  );
+});
+
+SlushCircleFilled.displayName = 'SlushCircleFilled';

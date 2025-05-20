@@ -1,10 +1,10 @@
 import type { WalletMetadata } from '@ant-design/web3-common';
-import { ChromeCircleColorful, SlishCircleFilled } from '@ant-design/web3-icons';
+import { ChromeCircleColorful, SlushCircleFilled } from '@ant-design/web3-icons';
 
 export const metadata_Slush: WalletMetadata = {
   name: 'Slush',
   remark: 'Slush',
-  icon: <SlishCircleFilled />,
+  icon: <SlushCircleFilled />,
   app: {
     link: 'https://slush.app/',
   },
