@@ -2,6 +2,7 @@ import { ChainIds, ChainType, createGetBrowserLink, type Chain } from '@ant-desi
 import {
   ArbitrumCircleColorful,
   AvalancheCircleColorful,
+  BaseCircleColorful,
   BSCCircleColorful,
   EthereumCircleColorful,
   EthereumColorful,
@@ -160,6 +161,18 @@ export const ScrollSepolia: Chain = {
     getBrowserLink: createGetBrowserLink('https://sepolia.scrollscan.com/'),
   },
   nativeCurrency: { name: 'Scroll ETH', symbol: 'ETH', decimals: 18 },
+};
+
+export const Base: Chain = {
+  id: ChainIds.Base,
+  name: 'Base',
+  type: ChainType.EVM,
+  icon: <BaseCircleColorful />,
+  browser: {
+    icon: <BaseCircleColorful />,
+    getBrowserLink: createGetBrowserLink('https://basescan.org'),
+  },
+  nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
 };
 
 export const Hardhat: Chain = {
