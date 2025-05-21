@@ -1,5 +1,6 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
+  Base,
   Hardhat,
   Localhost,
   Mainnet,
@@ -26,7 +27,7 @@ const App: React.FC = () => {
         [Localhost.id]: http(),
       }}
       wallets={[MetaMask(), WalletConnect()]}
-      chains={[Mainnet, Polygon, X1Testnet, Hardhat, Localhost]}
+      chains={[Mainnet, Polygon, Base, X1Testnet, Hardhat, Localhost]}
     >
       <Connector>
         <ConnectButton />
