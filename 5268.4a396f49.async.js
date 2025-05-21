@@ -1678,7 +1678,7 @@ export default App;
 `},32566:function(s,e){e.Z=`import React from 'react';
 import type { ConnectModalProps } from '@ant-design/web3';
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { Suiet, SuiWallet, SuiWeb3ConfigProvider } from '@ant-design/web3-sui';
+import { Slush, Suiet, SuiWeb3ConfigProvider } from '@ant-design/web3-sui';
 import type { ConfigProviderProps } from 'antd';
 
 type SizeType = ConfigProviderProps['componentSize'];
@@ -1692,7 +1692,7 @@ interface Props {
 
 const App: React.FC<Props> = ({ mode, size, quickConnect, buttonType }) => {
   return (
-    <SuiWeb3ConfigProvider balance autoConnect wallets={[Suiet(), SuiWallet()]}>
+    <SuiWeb3ConfigProvider balance autoConnect wallets={[Suiet(), Slush()]}>
       <Connector
         modalProps={{
           mode,
