@@ -18,7 +18,7 @@ describe('ConnectButton style', () => {
     );
     const { baseElement } = render(<App />);
     const buttonStyle = window.getComputedStyle(baseElement.querySelector('.ant-btn')!);
-    expect(buttonStyle.backgroundColor).toBe('rgb(100, 46, 217)');
+    expect(buttonStyle.backgroundColor).toBe('rgb(132, 66, 255)');
     expect(buttonStyle.color).toBe('rgb(255, 255, 255)');
   });
 });
