@@ -1,6 +1,7 @@
 import {
   Arbitrum as ArbitrumAsset,
   Avalanche as AvalancheAsset,
+  Base as BaseAsset,
   BSC as BSCAsset,
   Goerli as GoerliAsset,
   Hardhat as HardhatAsset,
@@ -17,6 +18,7 @@ import {
 import {
   arbitrum,
   avalanche,
+  base,
   bsc,
   goerli,
   hardhat,
@@ -75,6 +77,11 @@ export const Optimism: ChainAssetWithWagmiChain = {
 export const Avalanche: ChainAssetWithWagmiChain = {
   ...AvalancheAsset,
   wagmiChain: avalanche,
+};
+
+export const Base: ChainAssetWithWagmiChain = {
+  ...BaseAsset,
+  wagmiChain: base,
 };
 
 // OKX X1: https://www.okx.com/cn/x1/docs/developer/build-on-x1/quickstart

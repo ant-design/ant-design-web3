@@ -28,6 +28,7 @@ export enum ChainIds {
   ScrollSepolia = 534_351,
   Hardhat = 31_337,
   Localhost = 1_337,
+  Base = 8453,
 }
 
 export enum SolanaChainIds {

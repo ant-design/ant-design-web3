@@ -1,28 +1,13 @@
 import {
+  Base,
   MetaMask,
   OkxWallet,
   TokenPocket,
   WagmiWeb3ConfigProvider,
   WalletConnect,
 } from '@ant-design/web3-wagmi';
-import { createConfig, http } from 'wagmi';
-import { base } from 'wagmi/chains';
-import { walletConnect } from 'wagmi/connectors';
 
 import SBT from './sbt';
-
-const config = createConfig({
-  chains: [base],
-  transports: {
-    [base.id]: http(),
-  },
-  connectors: [
-    walletConnect({
-      showQrModal: false,
-      projectId: YOUR_WALLET_CONNECT_PROJECT_ID,
-    }),
-  ],
-});
 
 const App: React.FC = () => {
   return (
@@ -38,7 +23,7 @@ const App: React.FC = () => {
         }),
         OkxWallet(),
       ]}
-      config={config}
+      chains={[Base]}
     >
       <SBT />
     </WagmiWeb3ConfigProvider>
