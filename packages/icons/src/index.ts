@@ -498,6 +498,7 @@ export * from './components/sib-circle-colorful';
 export * from './components/sky-colorful';
 export * from './components/slp-colorful';
 export * from './components/sls-circle-colorful';
+export * from './components/slush-circle-filled';
 export * from './components/smart-circle-colorful';
 export * from './components/snm-circle-colorful';
 export * from './components/snow-circle-colorful';
