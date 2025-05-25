@@ -96,6 +96,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             paddingInline: token.paddingMD,
             height: 30,
             borderBlockEnd: token.wireframe ? '1px solid rgba(0, 0, 0, 0.06)' : 'none',
+            paddingBlockEnd: token.wireframe ? '16px' : 0,
           },
           [`${componentCls}-list`]: {
             display: 'flex',
