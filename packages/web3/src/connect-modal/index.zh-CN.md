@@ -32,6 +32,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAA
 
 <code src="./demos/simple.tsx"></code>
 
+## 线框模式
+
+<code src="./demos/wireframe.tsx"></code>
+
 ## 暗黑模式
 
 <code src="./demos/dark.tsx"></code>
