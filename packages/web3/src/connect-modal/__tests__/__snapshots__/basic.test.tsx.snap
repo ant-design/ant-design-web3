@@ -5,7 +5,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-161f05s ant-web3-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-vrrzze ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-active ant-fade"
@@ -16,7 +16,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-161f05s ant-web3-connect-modal css-dev-only-do-not-override-161f05s ant-zoom-appear ant-zoom-appear-active ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-vrrzze ant-web3-connect-modal css-dev-only-do-not-override-vrrzze ant-zoom-appear ant-zoom-appear-active ant-zoom"
           role="dialog"
           style="width: 797px;"
         >
@@ -33,6 +33,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                 type="button"
               >
                 <span
+                  aria-label="Close"
                   class="ant-modal-close-x"
                 >
                   <span
@@ -61,7 +62,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                 class="ant-modal-body"
               >
                 <div
-                  class="ant-web3-connect-modal-body css-dev-only-do-not-override-161f05s"
+                  class="ant-web3-connect-modal-body css-dev-only-do-not-override-vrrzze"
                 >
                   <div
                     class="ant-web3-connect-modal-list-panel"
@@ -96,10 +97,10 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                               class="ant-web3-connect-modal-group-content"
                             >
                               <div
-                                class="ant-list ant-list-split css-dev-only-do-not-override-161f05s"
+                                class="ant-list ant-list-split css-dev-only-do-not-override-vrrzze"
                               >
                                 <div
-                                  class="ant-spin-nested-loading css-dev-only-do-not-override-161f05s"
+                                  class="ant-spin-nested-loading css-dev-only-do-not-override-vrrzze"
                                 >
                                   <div
                                     class="ant-spin-container"
@@ -119,13 +120,14 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -144,13 +146,14 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet3
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -175,10 +178,10 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                               class="ant-web3-connect-modal-group-content"
                             >
                               <div
-                                class="ant-list ant-list-split css-dev-only-do-not-override-161f05s"
+                                class="ant-list ant-list-split css-dev-only-do-not-override-vrrzze"
                               >
                                 <div
-                                  class="ant-spin-nested-loading css-dev-only-do-not-override-161f05s"
+                                  class="ant-spin-nested-loading css-dev-only-do-not-override-vrrzze"
                                 >
                                   <div
                                     class="ant-spin-container"
@@ -198,13 +201,14 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet2
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -222,13 +226,14 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet4
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -246,13 +251,14 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet5
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -270,13 +276,14 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet6
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -294,13 +301,14 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet6
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -368,7 +376,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                         class="ant-web3-connect-modal-qr-code-box"
                       >
                         <div
-                          class="ant-qrcode ant-web3-connect-modal-qr-code css-dev-only-do-not-override-161f05s"
+                          class="ant-qrcode ant-web3-connect-modal-qr-code css-dev-only-do-not-override-vrrzze"
                           style="background-color: transparent; width: 346px; height: 346px;"
                         >
                           <svg
@@ -385,7 +393,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                             />
                             <path
                               d="M0 0h7v1H0zM8 0h6v1H8zM15 0h1v1H15zM18,0 h7v1H18zM0 1h1v1H0zM6 1h1v1H6zM15 1h1v1H15zM18 1h1v1H18zM24,1 h1v1H24zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM8 2h2v1H8zM11 2h1v1H11zM15 2h1v1H15zM18 2h1v1H18zM20 2h3v1H20zM24,2 h1v1H24zM0 3h1v1H0zM2 3h3v1H2zM6 3h1v1H6zM8 3h3v1H8zM12 3h1v1H12zM14 3h1v1H14zM18 3h1v1H18zM20 3h3v1H20zM24,3 h1v1H24zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM11 4h1v1H11zM15 4h1v1H15zM18 4h1v1H18zM20 4h3v1H20zM24,4 h1v1H24zM0 5h1v1H0zM6 5h1v1H6zM8 5h2v1H8zM12 5h5v1H12zM18 5h1v1H18zM24,5 h1v1H24zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18,6 h7v1H18zM8 7h2v1H8zM12 7h1v1H12zM15 7h1v1H15zM1 8h1v1H1zM3 8h1v1H3zM5 8h5v1H5zM13 8h7v1H13zM21 8h2v1H21zM24,8 h1v1H24zM1 9h3v1H1zM5 9h1v1H5zM9 9h1v1H9zM14 9h1v1H14zM16 9h3v1H16zM24,9 h1v1H24zM0 10h1v1H0zM4 10h1v1H4zM6 10h5v1H6zM13 10h2v1H13zM16 10h5v1H16zM23,10 h2v1H23zM8 11h2v1H8zM11 11h4v1H11zM16 11h2v1H16zM20 11h1v1H20zM0 12h4v1H0zM6 12h3v1H6zM11 12h1v1H11zM14 12h6v1H14zM21 12h1v1H21zM23,12 h2v1H23zM1 13h3v1H1zM5 13h1v1H5zM10 13h1v1H10zM13 13h1v1H13zM18 13h2v1H18zM21 13h2v1H21zM24,13 h1v1H24zM0 14h1v1H0zM2 14h2v1H2zM5 14h2v1H5zM9 14h2v1H9zM13 14h2v1H13zM17 14h4v1H17zM22 14h1v1H22zM24,14 h1v1H24zM1 15h2v1H1zM7 15h3v1H7zM18 15h1v1H18zM20 15h1v1H20zM23 15h1v1H23zM0 16h2v1H0zM3 16h2v1H3zM6 16h1v1H6zM8 16h3v1H8zM12 16h1v1H12zM14 16h1v1H14zM16 16h7v1H16zM8 17h1v1H8zM12 17h2v1H12zM15 17h2v1H15zM20 17h2v1H20zM24,17 h1v1H24zM0 18h7v1H0zM8 18h3v1H8zM15 18h2v1H15zM18 18h1v1H18zM20 18h2v1H20zM23,18 h2v1H23zM0 19h1v1H0zM6 19h1v1H6zM8 19h5v1H8zM14 19h1v1H14zM16 19h1v1H16zM20 19h4v1H20zM0 20h1v1H0zM2 20h3v1H2zM6 20h1v1H6zM9 20h1v1H9zM11 20h1v1H11zM14 20h1v1H14zM16 20h6v1H16zM24,20 h1v1H24zM0 21h1v1H0zM2 21h3v1H2zM6 21h1v1H6zM8 21h1v1H8zM12 21h2v1H12zM15 21h2v1H15zM19 21h4v1H19zM0 22h1v1H0zM2 22h3v1H2zM6 22h1v1H6zM10 22h4v1H10zM15 22h3v1H15zM19 22h2v1H19zM22 22h1v1H22zM24,22 h1v1H24zM0 23h1v1H0zM6 23h1v1H6zM8 23h1v1H8zM10 23h1v1H10zM12 23h6v1H12zM21 23h1v1H21zM0 24h7v1H0zM9 24h1v1H9zM11 24h4v1H11zM16 24h1v1H16zM18 24h2v1H18zM23,24 h2v1H23z"
-                              fill="rgba(0, 0, 0, 0.88)"
+                              fill="rgba(0,0,0,0.88)"
                               shape-rendering="crispEdges"
                             />
                           </svg>
@@ -397,7 +405,7 @@ exports[`ConnectModal with guide > panel route change 1`] = `
                           target="_blank"
                         >
                           <div
-                            class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                            class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                           >
                             <div
                               class="ant-space-item"
@@ -463,7 +471,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-161f05s ant-web3-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-vrrzze ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-active ant-fade"
@@ -474,7 +482,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-161f05s ant-web3-connect-modal css-dev-only-do-not-override-161f05s ant-zoom-appear ant-zoom-appear-active ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-vrrzze ant-web3-connect-modal css-dev-only-do-not-override-vrrzze ant-zoom-appear ant-zoom-appear-active ant-zoom"
           role="dialog"
           style="width: 797px;"
         >
@@ -491,6 +499,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                 type="button"
               >
                 <span
+                  aria-label="Close"
                   class="ant-modal-close-x"
                 >
                   <span
@@ -519,7 +528,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                 class="ant-modal-body"
               >
                 <div
-                  class="ant-web3-connect-modal-body css-dev-only-do-not-override-161f05s"
+                  class="ant-web3-connect-modal-body css-dev-only-do-not-override-vrrzze"
                 >
                   <div
                     class="ant-web3-connect-modal-list-panel"
@@ -554,10 +563,10 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                               class="ant-web3-connect-modal-group-content"
                             >
                               <div
-                                class="ant-list ant-list-split css-dev-only-do-not-override-161f05s"
+                                class="ant-list ant-list-split css-dev-only-do-not-override-vrrzze"
                               >
                                 <div
-                                  class="ant-spin-nested-loading css-dev-only-do-not-override-161f05s"
+                                  class="ant-spin-nested-loading css-dev-only-do-not-override-vrrzze"
                                 >
                                   <div
                                     class="ant-spin-container"
@@ -577,13 +586,14 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -602,13 +612,14 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet3
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -633,10 +644,10 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                               class="ant-web3-connect-modal-group-content"
                             >
                               <div
-                                class="ant-list ant-list-split css-dev-only-do-not-override-161f05s"
+                                class="ant-list ant-list-split css-dev-only-do-not-override-vrrzze"
                               >
                                 <div
-                                  class="ant-spin-nested-loading css-dev-only-do-not-override-161f05s"
+                                  class="ant-spin-nested-loading css-dev-only-do-not-override-vrrzze"
                                 >
                                   <div
                                     class="ant-spin-container"
@@ -656,13 +667,14 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet2
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -680,13 +692,14 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet4
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -704,13 +717,14 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet5
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -728,13 +742,14 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet6
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -752,13 +767,14 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet6
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -826,7 +842,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                         class="ant-web3-connect-modal-qr-code-box"
                       >
                         <div
-                          class="ant-qrcode ant-web3-connect-modal-qr-code css-dev-only-do-not-override-161f05s"
+                          class="ant-qrcode ant-web3-connect-modal-qr-code css-dev-only-do-not-override-vrrzze"
                           style="background-color: transparent; width: 346px; height: 346px;"
                         >
                           <svg
@@ -843,7 +859,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                             />
                             <path
                               d="M0 0h7v1H0zM8 0h6v1H8zM15 0h1v1H15zM18,0 h7v1H18zM0 1h1v1H0zM6 1h1v1H6zM15 1h1v1H15zM18 1h1v1H18zM24,1 h1v1H24zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM8 2h2v1H8zM11 2h1v1H11zM15 2h1v1H15zM18 2h1v1H18zM20 2h3v1H20zM24,2 h1v1H24zM0 3h1v1H0zM2 3h3v1H2zM6 3h1v1H6zM8 3h3v1H8zM12 3h1v1H12zM14 3h1v1H14zM18 3h1v1H18zM20 3h3v1H20zM24,3 h1v1H24zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM11 4h1v1H11zM15 4h1v1H15zM18 4h1v1H18zM20 4h3v1H20zM24,4 h1v1H24zM0 5h1v1H0zM6 5h1v1H6zM8 5h2v1H8zM12 5h5v1H12zM18 5h1v1H18zM24,5 h1v1H24zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18,6 h7v1H18zM8 7h2v1H8zM12 7h1v1H12zM15 7h1v1H15zM1 8h1v1H1zM3 8h1v1H3zM5 8h5v1H5zM13 8h7v1H13zM21 8h2v1H21zM24,8 h1v1H24zM1 9h3v1H1zM5 9h1v1H5zM9 9h1v1H9zM14 9h1v1H14zM16 9h3v1H16zM24,9 h1v1H24zM0 10h1v1H0zM4 10h1v1H4zM6 10h5v1H6zM13 10h2v1H13zM16 10h5v1H16zM23,10 h2v1H23zM8 11h2v1H8zM11 11h4v1H11zM16 11h2v1H16zM20 11h1v1H20zM0 12h4v1H0zM6 12h3v1H6zM11 12h1v1H11zM14 12h6v1H14zM21 12h1v1H21zM23,12 h2v1H23zM1 13h3v1H1zM5 13h1v1H5zM10 13h1v1H10zM13 13h1v1H13zM18 13h2v1H18zM21 13h2v1H21zM24,13 h1v1H24zM0 14h1v1H0zM2 14h2v1H2zM5 14h2v1H5zM9 14h2v1H9zM13 14h2v1H13zM17 14h4v1H17zM22 14h1v1H22zM24,14 h1v1H24zM1 15h2v1H1zM7 15h3v1H7zM18 15h1v1H18zM20 15h1v1H20zM23 15h1v1H23zM0 16h2v1H0zM3 16h2v1H3zM6 16h1v1H6zM8 16h3v1H8zM12 16h1v1H12zM14 16h1v1H14zM16 16h7v1H16zM8 17h1v1H8zM12 17h2v1H12zM15 17h2v1H15zM20 17h2v1H20zM24,17 h1v1H24zM0 18h7v1H0zM8 18h3v1H8zM15 18h2v1H15zM18 18h1v1H18zM20 18h2v1H20zM23,18 h2v1H23zM0 19h1v1H0zM6 19h1v1H6zM8 19h5v1H8zM14 19h1v1H14zM16 19h1v1H16zM20 19h4v1H20zM0 20h1v1H0zM2 20h3v1H2zM6 20h1v1H6zM9 20h1v1H9zM11 20h1v1H11zM14 20h1v1H14zM16 20h6v1H16zM24,20 h1v1H24zM0 21h1v1H0zM2 21h3v1H2zM6 21h1v1H6zM8 21h1v1H8zM12 21h2v1H12zM15 21h2v1H15zM19 21h4v1H19zM0 22h1v1H0zM2 22h3v1H2zM6 22h1v1H6zM10 22h4v1H10zM15 22h3v1H15zM19 22h2v1H19zM22 22h1v1H22zM24,22 h1v1H24zM0 23h1v1H0zM6 23h1v1H6zM8 23h1v1H8zM10 23h1v1H10zM12 23h6v1H12zM21 23h1v1H21zM0 24h7v1H0zM9 24h1v1H9zM11 24h4v1H11zM16 24h1v1H16zM18 24h2v1H18zM23,24 h2v1H23z"
-                              fill="rgba(0, 0, 0, 0.88)"
+                              fill="rgba(0,0,0,0.88)"
                               shape-rendering="crispEdges"
                             />
                           </svg>
@@ -855,7 +871,7 @@ exports[`ConnectModal with guide > panel route change 2`] = `
                           target="_blank"
                         >
                           <div
-                            class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                            class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                           >
                             <div
                               class="ant-space-item"
@@ -921,7 +937,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-161f05s ant-web3-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-vrrzze ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -932,7 +948,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-161f05s ant-web3-connect-modal css-dev-only-do-not-override-161f05s ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-vrrzze ant-web3-connect-modal css-dev-only-do-not-override-vrrzze ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 797px;"
         >
@@ -949,6 +965,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                 type="button"
               >
                 <span
+                  aria-label="Close"
                   class="ant-modal-close-x"
                 >
                   <span
@@ -977,7 +994,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                 class="ant-modal-body"
               >
                 <div
-                  class="ant-web3-connect-modal-body css-dev-only-do-not-override-161f05s"
+                  class="ant-web3-connect-modal-body css-dev-only-do-not-override-vrrzze"
                 >
                   <div
                     class="ant-web3-connect-modal-list-panel"
@@ -1012,10 +1029,10 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                               class="ant-web3-connect-modal-group-content"
                             >
                               <div
-                                class="ant-list ant-list-split css-dev-only-do-not-override-161f05s"
+                                class="ant-list ant-list-split css-dev-only-do-not-override-vrrzze"
                               >
                                 <div
-                                  class="ant-spin-nested-loading css-dev-only-do-not-override-161f05s"
+                                  class="ant-spin-nested-loading css-dev-only-do-not-override-vrrzze"
                                 >
                                   <div
                                     class="ant-spin-container"
@@ -1035,13 +1052,14 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -1060,13 +1078,14 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet3
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -1091,10 +1110,10 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                               class="ant-web3-connect-modal-group-content"
                             >
                               <div
-                                class="ant-list ant-list-split css-dev-only-do-not-override-161f05s"
+                                class="ant-list ant-list-split css-dev-only-do-not-override-vrrzze"
                               >
                                 <div
-                                  class="ant-spin-nested-loading css-dev-only-do-not-override-161f05s"
+                                  class="ant-spin-nested-loading css-dev-only-do-not-override-vrrzze"
                                 >
                                   <div
                                     class="ant-spin-container"
@@ -1114,13 +1133,14 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet2
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -1138,13 +1158,14 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet4
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -1162,13 +1183,14 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet5
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -1186,13 +1208,14 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet6
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -1210,13 +1233,14 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet6
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -1260,7 +1284,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                           class="ant-web3-connect-modal-guide-item"
                         >
                           <span
-                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-161f05s"
+                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-vrrzze"
                           >
                             <img
                               src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ApSUSaoUa_sAAAAAAAAAAAAADlrGAQ/original"
@@ -1285,7 +1309,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                           class="ant-web3-connect-modal-guide-item"
                         >
                           <span
-                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-161f05s"
+                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-vrrzze"
                           >
                             <img
                               src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*3lD7QpnbCPcAAAAAAAAAAAAADlrGAQ/original"
@@ -1310,7 +1334,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                           class="ant-web3-connect-modal-guide-item"
                         >
                           <span
-                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-161f05s"
+                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-vrrzze"
                           >
                             <img
                               src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*gTROQqEY_TcAAAAAAAAAAAAADlrGAQ/original"
@@ -1333,7 +1357,7 @@ exports[`ConnectModal with guide > should display default guide 1`] = `
                         </div>
                       </div>
                       <a
-                        class="ant-btn css-dev-only-do-not-override-161f05s ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-block ant-web3-connect-modal-more"
+                        class="ant-btn css-dev-only-do-not-override-vrrzze ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-block ant-web3-connect-modal-more"
                         href="https://ethereum.org/en/wallets/"
                         tabindex="0"
                         target="_blank"
@@ -1364,7 +1388,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-10tp9dk ant-web3-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-1gzra4a ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -1375,7 +1399,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-10tp9dk ant-web3-connect-modal css-dev-only-do-not-override-10tp9dk ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-1gzra4a ant-web3-connect-modal css-dev-only-do-not-override-1gzra4a ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 797px;"
         >
@@ -1392,6 +1416,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                 type="button"
               >
                 <span
+                  aria-label="Close"
                   class="ant-modal-close-x"
                 >
                   <span
@@ -1420,7 +1445,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                 class="ant-modal-body"
               >
                 <div
-                  class="ant-web3-connect-modal-body css-dev-only-do-not-override-10tp9dk"
+                  class="ant-web3-connect-modal-body css-dev-only-do-not-override-1gzra4a"
                 >
                   <div
                     class="ant-web3-connect-modal-list-panel"
@@ -1455,10 +1480,10 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                               class="ant-web3-connect-modal-group-content"
                             >
                               <div
-                                class="ant-list ant-list-split css-dev-only-do-not-override-10tp9dk"
+                                class="ant-list ant-list-split css-dev-only-do-not-override-1gzra4a"
                               >
                                 <div
-                                  class="ant-spin-nested-loading css-dev-only-do-not-override-10tp9dk"
+                                  class="ant-spin-nested-loading css-dev-only-do-not-override-1gzra4a"
                                 >
                                   <div
                                     class="ant-spin-container"
@@ -1478,13 +1503,14 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-10tp9dk"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-1gzra4a"
                                           >
                                             Test Wallet
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-10tp9dk ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-1gzra4a ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -1503,13 +1529,14 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-10tp9dk"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-1gzra4a"
                                           >
                                             Test Wallet3
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-10tp9dk ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-1gzra4a ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -1534,10 +1561,10 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                               class="ant-web3-connect-modal-group-content"
                             >
                               <div
-                                class="ant-list ant-list-split css-dev-only-do-not-override-10tp9dk"
+                                class="ant-list ant-list-split css-dev-only-do-not-override-1gzra4a"
                               >
                                 <div
-                                  class="ant-spin-nested-loading css-dev-only-do-not-override-10tp9dk"
+                                  class="ant-spin-nested-loading css-dev-only-do-not-override-1gzra4a"
                                 >
                                   <div
                                     class="ant-spin-container"
@@ -1557,13 +1584,14 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-10tp9dk"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-1gzra4a"
                                           >
                                             Test Wallet2
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-10tp9dk ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-1gzra4a ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -1581,13 +1609,14 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-10tp9dk"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-1gzra4a"
                                           >
                                             Test Wallet4
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-10tp9dk ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-1gzra4a ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -1605,13 +1634,14 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-10tp9dk"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-1gzra4a"
                                           >
                                             Test Wallet5
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-10tp9dk ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-1gzra4a ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -1629,13 +1659,14 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-10tp9dk"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-1gzra4a"
                                           >
                                             Test Wallet6
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-10tp9dk ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-1gzra4a ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -1653,13 +1684,14 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-10tp9dk"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-1gzra4a"
                                           >
                                             Test Wallet6
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-10tp9dk ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-1gzra4a ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -1703,7 +1735,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                           class="ant-web3-connect-modal-guide-item"
                         >
                           <span
-                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-10tp9dk"
+                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1gzra4a"
                           >
                             <img
                               src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
@@ -1728,7 +1760,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                           class="ant-web3-connect-modal-guide-item"
                         >
                           <span
-                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-10tp9dk"
+                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1gzra4a"
                           >
                             <img
                               src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
@@ -1753,7 +1785,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                           class="ant-web3-connect-modal-guide-item"
                         >
                           <span
-                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-10tp9dk"
+                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1gzra4a"
                           >
                             <img
                               src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
@@ -1778,7 +1810,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                           class="ant-web3-connect-modal-guide-item"
                         >
                           <span
-                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-10tp9dk"
+                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-1gzra4a"
                           >
                             <img
                               src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
@@ -1801,7 +1833,7 @@ exports[`ConnectModal with guide > should render in dark mode 1`] = `
                         </div>
                       </div>
                       <a
-                        class="ant-btn css-dev-only-do-not-override-10tp9dk ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-block ant-web3-connect-modal-more"
+                        class="ant-btn css-dev-only-do-not-override-1gzra4a ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-block ant-web3-connect-modal-more"
                         href="https://test.com/xxx"
                         tabindex="0"
                         target="_blank"
@@ -1832,7 +1864,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-161f05s ant-web3-connect-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-vrrzze ant-web3-connect-modal-root"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -1843,7 +1875,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-161f05s ant-web3-connect-modal css-dev-only-do-not-override-161f05s ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-vrrzze ant-web3-connect-modal css-dev-only-do-not-override-vrrzze ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
           style="width: 797px;"
         >
@@ -1860,6 +1892,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                 type="button"
               >
                 <span
+                  aria-label="Close"
                   class="ant-modal-close-x"
                 >
                   <span
@@ -1888,7 +1921,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                 class="ant-modal-body"
               >
                 <div
-                  class="ant-web3-connect-modal-body css-dev-only-do-not-override-161f05s"
+                  class="ant-web3-connect-modal-body css-dev-only-do-not-override-vrrzze"
                 >
                   <div
                     class="ant-web3-connect-modal-list-panel"
@@ -1923,10 +1956,10 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                               class="ant-web3-connect-modal-group-content"
                             >
                               <div
-                                class="ant-list ant-list-split css-dev-only-do-not-override-161f05s"
+                                class="ant-list ant-list-split css-dev-only-do-not-override-vrrzze"
                               >
                                 <div
-                                  class="ant-spin-nested-loading css-dev-only-do-not-override-161f05s"
+                                  class="ant-spin-nested-loading css-dev-only-do-not-override-vrrzze"
                                 >
                                   <div
                                     class="ant-spin-container"
@@ -1946,13 +1979,14 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -1971,13 +2005,14 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet3
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -2002,10 +2037,10 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                               class="ant-web3-connect-modal-group-content"
                             >
                               <div
-                                class="ant-list ant-list-split css-dev-only-do-not-override-161f05s"
+                                class="ant-list ant-list-split css-dev-only-do-not-override-vrrzze"
                               >
                                 <div
-                                  class="ant-spin-nested-loading css-dev-only-do-not-override-161f05s"
+                                  class="ant-spin-nested-loading css-dev-only-do-not-override-vrrzze"
                                 >
                                   <div
                                     class="ant-spin-container"
@@ -2025,13 +2060,14 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                             src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet2
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -2049,13 +2085,14 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet4
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -2073,13 +2110,14 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet5
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -2097,13 +2135,14 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet6
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -2121,13 +2160,14 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                                             class="ant-web3-connect-modal-img"
                                           />
                                           <span
-                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-161f05s"
+                                            aria-describedby="test-id"
+                                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line ant-web3-connect-modal-name css-dev-only-do-not-override-vrrzze"
                                           >
                                             Test Wallet6
                                           </span>
                                         </div>
                                         <div
-                                          class="ant-space css-dev-only-do-not-override-161f05s ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                                          class="ant-space css-dev-only-do-not-override-vrrzze ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                                         >
                                           <div
                                             class="ant-space-item"
@@ -2171,7 +2211,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                           class="ant-web3-connect-modal-guide-item"
                         >
                           <span
-                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-161f05s"
+                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-vrrzze"
                           >
                             <img
                               src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
@@ -2196,7 +2236,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                           class="ant-web3-connect-modal-guide-item"
                         >
                           <span
-                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-161f05s"
+                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-vrrzze"
                           >
                             <img
                               src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
@@ -2221,7 +2261,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                           class="ant-web3-connect-modal-guide-item"
                         >
                           <span
-                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-161f05s"
+                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-vrrzze"
                           >
                             <img
                               src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
@@ -2246,7 +2286,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                           class="ant-web3-connect-modal-guide-item"
                         >
                           <span
-                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-161f05s"
+                            class="ant-avatar ant-avatar-square ant-avatar-image ant-web3-connect-modal-guide-item-icon css-dev-only-do-not-override-vrrzze"
                           >
                             <img
                               src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*8LhqSZ_KatsAAAAAAAAAAAAAelrGAQ/fmt.webp"
@@ -2269,7 +2309,7 @@ exports[`ConnectModal with guide > should render in light mode 1`] = `
                         </div>
                       </div>
                       <a
-                        class="ant-btn css-dev-only-do-not-override-161f05s ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-block ant-web3-connect-modal-more"
+                        class="ant-btn css-dev-only-do-not-override-vrrzze ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-block ant-web3-connect-modal-more"
                         href="https://test.com/xxx"
                         tabindex="0"
                         target="_blank"
