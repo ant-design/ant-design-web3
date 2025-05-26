@@ -49,7 +49,7 @@
     "@types/react-dom": "^18.3.1",
     "@types/lodash-es": "^4.17.12",
     "antd": "^5.22.7",
-    "father": "^4.4.4",
+    "father": "^4.5.5",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "typescript": "^5.6.2"

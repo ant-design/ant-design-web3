@@ -60,7 +60,7 @@
   "devDependencies": {
     "@solana/wallet-adapter-phantom": "^0.9.24",
     "@types/debug": "^4.1.12",
-    "father": "^4.4.4",
+    "father": "^4.5.5",
     "typescript": "^5.6.2"
   },
   "peerDependencies": {
