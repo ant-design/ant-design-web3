@@ -12,6 +12,7 @@ describe('ConnectModal theme', () => {
         theme={{
           token: {
             colorPrimary: '#8442ff',
+            wireframe: true,
           },
           components: {
             Button: {
@@ -48,5 +49,11 @@ describe('ConnectModal theme', () => {
     );
     expect(buttonStyle.borderRadius).toBe('24px');
     expect(buttonStyle.backgroundColor).toBe('rgb(255, 255, 255)');
+
+    const headerStyle = window.getComputedStyle(
+      baseElement.querySelector('.ant-web3-connect-modal-header')!,
+    );
+    expect(headerStyle.borderBlockEnd).toBe('1px solid rgba(0, 0, 0, 0.06)');
+    expect(headerStyle.paddingBlockEnd).toBe('24px');
   });
 });

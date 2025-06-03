@@ -1,8 +1,5 @@
----
-nav: Components
-group: UI Components
-cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*mUC3SYLpq0AAAAAAAAAAAAAADlrGAQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAAAAAAAAAAAADlrGAQ/original
+c--- nav: Components group: UI Components cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*mUC3SYLpq0AAAAAAAAAAAAAADlrGAQ/original coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAAAAAAAAAAAADlrGAQ/original
+
 ---
 
 # ConnectModal
@@ -30,6 +27,10 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 ## Simple Mode
 
 <code src="./demos/simple.tsx"></code>
+
+## Wireframe Mode
+
+<code src="./demos/wireframe.tsx"></code>
 
 ## Dark Mode
 
