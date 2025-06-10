@@ -74,7 +74,6 @@ const App: React.FC<ConnectModalProps> = (props) => {
           }}
           walletList={walletList}
           onCancel={() => setOpen(false)}
-          mode="simple"
           {...props}
         />
       </ConfigProvider>

@@ -1,5 +1,8 @@
-c--- nav: Components group: UI Components cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*mUC3SYLpq0AAAAAAAAAAAAAADlrGAQ/original coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAAAAAAAAAAAADlrGAQ/original
-
+---
+nav: Components
+group: UI Components
+cover: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*mUC3SYLpq0AAAAAAAAAAAAAADlrGAQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*dmHOSI_kdd0AAAAAAAAAAAAADlrGAQ/original
 ---
 
 # ConnectModal
