@@ -38,6 +38,9 @@ const resetStyle = (token: ConnectModalToken): CSSInterpolation => {
         '.ant-modal-content': {
           padding: 0,
         },
+        '.ant-modal-body': {
+          padding: 0,
+        },
         '.ant-list-split .ant-list-item': {
           borderBlockEnd: 'none',
         },
@@ -92,6 +95,8 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
           [`${componentCls}-header`]: {
             paddingInline: token.paddingMD,
             height: 30,
+            borderBlockEnd: token.wireframe ? `1px solid ${token.panelSplitLineColor}` : 'none',
+            paddingBlockEnd: token.wireframe ? token.paddingLG : 0,
           },
           [`${componentCls}-list`]: {
             display: 'flex',

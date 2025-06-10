@@ -31,6 +31,10 @@ The connection wallet popup, used with [ConnectButton](../connect-button/index.m
 
 <code src="./demos/simple.tsx"></code>
 
+## Wireframe Mode
+
+<code src="./demos/wireframe.tsx"></code>
+
 ## Dark Mode
 
 <code src="./demos/dark.tsx"></code>
