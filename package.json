@@ -88,7 +88,7 @@
     "father": "^4.4.4",
     "husky": "^9.1.7",
     "jsdom": "^26.1.0",
-    "lint-staged": "^15.3.0",
+    "lint-staged": "^16.1.2",
     "lodash": "^4.17.21",
     "prettier": "^3.5.3",
     "rc-util": "^5.44.4",
