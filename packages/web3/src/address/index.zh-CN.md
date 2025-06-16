@@ -26,6 +26,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ymJDSYEjQKwAAA
 
 <code src="./demos/customTooltip.tsx"></code>
 
+## 地址前缀
+
+<code src="./demos/addressPrefix.tsx"></code>
+
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
@@ -33,6 +37,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ymJDSYEjQKwAAA
 | ellipsis | 地址裁剪策略 | `boolean \| { headClip?: number, tailClip?: number }` | `{ headClip: 6, tailClip: 4 }` | - |
 | copyable | 是否可复制 | `boolean` | `false` | - |
 | address | 地址 | `string` | - | - |
+| addressPrefix | 地址前缀 | `boolean \| string` | `0x` | - |
 | tooltip | 鼠标移入地址时展示提示 | `boolean \|` [Tooltip.title](https://ant.design/components/tooltip-cn#api) | `true ` | - |
 | format | 地址格式化 | `boolean \| (input: string) => ReactNode` | `false` | - |
 | locale | 多语言设置 | `Locale["address"]` | - | - |

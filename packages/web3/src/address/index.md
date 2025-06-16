@@ -25,6 +25,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ymJDSYEjQKwAAA
 
 <code src="./demos/customTooltip.tsx"></code>
 
+## AddressPrefix
+
+<code src="./demos/addressPrefix.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |
@@ -32,6 +36,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ymJDSYEjQKwAAA
 | ellipsis | Address clipping strategy | `boolean \| { headClip?: number, tailClip?: number }` | `{ headClip: 6, tailClip: 4 }` | - |
 | copyable | Address copyable | `boolean` | `false` | - |
 | address | Address | `string` | - | - |
+| addressPrefix | The prefix to use for the address | `boolean \| string` | `0x` | - |
 | tooltip | Show tooltip when hover address | `boolean \|`[Tooltip.title](https://ant.design/components/tooltip-cn#api) | `true ` | - |
 | format | Address format | `boolean \| (input: string) => ReactNode` | `false` | - |
 | locale | Multilingual settings | `Locale["address"]` | - | - |
