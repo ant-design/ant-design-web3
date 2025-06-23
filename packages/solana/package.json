@@ -50,7 +50,7 @@
     "@solana/wallet-adapter-react": "^0.15.37",
     "@solana/wallet-adapter-trust": "^0.1.13",
     "@tiplink/wallet-adapter": "^2.1.21",
-    "@walletconnect/core": "^2.17.3",
+    "@walletconnect/core": "^2.21.3",
     "@walletconnect/universal-provider": "^2.14.0",
     "@walletconnect/utils": "^2.17.3",
     "@walletconnect/web3wallet": "^1.16.1",
