@@ -17,6 +17,7 @@ export interface ConnectButtonInnerProps extends ButtonProps {
   onConnectClick?: (wallet?: Wallet) => void;
   onDisconnectClick?: () => void;
   onOpenProfileClick?: () => void;
+  onSignInClick?: () => void;
   intl: IntlType;
 }
 
@@ -31,6 +32,7 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
     onConnectClick,
     onDisconnectClick,
     onOpenProfileClick,
+    onSignInClick,
     intl,
     __hashId__,
     className,
@@ -114,6 +116,10 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
     if (needSign) {
       return (
         <Dropdown.Button
+          onClick={(e) => {
+            onClick?.(e);
+            onSignInClick?.();
+          }}
           menu={{
             items: [
               { key: 'profile', label: '我的资料', onClick: onOpenProfileClick },
