@@ -29,6 +29,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ymJDSYEjQKwAAA
 
 <code src="./demos/addressPrefix.tsx"></code>
 
+## Checksum
+
+<code src="./demos/checksum.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |
@@ -40,5 +44,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ymJDSYEjQKwAAA
 | tooltip | Show tooltip when hover address | `boolean \|`[Tooltip.title](https://ant.design/components/tooltip-cn#api) | `true ` | - |
 | format | Address format | `boolean \| (input: string) => ReactNode` | `false` | - |
 | locale | Multilingual settings | `Locale["address"]` | - | - |
+| checksum | Checksum processing | `ChainType` | `ChainType.EVM` | - |
 
 More properties are inherited from [Typography.Text](https://ant.design/components/typography#typographytext).

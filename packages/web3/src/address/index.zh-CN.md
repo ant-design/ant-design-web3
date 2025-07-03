@@ -30,6 +30,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ymJDSYEjQKwAAA
 
 <code src="./demos/addressPrefix.tsx"></code>
 
+## Checksum
+
+<code src="./demos/checksum.tsx"></code>
+
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |
@@ -41,5 +45,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*ymJDSYEjQKwAAA
 | tooltip | 鼠标移入地址时展示提示 | `boolean \|` [Tooltip.title](https://ant.design/components/tooltip-cn#api) | `true ` | - |
 | format | 地址格式化 | `boolean \| (input: string) => ReactNode` | `false` | - |
 | locale | 多语言设置 | `Locale["address"]` | - | - |
+| checksum | 校验和处理 | `ChainType` | `ChainType.EVM` | - |
 
 更多属性继承自[Typography.Text](https://ant.design/components/typography-cn#typographytext)。

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import React, { isValidElement, useContext, useMemo } from 'react';
-import { type Locale } from '@ant-design/web3-common';
+import { ChainType, checksumAddress, type Locale } from '@ant-design/web3-common';
 import type { TooltipProps } from 'antd';
 import { ConfigProvider, Tooltip, Typography } from 'antd';
 import type { TextProps } from 'antd/lib/typography/Text';
@@ -40,6 +40,10 @@ export interface AddressProps extends Omit<TextProps, 'ellipsis'> {
    */
   copyable?: boolean;
   /**
+   * WWhether to use checksum processing.
+   */
+  checksum?: ChainType;
+  /**
    * Tooltip configuration.
    * If true, the address will be shown in a tooltip.
    * If a string or ReactNode, it will be used as the tooltip content.
@@ -62,6 +66,7 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
     ellipsis,
     addressPrefix: addressPrefixProp,
     address,
+    checksum,
     copyable = false,
     tooltip = true,
     format = false,
@@ -99,7 +104,10 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
     return null;
   }
 
-  const filledAddress = fillWithPrefix(address, addressPrefixProp, addressPrefixContext);
+  let filledAddress = fillWithPrefix(address, addressPrefixProp, addressPrefixContext);
+  if (checksum) {
+    filledAddress = checksumAddress(filledAddress, checksum);
+  }
 
   const mergedTooltip = () => {
     if (isValidElement(tooltip) || typeof tooltip === 'string') {
@@ -118,7 +126,7 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
       copyable={
         copyable
           ? {
-              text: filledAddress,
+              text: checksum ? checksumAddress(filledAddress, checksum) : filledAddress,
               tooltips: [messages.copyTips, messages.copiedTips],
             }
           : false
