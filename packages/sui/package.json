@@ -47,7 +47,7 @@
     "debug": "^4.4.0"
   },
   "devDependencies": {
-    "@mysten/dapp-kit": "^0.14.50",
+    "@mysten/dapp-kit": "^0.16.15",
     "@mysten/sui": "^1.14.3",
     "@tanstack/react-query": "^5.40.1",
     "@types/debug": "^4.1.12",
@@ -55,7 +55,7 @@
     "typescript": "^5.6.2"
   },
   "peerDependencies": {
-    "@mysten/dapp-kit": "^0.14.50",
+    "@mysten/dapp-kit": "^0.16.15",
     "@mysten/sui": "^1.14.3",
     "@tanstack/react-query": "^5.40.1"
   },
