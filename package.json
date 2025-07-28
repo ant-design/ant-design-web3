@@ -132,7 +132,7 @@
     "antd": "^5.22.7",
     "antd-style": "^3.7.1",
     "antd-token-previewer-web3": "^2.0.8",
-    "cross-env": "^7.0.3",
+    "cross-env": "^10.0.0",
     "decimal.js": "^10.4.3",
     "dumi": "^2.4.21",
     "dumi-theme-antd-web3": "0.4.3",
