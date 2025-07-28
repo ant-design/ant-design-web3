@@ -124,7 +124,7 @@
     "@mysten/dapp-kit": "^0.14.50",
     "@mysten/sui": "^1.14.3",
     "@solana/wallet-adapter-coinbase": "^0.1.22",
-    "@solana/wallet-adapter-trust": "^0.1.13",
+    "@solana/wallet-adapter-trust": "^0.1.17",
     "@solana/web3.js": "^1.98.0",
     "@tanstack/query-sync-storage-persister": "^5.76.0",
     "@tanstack/react-query": "^5.51.11",
