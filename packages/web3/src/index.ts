@@ -13,3 +13,4 @@ export * from '@ant-design/web3-common';
 // export Web3ConfigProvider in ./web3-config-provider for replace the one in @ant-design/web3-common
 export { Web3ConfigProvider, type Web3ThemeConfig } from './web3-config-provider';
 export * from './pay-panel';
+export * from './connect-panel';
