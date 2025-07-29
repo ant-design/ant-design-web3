@@ -2,12 +2,12 @@ import React, { useContext, useMemo, useState } from 'react';
 import { CopyOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
 import { ConnectStatus, type Chain, type Wallet } from '@ant-design/web3-common';
 import type { ButtonProps } from 'antd';
-import { Avatar, ConfigProvider, Divider, Dropdown, message } from 'antd';
+import { Avatar, Badge, ConfigProvider, Divider, Dropdown, message } from 'antd';
 import classNames from 'classnames';
 
 import { Address } from '../address';
 import { CryptoPrice } from '../crypto-price';
-import { useProvider } from '../hooks';
+import { useConnection, useProvider } from '../hooks';
 import useIntl from '../hooks/useIntl';
 import { fillWithPrefix, writeCopyText } from '../utils';
 import { ChainSelect } from './chain-select';
@@ -57,9 +57,11 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [messageApi, contextHolder] = message.useMessage();
   const [showMenu, setShowMenu] = useState(false);
+  const [signed, setSigned] = useState(false);
 
   const { coverAddress = true } = typeof balance !== 'object' ? { coverAddress: true } : balance;
-  const needSign = !!(sign?.signIn && account?.status === ConnectStatus.Connected && account);
+  const needSign = !!sign?.signIn && account?.status === ConnectStatus.Connected;
+
   let buttonText: React.ReactNode = intl.getMessage(intl.messages.connect);
   if (account) {
     buttonText = (
@@ -98,6 +100,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       try {
         if (needSign) {
           await sign?.signIn?.(account?.address);
+          setSigned(true);
         }
       } catch (error: any) {
         messageApi.error(error.message);
@@ -161,9 +164,14 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     );
   }
 
+  const unsigned = needSign && !signed;
+
+  console.log('unsigned:', unsigned, account?.status);
+
   const buttonInnerText = (
     <div className={`${prefixCls}-content`}>
       <div className={`${prefixCls}-content-inner`}>
+        {needSign && account.status !== ConnectStatus.Signed && <Badge status="error" />}
         <div className={`${prefixCls}-text`}>{buttonText}</div>
         {(account?.avatar || avatar) && (
           <>
@@ -177,6 +185,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     </div>
   );
 
+  console.log('signIn:', typeof sign?.signIn, account?.status);
+
   const buttonContent = (
     <ConnectButtonInner
       intl={intl}
@@ -184,9 +194,48 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       preContent={chainSelectRender}
       showQuickConnect={quickConnect && !account}
       availableWallets={availableWallets}
+      needSign={needSign}
       onConnectClick={(wallet?: Wallet) => {
         if (!account) {
           onConnectClick?.(wallet);
+        }
+      }}
+      onDisconnectClick={onDisconnectClick}
+      onOpenProfileClick={() => setProfileOpen(true)}
+      onSignInClick={() => {
+        if (!sign?.signIn) {
+          return;
+        }
+
+        console.log('onSignInClick:', account, needSign, signed);
+        if (signed) {
+          return;
+        }
+
+        if (account?.status === ConnectStatus.Signed) {
+          setSigned(true);
+          return;
+        }
+
+        // If account is not connected, we need to sign in
+        // If account is connected but not signed, we also need to sign in
+        console.log('signIn:', account?.address, needSign);
+        if (account?.status === ConnectStatus.Connected && signed) {
+          return;
+        }
+
+        // If account is not connected, we need to sign in
+        // If account is connected but not signed, we also need to sign in
+        console.log('signIn:', account?.address, needSign);
+        if (account && needSign) {
+          sign
+            .signIn?.(account.address!)
+            .then(() => {
+              setSigned(true);
+            })
+            .catch((error) => {
+              messageApi.error(error.message);
+            });
         }
       }}
       __hashId__={hashId}
