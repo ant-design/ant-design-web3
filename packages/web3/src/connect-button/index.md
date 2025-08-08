@@ -57,6 +57,10 @@ After configuring the `quickConnect` property, the installed wallets and univers
 
 <code src="./demos/balance.tsx"></code>
 
+## Custom Button
+
+<code src="./demos/customButton.tsx"></code>
+
 ## API
 
 | Property | Description | Type | Default | Version |
