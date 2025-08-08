@@ -1322,7 +1322,7 @@ export const themeList: ThemeSetting[] = [
     token: customToken,
   },
 ];
-`},10838:function(s,e){e.Z=`import React from 'react';
+`},7836:function(s,e){e.Z=`import React from 'react';
 import type { ConnectModalProps } from '@ant-design/web3';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import {
