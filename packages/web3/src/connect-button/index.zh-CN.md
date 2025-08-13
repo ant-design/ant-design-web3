@@ -58,6 +58,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*S4cyQ7OCxDUAAA
 
 <code src="./demos/balance.tsx"></code>
 
+## 自定义按钮内容
+
+<code src="./demos/customButton.tsx"></code>
+
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 | 版本 |

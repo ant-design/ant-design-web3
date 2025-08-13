@@ -47,6 +47,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     addressPrefix: addressPrefixProp,
     sign,
     signBtnTextRender,
+    children,
     ...restProps
   } = props;
   const intl = useIntl('ConnectButton', locale);
@@ -60,7 +61,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
   const { coverAddress = true } = typeof balance !== 'object' ? { coverAddress: true } : balance;
   const needSign = !!(sign?.signIn && account?.status === ConnectStatus.Connected && account);
-  let buttonText: React.ReactNode = intl.getMessage(intl.messages.connect);
+  let buttonText: React.ReactNode = children || intl.getMessage(intl.messages.connect);
   if (account) {
     buttonText = (
       <>
