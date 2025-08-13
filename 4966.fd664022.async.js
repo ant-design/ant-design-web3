@@ -1,1 +1,0 @@
-(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[4966,9016],{15290:function(){},81388:function(){},84232:function(){},14050:function(){},87942:function(){},59211:function(){}}]);
