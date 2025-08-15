@@ -1,5 +1,5 @@
 ---
-'@ant-design/web3-icons': patch
+'@ant-design/web3-icons': minor
 ---
 
 feat: new icon SlushCircleFilled
