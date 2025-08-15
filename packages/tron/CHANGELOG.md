@@ -1,5 +1,11 @@
 # @ant-design/web3-tron
 
+## 1.0.3
+
+### Patch Changes
+
+- @ant-design/web3-assets@1.14.1
+
 ## 1.0.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @ant-design/web3-icons
 
+## 1.15.0
+
+### Minor Changes
+
+- 31a8965: feat: new icon SlushCircleFilled
+
 ## 1.14.0
 
 ### Minor Changes
