@@ -1,5 +1,20 @@
 # @ant-design/web3
 
+## 1.25.0
+
+### Minor Changes
+
+- ca95dc1: feat: add custom connect button
+- 3d6d7c6: feat(sui):rename SuiWallet to Slush
+
+### Patch Changes
+
+- fe8bf42: fix: When a wireframe token is present, adapt the style of the connect-modal accordingly.
+- Updated dependencies [640bce9]
+- Updated dependencies [3d6d7c6]
+  - @ant-design/web3-assets@1.14.0
+  - @ant-design/web3-common@1.21.0
+
 ## 1.24.0
 
 ### Minor Changes

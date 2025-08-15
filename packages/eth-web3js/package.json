@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-eth-web3js",
-  "version": "1.1.19",
+  "version": "1.1.20",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",

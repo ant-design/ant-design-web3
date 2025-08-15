@@ -1,5 +1,14 @@
 # @ant-design/web3-tron
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies [640bce9]
+- Updated dependencies [3d6d7c6]
+  - @ant-design/web3-assets@1.14.0
+  - @ant-design/web3-common@1.21.0
+
 ## 1.0.1
 
 ### Patch Changes

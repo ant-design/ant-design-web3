@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3-solana",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "main": "dist/lib/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",

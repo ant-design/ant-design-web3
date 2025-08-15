@@ -1,5 +1,17 @@
 # @ant-design/web3-assets
 
+## 1.14.0
+
+### Minor Changes
+
+- 640bce9: feat: support base chain
+- 3d6d7c6: feat(sui):rename SuiWallet to Slush
+
+### Patch Changes
+
+- Updated dependencies [640bce9]
+  - @ant-design/web3-common@1.21.0
+
 ## 1.13.0
 
 ### Minor Changes

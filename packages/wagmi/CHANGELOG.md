@@ -1,5 +1,18 @@
 # @ant-design/web3-wagmi
 
+## 2.12.0
+
+### Minor Changes
+
+- 640bce9: feat: support base chain
+
+### Patch Changes
+
+- Updated dependencies [640bce9]
+- Updated dependencies [3d6d7c6]
+  - @ant-design/web3-assets@1.14.0
+  - @ant-design/web3-common@1.21.0
+
 ## 2.11.0
 
 ### Minor Changes
