@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.21.0
+
+### Minor Changes
+
+- 640bce9: feat: support base chain
+
 ## 1.20.0
 
 ### Minor Changes
