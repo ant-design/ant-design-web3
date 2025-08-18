@@ -48,7 +48,7 @@
     "uint8array-tools": "~0.0.9"
   },
   "devDependencies": {
-    "father": "^4.4.4",
+    "father": "^4.6.2",
     "typescript": "^5.6.2"
   },
   "publishConfig": {
