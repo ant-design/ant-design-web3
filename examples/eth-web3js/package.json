@@ -15,7 +15,7 @@
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-eth-web3js": "workspace:*",
-    "antd": "^5.22.7",
+    "antd": "^5.27.1",
     "web3": "^4.16.0",
     "umi": "^4.4.10"
   },
