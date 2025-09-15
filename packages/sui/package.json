@@ -49,7 +49,7 @@
   "devDependencies": {
     "@mysten/dapp-kit": "^0.14.50",
     "@mysten/sui": "^1.37.1",
-    "@tanstack/react-query": "^5.40.1",
+    "@tanstack/react-query": "^5.87.4",
     "@types/debug": "^4.1.12",
     "father": "^4.6.2",
     "typescript": "^5.6.2"
@@ -57,7 +57,7 @@
   "peerDependencies": {
     "@mysten/dapp-kit": "^0.14.50",
     "@mysten/sui": "^1.37.1",
-    "@tanstack/react-query": "^5.40.1"
+    "@tanstack/react-query": "^5.87.4"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
