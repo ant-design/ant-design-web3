@@ -55,7 +55,7 @@
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-ethers": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
-    "@tanstack/react-query": "^5.51.11",
+    "@tanstack/react-query": "^5.89.0",
     "debug": "^4.4.0",
     "viem": "^2.33.2",
     "wagmi": "^2.14.16"
