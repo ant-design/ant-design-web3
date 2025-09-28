@@ -1,4 +1,4 @@
-import { Account, ConnectButton, Connector } from '@ant-design/web3';
+import { Account, ConnectButton, Connector, useConnection } from '@ant-design/web3';
 import {
   MetaMask,
   OkxWallet,
@@ -10,22 +10,19 @@ import {
 import { QueryClient } from '@tanstack/react-query';
 import { Button, Space } from 'antd';
 import { createSiweMessage } from 'viem/siwe';
-import { http, useDisconnect } from 'wagmi';
+import { http } from 'wagmi';
 
 import { getNonce, verifyMessage } from './mock-api';
 
 const queryClient = new QueryClient();
 
 const DisconnectBtn: React.FC = () => {
-  const { disconnect } = useDisconnect();
+  const { disconnect } = useConnection();
+
   return (
     <Button
       onClick={() => {
-        disconnect(undefined, {
-          onError: (e: any) => {
-            console.error(e?.shortMessage || 'Disconnect Failed');
-          },
-        });
+        disconnect?.();
       }}
       danger
     >
