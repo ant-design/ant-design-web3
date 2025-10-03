@@ -108,7 +108,7 @@
   },
   "repository": "https://github.com/ant-design/ant-design-web3.git",
   "dependencies": {
-    "@ant-design/cssinjs": "^1.21.1",
+    "@ant-design/cssinjs": "^1.24.0",
     "@ant-design/icons": "^5.5.1",
     "@ant-design/web3": "workspace:*",
     "@ant-design/web3-assets": "workspace:*",
