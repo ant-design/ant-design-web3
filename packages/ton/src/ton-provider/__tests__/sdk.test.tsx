@@ -39,7 +39,7 @@ describe('TonSDK', () => {
       );
     };
 
-    expect(errorThrowingFunctionWithUrl()).rejects.toThrow();
+    await expect(errorThrowingFunctionWithUrl()).rejects.toThrow();
     const balance = await connector.getBalance();
     expect(balance).toBe(0n);
   });

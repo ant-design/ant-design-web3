@@ -12,9 +12,9 @@ describe('utils/browser', () => {
     });
     expect(getPlatform()).toBe('Other');
   });
-  it('writeCopyText & readCopyText', () => {
+  it('writeCopyText & readCopyText', async () => {
     const test = 'test copy text';
     writeCopyText(test);
-    expect(readCopyText()).resolves.toBe(test);
+    await expect(readCopyText()).resolves.toBe(test);
   });
 });
