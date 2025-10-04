@@ -164,10 +164,6 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
     );
   }
 
-  const unsigned = needSign && !signed;
-
-  console.log('unsigned:', unsigned, account?.status);
-
   const buttonInnerText = (
     <div className={`${prefixCls}-content`}>
       <div className={`${prefixCls}-content-inner`}>
@@ -184,8 +180,6 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       </div>
     </div>
   );
-
-  console.log('signIn:', typeof sign?.signIn, account?.status);
 
   const buttonContent = (
     <ConnectButtonInner
@@ -207,7 +201,6 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
           return;
         }
 
-        console.log('onSignInClick:', account, needSign, signed);
         if (signed) {
           return;
         }
@@ -219,14 +212,12 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
 
         // If account is not connected, we need to sign in
         // If account is connected but not signed, we also need to sign in
-        console.log('signIn:', account?.address, needSign);
         if (account?.status === ConnectStatus.Connected && signed) {
           return;
         }
 
         // If account is not connected, we need to sign in
         // If account is connected but not signed, we also need to sign in
-        console.log('signIn:', account?.address, needSign);
         if (account && needSign) {
           sign
             .signIn?.(account.address!)

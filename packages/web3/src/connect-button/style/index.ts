@@ -22,6 +22,9 @@ const genConnectButtonStyle: GenerateStyle<ConnectButtonToken> = (token) => {
         alignItems: 'center',
         flexDirection: 'row',
       },
+      [`${token.antCls}-badge`]: {
+        marginRight: token.marginXS,
+      },
       [`${token.componentCls}-text`]: {
         [`${token.antCls}-typography`]: {
           color: 'unset',
