@@ -1,3 +1,4 @@
+import React from 'react';
 import { ConnectButton, Connector } from '@ant-design/web3';
 import { Mainnet } from '@ant-design/web3-assets';
 import { fireEvent, render, waitFor } from '@testing-library/react';
@@ -325,5 +326,59 @@ describe('Wagmi siwe sign', () => {
     expect(baseElement.querySelector('.ant-web3-connect-button-text')?.textContent).toBe(
       '0x21CD...Fd3B & Custom Sign: 0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B',
     );
+  });
+
+  it('test signOut function', async () => {
+    const { createConfig, http } = await import('wagmi');
+    const { useProvider } = await import('@ant-design/web3');
+
+    const getNonce = vi.fn(async () => '1');
+    const createMessage = vi.fn(() => 'message');
+    const verifyMessage = vi.fn(async () => true);
+    const consoleLogSpy = vi.spyOn(console, 'log');
+
+    const config = createConfig({
+      chains: [mainnet],
+      transports: {
+        [mainnet.id]: http(),
+      },
+      connectors: [],
+    });
+
+    const TestComponent = () => {
+      const { sign } = useProvider();
+
+      React.useEffect(() => {
+        if (sign?.signOut) {
+          sign.signOut();
+        }
+      }, [sign]);
+
+      return <div data-testid="test-component">Test</div>;
+    };
+
+    const App = () => (
+      <AntDesignWeb3ConfigProvider
+        walletFactories={[MetaMask()]}
+        chainAssets={[Mainnet]}
+        wagimConfig={config}
+        siwe={{
+          getNonce,
+          createMessage,
+          verifyMessage,
+        }}
+      >
+        <TestComponent />
+      </AntDesignWeb3ConfigProvider>
+    );
+
+    const { getByTestId } = render(<App />);
+
+    await waitFor(() => {
+      expect(getByTestId('test-component')).toBeTruthy();
+      expect(consoleLogSpy).toHaveBeenCalledWith('call_signOut');
+    });
+
+    consoleLogSpy.mockRestore();
   });
 });
