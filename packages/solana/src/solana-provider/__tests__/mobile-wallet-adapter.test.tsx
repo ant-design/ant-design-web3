@@ -183,7 +183,7 @@ describe('SolanaWeb3ConfigProvider standard mobile wallet adapter', () => {
     expect(connectBtnDom).not.toBeNull();
 
     // check wallet-connect config can be created
-    await vi.waitFor(async () => {
+    await vi.waitFor(() => {
       expect(namesDom.textContent).toBe(MWA_WALLET_NAME);
 
       expect(readyDom.textContent).toBe('true');

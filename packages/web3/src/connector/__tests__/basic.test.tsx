@@ -3,6 +3,7 @@ import {
   ConnectButton,
   Connector,
   type Account,
+  type ConnectButtonProps,
   type ConnectorTriggerProps,
 } from '@ant-design/web3';
 import { metadata_MetaMask, metadata_WalletConnect } from '@ant-design/web3-assets';
@@ -11,6 +12,10 @@ import { Button } from 'antd';
 import { describe, expect, it, vi } from 'vitest';
 
 describe('Connector', () => {
+  function FakeButton({ children }: ConnectButtonProps) {
+    return <Button>{children}</Button>;
+  }
+
   it('expect onCancelCallTest toBeCalled', async () => {
     const onCancelCallTest = vi.fn();
     const App = () => {
@@ -22,7 +27,7 @@ describe('Connector', () => {
             onCancel: onCancelCallTest,
           }}
         >
-          <Button>children</Button>
+          <FakeButton>children</FakeButton>
         </Connector>
       );
     };
@@ -37,7 +42,7 @@ describe('Connector', () => {
   it('render children', () => {
     const App = () => (
       <Connector>
-        <Button>children</Button>
+        <FakeButton>children</FakeButton>
       </Connector>
     );
     const { baseElement } = render(<App />);
@@ -63,7 +68,7 @@ describe('Connector', () => {
     const App = () => {
       return (
         <Connector modalProps={{ title: 'modal title', open: true }}>
-          <Button>children</Button>
+          <FakeButton>children</FakeButton>
         </Connector>
       );
     };
@@ -397,7 +402,7 @@ describe('Connector', () => {
     const { baseElement } = render(<App />);
     expect(baseElement.querySelector('.anticon-loading')).toBeFalsy();
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-button')!);
-    await vi.waitFor(async () => {
+    await vi.waitFor(() => {
       fireEvent.click(baseElement.querySelector('.ant-web3-connect-modal-wallet-item')!);
     });
     await vi.waitFor(() => {
