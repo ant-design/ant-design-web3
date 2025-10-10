@@ -152,6 +152,7 @@ export type WalletExtensionItem = {
    * @desc 支持的浏览器的 key
    * @descEn The key of the supported browser
    */
+  // eslint-disable-next-line @typescript-eslint/ban-types
   key: 'Chrome' | 'Firefox' | 'Edge' | 'Safari' | (string & {});
   /**
    * @desc 浏览器扩展程序的链接
