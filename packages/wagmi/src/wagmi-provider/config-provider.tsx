@@ -239,7 +239,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   );
 
   const signOut = async () => {
-    console.log('call_signOut');
+    setStatus(ConnectStatus.Connected);
   };
 
   return (
