@@ -335,7 +335,7 @@ describe('Wagmi siwe sign', () => {
     const getNonce = vi.fn(async () => '1');
     const createMessage = vi.fn(() => 'message');
     const verifyMessage = vi.fn(async () => true);
-    const consoleLogSpy = vi.spyOn(console, 'log');
+    const fakeSignout = vi.fn();
 
     const config = createConfig({
       chains: [mainnet],
@@ -351,7 +351,7 @@ describe('Wagmi siwe sign', () => {
       React.useEffect(() => {
         if (sign?.signOut) {
           sign.signOut().then(() => {
-            console.log('call_signOut');
+            fakeSignout();
           });
         }
       }, [sign]);
@@ -378,9 +378,7 @@ describe('Wagmi siwe sign', () => {
 
     await waitFor(() => {
       expect(getByTestId('test-component')).toBeTruthy();
-      expect(consoleLogSpy).toHaveBeenCalledWith('call_signOut');
+      expect(fakeSignout).toHaveBeenCalled();
     });
-
-    consoleLogSpy.mockRestore();
   });
 });
