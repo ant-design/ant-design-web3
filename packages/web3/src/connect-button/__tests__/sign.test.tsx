@@ -658,11 +658,11 @@ describe('ConnectButton Sign', () => {
 
     // Click profile menu item
     const profileMenuItem = baseElement.querySelectorAll('.ant-dropdown-menu-item')[0];
-    expect(profileMenuItem?.textContent).toBe('我的资料');
+    expect(profileMenuItem?.textContent).toBe('Profile');
 
     // Click disconnect menu item
     const disconnectMenuItem = baseElement.querySelectorAll('.ant-dropdown-menu-item')[1];
-    expect(disconnectMenuItem?.textContent).toBe('断开');
+    expect(disconnectMenuItem?.textContent).toBe('Disconnect');
     fireEvent.click(disconnectMenuItem!);
 
     expect(onDisconnectMock).toHaveBeenCalled();
