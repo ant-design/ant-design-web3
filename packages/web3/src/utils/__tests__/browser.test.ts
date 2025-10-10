@@ -16,8 +16,8 @@ describe('utils/browser', () => {
   it('writeCopyText & readCopyText', async () => {
     const test = 'test copy text';
     writeCopyText(test);
-    await vi.waitFor(() => {
-      expect(readCopyText()).resolves.toBe(test);
+    await vi.waitFor(async () => {
+      await expect(readCopyText()).resolves.toBe(test);
     });
   });
 });
