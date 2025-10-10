@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { MoreOutlined } from '@ant-design/icons';
-import { ConnectStatus, type Account, type Wallet } from '@ant-design/web3-common';
+import { type Wallet } from '@ant-design/web3-common';
 import type { ButtonProps, MenuProps } from 'antd';
 import { Button, ConfigProvider, Dropdown, Space } from 'antd';
 import classNames from 'classnames';
@@ -122,8 +122,16 @@ export const ConnectButtonInner: React.FC<ConnectButtonInnerProps> = (props) => 
           }}
           menu={{
             items: [
-              { key: 'profile', label: '我的资料', onClick: onOpenProfileClick },
-              { key: 'disconnect', label: '断开', onClick: onDisconnectClick },
+              {
+                key: 'profile',
+                label: intl.getMessage(intl.messages.profile),
+                onClick: onOpenProfileClick,
+              },
+              {
+                key: 'disconnect',
+                label: intl.getMessage(intl.messages.disconnect),
+                onClick: onDisconnectClick,
+              },
             ],
           }}
           {...restProps}

@@ -277,6 +277,7 @@ export interface RequiredLocale {
     walletAddress: string;
     moreWallets: string;
     sign: string;
+    profile: string;
   };
   ConnectModal: {
     title: string;
