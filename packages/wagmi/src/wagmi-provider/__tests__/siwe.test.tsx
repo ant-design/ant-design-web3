@@ -350,7 +350,9 @@ describe('Wagmi siwe sign', () => {
 
       React.useEffect(() => {
         if (sign?.signOut) {
-          sign.signOut();
+          sign.signOut().then(() => {
+            console.log('call_signOut');
+          });
         }
       }, [sign]);
 
