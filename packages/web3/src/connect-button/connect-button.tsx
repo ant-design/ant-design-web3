@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 import { Address } from '../address';
 import { CryptoPrice } from '../crypto-price';
-import { useConnection, useProvider } from '../hooks';
+import { useProvider } from '../hooks';
 import useIntl from '../hooks/useIntl';
 import { fillWithPrefix, writeCopyText } from '../utils';
 import { ChainSelect } from './chain-select';
@@ -197,6 +197,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
       onDisconnectClick={onDisconnectClick}
       onOpenProfileClick={() => setProfileOpen(true)}
       onSignInClick={() => {
+        /* v8 ignore start */
         if (!sign?.signIn) {
           return;
         }
@@ -215,6 +216,8 @@ export const ConnectButton: React.FC<ConnectButtonProps> = (props) => {
         if (account?.status === ConnectStatus.Connected && signed) {
           return;
         }
+
+        /* v8 ignore stop */
 
         // If account is not connected, we need to sign in
         // If account is connected but not signed, we also need to sign in

@@ -160,7 +160,7 @@ describe('ConnectButton Sign', () => {
         sign={{
           signIn: vi.fn(),
         }}
-        signBtnTextRender={(defaultText, account) => `Custom: ${account.address.slice(0, 6)}`}
+        signBtnTextRender={(_defaultText, account) => `Custom: ${account?.address.slice(0, 6)}`}
       />,
     );
 
