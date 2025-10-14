@@ -12,7 +12,7 @@ Ant Design Web3 官方提供了 `@ant-design/web3-ton` 来适配 TON 生态，�
 
 `@ant-design/web3-ton` 的接口设计参考了 [TON 官方文档](https://docs.ton.org/mandarin/)和`@tonconnect/sdk`，你可以在文档中找到更加深层的实现原理。RPC 服务（比如说查询余额）采用的是 [Tonconnect](http://toncenter.com)，包括测试网以及主网。
 
-Ton 支持的钱包可以在 [钱包接口](https://raw.githubusercontent.com/ton-blockchain/wallets-list/main/wallets-v2.json) 中查看，Ant Design Web3 提供了部分常用钱包的设置，如下：
+Ton 支持的钱包可以在 [钱包接口](https://whatever-zeta-two.vercel.app/wallets-v2.json) 中查看，Ant Design Web3 提供了部分常用钱包的设置，如下：
 
 - telegram-wallet
 - Tonkeeper
