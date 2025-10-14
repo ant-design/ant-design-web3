@@ -10,9 +10,9 @@ export interface LedgerWallet {
   connect: () => Promise<void>;
   disconnect: () => Promise<void>;
   signMessage?: (message: string) => Promise<string>;
-  signTypedData?: (typedData: any) => Promise<any>;
-  _setupHooks?: (hooks: any) => void;
-  useLedgerHooks?: () => any;
+  signTypedData?: (typedData: unknown) => Promise<unknown>;
+  _setupHooks?: (hooks: LedgerHooks) => void;
+  useLedgerHooks?: () => LedgerHooksResult;
 }
 
 export interface WalletFactory {

@@ -13,10 +13,10 @@ import type { LedgerAccount, LedgerWallet, WalletFactory } from '../types';
 export const Ledger = (): WalletFactory => {
   return {
     name: 'Ledger',
-    create: () => {
+    create: (options?: { derivationPath?: string }) => {
       let sessionId: DeviceSessionId | null = null;
       let currentAddress: string | null = null;
-      let derivationPath = "44'/60'/0'/0/0";
+      let derivationPath = options?.derivationPath ?? "44'/60'/0'/0/0";
 
       // These will be set up when the wallet is used in a React component
       let devicesRef: DiscoveredDevice[] = [];
@@ -34,7 +34,6 @@ export const Ledger = (): WalletFactory => {
         accounts: [] as LedgerAccount[],
 
         connect: async () => {
-          console.log('Connecting to Ledger...');
 
           // Wait for device to be available
           if (devicesRef.length === 0) {
@@ -88,7 +87,6 @@ export const Ledger = (): WalletFactory => {
         },
 
         disconnect: async () => {
-          console.log('Disconnecting from Ledger...');
 
           if (disconnectFn && sessionId) {
             await disconnectFn(sessionId);
@@ -110,7 +108,6 @@ export const Ledger = (): WalletFactory => {
         },
 
         signTypedData: async (typedData: any) => {
-          console.log('Signing typed data:', typedData);
 
           if (!signTypedDataFn) {
             throw new Error('Sign typed data function not available');

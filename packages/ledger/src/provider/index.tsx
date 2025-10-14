@@ -42,9 +42,10 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
     const walletWithAdapter = wallets.find((w) => w.name === wallet.name);
     const provider = walletWithAdapter?.adapter;
     await provider?.connect();
-    // @ts-ignore provider is not undefined
-    setAdapter(provider);
-    cacheSelectedWallet(wallet.name);
+    if (provider) {
+      setAdapter(provider);
+      cacheSelectedWallet(wallet.name);
+    }
   };
 
   // auto connect
