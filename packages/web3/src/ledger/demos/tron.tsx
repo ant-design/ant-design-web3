@@ -1,6 +1,6 @@
 /**
- * title: Using Ledger Hardware Wallet with TRON
- * description: Connect to TRON using Ledger hardware wallet for enhanced security
+ * title: Connect to TRON with Ledger
+ * description: Use Ledger hardware wallet to connect to TRON network
  */
 
 import { ConnectButton, Connector } from '@ant-design/web3';

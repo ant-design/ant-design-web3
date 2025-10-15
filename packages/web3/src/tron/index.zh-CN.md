@@ -22,7 +22,7 @@ Tron 支持的钱包可以在 [tronwallet-adapter](https://github.com/web3-geek/
 - OkxWallet
 - BitGet
 - Bybit
-- Ledger（硬件钱包）
+- Ledger
 
 ## 基本使用
 
@@ -35,18 +35,6 @@ Tron 支持的钱包可以在 [tronwallet-adapter](https://github.com/web3-geek/
 ## 在 TRON 上发起交易
 
 <code src='./demos/transaction.tsx'></code>
-
-## 使用 Ledger 硬件钱包
-
-Ledger 为您的 TRON 交易提供硬件级别的安全保障。所有私钥都安全地保存在设备中，交易需要物理确认。
-
-<code src='./demos/ledger.tsx'></code>
-
-**前置条件：**
-
-- Chrome/Edge 浏览器（需要 WebHID 支持）
-- 通过 USB 连接 Ledger 设备
-- 设备已解锁并打开 TRON 应用
 
 ## API
 
