@@ -4,3 +4,4 @@
 export * from './okxTronWallet';
 export * from './bybitWallet';
 export * from './tronlinkWallet';
+export * from './ledgerWallet';

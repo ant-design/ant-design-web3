@@ -21,6 +21,7 @@ You can check the wallets supported by Tron in the [tronwallet-adapter](https://
 - OkxWallet
 - BitGet
 - Bybit
+- Ledger (Hardware Wallet)
 
 ## Basic Usage
 
@@ -33,6 +34,18 @@ You can check the wallets supported by Tron in the [tronwallet-adapter](https://
 ## Send transaction on TRON
 
 <code src='./demos/transaction.tsx'></code>
+
+## Using Ledger Hardware Wallet
+
+Ledger provides hardware-level security for your TRON transactions. All private keys remain secure on the device, and transactions require physical confirmation.
+
+<code src='./demos/ledger.tsx'></code>
+
+**Prerequisites:**
+
+- Chrome/Edge browser (WebHID support required)
+- Ledger device connected via USB
+- Device unlocked with TRON app open
 
 ## API
 

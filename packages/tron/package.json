@@ -49,6 +49,7 @@
     "@tronweb3/tronwallet-adapter-tronlink": "^1.1.12",
     "@tronweb3/tronwallet-adapter-okxwallet": "^1.0.6",
     "@tronweb3/tronwallet-adapter-bybit": "^1.0.1",
+    "@tronweb3/tronwallet-adapter-ledger": "^1.1.11",
     "tronweb": "^6.0.3"
   },
   "devDependencies": {

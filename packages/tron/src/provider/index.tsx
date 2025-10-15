@@ -2,6 +2,7 @@ import React, { useMemo, useState, type PropsWithChildren } from 'react';
 import type { Locale, Wallet } from '@ant-design/web3-common';
 import type { WalletError } from '@tronweb3/tronwallet-abstract-adapter';
 import { BybitWalletAdapter } from '@tronweb3/tronwallet-adapter-bybit';
+import { LedgerAdapter } from '@tronweb3/tronwallet-adapter-ledger';
 import { OkxWalletAdapter } from '@tronweb3/tronwallet-adapter-okxwallet';
 import { WalletProvider } from '@tronweb3/tronwallet-adapter-react-hooks';
 import { TronLinkAdapter } from '@tronweb3/tronwallet-adapter-tronlink';
@@ -30,8 +31,9 @@ export const TronWeb3ConfigProvider: React.FC<PropsWithChildren<TronWeb3ConfigPr
     const tronLinkAdapter = new TronLinkAdapter();
     const okxWalletAdapter = new OkxWalletAdapter();
     const bybitWalletAdapter = new BybitWalletAdapter();
+    const ledgerAdapter = new LedgerAdapter();
 
-    return [okxWalletAdapter, tronLinkAdapter, bybitWalletAdapter];
+    return [okxWalletAdapter, tronLinkAdapter, bybitWalletAdapter, ledgerAdapter];
   }, []);
 
   return (

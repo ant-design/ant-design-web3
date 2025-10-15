@@ -16,7 +16,7 @@ export default defineConfig({
       },
       include: ['**/*.svg'],
     }),
-  ] as ViteUserConfig["plugins"],
+  ] as ViteUserConfig['plugins'],
   resolve: {
     alias: isDist
       ? {

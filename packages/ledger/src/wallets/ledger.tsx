@@ -34,7 +34,6 @@ export const Ledger = (): WalletFactory => {
         accounts: [] as LedgerAccount[],
 
         connect: async () => {
-
           // Wait for device to be available
           if (devicesRef.length === 0) {
             throw new Error('No Ledger device found. Please connect your device.');
@@ -87,7 +86,6 @@ export const Ledger = (): WalletFactory => {
         },
 
         disconnect: async () => {
-
           if (disconnectFn && sessionId) {
             await disconnectFn(sessionId);
             sessionId = null;
@@ -108,7 +106,6 @@ export const Ledger = (): WalletFactory => {
         },
 
         signTypedData: async (typedData: any) => {
-
           if (!signTypedDataFn) {
             throw new Error('Sign typed data function not available');
           }
