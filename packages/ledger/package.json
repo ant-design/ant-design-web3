@@ -1,0 +1,70 @@
+{
+  "name": "@ant-design/web3-ledger",
+  "version": "0.1.0",
+  "main": "dist/lib/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/lib/index.js",
+    "types": "./dist/esm/index.d.ts"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "keywords": [
+    "ant",
+    "design",
+    "web3",
+    "antd",
+    "component",
+    "components",
+    "framework",
+    "frontend",
+    "react",
+    "react-component",
+    "ui",
+    "ledger",
+    "hardware-wallet"
+  ],
+  "homepage": "https://web3.ant.design",
+  "bugs": {
+    "url": "https://github.com/ant-design/ant-design-web3/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/ant-design-web3"
+  },
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build"
+  },
+  "dependencies": {
+    "@ant-design/web3-common": "workspace:*",
+    "@ant-design/web3-icons": "workspace:*",
+    "@ledgerhq/device-management-kit": "^0.9.1",
+    "@ledgerhq/device-signer-kit-ethereum": "^1.8.0",
+    "@ledgerhq/device-transport-kit-web-hid": "^1.2.0",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "father": "^4.6.2",
+    "typescript": "^5.6.2"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
+}
