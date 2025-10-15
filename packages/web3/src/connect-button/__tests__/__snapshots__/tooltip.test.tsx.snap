@@ -5,7 +5,7 @@ exports[`ConnectButton > should display formatted by custom formatter when pass 
   <div>
     <button
       aria-describedby="test-id"
-      class="ant-btn css-dev-only-do-not-override-1odpy5d ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-web3-connect-button css-dev-only-do-not-override-1odpy5d ant-tooltip-open"
+      class="ant-btn css-dev-only-do-not-override-1cj4ms ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-web3-connect-button css-dev-only-do-not-override-1cj4ms ant-tooltip-open"
       type="button"
     >
       <div
@@ -18,7 +18,7 @@ exports[`ConnectButton > should display formatted by custom formatter when pass 
             class="ant-web3-connect-button-text"
           >
             <span
-              class="ant-typography ant-web3-address css-dev-only-do-not-override-1odpy5d css-dev-only-do-not-override-1odpy5d"
+              class="ant-typography ant-web3-address css-dev-only-do-not-override-1cj4ms css-dev-only-do-not-override-1cj4ms"
             >
               <span
                 aria-describedby="test-id"
@@ -33,7 +33,7 @@ exports[`ConnectButton > should display formatted by custom formatter when pass 
   </div>
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-web3-connect-button-tooltip css-dev-only-do-not-override-1odpy5d css-dev-only-do-not-override-1odpy5d ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-web3-connect-button-tooltip css-dev-only-do-not-override-1cj4ms css-dev-only-do-not-override-1cj4ms ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div

@@ -4,11 +4,11 @@ exports[`NFTImage > use custom getNFTMetadata 1`] = `
 <body>
   <div>
     <div
-      class="ant-image css-dev-only-do-not-override-1odpy5d"
+      class="ant-image css-dev-only-do-not-override-1cj4ms"
     >
       <img
         alt="Test_0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B_123"
-        class="ant-image-img css-dev-only-do-not-override-1odpy5d"
+        class="ant-image-img css-dev-only-do-not-override-1cj4ms"
         src="https://example.com/nft.png"
         style="image-rendering: pixelated;"
       />
