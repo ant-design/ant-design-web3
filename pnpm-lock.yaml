@@ -87,8 +87,8 @@ importers:
         specifier: ^7.0.3
         version: 7.0.3
       decimal.js:
-        specifier: ^10.4.3
-        version: 10.5.0
+        specifier: ^10.6.0
+        version: 10.6.0
       dumi:
         specifier: ^2.4.21
         version: 2.4.21(@babel/core@7.27.1)(@swc/helpers@0.5.17)(@types/node@22.15.21)(@types/react@18.3.21)(@types/webpack@5.28.5(@swc/core@1.9.2(@swc/helpers@0.5.17)))(eslint@8.57.1)(lightningcss@1.22.1)(prettier@3.5.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.41.0)(stylelint@15.11.0(typescript@5.8.3))(terser@5.44.0)(type-fest@1.4.0)(typescript@5.8.3)(webpack@5.99.9(@swc/core@1.9.2(@swc/helpers@0.5.17)))
@@ -766,8 +766,8 @@ importers:
         specifier: ^3.3.3
         version: 3.3.3
       decimal.js:
-        specifier: ^10.4.3
-        version: 10.5.0
+        specifier: ^10.6.0
+        version: 10.6.0
       is-mobile:
         specifier: ^5.0.0
         version: 5.0.0
@@ -7133,8 +7133,8 @@ packages:
     resolution: {integrity: sha512-VfxadyCECXgQlkoEAjeghAr5gY3Hf+IKjKb+X8tGVDtveCjN+USwprd2q3QXBR9T1+x2DG0XZF5/w+7HAtSaXA==}
     engines: {node: '>=10'}
 
-  decimal.js@10.5.0:
-    resolution: {integrity: sha512-8vDa8Qxvr/+d94hSh5P3IJwI5t8/c0KsMp+g8bNw9cY2icONa5aPfvKeieW1WlG0WQYwwhJ7mjui2xtiePQSXw==}
+  decimal.js@10.6.0:
+    resolution: {integrity: sha512-YpgQiITW3JXGntzdUmyUR1V812Hn8T1YVXhCu+wO3OpS4eU9l4YdD3qjyiKdV6mvV29zapkMeD390UVEf2lkUg==}
 
   decode-named-character-reference@1.1.0:
     resolution: {integrity: sha512-Wy+JTSbFThEOXQIR2L6mxJvEs+veIzpmqD7ynWxMXGpnk3smkHQOp6forLdHsKpAMW9iJpaBBIxz285t1n1C3w==}
@@ -15690,7 +15690,7 @@ snapshots:
     dependencies:
       '@formatjs/fast-memoize': 2.2.7
       '@formatjs/intl-localematcher': 0.6.1
-      decimal.js: 10.5.0
+      decimal.js: 10.6.0
       tslib: 2.8.1
 
   '@formatjs/fast-memoize@2.2.7':
@@ -23149,7 +23149,7 @@ snapshots:
 
   decamelize@5.0.1: {}
 
-  decimal.js@10.5.0: {}
+  decimal.js@10.6.0: {}
 
   decode-named-character-reference@1.1.0:
     dependencies:
@@ -25774,7 +25774,7 @@ snapshots:
     dependencies:
       cssstyle: 4.3.1
       data-urls: 5.0.0
-      decimal.js: 10.5.0
+      decimal.js: 10.6.0
       html-encoding-sniffer: 4.0.0
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.6
