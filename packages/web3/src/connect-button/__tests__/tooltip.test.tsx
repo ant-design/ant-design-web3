@@ -120,10 +120,10 @@ describe('ConnectButton', () => {
     );
     expect(baseElement.querySelector('.anticon-copy')).not.toBeNull();
     fireEvent.click(baseElement.querySelector('.anticon-copy')!);
-    await vi.waitFor(() => {
+    await vi.waitFor(async () => {
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
       expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe('Copied!');
-      expect(readCopyText()).resolves.toBe('0x3ea2cfd153b8d8505097b81c87c11f5d05097c18');
+      await expect(readCopyText()).resolves.toBe('0x3ea2cfd153b8d8505097b81c87c11f5d05097c18');
     });
   });
 
@@ -137,12 +137,12 @@ describe('ConnectButton', () => {
     );
     expect(baseElement.querySelector('.anticon-copy')).not.toBeNull();
     fireEvent.click(baseElement.querySelector('.anticon-copy')!);
-    await vi.waitFor(() => {
+    await vi.waitFor(async () => {
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
       expect(baseElement.querySelector('.ant-message-notice-content')?.textContent?.trim()).toBe(
         'Copied!',
       );
-      expect(readCopyText()).resolves.toBe('aaaaaabbbbbbcccccc');
+      await expect(readCopyText()).resolves.toBe('aaaaaabbbbbbcccccc');
     });
   });
   it('should display formatted when pass format into tooltip', async () => {
@@ -160,12 +160,12 @@ describe('ConnectButton', () => {
     ).toBe('0x 3ea2 cfd1 53b8 d850 5097 b81c 87c1 1f5d 0509 7c18');
     expect(baseElement.querySelector('.anticon-copy')).not.toBeNull();
     fireEvent.click(baseElement.querySelector('.anticon-copy')!);
-    await vi.waitFor(() => {
+    await vi.waitFor(async () => {
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
       expect(baseElement.querySelector('.ant-message-notice-content')?.textContent?.trim()).toBe(
         'Copied!',
       );
-      expect(readCopyText()).resolves.toBe('0x3ea2cfd153b8d8505097b81c87c11f5d05097c18');
+      await expect(readCopyText()).resolves.toBe('0x3ea2cfd153b8d8505097b81c87c11f5d05097c18');
     });
   });
   it('should display formatted by custom formatter when pass format into tooltip', async () => {

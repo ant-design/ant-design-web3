@@ -1,4 +1,5 @@
-import { Account, ConnectButton, Connector } from '@ant-design/web3';
+import type { Account } from '@ant-design/web3';
+import { ConnectButton, Connector, useConnection, useProvider } from '@ant-design/web3';
 import {
   MetaMask,
   OkxWallet,
@@ -10,27 +11,38 @@ import {
 import { QueryClient } from '@tanstack/react-query';
 import { Button, Space } from 'antd';
 import { createSiweMessage } from 'viem/siwe';
-import { http, useDisconnect } from 'wagmi';
+import { http } from 'wagmi';
 
 import { getNonce, verifyMessage } from './mock-api';
 
 const queryClient = new QueryClient();
 
 const DisconnectBtn: React.FC = () => {
-  const { disconnect } = useDisconnect();
+  const { sign } = useProvider();
+  const { disconnect } = useConnection();
+
   return (
-    <Button
-      onClick={() => {
-        disconnect(undefined, {
-          onError: (e: any) => {
-            console.error(e?.shortMessage || 'Disconnect Failed');
-          },
-        });
-      }}
-      danger
-    >
-      Disconnect
-    </Button>
+    <Space>
+      <Button
+        danger
+        onClick={() => {
+          disconnect?.();
+        }}
+      >
+        Disconnect
+      </Button>
+
+      {sign?.signOut && (
+        <Button
+          danger
+          onClick={() => {
+            sign.signOut?.();
+          }}
+        >
+          Sign Out
+        </Button>
+      )}
+    </Space>
   );
 };
 
@@ -71,7 +83,7 @@ const App: React.FC = () => {
       ]}
       queryClient={queryClient}
     >
-      <Space>
+      <Space direction="vertical">
         <Connector
           modalProps={{
             mode: 'simple',
