@@ -54429,7 +54429,7 @@ exports[`Test Icons > should render all icons 567`] = `
             />
           </g>
           <text
-            style="opacity: 0.51; fill: #383642; enable-background: new; font-family: "ArialMT"; font-size: 7.4647px;"
+            style="opacity: 0.51; fill: #383642; enable-background: new; font-family: 'ArialMT'; font-size: 7.4647px;"
             transform="matrix(0.6978 -0.7163 0.7163 0.6978 769.3947 557.0723)"
           >
             CatCoinBSC

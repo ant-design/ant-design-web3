@@ -5,7 +5,7 @@ exports[`ProfileModal > match snapshot 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-1cj4ms"
+      class="ant-modal-root css-dev-only-do-not-override-vrrzze"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -16,9 +16,8 @@ exports[`ProfileModal > match snapshot 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-1cj4ms hashId ant-web3-connect-button-profile-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-vrrzze hashId ant-web3-connect-button-profile-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
-          style="width: fit-content;"
         >
           <div
             style="outline: none;"
@@ -63,13 +62,13 @@ exports[`ProfileModal > match snapshot 1`] = `
                 style="text-align: center;"
               >
                 <div
-                  class="ant-space css-dev-only-do-not-override-1cj4ms ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                  class="ant-space css-dev-only-do-not-override-vrrzze ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
                   >
                     <span
-                      class="ant-avatar ant-avatar-circle ant-avatar-image css-dev-only-do-not-override-1cj4ms"
+                      class="ant-avatar ant-avatar-circle ant-avatar-image css-dev-only-do-not-override-vrrzze"
                     >
                       <img
                         src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original"
@@ -89,7 +88,7 @@ exports[`ProfileModal > match snapshot 1`] = `
                     class="ant-space-item"
                   >
                     <span
-                      class="ant-typography ant-typography-secondary ant-web3-address css-dev-only-do-not-override-1cj4ms css-dev-only-do-not-override-1cj4ms"
+                      class="ant-typography ant-typography-secondary ant-web3-address css-dev-only-do-not-override-vrrzze css-dev-only-do-not-override-vrrzze"
                     >
                       <span
                         aria-describedby="test-id"
@@ -107,7 +106,7 @@ exports[`ProfileModal > match snapshot 1`] = `
                   class="ant-web3-connect-button-profile-modal-footer hashId"
                 >
                   <button
-                    class="ant-btn css-dev-only-do-not-override-1cj4ms ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                    class="ant-btn css-dev-only-do-not-override-vrrzze ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -115,7 +114,7 @@ exports[`ProfileModal > match snapshot 1`] = `
                     </span>
                   </button>
                   <button
-                    class="ant-btn css-dev-only-do-not-override-1cj4ms ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                    class="ant-btn css-dev-only-do-not-override-vrrzze ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -142,7 +141,7 @@ exports[`ProfileModal > match snapshot without name 1`] = `
   <div />
   <div>
     <div
-      class="ant-modal-root css-dev-only-do-not-override-1cj4ms"
+      class="ant-modal-root css-dev-only-do-not-override-vrrzze"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -153,9 +152,8 @@ exports[`ProfileModal > match snapshot without name 1`] = `
       >
         <div
           aria-modal="true"
-          class="ant-modal css-dev-only-do-not-override-1cj4ms hashId ant-web3-connect-button-profile-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+          class="ant-modal css-dev-only-do-not-override-vrrzze hashId ant-web3-connect-button-profile-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
           role="dialog"
-          style="width: fit-content;"
         >
           <div
             style="outline: none;"
@@ -200,13 +198,13 @@ exports[`ProfileModal > match snapshot without name 1`] = `
                 style="text-align: center;"
               >
                 <div
-                  class="ant-space css-dev-only-do-not-override-1cj4ms ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                  class="ant-space css-dev-only-do-not-override-vrrzze ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
                   >
                     <span
-                      class="ant-avatar ant-avatar-circle ant-avatar-image css-dev-only-do-not-override-1cj4ms"
+                      class="ant-avatar ant-avatar-circle ant-avatar-image css-dev-only-do-not-override-vrrzze"
                     >
                       <img
                         src="https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*9jfLS41kn00AAAAAAAAAAAAADlrGAQ/original"
@@ -217,7 +215,7 @@ exports[`ProfileModal > match snapshot without name 1`] = `
                     class="ant-space-item"
                   >
                     <span
-                      class="ant-typography ant-web3-address css-dev-only-do-not-override-1cj4ms css-dev-only-do-not-override-1cj4ms"
+                      class="ant-typography ant-web3-address css-dev-only-do-not-override-vrrzze css-dev-only-do-not-override-vrrzze"
                     >
                       <span
                         aria-describedby="test-id"
@@ -235,7 +233,7 @@ exports[`ProfileModal > match snapshot without name 1`] = `
                   class="ant-web3-connect-button-profile-modal-footer hashId"
                 >
                   <button
-                    class="ant-btn css-dev-only-do-not-override-1cj4ms ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                    class="ant-btn css-dev-only-do-not-override-vrrzze ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -243,7 +241,7 @@ exports[`ProfileModal > match snapshot without name 1`] = `
                     </span>
                   </button>
                   <button
-                    class="ant-btn css-dev-only-do-not-override-1cj4ms ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                    class="ant-btn css-dev-only-do-not-override-vrrzze ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>

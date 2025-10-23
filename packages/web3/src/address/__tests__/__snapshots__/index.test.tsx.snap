@@ -2,7 +2,7 @@
 
 exports[`Address > display address with default format 1`] = `
 <span
-  class="ant-typography ant-web3-address css-dev-only-do-not-override-1cj4ms css-dev-only-do-not-override-1cj4ms"
+  class="ant-typography ant-web3-address css-dev-only-do-not-override-vrrzze css-dev-only-do-not-override-vrrzze"
 >
   <span
     aria-describedby="test-id"
