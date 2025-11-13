@@ -112,7 +112,7 @@
       background: #f5f5f5;
       border-radius: 2px;
     }
-  `])),r.colorPrimary);return(0,l.jsx)(g,{})},u=i,M,e,b,c=a.lazy(function(){return Promise.all([n.e(6747),n.e(6571),n.e(8006),n.e(7983)]).then(n.bind(n,57983))}),j=(0,_.kc)(function(E){var r=E.css;return{searchWrapper:r(M||(M=t()([`
+  `])),r.colorPrimary);return(0,l.jsx)(g,{})},u=i,M,e,b,c=a.lazy(function(){return Promise.all([n.e(6747),n.e(6571),n.e(3380),n.e(7983)]).then(n.bind(n,57983))}),j=(0,_.kc)(function(E){var r=E.css;return{searchWrapper:r(M||(M=t()([`
     display: flex;
     gap: 16px;
   `]))),fallbackWrapper:r(e||(e=t()([`
