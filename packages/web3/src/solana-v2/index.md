@@ -8,4 +8,10 @@ group:
 
 # Solana V2
 
+## Basic Usage
+
 <code src="./demos/basic.tsx"></code>
+
+## Use with NFTCard
+
+<code src="./demos/nft.tsx"></code>

@@ -205,10 +205,6 @@ function AntDesignWeb3ConfigProviderWithWalletAdapter(
       disconnect={async () => {
         console.log('[TODO] with_wallet disconnect');
       }}
-      getNFTMetadata={async ({ address: walletAddress }) => {
-        console.log('[TODO] with_wallet getNFTMetadata', walletAddress);
-        return {};
-      }}
     >
       {othersProps.children}
     </Web3ConfigProvider>
@@ -244,10 +240,6 @@ function AntDesignWeb3ConfigProviderWithoutWalletAdapter(
       }}
       disconnect={async () => {
         console.log('[TODO] without_wallet disconnect');
-      }}
-      getNFTMetadata={async ({ address: walletAddress }) => {
-        console.log('[TODO] without_wallet getNFTMetadata', walletAddress);
-        return {};
       }}
     >
       {props.children}

@@ -49,6 +49,7 @@
     "@wallet-standard/core": "^1.1.1",
     "@solana/wallet-standard": "^1.1.4",
     "@wallet-standard/react": "^1.0.1",
+    "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
     "bs58": "^6.0.0"
   },
   "devDependencies": {
