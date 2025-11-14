@@ -31,6 +31,7 @@
       "@ant-design/web3-ethers-v5/wagmi": ["./packages/ethers-v5/src/wagmi.ts"],
       "@ant-design/web3-eth-web3js": ["./packages/eth-web3js/src/"],
       "@ant-design/web3-solana": ["./packages/solana/src/"],
+      "@ant-design/web3-solana-v2": ["./packages/solana-v2/src/"],
       "@ant-design/web3-sui": ["./packages/sui/src/"],
       "@ant-design/web3-ton": ["./packages/ton/src/"],
       "@ant-design/web3-bitcoin": ["./packages/bitcoin/src/"],
