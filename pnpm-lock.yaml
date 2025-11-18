@@ -536,8 +536,8 @@ importers:
         specifier: ^4.6.2
         version: 4.6.2(@babel/core@7.27.1)(@types/node@24.10.1)(@types/webpack@5.28.5(@swc/core@1.9.2(@swc/helpers@0.5.17)))(bufferutil@4.0.9)(styled-components@5.3.11(@babel/core@7.27.1)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(type-fest@1.4.0)(utf-8-validate@5.0.10)(webpack@5.99.9(@swc/core@1.9.2(@swc/helpers@0.5.17)))
       glob:
-        specifier: ^11.1.0
-        version: 11.1.0
+        specifier: ^12.0.0
+        version: 12.0.0
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -8164,6 +8164,11 @@ packages:
 
   glob@11.1.0:
     resolution: {integrity: sha512-vuNwKSaKiqm7g0THUBu2x7ckSs3XJLXE+2ssL7/MfTGPLLcrJQ/4Uq1CjPTtO5cCIiRxqvN6Twy1qOwhL0Xjcw==}
+    engines: {node: 20 || >=22}
+    hasBin: true
+
+  glob@12.0.0:
+    resolution: {integrity: sha512-5Qcll1z7IKgHr5g485ePDdHcNQY0k2dtv/bjYy0iuyGxQw2qSOiiXUXJ+AYQpg3HNoUMHqAruX478Jeev7UULw==}
     engines: {node: 20 || >=22}
     hasBin: true
 
@@ -16212,7 +16217,7 @@ snapshots:
       '@noble/hashes': 1.8.0
       '@scure/base': 1.2.6
       '@types/debug': 4.1.12
-      debug: 4.4.1(supports-color@5.5.0)
+      debug: 4.4.3
       pony-cause: 2.1.11
       semver: 7.7.3
       uuid: 9.0.1
@@ -24768,6 +24773,15 @@ snapshots:
       path-scurry: 1.11.1
 
   glob@11.1.0:
+    dependencies:
+      foreground-child: 3.3.1
+      jackspeak: 4.1.1
+      minimatch: 10.1.1
+      minipass: 7.1.2
+      package-json-from-dist: 1.0.1
+      path-scurry: 2.0.1
+
+  glob@12.0.0:
     dependencies:
       foreground-child: 3.3.1
       jackspeak: 4.1.1
