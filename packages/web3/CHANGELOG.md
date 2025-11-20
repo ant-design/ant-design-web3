@@ -1,5 +1,13 @@
 # @ant-design/web3
 
+## 1.25.2
+
+### Patch Changes
+
+- Updated dependencies [cf5810d]
+  - @ant-design/web3-icons@1.16.0
+  - @ant-design/web3-assets@1.14.2
+
 ## 1.25.1
 
 ### Patch Changes

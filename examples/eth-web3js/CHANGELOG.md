@@ -1,5 +1,13 @@
 # @example/eth-web3js
 
+## 0.0.25
+
+### Patch Changes
+
+- @ant-design/web3-assets@1.14.2
+- @ant-design/web3@1.25.2
+- @ant-design/web3-eth-web3js@1.1.22
+
 ## 0.0.24
 
 ### Patch Changes

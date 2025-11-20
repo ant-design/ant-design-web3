@@ -1,5 +1,13 @@
 # @example/ethers-v5
 
+## 0.0.25
+
+### Patch Changes
+
+- @ant-design/web3-assets@1.14.2
+- @ant-design/web3@1.25.2
+- @ant-design/web3-ethers-v5@1.0.23
+
 ## 0.0.24
 
 ### Patch Changes
