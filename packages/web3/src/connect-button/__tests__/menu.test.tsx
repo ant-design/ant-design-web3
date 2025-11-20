@@ -53,8 +53,8 @@ describe('ConnectButton', () => {
       ).toBe('rc-menu-uuid-test-copyAddress');
     });
     fireEvent.click(baseElement.querySelector('.ant-dropdown-menu-item') as Element);
-    await vi.waitFor(() => {
-      expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
+    await vi.waitFor(async () => {
+      await expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
       expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe('Copied!');
     });
@@ -98,11 +98,11 @@ describe('ConnectButton', () => {
     const { baseElement } = render(<App />);
 
     fireEvent.mouseEnter(baseElement.querySelector('.ant-dropdown-trigger') as Element);
-    await vi.waitFor(async () => {
+    await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-dropdown-open')).not.toBeNull();
     });
     fireEvent.click(baseElement.querySelector('.ant-web3-connect-button') as Element);
-    await vi.waitFor(async () => {
+    await vi.waitFor(() => {
       expect(baseElement.querySelector('.ant-dropdown-open')).toBeNull();
     });
   });
@@ -149,8 +149,8 @@ describe('ConnectButton', () => {
       expect(menuClickFn).toBeCalledWith('1');
     });
     fireEvent.click(baseElement.querySelectorAll('.ant-dropdown-menu-item')[2] as Element);
-    await vi.waitFor(() => {
-      expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
+    await vi.waitFor(async () => {
+      await expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
       expect(baseElement.querySelector('.ant-message')).not.toBeNull();
       expect(baseElement.querySelector('.ant-message-notice-content')?.textContent).toBe('Copied!');
       expect(menuClickFn).toBeCalledWith('copyAddress');

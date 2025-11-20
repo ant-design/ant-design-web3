@@ -84,7 +84,7 @@ describe('Address', () => {
     );
     expect(baseElement.querySelector('.ant-web3-address')?.textContent).toBe('0x21CD...Fd3B');
     fireEvent.click(baseElement.querySelector('.anticon-copy')!);
-    await vi.waitFor(async () => {
+    await vi.waitFor(() => {
       expect(baseElement.querySelector('.anticon-check')).not.toBeNull();
       expect(baseElement.querySelector('.anticon-copy')).toBeNull();
       expect(baseElement.querySelector('.ant-typography-copy')?.getAttribute('aria-label')).toBe(
