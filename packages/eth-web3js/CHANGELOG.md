@@ -1,5 +1,12 @@
 # @ant-design/web3-eth-web3js
 
+## 1.1.22
+
+### Patch Changes
+
+- @ant-design/web3-assets@1.14.2
+- @ant-design/web3-wagmi@2.12.2
+
 ## 1.1.21
 
 ### Patch Changes
