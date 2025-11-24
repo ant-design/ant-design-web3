@@ -66,6 +66,7 @@
     "@ant-design/web3-ton": "workspace:*",
     "@ant-design/web3-tron": "workspace:*",
     "@ant-design/web3-wagmi": "workspace:*",
+    "@ant-design/web3-ledger": "workspace:*",
     "@types/lodash-es": "^4.17.12",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.1",

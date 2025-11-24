@@ -7,67 +7,59 @@ import { useLatestWallet } from '../wallets/useLatestWallet';
 import { LedgerConfigProvider } from './config-provider';
 
 export interface LedgerWeb3ConfigProviderProps {
-  wallets?: WalletFactory[];
+  wallet?: WalletFactory;
   locale?: Locale;
-  balance?: boolean;
+  // balance?: boolean;
   autoConnect?: boolean;
 }
 
 export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProviderProps>> = ({
   children,
-  wallets: initWallets = [],
-  balance = false,
+  wallet: initWallet,
+  // balance = false,
   locale,
   autoConnect,
 }) => {
   const [adapter, setAdapter] = useState<LedgerWallet>({} as LedgerWallet);
-  const [wallets, setWallets] = useState<WalletWithAdapter[]>([]);
-  const { name: adapterName } = useLedgerWallet();
+  const [wallet, setWallet] = useState<WalletWithAdapter>();
 
-  const { latestWalletNameRef, cacheSelectedWallet } = useLatestWallet();
+  const { cacheSelectedWallet } = useLatestWallet();
 
   useEffect(() => {
-    if (initWallets.length === 0) return;
-    setWallets(initWallets.map((w) => w.create()));
-  }, [initWallets]);
+    if (!initWallet) return;
+    setWallet(initWallet.create());
+  }, [initWallet]);
 
-  const selectWallet = async (wallet?: Wallet | null) => {
-    if (!wallet) {
+  const selectWallet = async (selectedWallet?: Wallet | null) => {
+    if (!selectedWallet) {
       // disconnect
       if (adapter) setAdapter({} as LedgerWallet);
       cacheSelectedWallet();
       return;
     }
 
-    const walletWithAdapter = wallets.find((w) => w.name === wallet.name);
-    const provider = walletWithAdapter?.adapter;
-    await provider?.connect();
-    if (provider) {
-      setAdapter(provider);
-      cacheSelectedWallet(wallet.name);
+    const walletWithAdapter = wallet?.name === selectedWallet?.name ? wallet : null;
+    const _adapter = walletWithAdapter?.adapter;
+    await _adapter?.connect();
+    if (_adapter) {
+      setAdapter(_adapter);
+      cacheSelectedWallet(wallet?.name);
     }
   };
 
-  // auto connect
-  useEffect(() => {
-    if (autoConnect && latestWalletNameRef.current && !adapterName) {
-      const wallet = wallets.find((w) => w.name === latestWalletNameRef.current);
-      if (wallet) {
-        selectWallet(wallet);
-      }
-    }
-  }, [wallets]);
-
   return (
     <LedgerAdapterContext.Provider value={adapter}>
-      <LedgerConfigProvider
-        selectWallet={selectWallet}
-        wallets={wallets}
-        balance={balance}
-        locale={locale}
-      >
-        {children}
-      </LedgerConfigProvider>
+      {wallet && (
+        <LedgerConfigProvider
+          selectWallet={selectWallet}
+          wallet={wallet}
+          // balance={balance}
+          locale={locale}
+          autoConnect={autoConnect}
+        >
+          {children}
+        </LedgerConfigProvider>
+      )}
     </LedgerAdapterContext.Provider>
   );
 };

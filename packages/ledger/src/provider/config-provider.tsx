@@ -4,27 +4,34 @@ import { Web3ConfigProvider } from '@ant-design/web3-common';
 
 import { useLedgerWallet } from '../adapter/useLedgerWallet';
 import type { WalletWithAdapter } from '../types';
+import { useLatestWallet } from '../wallets/useLatestWallet';
 
 export interface LedgerConfigProviderProps {
   selectWallet: (wallet?: Wallet | null) => void;
-  wallets?: WalletWithAdapter[];
+  wallet: WalletWithAdapter;
   balance?: boolean;
   locale?: Locale;
+  autoConnect?: boolean;
 }
 
 export const LedgerConfigProvider: FC<PropsWithChildren<LedgerConfigProviderProps>> = ({
   children,
   selectWallet,
-  wallets,
-  balance: showBalance,
+  wallet,
+  // balance: showBalance,
   locale,
+  autoConnect,
 }) => {
+  const { latestWalletNameRef } = useLatestWallet();
+
   const adapter = useLedgerWallet();
   const [account, setAccount] = useState<Account | undefined>(undefined);
 
+  const { devices } = wallet.adapter!.useLedgerHooks!();
+
   const disconnect = async () => {
     await adapter.disconnect?.();
-    setAccount(undefined);
+    selectWallet(null);
   };
 
   const connect = async (wallet?: Wallet) => {
@@ -41,19 +48,27 @@ export const LedgerConfigProvider: FC<PropsWithChildren<LedgerConfigProviderProp
     } else {
       setAccount(undefined);
     }
-  }, [adapter, wallets]);
+  }, [adapter, wallet]);
 
   const availableWallets = useMemo(() => {
-    return wallets?.map((wallet) => {
-      return {
-        name: wallet.name,
-        icon: wallet.icon,
-        group: wallet.group,
-        remark: wallet.remark,
-        extensions: wallet.extensions,
-      } as Wallet;
-    });
-  }, [wallets]);
+    if (wallet) {
+      const _wallet = { ...wallet, hasWalletReady: async () => true };
+      return [_wallet];
+    }
+    return [];
+  }, [wallet]);
+
+  useEffect(() => {
+    // auto connect
+    if (autoConnect && latestWalletNameRef.current && !adapter.name && devices.length > 0) {
+      const _wallet = wallet?.name === latestWalletNameRef.current ? wallet : null;
+      if (_wallet) {
+        selectWallet(_wallet);
+      }
+    }
+  }, [autoConnect, wallet, devices, latestWalletNameRef.current]);
+
+  console.log('account', account);
 
   return (
     <Web3ConfigProvider

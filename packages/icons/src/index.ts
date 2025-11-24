@@ -307,6 +307,7 @@ export * from './components/la-circle-colorful';
 export * from './components/lbc-colorful';
 export * from './components/lcc-colorful';
 export * from './components/ldo-circle-colorful';
+export * from './components/ledger-filled';
 export * from './components/leo-colorful';
 export * from './components/like-circle-colorful';
 export * from './components/link-colorful';

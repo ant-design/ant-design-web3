@@ -1,7 +1,24 @@
 import type { Account, WalletExtensionItem } from '@ant-design/web3-common';
+import type {
+  DeviceSessionId,
+  DeviceStatus,
+  DiscoveredDevice,
+} from '@ledgerhq/device-management-kit';
 
 export interface LedgerAccount extends Account {
   path?: string;
+}
+
+export interface LedgerHooks {
+  devices: DiscoveredDevice[];
+  connect: (args: any) => Promise<DeviceSessionId>;
+  disconnect: (id?: DeviceSessionId) => Promise<void>;
+  openApp: (appName: string) => Promise<any>;
+  getAddress: () => string | null;
+  signMessage: (message: string) => Promise<any>;
+  signTypedData: (typedData: any) => Promise<any>;
+  deviceStatus: DeviceStatus | null;
+  currentApp: string | null;
 }
 
 export interface LedgerWallet {
@@ -11,8 +28,7 @@ export interface LedgerWallet {
   disconnect: () => Promise<void>;
   signMessage?: (message: string) => Promise<string>;
   signTypedData?: (typedData: unknown) => Promise<unknown>;
-  _setupHooks?: (hooks: LedgerHooks) => void;
-  useLedgerHooks?: () => LedgerHooksResult;
+  useLedgerHooks?: () => LedgerHooks;
 }
 
 export interface WalletFactory {
