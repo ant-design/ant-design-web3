@@ -1,14 +1,19 @@
 ---
 nav: 组件
-group: 适配器
-order: 10
+order: 6
+group:
+  title: 硬件钱包
+  order: 2
+tag:
+  title: 新增
+  color: success
 ---
 
 # Ledger
 
 Ledger 硬件钱包适配器，用于 Ant Design Web3。
 
-Ledger 是一款硬件钱包，为加密货币私钥提供安全存储。该适配器使用官方 Ledger SDK 将 Ledger 设备集成到 Ant Design Web3 中。
+Ant Design Web3 官方提供了 `@ant-design/web3-ledger` 来支持 Ledger 硬件钱包，它是基于 [Ledger Device Management Kit](https://github.com/LedgerHQ/device-sdk-ts) 的 Ant Design Web3 Ledger 适配器。Ledger 是一款硬件钱包，为加密货币私钥提供安全存储。该适配器使用官方 Ledger SDK 将 Ledger 设备集成到 Ant Design Web3 中。
 
 ## 何时使用
 
@@ -29,7 +34,7 @@ npm install @ant-design/web3 @ant-design/web3-ledger
 
 连接到 Ledger 硬件钱包。
 
-<code src="./basic.tsx"></code>
+<code src="./demos/basic.tsx"></code>
 
 ## 前置条件
 
@@ -53,22 +58,35 @@ Ledger 集成需要支持 WebHID API 的浏览器：
 
 ### LedgerWeb3ConfigProvider
 
-| 属性        | 描述                       | 类型              | 默认值  | 版本 |
-| ----------- | -------------------------- | ----------------- | ------- | ---- |
-| wallets     | 支持的钱包列表             | `WalletFactory[]` | `[]`    | -    |
-| locale      | 国际化设置                 | `Locale`          | -       | -    |
-| balance     | 是否显示余额               | `boolean`         | `false` | -    |
-| autoConnect | 是否自动连接上次使用的钱包 | `boolean`         | `false` | -    |
+| 属性        | 描述                       | 类型            | 默认值  | 版本 |
+| ----------- | -------------------------- | --------------- | ------- | ---- |
+| wallet      | 钱包配置                   | `WalletFactory` | -       | -    |
+| locale      | 国际化设置                 | `Locale`        | -       | -    |
+| autoConnect | 是否自动连接上次使用的钱包 | `boolean`       | `false` | -    |
 
 ### Ledger 钱包
 
-```tsx
+```ts
 import { Ledger } from '@ant-design/web3-ledger';
 
-const wallet = Ledger();
+const wallet = Ledger(options);
 ```
 
-Ledger 硬件钱包工厂函数。
+Ledger 硬件钱包工厂函数。`options` 参数是可选的。
+
+#### LedgerOptions（可选）
+
+| 属性           | 描述                          | 类型     | 默认值             | 版本 |
+| -------------- | ----------------------------- | -------- | ------------------ | ---- |
+| derivationPath | 用于生成地址的 BIP44 派生路径 | `string` | `"44'/60'/0'/0/0"` | -    |
+
+默认的派生路径是 `"44'/60'/0'/0/0"`，你可以自定义它来生成不同的以太坊地址：
+
+- `"44'/60'/0'/0/0"` - 第一个以太坊地址（默认）
+- `"44'/60'/0'/0/1"` - 第二个以太坊地址
+- `"44'/60'/1'/0/0"` - 第二个账户的第一个地址
+
+关于 BIP44 派生路径的更多信息，请参考 [BIP44 规范](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki)。
 
 ### Hooks
 
@@ -76,10 +94,12 @@ Ledger 硬件钱包工厂函数。
 
 监控和发现 Ledger 设备。
 
-```tsx
+```ts
 import { useAvailableDevices } from '@ant-design/web3-ledger';
 
-const { devices, discover, isDiscovering } = useAvailableDevices();
+const Component = () => {
+  const { devices, discover, isDiscovering } = useAvailableDevices();
+};
 ```
 
 **返回值：**
@@ -92,10 +112,12 @@ const { devices, discover, isDiscovering } = useAvailableDevices();
 
 管理设备连接。
 
-```tsx
+```ts
 import { useConnect } from '@ant-design/web3-ledger';
 
-const { sessionId, connect, disconnect, isConnecting, isDisconnecting } = useConnect();
+const Component = () => {
+  const { sessionId, connect, disconnect, isConnecting, isDisconnecting } = useConnect();
+};
 ```
 
 **返回值：**
@@ -110,10 +132,12 @@ const { sessionId, connect, disconnect, isConnecting, isDisconnecting } = useCon
 
 监控设备状态和当前应用。
 
-```tsx
+```ts
 import { useDeviceStatus } from '@ant-design/web3-ledger';
 
-const { deviceStatus, currentApp } = useDeviceStatus({ sessionId });
+const Component = () => {
+  const { deviceStatus, currentApp } = useDeviceStatus({ sessionId });
+};
 ```
 
 **返回值：**
@@ -125,17 +149,19 @@ const { deviceStatus, currentApp } = useDeviceStatus({ sessionId });
 
 与 Ledger 上的以太坊交互。
 
-```tsx
+```ts
 import { useEthereumSigner } from '@ant-design/web3-ledger';
 
-const {
-  address,
-  isLoadingAddress,
-  signMessage,
-  signTypedData,
-  isSigningMessage,
-  isSigningTypedData,
-} = useEthereumSigner({ sessionId, derivationPath: "44'/60'/0'/0/0" });
+const Component = () => {
+  const {
+    address,
+    isLoadingAddress,
+    signMessage,
+    signTypedData,
+    isSigningMessage,
+    isSigningTypedData,
+  } = useEthereumSigner({ sessionId, derivationPath: "44'/60'/0'/0/0" });
+};
 ```
 
 **返回值：**
@@ -186,11 +212,13 @@ Firefox 尚未实现与 Ledger 设备通信所需的 WebHID API。
 
 您可以在使用以太坊签名器 hook 时自定义派生路径：
 
-```tsx
-const { address } = useEthereumSigner({
-  sessionId,
-  derivationPath: "44'/60'/1'/0/0", // 自定义路径
-});
+```ts
+const Component = () => {
+  const { address } = useEthereumSigner({
+    sessionId,
+    derivationPath: "44'/60'/1'/0/0", // 自定义路径
+  });
+};
 ```
 
 ### 在 Web 应用中使用 Ledger 安全吗？

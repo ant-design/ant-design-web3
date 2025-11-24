@@ -1,14 +1,19 @@
 ---
 nav: Components
-group: Adapter
-order: 10
+order: 6
+group:
+  title: Hardware Wallets
+  order: 2
+tag:
+  title: New
+  color: success
 ---
 
 # Ledger
 
 Ledger hardware wallet adapter for Ant Design Web3.
 
-Ledger is a hardware wallet that provides secure storage for cryptocurrency private keys. This adapter integrates Ledger devices with Ant Design Web3 using the official Ledger SDK.
+Ant Design Web3 officially provides `@ant-design/web3-ledger` to support Ledger hardware wallets. It is an Ant Design Web3 Ledger adapter based on [Ledger Device Management Kit](https://github.com/LedgerHQ/device-sdk-ts). Ledger is a hardware wallet that provides secure storage for cryptocurrency private keys. This adapter integrates Ledger devices with Ant Design Web3 using the official Ledger SDK.
 
 ## When to Use
 
@@ -29,7 +34,7 @@ npm install @ant-design/web3 @ant-design/web3-ledger
 
 Connect to Ledger hardware wallet.
 
-<code src="./basic.tsx"></code>
+<code src="./demos/basic.tsx"></code>
 
 ## Prerequisites
 
@@ -53,22 +58,35 @@ Ledger integration requires browsers supporting WebHID API:
 
 ### LedgerWeb3ConfigProvider
 
-| Property    | Description                 | Type              | Default | Version |
-| ----------- | --------------------------- | ----------------- | ------- | ------- |
-| wallets     | Supported wallet list       | `WalletFactory[]` | `[]`    | -       |
-| locale      | Internationalization        | `Locale`          | -       | -       |
-| balance     | Display balance             | `boolean`         | `false` | -       |
-| autoConnect | Auto-connect to last wallet | `boolean`         | `false` | -       |
+| Property    | Description                 | Type            | Default | Version |
+| ----------- | --------------------------- | --------------- | ------- | ------- |
+| wallet      | Wallet configuration        | `WalletFactory` | -       | -       |
+| locale      | Internationalization        | `Locale`        | -       | -       |
+| autoConnect | Auto-connect to last wallet | `boolean`       | `false` | -       |
 
 ### Ledger Wallet
 
-```tsx
+```ts
 import { Ledger } from '@ant-design/web3-ledger';
 
-const wallet = Ledger();
+const wallet = Ledger(options);
 ```
 
-Ledger hardware wallet factory function.
+Ledger hardware wallet factory function. The `options` parameter is optional.
+
+#### LedgerOptions (Optional)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| derivationPath | BIP44 derivation path for generating addresses | `string` | `"44'/60'/0'/0/0"` | - |
+
+The default derivation path is `"44'/60'/0'/0/0"`, You can customize it to generate different addresses:
+
+- `"44'/60'/0'/0/0"` - First Ethereum address (default)
+- `"44'/60'/0'/0/1"` - Second Ethereum address
+- `"44'/60'/1'/0/0"` - First address of second account
+
+For more information about BIP44 derivation paths, please refer to [BIP44 Specification](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki).
 
 ### Hooks
 
@@ -76,10 +94,12 @@ Ledger hardware wallet factory function.
 
 Monitor and discover Ledger devices.
 
-```tsx
+```ts
 import { useAvailableDevices } from '@ant-design/web3-ledger';
 
-const { devices, discover, isDiscovering } = useAvailableDevices();
+const Component = () => {
+  const { devices, discover, isDiscovering } = useAvailableDevices();
+};
 ```
 
 **Returns:**
@@ -92,10 +112,12 @@ const { devices, discover, isDiscovering } = useAvailableDevices();
 
 Manage device connection.
 
-```tsx
+```ts
 import { useConnect } from '@ant-design/web3-ledger';
 
-const { sessionId, connect, disconnect, isConnecting, isDisconnecting } = useConnect();
+const Component = () => {
+  const { sessionId, connect, disconnect, isConnecting, isDisconnecting } = useConnect();
+};
 ```
 
 **Returns:**
@@ -110,10 +132,12 @@ const { sessionId, connect, disconnect, isConnecting, isDisconnecting } = useCon
 
 Monitor device status and current app.
 
-```tsx
+```ts
 import { useDeviceStatus } from '@ant-design/web3-ledger';
 
-const { deviceStatus, currentApp } = useDeviceStatus({ sessionId });
+const Component = () => {
+  const { deviceStatus, currentApp } = useDeviceStatus({ sessionId });
+};
 ```
 
 **Returns:**
@@ -125,17 +149,19 @@ const { deviceStatus, currentApp } = useDeviceStatus({ sessionId });
 
 Interact with Ethereum on Ledger.
 
-```tsx
+```ts
 import { useEthereumSigner } from '@ant-design/web3-ledger';
 
-const {
-  address,
-  isLoadingAddress,
-  signMessage,
-  signTypedData,
-  isSigningMessage,
-  isSigningTypedData,
-} = useEthereumSigner({ sessionId, derivationPath: "44'/60'/0'/0/0" });
+const Component = () => {
+  const {
+    address,
+    isLoadingAddress,
+    signMessage,
+    signTypedData,
+    isSigningMessage,
+    isSigningTypedData,
+  } = useEthereumSigner({ sessionId, derivationPath: "44'/60'/0'/0/0" });
+};
 ```
 
 **Returns:**
@@ -186,11 +212,13 @@ No, WebHID is currently only available in desktop browsers.
 
 You can customize the derivation path when using the Ethereum signer hook:
 
-```tsx
-const { address } = useEthereumSigner({
-  sessionId,
-  derivationPath: "44'/60'/1'/0/0", // Custom path
-});
+```ts
+const Component = () => {
+  const { address } = useEthereumSigner({
+    sessionId,
+    derivationPath: "44'/60'/1'/0/0", // Custom path
+  });
+};
 ```
 
 ### Is it safe to use Ledger with web applications?
