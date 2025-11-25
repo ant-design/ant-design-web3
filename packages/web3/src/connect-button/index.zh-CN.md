@@ -71,7 +71,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*S4cyQ7OCxDUAAA
 | actionsMenu | 配置菜单项 | `boolean \|` [ActionsMenu](#actionsmenu) | - | - |
 | profileModal | 配置信息弹框 | `boolean \|` [ProfileModal](#profilemodal) | - | - |
 | avatar | 配置头像，用于在个人信息弹框中展示用户头像 | [AvatarProps](https://ant.design/components/avatar-cn#api) | - | - |
-| onMenuItemClick | 菜单项点击事件 | `(e: NonNullable<MenuProps['items']>[number]) => void` | - | - |
+| onMenuItemClick | 菜单项点击事件 | `MenuProps['onClick']` | - | - |
 | balance | 余额 | [Balance](#balance) | - | - |
 | availableChains | 可以连接的链列表 | [Chain](../types/index.zh-CN.md#chain)\[] | - | - |
 | availableWallets | 可用的钱包列表 | [Wallet](../types/index.zh-CN.md#wallet)\[] | - | - |

@@ -8,10 +8,10 @@ describe('request', () => {
     expect(getWeb3AssetUrl('')).toEqual('');
     expect(getWeb3AssetUrl('ipfs://test.com/xxxxx')).toEqual('https://ipfs.io/ipfs/test.com/xxxxx');
   });
-  it('requestWeb3Asset', () => {
+  it('requestWeb3Asset', async () => {
     const res = { test: 'test' };
     mockFetch(res);
-    expect(requestWeb3Asset('')).rejects.toThrowError('URL not set');
-    expect(requestWeb3Asset('ipfs://test.com/xxxxx')).resolves.toMatchObject(res);
+    await expect(requestWeb3Asset('')).rejects.toThrowError('URL not set');
+    await expect(requestWeb3Asset('ipfs://test.com/xxxxx')).resolves.toMatchObject(res);
   });
 });

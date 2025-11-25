@@ -146,7 +146,7 @@ describe('ProfileModal', () => {
     });
   });
 
-  it('Disconnect & Copy Address Button', () => {
+  it('Disconnect & Copy Address Button', async () => {
     const disconnectTestFn = vi.fn();
     const App = () => {
       const intl = useIntl('ConnectButton');
@@ -166,7 +166,10 @@ describe('ProfileModal', () => {
     fireEvent.click(btns[1]);
     expect(disconnectTestFn).toBeCalled();
     fireEvent.click(btns[0]);
-    expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
+
+    await vi.waitFor(async () => {
+      await expect(readCopyText()).resolves.toBe('0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B');
+    });
   });
 
   it('should not display modal when pass false into profileModal', async () => {
