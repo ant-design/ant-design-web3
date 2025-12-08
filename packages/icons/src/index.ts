@@ -287,6 +287,8 @@ export * from './components/iotx-circle-colorful';
 export * from './components/iov-circle-colorful';
 export * from './components/iqn-colorful';
 export * from './components/iris-circle-colorful';
+export * from './components/jovay-circle-colorful';
+export * from './components/jovay-colorful';
 export * from './components/jst-circle-colorful';
 export * from './components/karma-colorful';
 export * from './components/kas-colorful';
