@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { ConnectButton, ConnectModal } from '@ant-design/web3';
 import type { Wallet } from '@ant-design/web3';
 import { ConnectStatus } from '@ant-design/web3-common';
-import { IcpWeb3ConfigProvider, isPlugInstalled, useIcpWallet } from '@ant-design/web3-icp';
+import { IcpWeb3ConfigProvider, PlugWallet, useIcpWallet } from '@ant-design/web3-icp';
 import { message, Modal } from 'antd';
 
 type WalletType = 'plug';
@@ -21,7 +21,10 @@ const walletMetaMap: Record<WalletType, WalletMeta> = {
     remark: '浏览器扩展，适合日常使用',
     group: 'Popular',
     color: '#4f64ff',
-    checkInstalled: async () => isPlugInstalled(),
+    checkInstalled: async () => {
+      const wallet = PlugWallet().create();
+      return wallet.installed;
+    },
   },
 };
 
@@ -179,8 +182,15 @@ export default () => {
     setAutoConnect(true);
   };
 
+  const wallets = useMemo(() => {
+    if (walletType === 'plug') {
+      return [PlugWallet()];
+    }
+    return [PlugWallet()];
+  }, [walletType]);
+
   return (
-    <IcpWeb3ConfigProvider walletType={walletType}>
+    <IcpWeb3ConfigProvider wallets={wallets}>
       <IcpConnectButton
         walletType={walletType}
         onSelectWallet={() => setModalOpen(true)}

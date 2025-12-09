@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useMemo, useState, type PropsWithChildren } from 'react';
 
-import { createInfinityWallet } from '../wallets/infinity';
-import { createPlugWallet } from '../wallets/plug';
-import type { IcpWallet, IcpWalletType } from '../wallets/types';
+import { PlugWallet } from '../wallets/built-in';
+import type { IcpWalletFactory } from '../wallets/factory';
+import type { IcpWallet } from '../wallets/types';
 
 const IcpContext = createContext<IcpContextValue | null>(null);
 
@@ -17,9 +17,9 @@ export interface IcpContextValue {
 
 export interface IcpWeb3ConfigProviderProps extends PropsWithChildren {
   /**
-   * 指定使用哪个 ICP 钱包，默认 plug
+   * 指定使用的 ICP 钱包数组，默认使用 PlugWallet
    */
-  walletType?: IcpWalletType;
+  wallets?: IcpWalletFactory[];
 }
 
 export const useIcpWallet = (): IcpContextValue => {
@@ -34,17 +34,17 @@ export const useIcpWallet = (): IcpContextValue => {
 
 export const IcpWeb3ConfigProvider: React.FC<IcpWeb3ConfigProviderProps> = ({
   children,
-  walletType = 'plug',
+  wallets = [PlugWallet()],
 }) => {
   const [principal, setPrincipal] = useState<string | null>(null);
   const [connecting, setConnecting] = useState(false);
 
   const wallet = useMemo<IcpWallet>(() => {
-    if (walletType === 'infinity') {
-      return createInfinityWallet();
-    }
-    return createPlugWallet();
-  }, [walletType]);
+    // 优先选择已安装的钱包，如果没有已安装的，则选择第一个
+    const walletInstances = wallets.map((factory) => factory.create());
+    const installedWallet = walletInstances.find((w) => w.installed);
+    return installedWallet ?? walletInstances[0];
+  }, [wallets]);
 
   const connect = async () => {
     setConnecting(true);
