@@ -120,7 +120,10 @@ export const AntDesignWeb3ConfigProvider: React.FC<
       availableWallets={availableWallets}
       switchChain={async (_chain) => {
         const foundChain = chainList.find((c) => c.id === _chain.id);
-        onCurrentChainChange?.(foundChain ?? chainList[0]);
+        const targetChain = foundChain ?? chainList[0];
+        if (targetChain) {
+          onCurrentChainChange?.(targetChain);
+        }
       }}
       connect={async (_wallet, options) => {
         let resolve: any;

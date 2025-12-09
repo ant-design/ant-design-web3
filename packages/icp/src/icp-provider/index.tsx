@@ -45,6 +45,10 @@ export const IcpWeb3ConfigProvider: FC<PropsWithChildren<IcpWeb3ConfigProviderPr
   }, [walletFactories]);
 
   const connect = async () => {
+    if (!wallet) {
+      return;
+    }
+
     setConnecting(true);
     try {
       await wallet.connect();
