@@ -3,7 +3,7 @@ import { Ledger, LedgerWeb3ConfigProvider } from '@ant-design/web3-ledger';
 
 const App: React.FC = () => {
   return (
-    <LedgerWeb3ConfigProvider wallet={Ledger()} autoConnect>
+    <LedgerWeb3ConfigProvider ledger={new Ledger()}>
       <Connector>
         <ConnectButton />
       </Connector>

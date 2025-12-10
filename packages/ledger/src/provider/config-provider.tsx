@@ -2,13 +2,12 @@ import { useEffect, useMemo, useState, type FC, type PropsWithChildren } from 'r
 import type { Account, Locale, Wallet } from '@ant-design/web3-common';
 import { Web3ConfigProvider } from '@ant-design/web3-common';
 
-import { useLedgerWallet } from '../adapter/useLedgerWallet';
-import type { WalletWithAdapter } from '../types';
-import { useLatestWallet } from '../wallets/useLatestWallet';
+import { Ledger } from '../ledger';
+import { useLatestWallet } from './useLatestWallet';
 
 export interface LedgerConfigProviderProps {
-  selectWallet: (wallet?: Wallet | null) => void;
-  wallet: WalletWithAdapter;
+  selectWallet: (wallet: Wallet | null) => void;
+  ledger: Ledger;
   balance?: boolean;
   locale?: Locale;
   autoConnect?: boolean;
@@ -17,20 +16,17 @@ export interface LedgerConfigProviderProps {
 export const LedgerConfigProvider: FC<PropsWithChildren<LedgerConfigProviderProps>> = ({
   children,
   selectWallet,
-  wallet,
+  ledger,
   // balance: showBalance,
   locale,
   autoConnect,
 }) => {
   const { latestWalletNameRef } = useLatestWallet();
 
-  const adapter = useLedgerWallet();
   const [account, setAccount] = useState<Account | undefined>(undefined);
 
-  const { devices } = wallet.adapter!.useLedgerHooks!();
-
   const disconnect = async () => {
-    await adapter.disconnect?.();
+    await ledger.disconnect();
     selectWallet(null);
   };
 
@@ -43,32 +39,39 @@ export const LedgerConfigProvider: FC<PropsWithChildren<LedgerConfigProviderProp
   };
 
   useEffect(() => {
-    if (adapter.name && adapter.accounts?.length > 0) {
-      setAccount(adapter.accounts[0]);
+    if (ledger.accounts?.length > 0) {
+      setAccount(ledger.accounts[0]);
     } else {
       setAccount(undefined);
     }
-  }, [adapter, wallet]);
+  }, [ledger]);
 
   const availableWallets = useMemo(() => {
-    if (wallet) {
-      const _wallet = { ...wallet, hasWalletReady: async () => true };
+    if (ledger) {
+      const _wallet = { ...ledger.wallet, hasWalletReady: async () => true };
       return [_wallet];
     }
     return [];
-  }, [wallet]);
+  }, [ledger]);
 
   useEffect(() => {
     // auto connect
-    if (autoConnect && latestWalletNameRef.current && !adapter.name && devices.length > 0) {
-      const _wallet = wallet?.name === latestWalletNameRef.current ? wallet : null;
-      if (_wallet) {
-        selectWallet(_wallet);
+    if (
+      autoConnect &&
+      latestWalletNameRef.current &&
+      !ledger.wallet.name &&
+      ledger.availableDevices.devices.length > 0
+    ) {
+      if (ledger.wallet.name === latestWalletNameRef.current) {
+        selectWallet(ledger.wallet);
       }
     }
-  }, [autoConnect, wallet, devices, latestWalletNameRef.current]);
-
-  console.log('account', account);
+  }, [
+    autoConnect,
+    ledger.wallet.name,
+    ledger.availableDevices.devices.length,
+    latestWalletNameRef.current,
+  ]);
 
   return (
     <Web3ConfigProvider

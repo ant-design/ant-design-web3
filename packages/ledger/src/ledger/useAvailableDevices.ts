@@ -69,3 +69,52 @@ export const useAvailableDevices = (options: UseAvailableDevicesOptions = {}) =>
     isDiscovering,
   };
 };
+
+class AvailableDevices {
+  public devices: DiscoveredDevice[] = [];
+
+  private subscription: Subscription | null = null;
+
+  constructor() {
+    this.listenToAvailableDevices();
+  }
+
+  private listenToAvailableDevices = () => {
+    const dmk = getDMK();
+
+    this.unsubscribe();
+
+    this.subscription = dmk.listenToAvailableDevices({}).subscribe({
+      next: (deviceList) => {
+        this.devices = deviceList;
+      },
+      error: (error) => {
+        console.error('Device monitoring error:', error);
+      },
+    });
+  };
+
+  public discover = (): Promise<DiscoveredDevice> => {
+    const dmk = getDMK();
+
+    return new Promise((resolve, reject) => {
+      dmk.startDiscovering({}).subscribe({
+        next: (device) => {
+          resolve(device);
+        },
+        error: (error) => {
+          reject(error);
+        },
+      });
+    });
+  };
+
+  public unsubscribe = () => {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = null;
+    }
+  };
+}
+
+export default AvailableDevices;

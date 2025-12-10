@@ -1,13 +1,12 @@
 import { useEffect, useState, type FC, type PropsWithChildren } from 'react';
-import type { Locale, Wallet } from '@ant-design/web3-common';
+import { Account, Web3ConfigProvider, type Locale, type Wallet } from '@ant-design/web3-common';
 
-import { LedgerAdapterContext, useLedgerWallet } from '../adapter/useLedgerWallet';
-import type { LedgerWallet, WalletFactory, WalletWithAdapter } from '../types';
-import { useLatestWallet } from '../wallets/useLatestWallet';
+import { Ledger } from '../ledger';
 import { LedgerConfigProvider } from './config-provider';
+import { useLatestWallet } from './useLatestWallet';
 
 export interface LedgerWeb3ConfigProviderProps {
-  wallet?: WalletFactory;
+  ledger: Ledger;
   locale?: Locale;
   // balance?: boolean;
   autoConnect?: boolean;
@@ -15,51 +14,52 @@ export interface LedgerWeb3ConfigProviderProps {
 
 export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProviderProps>> = ({
   children,
-  wallet: initWallet,
+  ledger,
   // balance = false,
   locale,
   autoConnect,
 }) => {
-  const [adapter, setAdapter] = useState<LedgerWallet>({} as LedgerWallet);
-  const [wallet, setWallet] = useState<WalletWithAdapter>();
+  const [account, setAccount] = useState<Account | undefined>(undefined);
+  const { cacheSelectedWallet, latestWalletNameRef } = useLatestWallet();
 
-  const { cacheSelectedWallet } = useLatestWallet();
-
-  useEffect(() => {
-    if (!initWallet) return;
-    setWallet(initWallet.create());
-  }, [initWallet]);
-
-  const selectWallet = async (selectedWallet?: Wallet | null) => {
-    if (!selectedWallet) {
-      // disconnect
-      if (adapter) setAdapter({} as LedgerWallet);
-      cacheSelectedWallet();
+  const connect = async (selected?: Wallet) => {
+    if (!selected) {
       return;
     }
-
-    const walletWithAdapter = wallet?.name === selectedWallet?.name ? wallet : null;
-    const _adapter = walletWithAdapter?.adapter;
-    await _adapter?.connect();
-    if (_adapter) {
-      setAdapter(_adapter);
-      cacheSelectedWallet(wallet?.name);
+    if (selected.name === ledger.wallet.name) {
+      await ledger.disconnect();
+      await ledger.connect();
+      cacheSelectedWallet(selected.name);
+      setAccount(ledger.accounts[0]);
     }
   };
 
+  const disconnect = async () => {
+    await ledger.disconnect();
+    cacheSelectedWallet();
+    setAccount(undefined);
+  };
+
+  useEffect(() => {
+    // auto connect
+    if (
+      autoConnect &&
+      latestWalletNameRef.current &&
+      ledger.wallet.name === latestWalletNameRef.current
+    ) {
+      connect(ledger.wallet);
+    }
+  }, [autoConnect]);
+
   return (
-    <LedgerAdapterContext.Provider value={adapter}>
-      {wallet && (
-        <LedgerConfigProvider
-          selectWallet={selectWallet}
-          wallet={wallet}
-          // balance={balance}
-          locale={locale}
-          autoConnect={autoConnect}
-        >
-          {children}
-        </LedgerConfigProvider>
-      )}
-    </LedgerAdapterContext.Provider>
+    <Web3ConfigProvider
+      locale={locale}
+      account={account}
+      connect={connect}
+      disconnect={disconnect}
+      availableWallets={[ledger.wallet]}
+    >
+      {children}
+    </Web3ConfigProvider>
   );
 };
