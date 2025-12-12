@@ -178,54 +178,6 @@ const SwapToken = React.forwardRef(
       return buttonDisabled || amount.eq(0) || status === 'error';
     }, [buttonDisabled, valueIn, tokenPair, status]);
 
-    // React.useEffect(() => {
-    //   if (valueIn && !/[^\d,.]/g.test(valueIn)) {
-    //     if (['', ',', '.'].includes(valueIn)) {
-    //       setValueOut('');
-    //       return;
-    //     }
-    //     try {
-    //       // 防止输入的值导致程序崩溃
-    //       const valueInWithoutComma = valueIn?.replace(/,/g, '') ?? '';
-    //       if (Decimal(valueInWithoutComma).eq(0)) {
-    //         setValueOut('0.00');
-    //         return;
-    //       }
-    //       // 实现了根据输入值计算输出的方法
-    //       if (calculateValueOut) {
-    //         const valueOut = calculateValueOut(
-    //           decimalToBigInt(valueInWithoutComma, token?.decimals || 0),
-    //         );
-    //         const out = Decimal(valueOut);
-    //         setValueOut(formatValue(out.toFixed()) ?? '0.00');
-    //         onValueOutChange?.(
-    //           valueInWithoutComma,
-    //           formatValue(out.toFixed()) ?? '0.00',
-    //         );
-    //         return;
-    //       }
-    //       // 手续费 = 输入金额 * 手续费率 + 网络预估费用
-    //       const fee = Decimal(valueInWithoutComma)
-    //         .mul(Decimal(estFeeRate))
-    //         .add(
-    //           Decimal(estFee).div(
-    //             Decimal(10).pow(Decimal(token?.decimals || 0)),
-    //           ),
-    //         );
-    //       const out = Decimal(valueInWithoutComma).minus(fee);
-    //       setValueOut(formatValue(out.toFixed()) ?? '0.00');
-    //       onValueOutChange?.(
-    //         valueInWithoutComma,
-    //         formatValue(out.toFixed()) ?? '0.00',
-    //       );
-    //     } catch (error) {
-    //       setValueOut('0.00');
-    //     }
-    //   } else {
-    //     setValueOut('0.00');
-    //   }
-    // }, [valueIn, estFeeRate, estFee]);
-
     const handleValueInChange = useCallback(
       (valueIn: string) => {
         if (valueIn && !/[^\d,.]/g.test(valueIn)) {
@@ -264,7 +216,7 @@ const SwapToken = React.forwardRef(
           setValueOut('0.00');
         }
       },
-      [estFeeRate, estFee],
+      [estFeeRate, estFee, token, calculateValueOut, onValueOutChange],
     );
 
     const handleValueOutChange = (value: string) => {

@@ -232,12 +232,6 @@ const CryptoInput = <T,>({
                       decimals: token?.decimals,
                     }),
                   ) ?? '';
-                console.log(
-                  'currentInputValue',
-                  currentInputValue,
-                  maxInputAmountValue,
-                  token?.decimals,
-                );
                 setInputValue(currentInputValue);
                 onChangeValue?.(currentInputValue);
               }}
