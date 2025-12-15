@@ -219,41 +219,44 @@ const SwapToken = React.forwardRef(
       [estFeeRate, estFee, token, calculateValueOut, onValueOutChange],
     );
 
-    const handleValueOutChange = (value: string) => {
-      if (value && !/[^\d,.]/g.test(value)) {
-        if (['', ',', '.'].includes(value)) {
-          setValueIn('');
-          return;
-        }
-        try {
-          const valueOutWithoutComma = value?.replace(/,/g, '') ?? '';
-          if (Decimal(valueOutWithoutComma).eq(0) && value?.match(/^[\d.]+$/)) {
-            setValueIn('0.00');
+    const handleValueOutChange = useCallback(
+      (value: string) => {
+        if (value && !/[^\d,.]/g.test(value)) {
+          if (['', ',', '.'].includes(value)) {
+            setValueIn('');
             return;
           }
-          // 自定义计算
-          if (calculateValueIn) {
-            const valueIn = calculateValueIn(
-              decimalToBigInt(valueOutWithoutComma, token?.decimals || 0),
-            );
-            if (Decimal(valueIn).lte(0)) {
+          try {
+            const valueOutWithoutComma = value?.replace(/,/g, '') ?? '';
+            if (Decimal(valueOutWithoutComma).eq(0) && value?.match(/^[\d.]+$/)) {
               setValueIn('0.00');
               return;
             }
-            setValueIn(formatValue(Decimal(valueIn).toFixed()) ?? '0.00');
-            return;
+            // 自定义计算
+            if (calculateValueIn) {
+              const valueIn = calculateValueIn(
+                decimalToBigInt(valueOutWithoutComma, token?.decimals || 0),
+              );
+              if (Decimal(valueIn).lte(0)) {
+                setValueIn('0.00');
+                return;
+              }
+              setValueIn(formatValue(Decimal(valueIn).toFixed()) ?? '0.00');
+              return;
+            }
+            // valueIn = valueOut + 跨链桥费用（按目标币种精度）
+            const networkFee = Decimal(estFee).div(Decimal(10).pow(Decimal(token?.decimals || 0)));
+            const inVal = Decimal(valueOutWithoutComma).add(networkFee);
+            setValueIn(formatValue(inVal.toFixed()) ?? '0.00');
+          } catch (error) {
+            setValueIn('0.00');
           }
-          // valueIn = valueOut + 跨链桥费用（按目标币种精度）
-          const networkFee = Decimal(estFee).div(Decimal(10).pow(Decimal(token?.decimals || 0)));
-          const inVal = Decimal(valueOutWithoutComma).add(networkFee);
-          setValueIn(formatValue(inVal.toFixed()) ?? '0.00');
-        } catch (error) {
+        } else {
           setValueIn('0.00');
         }
-      } else {
-        setValueIn('0.00');
-      }
-    };
+      },
+      [estFee, token, calculateValueIn],
+    );
 
     const handleSwap = () => {
       const newFundFlowDirection =
@@ -279,18 +282,21 @@ const SwapToken = React.forwardRef(
 
     const [isCalculatingFee, setIsCalculatingFee] = useState(false);
     /** 计算手续费 */
-    const handleCalculateFee = async (valueIn?: string) => {
-      if (!onCalculateFee || !valueIn?.length) {
-        return;
-      }
-      try {
-        setIsCalculatingFee(true);
-        await onCalculateFee?.(valueIn);
-        setIsCalculatingFee(false);
-      } catch (error) {
-        setIsCalculatingFee(false);
-      }
-    };
+    const handleCalculateFee = useCallback(
+      async (valueIn?: string) => {
+        if (!onCalculateFee || !valueIn?.length) {
+          return;
+        }
+        try {
+          setIsCalculatingFee(true);
+          await onCalculateFee?.(valueIn);
+          setIsCalculatingFee(false);
+        } catch (error) {
+          setIsCalculatingFee(false);
+        }
+      },
+      [onCalculateFee],
+    );
 
     React.useEffect(() => {
       if (!token) return;

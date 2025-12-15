@@ -35,13 +35,13 @@ const genPrimaryButtonStyle: GenerateStyle<PrimaryButtonToken> = (token) => {
       borderImage,
       boxShadow: commonShadow,
       '&:hover:not(:disabled)': {
-        background: `${hoverBackground} !important`,
-        borderImage: `${borderImage} !important`,
-        boxShadow: `${commonShadow} !important`,
+        background: hoverBackground,
+        borderImage: borderImage,
+        boxShadow: commonShadow,
       },
       '&:disabled': {
         opacity: 0.6,
-        color: `${colorWhite} !important`,
+        color: colorWhite,
         background: baseBackground,
         borderImage,
       },

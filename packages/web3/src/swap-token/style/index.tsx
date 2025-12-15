@@ -52,7 +52,7 @@ const genSwapTokenStyle: GenerateStyle<SwapTokenToken> = (token) => {
               boxShadow: 'none',
             },
             '&:active': {
-              color: `${colorPrimary} !important`,
+              color: colorPrimary,
             },
           },
         },

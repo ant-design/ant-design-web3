@@ -90,21 +90,51 @@ const CryptoInput = <T,>({
         : balance?.amount
       : balance?.amount;
 
+  // 验证 value 是否是符合格式的数字 允许整数、小数和千位分隔符,小数位中不能有千位分隔符
+  const isValidValue = (value: string) => {
+    if (typeof value !== 'string' || value.length === 0) {
+      return false;
+    }
+    const [integerPart, decimalPart, ...rest] = value.split('.');
+    if (rest.length > 0) {
+      return false;
+    }
+    if (!integerPart) {
+      return false;
+    }
+
+    const thousandsPattern = /^\d{1,3}(,\d{3})*$/;
+    const plainIntegerPattern = /^\d+$/;
+
+    if (integerPart.includes(',')) {
+      if (!thousandsPattern.test(integerPart)) {
+        return false;
+      }
+    } else if (!plainIntegerPattern.test(integerPart)) {
+      return false;
+    }
+
+    if (decimalPart !== undefined) {
+      if (decimalPart.length === 0) {
+        return true;
+      }
+      if (decimalPart.includes(',') || !/^\d+$/.test(decimalPart)) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
   // 判断输入的数据是否大于最大值
   const isGreaterThanGlobalRemainQuota = (value: string) => {
     if (!isValidMaxInputAmount) return false;
     try {
       if (!value?.length) return false;
       if (!quota?.show) return false;
-      // 验证是否是合法的 Decimal：允许整数、小数和千位分隔符,小数位中不能有千位分隔符
-      const regex = /^(\d{1,3}(,\d{3})*|\d+)(.\d+)?$/;
-      if (!regex.test(value?.replace(/,/g, ''))) {
-        return false;
-      }
       if (!remainQuota || remainQuota === 0n) return true;
-      const result = Decimal(value?.replace(/,/g, '') ?? '0').mul(
-        Decimal.pow(10, token?.decimals ?? TOKEN_DECIMALS_DEFAULT),
-      );
+      if (!isValidValue(value)) return false;
+      const result = formatAmount({ amount: value, decimals: token?.decimals });
       return result.gt(remainQuota);
     } catch (error) {
       return false;
@@ -141,23 +171,17 @@ const CryptoInput = <T,>({
     } else {
       onStatusChange?.('success');
     }
-  }, [status]);
+  }, [status, onStatusChange]);
 
   // 判断输入的数据是否大于最大值
   const isGreaterThanMaxAmount = (value: string) => {
     if (!isValidMaxInputAmount) return false;
     try {
       if (!value?.length) return false;
-
-      // 验证是否是合法的 Decimal：允许整数、小数和千位分隔符,小数位中不能有千位分隔符
-      const regex = /^(\d{1,3}(,\d{3})*|\d+)(.\d+)?$/;
-      if (!regex.test(value?.replace(/,/g, ''))) {
-        return false;
-      }
       if (!maxInputAmountValue) return false;
-      const result = Decimal(value?.replace(/,/g, '') ?? '0').mul(
-        Decimal.pow(10, token?.decimals ?? TOKEN_DECIMALS_DEFAULT),
-      );
+
+      if (!isValidValue(value)) return false;
+      const result = formatAmount({ amount: value, decimals: token?.decimals });
       return result.gt(maxInputAmountValue);
     } catch (error) {
       return false;
@@ -185,7 +209,7 @@ const CryptoInput = <T,>({
   React.useEffect(() => {
     if (!!status) return;
     onChangeValue?.(inputValue);
-  }, [inputValue, status]);
+  }, [inputValue, status, onChangeValue]);
 
   const [isFocus, setIsFocus] = useState(false);
   const inputTextColor = React.useMemo(() => {
@@ -365,7 +389,7 @@ const CryptoInput = <T,>({
           >
             {/* 如果输入的值大于当前周期全局剩余限额，则显示提示 */}
             {formatAmount({ amount: inputValue, decimals: token?.decimals }).gt(
-              Decimal(remainQuota || 0n),
+              Decimal((remainQuota || 0n).toString()),
             ) && (
               <div style={{ color: '#f00' }}>Amount exceeds the current remaining daily limit.</div>
             )}
