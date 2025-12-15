@@ -14,7 +14,7 @@ export const formatBalance = (
   if (!value) {
     return '0';
   }
-  const decimal = new Decimal(value).div(Decimal(10).pow(decimals || 0));
+  const decimal = new Decimal(value.toString()).div(Decimal(10).pow(decimals || 0));
   const res = decimal.toFixed(fixed, Decimal.ROUND_DOWN);
   return res;
 };
@@ -29,7 +29,7 @@ export const formatBalanceWithoutFixed = ({
   if (!value || !decimals) {
     return '0';
   }
-  const decimal = new Decimal(value).div(Decimal(10).pow(decimals));
+  const decimal = new Decimal(value.toString()).div(Decimal(10).pow(decimals || 0));
   const res = decimal.toFixed();
 
   return res;

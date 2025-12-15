@@ -135,7 +135,7 @@ const CryptoInput = <T,>({
       if (!remainQuota || remainQuota === 0n) return true;
       if (!isValidValue(value)) return false;
       const result = formatAmount({ amount: value, decimals: token?.decimals });
-      return result.gt(remainQuota);
+      return result.gt(Decimal(remainQuota.toString()));
     } catch (error) {
       return false;
     }
@@ -163,7 +163,7 @@ const CryptoInput = <T,>({
     } catch (error) {
       return 'error';
     }
-  }, [inputValue, token, balance, maxInputAmountValue, remainQuota]);
+  }, [inputValue, token, balance, maxInputAmountValue, remainQuota, isValidMaxInputAmount]);
 
   React.useEffect(() => {
     if (status === 'error') {
@@ -182,7 +182,7 @@ const CryptoInput = <T,>({
 
       if (!isValidValue(value)) return false;
       const result = formatAmount({ amount: value, decimals: token?.decimals });
-      return result.gt(maxInputAmountValue);
+      return result.gt(Decimal(maxInputAmountValue.toString()));
     } catch (error) {
       return false;
     }
@@ -210,6 +210,105 @@ const CryptoInput = <T,>({
     if (!!status) return;
     onChangeValue?.(inputValue);
   }, [inputValue, status, onChangeValue]);
+
+  // 单独输入 "." 时补全为 "0."
+  const normalizeDotInput = (value: string) => {
+    if (value === '.') {
+      return '0.';
+    }
+    return undefined;
+  };
+
+  // 检测是否存在多个小数点
+  const hasMultipleDecimalPoints = (value: string) => value.split('.').length > 2;
+
+  // 仅保留数字、千分位逗号、小数点，非法字符返回 null
+  const sanitizeAllowedCharacters = (value: string) => {
+    const sanitized = value.replace(/[^\d,.]/g, '');
+    if (sanitized?.length !== value.length) {
+      return null;
+    }
+    return sanitized;
+  };
+
+  // 全为 0 的整数部分统一为 "0"（保留小数部分）
+  const normalizeAllZeroInteger = (integerPart: string, decimalPart?: string) => {
+    if (integerPart?.replace(/[0,.]/g, '') === '' && integerPart?.length > 1) {
+      const dp = !decimalPart?.length ? '' : '.' + decimalPart?.slice(0, AMOUNT_IN_DECIMALS);
+      return '0' + dp;
+    }
+    return null;
+  };
+
+  // 限制小数位长度
+  const clampDecimalDigits = (integerPart: string, decimalPart?: string) => {
+    if (decimalPart && decimalPart?.length > AMOUNT_IN_DECIMALS) {
+      return `${integerPart}.${decimalPart?.slice(0, AMOUNT_IN_DECIMALS)}`;
+    }
+    return null;
+  };
+
+  // 去除无效前导零，保留必要的一个零
+  const normalizeLeadingZero = (integerPart: string, decimalPart?: string) => {
+    const hasInvalidLeadingZero =
+      integerPart?.length > 1 && integerPart?.startsWith('0') && !integerPart?.includes(',');
+    if (hasInvalidLeadingZero) {
+      const normalizedInteger = integerPart?.replace(/^0+/, '') || '0';
+      return decimalPart ? `${normalizedInteger}.${decimalPart}` : normalizedInteger;
+    }
+    return null;
+  };
+
+  const handleInputChange = (value: string) => {
+    const normalizedDotValue = normalizeDotInput(value);
+    if (normalizedDotValue !== undefined) {
+      setInputValue(normalizedDotValue);
+      return;
+    }
+
+    if (hasMultipleDecimalPoints(value)) {
+      setInputValue(inputValue ?? '');
+      return;
+    }
+
+    const sanitizedValue = sanitizeAllowedCharacters(value);
+    if (sanitizedValue === null) {
+      setInputValue(inputValue ?? '');
+      return;
+    }
+
+    const [integerPart = '', decimalPart] = sanitizedValue.split('.');
+
+    const normalizedZeroInteger = normalizeAllZeroInteger(integerPart, decimalPart);
+    if (normalizedZeroInteger !== null) {
+      setInputValue(normalizedZeroInteger);
+      return;
+    }
+
+    const clampedDecimal = clampDecimalDigits(integerPart, decimalPart);
+    if (clampedDecimal !== null) {
+      setInputValue(clampedDecimal);
+      return;
+    }
+
+    const normalizedLeadingZero = normalizeLeadingZero(integerPart, decimalPart);
+    if (normalizedLeadingZero !== null) {
+      setInputValue(normalizedLeadingZero);
+      return;
+    }
+
+    if (isGreaterThanMaxAmount(sanitizedValue)) {
+      setInputValue(
+        formatBalance({
+          value: maxInputAmountValue ?? '0',
+          decimals: token?.decimals ?? TOKEN_DECIMALS_DEFAULT,
+        }),
+      );
+      return;
+    }
+
+    setInputValue(sanitizedValue);
+  };
 
   const [isFocus, setIsFocus] = useState(false);
   const inputTextColor = React.useMemo(() => {
@@ -286,72 +385,7 @@ const CryptoInput = <T,>({
             ref={inputRef}
             value={formatInputValue(inputValue)}
             disabled={disabledInNoAccount}
-            onChange={(e) => {
-              // 如果只有小数点. 自动在小数点前补0
-              if (e.target.value === '.') {
-                setInputValue('0.');
-                return;
-              }
-
-              // 只能输入一个小数点
-              if (e.target.value.split('.').length > 2) {
-                setInputValue(inputValue ?? '');
-                return;
-              }
-              // 只能输入千分位,小数点.数字
-              const newValue = e.target.value.replace(/[^\d,.]/g, '');
-              if (newValue?.length !== e.target.value.length) {
-                setInputValue(inputValue ?? '');
-                return;
-              }
-
-              // 匹配小数点后面的值
-              const [integerPart, decimalPart] = e.target.value.split('.');
-              // 限制最大输入长度, 如果输入的值只有0，则设置为0.00
-              if (integerPart?.replace(/[0,.]/g, '') === '' && integerPart?.length > 1) {
-                // 如果输入的值只有0，则设置为0.00
-                const dp = !decimalPart?.length
-                  ? ''
-                  : '.' + decimalPart?.slice(0, AMOUNT_IN_DECIMALS);
-                setInputValue('0' + dp);
-                return;
-              }
-
-              if (decimalPart && decimalPart?.length > AMOUNT_IN_DECIMALS) {
-                // 截取小数点后面的值
-                const newInputValue = integerPart + '.' + decimalPart?.slice(0, AMOUNT_IN_DECIMALS);
-                setInputValue(newInputValue);
-                return;
-              }
-
-              // 检测开头是否时无效的0，012/0012/00012/00000.12无效，0.1/0.01/0.001/0.0001有效
-              const hasInvalidLeadingZero =
-                integerPart?.length > 1 &&
-                integerPart?.startsWith('0') &&
-                !integerPart?.includes(',');
-              if (hasInvalidLeadingZero) {
-                // 去除前导 0，若全为 0 则保留一个 0
-                const normalizedInteger = integerPart?.replace(/^0+/, '') || '0';
-                const normalizedValue = decimalPart
-                  ? `${normalizedInteger}.${decimalPart}`
-                  : normalizedInteger;
-                setInputValue(normalizedValue);
-                return;
-              }
-
-              // 大于最大值时，设置为最大值
-              if (isGreaterThanMaxAmount(e.target.value)) {
-                setInputValue(
-                  formatBalance({
-                    value: maxInputAmountValue ?? '0',
-                    decimals: token?.decimals ?? TOKEN_DECIMALS_DEFAULT,
-                  }),
-                );
-                return;
-              }
-
-              setInputValue(e.target.value);
-            }}
+            onChange={(e) => handleInputChange(e.target.value)}
             onFocus={() => {
               setIsFocus(true);
               if (inputValue === '0.00') {

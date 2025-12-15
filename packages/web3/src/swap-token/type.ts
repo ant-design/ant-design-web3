@@ -1,3 +1,5 @@
+import type React from 'react';
+
 export interface Token<T> {
   /** 链上的代币符号；
    * 强制约束只能是string类型；

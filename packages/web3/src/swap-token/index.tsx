@@ -275,9 +275,10 @@ const SwapToken = React.forwardRef(
           await onButtonClick?.(tokenPair, valueIn, valueOut);
         }
       } catch (error) {
+        console.error('Swap error:', error);
+      } finally {
         setButtonLoading(false);
       }
-      setButtonLoading(false);
     };
 
     const [isCalculatingFee, setIsCalculatingFee] = useState(false);
@@ -302,7 +303,7 @@ const SwapToken = React.forwardRef(
       if (!token) return;
       // token发生变化时，重新计算手续费
       handleCalculateFee(valueIn);
-    }, [token]);
+    }, [token, valueIn]);
 
     return wrapSSR(
       <div className={mergeCls}>
