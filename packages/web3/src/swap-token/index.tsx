@@ -13,6 +13,7 @@ import { TokenSelectorProps } from './TokenSelector';
 import { FundFlowDirection, Token, TokenConfig } from './type';
 import { decimalToBigInt, formatAmount, formatValue } from './utils/format';
 
+/** Swap 组件对外暴露的入参，封装了代币信息、按钮和外部扩展渲染。 */
 export interface SwapInputProps<T> extends TokenSelectorProps<T> {
   className?: string;
   swapIcon: React.ReactNode;
@@ -86,6 +87,7 @@ export interface SwapInputProps<T> extends TokenSelectorProps<T> {
   calculateValueIn?: (valueOut?: bigint) => bigint;
 }
 
+/** 对外暴露的 ref，便于父组件重置输入状态。 */
 export interface SwapInputRef {
   reset: () => void;
 }
@@ -94,6 +96,7 @@ type SwapTokenComponent = <T>(
   props: SwapInputProps<T> & React.RefAttributes<SwapInputRef>,
 ) => React.ReactElement | null;
 
+/** 双币兑换主组件，负责输入联动、手续费预估以及按钮行为。 */
 const SwapToken = React.forwardRef(
   <T,>(
     {
@@ -178,6 +181,7 @@ const SwapToken = React.forwardRef(
       return buttonDisabled || amount.eq(0) || status === 'error';
     }, [buttonDisabled, valueIn, tokenPair, status]);
 
+    /** 输入金额变化时，重新计算输出并同步手续费信息。 */
     const handleValueInChange = useCallback(
       (valueIn: string) => {
         if (valueIn && !/[^\d,.]/g.test(valueIn)) {
@@ -219,6 +223,7 @@ const SwapToken = React.forwardRef(
       [estFeeRate, estFee, token, calculateValueOut, onValueOutChange],
     );
 
+    /** 输出金额变化时，逆向计算输入，支持反向报价场景。 */
     const handleValueOutChange = useCallback(
       (value: string) => {
         if (value && !/[^\d,.]/g.test(value)) {
@@ -258,6 +263,7 @@ const SwapToken = React.forwardRef(
       [estFee, token, calculateValueIn],
     );
 
+    /** 交换币种方向并对调当前输入输出值。 */
     const handleSwap = () => {
       const newFundFlowDirection =
         fundFlowDirection === FundFlowDirection.IN ? FundFlowDirection.OUT : FundFlowDirection.IN;
@@ -266,6 +272,7 @@ const SwapToken = React.forwardRef(
       setValueOut(valueIn);
     };
 
+    /** 点击兑换按钮的统一入口，封装禁用判断和错误提示。 */
     const handleSwapClick = async () => {
       setButtonLoading(true);
       try {

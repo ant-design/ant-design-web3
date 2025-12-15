@@ -19,13 +19,14 @@ export const formatBalance = (
   return res;
 };
 
+/** 将原始余额按精度转换为字符串，不截取小数位。 */
 export const formatBalanceWithoutFixed = ({
   value,
   decimals,
 }: {
   value?: bigint | string | number;
   decimals?: number;
-}) => {
+}): string => {
   if (!value || !decimals) {
     return '0';
   }

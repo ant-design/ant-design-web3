@@ -8,6 +8,7 @@ import TokenSelector, { TokenSelectorProps } from './TokenSelector';
 import { FundFlowDirection, Token, TokenConfig } from './type';
 import { formatAmount, formatBalance, formatValue } from './utils/format';
 
+/** 单个币种输入框的参数，继承 TokenSelector 的能力并补充输入控制。 */
 interface InputProps<T> extends Omit<TokenSelectorProps<T>, 'hashId' | 'customizePrefixCls'> {
   inputValue: string;
   setInputValue: (value: string) => void;
@@ -47,6 +48,7 @@ interface InputProps<T> extends Omit<TokenSelectorProps<T>, 'hashId' | 'customiz
   height?: number;
 }
 
+/** 带币种选择器和余额展示的输入组件，负责金额格式校验与限额提示。 */
 const CryptoInput = <T,>({
   inputValue,
   setInputValue,
@@ -90,7 +92,7 @@ const CryptoInput = <T,>({
         : balance?.amount
       : balance?.amount;
 
-  // 验证 value 是否是符合格式的数字 允许整数、小数和千位分隔符,小数位中不能有千位分隔符
+  /** 校验字符串是否为合法金额，允许整数、小数及千分位分隔。 */
   const isValidValue = (value: string) => {
     if (typeof value !== 'string' || value.length === 0) {
       return false;
@@ -126,7 +128,7 @@ const CryptoInput = <T,>({
     return true;
   };
 
-  // 判断输入的数据是否大于最大值
+  /** 判断输入值是否超过当前周期全局剩余额度。 */
   const isGreaterThanGlobalRemainQuota = (value: string) => {
     if (!isValidMaxInputAmount) return false;
     try {
@@ -173,7 +175,7 @@ const CryptoInput = <T,>({
     }
   }, [status, onStatusChange]);
 
-  // 判断输入的数据是否大于最大值
+  /** 判断输入值是否超过当前设定的最大可输入金额。 */
   const isGreaterThanMaxAmount = (value: string) => {
     if (!isValidMaxInputAmount) return false;
     try {
@@ -199,6 +201,7 @@ const CryptoInput = <T,>({
     }
   }, [edit]);
 
+  /** 对输入框显示值做格式化，兼容空字符串的场景。 */
   const formatInputValue = (value: string) => {
     if (typeof value === 'string' && value?.length === 0) {
       return '';
