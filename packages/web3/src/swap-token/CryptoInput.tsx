@@ -168,15 +168,7 @@ const CryptoInput = <T,>({
     } catch (error) {
       return 'error';
     }
-  }, [
-    inputValue,
-    token,
-    balance,
-    maxInputAmountValue,
-    remainQuota,
-    isValidMaxInputAmount,
-    isGreaterThanGlobalRemainQuota,
-  ]);
+  }, [inputValue, token, balance, maxInputAmountValue, remainQuota, isValidMaxInputAmount, quota]);
 
   React.useEffect(() => {
     if (status === 'error') {
