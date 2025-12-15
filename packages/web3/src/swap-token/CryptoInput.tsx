@@ -1,11 +1,14 @@
 import React, { useRef, useState } from 'react';
-import { ConfigProvider, Flex, Input, InputRef } from 'antd';
+import { ConfigProvider, Flex, Input } from 'antd';
+import type { InputRef } from 'antd';
 import classNames from 'classnames';
 import Decimal from 'decimal.js';
 
 import { AMOUNT_IN_DECIMALS, CUSTOMIZE_PREFIX_CLS, TOKEN_DECIMALS_DEFAULT } from './constant';
-import TokenSelector, { TokenSelectorProps } from './TokenSelector';
-import { FundFlowDirection, Token, TokenConfig } from './type';
+import TokenSelector from './TokenSelector';
+import type { TokenSelectorProps } from './TokenSelector';
+import { FundFlowDirection } from './type';
+import type { Token, TokenConfig } from './type';
 import { formatAmount, formatBalance, formatValue } from './utils/format';
 
 /** 单个币种输入框的参数，继承 TokenSelector 的能力并补充输入控制。 */
@@ -165,7 +168,15 @@ const CryptoInput = <T,>({
     } catch (error) {
       return 'error';
     }
-  }, [inputValue, token, balance, maxInputAmountValue, remainQuota, isValidMaxInputAmount]);
+  }, [
+    inputValue,
+    token,
+    balance,
+    maxInputAmountValue,
+    remainQuota,
+    isValidMaxInputAmount,
+    isGreaterThanGlobalRemainQuota,
+  ]);
 
   React.useEffect(() => {
     if (status === 'error') {

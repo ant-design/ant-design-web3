@@ -3,7 +3,8 @@ import { ConfigProvider, Flex, Select } from 'antd';
 import classNames from 'classnames';
 
 import { CUSTOMIZE_PREFIX_CLS } from './constant';
-import { FundFlowDirection, Token, TokenConfig } from './type';
+import type { Token, TokenConfig } from './type';
+import { FundFlowDirection } from './type';
 
 export interface TokenSelectorProps<T> {
   /** Token列表
@@ -50,12 +51,12 @@ export default <T,>({
   const prefixCls = getPrefixCls('swap-token', customizePrefixCls);
 
   const options = useMemo(() => {
-    return tokens?.map((token) => {
-      const { fromToken, toToken } = token;
+    return tokens?.map((tokenItem) => {
+      const { fromToken, toToken } = tokenItem;
       const optionToken = fundFlowDirection === FundFlowDirection.IN ? fromToken : toToken;
       return {
         label: renderTokenLabel<T>(optionToken as Token<T>),
-        value: token.symbol,
+        value: tokenItem.symbol,
       };
     });
   }, [tokens, fundFlowDirection]);
@@ -70,7 +71,7 @@ export default <T,>({
           options={options}
           value={token?.symbol}
           onChange={(value) => {
-            switchToken?.(tokens?.find((token) => token.symbol === value) || undefined);
+            switchToken?.(tokens?.find((tokenItem) => tokenItem.symbol === value) || undefined);
           }}
           className={classNames(`${prefixCls}-token-selector`, hashId)}
           classNames={{

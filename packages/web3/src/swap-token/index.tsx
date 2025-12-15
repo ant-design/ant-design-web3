@@ -9,8 +9,9 @@ import swapBg from './icons/swapBg.png';
 import swapBgNoAccount from './icons/swapBgNoAccount.png';
 import PrimaryButton from './PrimaryButton';
 import { useStyle } from './style';
-import { TokenSelectorProps } from './TokenSelector';
-import { FundFlowDirection, Token, TokenConfig } from './type';
+import type { TokenSelectorProps } from './TokenSelector';
+import type { Token, TokenConfig } from './type';
+import { FundFlowDirection } from './type';
 import { decimalToBigInt, formatAmount, formatValue } from './utils/format';
 
 /** Swap 组件对外暴露的入参，封装了代币信息、按钮和外部扩展渲染。 */
@@ -142,13 +143,6 @@ const SwapToken = React.forwardRef(
     const [valueOut, setValueOut] = useState<string>('0.00');
     const [status, setStatus] = useState<'error' | 'success'>('success');
 
-    React.useImperativeHandle(ref, () => ({
-      reset: () => {
-        setValueIn('0.00');
-        handleValueInChange('0.00');
-      },
-    }));
-
     const tokenPair = React.useMemo(() => {
       if (!token) {
         return [];
@@ -183,25 +177,25 @@ const SwapToken = React.forwardRef(
 
     /** 输入金额变化时，重新计算输出并同步手续费信息。 */
     const handleValueInChange = useCallback(
-      (valueIn: string) => {
-        if (valueIn && !/[^\d,.]/g.test(valueIn)) {
-          if (['', ',', '.'].includes(valueIn)) {
+      (nextValueIn: string) => {
+        if (nextValueIn && !/[^\d,.]/g.test(nextValueIn)) {
+          if (['', ',', '.'].includes(nextValueIn)) {
             setValueOut('');
             return;
           }
           try {
             // 防止输入的值导致程序崩溃
-            const valueInWithoutComma = valueIn?.replace(/,/g, '') ?? '';
+            const valueInWithoutComma = nextValueIn?.replace(/,/g, '') ?? '';
             if (Decimal(valueInWithoutComma).eq(0)) {
               setValueOut('0.00');
               return;
             }
             // 实现了根据输入值计算输出的方法
             if (calculateValueOut) {
-              const valueOut = calculateValueOut(
+              const nextValueOut = calculateValueOut(
                 decimalToBigInt(valueInWithoutComma, token?.decimals || 0),
               );
-              const out = Decimal(valueOut);
+              const out = Decimal(nextValueOut);
               setValueOut(formatValue(out.toFixed()) ?? '0.00');
               onValueOutChange?.(valueInWithoutComma, formatValue(out.toFixed()) ?? '0.00');
               return;
@@ -239,14 +233,14 @@ const SwapToken = React.forwardRef(
             }
             // 自定义计算
             if (calculateValueIn) {
-              const valueIn = calculateValueIn(
+              const calculatedValueIn = calculateValueIn(
                 decimalToBigInt(valueOutWithoutComma, token?.decimals || 0),
               );
-              if (Decimal(valueIn).lte(0)) {
+              if (Decimal(calculatedValueIn).lte(0)) {
                 setValueIn('0.00');
                 return;
               }
-              setValueIn(formatValue(Decimal(valueIn).toFixed()) ?? '0.00');
+              setValueIn(formatValue(Decimal(calculatedValueIn).toFixed()) ?? '0.00');
               return;
             }
             // valueIn = valueOut + 跨链桥费用（按目标币种精度）
@@ -291,13 +285,13 @@ const SwapToken = React.forwardRef(
     const [isCalculatingFee, setIsCalculatingFee] = useState(false);
     /** 计算手续费 */
     const handleCalculateFee = useCallback(
-      async (valueIn?: string) => {
-        if (!onCalculateFee || !valueIn?.length) {
+      async (nextValueIn?: string) => {
+        if (!onCalculateFee || !nextValueIn?.length) {
           return;
         }
         try {
           setIsCalculatingFee(true);
-          await onCalculateFee?.(valueIn);
+          await onCalculateFee?.(nextValueIn);
           setIsCalculatingFee(false);
         } catch (error) {
           setIsCalculatingFee(false);
@@ -306,11 +300,18 @@ const SwapToken = React.forwardRef(
       [onCalculateFee],
     );
 
+    React.useImperativeHandle(ref, () => ({
+      reset: () => {
+        setValueIn('0.00');
+        handleValueInChange('0.00');
+      },
+    }));
+
     React.useEffect(() => {
       if (!token) return;
       // token发生变化时，重新计算手续费
       handleCalculateFee(valueIn);
-    }, [token, valueIn]);
+    }, [token, valueIn, handleCalculateFee]);
 
     return wrapSSR(
       <div className={mergeCls}>
@@ -393,7 +394,7 @@ const SwapToken = React.forwardRef(
             {btnText}
           </PrimaryButton>
         </div>
-        <div className={`${prefixCls}-btn-container`}></div>
+        <div className={`${prefixCls}-btn-container`} />
         <div className={`${prefixCls}-under-button`}>{underButtonRender?.(tokenPair)}</div>
       </div>,
     );
