@@ -160,7 +160,7 @@ const CryptoInput = <T,>({
       }
 
       const balanceAmount = maxInputAmountValue ?? balance?.amount ?? '0';
-      if (amount.gt(balanceAmount)) {
+      if (amount.gt(Decimal(balanceAmount.toString()))) {
         return 'error';
       } else {
         return undefined;
@@ -197,11 +197,13 @@ const CryptoInput = <T,>({
 
   // 可编辑自动focus输入框
   React.useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
     if (edit) {
-      setTimeout(() => {
+      timer = setTimeout(() => {
         inputRef.current?.focus();
       }, 100);
     }
+    return () => timer && clearTimeout(timer);
   }, [edit]);
 
   /** 对输入框显示值做格式化，兼容空字符串的场景。 */
