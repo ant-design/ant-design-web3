@@ -38,7 +38,7 @@ describe('NFTImage', () => {
         }}
       />,
     );
-    await vi.waitFor(async () => {
+    await vi.waitFor(() => {
       const img = baseElement.querySelector('img');
       expect(img).toHaveProperty('src', 'https://example.com/nft.png');
       expect(img).toHaveProperty('alt', 'Test_0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B_123');
