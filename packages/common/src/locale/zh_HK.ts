@@ -1,0 +1,70 @@
+import type { RequiredLocale } from '../types';
+
+const localeValues: RequiredLocale = {
+  ConnectButton: {
+    connect: '連接錢包',
+    disconnect: '斷開連接',
+    copyAddress: '複製地址',
+    copied: '已複製！',
+    walletAddress: '錢包地址',
+    moreWallets: '更多錢包',
+    sign: '簽名',
+  },
+  ConnectModal: {
+    title: '連接錢包',
+    guideTitle: '什麼是錢包？',
+    guideInfos1Title: '管理私鑰和資產',
+    guideInfos1Desc: '管理私鑰以及對應鏈地址的資產',
+    guideInfos2Title: '協助你連接 DApp',
+    guideInfos2Desc: '授權 DApp 獲取你的地址，類似登入',
+    guideInfos3Title: '調用智能合約',
+    guideInfos3Desc: '通過授權私鑰簽名，與鏈上智能合約互動',
+    guideInfosGetWalletBtnText: '獲取錢包',
+    guideInfosMoreLinkText: '了解更多',
+    getWalletBtnText: '獲取',
+    getWalletUniversalProtocolBtnText: '更多',
+    getWalletPanelTitle: '獲取錢包',
+    getWalletPanelInfoDesc: '在左側選擇錢包，以開始使用不同的錢包服務商。',
+    qrCodePanelTitleForDownload: '下載 {walletName}',
+    qrCodePanelTitleForScan: '使用 {walletName} 掃描',
+    qrCodePanelTitleForUniversalProtocol: '使用你的錢包掃描',
+    qrCodePanelLinkForDownload: '點擊前往下載頁面',
+    qrCodePanelLinkForConnect: '點擊直接連接',
+    qrCodePanelDownloadTipForReady: '掃描二維碼下載錢包。',
+    qrCodePanelDownloadTipForNotReady: '暫無',
+    qrCodePanelUniversalProtocolTipForNotReady: '不了解',
+    walletCardPanelTitle: '獲取 {selectedWalletName}',
+    walletCardAppTitle: '在手機使用 {selectedWalletName}',
+    walletCardAppDesc: '使用移動錢包探索以太坊世界。',
+    walletCardExtensionTitle: '在 {selectedExtensionBrowserName} 瀏覽器中使用 {selectedWalletName}',
+    guideTipTitle: '第一次使用加密錢包？',
+    guideTipLearnMoreLinkText: '了解更多',
+    walletPanelPlugin: '插件',
+    walletListEmpty: '未發現任何錢包',
+    walletConnectSuccess: '錢包已連接！',
+    getWalletTipsTitle: '沒有找到你想要的？',
+    getWalletTipsDesc: '在左側選擇新的錢包開始吧',
+    linkWallet: '連接',
+    walletConnecting: '連接中...',
+    walletSigning: '簽名中...',
+  },
+  NFTCard: {
+    actionText: '立即購買',
+  },
+  Address: {
+    copyTips: '複製地址',
+    copiedTips: '地址已複製！',
+  },
+  TokenSelect: {
+    placeholder: '請選擇代幣',
+  },
+  CryptoInput: {
+    placeholder: '請輸入代幣數量',
+    maxButtonText: '最大',
+  },
+  PayPanel: {
+    tips: '請掃描二維碼或複製地址',
+  },
+};
+
+export default localeValues;
