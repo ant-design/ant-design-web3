@@ -1,5 +1,11 @@
 # @ant-design/web3-common
 
+## 1.22.0
+
+### Minor Changes
+
+- dfa67c5: chore: Add zh-HK locale support
+
 ## 1.21.0
 
 ### Minor Changes

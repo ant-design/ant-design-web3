@@ -1,7 +1,7 @@
 {
   "name": "@example/eth-web3js",
   "private": true,
-  "version": "0.0.25",
+  "version": "0.0.26",
   "author": "Jeason <me@cowpoke.cc>",
   "type": "module",
   "scripts": {

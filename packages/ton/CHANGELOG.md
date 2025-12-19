@@ -1,5 +1,13 @@
 # @ant-design/web3-ton
 
+## 1.1.5
+
+### Patch Changes
+
+- Updated dependencies [dfa67c5]
+  - @ant-design/web3-common@1.22.0
+  - @ant-design/web3-assets@1.14.3
+
 ## 1.1.4
 
 ### Patch Changes
