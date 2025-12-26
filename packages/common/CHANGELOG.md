@@ -5,10 +5,7 @@
 ### Minor Changes
 
 - dfa67c5: chore: Add zh-HK locale support
-<<<<<<< HEAD
-=======
 - 2ae483c: feat: support ignoreConfig for support multiple chain better
->>>>>>> b857a725e (chore: release 1.26.0)
 
 ## 1.21.0
 
