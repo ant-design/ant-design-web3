@@ -1,10 +1,6 @@
 {
   "name": "@ant-design/web3-wagmi",
-<<<<<<< HEAD
-  "version": "2.12.3",
-=======
   "version": "2.13.0",
->>>>>>> b857a725e (chore: release 1.26.0)
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
