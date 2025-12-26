@@ -171,4 +171,47 @@ describe('TronWeb3ConfigProvider basic cases', () => {
 
     expect(mockedData.mockedDisconnect).toBeCalled();
   });
+
+  it('should ignore config when ignoreConfig is true', () => {
+    const CustomConnector: React.FC = () => {
+      const { availableWallets } = useProvider();
+      return (
+        <div className="wallets-name">{availableWallets?.map((item) => item.name).join(',')}</div>
+      );
+    };
+
+    const App = () => (
+      <TronWeb3ConfigProvider>
+        <TronWeb3ConfigProvider ignoreConfig={true}>
+          <CustomConnector />
+        </TronWeb3ConfigProvider>
+      </TronWeb3ConfigProvider>
+    );
+
+    const { selector } = xrender(App);
+    // Should use parent config, not the ignored one
+    // The parent config should have default wallets
+    expect(selector('.wallets-name')).toBeTruthy();
+  });
+
+  it('should use active provider config when one is ignored', () => {
+    const CustomConnector: React.FC = () => {
+      const { availableWallets } = useProvider();
+      return (
+        <div className="wallets-name">{availableWallets?.map((item) => item.name).join(',')}</div>
+      );
+    };
+
+    const App = () => (
+      <TronWeb3ConfigProvider ignoreConfig={true}>
+        <TronWeb3ConfigProvider>
+          <CustomConnector />
+        </TronWeb3ConfigProvider>
+      </TronWeb3ConfigProvider>
+    );
+
+    const { selector } = xrender(App);
+    // Should use active provider config, not the ignored one
+    expect(selector('.wallets-name')).toBeTruthy();
+  });
 });

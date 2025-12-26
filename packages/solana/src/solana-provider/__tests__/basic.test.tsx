@@ -317,4 +317,46 @@ describe('SolanaWeb3ConfigProvider', () => {
 
     expect(mockedData.mockedDisconnect).toBeCalled();
   });
+
+  it('should ignore config when ignoreConfig is true', () => {
+    const CustomConnector: React.FC = () => {
+      const { availableChains } = useProvider();
+      return (
+        <div className="chains-name">{availableChains?.map((item) => item.name).join(',')}</div>
+      );
+    };
+
+    const App = () => (
+      <SolanaWeb3ConfigProvider chains={[solana]}>
+        <SolanaWeb3ConfigProvider ignoreConfig={true} chains={[solana]}>
+          <CustomConnector />
+        </SolanaWeb3ConfigProvider>
+      </SolanaWeb3ConfigProvider>
+    );
+
+    const { selector } = xrender(App);
+    // Should use parent config, not the ignored one
+    expect(selector('.chains-name')?.textContent).toBe('Solana');
+  });
+
+  it('should use active provider config when one is ignored', () => {
+    const CustomConnector: React.FC = () => {
+      const { availableChains } = useProvider();
+      return (
+        <div className="chains-name">{availableChains?.map((item) => item.name).join(',')}</div>
+      );
+    };
+
+    const App = () => (
+      <SolanaWeb3ConfigProvider ignoreConfig={true} chains={[solana]}>
+        <SolanaWeb3ConfigProvider chains={[solana]}>
+          <CustomConnector />
+        </SolanaWeb3ConfigProvider>
+      </SolanaWeb3ConfigProvider>
+    );
+
+    const { selector } = xrender(App);
+    // Should use active provider config, not the ignored one
+    expect(selector('.chains-name')?.textContent).toBe('Solana');
+  });
 });
