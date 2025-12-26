@@ -29,6 +29,12 @@ export interface AntDesignWeb3ConfigProviderProps {
   connectionError?: WalletConnectionError;
   autoAddRegisteredWallets?: boolean;
   onCurrentChainChange?: (chain?: SolanaChainConfig) => void;
+  /**
+   * If true, this provider's configuration will be ignored when merging with parent context.
+   * This is useful when you have multiple chain providers and want to switch between them
+   * without causing page flickering. Only the active provider should not have this flag set.
+   */
+  ignoreConfig?: boolean;
 }
 
 export const MWA_WALLET_NAME = 'Mobile Wallet Adapter';
@@ -290,6 +296,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
           attributes: metadata.json?.attributes,
         };
       }}
+      ignoreConfig={props.ignoreConfig}
     >
       {props.children}
     </Web3ConfigProvider>

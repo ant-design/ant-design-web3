@@ -331,4 +331,80 @@ describe('WagmiWeb3ConfigProvider', () => {
       'noqrcode,noqrcode,noqrcode',
     );
   });
+
+  it('should ignore config when ignoreConfig is true', () => {
+    const CustomConnector: React.FC = () => {
+      const { availableChains, availableWallets } = useProvider();
+      return (
+        <>
+          <div className="chains-name">{availableChains?.map((item) => item.name).join(',')}</div>
+          <div className="wallets-name">{availableWallets?.map((item) => item.name).join(',')}</div>
+        </>
+      );
+    };
+
+    const App = () => (
+      <WagmiWeb3ConfigProvider
+        chains={[Mainnet]}
+        transports={{
+          [Mainnet.id]: http(),
+        }}
+        wallets={[MetaMask()]}
+      >
+        <WagmiWeb3ConfigProvider
+          ignoreConfig={true}
+          chains={[Polygon]}
+          transports={{
+            [Polygon.id]: http(),
+          }}
+          wallets={[TokenPocket()]}
+        >
+          <CustomConnector />
+        </WagmiWeb3ConfigProvider>
+      </WagmiWeb3ConfigProvider>
+    );
+
+    const { baseElement } = render(<App />);
+    // Should use parent config, not the ignored one
+    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Ethereum');
+    expect(baseElement.querySelector('.wallets-name')?.textContent).toBe('MetaMask');
+  });
+
+  it('should use active provider config when one is ignored', () => {
+    const CustomConnector: React.FC = () => {
+      const { availableChains, availableWallets } = useProvider();
+      return (
+        <>
+          <div className="chains-name">{availableChains?.map((item) => item.name).join(',')}</div>
+          <div className="wallets-name">{availableWallets?.map((item) => item.name).join(',')}</div>
+        </>
+      );
+    };
+
+    const App = () => (
+      <WagmiWeb3ConfigProvider
+        ignoreConfig={true}
+        chains={[Mainnet]}
+        transports={{
+          [Mainnet.id]: http(),
+        }}
+        wallets={[MetaMask()]}
+      >
+        <WagmiWeb3ConfigProvider
+          chains={[Polygon]}
+          transports={{
+            [Polygon.id]: http(),
+          }}
+          wallets={[TokenPocket()]}
+        >
+          <CustomConnector />
+        </WagmiWeb3ConfigProvider>
+      </WagmiWeb3ConfigProvider>
+    );
+
+    const { baseElement } = render(<App />);
+    // Should use active provider config, not the ignored one
+    expect(baseElement.querySelector('.chains-name')?.textContent).toBe('Polygon');
+    expect(baseElement.querySelector('.wallets-name')?.textContent).toBe('TokenPocket');
+  });
 });

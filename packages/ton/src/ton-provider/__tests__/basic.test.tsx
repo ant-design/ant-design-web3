@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConnectButton, Connector } from '@ant-design/web3';
+import { ConnectButton, Connector, useProvider } from '@ant-design/web3';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -208,6 +208,52 @@ describe('TonWeb3ConfigProvider', () => {
       expect(items.length).toBe(2);
       const item = baseElement.querySelector('.ant-web3-connect-modal-img')!;
       expect(item.getAttribute('src')).toBeTruthy();
+    });
+  });
+
+  it('should ignore config when ignoreConfig is true', async () => {
+    const CustomConnector: React.FC = () => {
+      const { availableWallets } = useProvider();
+      return (
+        <div className="wallets-name">{availableWallets?.map((item) => item.name).join(',')}</div>
+      );
+    };
+
+    const App = () => (
+      <TonWeb3ConfigProvider wallets={[tonkeeper]}>
+        <TonWeb3ConfigProvider ignoreConfig={true} wallets={[tonkeeper]}>
+          <CustomConnector />
+        </TonWeb3ConfigProvider>
+      </TonWeb3ConfigProvider>
+    );
+
+    const { baseElement } = render(<App />);
+    // Should use parent config, not the ignored one
+    await waitFor(() => {
+      expect(baseElement.querySelector('.wallets-name')?.textContent).toContain('Tonkeeper');
+    });
+  });
+
+  it('should use active provider config when one is ignored', async () => {
+    const CustomConnector: React.FC = () => {
+      const { availableWallets } = useProvider();
+      return (
+        <div className="wallets-name">{availableWallets?.map((item) => item.name).join(',')}</div>
+      );
+    };
+
+    const App = () => (
+      <TonWeb3ConfigProvider ignoreConfig={true} wallets={[tonkeeper]}>
+        <TonWeb3ConfigProvider wallets={[tonkeeper]}>
+          <CustomConnector />
+        </TonWeb3ConfigProvider>
+      </TonWeb3ConfigProvider>
+    );
+
+    const { baseElement } = render(<App />);
+    // Should use active provider config, not the ignored one
+    await waitFor(() => {
+      expect(baseElement.querySelector('.wallets-name')?.textContent).toContain('Tonkeeper');
     });
   });
 });

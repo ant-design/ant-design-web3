@@ -36,6 +36,12 @@ export interface SolanaWeb3ConfigProviderProps {
   //#endregion
 
   walletConnect?: UniversalProviderOpts;
+  /**
+   * If true, this provider's configuration will be ignored when merging with parent context.
+   * This is useful when you have multiple chain providers and want to switch between them
+   * without causing page flickering. Only the active provider should not have this flag set.
+   */
+  ignoreConfig?: boolean;
 }
 
 export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProviderProps>> = ({
@@ -48,6 +54,7 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
   autoConnect,
   walletConnect,
   autoAddRegisteredWallets,
+  ignoreConfig,
   children,
   walletProviderProps,
 }) => {
@@ -119,6 +126,7 @@ export const SolanaWeb3ConfigProvider: FC<PropsWithChildren<SolanaWeb3ConfigProv
           availableChains={chains}
           connectionError={connectionError}
           autoAddRegisteredWallets={autoAddRegisteredWallets}
+          ignoreConfig={ignoreConfig}
         >
           {children}
         </AntDesignWeb3ConfigProvider>

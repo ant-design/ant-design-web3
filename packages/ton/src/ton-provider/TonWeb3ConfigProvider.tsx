@@ -22,13 +22,19 @@ export interface TonWeb3ConfigProviderProps extends TonConnectOptions {
   wallets: TonWalletMetadata[];
   chain?: CHAIN;
   reconnect?: boolean;
+  /**
+   * If true, this provider's configuration will be ignored when merging with parent context.
+   * This is useful when you have multiple chain providers and want to switch between them
+   * without causing page flickering. Only the active provider should not have this flag set.
+   */
+  ignoreConfig?: boolean;
 }
 
 export const TonWeb3ConfigProvider: React.FC<PropsWithChildren<TonWeb3ConfigProviderProps>> = ({
   children,
   ...restProps
 }) => {
-  const { balance, locale, wallets, chain, reconnect = true } = restProps;
+  const { balance, locale, wallets, chain, reconnect = true, ignoreConfig } = restProps;
 
   const [tonConnectSdk, setTonConnectSdk] = React.useState<TonConnectSdk | null>(null);
   const [tonSelectWallet, setTonSelectWallet] = React.useState<Wallet | null>(null);
@@ -74,6 +80,7 @@ export const TonWeb3ConfigProvider: React.FC<PropsWithChildren<TonWeb3ConfigProv
         wallets={tonWallets.map((w) => TonWalletFactory(w).create())}
         balance={balance}
         locale={locale}
+        ignoreConfig={ignoreConfig}
       >
         {children}
       </TonConfigProvider>

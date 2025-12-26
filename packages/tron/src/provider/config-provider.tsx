@@ -14,6 +14,12 @@ interface AntDesignWeb3ConfigProviderProps {
   availableWallets?: Wallet[];
   locale?: Locale;
   connectionError?: WalletError;
+  /**
+   * If true, this provider's configuration will be ignored when merging with parent context.
+   * This is useful when you have multiple chain providers and want to switch between them
+   * without causing page flickering. Only the active provider should not have this flag set.
+   */
+  ignoreConfig?: boolean;
 }
 
 interface ConnectAsync {
@@ -24,7 +30,7 @@ interface ConnectAsync {
 
 export const AntDesignWeb3ConfigProvider: React.FC<
   React.PropsWithChildren<AntDesignWeb3ConfigProviderProps>
-> = ({ availableWallets, locale, connectionError, children }) => {
+> = ({ availableWallets, locale, connectionError, ignoreConfig, children }) => {
   const { address, wallet, wallets, connected, connect, disconnect, select } = useWallet();
   const connectAsyncRef = useRef<ConnectAsync>();
 
@@ -136,6 +142,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<
           console.error(error);
         }
       }}
+      ignoreConfig={ignoreConfig}
     >
       {children}
     </Web3ConfigProvider>
