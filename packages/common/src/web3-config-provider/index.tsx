@@ -5,15 +5,42 @@ import defaultLocale from '../locale/default';
 import { ConfigContext, type ConfigConsumerProps, type Web3ConfigProviderProps } from './context';
 
 const ProviderChildren: React.FC<
-  ConfigConsumerProps & { children?: React.ReactNode; parentContext?: ConfigConsumerProps }
+  ConfigConsumerProps & {
+    children?: React.ReactNode;
+    parentContext?: ConfigConsumerProps;
+    ignoreConfig?: boolean;
+  }
 > = (props) => {
-  const { children, parentContext, ...rest } = props;
+  const { children, parentContext, ignoreConfig, ...rest } = props;
+
+  // If ignoreConfig is true, don't merge this provider's config, just pass through parent context
+  if (ignoreConfig) {
+    const passThroughConfig = parentContext
+      ? { ...parentContext }
+      : {
+          defaultLocale: rest.defaultLocale,
+        };
+    return (
+      <ConfigContext.Provider value={passThroughConfig as ConfigConsumerProps}>
+        {children}
+      </ConfigContext.Provider>
+    );
+  }
+
+  // Normal merge logic when ignoreConfig is false or undefined
   const config = { ...parentContext };
 
-  Object.keys(rest).forEach((key) => {
-    const typedKey = key as keyof typeof rest;
-    if (rest[typedKey] !== undefined) {
-      (config as any)[typedKey] = rest[typedKey];
+  // Extract ignoreConfig and extendsContextFromParent from rest to avoid merging them
+  const {
+    ignoreConfig: _ignoreConfig,
+    extendsContextFromParent: _extendsContextFromParent,
+    ...configProps
+  } = rest as any;
+
+  Object.keys(configProps).forEach((key) => {
+    const typedKey = key as keyof typeof configProps;
+    if (configProps[typedKey] !== undefined) {
+      (config as any)[typedKey] = configProps[typedKey];
     }
   });
 
@@ -34,7 +61,7 @@ const ProviderChildren: React.FC<
 };
 
 const Web3ConfigProvider: React.FC<Web3ConfigProviderProps> = (props) => {
-  const { extendsContextFromParent = true, ...restProps } = props;
+  const { extendsContextFromParent = true, ignoreConfig, ...restProps } = props;
   const parentContext = React.useContext(ConfigContext);
   const context = extendsContextFromParent ? parentContext : undefined;
 
@@ -44,6 +71,7 @@ const Web3ConfigProvider: React.FC<Web3ConfigProviderProps> = (props) => {
       defaultLocale={defaultLocale}
       parentContext={context}
       extendsContextFromParent={extendsContextFromParent}
+      ignoreConfig={ignoreConfig}
     />
   );
 };

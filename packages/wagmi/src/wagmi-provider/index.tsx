@@ -46,6 +46,12 @@ export interface WagmiWeb3ConfigProviderProps {
   walletConnect?: false | WalletConnectOptions;
   transports?: Record<number, Transport>;
   siwe?: SIWEConfig;
+  /**
+   * If true, this provider's configuration will be ignored when merging with parent context.
+   * This is useful when you have multiple chain providers and want to switch between them
+   * without causing page flickering. Only the active provider should not have this flag set.
+   */
+  ignoreConfig?: boolean;
 }
 
 export function WagmiWeb3ConfigProvider({
@@ -61,6 +67,7 @@ export function WagmiWeb3ConfigProvider({
   walletConnect,
   transports,
   siwe,
+  ignoreConfig,
   ...restProps
 }: React.PropsWithChildren<WagmiWeb3ConfigProviderProps>): React.ReactElement {
   // When user custom config, add Mainnet by default
@@ -149,6 +156,7 @@ export function WagmiWeb3ConfigProvider({
           useWalletConnectOfficialModal={
             typeof walletConnect === 'object' && walletConnect?.useWalletConnectOfficialModal
           }
+          ignoreConfig={ignoreConfig}
         >
           {children}
         </AntDesignWeb3ConfigProvider>

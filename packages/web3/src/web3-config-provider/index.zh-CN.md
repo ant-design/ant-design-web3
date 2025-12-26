@@ -31,6 +31,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_mutawc/afts/img/A*DuEdT5NT9nwAAA
 | availableWallets | 可用钱包列表 | [Wallet](/components/types-cn#wallet)\[] | - |  |
 | availableChains | 可以连接的链列表 | [Chain](/components/types-cn#chain)\[] | - |  |
 | extendsContextFromParent | 继承父级 `Provider` 的值 | `boolean` | `true` |  |
+| ignoreConfig | 如果为 true，该 Provider 的配置在合并父级 context 时会被忽略 | `boolean` | `false` |  |
 | connect | 连接链 | `(wallet?: Wallet) => Promise<void>` | - |  |
 | disconnect | 断开连接 | `() => Promise<void>` | - |  |
 | switchChain | 切换链 | `(chain: Chain) => Promise<void>` | - |  |

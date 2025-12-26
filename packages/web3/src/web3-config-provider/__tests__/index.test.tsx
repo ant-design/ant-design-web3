@@ -253,4 +253,129 @@ describe('web3-config-provider', () => {
       ).toBe('Parent Disconnect');
     });
   });
+  it('should ignore config when ignoreConfig is true', () => {
+    const Child: React.FC = () => {
+      const { account, balance } = useContext(ConfigContext);
+      return (
+        <>
+          <div id="account-name">{account?.name}</div>
+          <div id="balance">{balance?.value?.toString()}</div>
+        </>
+      );
+    };
+
+    const App: React.FC = () => {
+      return (
+        <Web3ConfigProvider
+          account={{
+            name: 'parentAccount',
+            address: '0x123456789',
+          }}
+          balance={{ value: 200n }}
+        >
+          <Web3ConfigProvider
+            ignoreConfig={true}
+            account={{
+              name: 'ignoredAccount',
+              address: '0x987654321',
+            }}
+            balance={{ value: 100n }}
+          >
+            <Child />
+          </Web3ConfigProvider>
+        </Web3ConfigProvider>
+      );
+    };
+
+    const { baseElement } = render(<App />);
+    // Should use parent config, not the ignored one
+    expect(baseElement.querySelector('#account-name')?.textContent).toBe('parentAccount');
+    expect(baseElement.querySelector('#balance')?.textContent).toBe('200');
+  });
+  it('should use active provider config when one is ignored', () => {
+    const Child: React.FC = () => {
+      const { account, balance } = useContext(ConfigContext);
+      return (
+        <>
+          <div id="account-name">{account?.name}</div>
+          <div id="balance">{balance?.value?.toString()}</div>
+        </>
+      );
+    };
+
+    const App: React.FC = () => {
+      return (
+        <Web3ConfigProvider
+          ignoreConfig={true}
+          account={{
+            name: 'ignoredAccount',
+            address: '0x111111111',
+          }}
+          balance={{ value: 100n }}
+        >
+          <Web3ConfigProvider
+            account={{
+              name: 'activeAccount',
+              address: '0x222222222',
+            }}
+            balance={{ value: 300n }}
+          >
+            <Child />
+          </Web3ConfigProvider>
+        </Web3ConfigProvider>
+      );
+    };
+
+    const { baseElement } = render(<App />);
+    // Should use active provider config, not the ignored one
+    expect(baseElement.querySelector('#account-name')?.textContent).toBe('activeAccount');
+    expect(baseElement.querySelector('#balance')?.textContent).toBe('300');
+  });
+  it('should work with multiple nested providers with ignoreConfig', () => {
+    const Child: React.FC = () => {
+      const { account, balance } = useContext(ConfigContext);
+      return (
+        <>
+          <div id="account-name">{account?.name}</div>
+          <div id="balance">{balance?.value?.toString()}</div>
+        </>
+      );
+    };
+
+    const App: React.FC = () => {
+      return (
+        <Web3ConfigProvider
+          account={{
+            name: 'level1',
+            address: '0x111111111',
+          }}
+          balance={{ value: 100n }}
+        >
+          <Web3ConfigProvider
+            ignoreConfig={true}
+            account={{
+              name: 'level2-ignored',
+              address: '0x222222222',
+            }}
+            balance={{ value: 200n }}
+          >
+            <Web3ConfigProvider
+              account={{
+                name: 'level3-active',
+                address: '0x333333333',
+              }}
+              balance={{ value: 300n }}
+            >
+              <Child />
+            </Web3ConfigProvider>
+          </Web3ConfigProvider>
+        </Web3ConfigProvider>
+      );
+    };
+
+    const { baseElement } = render(<App />);
+    // Should merge level1 and level3, ignoring level2
+    expect(baseElement.querySelector('#account-name')?.textContent).toBe('level3-active');
+    expect(baseElement.querySelector('#balance')?.textContent).toBe('300');
+  });
 });
