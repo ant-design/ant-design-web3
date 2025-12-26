@@ -1,6 +1,10 @@
 {
   "name": "@ant-design/web3-solana",
+<<<<<<< HEAD
   "version": "1.4.4",
+=======
+  "version": "1.5.0",
+>>>>>>> b857a725e (chore: release 1.26.0)
   "main": "dist/lib/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",

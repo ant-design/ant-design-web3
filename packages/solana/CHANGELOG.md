@@ -1,10 +1,22 @@
 # @ant-design/web3-solana
 
+<<<<<<< HEAD
 ## 1.4.4
+=======
+## 1.5.0
+
+### Minor Changes
+
+- 2ae483c: feat: support ignoreConfig for support multiple chain better
+>>>>>>> b857a725e (chore: release 1.26.0)
 
 ### Patch Changes
 
 - Updated dependencies [dfa67c5]
+<<<<<<< HEAD
+=======
+- Updated dependencies [2ae483c]
+>>>>>>> b857a725e (chore: release 1.26.0)
   - @ant-design/web3-common@1.22.0
   - @ant-design/web3-assets@1.14.3
 

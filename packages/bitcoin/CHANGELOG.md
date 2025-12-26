@@ -5,6 +5,10 @@
 ### Patch Changes
 
 - Updated dependencies [dfa67c5]
+<<<<<<< HEAD
+=======
+- Updated dependencies [2ae483c]
+>>>>>>> b857a725e (chore: release 1.26.0)
   - @ant-design/web3-common@1.22.0
 
 ## 2.0.3
