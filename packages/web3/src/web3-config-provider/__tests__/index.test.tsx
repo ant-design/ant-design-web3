@@ -378,4 +378,75 @@ describe('web3-config-provider', () => {
     expect(baseElement.querySelector('#account-name')?.textContent).toBe('level3-active');
     expect(baseElement.querySelector('#balance')?.textContent).toBe('300');
   });
+  it('should use defaultLocale when ignoreConfig is true and no parentContext', () => {
+    const Child: React.FC = () => {
+      const { defaultLocale } = useContext(ConfigContext);
+      return (
+        <>
+          <div id="default-locale-exists">{defaultLocale ? 'exists' : 'missing'}</div>
+        </>
+      );
+    };
+
+    const App: React.FC = () => {
+      return (
+        <Web3ConfigProvider
+          ignoreConfig={true}
+          extendsContextFromParent={false}
+          account={{
+            name: 'ignoredAccount',
+            address: '0x111111111',
+          }}
+          balance={{ value: 100n }}
+        >
+          <Child />
+        </Web3ConfigProvider>
+      );
+    };
+
+    const { baseElement } = render(<App />);
+    // Should use defaultLocale when ignoreConfig is true and no parentContext
+    expect(baseElement.querySelector('#default-locale-exists')?.textContent).toBe('exists');
+  });
+  it('should pass through parentContext when ignoreConfig is true and parentContext exists', () => {
+    const Child: React.FC = () => {
+      const { account, balance, defaultLocale } = useContext(ConfigContext);
+      return (
+        <>
+          <div id="account-name">{account?.name}</div>
+          <div id="balance">{balance?.value?.toString()}</div>
+          <div id="default-locale-exists">{defaultLocale ? 'exists' : 'missing'}</div>
+        </>
+      );
+    };
+
+    const App: React.FC = () => {
+      return (
+        <Web3ConfigProvider
+          account={{
+            name: 'parentAccount',
+            address: '0x123456789',
+          }}
+          balance={{ value: 200n }}
+        >
+          <Web3ConfigProvider
+            ignoreConfig={true}
+            account={{
+              name: 'ignoredAccount',
+              address: '0x987654321',
+            }}
+            balance={{ value: 100n }}
+          >
+            <Child />
+          </Web3ConfigProvider>
+        </Web3ConfigProvider>
+      );
+    };
+
+    const { baseElement } = render(<App />);
+    // Should pass through parentContext when ignoreConfig is true
+    expect(baseElement.querySelector('#account-name')?.textContent).toBe('parentAccount');
+    expect(baseElement.querySelector('#balance')?.textContent).toBe('200');
+    expect(baseElement.querySelector('#default-locale-exists')?.textContent).toBe('exists');
+  });
 });
