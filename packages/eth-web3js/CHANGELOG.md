@@ -1,5 +1,14 @@
 # @ant-design/web3-eth-web3js
 
+## 1.1.23
+
+### Patch Changes
+
+- Updated dependencies [dfa67c5]
+  - @ant-design/web3-common@1.22.0
+  - @ant-design/web3-assets@1.14.3
+  - @ant-design/web3-wagmi@2.12.3
+
 ## 1.1.22
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @ant-design/web3-bitcoin
 
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies [dfa67c5]
+  - @ant-design/web3-common@1.22.0
+
 ## 2.0.3
 
 ### Patch Changes
