@@ -13,6 +13,14 @@ const ProviderChildren: React.FC<
 > = (props) => {
   const { children, parentContext, ignoreConfig, ...rest } = props;
 
+  // Calculate mergeLocale before conditional return to satisfy React Hooks rules
+  const mergeLocale = useMemo(() => {
+    if (parentContext?.locale && rest.locale) {
+      return merge(parentContext.locale, rest.locale);
+    }
+    return undefined;
+  }, [parentContext?.locale, rest.locale]);
+
   // If ignoreConfig is true, don't merge this provider's config, just pass through parent context
   if (ignoreConfig) {
     const passThroughConfig = parentContext
@@ -30,26 +38,18 @@ const ProviderChildren: React.FC<
   // Normal merge logic when ignoreConfig is false or undefined
   const config = { ...parentContext };
 
-  // Extract ignoreConfig and extendsContextFromParent from rest to avoid merging them
-  const {
-    ignoreConfig: _ignoreConfig,
-    extendsContextFromParent: _extendsContextFromParent,
-    ...configProps
-  } = rest as any;
-
-  Object.keys(configProps).forEach((key) => {
-    const typedKey = key as keyof typeof configProps;
-    if (configProps[typedKey] !== undefined) {
-      (config as any)[typedKey] = configProps[typedKey];
+  // Filter out ignoreConfig and extendsContextFromParent from rest to avoid merging them
+  const skipKeys = ['ignoreConfig', 'extendsContextFromParent'];
+  Object.keys(rest).forEach((key) => {
+    // biome-ignore lint/suspicious/noExplicitAny: skip keys need to check string
+    if (skipKeys.includes(key as any)) {
+      return;
+    }
+    const typedKey = key as keyof typeof rest;
+    if (rest[typedKey] !== undefined) {
+      (config as any)[typedKey] = rest[typedKey];
     }
   });
-
-  const mergeLocale = useMemo(() => {
-    if (parentContext?.locale && rest.locale) {
-      return merge(parentContext.locale, rest.locale);
-    }
-    return undefined;
-  }, [parentContext?.locale, rest.locale]);
 
   config.locale = mergeLocale ?? config.locale;
 

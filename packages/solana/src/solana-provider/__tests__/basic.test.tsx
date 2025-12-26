@@ -326,15 +326,13 @@ describe('SolanaWeb3ConfigProvider', () => {
       );
     };
 
-    const App = () => (
+    const { selector } = xrender(() => (
       <SolanaWeb3ConfigProvider chains={[solana]}>
         <SolanaWeb3ConfigProvider ignoreConfig={true} chains={[solana]}>
           <CustomConnector />
         </SolanaWeb3ConfigProvider>
       </SolanaWeb3ConfigProvider>
-    );
-
-    const { selector } = xrender(App);
+    ));
     // Should use parent config, not the ignored one
     expect(selector('.chains-name')?.textContent).toBe('Solana');
   });
@@ -347,15 +345,13 @@ describe('SolanaWeb3ConfigProvider', () => {
       );
     };
 
-    const App = () => (
+    const { selector } = xrender(() => (
       <SolanaWeb3ConfigProvider ignoreConfig={true} chains={[solana]}>
         <SolanaWeb3ConfigProvider chains={[solana]}>
           <CustomConnector />
         </SolanaWeb3ConfigProvider>
       </SolanaWeb3ConfigProvider>
-    );
-
-    const { selector } = xrender(App);
+    ));
     // Should use active provider config, not the ignored one
     expect(selector('.chains-name')?.textContent).toBe('Solana');
   });
