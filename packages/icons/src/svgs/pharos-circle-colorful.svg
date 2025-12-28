@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 310 310" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>PharosIcon1</title>
+    <defs>
+        <linearGradient id="linear-gradient" x1="120.24" y1="7576.74" x2="198.13" y2="7576.74" gradientTransform="matrix(1, 0, 0, -1, 0, 7674.41)" gradientUnits="userSpaceOnUse">
+            <stop offset="0.17" stop-color="#fff"/>
+            <stop offset="0.84" stop-color="#fff" stop-opacity="0"/>
+        </linearGradient>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Layer_2" data-name="Layer 2">
+            <g id="Layer_1-2" data-name="Layer 1">
+                <circle fill="#0012b8" cx="155" cy="155" r="155"/>
+                <path fill="url(#linear-gradient)" d="M198.13,103.39l-46.36-21-31.53,7.32v2.13L160,113Z"/>
+                <path fill="#fff" d="M212.11,170.79l-57.29-26.35L108.32,157v3.07L157.25,187l54.86-16.16Z"/>
+                <path fill="#fff" d="M120.24,91.84l31.53-7.35L187,76.31V55L120.24,69.69Z"/>
+                <path fill="#fff" d="M198.12,103.39,160,113l-51.7,13V160l46.5-12.54,43.3-11.69Z"/>
+                <polygon fill="#fff" points="212.11 170.83 157.23 186.99 97.89 204.45 97.89 255 212.11 217.94 212.11 170.83"/>
+            </g>
+        </g>
+    </g>
+</svg>

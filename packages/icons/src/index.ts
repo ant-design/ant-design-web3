@@ -421,6 +421,7 @@ export * from './components/phantom-circle-colorful';
 export * from './components/phantom-circle-filled';
 export * from './components/phantom-colorful';
 export * from './components/phantom-filled';
+export * from './components/pharos-circle-colorful';
 export * from './components/pink-circle-colorful';
 export * from './components/pivx-colorful';
 export * from './components/pla-colorful';
