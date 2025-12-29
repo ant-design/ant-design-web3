@@ -1,0 +1,26 @@
+"use strict";(self.webpackChunk_ant_design_web3_docs=self.webpackChunk_ant_design_web3_docs||[]).push([[3228],{90165:function(t,a,e){e.r(a);var d=e(99338),m=e(19545),h=e(50308),c=e(87125),g=e(39884),s=e(81632),x=e(44800),w=e(15198),b=e(62480),j=e(35335),v=e(912),p=e(63341),E=e(19070),I=e(68856),i=e(55770),D=e(92207),P=e(22708),M=e(63212),l=e(36978),u=e(16388),o=e(1735),n=e(24618),_=e(72152);function r(){return(0,_.jsx)(l.DumiPage,{children:(0,_.jsx)(o.Suspense,{fallback:(0,_.jsx)(u.Z,{}),children:(0,_.jsxs)(_.Fragment,{children:[(0,_.jsxs)("div",{className:"markdown",children:[(0,_.jsxs)("h1",{id:"\u5982\u4F55\u6DFB\u52A0-changelog",children:[(0,_.jsx)("a",{"aria-hidden":"true",tabIndex:"-1",href:"#\u5982\u4F55\u6DFB\u52A0-changelog",children:(0,_.jsx)("span",{className:"icon icon-link"})}),"\u5982\u4F55\u6DFB\u52A0 Changelog"]}),(0,_.jsxs)("h2",{id:"\u4EC0\u4E48\u53D8\u66F4\u9700\u8981-changelog",children:[(0,_.jsx)("a",{"aria-hidden":"true",tabIndex:"-1",href:"#\u4EC0\u4E48\u53D8\u66F4\u9700\u8981-changelog",children:(0,_.jsx)("span",{className:"icon icon-link"})}),"\u4EC0\u4E48\u53D8\u66F4\u9700\u8981 Changelog"]}),(0,_.jsxs)("p",{children:[n.texts[0].value,(0,_.jsx)("code",{children:n.texts[1].value}),n.texts[2].value]}),(0,_.jsxs)("ul",{children:[(0,_.jsx)("li",{children:n.texts[3].value}),(0,_.jsx)("li",{children:n.texts[4].value}),(0,_.jsx)("li",{children:n.texts[5].value}),(0,_.jsx)("li",{children:n.texts[6].value}),(0,_.jsx)("li",{children:n.texts[7].value}),(0,_.jsx)("li",{children:n.texts[8].value})]}),(0,_.jsxs)("h2",{id:"\u5982\u4F55\u751F\u6210-changelog",children:[(0,_.jsx)("a",{"aria-hidden":"true",tabIndex:"-1",href:"#\u5982\u4F55\u751F\u6210-changelog",children:(0,_.jsx)("span",{className:"icon icon-link"})}),"\u5982\u4F55\u751F\u6210 Changelog"]}),(0,_.jsx)("ol",{children:(0,_.jsx)("li",{children:n.texts[9].value})})]}),(0,_.jsx)(i.Z,{command:"changeset"}),(0,_.jsxs)("div",{className:"markdown",children:[(0,_.jsx)(s.Z,{children:n.texts[10].value}),(0,_.jsx)("ol",{start:"2",children:(0,_.jsx)("li",{children:n.texts[11].value})}),(0,_.jsx)(s.Z,{children:n.texts[12].value}),(0,_.jsx)(s.Z,{children:n.texts[13].value}),(0,_.jsx)("ol",{start:"3",children:(0,_.jsxs)("li",{children:[n.texts[14].value,(0,_.jsx)("code",{children:n.texts[15].value}),n.texts[16].value,(0,_.jsx)("code",{children:n.texts[17].value}),n.texts[18].value]})}),(0,_.jsx)(s.Z,{children:n.texts[19].value}),(0,_.jsx)("ol",{start:"4",children:(0,_.jsxs)("li",{children:[n.texts[20].value,(0,_.jsx)("a",{href:"https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular",children:n.texts[21].value}),n.texts[22].value]})}),(0,_.jsx)(s.Z,{children:n.texts[23].value})]})]})})})}a.default=r},24618:function(t,a,e){e.r(a),e.d(a,{texts:function(){return d}});const d=[{value:"\u4FEE\u6539\u4E86 ",paraId:0,tocIndex:1},{value:"packages",paraId:0,tocIndex:1},{value:" \u4E0B\u7684\u6587\u4EF6",paraId:0,tocIndex:1},{value:"@ant-design/web3-assets",paraId:1,tocIndex:1},{value:"@ant-design/web3-common",paraId:1,tocIndex:1},{value:"@ant-design/web3-icons",paraId:1,tocIndex:1},{value:"@ant-design/web3-solana",paraId:1,tocIndex:1},{value:"@ant-design/web3-wagmi",paraId:1,tocIndex:1},{value:"@ant-design/web3",paraId:1,tocIndex:1},{value:"\u9996\u5148\u9700\u8981\u6267\u884C\u547D\u4EE4:",paraId:2,tocIndex:2},{value:`MacBook-Pro ant-design-web3 % pnpm changeset
+
+> @ant-design/web3-docs@0.0.0 changeset ant-design-web3
+> changeset
+`,paraId:3},{value:"\u901A\u8FC7\u7A7A\u683C\u9009\u4E2D\u4FEE\u6539\u7684\u5305\uFF0C\u7136\u540E\u8F93\u5165\u56DE\u8F66\u786E\u8BA4\u3002",paraId:4},{value:`\u{1F98B}  Which packages would you like to include? \u2026
+\u25C9 changed packages
+  \u25C9 @ant-design/web3
+\u25EF unchanged packages
+  \u25EF @ant-design/web3-assets
+  \u25EF @ant-design/web3-common
+  \u25EF @ant-design/web3-icons
+  \u25EF @ant-design/web3-solana
+  \u25EF @ant-design/web3-wagmi
+`,paraId:5},{value:`\u{1F98B}  Which packages would you like to include? \xB7 @ant-design/web3
+\u{1F98B}  Which packages should have a major bump? \u2026
+\u25EF all packages
+  \u25EF @ant-design/web3@1.9.0
+`,paraId:6},{value:"\u6B64\u65F6\uFF0C\u6211\u4EEC\u5E94\u8BE5\u901A\u8FC7\u56DE\u8F66\u8DF3\u8FC7\uFF0C\u4E00\u822C\u60C5\u51B5\u4E0B\u7684 bugfix, \u6211\u4EEC\u90FD\u662F\u9009\u62E9\u6700\u540E\u4E00\u9879",paraId:7},{value:"patch",paraId:7},{value:" \u7248\u672C\uFF0C\u6709\u65B0\u7248\u672C\u7279\u6027\u7684\u6211\u4EEC\u624D\u4F1A\u9009\u62E9",paraId:7},{value:"minor",paraId:7},{value:"\u3002",paraId:7},{value:`\u{1F98B}  Which packages should have a major bump? \xB7 No items were selected
+\u{1F98B}  Which packages should have a minor bump? \xB7 No items were selected
+\u{1F98B}  The following packages will be patch bumped:
+\u{1F98B}  @ant-design/web3@1.9.0
+\u{1F98B}  Please enter a summary for this change (this will be in the changelogs).
+\u{1F98B}    (submit empty line to open external editor)
+\u{1F98B}  Summary \u203A
+`,paraId:8},{value:"\u6700\u540E\u4E00\u6B65\uFF0C\u6211\u4EEC\u5728 Summary \u4E2D\u63D0\u4EA4\u7B26\u5408 ",paraId:9},{value:"Angular's commit convention",paraId:9},{value:" \u89C4\u8303\u7684\u4FE1\u606F\u3002",paraId:9},{value:`\u{1F98B}  Summary \u203A feat: support more icons
+`,paraId:10}]}}]);
