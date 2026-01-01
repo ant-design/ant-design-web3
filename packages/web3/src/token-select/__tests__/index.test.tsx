@@ -31,8 +31,8 @@ describe('TokenSelect component', () => {
     expect(selectOptions[1].textContent).includes('Tether USD');
   });
 
-  it('should display correct token list when use tokenList property', () => {
-    const { baseElement } = render(<TokenSelect tokenList={mockTokens} />);
+  it('should display correct token list when use options property', () => {
+    const { baseElement } = render(<TokenSelect options={mockTokens} />);
 
     fireEvent.mouseDown(baseElement.querySelector('.ant-select-selector') as Element);
 

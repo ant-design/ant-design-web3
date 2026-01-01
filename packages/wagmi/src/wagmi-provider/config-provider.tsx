@@ -245,6 +245,10 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     [siwe, currentChain, signMessageAsync],
   );
 
+  const signOut = async () => {
+    setStatus(ConnectStatus.Connected);
+  };
+
   return (
     <Web3ConfigProvider
       locale={locale}
@@ -254,6 +258,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
       sign={
         siwe && {
           signIn,
+          signOut,
         }
       }
       balance={

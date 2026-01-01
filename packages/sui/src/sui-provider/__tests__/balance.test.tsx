@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useProvider } from '@ant-design/web3';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -41,7 +41,7 @@ describe('SuiWeb3ConfigProvider balance tests', () => {
       },
 
       useSuiClientQuery: (method: keyof typeof mockedQueryFetch, params?: any, options?: any) => {
-        const [data, setData] = useState(null);
+        const [data, setData] = React.useState(null);
         const fetcher = mockedQueryFetch[method];
 
         const fetchRunner = React.useCallback(async () => {
@@ -55,7 +55,7 @@ describe('SuiWeb3ConfigProvider balance tests', () => {
           setData(selectedResult);
         }, [fetcher, options, params]);
 
-        useEffect(() => {
+        React.useEffect(() => {
           fetchRunner();
         }, [method, params, fetchRunner]);
 

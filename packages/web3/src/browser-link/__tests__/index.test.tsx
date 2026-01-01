@@ -77,8 +77,12 @@ describe('BrowserLink', () => {
     expect(baseElement.querySelector('.anticon-link')).not.toBeNull();
   });
   it('support get chain from provider', async () => {
-    const fn = vi.fn();
-    try {
+    // Test with unsupported chain (no browser.getBrowserLink)
+    const originalConsoleError = console.error;
+    const mockConsoleError = vi.fn();
+    console.error = mockConsoleError;
+
+    expect(() => {
       render(
         <Web3ConfigProvider
           chain={{
@@ -89,12 +93,12 @@ describe('BrowserLink', () => {
           <BrowserLink address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" />,
         </Web3ConfigProvider>,
       );
-    } catch (error: any) {
-      fn(error.message);
-    }
-    expect(fn).toHaveBeenCalledWith('getBrowserLink unsupported chain 42161');
-    const fn2 = vi.fn();
-    try {
+    }).toThrow('getBrowserLink unsupported chain 42161');
+
+    console.error = originalConsoleError;
+
+    // Test with supported chain (override with Mainnet which has browser.getBrowserLink)
+    expect(() => {
       render(
         <Web3ConfigProvider
           chain={{
@@ -105,10 +109,7 @@ describe('BrowserLink', () => {
           <BrowserLink address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" chain={Mainnet} />,
         </Web3ConfigProvider>,
       );
-    } catch (error: any) {
-      fn2(error.message);
-    }
-    expect(fn2).not.toHaveBeenCalled();
+    }).not.toThrow();
   });
   it('support get chain icon from provider', async () => {
     const { baseElement, rerender } = render(

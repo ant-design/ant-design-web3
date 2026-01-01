@@ -3,6 +3,7 @@ import { FallbackProvider, JsonRpcProvider } from 'ethers';
 import type { Chain, Client, Transport } from 'viem';
 import { useClient, type Config } from 'wagmi';
 
+/* v8 ignore next 15 */
 export function clientToProvider(client: Client<Transport, Chain>) {
   const { chain, transport } = client;
   const network = {
@@ -11,7 +12,6 @@ export function clientToProvider(client: Client<Transport, Chain>) {
     ensAddress: chain.contracts?.ensRegistry?.address,
   };
 
-  /* v8 ignore next 7 */
   if (transport.type === 'fallback') {
     const providers = (transport.transports as ReturnType<Transport>[]).map(
       ({ value }) => new JsonRpcProvider(value?.url, network),
