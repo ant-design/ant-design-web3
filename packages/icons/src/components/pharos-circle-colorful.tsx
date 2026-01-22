@@ -1,0 +1,27 @@
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+import * as React from 'react';
+import AntdIcon from '@ant-design/icons';
+import { type IconBaseProps } from '@ant-design/icons/lib/components/Icon';
+import { ConfigProvider } from 'antd';
+import classnames from 'classnames';
+
+import { eraseDefaultProps } from '../utils';
+import SVGComponent from '../svgs/pharos-circle-colorful.svg';
+
+/**![PharosCircleColorful](data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IiNjYWNhY2EiIHdpZHRoPSIyMHB4IiBoZWlnaHQ9IjIwcHgiIHZpZXdCb3g9IjAgMCAzMTAgMzEwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPHRpdGxlPlBoYXJvc0ljb24xPC90aXRsZT4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50IiB4MT0iMTIwLjI0IiB5MT0iNzU3Ni43NCIgeDI9IjE5OC4xMyIgeTI9Ijc1NzYuNzQiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMSwgMCwgMCwgLTEsIDAsIDc2NzQuNDEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMC4xNyIgc3RvcC1jb2xvcj0iI2ZmZiIvPgogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAuODQiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj4KICAgICAgICAgICAgPGcgaWQ9IkxheWVyXzEtMiIgZGF0YS1uYW1lPSJMYXllciAxIj4KICAgICAgICAgICAgICAgIDxjaXJjbGUgZmlsbD0iIzAwMTJiOCIgY3g9IjE1NSIgY3k9IjE1NSIgcj0iMTU1Ii8+CiAgICAgICAgICAgICAgICA8cGF0aCBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudCkiIGQ9Ik0xOTguMTMsMTAzLjM5bC00Ni4zNi0yMS0zMS41Myw3LjMydjIuMTNMMTYwLDExM1oiLz4KICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yMTIuMTEsMTcwLjc5bC01Ny4yOS0yNi4zNUwxMDguMzIsMTU3djMuMDdMMTU3LjI1LDE4N2w1NC44Ni0xNi4xNloiLz4KICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xMjAuMjQsOTEuODRsMzEuNTMtNy4zNUwxODcsNzYuMzFWNTVMMTIwLjI0LDY5LjY5WiIvPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE5OC4xMiwxMDMuMzksMTYwLDExM2wtNTEuNywxM1YxNjBsNDYuNS0xMi41NCw0My4zLTExLjY5WiIvPgogICAgICAgICAgICAgICAgPHBvbHlnb24gZmlsbD0iI2ZmZiIgcG9pbnRzPSIyMTIuMTEgMTcwLjgzIDE1Ny4yMyAxODYuOTkgOTcuODkgMjA0LjQ1IDk3Ljg5IDI1NSAyMTIuMTEgMjE3Ljk0IDIxMi4xMSAxNzAuODMiLz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==) */
+export const PharosCircleColorful = React.forwardRef<HTMLSpanElement, IconBaseProps>((props, ref) => {
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('web3-icon-pharos-circle-colorful');
+
+  return (
+    <AntdIcon
+      {...props}
+      className={classnames(prefixCls, props.className)}
+      ref={ref}
+      component={eraseDefaultProps(SVGComponent)}
+    />
+  );
+});
+
+PharosCircleColorful.displayName = 'PharosCircleColorful';
