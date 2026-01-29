@@ -2,7 +2,6 @@ import { useEffect, useState, type FC, type PropsWithChildren } from 'react';
 import { Account, Web3ConfigProvider, type Locale, type Wallet } from '@ant-design/web3-common';
 
 import { Ledger } from '../ledger';
-import { LedgerConfigProvider } from './config-provider';
 import { useLatestWallet } from './useLatestWallet';
 
 export interface LedgerWeb3ConfigProviderProps {
@@ -41,14 +40,17 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
   };
 
   useEffect(() => {
-    // auto connect
-    if (
-      autoConnect &&
-      latestWalletNameRef.current &&
-      ledger.wallet.name === latestWalletNameRef.current
-    ) {
-      connect(ledger.wallet);
-    }
+    (async () => {
+      if (
+        autoConnect &&
+        latestWalletNameRef.current &&
+        ledger.wallet.name === latestWalletNameRef.current
+      ) {
+        await ledger.disconnect();
+        await ledger.connect(true);
+        setAccount(ledger.accounts[0]);
+      }
+    })();
   }, [autoConnect]);
 
   return (
