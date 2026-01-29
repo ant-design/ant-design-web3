@@ -5,18 +5,16 @@ import { Ledger } from '../ledger';
 import { useLatestWallet } from './useLatestWallet';
 
 export interface LedgerWeb3ConfigProviderProps {
-  ledger: Ledger;
+  ledger?: Ledger;
   locale?: Locale;
-  // balance?: boolean;
   autoConnect?: boolean;
 }
 
 export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProviderProps>> = ({
   children,
-  ledger,
-  // balance = false,
+  ledger = new Ledger(),
   locale,
-  autoConnect,
+  autoConnect = false,
 }) => {
   const [account, setAccount] = useState<Account | undefined>(undefined);
   const { cacheSelectedWallet, latestWalletNameRef } = useLatestWallet();

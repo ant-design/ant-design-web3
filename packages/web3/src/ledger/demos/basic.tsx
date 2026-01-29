@@ -1,9 +1,9 @@
 import { ConnectButton, Connector } from '@ant-design/web3';
-import { Ledger, LedgerWeb3ConfigProvider } from '@ant-design/web3-ledger';
+import { LedgerWeb3ConfigProvider } from '@ant-design/web3-ledger';
 
 const App: React.FC = () => {
   return (
-    <LedgerWeb3ConfigProvider ledger={new Ledger()}>
+    <LedgerWeb3ConfigProvider>
       <Connector>
         <ConnectButton />
       </Connector>

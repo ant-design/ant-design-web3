@@ -15,6 +15,8 @@ Ledger hardware wallet adapter for Ant Design Web3.
 
 Ant Design Web3 officially provides `@ant-design/web3-ledger` to support Ledger hardware wallets. It is an Ant Design Web3 Ledger adapter based on [Ledger Device Management Kit](https://github.com/LedgerHQ/device-sdk-ts). Ledger is a hardware wallet that provides secure storage for cryptocurrency private keys. This adapter integrates Ledger devices with Ant Design Web3 using the official Ledger SDK.
 
+> Note: Currently, this adapter only supports the Ethereum app on Ledger devices.
+
 ## When to Use
 
 - When you need to support hardware wallet for enhanced security
@@ -58,29 +60,30 @@ Ledger integration requires browsers supporting WebHID API:
 
 ### LedgerWeb3ConfigProvider
 
-| Property    | Description                 | Type            | Default | Version |
-| ----------- | --------------------------- | --------------- | ------- | ------- |
-| wallet      | Wallet configuration        | `WalletFactory` | -       | -       |
-| locale      | Internationalization        | `Locale`        | -       | -       |
-| autoConnect | Auto-connect to last wallet | `boolean`       | `false` | -       |
+| Property    | Description                 | Type      | Default        | Required |
+| ----------- | --------------------------- | --------- | -------------- | -------- |
+| ledger      | Ledger instance             | `Ledger`  | `new Ledger()` | No       |
+| locale      | Internationalization        | `Locale`  | -              | No       |
+| autoConnect | Auto-connect to last wallet | `boolean` | `false`        | No       |
 
-### Ledger Wallet
+### Ledger Class
+
+The core class for interacting with Ledger hardware wallets.
 
 ```ts
 import { Ledger } from '@ant-design/web3-ledger';
 
-const wallet = Ledger(options);
+const ledger = new Ledger(name?, derivationPath?);
 ```
 
-Ledger hardware wallet factory function. The `options` parameter is optional.
+#### Constructor Parameters
 
-#### LedgerOptions (Optional)
-
-| Property | Description | Type | Default | Version |
+| Parameter | Description | Type | Default | Required |
 | --- | --- | --- | --- | --- |
-| derivationPath | BIP44 derivation path for generating addresses | `string` | `"44'/60'/0'/0/0"` | - |
+| name | Custom wallet name | `string` | `'Ledger'` | No |
+| derivationPath | BIP44 derivation path for generating addresses | `string` | `"44'/60'/0'/0/0"` | No |
 
-The default derivation path is `"44'/60'/0'/0/0"`, You can customize it to generate different addresses:
+The default derivation path is `"44'/60'/0'/0/0"`. You can customize it to generate different addresses:
 
 - `"44'/60'/0'/0/0"` - First Ethereum address (default)
 - `"44'/60'/0'/0/1"` - Second Ethereum address
@@ -88,90 +91,68 @@ The default derivation path is `"44'/60'/0'/0/0"`, You can customize it to gener
 
 For more information about BIP44 derivation paths, please refer to [BIP44 Specification](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki).
 
-### Hooks
+#### Properties
 
-#### useAvailableDevices
+| Property         | Description                 | Type                      |
+| ---------------- | --------------------------- | ------------------------- |
+| wallet           | Wallet configuration object | `Wallet`                  |
+| sessionId        | Current device session ID   | `DeviceSessionId \| null` |
+| accounts         | Connected accounts          | `LedgerAccount[]`         |
+| derivationPath   | Current derivation path     | `string`                  |
+| availableDevices | Device discovery manager    | `AvailableDevices`        |
+| connectInstance  | Connection manager          | `Connect`                 |
+| deviceStatus     | Device status monitor       | `DeviceStatus`            |
+| appCommand       | App command manager         | `AppCommand`              |
+| ethereumSigner   | Ethereum signing manager    | `EthereumSigner`          |
 
-Monitor and discover Ledger devices.
+#### Methods
 
-```ts
-import { useAvailableDevices } from '@ant-design/web3-ledger';
+**connect(returnWhenNoDevice?: boolean): Promise\<void\>**
 
-const Component = () => {
-  const { devices, discover, isDiscovering } = useAvailableDevices();
-};
-```
+Connect to Ledger device and get the first account.
 
-**Returns:**
+- `returnWhenNoDevice`: If `true`, throws error immediately when no device is available without triggering discovery
 
-- `devices`: Array of discovered devices
-- `discover`: Function to manually trigger device discovery
-- `isDiscovering`: Boolean indicating if discovery is in progress
+**disconnect(): Promise\<void\>**
 
-#### useConnect
+Disconnect from Ledger device and clear all state.
 
-Manage device connection.
+**signMessage(message: string): Promise\<Signature\>**
 
-```ts
-import { useConnect } from '@ant-design/web3-ledger';
+Sign a plain text message.
 
-const Component = () => {
-  const { sessionId, connect, disconnect, isConnecting, isDisconnecting } = useConnect();
-};
-```
+**signTypedData(typedData: any): Promise\<Signature\>**
 
-**Returns:**
+Sign EIP-712 typed data.
 
-- `sessionId`: Current session ID if connected
-- `connect`: Function to connect to a device
-- `disconnect`: Function to disconnect
-- `isConnecting`: Boolean for connection status
-- `isDisconnecting`: Boolean for disconnection status
+#### Types
 
-#### useDeviceStatus
-
-Monitor device status and current app.
+**LedgerAccount**
 
 ```ts
-import { useDeviceStatus } from '@ant-design/web3-ledger';
-
-const Component = () => {
-  const { deviceStatus, currentApp } = useDeviceStatus({ sessionId });
-};
+interface LedgerAccount extends Account {
+  address: string;
+  path?: string; // Derivation path used for this account
+}
 ```
 
-**Returns:**
-
-- `deviceStatus`: Current device status (CONNECTED, LOCKED, BUSY, etc.)
-- `currentApp`: Name of currently open app on device
-
-#### useEthereumSigner
-
-Interact with Ethereum on Ledger.
+**LedgerError**
 
 ```ts
-import { useEthereumSigner } from '@ant-design/web3-ledger';
+class LedgerError extends Error {
+  code: LedgerErrorCode;
+  details?: string;
+}
 
-const Component = () => {
-  const {
-    address,
-    isLoadingAddress,
-    signMessage,
-    signTypedData,
-    isSigningMessage,
-    isSigningTypedData,
-  } = useEthereumSigner({ sessionId, derivationPath: "44'/60'/0'/0/0" });
-};
+type LedgerErrorCode =
+  | 'NO_DEVICE'
+  | 'CONNECTION_FAILED'
+  | 'ETHEREUM_APP_NOT_OPEN'
+  | 'CANNOT_GET_ADDRESS'
+  | 'NO_SESSION'
+  | 'SIGN_MESSAGE_FAILED'
+  | 'SIGN_TYPED_DATA_FAILED';
 ```
-
-**Returns:**
-
-- `address`: Current Ethereum address
-- `isLoadingAddress`: Loading state for address
-- `signMessage`: Function to sign plain messages
-- `signTypedData`: Function to sign EIP-712 typed data
-- `isSigningMessage`: Signing state for messages
-- `isSigningTypedData`: Signing state for typed data
 
 ## Troubleshooting
 
@@ -200,6 +181,10 @@ const Component = () => {
 
 ## FAQ
 
+### Which blockchain apps are supported?
+
+Currently, only the **Ethereum app** on Ledger devices is supported. You must have the Ethereum app installed and opened on your Ledger device to use this adapter. Support for other blockchain apps (Bitcoin, Solana, etc.) may be added in future versions.
+
 ### Why isn't Firefox supported?
 
 Firefox has not yet implemented the WebHID API which is required for communication with Ledger devices.
@@ -210,15 +195,13 @@ No, WebHID is currently only available in desktop browsers.
 
 ### How do I change the derivation path?
 
-You can customize the derivation path when using the Ethereum signer hook:
+You can customize the derivation path when creating the Ledger instance:
 
 ```ts
-const Component = () => {
-  const { address } = useEthereumSigner({
-    sessionId,
-    derivationPath: "44'/60'/1'/0/0", // Custom path
-  });
-};
+import { Ledger } from '@ant-design/web3-ledger';
+
+// Create Ledger instance with custom derivation path
+const ledger = new Ledger('Ledger', "44'/60'/1'/0/0");
 ```
 
 ### Is it safe to use Ledger with web applications?
