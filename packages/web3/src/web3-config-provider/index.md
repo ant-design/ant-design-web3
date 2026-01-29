@@ -30,6 +30,7 @@ Provide global configuration and states for components.
 | availableWallets | List of available wallets | [Wallet](/components/types#wallet)\[] | - |  |
 | availableChains | List of available chains | [Chain](/components/types#chain)\[] | - |  |
 | extendsContextFromParent | extends context from parent `Provider` | `boolean` | `true` |  |
+| ignoreConfig | If true, this provider's configuration will be ignored when merging with parent context | `boolean` | `false` |  |
 | connect | Connect to the chain | `(wallet?: Wallet) => Promise<void>` | - |  |
 | disconnect | Disconnect from the chain | `() => Promise<void>` | - |  |
 | switchChain | Switch to another chain | `(chain: Chain) => Promise<void>` | - |  |

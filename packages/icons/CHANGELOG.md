@@ -1,5 +1,11 @@
 # @ant-design/web3-icons
 
+## 1.16.0
+
+### Minor Changes
+
+- cf5810d: feat: new icon for L2 chain jovay
+
 ## 1.15.0
 
 ### Minor Changes

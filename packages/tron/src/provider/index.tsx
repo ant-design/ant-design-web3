@@ -14,6 +14,12 @@ export interface TronWeb3ConfigProviderProps {
   autoConnect?: boolean;
   locale?: Locale;
   walletProviderProps?: Omit<React.PropsWithChildren<TronWeb3ConfigProviderProps>, 'children'>;
+  /**
+   * If true, this provider's configuration will be ignored when merging with parent context.
+   * This is useful when you have multiple chain providers and want to switch between them
+   * without causing page flickering. Only the active provider should not have this flag set.
+   */
+  ignoreConfig?: boolean;
 }
 
 export const TronWeb3ConfigProvider: React.FC<PropsWithChildren<TronWeb3ConfigProviderProps>> = ({
@@ -21,6 +27,7 @@ export const TronWeb3ConfigProvider: React.FC<PropsWithChildren<TronWeb3ConfigPr
   onError,
   locale,
   autoConnect,
+  ignoreConfig,
   children,
   walletProviderProps,
 }) => {
@@ -48,6 +55,7 @@ export const TronWeb3ConfigProvider: React.FC<PropsWithChildren<TronWeb3ConfigPr
         locale={locale}
         connectionError={connectionError}
         availableWallets={wallets}
+        ignoreConfig={ignoreConfig}
       >
         {children}
       </AntDesignWeb3ConfigProvider>

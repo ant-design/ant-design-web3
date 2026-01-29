@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/web3",
-  "version": "1.25.1",
+  "version": "1.26.0",
   "type": "module",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -53,9 +53,9 @@
     "bs58": "^6.0.0",
     "classnames": "^2.5.1",
     "copy-to-clipboard": "^3.3.3",
-    "decimal.js": "^10.4.3",
+    "decimal.js": "^10.6.0",
     "is-mobile": "^5.0.0",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.23"
   },
   "devDependencies": {
     "@ant-design/web3-bitcoin": "workspace:*",

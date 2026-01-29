@@ -43,6 +43,12 @@ export interface AntDesignWeb3ConfigProviderProps {
   wagimConfig: WagmiConfig;
   useWalletConnectOfficialModal?: boolean;
   siwe?: SIWEConfig;
+  /**
+   * If true, this provider's configuration will be ignored when merging with parent context.
+   * This is useful when you have multiple chain providers and want to switch between them
+   * without causing page flickering. Only the active provider should not have this flag set.
+   */
+  ignoreConfig?: boolean;
 }
 
 export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderProps> = (props) => {
@@ -57,6 +63,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
     wagimConfig,
     useWalletConnectOfficialModal,
     siwe,
+    ignoreConfig,
   } = props;
   const { address, isDisconnected, chain, addresses } = useAccount();
   const config = useConfig();
@@ -294,6 +301,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
         }
       }}
       getNFTMetadata={getNFTMetadataFunc}
+      ignoreConfig={ignoreConfig}
     >
       {children}
     </Web3ConfigProvider>

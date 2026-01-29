@@ -1,5 +1,12 @@
 # @ant-design/web3-common
 
+## 1.22.0
+
+### Minor Changes
+
+- dfa67c5: chore: Add zh-HK locale support
+- 2ae483c: feat: support ignoreConfig for support multiple chain better
+
 ## 1.21.0
 
 ### Minor Changes

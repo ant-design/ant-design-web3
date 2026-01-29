@@ -1,5 +1,24 @@
 # @ant-design/web3-tron
 
+## 1.1.0
+
+### Minor Changes
+
+- 2ae483c: feat: support ignoreConfig for support multiple chain better
+
+### Patch Changes
+
+- Updated dependencies [dfa67c5]
+- Updated dependencies [2ae483c]
+  - @ant-design/web3-common@1.22.0
+  - @ant-design/web3-assets@1.14.3
+
+## 1.0.4
+
+### Patch Changes
+
+- @ant-design/web3-assets@1.14.2
+
 ## 1.0.3
 
 ### Patch Changes
