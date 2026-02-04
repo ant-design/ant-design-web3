@@ -74,6 +74,13 @@ const WalletList: ForwardRefRenderFunction<ConnectModalActionType, WalletListPro
         return;
       }
 
+      if (wallet.group === 'Hardware') {
+        updateSelectedWallet(wallet, {
+          connectType: 'USB',
+        });
+        return;
+      }
+
       // use extension to connect
       if (hasExtensionInstalled) {
         updateSelectedWallet(wallet, {
@@ -87,11 +94,11 @@ const WalletList: ForwardRefRenderFunction<ConnectModalActionType, WalletListPro
       }
 
       // Extension not installed and can use qr code to connect
-      // else if (wallet.getQrCode) {
-      //   updateSelectedWallet(wallet, {
-      //     connectType: 'qrCode',
-      //   });
-      // }
+      else if (wallet.getQrCode) {
+        updateSelectedWallet(wallet, {
+          connectType: 'qrCode',
+        });
+      }
 
       // use the default connect
       else {

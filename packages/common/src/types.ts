@@ -103,7 +103,7 @@ export interface NFTMetadata {
 }
 
 export interface ConnectOptions {
-  connectType?: 'extension' | 'qrCode' | 'openMobile';
+  connectType?: 'extension' | 'qrCode' | 'openMobile' | 'USB';
 }
 
 export interface UniversalWeb3ProviderInterface {
