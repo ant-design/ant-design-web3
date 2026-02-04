@@ -87,11 +87,11 @@ const WalletList: ForwardRefRenderFunction<ConnectModalActionType, WalletListPro
       }
 
       // Extension not installed and can use qr code to connect
-      else if (wallet.getQrCode) {
-        updateSelectedWallet(wallet, {
-          connectType: 'qrCode',
-        });
-      }
+      // else if (wallet.getQrCode) {
+      //   updateSelectedWallet(wallet, {
+      //     connectType: 'qrCode',
+      //   });
+      // }
 
       // use the default connect
       else {

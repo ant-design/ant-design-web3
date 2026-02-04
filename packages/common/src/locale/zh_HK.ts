@@ -40,6 +40,7 @@ const localeValues: RequiredLocale = {
     guideTipTitle: '第一次使用加密錢包？',
     guideTipLearnMoreLinkText: '了解更多',
     walletPanelPlugin: '插件',
+    walletPanelPluginHardware: 'USB',
     walletListEmpty: '未發現任何錢包',
     walletConnectSuccess: '錢包已連接！',
     getWalletTipsTitle: '沒有找到你想要的？',
