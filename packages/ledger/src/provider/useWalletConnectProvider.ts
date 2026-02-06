@@ -20,16 +20,33 @@ export const useWalletConnectProvider = (walletConnect?: UniversalProviderOpts) 
   const walletConnectProviderRef = useRef<IUniversalProvider | null>(null);
 
   /* v8 ignore next 9 */
+  // const getWalletConnectProvider = useCallback(async () => {
+  //   // Use ref instead of state to avoid recreating this function
+  //   if (walletConnectProviderRef.current) return Promise.resolve(walletConnectProviderRef.current);
+
+  //   const promise = new Promise<IUniversalProvider>((resolve) => {
+  //     setPromiseResolves((prev) => [...prev, resolve]);
+  //   });
+
+  //   return promise;
+  // }, []); // Remove walletConnectProvider dependency to stabilize function reference
   const getWalletConnectProvider = useCallback(async () => {
-    // Use ref instead of state to avoid recreating this function
-    if (walletConnectProviderRef.current) return Promise.resolve(walletConnectProviderRef.current);
+    // 如果已经有实例，直接返回
+    if (walletConnectProviderRef.current) {
+      return Promise.resolve(walletConnectProviderRef.current);
+    }
 
-    const promise = new Promise<IUniversalProvider>((resolve) => {
-      setPromiseResolves((prev) => [...prev, resolve]);
-    });
+    // 如果正在初始化，等待初始化完成
+    if (!mounted && walletConnect) {
+      const promise = new Promise<IUniversalProvider>((resolve) => {
+        setPromiseResolves((prev) => [...prev, resolve]);
+      });
+      return promise;
+    }
 
-    return promise;
-  }, []); // Remove walletConnectProvider dependency to stabilize function reference
+    // 如果没有配置或初始化失败，抛出错误
+    throw new Error('WalletConnect not configured');
+  }, [mounted, walletConnect]);
 
   useEffect(() => {
     if (mounted || !walletConnect) return;
