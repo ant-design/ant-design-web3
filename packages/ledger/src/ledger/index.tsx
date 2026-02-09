@@ -1,5 +1,6 @@
 import type { Account, Wallet } from '@ant-design/web3-common';
-import { LedgerFilled } from '@ant-design/web3-icons';
+// dev 开发需要，临时调整，上线前必须改回来
+import { MaticFilled } from '@ant-design/web3-icons';
 import type { DeviceSessionId } from '@ledgerhq/device-management-kit';
 import { DeviceStatus as DeviceStatusType } from '@ledgerhq/device-management-kit';
 
@@ -14,7 +15,7 @@ import EthereumSigner from './EthereumSigner';
 export class Ledger {
   wallet: Wallet = {
     name: 'Ledger',
-    icon: <LedgerFilled />,
+    icon: <MaticFilled />,
     group: 'Hardware',
     remark: 'Ledger Hardware Wallet',
     app: {
