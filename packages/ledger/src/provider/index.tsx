@@ -1,5 +1,6 @@
 import {
   useCallback,
+  useContext,
   useEffect,
   useMemo,
   useRef,
@@ -8,12 +9,15 @@ import {
   type PropsWithChildren,
 } from 'react';
 import type { Account, ConnectOptions, Locale, Wallet } from '@ant-design/web3-common';
-import { Web3ConfigProvider } from '@ant-design/web3-common';
+import { ConfigContext, Web3ConfigProvider } from '@ant-design/web3-common';
 import type { UniversalProviderOpts } from '@walletconnect/universal-provider';
 
 import { Ledger } from '../ledger';
 import { useLatestWallet } from './useLatestWallet';
 import { useWalletConnectProvider } from './useWalletConnectProvider';
+
+// Stable default instance to avoid creating a new Ledger on every render
+const DEFAULT_LEDGER = new Ledger();
 
 export interface LedgerWeb3ConfigProviderProps {
   ledger?: Ledger;
@@ -26,11 +30,14 @@ export interface LedgerWeb3ConfigProviderProps {
 
 export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProviderProps>> = ({
   children,
-  ledger = new Ledger(),
+  ledger = DEFAULT_LEDGER,
   locale,
   autoConnect = false,
   walletConnect,
 }) => {
+  // Read parent context to merge wallets with parent providers (e.g. Wagmi, Solana)
+  const parentContext = useContext(ConfigContext);
+
   const [account, setAccount] = useState<Account | undefined>(undefined);
   const [isWalletConnectConnected, setIsWalletConnectConnected] = useState(false);
   const { cacheSelectedWallet, latestWalletNameRef } = useLatestWallet();
@@ -225,15 +232,52 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
     ],
   );
 
-  const availableWallets = useMemo(() => [wallet], [wallet]);
+  // Merge wallets: parent context wallets (from Wagmi/Solana) + Ledger wallet
+  const mergedAvailableWallets = useMemo(() => {
+    const parentWallets = parentContext?.availableWallets || [];
+    return [...parentWallets, wallet];
+  }, [parentContext?.availableWallets, wallet]);
+
+  // Proxy connect: delegate to parent for non-Ledger wallets
+  const parentConnectRef = useRef(parentContext?.connect);
+  parentConnectRef.current = parentContext?.connect;
+
+  const mergedConnect = useCallback(
+    async (selected?: Wallet, options?: ConnectOptions) => {
+      if (!selected) return;
+      if (selected.name === ledger.wallet.name) {
+        // Use Ledger connect logic
+        return connect(selected, options);
+      }
+      // Delegate to parent connect (Wagmi/Solana)
+      return parentConnectRef.current?.(selected, options);
+    },
+    [connect, ledger.wallet.name],
+  );
+
+  // Proxy disconnect: disconnect Ledger if it's active, otherwise delegate to parent
+  const parentDisconnectRef = useRef(parentContext?.disconnect);
+  parentDisconnectRef.current = parentContext?.disconnect;
+
+  const mergedDisconnect = useCallback(async () => {
+    if (accountRef.current) {
+      // Ledger is connected, disconnect Ledger
+      return disconnect();
+    }
+    // Delegate to parent disconnect (Wagmi/Solana)
+    return parentDisconnectRef.current?.();
+  }, [disconnect]);
+
+  // Merge account: Ledger account takes precedence, otherwise use parent account
+  const mergedAccount = account ?? parentContext?.account;
 
   return (
     <Web3ConfigProvider
       locale={locale}
-      account={account}
-      connect={connect}
-      disconnect={disconnect}
-      availableWallets={availableWallets}
+      account={mergedAccount}
+      connect={mergedConnect}
+      disconnect={mergedDisconnect}
+      availableWallets={mergedAvailableWallets}
     >
       {children}
     </Web3ConfigProvider>
