@@ -53,11 +53,42 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
   // Whether walletConnect is configured (boolean, stable across object reference changes)
   const hasWalletConnect = !!walletConnect;
 
+  // Ref to hold pending QR code resolve functions and cached URI
+  // This ensures display_uri listener is registered BEFORE connect() triggers provider.connect()
+  // to avoid the race condition where display_uri fires before getQrCode() registers its listener
+  const qrCodeResolveRef = useRef<((value: { uri: string }) => void) | null>(null);
+
   // Set WalletConnect provider getter on ledger instance
+  // AND register global display_uri listener to avoid race condition
   useEffect(() => {
-    if (hasWalletConnect) {
-      ledger.setWalletConnectProviderGetter(getWalletConnectProvider);
-    }
+    if (!hasWalletConnect) return;
+    ledger.setWalletConnectProviderGetter(getWalletConnectProvider);
+
+    let cleanup: (() => void) | undefined;
+
+    const setup = async () => {
+      try {
+        const provider = await getWalletConnectProvider();
+        const handleDisplayUri = (uri: string) => {
+          if (qrCodeResolveRef.current) {
+            qrCodeResolveRef.current({ uri });
+            qrCodeResolveRef.current = null;
+          }
+        };
+        provider.on('display_uri', handleDisplayUri);
+        cleanup = () => {
+          provider.off('display_uri', handleDisplayUri);
+        };
+      } catch {
+        // Ignore errors
+      }
+    };
+
+    setup();
+
+    return () => {
+      cleanup?.();
+    };
   }, [ledger, hasWalletConnect, getWalletConnectProvider]);
 
   const connect = useCallback(
@@ -201,35 +232,17 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
       ...ledger.wallet,
       getQrCode: hasWalletConnect
         ? async () => {
-            const provider = await getWalletConnectProvider();
+            // Return a Promise that will be resolved by the global display_uri listener
+            // registered in the useEffect above. This avoids the race condition where
+            // connect() fires display_uri before getQrCode() can register its listener.
             return new Promise<{ uri: string }>((resolve) => {
-              // Check if already connected and has URI
-              if (provider.session) {
-                // If already connected, we might not get display_uri event
-                // Try to get URI from provider state if available
-                const uri = (provider as any).uri;
-                if (uri) {
-                  resolve({ uri });
-                  return;
-                }
-              }
-
-              // Listen for display_uri event
-              provider.on('display_uri', (uri: string) => {
-                console.log('display_uri', uri);
-                resolve({ uri });
-              });
+              qrCodeResolveRef.current = resolve;
             });
           }
         : undefined,
       customQrCodePanel: walletConnect?.useWalletConnectOfficialModal || false,
     }),
-    [
-      ledger.wallet,
-      hasWalletConnect,
-      getWalletConnectProvider,
-      walletConnect?.useWalletConnectOfficialModal,
-    ],
+    [ledger.wallet, hasWalletConnect, walletConnect?.useWalletConnectOfficialModal],
   );
 
   // Merge wallets: parent context wallets (from Wagmi/Solana) + Ledger wallet
