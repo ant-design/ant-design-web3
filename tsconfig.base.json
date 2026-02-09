@@ -3,7 +3,7 @@
     "baseUrl": "./",
     "target": "esnext",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "experimentalDecorators": true,
