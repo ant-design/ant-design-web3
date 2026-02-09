@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 const LATEST_WALLET_STORAGE_KEY = 'ANT_DESIGN_WEB3_LEDGER_LATEST_WALLET';
 
@@ -12,7 +12,7 @@ export const useLatestWallet = () => {
     }
   }, []);
 
-  const cacheSelectedWallet = (walletName?: string) => {
+  const cacheSelectedWallet = useCallback((walletName?: string) => {
     if (walletName) {
       localStorage.setItem(LATEST_WALLET_STORAGE_KEY, walletName);
       latestWalletNameRef.current = walletName;
@@ -20,7 +20,7 @@ export const useLatestWallet = () => {
       localStorage.removeItem(LATEST_WALLET_STORAGE_KEY);
       latestWalletNameRef.current = undefined;
     }
-  };
+  }, []);
 
   return {
     latestWalletNameRef,

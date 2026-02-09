@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import type { UniversalProviderOpts } from '@walletconnect/universal-provider';
 
 export type IUniversalProvider = Awaited<
@@ -6,77 +6,53 @@ export type IUniversalProvider = Awaited<
 >;
 
 export const useWalletConnectProvider = (walletConnect?: UniversalProviderOpts) => {
-  const [promiseResolves, setPromiseResolves] = useState<((value: IUniversalProvider) => void)[]>(
-    [],
-  );
-  const [mounted, setMounted] = useState(false);
-
-  const [walletConnectProvider, setWalletConnectProvider] = useState<IUniversalProvider | null>(
-    null,
-  );
-  const promiseResolvesRef = useLatest(promiseResolves);
-
-  // Use ref to stabilize the provider reference and avoid infinite loops
+  const mountedRef = useRef(false);
   const walletConnectProviderRef = useRef<IUniversalProvider | null>(null);
+  const promiseResolvesRef = useRef<((value: IUniversalProvider) => void)[]>([]);
+  const walletConnectRef = useRef(walletConnect);
+  walletConnectRef.current = walletConnect;
 
-  /* v8 ignore next 9 */
-  // const getWalletConnectProvider = useCallback(async () => {
-  //   // Use ref instead of state to avoid recreating this function
-  //   if (walletConnectProviderRef.current) return Promise.resolve(walletConnectProviderRef.current);
-
-  //   const promise = new Promise<IUniversalProvider>((resolve) => {
-  //     setPromiseResolves((prev) => [...prev, resolve]);
-  //   });
-
-  //   return promise;
-  // }, []); // Remove walletConnectProvider dependency to stabilize function reference
-  const getWalletConnectProvider = useCallback(async () => {
+  // Stable function reference - no state dependencies, uses refs only
+  const getWalletConnectProvider = useCallback(async (): Promise<IUniversalProvider> => {
     // 如果已经有实例，直接返回
     if (walletConnectProviderRef.current) {
-      return Promise.resolve(walletConnectProviderRef.current);
+      return walletConnectProviderRef.current;
     }
 
     // 如果正在初始化，等待初始化完成
-    if (!mounted && walletConnect) {
-      const promise = new Promise<IUniversalProvider>((resolve) => {
-        setPromiseResolves((prev) => [...prev, resolve]);
+    if (walletConnectRef.current) {
+      return new Promise<IUniversalProvider>((resolve) => {
+        promiseResolvesRef.current = [...promiseResolvesRef.current, resolve];
       });
-      return promise;
     }
 
-    // 如果没有配置或初始化失败，抛出错误
+    // 如果没有配置，抛出错误
     throw new Error('WalletConnect not configured');
-  }, [mounted, walletConnect]);
+  }, []); // Empty deps - stable reference, never changes
 
   useEffect(() => {
-    if (mounted || !walletConnect) return;
-
-    setMounted(true);
+    if (mountedRef.current || !walletConnect) return;
+    mountedRef.current = true;
 
     import('@walletconnect/universal-provider').then(async ({ UniversalProvider }) => {
       /* v8 ignore next 7 */
       const provider = await UniversalProvider.init(walletConnect);
+      walletConnectProviderRef.current = provider;
 
-      setWalletConnectProvider(provider);
-      walletConnectProviderRef.current = provider; // Update ref as well
-
-      promiseResolvesRef.current.forEach((resolve) => {
+      // Resolve all pending promises
+      const resolves = promiseResolvesRef.current;
+      promiseResolvesRef.current = [];
+      resolves.forEach((resolve) => {
         resolve(provider);
       });
     });
-  }, [mounted, promiseResolvesRef, walletConnect]);
+  }, [walletConnect]);
 
   useEffect(() => {
     return () => {
-      setMounted(false);
+      mountedRef.current = false;
     };
   }, []);
 
   return getWalletConnectProvider;
 };
-
-function useLatest<T>(value: T) {
-  const ref = useRef<T>(value);
-  ref.current = value;
-  return ref;
-}
