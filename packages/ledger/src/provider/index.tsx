@@ -5,6 +5,7 @@ import {
   useMemo,
   useRef,
   useState,
+  type ComponentType,
   type FC,
   type PropsWithChildren,
 } from 'react';
@@ -13,8 +14,15 @@ import { ConfigContext, Web3ConfigProvider } from '@ant-design/web3-common';
 import type { UniversalProviderOpts } from '@walletconnect/universal-provider';
 
 import { Ledger } from '../ledger';
+import type { LedgerConnectOptions } from '../types';
+import {
+  LedgerAddressIndexModal,
+  type LedgerAddressIndexModalProps,
+} from './LedgerAddressIndexModal';
 import { useLatestWallet } from './useLatestWallet';
 import { useWalletConnectProvider } from './useWalletConnectProvider';
+
+export type { LedgerAddressIndexModalProps };
 
 // Stable default instance to avoid creating a new Ledger on every render
 const DEFAULT_LEDGER = new Ledger();
@@ -26,6 +34,8 @@ export interface LedgerWeb3ConfigProviderProps {
   walletConnect?: UniversalProviderOpts & {
     useWalletConnectOfficialModal?: boolean;
   };
+  /** 自定义 USB 连接后「选择地址序号」弹窗；不传则使用默认 LedgerAddressIndexModal */
+  addressIndexModal?: ComponentType<LedgerAddressIndexModalProps>;
 }
 
 export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProviderProps>> = ({
@@ -34,61 +44,27 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
   locale,
   autoConnect = false,
   walletConnect,
+  addressIndexModal: AddressIndexModalFromProps,
 }) => {
-  // Read parent context to merge wallets with parent providers (e.g. Wagmi, Solana)
+  // 获取父级上下文
   const parentContext = useContext(ConfigContext);
+  // 获取 walletConnect 客户端实例
+  const getWalletConnectProvider = useWalletConnectProvider(walletConnect);
+  // 是否配置了 walletConnect（布尔值，跨对象引用变化时保持稳定）
+  const hasWalletConnect = Boolean(walletConnect);
 
   const [account, setAccount] = useState<Account | undefined>(undefined);
-  const [isWalletConnectConnected, setIsWalletConnectConnected] = useState(false);
-  const { cacheSelectedWallet, latestWalletNameRef } = useLatestWallet();
-  const getWalletConnectProvider = useWalletConnectProvider(walletConnect);
-
-  // Use refs for values that should NOT trigger the session effect to re-run
-  const isWalletConnectConnectedRef = useRef(isWalletConnectConnected);
-  isWalletConnectConnectedRef.current = isWalletConnectConnected;
+  const [awaitingAddressIndex, setAwaitingAddressIndex] = useState(false);
+  const { cacheSelectedWallet, latestWalletNameRef, latestConnectTypeRef, lastAddressIndexRef } =
+    useLatestWallet();
 
   const accountRef = useRef(account);
   accountRef.current = account;
 
-  // Whether walletConnect is configured (boolean, stable across object reference changes)
-  const hasWalletConnect = !!walletConnect;
-
-  // Ref to hold pending QR code resolve functions and cached URI
-  // This ensures display_uri listener is registered BEFORE connect() triggers provider.connect()
-  // to avoid the race condition where display_uri fires before getQrCode() registers its listener
-  const qrCodeResolveRef = useRef<((value: { uri: string }) => void) | null>(null);
-
   // Set WalletConnect provider getter on ledger instance
-  // AND register global display_uri listener to avoid race condition
   useEffect(() => {
     if (!hasWalletConnect) return;
     ledger.setWalletConnectProviderGetter(getWalletConnectProvider);
-
-    let cleanup: (() => void) | undefined;
-
-    const setup = async () => {
-      try {
-        const provider = await getWalletConnectProvider();
-        const handleDisplayUri = (uri: string) => {
-          if (qrCodeResolveRef.current) {
-            qrCodeResolveRef.current({ uri });
-            qrCodeResolveRef.current = null;
-          }
-        };
-        provider.on('display_uri', handleDisplayUri);
-        cleanup = () => {
-          provider.off('display_uri', handleDisplayUri);
-        };
-      } catch {
-        // Ignore errors
-      }
-    };
-
-    setup();
-
-    return () => {
-      cleanup?.();
-    };
   }, [ledger, hasWalletConnect, getWalletConnectProvider]);
 
   const connect = useCallback(
@@ -96,34 +72,27 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
       if (!selected) {
         return;
       }
-      if (selected.name === ledger.wallet.name) {
-        // Check if using WalletConnect
-        if (options?.connectType === 'qrCode' && hasWalletConnect) {
-          try {
-            await ledger.disconnectWalletConnect();
-            const wcAccount = await ledger.connectWalletConnect();
-            cacheSelectedWallet(selected.name);
-            setAccount(wcAccount);
-            setIsWalletConnectConnected(true);
-            return wcAccount;
-          } catch (error: any) {
-            throw error;
-          }
-        } else {
-          // Use hardware wallet connection
-          await ledger.disconnect();
+      if (selected.name !== ledger.wallet.name) return undefined;
+      // Check if using WalletConnect
+      if (options?.connectType === 'qrCode') {
+        const isRestoreSession = (options as LedgerConnectOptions)?.restoreSession;
+        if (!isRestoreSession) {
           await ledger.disconnectWalletConnect();
-          await ledger.connect();
-          cacheSelectedWallet(selected.name);
-          const hardwareAccount = ledger.accounts[0];
-          setAccount(hardwareAccount);
-          setIsWalletConnectConnected(false);
-          return hardwareAccount;
         }
+        const wcAccount = await ledger.connectWalletConnect();
+        cacheSelectedWallet({ walletName: selected.name, latestConnectType: 'WalletConnect' });
+        setAccount(wcAccount);
+        return wcAccount;
+      } else {
+        // USB: connect device then show address-index modal (ConnectModal will close)
+        await ledger.disconnect();
+        await ledger.connect();
+        cacheSelectedWallet({ walletName: selected.name, latestConnectType: 'USB' });
+        setAwaitingAddressIndex(true);
+        return undefined;
       }
-      return undefined;
     },
-    [ledger, hasWalletConnect, cacheSelectedWallet],
+    [ledger, cacheSelectedWallet],
   );
 
   // Use ref for connect to avoid it being a dependency of the session effect
@@ -132,7 +101,7 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
 
   // Listen for WalletConnect session establishment
   useEffect(() => {
-    if (!hasWalletConnect) return;
+    if (!hasWalletConnect || latestConnectTypeRef.current === 'USB') return;
 
     let mounted = true;
     let cleanup: (() => void) | undefined;
@@ -145,42 +114,55 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
         const handleSessionEvent = () => {
           if (!mounted) return;
 
-          // Use refs to read latest values without being in dependency array
-          if (provider.session && !isWalletConnectConnectedRef.current && !accountRef.current) {
+          // Only restore when we have session but no account yet (avoid double connect)
+          if (provider.session && !accountRef.current) {
             // Check if this is the Ledger wallet session
             const accounts = provider.session.namespaces.eip155?.accounts || [];
             if (accounts.length > 0) {
-              // Auto-connect when session is established
-              connectRef.current(ledger.wallet, { connectType: 'qrCode' }).catch(() => {
-                // Ignore errors, user can manually retry
-              });
+              connectRef
+                .current(ledger.wallet, {
+                  connectType: 'qrCode',
+                  restoreSession: true,
+                } as LedgerConnectOptions)
+                .catch(() => {});
             }
           }
         };
 
-        // Check initial session state
-        if (provider.session) {
-          handleSessionEvent();
-        }
-
-        // Listen for session events
-        provider.on('session_event', handleSessionEvent);
-        provider.on('session_establish', handleSessionEvent);
-
-        // Listen for session_delete event to handle remote disconnection
         const handleSessionDelete = () => {
           if (!mounted) return;
-
-          // Use ref to read latest value
-          if (isWalletConnectConnectedRef.current) {
-            setIsWalletConnectConnected(false);
+          if (latestConnectTypeRef.current === 'WalletConnect') {
             setAccount(undefined);
             cacheSelectedWallet();
           }
         };
+
+        const POLL_INTERVAL_MS = 200;
+        const POLL_MAX_ATTEMPTS = 15;
+
+        let recheckTimer: ReturnType<typeof setTimeout> | undefined;
+        if (provider.session) {
+          handleSessionEvent();
+        } else {
+          let attempts = 0;
+          const pollSession = () => {
+            if (!mounted || attempts >= POLL_MAX_ATTEMPTS) return;
+            attempts += 1;
+            if (provider.session) {
+              handleSessionEvent();
+              return;
+            }
+            recheckTimer = setTimeout(pollSession, POLL_INTERVAL_MS);
+          };
+          recheckTimer = setTimeout(pollSession, POLL_INTERVAL_MS);
+        }
+
+        provider.on('session_event', handleSessionEvent);
+        provider.on('session_establish', handleSessionEvent);
         provider.on('session_delete', handleSessionDelete);
 
         cleanup = () => {
+          if (recheckTimer !== undefined) clearTimeout(recheckTimer);
           provider.off('session_event', handleSessionEvent);
           provider.off('session_establish', handleSessionEvent);
           provider.off('session_delete', handleSessionDelete);
@@ -196,60 +178,115 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
       mounted = false;
       cleanup?.();
     };
-  }, [hasWalletConnect, getWalletConnectProvider, ledger, cacheSelectedWallet]);
+  }, [
+    hasWalletConnect,
+    getWalletConnectProvider,
+    ledger,
+    cacheSelectedWallet,
+    latestConnectTypeRef,
+  ]);
 
   const disconnect = useCallback(async () => {
-    if (isWalletConnectConnectedRef.current) {
+    setAwaitingAddressIndex(false);
+    if (latestConnectTypeRef.current === 'WalletConnect') {
       await ledger.disconnectWalletConnect();
-      setIsWalletConnectConnected(false);
     } else {
       await ledger.disconnect();
     }
     cacheSelectedWallet();
     setAccount(undefined);
+  }, [ledger, cacheSelectedWallet, latestConnectTypeRef]);
+
+  const completeUsbConnectWithAddressIndex = useCallback(
+    async (index: string) => {
+      await ledger.setAddressIndex(index);
+      setAccount(ledger.accounts[0]);
+      setAwaitingAddressIndex(false);
+      cacheSelectedWallet({
+        walletName: ledger.wallet.name,
+        latestConnectType: 'USB',
+        lastAddressIndex: index,
+      });
+    },
+    [ledger, cacheSelectedWallet],
+  );
+
+  const cancelUsbConnectWithAddressIndex = useCallback(async () => {
+    setAwaitingAddressIndex(false);
+    await ledger.disconnect();
+    cacheSelectedWallet();
+    setAccount(undefined);
   }, [ledger, cacheSelectedWallet]);
 
+  // USB 自动重连（使用上次保存的地址序号，无则用 0）
   useEffect(() => {
     (async () => {
       if (
-        autoConnect &&
-        latestWalletNameRef.current &&
-        ledger.wallet.name === latestWalletNameRef.current
+        !autoConnect ||
+        latestConnectTypeRef.current !== 'USB' ||
+        !latestWalletNameRef.current ||
+        ledger.wallet.name !== latestWalletNameRef.current
       ) {
+        return;
+      }
+      const savedIndex = lastAddressIndexRef.current;
+      const addressIndex = savedIndex ?? '0';
+      try {
         await ledger.disconnect();
-        await ledger.disconnectWalletConnect();
         await ledger.connect(true);
+        await ledger.setAddressIndex(addressIndex);
         setAccount(ledger.accounts[0]);
-        setIsWalletConnectConnected(false);
+      } catch (e: any) {
+        const isNoDevice = e?.code === 'NO_DEVICE' || e?.message?.includes('No available devices');
+        if (!isNoDevice) throw e;
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoConnect, ledger]);
 
-  // Create wallet object with getQrCode if WalletConnect is configured
+  // wcGetterReady: re-run after effect sets ledger's provider getter so getWallet() can include getQrCode
   const wallet: Wallet = useMemo(
     () => ({
       ...ledger.wallet,
       getQrCode: hasWalletConnect
         ? async () => {
-            // Return a Promise that will be resolved by the global display_uri listener
-            // registered in the useEffect above. This avoids the race condition where
-            // connect() fires display_uri before getQrCode() can register its listener.
+            const provider = await getWalletConnectProvider();
             return new Promise<{ uri: string }>((resolve) => {
-              qrCodeResolveRef.current = resolve;
+              // Check if already connected and has URI
+              if (provider.session) {
+                // If already connected, we might not get display_uri event
+                // Try to get URI from provider state if available
+                const uri = (provider as any).uri;
+                if (uri) {
+                  resolve({ uri });
+                  return;
+                }
+              }
+
+              // Listen for display_uri event
+              provider.on('display_uri', (uri: string) => {
+                resolve({ uri });
+              });
             });
           }
         : undefined,
       customQrCodePanel: walletConnect?.useWalletConnectOfficialModal || false,
     }),
-    [ledger.wallet, hasWalletConnect, walletConnect?.useWalletConnectOfficialModal],
+    [
+      ledger.wallet,
+      hasWalletConnect,
+      getWalletConnectProvider,
+      walletConnect?.useWalletConnectOfficialModal,
+    ],
   );
 
-  // Merge wallets: parent context wallets (from Wagmi/Solana) + Ledger wallet
+  // Merge wallets: parent wallets (Wagmi/Solana) + Ledger; replace any existing Ledger by name to avoid duplicates
   const mergedAvailableWallets = useMemo(() => {
-    const parentWallets = parentContext?.availableWallets || [];
-    return [...parentWallets, wallet];
-  }, [parentContext?.availableWallets, wallet]);
+    const parentWallets = parentContext?.availableWallets ?? [];
+    const ledgerName = ledger.wallet.name;
+    const withoutLedger = parentWallets.filter((w) => w.name !== ledgerName);
+    return [...withoutLedger, wallet];
+  }, [parentContext?.availableWallets, ledger.wallet.name, wallet]);
 
   // Proxy connect: delegate to parent for non-Ledger wallets
   const parentConnectRef = useRef(parentContext?.connect);
@@ -257,12 +294,11 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
 
   const mergedConnect = useCallback(
     async (selected?: Wallet, options?: ConnectOptions) => {
-      if (!selected) return;
-      if (selected.name === ledger.wallet.name) {
+      if (selected?.name === ledger.wallet.name) {
         // Use Ledger connect logic
         return connect(selected, options);
       }
-      // Delegate to parent connect (Wagmi/Solana)
+      // Delegate to parent connect (Wagmi/Solana
       return parentConnectRef.current?.(selected, options);
     },
     [connect, ledger.wallet.name],
@@ -284,6 +320,8 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
   // Merge account: Ledger account takes precedence, otherwise use parent account
   const mergedAccount = account ?? parentContext?.account;
 
+  const AddressIndexModalComponent = AddressIndexModalFromProps ?? LedgerAddressIndexModal;
+
   return (
     <Web3ConfigProvider
       locale={locale}
@@ -292,6 +330,12 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
       disconnect={mergedDisconnect}
       availableWallets={mergedAvailableWallets}
     >
+      <AddressIndexModalComponent
+        open={awaitingAddressIndex}
+        ledger={ledger}
+        onConfirm={completeUsbConnectWithAddressIndex}
+        onCancel={cancelUsbConnectWithAddressIndex}
+      />
       {children}
     </Web3ConfigProvider>
   );

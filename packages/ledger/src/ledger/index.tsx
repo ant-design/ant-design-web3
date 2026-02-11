@@ -33,6 +33,7 @@ export class Ledger {
   public ethereumSigner: EthereumSigner;
 
   public derivationPath: string;
+  public basePath: string;
 
   public sessionId: DeviceSessionId | null = null;
   public accounts: LedgerAccount[] = [];
@@ -44,6 +45,10 @@ export class Ledger {
   constructor(name?: string, derivationPath?: string) {
     this.wallet.name = name || 'Ledger';
     this.derivationPath = derivationPath || "44'/60'/0'/0/0";
+
+    // Extract basePath: e.g. "44'/60'/0'/0" from "44'/60'/0'/0/0"
+    const parts = this.derivationPath.split('/');
+    this.basePath = parts.slice(0, -1).join('/');
 
     this.availableDevices = new AvailableDevices();
     this.connectInstance = new Connect();
@@ -113,19 +118,41 @@ export class Ledger {
       );
     }
 
+    // 地址在 setAddressIndex(index) 中按用户选择的索引再获取
+  };
+
+  /**
+   * 仅获取指定索引的地址（用于弹窗预览），不改变当前账户。
+   * @param index 地址序号（字符串，与 LAST_ADDRESS_INDEX_KEY 存储一致）
+   */
+  public getAddressAtIndex = async (index: string): Promise<string> => {
+    if (!this.sessionId) {
+      throw new LedgerError('NO_SESSION', 'No session. Please connect to Ledger device first.');
+    }
+    const path = `${this.basePath}/${index}`;
     try {
-      // await this.appCommand.openApp(this.sessionId, 'Ethereum');
-
-      const address = await this.ethereumSigner.getAddress(this.sessionId, this.derivationPath);
-
-      this.accounts = [
-        {
-          address,
-          path: this.derivationPath,
-        },
-      ];
+      const address = await this.ethereumSigner.getAddress(this.sessionId, path);
+      return address;
     } catch {
-      throw new LedgerError('CANNOT_GET_ADDRESS', 'Failed to get address');
+      throw new LedgerError('CANNOT_GET_ADDRESS', 'Failed to get address at index ' + index);
+    }
+  };
+
+  /**
+   * USB 连接成功后，按「第几个地址」获取并设置为当前账户。
+   * @param index 地址序号（字符串，与 LAST_ADDRESS_INDEX_KEY 存储一致）
+   */
+  public setAddressIndex = async (index: string): Promise<void> => {
+    if (!this.sessionId) {
+      throw new LedgerError('NO_SESSION', 'No session. Please connect to Ledger device first.');
+    }
+    const path = `${this.basePath}/${index}`;
+    try {
+      const address = await this.ethereumSigner.getAddress(this.sessionId, path);
+      this.derivationPath = path;
+      this.accounts = [{ address, path }];
+    } catch {
+      throw new LedgerError('CANNOT_GET_ADDRESS', 'Failed to get address at index ' + index);
     }
   };
 
@@ -134,11 +161,15 @@ export class Ledger {
       this.ethereumSigner.unsubscribe();
       this.appCommand.closeApp();
       this.deviceStatus.unsubscribe();
-      this.connectInstance.disconnect();
+      await this.connectInstance.disconnect();
       this.availableDevices.unsubscribe();
       this.accounts = [];
       this.sessionId = null;
-    } catch {}
+    } catch {
+      // Ignore disconnect errors, ensure cleanup still happens
+      this.accounts = [];
+      this.sessionId = null;
+    }
   };
 
   public signMessage = async (message: string) => {
@@ -203,12 +234,13 @@ export class Ledger {
     }
 
     try {
-      // Check if there's an existing pairing (from getQrCode or previous connection)
+      // Reuse existing session when present (e.g. restored from storage after refresh)
+      const hasSession = Boolean(provider.session);
       const hasPairing = provider.client?.session?.map?.size > 0;
+      const skipPairing = hasSession || hasPairing;
 
       // Connect to WalletConnect
-      // If hasPairing is true, skipPairing will make connect() return immediately with existing session
-      // If hasPairing is false, connect() will wait for mobile wallet to confirm
+      // When skipPairing is true, connect() returns immediately with existing session (no new pairing)
       await provider.connect({
         namespaces: {
           eip155: {
@@ -223,7 +255,7 @@ export class Ledger {
             events: ['chainChanged', 'accountsChanged'],
           },
         },
-        skipPairing: hasPairing,
+        skipPairing,
       });
 
       // Get session after connection (mobile wallet confirmed or existing session used)
@@ -261,6 +293,18 @@ export class Ledger {
       this._walletConnectAccount = {
         address,
       };
+
+      // Ping session so the mobile wallet receives activity and can show "connected"
+      try {
+        const client = (
+          provider as { client?: { ping?: (params: { topic: string }) => Promise<void> } }
+        ).client;
+        if (client?.ping && session.topic) {
+          await client.ping({ topic: session.topic });
+        }
+      } catch {
+        // Non-fatal: session is still valid for the DApp
+      }
 
       return this._walletConnectAccount;
     } catch (error: any) {

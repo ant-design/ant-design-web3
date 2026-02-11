@@ -4,7 +4,7 @@ import {
   type Signature,
   type TypedData,
 } from '@ledgerhq/device-signer-kit-ethereum';
-import { Subscription } from 'rxjs';
+import type { Subscription } from 'rxjs';
 
 import { getDMK } from './dmk';
 

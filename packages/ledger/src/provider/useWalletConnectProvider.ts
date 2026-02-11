@@ -5,6 +5,13 @@ export type IUniversalProvider = Awaited<
   ReturnType<(typeof import('@walletconnect/universal-provider'))['UniversalProvider']['init']>
 >;
 
+const providerCache = new Map<string, IUniversalProvider>();
+
+function getCacheKey(opts?: UniversalProviderOpts): string | null {
+  const id = opts?.projectId;
+  return id != null && String(id).length > 0 ? String(id) : null;
+}
+
 export const useWalletConnectProvider = (walletConnect?: UniversalProviderOpts) => {
   const mountedRef = useRef(false);
   const walletConnectProviderRef = useRef<IUniversalProvider | null>(null);
@@ -12,40 +19,55 @@ export const useWalletConnectProvider = (walletConnect?: UniversalProviderOpts) 
   const walletConnectRef = useRef(walletConnect);
   walletConnectRef.current = walletConnect;
 
-  // Stable function reference - no state dependencies, uses refs only
   const getWalletConnectProvider = useCallback(async (): Promise<IUniversalProvider> => {
-    // 如果已经有实例，直接返回
-    if (walletConnectProviderRef.current) {
-      return walletConnectProviderRef.current;
+    if (walletConnectProviderRef.current) return walletConnectProviderRef.current;
+    const key = getCacheKey(walletConnectRef.current);
+    if (key) {
+      const cached = providerCache.get(key);
+      if (cached) {
+        walletConnectProviderRef.current = cached;
+        return cached;
+      }
     }
-
-    // 如果正在初始化，等待初始化完成
     if (walletConnectRef.current) {
       return new Promise<IUniversalProvider>((resolve) => {
         promiseResolvesRef.current = [...promiseResolvesRef.current, resolve];
       });
     }
-
-    // 如果没有配置，抛出错误
     throw new Error('WalletConnect not configured');
-  }, []); // Empty deps - stable reference, never changes
+  }, []);
 
   useEffect(() => {
     if (mountedRef.current || !walletConnect) return;
     mountedRef.current = true;
+    const key = getCacheKey(walletConnect);
 
-    import('@walletconnect/universal-provider').then(async ({ UniversalProvider }) => {
-      /* v8 ignore next 7 */
-      const provider = await UniversalProvider.init(walletConnect);
+    const run = async () => {
+      if (key) {
+        const cached = providerCache.get(key);
+        if (cached) {
+          walletConnectProviderRef.current = cached;
+          const resolves = promiseResolvesRef.current;
+          promiseResolvesRef.current = [];
+          resolves.forEach((r) => r(cached));
+          return;
+        }
+      }
+      const { UniversalProvider } = await import('@walletconnect/universal-provider');
+      // Separate storage prefix so Ledger's session does not conflict with Wagmi when both use same projectId (reduces "Restore will override" / double-init side effects)
+      const storagePrefix =
+        (walletConnect as { customStoragePrefix?: string }).customStoragePrefix ?? 'ant_ledger_wc_';
+      const provider = await UniversalProvider.init({
+        ...walletConnect,
+        customStoragePrefix: storagePrefix,
+      } as typeof walletConnect);
       walletConnectProviderRef.current = provider;
-
-      // Resolve all pending promises
+      if (key) providerCache.set(key, provider);
       const resolves = promiseResolvesRef.current;
       promiseResolvesRef.current = [];
-      resolves.forEach((resolve) => {
-        resolve(provider);
-      });
-    });
+      resolves.forEach((r) => r(provider));
+    };
+    run();
   }, [walletConnect]);
 
   useEffect(() => {
