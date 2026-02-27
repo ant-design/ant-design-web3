@@ -61,7 +61,11 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
   const accountRef = useRef(account);
   accountRef.current = account;
 
-  // Set WalletConnect provider getter on ledger instance
+  // Set WalletConnect provider getter and connect type getter on ledger instance
+  useEffect(() => {
+    ledger.setConnectTypeGetter(() => latestConnectTypeRef.current);
+  }, [ledger, latestConnectTypeRef]);
+
   useEffect(() => {
     if (!hasWalletConnect) return;
     ledger.setWalletConnectProviderGetter(getWalletConnectProvider);
@@ -86,7 +90,7 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
       } else {
         // USB: connect device then show address-index modal (ConnectModal will close)
         await ledger.disconnect();
-        await ledger.connect();
+        await ledger.connectUSB();
         cacheSelectedWallet({ walletName: selected.name, latestConnectType: 'USB' });
         setAwaitingAddressIndex(true);
         return undefined;
@@ -233,7 +237,7 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
       const addressIndex = savedIndex ?? '0';
       try {
         await ledger.disconnect();
-        await ledger.connect(true);
+        await ledger.connectUSB(true);
         await ledger.setAddressIndex(addressIndex);
         setAccount(ledger.accounts[0]);
       } catch (e: any) {

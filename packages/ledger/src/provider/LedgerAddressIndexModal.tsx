@@ -94,7 +94,7 @@ export const LedgerAddressIndexModal: FC<LedgerAddressIndexModalProps> = ({
           Confirm
         </Button>,
       ]}
-      destroyOnClose
+      destroyOnHidden
       maskClosable={false}
     >
       <div style={{ marginBottom: 16 }}>

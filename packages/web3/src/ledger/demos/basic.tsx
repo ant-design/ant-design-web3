@@ -81,6 +81,7 @@ const AccountSelector: React.FC = () => {
 
   const handleSignTypedData = async () => {
     try {
+      // 格式需符合 @ledgerhq/device-signer-kit-ethereum 的 TypedData：domain.chainId 为 number
       const typedData = {
         types: {
           EIP712Domain: [
@@ -115,6 +116,8 @@ const AccountSelector: React.FC = () => {
       const signature = await ledger.signTypedData(typedData);
       messageApi.success(`Typed data signed! ${String(signature).slice(0, 20)}...`);
     } catch (error: any) {
+      // 便于排查「无法唤起设备」：若为解析/SDK 错误会在此打出
+      console.error('[handleSignTypedData]', error);
       messageApi.error(`Sign failed: ${error?.message || error}`);
     }
   };

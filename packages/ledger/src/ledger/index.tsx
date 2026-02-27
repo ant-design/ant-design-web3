@@ -41,6 +41,8 @@ export class Ledger {
   private _getWalletConnectProvider?: () => Promise<any>;
   private _walletConnectAccount?: Account;
   private _sessionDeleteHandler?: () => void;
+  /** 由 provider 注入，用于 signMessage/signTypedData 根据连接类型分支 */
+  private _getConnectType?: () => 'USB' | 'WalletConnect' | undefined;
 
   constructor(name?: string, derivationPath?: string) {
     this.wallet.name = name || 'Ledger';
@@ -57,7 +59,10 @@ export class Ledger {
     this.ethereumSigner = new EthereumSigner();
   }
 
-  public connect = async (returnWhenNoDevice?: boolean) => {
+  /**
+   * USB 连接：发现设备、建立 session、检查 Ethereum app。
+   */
+  public connectUSB = async (returnWhenNoDevice?: boolean) => {
     if (this.availableDevices.devices.length === 0) {
       if (returnWhenNoDevice) {
         throw new LedgerError('NO_DEVICE', 'No available devices to connect');
@@ -172,54 +177,92 @@ export class Ledger {
     }
   };
 
-  public signMessage = async (message: string) => {
-    // Check if using WalletConnect
-    if (this._walletConnectAccount) {
-      return this._signMessageWithWalletConnect(message);
-    }
-
-    // Use hardware wallet signing
+  /**
+   * USB 签名：仅走 USB 通道（personal_sign 或 EIP-712）。
+   * 与 WalletConnect 签名完全独立。
+   */
+  public signWithUSB = async (
+    params: { type: 'message'; message: string } | { type: 'typedData'; typedData: any },
+  ): Promise<any> => {
     if (!this.sessionId) {
       throw new LedgerError(
         'NO_SESSION',
-        'No session ID available. Please connect to Ledger device first.',
+        'No session. Please connect to Ledger device via USB first.',
       );
     }
-    try {
-      return await this.ethereumSigner.signMessage(this.sessionId, this.derivationPath, message);
-    } catch {
-      throw new LedgerError('SIGN_MESSAGE_FAILED', 'Failed to sign message');
-    }
-  };
-
-  public signTypedData = async (typedData: any) => {
-    // Check if using WalletConnect
-    if (this._walletConnectAccount) {
-      return this._signTypedDataWithWalletConnect(typedData);
-    }
-
-    // Use hardware wallet signing
-    if (!this.sessionId) {
-      throw new LedgerError(
-        'NO_SESSION',
-        'No session ID available. Please connect to Ledger device first.',
-      );
+    if (params.type === 'message') {
+      try {
+        return await this.ethereumSigner.signMessage(
+          this.sessionId,
+          this.derivationPath,
+          params.message,
+        );
+      } catch {
+        throw new LedgerError('SIGN_MESSAGE_FAILED', 'Failed to sign message');
+      }
     }
     try {
       return await this.ethereumSigner.signTypedData(
         this.sessionId,
         this.derivationPath,
-        typedData,
+        params.typedData,
       );
     } catch {
       throw new LedgerError('SIGN_TYPED_DATA_FAILED', 'Failed to sign typed data');
     }
   };
 
+  /**
+   * WalletConnect 签名：仅走 WalletConnect 通道（personal_sign 或 EIP-712）。
+   * 与 USB 签名完全独立。
+   */
+  public signWithWalletConnect = async (
+    params: { type: 'message'; message: string } | { type: 'typedData'; typedData: any },
+  ): Promise<any> => {
+    if (params.type === 'message') {
+      return this._signMessageWithWalletConnect(params.message);
+    }
+    return this._signTypedDataWithWalletConnect(params.typedData);
+  };
+
+  /**
+   * 统一签名入口：优先根据 connectType（由 provider 通过 setConnectTypeGetter 注入 latestConnectTypeRef）委托；
+   * 未注入时回退为根据 _walletConnectAccount 判断。
+   */
+  public signMessage = async (message: string) => {
+    const connectType = this._getConnectType?.();
+    const useWalletConnect = connectType === 'WalletConnect' && this._walletConnectAccount;
+    if (useWalletConnect) {
+      return this.signWithWalletConnect({ type: 'message', message });
+    }
+    return this.signWithUSB({ type: 'message', message });
+  };
+
+  /**
+   * 统一签名入口：优先根据 connectType（由 provider 通过 setConnectTypeGetter 注入 latestConnectTypeRef）委托；
+   * 未注入时回退为根据 _walletConnectAccount 判断。
+   */
+  public signTypedData = async (typedData: any) => {
+    const connectType = this._getConnectType?.();
+    const useWalletConnect = connectType === 'WalletConnect' && this._walletConnectAccount;
+    if (useWalletConnect) {
+      return this.signWithWalletConnect({ type: 'typedData', typedData });
+    }
+    return this.signWithUSB({ type: 'typedData', typedData });
+  };
+
+  /** 由 provider 注入 latestConnectTypeRef 的 getter，用于签名分支判断 */
+  public setConnectTypeGetter = (getter: () => 'USB' | 'WalletConnect' | undefined) => {
+    this._getConnectType = getter;
+  };
+
   public setWalletConnectProviderGetter = (providerGetter: () => Promise<any>) => {
     this._getWalletConnectProvider = providerGetter;
   };
 
+  /**
+   * WalletConnect 连接：配对/复用 session、解析账户。
+   */
   public connectWalletConnect = async () => {
     if (!this._getWalletConnectProvider) {
       throw new LedgerError('WALLETCONNECT_NOT_CONFIGURED', 'WalletConnect is not configured');

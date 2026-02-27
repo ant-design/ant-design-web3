@@ -45,11 +45,13 @@
   "dependencies": {
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-icons": "workspace:*",
-    "@ledgerhq/device-management-kit": "^0.9.1",
-    "@ledgerhq/device-signer-kit-ethereum": "^1.8.0",
-    "@ledgerhq/device-transport-kit-web-hid": "^1.2.0",
-    "@walletconnect/universal-provider": "^2.14.0",
-    "rxjs": "^7.8.1"
+    "@ledgerhq/device-management-kit": "^1.0.0",
+    "@ledgerhq/device-signer-kit-ethereum": "^1.11.0",
+    "@ledgerhq/device-transport-kit-web-hid": "^1.2.3",
+    "@ledgerhq/context-module": "^1.14.1",
+    "@walletconnect/core": "^2.23.4",
+    "@walletconnect/universal-provider": "^2.23.4",
+    "rxjs": "^7.8.2"
   },
   "devDependencies": {
     "father": "^4.6.2",
