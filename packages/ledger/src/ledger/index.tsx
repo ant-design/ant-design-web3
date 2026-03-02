@@ -2,12 +2,14 @@ import type { Account, Wallet } from '@ant-design/web3-common';
 import { LedgerFilled } from '@ant-design/web3-icons';
 import type { DeviceSessionId } from '@ledgerhq/device-management-kit';
 import { DeviceStatus as DeviceStatusType } from '@ledgerhq/device-management-kit';
+import type { Subscription } from 'rxjs';
 
 import type { LedgerAccount } from '../types';
 import AppCommand from './AppCommand';
 import AvailableDevices from './AvailableDevices';
 import Connect from './Connect';
 import DeviceStatus from './DeviceStatus';
+import { getDMK } from './dmk';
 import { LedgerError } from './errors';
 import EthereumSigner from './EthereumSigner';
 
@@ -43,6 +45,11 @@ export class Ledger {
   private _sessionDeleteHandler?: () => void;
   /** 由 provider 注入，用于 signMessage/signTypedData 根据连接类型分支 */
   private _getConnectType?: () => 'USB' | 'WalletConnect' | undefined;
+  /** 长驻订阅：监听 USB session 状态，感知设备拔出 */
+  private _sessionWatchSubscription: Subscription | null = null;
+
+  /** USB 断开时的外部回调（由 provider 注入） */
+  public onUSBDisconnect?: () => void;
 
   constructor(name?: string, derivationPath?: string) {
     this.wallet.name = name || 'Ledger';
@@ -63,6 +70,8 @@ export class Ledger {
    * USB 连接：发现设备、建立 session、检查 Ethereum app。
    */
   public connectUSB = async (returnWhenNoDevice?: boolean) => {
+    this.availableDevices.ensureSubscribed();
+
     if (this.availableDevices.devices.length === 0) {
       if (returnWhenNoDevice) {
         throw new LedgerError('NO_DEVICE', 'No available devices to connect');
@@ -84,6 +93,7 @@ export class Ledger {
         this.sessionId = await this.connectInstance.connect({ device });
       }
     } catch {
+      this.sessionId = null;
       throw new LedgerError('CONNECTION_FAILED', 'Cannot connect to Ledger device');
     }
 
@@ -123,7 +133,7 @@ export class Ledger {
       );
     }
 
-    // 地址在 setAddressIndex(index) 中按用户选择的索引再获取
+    this._watchSession(this.sessionId);
   };
 
   /**
@@ -163,11 +173,11 @@ export class Ledger {
 
   public disconnect = async () => {
     try {
+      this._unwatchSession();
       this.ethereumSigner.unsubscribe();
       this.appCommand.closeApp();
       this.deviceStatus.unsubscribe();
       await this.connectInstance.disconnect();
-      this.availableDevices.unsubscribe();
       this.accounts = [];
       this.sessionId = null;
     } catch {
@@ -553,5 +563,41 @@ export class Ledger {
         error?.message || 'Failed to sign typed data via WalletConnect',
       );
     }
+  };
+
+  /**
+   * USB 连接成功后，对当前 session 保持长驻订阅。
+   * 当设备被拔出时 DMK 会移除 session，Observable 触发 error/complete 或
+   * 发出 NOT_CONNECTED 状态，此时清空 sessionId 并通知上层。
+   */
+  private _watchSession = (sessionId: string) => {
+    this._unwatchSession();
+    const dmk = getDMK();
+
+    this._sessionWatchSubscription = dmk.getDeviceSessionState({ sessionId }).subscribe({
+      next: (state) => {
+        if (state.deviceStatus === DeviceStatusType.NOT_CONNECTED) {
+          this._handleUSBDisconnect();
+        }
+      },
+      error: () => {
+        this._handleUSBDisconnect();
+      },
+      complete: () => {
+        this._handleUSBDisconnect();
+      },
+    });
+  };
+
+  private _unwatchSession = () => {
+    this._sessionWatchSubscription?.unsubscribe();
+    this._sessionWatchSubscription = null;
+  };
+
+  private _handleUSBDisconnect = () => {
+    this._unwatchSession();
+    this.sessionId = null;
+    this.accounts = [];
+    this.onUSBDisconnect?.();
   };
 }

@@ -9,13 +9,23 @@ class AvailableDevices {
   private subscription: Subscription | null = null;
 
   constructor() {
-    this.listenToAvailableDevices();
+    this.startListening();
   }
 
-  private listenToAvailableDevices = () => {
+  /**
+   * 确保 listenToAvailableDevices 订阅存活。
+   * 如果之前被意外 complete/error，重新建立订阅。
+   */
+  public ensureSubscribed = () => {
+    if (!this.subscription || this.subscription.closed) {
+      this.startListening();
+    }
+  };
+
+  private startListening = () => {
     const dmk = getDMK();
 
-    this.unsubscribe();
+    this.stopListening();
 
     this.subscription = dmk.listenToAvailableDevices({}).subscribe({
       next: (deviceList) => {
@@ -23,6 +33,10 @@ class AvailableDevices {
       },
       error: (error) => {
         console.error('Device monitoring error:', error);
+        this.subscription = null;
+      },
+      complete: () => {
+        this.subscription = null;
       },
     });
   };
@@ -33,7 +47,7 @@ class AvailableDevices {
     return new Promise((resolve, reject) => {
       dmk.startDiscovering({}).subscribe({
         next: (device) => {
-          this.devices = [...this.devices, device];
+          this.devices = [device];
           resolve(device);
         },
         error: (error) => {
@@ -43,7 +57,7 @@ class AvailableDevices {
     });
   };
 
-  public unsubscribe = () => {
+  public stopListening = () => {
     if (this.subscription) {
       this.subscription.unsubscribe();
       this.subscription = null;

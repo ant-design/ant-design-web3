@@ -61,6 +61,20 @@ export const LedgerWeb3ConfigProvider: FC<PropsWithChildren<LedgerWeb3ConfigProv
   const accountRef = useRef(account);
   accountRef.current = account;
 
+  // // USB 断开时自动清空 account 和缓存
+  // useEffect(() => {
+  //   ledger.onUSBDisconnect = () => {
+  //     if (latestConnectTypeRef.current === 'USB') {
+  //       setAwaitingAddressIndex(false);
+  //       setAccount(undefined);
+  //       cacheSelectedWallet();
+  //     }
+  //   };
+  //   return () => {
+  //     ledger.onUSBDisconnect = undefined;
+  //   };
+  // }, [ledger, latestConnectTypeRef, cacheSelectedWallet]);
+
   // Set WalletConnect provider getter and connect type getter on ledger instance
   useEffect(() => {
     ledger.setConnectTypeGetter(() => latestConnectTypeRef.current);

@@ -8,7 +8,7 @@ class Connect {
   public connect = async (args: ConnectUseCaseArgs): Promise<DeviceSessionId> => {
     const dmk = getDMK();
 
-    this.disconnect();
+    await this.disconnect();
 
     try {
       this.sessionId = await dmk.connect(args);
