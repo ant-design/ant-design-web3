@@ -1,5 +1,5 @@
 ---
-'@ant-design/web3-icons': major
+'@ant-design/web3-icons': minor
 ---
 
 feat: add pharos icon
