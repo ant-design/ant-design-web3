@@ -174,7 +174,7 @@ const App: React.FC = () => {
         addressIndexModal={CustomAddressIndexModal}
       >
         <Space direction="vertical" style={{ width: '100%' }}>
-          <Connector>
+          <Connector modalProps={{ copyQrCodeLink: true, destroyOnClose: true }}>
             <ConnectButton />
           </Connector>
           <AccountSelector />

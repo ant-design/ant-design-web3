@@ -33,6 +33,7 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
     connecting,
     disabled = false,
     banner,
+    copyQrCodeLink,
   } = props;
   const intl = useIntl('ConnectModal', locale);
   const showQRCoodByDefault = defaultSelectedWallet?.getQrCode;
@@ -154,7 +155,12 @@ const ModalPanel: React.FC<ModalPanelProps> = (props) => {
           </div>
         )}
         {!(panelRoute === 'init' && isSimple) && (
-          <MainPanel simple={isSimple} guide={guide} walletList={walletList} />
+          <MainPanel
+            simple={isSimple}
+            guide={guide}
+            walletList={walletList}
+            copyQrCodeLink={copyQrCodeLink}
+          />
         )}
       </div>
     </ConnectModalContextProvider>,

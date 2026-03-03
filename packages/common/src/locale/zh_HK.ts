@@ -33,6 +33,7 @@ const localeValues: RequiredLocale = {
     qrCodePanelDownloadTipForReady: '掃描二維碼下載錢包。',
     qrCodePanelDownloadTipForNotReady: '暫無',
     qrCodePanelUniversalProtocolTipForNotReady: '不了解',
+    qrCodePanelCopiedMessage: '已複製！',
     walletCardPanelTitle: '獲取 {selectedWalletName}',
     walletCardAppTitle: '在手機使用 {selectedWalletName}',
     walletCardAppDesc: '使用移動錢包探索以太坊世界。',

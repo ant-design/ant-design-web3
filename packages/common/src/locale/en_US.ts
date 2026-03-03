@@ -35,6 +35,7 @@ const localeValues: RequiredLocale = {
     qrCodePanelDownloadTipForReady: 'Scan the QR code to download the wallet.',
     qrCodePanelDownloadTipForNotReady: "Don't have",
     qrCodePanelUniversalProtocolTipForNotReady: "Don't know",
+    qrCodePanelCopiedMessage: 'Copied!',
     walletCardPanelTitle: 'Get {selectedWalletName}',
     walletCardAppTitle: '{selectedWalletName} for Mobile',
     walletCardAppDesc: 'Use the mobile wallet to explore the world of Ethereum.',

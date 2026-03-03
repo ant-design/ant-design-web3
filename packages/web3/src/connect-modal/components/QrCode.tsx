@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
-import { ArrowRightOutlined } from '@ant-design/icons';
-import { Button, Flex, QRCode, Space } from 'antd';
+import { ArrowRightOutlined, CopyOutlined } from '@ant-design/icons';
+import { App, Button, Flex, QRCode, Space } from 'antd';
 import classNames from 'classnames';
 
+import { writeCopyText } from '../../utils';
 import { connectModalContext } from '../context';
 import type { Wallet } from '../interface';
 import MainPanelHeader from './MainPanelHeader';
@@ -11,10 +12,12 @@ export type QrCodeProps = {
   wallet: Wallet;
   simple?: boolean;
   download?: boolean;
+  copyQrCodeLink?: boolean;
 };
 
 const QrCode: React.FC<QrCodeProps> = (props) => {
-  const { wallet, simple, download } = props;
+  const { wallet, simple, download, copyQrCodeLink } = props;
+  const { message } = App.useApp();
   const { prefixCls, updatePanelRoute, updateSelectedWallet, localeMessage, getMessage } =
     useContext(connectModalContext);
   const [qrCodeValue, setQrCodeValue] = useState('QR code not ready');
@@ -66,23 +69,45 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
           iconSize={60}
           type="svg"
         />
-        <a
-          className={classNames(`${prefixCls}-qr-code-link`, {
-            [`${prefixCls}-qr-code-link-loading`]: loading,
-          })}
-          target="_blank"
-          href={!loading ? qrCodeValue : undefined}
-          rel="noreferrer"
-        >
-          <Space>
-            <span>
-              {download
-                ? localeMessage.qrCodePanelLinkForDownload
-                : localeMessage.qrCodePanelLinkForConnect}
+        {copyQrCodeLink ? (
+          <div
+            className={classNames(`${prefixCls}-qr-code-copy-link`, {
+              [`${prefixCls}-qr-code-copy-link-loading`]: loading,
+            })}
+          >
+            <span className={`${prefixCls}-qr-code-copy-link-text`}>
+              {loading ? 'Loading...' : qrCodeValue}
             </span>
-            <ArrowRightOutlined />
-          </Space>
-        </a>
+            <CopyOutlined
+              className={`${prefixCls}-qr-code-copy-link-icon`}
+              onClick={() => {
+                if (!loading) {
+                  writeCopyText(qrCodeValue).then(() => {
+                    message.success(localeMessage.qrCodePanelCopiedMessage);
+                  });
+                }
+              }}
+            />
+          </div>
+        ) : (
+          <a
+            className={classNames(`${prefixCls}-qr-code-link`, {
+              [`${prefixCls}-qr-code-link-loading`]: loading,
+            })}
+            target="_blank"
+            href={!loading ? qrCodeValue : undefined}
+            rel="noreferrer"
+          >
+            <Space>
+              <span>
+                {download
+                  ? localeMessage.qrCodePanelLinkForDownload
+                  : localeMessage.qrCodePanelLinkForConnect}
+              </span>
+              <ArrowRightOutlined />
+            </Space>
+          </a>
+        )}
       </div>
       <div className={`${prefixCls}-qr-code-tips`}>
         {download ? (

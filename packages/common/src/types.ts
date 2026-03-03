@@ -300,6 +300,7 @@ export interface RequiredLocale {
     qrCodePanelDownloadTipForReady: string;
     qrCodePanelDownloadTipForNotReady: string;
     qrCodePanelUniversalProtocolTipForNotReady: string;
+    qrCodePanelCopiedMessage: string;
     walletCardPanelTitle: string;
     walletCardAppTitle: string;
     walletCardAppDesc: string;
