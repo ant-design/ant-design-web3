@@ -424,7 +424,7 @@ describe('Connector', () => {
     };
 
     const App = () => {
-      const [account, setAccount] = React.useState<Account | undefined>();
+      const [account] = React.useState<Account | undefined>();
       return (
         <Connector
           account={account}

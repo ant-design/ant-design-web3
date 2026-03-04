@@ -21,7 +21,7 @@ export const YourAdapterPropsProvider: React.FC<YourAdapterProps> = (props) => {
       chain={currentChain}
       account={account}
       availableWallets={wallets}
-      connect={async (wallet) => {
+      connect={async () => {
         // 这里可以实现连接钱包的逻辑
         return;
       }}

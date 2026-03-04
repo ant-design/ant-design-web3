@@ -218,6 +218,12 @@ export class WalletConnectBridge {
       throw new LedgerError('WALLETCONNECT_NOT_CONFIGURED', 'WalletConnect is not configured');
     }
     const provider = await this._getProvider();
+    if (!provider) {
+      throw new LedgerError(
+        'WALLETCONNECT_PROVIDER_NOT_AVAILABLE',
+        'WalletConnect provider not available',
+      );
+    }
 
     if (provider.session) {
       const uri = (provider as any).uri;
@@ -227,16 +233,15 @@ export class WalletConnectBridge {
     const QR_CODE_TIMEOUT_MS = 30_000;
 
     return new Promise<{ uri: string }>((resolve, reject) => {
-      const timer = setTimeout(() => {
+      const timerId = setTimeout(function onTimeout() {
         provider.off('display_uri', handler);
         reject(new LedgerError('QR_CODE_TIMEOUT', 'WalletConnect display_uri timeout (30s)'));
       }, QR_CODE_TIMEOUT_MS);
-
-      const handler = (uri: string) => {
-        clearTimeout(timer);
+      function handler(uri: string) {
+        clearTimeout(timerId);
         provider.off('display_uri', handler);
         resolve({ uri });
-      };
+      }
       provider.on('display_uri', handler);
     });
   }

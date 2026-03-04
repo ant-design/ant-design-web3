@@ -1,9 +1,9 @@
 import {
   forwardRef,
-  ForwardRefRenderFunction,
   useContext,
   useImperativeHandle,
   useMemo,
+  type ForwardRefRenderFunction,
 } from 'react';
 import { Empty, List } from 'antd';
 import mobile from 'is-mobile';
@@ -27,7 +27,7 @@ const WalletList: ForwardRefRenderFunction<ConnectModalActionType, WalletListPro
     useContext(connectModalContext);
   const dataSource: Record<string, Wallet[]> = useMemo(() => {
     const result: Record<string, Wallet[]> = {};
-    walletList.forEach((wallet) => {
+    walletList.forEach((wallet: Wallet) => {
       const { group = 'More' } = wallet;
       if (!result[group]) {
         result[group] = [];
@@ -140,7 +140,9 @@ const WalletList: ForwardRefRenderFunction<ConnectModalActionType, WalletListPro
                 connectType: 'qrCode',
               });
             }}
-            showQrPlaceholder={walletList.some((w) => w.getQrCode && w.hasExtensionInstalled)}
+            showQrPlaceholder={walletList.some(
+              (w: Wallet) => w.getQrCode && w.hasExtensionInstalled,
+            )}
             disabled={disabled}
           />
         )}

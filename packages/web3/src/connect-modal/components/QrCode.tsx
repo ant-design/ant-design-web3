@@ -40,7 +40,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
         setLoading(false);
       });
     }
-  }, [wallet]);
+  }, [wallet, download]);
 
   const handleGetWallet = () => {
     updateSelectedWallet(wallet);
