@@ -3,15 +3,114 @@ import { ConnectButton, Connector, useAccount } from '@ant-design/web3';
 import {
   Ledger,
   LedgerWeb3ConfigProvider,
+  useLedgerActions,
+  useLedgerError,
+  useLedgerUSBStatus,
   type LedgerAddressIndexModalProps,
+  type LedgerErrorEvent,
 } from '@ant-design/web3-ledger';
 import { MetaMask, WagmiWeb3ConfigProvider, WalletConnect } from '@ant-design/web3-wagmi';
-import { Button, InputNumber, message, Modal, Space, Typography } from 'antd';
+import {
+  Alert,
+  Badge,
+  Button,
+  Card,
+  InputNumber,
+  message,
+  Modal,
+  Space,
+  Tag,
+  Typography,
+} from 'antd';
 
-// Create a Ledger instance to access signing methods
 const ledger = new Ledger();
 
-/** 自定义「选择地址序号」弹窗示例：可传入 LedgerWeb3ConfigProvider 的 addressIndexModal */
+/** phase 到 UI 提示的映射（由 useLedgerUSBStatus 驱动） */
+const PHASE_PROMPTS: Record<string, { color: string; label: string; hint?: string }> = {
+  idle: { color: 'default', label: 'Idle' },
+  detecting: { color: 'processing', label: 'Detecting...', hint: '正在检测设备...' },
+  connected: { color: 'success', label: 'Connected', hint: '已连接' },
+  disconnected: { color: 'error', label: 'Disconnected', hint: '设备已断开' },
+  no_device: {
+    color: 'error',
+    label: 'No Device',
+    hint: '未检测到硬件设备，请插入 Ledger 设备',
+  },
+  multiple_devices: {
+    color: 'warning',
+    label: 'Multiple Devices',
+    hint: '请在上方弹窗中选择要连接的设备',
+  },
+  device_locked: {
+    color: 'warning',
+    label: 'Device Locked',
+    hint: '请解锁设备并打开 Ethereum App',
+  },
+  app_not_open: {
+    color: 'warning',
+    label: 'App Not Open',
+    hint: '请在设备上打开 Ethereum App',
+  },
+  ready: { color: 'processing', label: 'Ready', hint: '设备就绪，请选择地址' },
+  selecting_address: {
+    color: 'processing',
+    label: 'Selecting Address',
+    hint: '请在上方弹窗中选择地址序号',
+  },
+};
+
+/** 需要用户操作后可重试的 phase */
+const RETRYABLE_PHASES = ['no_device', 'device_locked', 'app_not_open'];
+
+/** 实时展示 phase 驱动的 USB 设备状态、提示和错误信息 */
+const LedgerStatusPanel: React.FC = () => {
+  const usbStatus = useLedgerUSBStatus();
+  const { error, clearError } = useLedgerError();
+  const { retryConnect } = useLedgerActions();
+  const phaseInfo = PHASE_PROMPTS[usbStatus.phase] ?? PHASE_PROMPTS.idle;
+  const showRetry = RETRYABLE_PHASES.includes(usbStatus.phase);
+
+  return (
+    <Card
+      title={
+        <Space>
+          <span>Ledger Device Status</span>
+          <Badge status={phaseInfo.color as any} text={phaseInfo.label} />
+        </Space>
+      }
+      size="small"
+    >
+      <Space direction="vertical" style={{ width: '100%' }}>
+        {phaseInfo.hint && <Typography.Text type="secondary">{phaseInfo.hint}</Typography.Text>}
+        {showRetry && (
+          <Button size="small" onClick={() => retryConnect()}>
+            重试连接
+          </Button>
+        )}
+        <Space wrap>
+          <Tag>Phase: {usbStatus.phase}</Tag>
+          {usbStatus.currentApp && <Tag color="blue">App: {usbStatus.currentApp}</Tag>}
+          {usbStatus.deviceModel && <Tag color="cyan">Model: {usbStatus.deviceModel}</Tag>}
+          {usbStatus.sessionId && (
+            <Tag color="geekblue">Session: {usbStatus.sessionId.slice(0, 8)}...</Tag>
+          )}
+        </Space>
+
+        {error && (
+          <Alert
+            type="error"
+            showIcon
+            closable
+            onClose={clearError}
+            message={`[${error.phase}] ${error.code}`}
+            description={error.message}
+          />
+        )}
+      </Space>
+    </Card>
+  );
+};
+
 const CustomAddressIndexModal: React.FC<LedgerAddressIndexModalProps> = ({
   open,
   ledger: ledgerInstance,
@@ -40,48 +139,44 @@ const CustomAddressIndexModal: React.FC<LedgerAddressIndexModalProps> = ({
 
   return (
     <Modal
-      title="选择 Ledger 地址"
+      title="Select Ledger Address"
       open={open}
       onCancel={onCancel}
       onOk={() => onConfirm(String(index))}
-      okText="确认"
-      cancelText="取消"
+      okText="Confirm"
+      cancelText="Cancel"
       destroyOnHidden
       maskClosable={false}
     >
       <Space direction="vertical" style={{ width: '100%' }}>
-        <Typography.Text type="secondary">钱包地址索引（第几个地址）：</Typography.Text>
+        <Typography.Text type="secondary">Address index:</Typography.Text>
         <InputNumber value={index} onChange={(v) => setIndex(v ?? 0)} style={{ width: '100%' }} />
-        <Typography.Text type="secondary">当前地址：</Typography.Text>
+        <Typography.Text type="secondary">Address:</Typography.Text>
         <Typography.Text code copyable>
-          {loading ? '加载中...' : address || '-'}
+          {loading ? 'Loading...' : address || '-'}
         </Typography.Text>
       </Space>
     </Modal>
   );
 };
 
-const AccountSelector: React.FC = () => {
+const AccountActions: React.FC = () => {
   const { account } = useAccount();
   const [messageApi, contextHolder] = message.useMessage();
-  const [accountIndex, setAccountIndex] = useState<number>(0);
 
-  if (!account) {
-    return null;
-  }
+  if (!account) return null;
 
   const handleSignMessage = async () => {
     try {
       const signature = await ledger.signMessage('Hello, Ant Design Web3!');
       messageApi.success(`Signed! ${String(signature).slice(0, 20)}...`);
-    } catch (error: any) {
-      messageApi.error(`Sign failed: ${error?.message || error}`);
+    } catch {
+      // Error already captured by onError / useLedgerError
     }
   };
 
   const handleSignTypedData = async () => {
     try {
-      // 格式需符合 @ledgerhq/device-signer-kit-ethereum 的 TypedData：domain.chainId 为 number
       const typedData = {
         types: {
           EIP712Domain: [
@@ -115,69 +210,67 @@ const AccountSelector: React.FC = () => {
       };
       const signature = await ledger.signTypedData(typedData);
       messageApi.success(`Typed data signed! ${String(signature).slice(0, 20)}...`);
-    } catch (error: any) {
-      // 便于排查「无法唤起设备」：若为解析/SDK 错误会在此打出
-      console.error('[handleSignTypedData]', error);
-      messageApi.error(`Sign failed: ${error?.message || error}`);
+    } catch {
+      // Error already captured by onError / useLedgerError
     }
   };
 
   return (
-    <Space direction="vertical" style={{ width: '100%' }}>
+    <Card title="Account Actions" size="small">
       {contextHolder}
-
-      <Typography.Text>
-        Current: {account.address.slice(0, 10)}...{account.address.slice(-8)}
-      </Typography.Text>
-      <Typography.Text type="secondary">Path: {ledger.derivationPath}</Typography.Text>
-
-      {/* Switch account by index */}
-      <Space>
-        <InputNumber
-          min={0}
-          value={accountIndex}
-          onChange={(val) => setAccountIndex(val ?? 0)}
-          placeholder="Account index"
-          style={{ width: 160 }}
-          addonBefore="Index"
-        />
+      <Space direction="vertical" style={{ width: '100%' }}>
+        <Typography.Text>
+          Address: {account.address.slice(0, 10)}...{account.address.slice(-8)}
+        </Typography.Text>
+        <Typography.Text type="secondary">Path: {ledger.derivationPath}</Typography.Text>
+        <Space>
+          <Button type="primary" onClick={handleSignMessage}>
+            Sign Message
+          </Button>
+          <Button type="primary" onClick={handleSignTypedData}>
+            Sign EIP-712 Typed Data
+          </Button>
+        </Space>
       </Space>
-
-      {/* Sign actions */}
-      <Space>
-        <Button type="primary" onClick={handleSignMessage}>
-          Sign Message
-        </Button>
-        <Button type="primary" onClick={handleSignTypedData}>
-          Sign EIP-712 Typed Data
-        </Button>
-      </Space>
-    </Space>
+    </Card>
   );
 };
 
 const App: React.FC = () => {
   const projectId = 'c07c0051c2055890eade3556618e38a6';
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const handleError = (event: LedgerErrorEvent) => {
+    console.error(`[Ledger ${event.phase}]`, event.code, event.message);
+    messageApi.error(`[${event.phase}] ${event.message}`);
+  };
+
   return (
     <WagmiWeb3ConfigProvider
-      eip6963={{
-        autoAddInjectedWallets: true,
-      }}
+      eip6963={{ autoAddInjectedWallets: true }}
       wallets={[MetaMask(), WalletConnect()]}
       walletConnect={{ projectId }}
     >
-      {/* Ledger USB 连接后会先关闭 ConnectModal，再弹出「选择地址序号」弹窗；此处传入自定义弹窗，不传则使用默认。 */}
+      {contextHolder}
       <LedgerWeb3ConfigProvider
         ledger={ledger}
         autoConnect={true}
         walletConnect={{ projectId, name: 'Ledger' }}
         addressIndexModal={CustomAddressIndexModal}
+        deviceSelectModal={true}
+        onError={handleError}
       >
         <Space direction="vertical" style={{ width: '100%' }}>
-          <Connector modalProps={{ copyQrCodeLink: true, destroyOnClose: true }}>
+          <Connector
+            modalProps={{ copyQrCodeLink: true, destroyOnHidden: true }}
+            onConnectError={(e: any) => {
+              console.log('isLedgerConnected', e);
+            }}
+          >
             <ConnectButton />
           </Connector>
-          <AccountSelector />
+          <LedgerStatusPanel />
+          <AccountActions />
         </Space>
       </LedgerWeb3ConfigProvider>
     </WagmiWeb3ConfigProvider>

@@ -1,12 +1,19 @@
 import { useCallback, useMemo, useRef } from 'react';
 
-// USB 链接时缓存上次连接的钱包
+/**
+ * 上次连接钱包信息的持久化 Hook。
+ *
+ * 通过 localStorage 缓存：
+ * - 钱包名称（walletName）
+ * - 连接类型（USB / WalletConnect）
+ * - 上次选择的地址序号（lastAddressIndex）
+ *
+ * 所有 localStorage 操作均有 SSR 兼容保护（typeof window 守卫 + try/catch），
+ * 在服务端渲染和隐私浏览模式下安全降级。
+ */
+
 const LATEST_WALLET_STORAGE_KEY = 'ANT_DESIGN_WEB3_LEDGER_LATEST_WALLET';
-// WalletConnect 链接时缓存
-const WALLET_CONNECT_STORAGE_KEY = 'ANT_DESIGN_WEB3_LEDGER_LATEST_WALLET_CONNECT';
-// 链接类型
 const LATEST_CONNECT_TYPE_KEY = 'ANT_DESIGN_WEB3_LEDGER_LATEST_CONNECT_TYPE';
-// 上次链接选取的地址序号
 const LAST_ADDRESS_INDEX_KEY = 'ANT_DESIGN_WEB3_LEDGER_LAST_ADDRESS_INDEX';
 
 export type LedgerConnectType = 'USB' | 'WalletConnect';
@@ -14,60 +21,69 @@ export type LedgerConnectType = 'USB' | 'WalletConnect';
 export type LatestWalletParams = {
   walletName?: string;
   latestConnectType?: LedgerConnectType;
-  lastWalletConnect?: string;
   lastAddressIndex?: string;
 };
 
+function safeGetItem(key: string): string | null {
+  try {
+    return typeof window !== 'undefined' ? localStorage.getItem(key) : null;
+  } catch {
+    return null;
+  }
+}
+
+function safeSetItem(key: string, value: string): void {
+  try {
+    if (typeof window !== 'undefined') localStorage.setItem(key, value);
+  } catch {
+    // Ignore storage errors (private browsing, quota exceeded, etc.)
+  }
+}
+
+function safeRemoveItem(key: string): void {
+  try {
+    if (typeof window !== 'undefined') localStorage.removeItem(key);
+  } catch {
+    // Ignore storage errors
+  }
+}
+
 function getStorageInitial(): LatestWalletParams {
-  const walletName = localStorage.getItem(LATEST_WALLET_STORAGE_KEY) ?? undefined;
-  const t = localStorage.getItem(LATEST_CONNECT_TYPE_KEY);
+  const walletName = safeGetItem(LATEST_WALLET_STORAGE_KEY) ?? undefined;
+  const t = safeGetItem(LATEST_CONNECT_TYPE_KEY);
   const latestConnectType =
     t === 'USB' || t === 'WalletConnect' ? (t as LedgerConnectType) : undefined;
-  const lastWalletConnect = localStorage.getItem(WALLET_CONNECT_STORAGE_KEY) ?? undefined;
-  const lastAddressIndex = localStorage.getItem(LAST_ADDRESS_INDEX_KEY) ?? undefined;
-  return { walletName, latestConnectType, lastWalletConnect, lastAddressIndex };
+  const lastAddressIndex = safeGetItem(LAST_ADDRESS_INDEX_KEY) ?? undefined;
+  return { walletName, latestConnectType, lastAddressIndex };
 }
 
 export const useLatestWallet = () => {
   const initial = useMemo(() => getStorageInitial(), []);
   const latestWalletNameRef = useRef<string | undefined>(initial.walletName);
   const latestConnectTypeRef = useRef<LedgerConnectType | undefined>(initial.latestConnectType);
-  const lastWalletConnectRef = useRef<string | undefined>(initial.lastWalletConnect);
   const lastAddressIndexRef = useRef<string | undefined>(initial.lastAddressIndex);
 
   const cacheSelectedWallet = useCallback(
-    ({
-      walletName,
-      latestConnectType,
-      lastWalletConnect,
-      lastAddressIndex,
-    }: LatestWalletParams = {}) => {
+    ({ walletName, latestConnectType, lastAddressIndex }: LatestWalletParams = {}) => {
       if (walletName) {
-        localStorage.setItem(LATEST_WALLET_STORAGE_KEY, walletName);
+        safeSetItem(LATEST_WALLET_STORAGE_KEY, walletName);
         latestWalletNameRef.current = walletName;
       } else {
-        localStorage.removeItem(LATEST_WALLET_STORAGE_KEY);
+        safeRemoveItem(LATEST_WALLET_STORAGE_KEY);
         latestWalletNameRef.current = undefined;
       }
       if (latestConnectType) {
-        localStorage.setItem(LATEST_CONNECT_TYPE_KEY, latestConnectType);
+        safeSetItem(LATEST_CONNECT_TYPE_KEY, latestConnectType);
         latestConnectTypeRef.current = latestConnectType;
       } else {
-        localStorage.removeItem(LATEST_CONNECT_TYPE_KEY);
+        safeRemoveItem(LATEST_CONNECT_TYPE_KEY);
         latestConnectTypeRef.current = undefined;
       }
-      if (lastWalletConnect) {
-        localStorage.setItem(WALLET_CONNECT_STORAGE_KEY, lastWalletConnect);
-        lastWalletConnectRef.current = lastWalletConnect;
-      } else {
-        localStorage.removeItem(WALLET_CONNECT_STORAGE_KEY);
-        lastWalletConnectRef.current = undefined;
-      }
       if (lastAddressIndex) {
-        localStorage.setItem(LAST_ADDRESS_INDEX_KEY, lastAddressIndex);
+        safeSetItem(LAST_ADDRESS_INDEX_KEY, lastAddressIndex);
         lastAddressIndexRef.current = lastAddressIndex;
       } else {
-        localStorage.removeItem(LAST_ADDRESS_INDEX_KEY);
+        safeRemoveItem(LAST_ADDRESS_INDEX_KEY);
         lastAddressIndexRef.current = undefined;
       }
     },
@@ -77,7 +93,6 @@ export const useLatestWallet = () => {
   return {
     latestWalletNameRef,
     latestConnectTypeRef,
-    lastWalletConnectRef,
     lastAddressIndexRef,
     cacheSelectedWallet,
   };

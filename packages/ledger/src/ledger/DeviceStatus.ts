@@ -3,6 +3,11 @@ import type { Subscription } from 'rxjs';
 
 import { getDMK } from './dmk';
 
+/**
+ * 设备状态监听器。
+ * 通过 DMK 的 getDeviceSessionState 订阅 Ledger 设备的连接状态和当前运行的 App 信息。
+ * 当订阅出错时安全地重置状态，不再抛出未捕获异常。
+ */
 class DeviceStatus {
   public deviceStatus: DeviceStatusType | null = null;
   public currentApp: string | null = null;
@@ -30,8 +35,9 @@ class DeviceStatus {
           this.currentApp = appName;
         }
       },
-      error: (error) => {
-        throw new Error(error);
+      error: () => {
+        this.deviceStatus = null;
+        this.currentApp = null;
       },
     });
   };

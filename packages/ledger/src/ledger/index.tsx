@@ -1,18 +1,26 @@
 import type { Account, Wallet } from '@ant-design/web3-common';
 import { LedgerFilled } from '@ant-design/web3-icons';
-import type { DeviceSessionId } from '@ledgerhq/device-management-kit';
-import { DeviceStatus as DeviceStatusType } from '@ledgerhq/device-management-kit';
-import type { Subscription } from 'rxjs';
+import type { DiscoveredDevice } from '@ledgerhq/device-management-kit';
 
-import type { LedgerAccount } from '../types';
-import AppCommand from './AppCommand';
-import AvailableDevices from './AvailableDevices';
-import Connect from './Connect';
-import DeviceStatus from './DeviceStatus';
-import { getDMK } from './dmk';
+import type { LedgerAccount, LedgerErrorEvent, LedgerErrorPhase } from '../types';
 import { LedgerError } from './errors';
-import EthereumSigner from './EthereumSigner';
+import { USBConnection } from './USBConnection';
+import { USBStatusMonitor } from './USBStatusMonitor';
+import { WalletConnectBridge } from './WalletConnectBridge';
 
+type ConnectType = 'USB' | 'WalletConnect';
+type ErrorListener = (event: LedgerErrorEvent) => void;
+
+/**
+ * Ledger 门面类，作为 USB 和 WalletConnect 两种连接方式的统一入口。
+ *
+ * 核心设计：
+ * - 内部跟踪 _connectType，connectUSB/connectWalletConnect 成功后自动设置
+ * - disconnect() 根据 _connectType 自动路由到对应的断开逻辑
+ * - account getter 统一从 USB accounts 或 WC account 获取当前账户
+ * - signMessage/signTypedData 根据 _connectType 自动选择签名通道
+ * - 通过事件监听器（onError）提供统一的错误通知机制
+ */
 export class Ledger {
   wallet: Wallet = {
     name: 'Ledger',
@@ -28,576 +36,244 @@ export class Ledger {
     hasWalletReady: async () => true,
   };
 
-  public availableDevices: AvailableDevices;
-  public connectInstance: Connect;
-  public deviceStatus: DeviceStatus;
-  public appCommand: AppCommand;
-  public ethereumSigner: EthereumSigner;
+  public usbConnection: USBConnection;
+  public walletConnectBridge: WalletConnectBridge;
+  public usbStatusMonitor: USBStatusMonitor;
 
-  public derivationPath: string;
-  public basePath: string;
-
-  public sessionId: DeviceSessionId | null = null;
-  public accounts: LedgerAccount[] = [];
-
-  private _getWalletConnectProvider?: () => Promise<any>;
-  private _walletConnectAccount?: Account;
-  private _sessionDeleteHandler?: () => void;
-  /** 由 provider 注入，用于 signMessage/signTypedData 根据连接类型分支 */
-  private _getConnectType?: () => 'USB' | 'WalletConnect' | undefined;
-  /** 长驻订阅：监听 USB session 状态，感知设备拔出 */
-  private _sessionWatchSubscription: Subscription | null = null;
-
-  /** USB 断开时的外部回调（由 provider 注入） */
-  public onUSBDisconnect?: () => void;
+  private _connectType: ConnectType | undefined;
+  private _errorListeners = new Set<ErrorListener>();
 
   constructor(name?: string, derivationPath?: string) {
     this.wallet.name = name || 'Ledger';
-    this.derivationPath = derivationPath || "44'/60'/0'/0/0";
+    const path = derivationPath || "44'/60'/0'/0/0";
 
-    // Extract basePath: e.g. "44'/60'/0'/0" from "44'/60'/0'/0/0"
-    const parts = this.derivationPath.split('/');
-    this.basePath = parts.slice(0, -1).join('/');
-
-    this.availableDevices = new AvailableDevices();
-    this.connectInstance = new Connect();
-    this.deviceStatus = new DeviceStatus();
-    this.appCommand = new AppCommand();
-    this.ethereumSigner = new EthereumSigner();
+    this.usbStatusMonitor = new USBStatusMonitor();
+    this.usbConnection = new USBConnection(path, this.usbStatusMonitor);
+    this.walletConnectBridge = new WalletConnectBridge();
   }
 
+  // ---------------------------------------------------------------------------
+  // Public getters
+  // ---------------------------------------------------------------------------
+
+  get connectType(): ConnectType | undefined {
+    return this._connectType;
+  }
+
+  get account(): Account | undefined {
+    if (this._connectType === 'WalletConnect') {
+      return this.walletConnectBridge.getAccount();
+    }
+    return this.usbConnection.accounts[0];
+  }
+
+  get accounts(): LedgerAccount[] {
+    return this.usbConnection.accounts;
+  }
+
+  get sessionId() {
+    return this.usbConnection.sessionId;
+  }
+
+  get derivationPath(): string {
+    return this.usbConnection.derivationPath;
+  }
+
+  get availableDevices() {
+    return this.usbConnection.availableDevices;
+  }
+
+  // ---------------------------------------------------------------------------
+  // Error event emitter
+  // ---------------------------------------------------------------------------
+
+  onError(listener: ErrorListener): () => void {
+    this._errorListeners.add(listener);
+    return () => {
+      this._errorListeners.delete(listener);
+    };
+  }
+
+  private _emitError(phase: LedgerErrorPhase, error: unknown): void {
+    const event: LedgerErrorEvent = {
+      code: error instanceof LedgerError ? error.code : 'CONNECTION_FAILED',
+      phase,
+      message: error instanceof Error ? error.message : String(error),
+      raw: error instanceof Error ? error : undefined,
+    };
+    this._errorListeners.forEach((l) => l(event));
+  }
+
+  // ---------------------------------------------------------------------------
+  // USB delegation
+  // ---------------------------------------------------------------------------
+
   /**
-   * USB 连接：发现设备、建立 session、检查 Ethereum app。
+   * @deprecated 请通过 useLedgerConnection 使用阶段方法。保留用于兼容。
+   * NO_DEVICE / MULTIPLE_DEVICES / ETHEREUM_APP_NOT_OPEN 为设备状态，不通过 _emitError 广播。
    */
-  public connectUSB = async (returnWhenNoDevice?: boolean) => {
-    this.availableDevices.ensureSubscribed();
-
-    if (this.availableDevices.devices.length === 0) {
-      if (returnWhenNoDevice) {
-        throw new LedgerError('NO_DEVICE', 'No available devices to connect');
-      }
-      try {
-        await this.availableDevices.discover();
-      } catch {
-        throw new LedgerError('NO_DEVICE', 'Failed to discover device');
-      }
-      if (this.availableDevices.devices.length === 0) {
-        throw new LedgerError('NO_DEVICE', 'No Ledger device found. Please connect your device.');
-      }
-    }
-
+  public connectUSB = async (
+    returnWhenNoDevice?: boolean,
+    selectedDevice?: DiscoveredDevice,
+  ): Promise<void> => {
     try {
-      // 暂时取第 1 个设备
-      if (!this.sessionId) {
-        const device = this.availableDevices.devices[0];
-        this.sessionId = await this.connectInstance.connect({ device });
+      await this.usbConnection.connectUSB(returnWhenNoDevice, selectedDevice);
+      this._connectType = 'USB';
+    } catch (error) {
+      const isDeviceState =
+        error instanceof LedgerError &&
+        (error.code === 'NO_DEVICE' ||
+          error.code === 'MULTIPLE_DEVICES' ||
+          error.code === 'ETHEREUM_APP_NOT_OPEN');
+      const isSilent =
+        returnWhenNoDevice && error instanceof LedgerError && error.code === 'NO_DEVICE';
+      // 设备状态（no_device/multiple_devices/app_not_open）不广播为错误，由 phase 表达
+      if (!isDeviceState && !isSilent) {
+        this._emitError('usb:connect', error);
       }
-    } catch {
-      this.sessionId = null;
-      throw new LedgerError('CONNECTION_FAILED', 'Cannot connect to Ledger device');
+      throw error;
     }
-
-    if (!this.sessionId) {
-      throw new LedgerError('CONNECTION_FAILED', 'Cannot connect to Ledger device');
-    }
-
-    // 轮询 15 次，每次间隔 200ms 检查是否在 Ethereum app
-    let appFound = false;
-    try {
-      this.deviceStatus.listenDeviceStatus(this.sessionId);
-      for (let i = 0; i < 15; i++) {
-        if (
-          this.deviceStatus.currentApp === 'Ethereum' &&
-          this.deviceStatus.deviceStatus === DeviceStatusType.CONNECTED
-        ) {
-          appFound = true;
-          break;
-        }
-        await new Promise((resolve) => {
-          setTimeout(resolve, 200);
-        });
-      }
-    } catch {
-      throw new LedgerError(
-        'ETHEREUM_APP_NOT_OPEN',
-        "Failed to connect to Ledger device's Ethereum app. Please open the Ethereum app manually and try again.",
-      );
-    } finally {
-      this.deviceStatus.unsubscribe();
-    }
-
-    if (!appFound && this.deviceStatus.currentApp !== 'Ethereum') {
-      throw new LedgerError(
-        'ETHEREUM_APP_NOT_OPEN',
-        "Failed to connect to Ledger device's Ethereum app. Please open the Ethereum app manually and try again.",
-      );
-    }
-
-    this._watchSession(this.sessionId);
   };
 
-  /**
-   * 仅获取指定索引的地址（用于弹窗预览），不改变当前账户。
-   * @param index 地址序号（字符串，与 LAST_ADDRESS_INDEX_KEY 存储一致）
-   */
   public getAddressAtIndex = async (index: string): Promise<string> => {
-    if (!this.sessionId) {
-      throw new LedgerError('NO_SESSION', 'No session. Please connect to Ledger device first.');
-    }
-    const path = `${this.basePath}/${index}`;
     try {
-      const address = await this.ethereumSigner.getAddress(this.sessionId, path);
-      return address;
-    } catch {
-      throw new LedgerError('CANNOT_GET_ADDRESS', 'Failed to get address at index ' + index);
+      return await this.usbConnection.getAddressAtIndex(index);
+    } catch (error) {
+      this._emitError('usb:getAddress', error);
+      throw error;
     }
   };
 
-  /**
-   * USB 连接成功后，按「第几个地址」获取并设置为当前账户。
-   * @param index 地址序号（字符串，与 LAST_ADDRESS_INDEX_KEY 存储一致）
-   */
   public setAddressIndex = async (index: string): Promise<void> => {
-    if (!this.sessionId) {
-      throw new LedgerError('NO_SESSION', 'No session. Please connect to Ledger device first.');
-    }
-    const path = `${this.basePath}/${index}`;
     try {
-      const address = await this.ethereumSigner.getAddress(this.sessionId, path);
-      this.derivationPath = path;
-      this.accounts = [{ address, path }];
-    } catch {
-      throw new LedgerError('CANNOT_GET_ADDRESS', 'Failed to get address at index ' + index);
+      await this.usbConnection.setAddressIndex(index);
+    } catch (error) {
+      this._emitError('usb:getAddress', error);
+      throw error;
     }
   };
 
-  public disconnect = async () => {
+  public getAvailableDevices = (): DiscoveredDevice[] => {
+    return this.usbConnection.getAvailableDevices();
+  };
+
+  /** 当通过阶段方法（connectToDevice + checkAppStatus）建立 USB 连接后，由 useLedgerConnection 调用以标记连接类型 */
+  public markUSBConnected = (): void => {
+    this._connectType = 'USB';
+  };
+
+  // ---------------------------------------------------------------------------
+  // WalletConnect delegation
+  // ---------------------------------------------------------------------------
+
+  public connectWalletConnect = async (): Promise<Account> => {
     try {
-      this._unwatchSession();
-      this.ethereumSigner.unsubscribe();
-      this.appCommand.closeApp();
-      this.deviceStatus.unsubscribe();
-      await this.connectInstance.disconnect();
-      this.accounts = [];
-      this.sessionId = null;
-    } catch {
-      // Ignore disconnect errors, ensure cleanup still happens
-      this.accounts = [];
-      this.sessionId = null;
+      const account = await this.walletConnectBridge.connect();
+      this._connectType = 'WalletConnect';
+      return account;
+    } catch (error) {
+      this._emitError('wc:connect', error);
+      throw error;
     }
   };
 
   /**
-   * USB 签名：仅走 USB 通道（personal_sign 或 EIP-712）。
-   * 与 WalletConnect 签名完全独立。
+   * Explicitly disconnect WalletConnect session only.
+   * Used before establishing a new WC connection to clear stale sessions.
    */
-  public signWithUSB = async (
-    params: { type: 'message'; message: string } | { type: 'typedData'; typedData: any },
-  ): Promise<any> => {
-    if (!this.sessionId) {
-      throw new LedgerError(
-        'NO_SESSION',
-        'No session. Please connect to Ledger device via USB first.',
-      );
-    }
-    if (params.type === 'message') {
-      try {
-        return await this.ethereumSigner.signMessage(
-          this.sessionId,
-          this.derivationPath,
-          params.message,
-        );
-      } catch {
-        throw new LedgerError('SIGN_MESSAGE_FAILED', 'Failed to sign message');
-      }
-    }
+  public disconnectWalletConnect = async (): Promise<void> => {
     try {
-      return await this.ethereumSigner.signTypedData(
-        this.sessionId,
-        this.derivationPath,
-        params.typedData,
-      );
-    } catch {
-      throw new LedgerError('SIGN_TYPED_DATA_FAILED', 'Failed to sign typed data');
+      await this.walletConnectBridge.disconnect();
+    } catch (error) {
+      this._emitError('wc:disconnect', error);
+      throw error;
     }
-  };
-
-  /**
-   * WalletConnect 签名：仅走 WalletConnect 通道（personal_sign 或 EIP-712）。
-   * 与 USB 签名完全独立。
-   */
-  public signWithWalletConnect = async (
-    params: { type: 'message'; message: string } | { type: 'typedData'; typedData: any },
-  ): Promise<any> => {
-    if (params.type === 'message') {
-      return this._signMessageWithWalletConnect(params.message);
-    }
-    return this._signTypedDataWithWalletConnect(params.typedData);
-  };
-
-  /**
-   * 统一签名入口：优先根据 connectType（由 provider 通过 setConnectTypeGetter 注入 latestConnectTypeRef）委托；
-   * 未注入时回退为根据 _walletConnectAccount 判断。
-   */
-  public signMessage = async (message: string) => {
-    const connectType = this._getConnectType?.();
-    const useWalletConnect = connectType === 'WalletConnect' && this._walletConnectAccount;
-    if (useWalletConnect) {
-      return this.signWithWalletConnect({ type: 'message', message });
-    }
-    return this.signWithUSB({ type: 'message', message });
-  };
-
-  /**
-   * 统一签名入口：优先根据 connectType（由 provider 通过 setConnectTypeGetter 注入 latestConnectTypeRef）委托；
-   * 未注入时回退为根据 _walletConnectAccount 判断。
-   */
-  public signTypedData = async (typedData: any) => {
-    const connectType = this._getConnectType?.();
-    const useWalletConnect = connectType === 'WalletConnect' && this._walletConnectAccount;
-    if (useWalletConnect) {
-      return this.signWithWalletConnect({ type: 'typedData', typedData });
-    }
-    return this.signWithUSB({ type: 'typedData', typedData });
-  };
-
-  /** 由 provider 注入 latestConnectTypeRef 的 getter，用于签名分支判断 */
-  public setConnectTypeGetter = (getter: () => 'USB' | 'WalletConnect' | undefined) => {
-    this._getConnectType = getter;
-  };
-
-  public setWalletConnectProviderGetter = (providerGetter: () => Promise<any>) => {
-    this._getWalletConnectProvider = providerGetter;
-  };
-
-  /**
-   * WalletConnect 连接：配对/复用 session、解析账户。
-   */
-  public connectWalletConnect = async () => {
-    if (!this._getWalletConnectProvider) {
-      throw new LedgerError('WALLETCONNECT_NOT_CONFIGURED', 'WalletConnect is not configured');
-    }
-
-    const provider = await this._getWalletConnectProvider();
-    if (!provider) {
-      throw new LedgerError(
-        'WALLETCONNECT_PROVIDER_NOT_AVAILABLE',
-        'WalletConnect provider not available',
-      );
-    }
-
-    try {
-      // Reuse existing session when present (e.g. restored from storage after refresh)
-      const hasSession = Boolean(provider.session);
-      const hasPairing = provider.client?.session?.map?.size > 0;
-      const skipPairing = hasSession || hasPairing;
-
-      // Connect to WalletConnect
-      // When skipPairing is true, connect() returns immediately with existing session (no new pairing)
-      await provider.connect({
-        namespaces: {
-          eip155: {
-            methods: [
-              'eth_sendTransaction',
-              'eth_signTransaction',
-              'eth_sign',
-              'eth_signTypedData',
-              'personal_sign',
-            ],
-            chains: ['eip155:1'], // Mainnet, can be extended
-            events: ['chainChanged', 'accountsChanged'],
-          },
-        },
-        skipPairing,
-      });
-
-      // Get session after connection (mobile wallet confirmed or existing session used)
-      const session = provider.session;
-      if (!session) {
-        throw new LedgerError(
-          'WALLETCONNECT_SESSION_NOT_AVAILABLE',
-          'WalletConnect session not available',
-        );
-      }
-
-      // Listen for session_delete event to handle remote disconnection
-      this._sessionDeleteHandler = () => {
-        this._walletConnectAccount = undefined;
-      };
-      provider.on('session_delete', this._sessionDeleteHandler);
-
-      const accounts = session.namespaces.eip155?.accounts || [];
-      if (accounts.length === 0) {
-        throw new LedgerError(
-          'WALLETCONNECT_NO_ACCOUNTS',
-          'No accounts found in WalletConnect session',
-        );
-      }
-
-      // Extract address from account string (format: eip155:1:0x...)
-      const address = accounts[0].split(':')[2];
-      if (!address) {
-        throw new LedgerError(
-          'WALLETCONNECT_INVALID_ACCOUNT',
-          'Invalid account format from WalletConnect',
-        );
-      }
-
-      this._walletConnectAccount = {
-        address,
-      };
-
-      // Ping session so the mobile wallet receives activity and can show "connected"
-      try {
-        const client = (
-          provider as { client?: { ping?: (params: { topic: string }) => Promise<void> } }
-        ).client;
-        if (client?.ping && session.topic) {
-          await client.ping({ topic: session.topic });
-        }
-      } catch {
-        // Non-fatal: session is still valid for the DApp
-      }
-
-      return this._walletConnectAccount;
-    } catch (error: any) {
-      if (error instanceof LedgerError) {
-        throw error;
-      }
-      throw new LedgerError(
-        'WALLETCONNECT_CONNECTION_FAILED',
-        error?.message || 'Failed to connect via WalletConnect',
-      );
-    }
-  };
-
-  public disconnectWalletConnect = async () => {
-    if (this._getWalletConnectProvider) {
-      try {
-        const provider = await this._getWalletConnectProvider();
-        if (provider) {
-          // Remove session_delete listener
-          if (this._sessionDeleteHandler) {
-            provider.off('session_delete', this._sessionDeleteHandler);
-            this._sessionDeleteHandler = undefined;
-          }
-
-          if (provider.session) {
-            await provider.disconnect();
-          }
-        }
-      } catch {
-        // Ignore disconnect errors
-      }
-    }
-    this._walletConnectAccount = undefined;
   };
 
   public getWalletConnectAccount = (): Account | undefined => {
-    return this._walletConnectAccount;
+    return this.walletConnectBridge.getAccount();
   };
 
-  /**
-   * Sign message using WalletConnect
-   * @private
-   */
-  private _signMessageWithWalletConnect = async (message: string): Promise<any> => {
-    if (!this._getWalletConnectProvider) {
-      throw new LedgerError('WALLETCONNECT_NOT_CONFIGURED', 'WalletConnect is not configured');
-    }
-
-    if (!this._walletConnectAccount?.address) {
-      throw new LedgerError('WALLETCONNECT_NO_ACCOUNTS', 'No WalletConnect account available');
-    }
-
-    try {
-      const provider = await this._getWalletConnectProvider();
-      if (!provider) {
-        throw new LedgerError(
-          'WALLETCONNECT_PROVIDER_NOT_AVAILABLE',
-          'WalletConnect provider not available',
-        );
-      }
-
-      const session = provider.session;
-      if (!session) {
-        throw new LedgerError(
-          'WALLETCONNECT_SESSION_NOT_AVAILABLE',
-          'WalletConnect session not available',
-        );
-      }
-
-      // Get chain ID from session (format: eip155:1)
-      const accounts = session.namespaces.eip155?.accounts || [];
-      if (accounts.length === 0) {
-        throw new LedgerError(
-          'WALLETCONNECT_NO_ACCOUNTS',
-          'No accounts found in WalletConnect session',
-        );
-      }
-
-      // Extract chain ID from account string (format: eip155:1:0x...)
-      const chainId = accounts[0].split(':')[1];
-      const chain = chainId ? `eip155:${chainId}` : undefined;
-
-      // Convert message to hex string if it's not already
-      let messageHex: string;
-      if (message.startsWith('0x')) {
-        messageHex = message;
-      } else {
-        // Convert string to hex using TextEncoder for browser compatibility
-        const encoder = new TextEncoder();
-        const bytes = encoder.encode(message);
-        messageHex = `0x${Array.from(bytes)
-          .map((byte) => byte.toString(16).padStart(2, '0'))
-          .join('')}`;
-      }
-
-      // Call personal_sign via WalletConnect
-      const signature = (await provider.request(
-        {
-          method: 'personal_sign',
-          params: [messageHex, this._walletConnectAccount.address],
-        },
-        chain,
-      )) as string;
-
-      return signature;
-    } catch (error: any) {
-      if (error instanceof LedgerError) {
-        throw error;
-      }
-      throw new LedgerError(
-        'SIGN_MESSAGE_FAILED',
-        error?.message || 'Failed to sign message via WalletConnect',
-      );
-    }
+  public setWalletConnectProviderGetter = (getter: () => Promise<any>): void => {
+    this.walletConnectBridge.setProviderGetter(getter);
   };
 
-  /**
-   * Sign typed data (EIP-712) using WalletConnect
-   * @private
-   */
-  private _signTypedDataWithWalletConnect = async (typedData: any): Promise<any> => {
-    if (!this._getWalletConnectProvider) {
-      throw new LedgerError('WALLETCONNECT_NOT_CONFIGURED', 'WalletConnect is not configured');
-    }
+  // ---------------------------------------------------------------------------
+  // Unified disconnect (routes based on internal connectType)
+  // ---------------------------------------------------------------------------
 
-    if (!this._walletConnectAccount?.address) {
-      throw new LedgerError('WALLETCONNECT_NO_ACCOUNTS', 'No WalletConnect account available');
-    }
+  public disconnect = async (): Promise<void> => {
+    const type = this._connectType;
+    this._connectType = undefined;
 
-    try {
-      const provider = await this._getWalletConnectProvider();
-      if (!provider) {
-        throw new LedgerError(
-          'WALLETCONNECT_PROVIDER_NOT_AVAILABLE',
-          'WalletConnect provider not available',
-        );
-      }
-
-      const session = provider.session;
-      if (!session) {
-        throw new LedgerError(
-          'WALLETCONNECT_SESSION_NOT_AVAILABLE',
-          'WalletConnect session not available',
-        );
-      }
-
-      // Get chain ID from session (format: eip155:1)
-      const accounts = session.namespaces.eip155?.accounts || [];
-      if (accounts.length === 0) {
-        throw new LedgerError(
-          'WALLETCONNECT_NO_ACCOUNTS',
-          'No accounts found in WalletConnect session',
-        );
-      }
-
-      // Extract chain ID from account string (format: eip155:1:0x...)
-      const chainId = accounts[0].split(':')[1];
-      const chain = chainId ? `eip155:${chainId}` : undefined;
-
-      // Ensure chainId in domain is a number (not string) for proper serialization
-      const normalizedTypedData = {
-        ...typedData,
-        domain: {
-          ...typedData.domain,
-          chainId:
-            typeof typedData.domain?.chainId === 'string'
-              ? parseInt(typedData.domain.chainId, 10)
-              : typedData.domain?.chainId,
-        },
-      };
-
-      // Call eth_signTypedData via WalletConnect
-      // Note: WalletConnect v2 expects the second parameter to be a JSON string
-      // Some wallets may also support eth_signTypedData_v4
-      let signature: string;
+    if (type === 'WalletConnect') {
       try {
-        // Try eth_signTypedData_v4 first (preferred for WalletConnect v2)
-        signature = (await provider.request(
-          {
-            method: 'eth_signTypedData_v4',
-            params: [this._walletConnectAccount.address, JSON.stringify(normalizedTypedData)],
-          },
-          chain,
-        )) as string;
-      } catch (error: any) {
-        // Fallback to eth_signTypedData if v4 is not supported
-        signature = (await provider.request(
-          {
-            method: 'eth_signTypedData',
-            params: [this._walletConnectAccount.address, JSON.stringify(normalizedTypedData)],
-          },
-          chain,
-        )) as string;
-      }
-
-      return signature;
-    } catch (error: any) {
-      if (error instanceof LedgerError) {
+        await this.walletConnectBridge.disconnect();
+      } catch (error) {
+        this._emitError('wc:disconnect', error);
         throw error;
       }
-      throw new LedgerError(
-        'SIGN_TYPED_DATA_FAILED',
-        error?.message || 'Failed to sign typed data via WalletConnect',
-      );
+    } else {
+      try {
+        await this.usbConnection.disconnect();
+      } catch (error) {
+        this._emitError('usb:disconnect', error);
+        throw error;
+      }
     }
   };
 
   /**
-   * USB 连接成功后，对当前 session 保持长驻订阅。
-   * 当设备被拔出时 DMK 会移除 session，Observable 触发 error/complete 或
-   * 发出 NOT_CONNECTED 状态，此时清空 sessionId 并通知上层。
+   * Disconnect USB only (without clearing WalletConnect).
+   * Used internally when switching from USB to another connection.
    */
-  private _watchSession = (sessionId: string) => {
-    this._unwatchSession();
-    const dmk = getDMK();
-
-    this._sessionWatchSubscription = dmk.getDeviceSessionState({ sessionId }).subscribe({
-      next: (state) => {
-        if (state.deviceStatus === DeviceStatusType.NOT_CONNECTED) {
-          this._handleUSBDisconnect();
-        }
-      },
-      error: () => {
-        this._handleUSBDisconnect();
-      },
-      complete: () => {
-        this._handleUSBDisconnect();
-      },
-    });
+  public disconnectUSB = async (): Promise<void> => {
+    try {
+      await this.usbConnection.disconnect();
+      if (this._connectType === 'USB') {
+        this._connectType = undefined;
+      }
+    } catch (error) {
+      this._emitError('usb:disconnect', error);
+      throw error;
+    }
   };
 
-  private _unwatchSession = () => {
-    this._sessionWatchSubscription?.unsubscribe();
-    this._sessionWatchSubscription = null;
+  // ---------------------------------------------------------------------------
+  // Unified signing router
+  // ---------------------------------------------------------------------------
+
+  public signMessage = async (message: string): Promise<any> => {
+    if (this._connectType === 'WalletConnect' && this.walletConnectBridge.getAccount()) {
+      try {
+        return await this.walletConnectBridge.signMessage(message);
+      } catch (error) {
+        this._emitError('wc:sign', error);
+        throw error;
+      }
+    }
+    try {
+      return await this.usbConnection.signWithUSB({ type: 'message', message });
+    } catch (error) {
+      this._emitError('usb:sign', error);
+      throw error;
+    }
   };
 
-  private _handleUSBDisconnect = () => {
-    this._unwatchSession();
-    this.sessionId = null;
-    this.accounts = [];
-    this.onUSBDisconnect?.();
+  public signTypedData = async (typedData: any): Promise<any> => {
+    if (this._connectType === 'WalletConnect' && this.walletConnectBridge.getAccount()) {
+      try {
+        return await this.walletConnectBridge.signTypedData(typedData);
+      } catch (error) {
+        this._emitError('wc:sign', error);
+        throw error;
+      }
+    }
+    try {
+      return await this.usbConnection.signWithUSB({ type: 'typedData', typedData });
+    } catch (error) {
+      this._emitError('usb:sign', error);
+      throw error;
+    }
   };
 }
