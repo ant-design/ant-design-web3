@@ -44,7 +44,7 @@
     "@ant-design/web3-assets": "workspace:*",
     "@ant-design/web3-common": "workspace:*",
     "@tronweb3/tronwallet-abstract-adapter": "^1.1.9",
-    "@tronweb3/tronwallet-adapter-react-hooks": "^1.1.10",
+    "@tronweb3/tronwallet-adapter-react-hooks": "^1.1.11",
     "@tronweb3/tronwallet-adapter-walletconnect": "^2.0.3",
     "@tronweb3/tronwallet-adapter-tronlink": "^1.1.12",
     "@tronweb3/tronwallet-adapter-okxwallet": "^1.0.6",
