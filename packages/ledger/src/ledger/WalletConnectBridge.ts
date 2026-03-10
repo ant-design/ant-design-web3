@@ -177,10 +177,7 @@ export class WalletConnectBridge {
       )) as string;
     } catch (error: any) {
       if (error instanceof LedgerError) throw error;
-      throw new LedgerError(
-        'SIGN_MESSAGE_FAILED',
-        error?.message || 'Failed to sign message via WalletConnect',
-      );
+      throw new LedgerError('SIGN_MESSAGE_FAILED', error?.message || 'Reject');
     }
   }
 
@@ -218,10 +215,7 @@ export class WalletConnectBridge {
       return signature;
     } catch (error: any) {
       if (error instanceof LedgerError) throw error;
-      throw new LedgerError(
-        'SIGN_TYPED_DATA_FAILED',
-        error?.message || 'Failed to sign typed data via WalletConnect',
-      );
+      throw new LedgerError('SIGN_TYPED_DATA_FAILED', error?.message || 'Reject');
     }
   }
 

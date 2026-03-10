@@ -291,8 +291,8 @@ export class USBConnection {
           this.derivationPath,
           params.message,
         );
-      } catch {
-        throw new LedgerError('SIGN_MESSAGE_FAILED', 'Failed to sign message');
+      } catch (error: any) {
+        throw new LedgerError('SIGN_MESSAGE_FAILED', error?.message || 'Reject');
       }
     }
     try {
@@ -301,8 +301,8 @@ export class USBConnection {
         this.derivationPath,
         params.typedData,
       );
-    } catch {
-      throw new LedgerError('SIGN_TYPED_DATA_FAILED', 'Failed to sign typed data');
+    } catch (error: any) {
+      throw new LedgerError('SIGN_TYPED_DATA_FAILED', error?.message || 'Reject');
     }
   }
 }
