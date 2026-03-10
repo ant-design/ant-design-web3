@@ -9,7 +9,7 @@ import { LedgerError } from './errors';
  * - 建立/断开 WalletConnect 会话，解析 EIP-155 账户
  * - 通过 personal_sign / eth_signTypedData_v4 发送签名请求
  * - 提供 getQrCodeUri() 获取 WalletConnect 配对 URI（供 QR 码展示）
- * - 监听 session_delete 事件，会话被远端删除时自动清理 account
+ * - 监听 session_delete 事件，会话被远端删除时自动清理 account 并移除监听（避免移动端主动断开后监听器泄漏）
  */
 export class WalletConnectBridge {
   private _getProvider?: () => Promise<any>;
@@ -71,9 +71,25 @@ export class WalletConnectBridge {
         );
       }
 
-      this._sessionDeleteHandler = () => {
+      // 移除可能存在的旧监听（例如上次由移动端断开，未走 disconnect()）
+      if (this._sessionDeleteHandler) {
+        provider.off('session_delete', this._sessionDeleteHandler);
+        this._sessionDeleteHandler = undefined;
+      }
+
+      const handler = () => {
         this._account = undefined;
+        const toRemove = this._sessionDeleteHandler;
+        this._sessionDeleteHandler = undefined;
+        // 移动端主动断开时也会触发 session_delete，此时不会走 disconnect()，
+        // 必须在此移除监听，避免监听器泄漏及重复 connect 时多次注册
+        if (toRemove && this._getProvider) {
+          this._getProvider().then((p) => {
+            if (p) p.off('session_delete', toRemove);
+          });
+        }
       };
+      this._sessionDeleteHandler = handler;
       provider.on('session_delete', this._sessionDeleteHandler);
 
       const accounts: string[] = session.namespaces.eip155?.accounts || [];
