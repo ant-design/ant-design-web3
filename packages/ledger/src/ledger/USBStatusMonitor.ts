@@ -1,25 +1,34 @@
-import { DeviceStatus as DeviceStatusType } from '@ledgerhq/device-management-kit';
+import { DeviceStatus } from '@ledgerhq/device-management-kit';
 import type { Subscription } from 'rxjs';
 
-import type { USBDeviceState } from '../types';
+import type { MonitorDeviceInfo } from '../types';
 import { getDMK } from './dmk';
 
-type Listener = (state: USBDeviceState) => void;
+type Listener = (state: MonitorDeviceInfo) => void;
 
-const INITIAL_STATE: USBDeviceState = { phase: 'idle' };
+const INITIAL_STATE: MonitorDeviceInfo = {
+  deviceStatus: DeviceStatus.NOT_CONNECTED,
+};
 
+/**
+ * DMK 会话事件桥梁。
+ *
+ * 职责单一：订阅 DMK `getDeviceSessionState` 并将设备状态与元数据
+ * （deviceStatus / currentApp / deviceModel / sessionId）推送给监听者。
+ * 不管理业务 phase，不接受外部手动写入。
+ */
 export class USBStatusMonitor {
-  private _state: USBDeviceState = { ...INITIAL_STATE };
+  private _state: MonitorDeviceInfo = { ...INITIAL_STATE };
   private _listeners = new Set<Listener>();
   private _subscription: Subscription | null = null;
 
-  get state(): USBDeviceState {
+  get state(): MonitorDeviceInfo {
     return this._state;
   }
 
   /**
-   * Subscribe to DMK session state and map it to USBDeviceState.
-   * Automatically detects device disconnect.
+   * Subscribe to DMK session state.
+   * Pushes deviceStatus + device metadata to listeners.
    */
   watch(sessionId: string): void {
     this.unwatch();
@@ -27,8 +36,12 @@ export class USBStatusMonitor {
 
     this._subscription = dmk.getDeviceSessionState({ sessionId }).subscribe({
       next: (raw) => {
-        if (raw.deviceStatus === DeviceStatusType.NOT_CONNECTED) {
-          this._setState({ phase: 'disconnected', sessionId: undefined, currentApp: undefined });
+        if (raw.deviceStatus === DeviceStatus.NOT_CONNECTED) {
+          this._setState({
+            deviceStatus: DeviceStatus.NOT_CONNECTED,
+            sessionId: undefined,
+            currentApp: undefined,
+          });
           return;
         }
 
@@ -36,32 +49,28 @@ export class USBStatusMonitor {
         const deviceModel = (raw as any)?.deviceModel?.model as string | undefined;
 
         this._setState({
-          phase: 'connected',
+          deviceStatus: raw.deviceStatus,
           sessionId,
           currentApp: appName ?? this._state.currentApp,
           deviceModel: deviceModel ?? this._state.deviceModel,
         });
       },
       error: () => {
-        this._setState({ phase: 'disconnected', sessionId: undefined });
+        this._setState({ ...INITIAL_STATE });
       },
       complete: () => {
-        this._setState({ phase: 'disconnected', sessionId: undefined });
+        this._setState({ ...INITIAL_STATE });
       },
     });
   }
 
+  /**
+   * Unsubscribe and reset to initial state (NOT_CONNECTED, no metadata).
+   */
   unwatch(): void {
     this._subscription?.unsubscribe();
     this._subscription = null;
-  }
-
-  /**
-   * Allow external callers (e.g. USBConnection) to push state transitions
-   * such as `connecting` or `idle`.
-   */
-  updateState(partial: Partial<USBDeviceState>): void {
-    this._setState({ ...this._state, ...partial });
+    this._setState({ ...INITIAL_STATE });
   }
 
   onChange(listener: Listener): () => void {
@@ -71,7 +80,7 @@ export class USBStatusMonitor {
     };
   }
 
-  private _setState(next: USBDeviceState): void {
+  private _setState(next: MonitorDeviceInfo): void {
     this._state = next;
     this._listeners.forEach((l) => l(next));
   }

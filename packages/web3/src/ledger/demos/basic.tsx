@@ -1,74 +1,95 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ConnectButton, Connector, useAccount } from '@ant-design/web3';
 import {
+  DeviceStatus,
   Ledger,
+  LedgerExtendedPhase,
   LedgerWeb3ConfigProvider,
   useLedgerActions,
   useLedgerError,
   useLedgerUSBStatus,
   type LedgerAddressIndexModalProps,
+  type LedgerConnectionPhase,
   type LedgerErrorEvent,
 } from '@ant-design/web3-ledger';
 import { MetaMask, WagmiWeb3ConfigProvider, WalletConnect } from '@ant-design/web3-wagmi';
-import {
-  Alert,
-  Badge,
-  Button,
-  Card,
-  InputNumber,
-  message,
-  Modal,
-  Space,
-  Tag,
-  Typography,
-} from 'antd';
+import { Alert, App, Badge, Button, Card, InputNumber, Modal, Space, Tag, Typography } from 'antd';
 
 const ledger = new Ledger();
 
 /** phase 到 UI 提示的映射（由 useLedgerUSBStatus 驱动） */
-const PHASE_PROMPTS: Record<string, { color: string; label: string; hint?: string }> = {
-  idle: { color: 'default', label: 'Idle' },
-  detecting: { color: 'processing', label: 'Detecting...', hint: '正在检测设备...' },
-  connected: { color: 'success', label: 'Connected', hint: '已连接' },
-  disconnected: { color: 'error', label: 'Disconnected', hint: '设备已断开' },
-  no_device: {
+const PHASE_PROMPTS: Partial<
+  Record<LedgerConnectionPhase, { color: string; label: string; hint?: string }>
+> = {
+  [LedgerExtendedPhase.IDLE]: { color: 'default', label: 'Idle' },
+  [LedgerExtendedPhase.DETECTING]: {
+    color: 'processing',
+    label: 'Detecting...',
+    hint: '正在检测设备...',
+  },
+  [DeviceStatus.CONNECTED]: { color: 'success', label: 'Connected', hint: '已连接' },
+  [DeviceStatus.NOT_CONNECTED]: { color: 'error', label: 'Disconnected', hint: '设备已断开' },
+  [DeviceStatus.BUSY]: { color: 'processing', label: 'Busy', hint: '设备忙' },
+  [LedgerExtendedPhase.NO_DEVICE]: {
     color: 'error',
     label: 'No Device',
     hint: '未检测到硬件设备，请插入 Ledger 设备',
   },
-  multiple_devices: {
+  [LedgerExtendedPhase.MULTIPLE_DEVICES]: {
     color: 'warning',
     label: 'Multiple Devices',
     hint: '请在上方弹窗中选择要连接的设备',
   },
-  device_locked: {
+  [DeviceStatus.LOCKED]: {
     color: 'warning',
     label: 'Device Locked',
     hint: '请解锁设备并打开 Ethereum App',
   },
-  app_not_open: {
+  [LedgerExtendedPhase.APP_NOT_OPEN]: {
     color: 'warning',
     label: 'App Not Open',
     hint: '请在设备上打开 Ethereum App',
   },
-  ready: { color: 'processing', label: 'Ready', hint: '设备就绪，请选择地址' },
-  selecting_address: {
+  [LedgerExtendedPhase.SELECTING_ADDRESS]: {
     color: 'processing',
     label: 'Selecting Address',
     hint: '请在上方弹窗中选择地址序号',
   },
 };
 
+const DEFAULT_PHASE_PROMPT: { color: string; label: string; hint?: string } = {
+  color: 'default',
+  label: 'Idle',
+};
+
 /** 需要用户操作后可重试的 phase */
-const RETRYABLE_PHASES = ['no_device', 'device_locked', 'app_not_open'];
+const RETRYABLE_PHASES: LedgerConnectionPhase[] = [
+  LedgerExtendedPhase.NO_DEVICE,
+  DeviceStatus.LOCKED,
+  LedgerExtendedPhase.APP_NOT_OPEN,
+];
 
 /** 实时展示 phase 驱动的 USB 设备状态、提示和错误信息 */
 const LedgerStatusPanel: React.FC = () => {
   const usbStatus = useLedgerUSBStatus();
   const { error, clearError } = useLedgerError();
   const { retryConnect } = useLedgerActions();
-  const phaseInfo = PHASE_PROMPTS[usbStatus.phase] ?? PHASE_PROMPTS.idle;
+  const prevPhaseRef = useRef<LedgerConnectionPhase>(usbStatus.phase);
+  const phaseInfo = PHASE_PROMPTS[usbStatus.phase] ?? DEFAULT_PHASE_PROMPT;
   const showRetry = RETRYABLE_PHASES.includes(usbStatus.phase);
+
+  // 仅在用户点击连接后、因设备未解锁或 App 未打开而进入对应 phase 时做一次操作反馈（不随状态反复弹）
+  useEffect(() => {
+    const phase = usbStatus.phase;
+    const prev = prevPhaseRef.current;
+    prevPhaseRef.current = phase;
+    if (prev !== LedgerExtendedPhase.DETECTING) return;
+    if (phase === DeviceStatus.LOCKED) {
+      console.warn('设备已锁定，请解锁设备并打开 Ethereum App 后点击「重试连接」');
+    } else if (phase === LedgerExtendedPhase.APP_NOT_OPEN) {
+      console.warn('请在 Ledger 上打开 Ethereum App，然后点击「重试连接」');
+    }
+  }, [usbStatus.phase]);
 
   return (
     <Card
@@ -161,15 +182,16 @@ const CustomAddressIndexModal: React.FC<LedgerAddressIndexModalProps> = ({
 };
 
 const AccountActions: React.FC = () => {
+  const { message } = App.useApp();
+
   const { account } = useAccount();
-  const [messageApi, contextHolder] = message.useMessage();
 
   if (!account) return null;
 
   const handleSignMessage = async () => {
     try {
       const signature = await ledger.signMessage('Hello, Ant Design Web3!');
-      messageApi.success(`Signed! ${String(signature).slice(0, 20)}...`);
+      message.success(`Signed! ${String(signature).slice(0, 20)}...`);
     } catch {
       // Error already captured by onError / useLedgerError
     }
@@ -209,7 +231,7 @@ const AccountActions: React.FC = () => {
         },
       };
       const signature = await ledger.signTypedData(typedData);
-      messageApi.success(`Typed data signed! ${String(signature).slice(0, 20)}...`);
+      message.success(`Typed data signed! ${String(signature).slice(0, 20)}...`);
     } catch {
       // Error already captured by onError / useLedgerError
     }
@@ -217,7 +239,6 @@ const AccountActions: React.FC = () => {
 
   return (
     <Card title="Account Actions" size="small">
-      {contextHolder}
       <Space direction="vertical" style={{ width: '100%' }}>
         <Typography.Text>
           Address: {account.address.slice(0, 10)}...{account.address.slice(-8)}
@@ -236,13 +257,13 @@ const AccountActions: React.FC = () => {
   );
 };
 
-const App: React.FC = () => {
+const LedgerDemo: React.FC = () => {
   const projectId = 'c07c0051c2055890eade3556618e38a6';
-  const [messageApi, contextHolder] = message.useMessage();
+  const { message } = App.useApp();
 
   const handleError = (event: LedgerErrorEvent) => {
     console.error(`[Ledger ${event.phase}]`, event.code, event.message);
-    messageApi.error(`[${event.phase}] ${event.message}`);
+    message.error(`[${event.phase}] ${event.message}`);
   };
 
   return (
@@ -251,7 +272,6 @@ const App: React.FC = () => {
       wallets={[MetaMask(), WalletConnect()]}
       walletConnect={{ projectId }}
     >
-      {contextHolder}
       <LedgerWeb3ConfigProvider
         ledger={ledger}
         autoConnect={true}
@@ -277,4 +297,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default LedgerDemo;

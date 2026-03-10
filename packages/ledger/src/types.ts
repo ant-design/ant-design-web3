@@ -1,7 +1,10 @@
 import type { Account, ConnectOptions } from '@ant-design/web3-common';
+import { DeviceStatus } from '@ledgerhq/device-management-kit';
 import type { DiscoveredDevice } from '@ledgerhq/device-management-kit';
 
 import type { LedgerErrorCode } from './ledger/errors';
+
+export { DeviceStatus };
 
 export interface LedgerAccount extends Account {
   path?: string;
@@ -20,21 +23,49 @@ export type LedgerConnectOptions = ConnectOptions & {
 // USB 设备连接阶段
 // ---------------------------------------------------------------------------
 
-/** Ledger USB 连接各阶段，用于表达设备状态而非错误 */
-export type USBConnectionPhase =
-  | 'idle'
-  | 'detecting'
-  | 'no_device'
-  | 'multiple_devices'
-  | 'device_locked'
-  | 'app_not_open'
-  | 'ready'
-  | 'selecting_address'
-  | 'connected'
-  | 'disconnected';
+/**
+ * 业务扩展阶段：DMK DeviceStatus 未覆盖的连接流程状态。
+ *
+ * - IDLE：未开始连接或已取消
+ * - DETECTING：正在发现设备或建立会话
+ * - NO_DEVICE：发现结果：无设备
+ * - MULTIPLE_DEVICES：发现结果：多设备待选
+ * - APP_NOT_OPEN：已连接但未打开目标 App
+ * - SELECTING_ADDRESS：会话就绪，等待用户选择地址
+ */
+export enum LedgerExtendedPhase {
+  IDLE = 'IDLE',
+  DETECTING = 'DETECTING',
+  NO_DEVICE = 'NO_DEVICE',
+  MULTIPLE_DEVICES = 'MULTIPLE_DEVICES',
+  APP_NOT_OPEN = 'APP_NOT_OPEN',
+  SELECTING_ADDRESS = 'SELECTING_ADDRESS',
+}
+
+/**
+ * Ledger 连接阶段 = DMK DeviceStatus 四态 + 业务扩展阶段。
+ *
+ * DeviceStatus（基准，来自 @ledgerhq/device-management-kit）：
+ * - LOCKED：设备已锁定
+ * - BUSY：设备忙
+ * - CONNECTED：设备已连接
+ * - NOT_CONNECTED：设备未连接
+ */
+export type LedgerConnectionPhase = DeviceStatus | LedgerExtendedPhase;
+
+/**
+ * DMK 会话推送的设备信息（由 USBStatusMonitor 管理）。
+ * 不含业务 phase，只反映 DMK 会话级别的设备状态与元数据。
+ */
+export interface MonitorDeviceInfo {
+  deviceStatus: DeviceStatus;
+  currentApp?: string;
+  deviceModel?: string;
+  sessionId?: string;
+}
 
 export interface USBDeviceState {
-  phase: USBConnectionPhase;
+  phase: LedgerConnectionPhase;
   currentApp?: string;
   deviceModel?: string;
   sessionId?: string;

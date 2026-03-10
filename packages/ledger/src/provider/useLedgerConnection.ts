@@ -1,12 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Account, ConnectOptions, Wallet } from '@ant-design/web3-common';
+import { DeviceStatus } from '@ledgerhq/device-management-kit';
 import type { DiscoveredDevice } from '@ledgerhq/device-management-kit';
 
 import type { Ledger } from '../ledger';
+import { LedgerExtendedPhase } from '../types';
 import type {
+  LedgerConnectionPhase,
   LedgerConnectOptions,
   LedgerErrorEvent,
-  USBConnectionPhase,
+  MonitorDeviceInfo,
   USBDeviceState,
 } from '../types';
 import { useCallbackRef } from './useCallbackRef';
@@ -16,11 +19,11 @@ import type { LatestWalletParams, LedgerConnectType } from './useLatestWallet';
  * Ledger 连接核心 Hook，管理设备连接/断开的完整生命周期。
  *
  * 职责：
- * - phase 状态机驱动连接流程（detecting -> no_device/multiple_devices/device_locked/app_not_open -> selecting_address -> connected）
+ * - phase 状态机驱动连接流程（DETECTING -> NO_DEVICE/MULTIPLE_DEVICES/LOCKED/APP_NOT_OPEN -> SELECTING_ADDRESS -> CONNECTED）
  * - 账户状态管理（account / setAccount）
- * - USB 设备状态与 monitor 合并（phase/pendingDevices 自维护，currentApp/deviceModel/sessionId 来自 monitor）
+ * - USB 设备状态：phase/pendingDevices 由 Hook 管理，currentApp/deviceModel/sessionId 来自 monitor（MonitorDeviceInfo）
+ * - 根据 monitor 推送的 deviceStatus 同步 Hook phase（如 LOCKED、NOT_CONNECTED 触发断开清理）
  * - 错误状态管理（lastError / clearError，仅运行时异常）
- * - USB 断开自动检测
  * - connect/disconnect 逻辑（区分 USB 和 WalletConnect 路径）
  * - 操作回调：retryConnect / selectDevice / confirmAddress / cancelConnect
  */
@@ -54,14 +57,14 @@ export interface UseLedgerConnectionReturn {
   connect: (wallet?: Wallet, options?: ConnectOptions) => Promise<Account | undefined>;
   disconnect: () => Promise<void>;
   /** 当前连接阶段 */
-  phase: USBConnectionPhase;
+  phase: LedgerConnectionPhase;
   /** 多设备时的候选列表 */
   pendingDevices: DiscoveredDevice[];
   /** 用户操作回调 */
   actions: LedgerConnectionActions;
-  /** @deprecated 使用 phase === 'selecting_address' */
+  /** @deprecated 使用 phase === LedgerExtendedPhase.SELECTING_ADDRESS */
   awaitingAddressIndex: boolean;
-  /** @deprecated 使用 phase === 'multiple_devices' */
+  /** @deprecated 使用 phase === LedgerExtendedPhase.MULTIPLE_DEVICES */
   awaitingDeviceSelect: boolean;
   completeUsbConnectWithAddressIndex: (index: string) => Promise<void>;
   cancelUsbConnectWithAddressIndex: () => Promise<void>;
@@ -81,7 +84,7 @@ export function useLedgerConnection({
   onError,
 }: UseLedgerConnectionParams): UseLedgerConnectionReturn {
   const [account, setAccount] = useState<Account | undefined>(undefined);
-  const [phase, setPhase] = useState<USBConnectionPhase>('idle');
+  const [phase, setPhase] = useState<LedgerConnectionPhase>(LedgerExtendedPhase.IDLE);
   const [pendingDevices, setPendingDevices] = useState<DiscoveredDevice[]>([]);
 
   const accountRef = useCallbackRef(account);
@@ -90,8 +93,10 @@ export function useLedgerConnection({
   const connectingRef = useRef(false);
   const cancelledRef = useRef(false);
 
-  // Monitor 状态（currentApp, deviceModel, sessionId, disconnected）
-  const [monitorState, setMonitorState] = useState<USBDeviceState>({ phase: 'idle' });
+  // Monitor 状态（deviceStatus, currentApp, deviceModel, sessionId）
+  const [monitorState, setMonitorState] = useState<MonitorDeviceInfo>({
+    deviceStatus: DeviceStatus.NOT_CONNECTED,
+  });
 
   useEffect(() => {
     return ledger.usbStatusMonitor.onChange(setMonitorState);
@@ -117,17 +122,48 @@ export function useLedgerConnection({
     });
   }, [ledger, onErrorRef]);
 
-  // USB 物理断开检测：monitor 报告 disconnected 时清理
+  // USB 状态同步：根据 monitor 推送的 deviceStatus 同步 Hook phase；锁屏或断开时清除账号并退出连接
+  const isUsbConnectedPhase =
+    phase === DeviceStatus.CONNECTED ||
+    phase === DeviceStatus.LOCKED ||
+    phase === DeviceStatus.BUSY ||
+    phase === LedgerExtendedPhase.SELECTING_ADDRESS;
+
   useEffect(() => {
-    if (monitorState.phase === 'disconnected' && latestConnectTypeRef.current === 'USB') {
-      setPhase('idle');
+    if (latestConnectTypeRef.current !== 'USB') return;
+    const { deviceStatus } = monitorState;
+
+    // 锁屏：直接清除账号并退出连接（能收到 LOCKED 说明当前有 session，必是已连接状态）
+    if (deviceStatus === DeviceStatus.LOCKED) {
+      setPhase(LedgerExtendedPhase.IDLE);
+      setPendingDevices([]);
+      setAccount(undefined);
+      cacheSelectedWallet();
+      onUSBDisconnectRef.current?.();
+      ledger.disconnectUSB().catch(() => {});
+      return;
+    }
+    if (deviceStatus === DeviceStatus.CONNECTED || deviceStatus === DeviceStatus.BUSY) {
+      return; // 保持当前 phase，不落入 NOT_CONNECTED 清理
+    }
+    // 断开：仅当此前处于“已连接”阶段时才清理，避免 IDLE/DETECTING 等阶段收到 NOT_CONNECTED 时误清理
+    if (deviceStatus === DeviceStatus.NOT_CONNECTED && isUsbConnectedPhase) {
+      setPhase(LedgerExtendedPhase.IDLE);
       setPendingDevices([]);
       setAccount(undefined);
       cacheSelectedWallet();
       onUSBDisconnectRef.current?.();
       ledger.disconnectUSB().catch(() => {});
     }
-  }, [monitorState.phase, latestConnectTypeRef, cacheSelectedWallet, onUSBDisconnectRef, ledger]);
+  }, [
+    monitorState,
+    phase,
+    isUsbConnectedPhase,
+    latestConnectTypeRef,
+    cacheSelectedWallet,
+    onUSBDisconnectRef,
+    ledger,
+  ]);
 
   // 注入 WalletConnect provider getter
   useEffect(() => {
@@ -149,7 +185,7 @@ export function useLedgerConnection({
       const { usbConnection } = ledger;
 
       try {
-        setPhase('detecting');
+        setPhase(LedgerExtendedPhase.DETECTING);
         await usbConnection.connectToDevice(device);
         if (cancelledRef.current) return;
 
@@ -158,12 +194,12 @@ export function useLedgerConnection({
 
         if (appStatus.type === 'locked') {
           await usbConnection.disconnect();
-          setPhase(silent ? 'idle' : 'device_locked');
+          setPhase(silent ? LedgerExtendedPhase.IDLE : DeviceStatus.LOCKED);
           return;
         }
         if (appStatus.type === 'app_not_open') {
           await usbConnection.disconnect();
-          setPhase(silent ? 'idle' : 'app_not_open');
+          setPhase(silent ? LedgerExtendedPhase.IDLE : LedgerExtendedPhase.APP_NOT_OPEN);
           return;
         }
 
@@ -181,9 +217,9 @@ export function useLedgerConnection({
             latestConnectType: 'USB',
             lastAddressIndex: addressIndex,
           });
-          setPhase('connected');
+          setPhase(DeviceStatus.CONNECTED);
         } else {
-          setPhase('selecting_address');
+          setPhase(LedgerExtendedPhase.SELECTING_ADDRESS);
         }
       } catch (e) {
         if (!silent) {
@@ -194,7 +230,7 @@ export function useLedgerConnection({
             raw: e instanceof Error ? e : undefined,
           });
         }
-        setPhase(silent ? 'idle' : 'no_device');
+        setPhase(silent ? LedgerExtendedPhase.IDLE : LedgerExtendedPhase.NO_DEVICE);
       } finally {
         connectingRef.current = false;
       }
@@ -207,8 +243,12 @@ export function useLedgerConnection({
       if (!selected) return undefined;
       if (selected.name !== ledger.wallet.name) return undefined;
 
-      // WalletConnect 路径
+      // WalletConnect 路径：先断开 USB 并清空 USB 相关状态，避免会话与 UI 残留
       if (options?.connectType === 'qrCode') {
+        await ledger.disconnectUSB().catch(() => {});
+        setPhase(LedgerExtendedPhase.IDLE);
+        setPendingDevices([]);
+        setAccount(undefined);
         const isRestoreSession = (options as LedgerConnectOptions)?.restoreSession;
         if (!isRestoreSession) {
           await ledger.disconnectWalletConnect();
@@ -235,19 +275,19 @@ export function useLedgerConnection({
       const silent = opts?.silent ?? false;
       const addressIndex = opts?.addressIndex;
 
+      setPhase(LedgerExtendedPhase.DETECTING);
       await ledger.disconnectUSB();
 
       const detect = await ledger.usbConnection.detectDevices(silent);
       if (detect.type === 'no_device') {
-        setPhase(silent ? 'idle' : 'no_device');
+        setPhase(silent ? LedgerExtendedPhase.IDLE : LedgerExtendedPhase.NO_DEVICE);
         return undefined;
       }
       if (detect.type === 'multiple_devices') {
         if (silent) {
-          setPhase('idle');
+          setPhase(LedgerExtendedPhase.IDLE);
           return undefined;
         }
-        // deviceSelectModal === 'default'：仅使用浏览器原生 HID 选择器
         if (deviceSelectModal === 'default') {
           try {
             const device = await ledger.availableDevices.discover();
@@ -257,13 +297,12 @@ export function useLedgerConnection({
               selectedWallet: selected,
             });
           } catch {
-            setPhase(silent ? 'idle' : 'no_device');
+            setPhase(silent ? LedgerExtendedPhase.IDLE : LedgerExtendedPhase.NO_DEVICE);
           }
           return undefined;
         }
-        // deviceSelectModal === true 或自定义组件：使用应用内 Modal
         setPendingDevices(detect.devices);
-        setPhase('multiple_devices');
+        setPhase(LedgerExtendedPhase.MULTIPLE_DEVICES);
         return undefined;
       }
 
@@ -279,7 +318,7 @@ export function useLedgerConnection({
 
   const disconnect = useCallback(async () => {
     cancelledRef.current = true;
-    setPhase('idle');
+    setPhase(LedgerExtendedPhase.IDLE);
     setPendingDevices([]);
     await ledger.disconnect();
     cacheSelectedWallet();
@@ -293,7 +332,7 @@ export function useLedgerConnection({
   const selectDevice = useCallback(
     async (device: DiscoveredDevice) => {
       setPendingDevices([]);
-      setPhase('detecting');
+      setPhase(LedgerExtendedPhase.DETECTING);
       try {
         await runUsbConnectFlow(device, { selectedWallet: ledger.wallet });
       } catch {
@@ -308,7 +347,7 @@ export function useLedgerConnection({
       try {
         await ledger.setAddressIndex(index);
         setAccount(ledger.accounts[0]);
-        setPhase('connected');
+        setPhase(DeviceStatus.CONNECTED);
         cacheSelectedWallet({
           walletName: ledger.wallet.name,
           latestConnectType: 'USB',
@@ -328,7 +367,7 @@ export function useLedgerConnection({
 
   const cancelConnect = useCallback(async () => {
     cancelledRef.current = true;
-    setPhase('idle');
+    setPhase(LedgerExtendedPhase.IDLE);
     setPendingDevices([]);
     await ledger.disconnect();
     cacheSelectedWallet();
@@ -364,8 +403,8 @@ export function useLedgerConnection({
     phase,
     pendingDevices,
     actions,
-    awaitingAddressIndex: phase === 'selecting_address',
-    awaitingDeviceSelect: phase === 'multiple_devices',
+    awaitingAddressIndex: phase === LedgerExtendedPhase.SELECTING_ADDRESS,
+    awaitingDeviceSelect: phase === LedgerExtendedPhase.MULTIPLE_DEVICES,
     completeUsbConnectWithAddressIndex: confirmAddress,
     cancelUsbConnectWithAddressIndex: cancelConnect,
     handleDeviceSelected: selectDevice,

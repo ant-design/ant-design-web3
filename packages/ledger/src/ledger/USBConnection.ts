@@ -84,28 +84,23 @@ export class USBConnection {
   async detectDevices(silent?: boolean): Promise<USBDetectResult> {
     const { availableDevices } = this;
 
-    this._monitor.updateState({ phase: 'detecting' });
     availableDevices.ensureSubscribed();
 
     if (availableDevices.devices.length === 0) {
       if (silent) {
-        this._monitor.updateState({ phase: 'idle' });
         return { type: 'no_device' };
       }
       try {
         await availableDevices.discover();
       } catch {
-        this._monitor.updateState({ phase: 'idle' });
         return { type: 'no_device' };
       }
       if (availableDevices.devices.length === 0) {
-        this._monitor.updateState({ phase: 'idle' });
         return { type: 'no_device' };
       }
     }
 
     if (availableDevices.devices.length > 1) {
-      this._monitor.updateState({ phase: 'idle' });
       return { type: 'multiple_devices', devices: [...availableDevices.devices] };
     }
 
@@ -121,18 +116,14 @@ export class USBConnection {
    * 失败时清理 sessionId，避免孤儿 session。
    */
   async connectToDevice(device: DiscoveredDevice): Promise<void> {
-    this._monitor.updateState({ phase: 'detecting' });
-
     try {
       this.sessionId = await this._dmkConnect(device);
     } catch {
       this.sessionId = null;
-      this._monitor.updateState({ phase: 'idle' });
       throw new LedgerError('CONNECTION_FAILED', 'Cannot connect to Ledger device');
     }
 
     if (!this.sessionId) {
-      this._monitor.updateState({ phase: 'idle' });
       throw new LedgerError('CONNECTION_FAILED', 'Cannot connect to Ledger device');
     }
   }
@@ -169,7 +160,6 @@ export class USBConnection {
         ) {
           deviceStatus.unsubscribe();
           this._appCommand.setSessionId(sessionId);
-          this._monitor.updateState({ phase: 'connected', sessionId });
           this._monitor.watch(sessionId);
           return { type: 'ready' };
         }
@@ -185,7 +175,6 @@ export class USBConnection {
     } catch {
       deviceStatus.unsubscribe();
       await this._dmkDisconnect();
-      this._monitor.updateState({ phase: 'idle' });
       throw new LedgerError(
         'ETHEREUM_APP_NOT_OPEN',
         'Failed to check Ledger device status. Please unlock the device and open the Ethereum app.',
@@ -219,14 +208,12 @@ export class USBConnection {
 
     const appStatus = await this.checkAppStatus();
     if (appStatus.type === 'locked') {
-      this._monitor.updateState({ phase: 'idle' });
       throw new LedgerError(
         'ETHEREUM_APP_NOT_OPEN',
         'Device is locked. Please unlock and open the Ethereum app.',
       );
     }
     if (appStatus.type === 'app_not_open') {
-      this._monitor.updateState({ phase: 'idle' });
       throw new LedgerError(
         'ETHEREUM_APP_NOT_OPEN',
         'Please open the Ethereum app on your Ledger device manually.',
@@ -248,7 +235,6 @@ export class USBConnection {
       this.accounts = [];
       this.sessionId = null;
     }
-    this._monitor.updateState({ phase: 'idle', sessionId: undefined, currentApp: undefined });
   }
 
   // ---------------------------------------------------------------------------

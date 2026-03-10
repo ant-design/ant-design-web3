@@ -1,5 +1,6 @@
 import { useContext, type ComponentType, type FC } from 'react';
 
+import { LedgerExtendedPhase } from '../types';
 import type { LedgerAddressIndexModalProps } from './LedgerAddressIndexModal';
 import { LedgerAddressIndexModal } from './LedgerAddressIndexModal';
 import {
@@ -8,10 +9,7 @@ import {
   useLedgerInstance,
   useLedgerUSBStatus,
 } from './LedgerContext';
-import type {
-  DeviceSelectModalOption,
-  LedgerDeviceSelectModalProps,
-} from './LedgerDeviceSelectModal';
+import type { DeviceSelectModalOption } from './LedgerDeviceSelectModal';
 import { LedgerDeviceSelectModal } from './LedgerDeviceSelectModal';
 
 export interface LedgerDefaultPromptsProps {
@@ -49,14 +47,14 @@ export const LedgerDefaultPrompts: FC<LedgerDefaultPromptsProps> = ({
   return (
     <>
       <DeviceSelectModalComponent
-        open={phase === 'multiple_devices'}
+        open={phase === LedgerExtendedPhase.MULTIPLE_DEVICES}
         devices={pendingDevices ?? []}
         onSelect={selectDevice}
         onCancel={cancelConnect}
         onDiscover={discoverMore}
       />
       <AddressIndexModalComponent
-        open={phase === 'selecting_address'}
+        open={phase === LedgerExtendedPhase.SELECTING_ADDRESS}
         ledger={ledger}
         onConfirm={confirmAddress}
         onCancel={cancelConnect}
