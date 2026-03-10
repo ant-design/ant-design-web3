@@ -20,13 +20,23 @@ const PluginTag: React.FC<{ wallet: Wallet; hoveredWallet?: Wallet }> = ({ walle
     judgeExtensionInstalled();
   }, [judgeExtensionInstalled]);
 
-  return wallet.hasExtensionInstalled ? (
-    <Badge dot={extensionInstalled} color="#52c41a">
-      <Button className={`${prefixCls}-plugin-tag`} size="small" disabled={!extensionInstalled}>
-        {getMessage(localeMessage.walletPanelPlugin)}
+  if (wallet.hasExtensionInstalled) {
+    return (
+      <Badge dot={extensionInstalled} color="#52c41a">
+        <Button className={`${prefixCls}-plugin-tag`} size="small" disabled={!extensionInstalled}>
+          {getMessage(localeMessage.walletPanelPlugin)}
+        </Button>
+      </Badge>
+    );
+  } else if (wallet.group === 'Hardware') {
+    return (
+      <Button className={`${prefixCls}-plugin-tag`} size="small">
+        {getMessage(localeMessage.walletPanelPluginHardware)}
       </Button>
-    </Badge>
-  ) : null;
+    );
+  } else {
+    return null;
+  }
 };
 
 export default PluginTag;

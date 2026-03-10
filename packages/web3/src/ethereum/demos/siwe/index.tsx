@@ -1,4 +1,4 @@
-import { Account, ConnectButton, Connector } from '@ant-design/web3';
+import { ConnectButton, Connector, type Account } from '@ant-design/web3';
 import {
   MetaMask,
   OkxWallet,

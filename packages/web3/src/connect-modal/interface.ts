@@ -167,6 +167,13 @@ export type ConnectModalProps = ModalProps &
      * @default false
      */
     disabled?: boolean;
+
+    /**
+     * @desc 是否显示复制二维码链接按钮
+     * @descEn Whether to show the copy QR code link button
+     * @default false
+     */
+    copyQrCodeLink?: boolean;
   };
 
 export type PanelRoute = 'init' | 'guide' | 'wallet' | 'qrCode' | 'downloadQrCode' | 'link';

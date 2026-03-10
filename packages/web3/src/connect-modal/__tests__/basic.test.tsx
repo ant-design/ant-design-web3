@@ -138,7 +138,7 @@ describe('ConnectModal with guide', () => {
           }}
           walletList={walletList}
           guide={guide}
-          destroyOnClose={true}
+          destroyOnHidden
           onCancel={() => setOpen(false)}
         />
       );

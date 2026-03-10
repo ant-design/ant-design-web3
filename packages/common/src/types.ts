@@ -103,7 +103,7 @@ export interface NFTMetadata {
 }
 
 export interface ConnectOptions {
-  connectType?: 'extension' | 'qrCode' | 'openMobile';
+  connectType?: 'extension' | 'qrCode' | 'openMobile' | 'USB';
 }
 
 export interface UniversalWeb3ProviderInterface {
@@ -300,6 +300,7 @@ export interface RequiredLocale {
     qrCodePanelDownloadTipForReady: string;
     qrCodePanelDownloadTipForNotReady: string;
     qrCodePanelUniversalProtocolTipForNotReady: string;
+    qrCodePanelCopiedMessage: string;
     walletCardPanelTitle: string;
     walletCardAppTitle: string;
     walletCardAppDesc: string;
@@ -307,6 +308,7 @@ export interface RequiredLocale {
     guideTipTitle: string;
     guideTipLearnMoreLinkText: string;
     walletPanelPlugin: string;
+    walletPanelPluginHardware: string;
     walletConnectSuccess: string;
     walletListEmpty: string;
     getWalletTipsTitle: string;

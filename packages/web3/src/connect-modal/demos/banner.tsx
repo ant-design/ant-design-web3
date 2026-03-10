@@ -6,7 +6,7 @@ import {
   metadata_Trust,
   metadata_WalletConnect,
 } from '@ant-design/web3-assets';
-import { Alert, Button, Checkbox, Space, theme, Typography } from 'antd';
+import { Button, Checkbox, theme, Typography } from 'antd';
 
 import type { Wallet } from '../interface';
 

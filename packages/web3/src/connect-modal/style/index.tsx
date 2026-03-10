@@ -468,6 +468,7 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             [`${componentCls}-qr-code-box`]: {
               marginBlockStart: token.marginSM,
               marginInline: 'auto',
+              maxWidth: 346,
               [`${componentCls}-qr-code`]: {
                 marginInline: 'auto',
               },
@@ -487,6 +488,38 @@ const getThemeStyle = (token: ConnectModalToken): CSSInterpolation => {
             [`${componentCls}-qr-code-link-loading`]: {
               cursor: 'not-allowed',
               color: token.colorTextDisabled,
+            },
+            [`${componentCls}-qr-code-copy-link`]: {
+              display: 'flex',
+              alignItems: 'center',
+              gap: token.marginXS,
+              marginBlockStart: token.marginSM,
+              padding: `${token.paddingXS}px ${token.paddingSM}px`,
+              borderRadius: token.borderRadiusLG,
+              backgroundColor: token.colorFillTertiary,
+              [`${componentCls}-qr-code-copy-link-text`]: {
+                flex: 1,
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+                fontSize: token.fontSize,
+                color: token.colorTextSecondary,
+              },
+              [`${componentCls}-qr-code-copy-link-icon`]: {
+                flexShrink: 0,
+                fontSize: token.fontSizeLG,
+                color: token.colorTextSecondary,
+                cursor: 'pointer',
+                '&:hover': {
+                  color: token.colorText,
+                },
+              },
+            },
+            [`${componentCls}-qr-code-copy-link-loading`]: {
+              [`${componentCls}-qr-code-copy-link-icon`]: {
+                cursor: 'not-allowed',
+                color: token.colorTextDisabled,
+              },
             },
             [`${componentCls}-qr-code-tips`]: {
               color: token.descriptionColor,
