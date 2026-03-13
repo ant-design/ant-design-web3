@@ -44,6 +44,10 @@ export enum SuiChainIds {
   Localnet = 4,
 }
 
+export enum IcpChainIds {
+  Mainnet = 1,
+}
+
 export type BrowserLinkType = 'address' | 'transaction';
 
 export type BalanceMetadata = {

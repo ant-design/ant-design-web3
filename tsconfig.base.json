@@ -34,7 +34,8 @@
       "@ant-design/web3-sui": ["./packages/sui/src/"],
       "@ant-design/web3-ton": ["./packages/ton/src/"],
       "@ant-design/web3-bitcoin": ["./packages/bitcoin/src/"],
-      "@ant-design/web3-tron": ["./packages/tron/src/"]
+      "@ant-design/web3-tron": ["./packages/tron/src/"],
+      "@ant-design/web3-icp": ["./packages/icp/src/"]
     }
   }
 }
