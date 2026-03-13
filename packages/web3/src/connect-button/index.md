@@ -70,7 +70,7 @@ After configuring the `quickConnect` property, the installed wallets and univers
 | actionsMenu | Config menu items | `boolean \|` [ActionsMenu](#actionsmenu) | - | - |
 | profileModal | Config profile modal | `boolean \|` [ProfileModal](#profilemodal) | - | - |
 | avatar | Config avatar, used to display user avatar in profile modal | [AvatarProps](https://ant.design/components/avatar-cn#api) | - | - |
-| onMenuItemClick | Menu item click event | `(e: NonNullable<MenuProps['items']>[number]) => void` | - | - |
+| onMenuItemClick | Menu item click event | `MenuProps['onClick']` | - | - |
 | balance | Balance | [Balance](#balance) | - | - |
 | availableChains | List of available chains | [Chain](../types/index.md#chain)\[] | - | - |
 | availableWallets | List of available wallets | [Wallet](../types/index.md#wallet)\[] | - | - |
