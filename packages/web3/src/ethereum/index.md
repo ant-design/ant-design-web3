@@ -66,6 +66,16 @@ We have built-in `Mainnet`, and the remaining chains need to configure `chains` 
 
 <code src="./demos/chains.tsx"></code>
 
+## Add or switch network
+
+You can add a custom network to the user's wallet (EIP-3085 `wallet_addEthereumChain`) or switch to a chain and add it if not present. Use `useAddNetwork` and `useSwitchNetwork` from `@ant-design/web3-wagmi`. Both use the currently connected wallet's provider, so they work with any connected wallet (MetaMask, WalletConnect, OKX, etc.). Locale messages are in `AddOrSwitchNetwork` under `@ant-design/web3-common` default locale.
+
+<code src="./demos/add-or-switch-network.tsx"></code>
+
+Add network without `WagmiWeb3ConfigProvider`: use `addNetworkToWallet(params, options?)` from `@ant-design/web3-wagmi`. It uses EIP-6963 only and can be used on pages that are not wrapped with the provider (e.g. standalone landing page).
+
+<code src="./demos/add-network-standalone.tsx"></code>
+
 ## SIWE
 
 SIWE means Sign-In with Ethereum. Your website can verify user login through signatures. Below is an example where the backend interface is mocked. You need to implement it in your project.

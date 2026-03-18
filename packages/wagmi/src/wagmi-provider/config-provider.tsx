@@ -28,6 +28,7 @@ import type {
   WalletFactory,
   WalletUseInWagmiAdapter,
 } from '../interface';
+import { useAddNetwork } from '../useAddNetwork';
 import { isEIP6963Connector } from '../utils';
 import { EIP6963Wallet } from '../wallets/eip6963';
 import { getNFTMetadata } from './methods';
@@ -62,6 +63,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
   const config = useConfig();
   const { connectAsync } = useConnect();
   const { switchChain } = useSwitchChain();
+  const { addNetwork } = useAddNetwork();
   const { data: balanceData } = useBalance({ address });
   const { data: ensName } = useEnsName({ address });
   const { data: ensAvatar } = useEnsAvatar({ name: ensName ?? undefined });
@@ -293,6 +295,7 @@ export const AntDesignWeb3ConfigProvider: React.FC<AntDesignWeb3ConfigProviderPr
           switchChain?.({ chainId: newChain.id });
         }
       }}
+      addNetwork={addNetwork}
       getNFTMetadata={getNFTMetadataFunc}
     >
       {children}

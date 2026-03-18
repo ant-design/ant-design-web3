@@ -68,6 +68,32 @@ const localeValues: RequiredLocale = {
   PayPanel: {
     tips: 'Please scan the QR code or copy the address',
   },
+  AddOrSwitchNetwork: {
+    pleaseConnectWallet: 'Please connect your wallet first',
+    noWalletDetected: 'No Ethereum wallet detected, please install MetaMask or similar wallet',
+    noProviderDetected: 'No provider detected, please install MetaMask or similar wallet',
+    networkConfigIncomplete: 'Network configuration information is incomplete',
+    networkParamsIncomplete:
+      'Network configuration parameters are incomplete, please check the RPC URL and browser URL',
+    requestTimeout: 'Request timeout, please check the network connection and try again',
+    userCanceled:
+      'You canceled the add network operation, please click add again if you need to use',
+    invalidConfig:
+      'Network configuration information is incorrect, please contact technical support',
+    walletNotSupport:
+      'Your wallet does not support adding custom networks, please use MetaMask or other compatible wallets',
+    networkAddFailed:
+      'Network adding failed, please ensure that the wallet supports this network or add manually',
+    networkAddFailedWithMsg: 'Network adding failed: {errorMsg}, please try again later',
+    networkAddedSuccess: 'Network added successfully',
+    switchSuccess: 'Switch network success',
+    switchNetworkFailed: 'Failed to switch network, please try again',
+    switchFailedAddFirst: 'Network switching failed, please add this network to your wallet first',
+    switchFailedWithMsg: 'Network switching failed: {errorMessage}',
+    autoAddFailed:
+      'Auto adding network failed, please add the network manually in your wallet or contact technical support',
+    switchToNetwork: 'Switch to {chainName} Network',
+  },
 };
 
 export default localeValues;

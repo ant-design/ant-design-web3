@@ -106,6 +106,22 @@ export interface ConnectOptions {
   connectType?: 'extension' | 'qrCode' | 'openMobile';
 }
 
+/**
+ * EIP-3085 wallet_addEthereumChain params
+ * @see https://eips.ethereum.org/EIPS/eip-3085
+ */
+export interface AddNetworkParams {
+  chainId: string;
+  chainName: string;
+  nativeCurrency: {
+    name: string;
+    symbol: string;
+    decimals: number;
+  };
+  rpcUrls: string[];
+  blockExplorerUrls?: string[];
+}
+
 export interface UniversalWeb3ProviderInterface {
   // current connected account
   account?: Account;
@@ -126,6 +142,8 @@ export interface UniversalWeb3ProviderInterface {
   connect?: (wallet?: Wallet, options?: ConnectOptions) => Promise<void | Account>;
   disconnect?: () => Promise<void>;
   switchChain?: (chain: Chain) => Promise<void>;
+  /** Add network to wallet (EIP-3085). Only supported by EVM adapters. */
+  addNetwork?: (params: AddNetworkParams) => Promise<void>;
 
   // For Bitcoin, tokenId is undefined.
   getNFTMetadata?: (params: { address: string; tokenId?: bigint }) => Promise<NFTMetadata>;
@@ -332,6 +350,26 @@ export interface RequiredLocale {
   PayPanel: {
     tips: string;
   };
+  AddOrSwitchNetwork: {
+    pleaseConnectWallet: string;
+    noWalletDetected: string;
+    noProviderDetected: string;
+    networkConfigIncomplete: string;
+    networkParamsIncomplete: string;
+    requestTimeout: string;
+    userCanceled: string;
+    invalidConfig: string;
+    walletNotSupport: string;
+    networkAddFailed: string;
+    networkAddFailedWithMsg: string;
+    networkAddedSuccess: string;
+    switchSuccess: string;
+    switchNetworkFailed: string;
+    switchFailedAddFirst: string;
+    switchFailedWithMsg: string;
+    autoAddFailed: string;
+    switchToNetwork: string;
+  };
 }
 
 export interface Locale {
@@ -342,6 +380,7 @@ export interface Locale {
   TokenSelect?: Partial<RequiredLocale['TokenSelect']>;
   CryptoInput?: Partial<RequiredLocale['CryptoInput']>;
   PayPanel?: Partial<RequiredLocale['PayPanel']>;
+  AddOrSwitchNetwork?: Partial<RequiredLocale['AddOrSwitchNetwork']>;
 }
 
 export interface UniversalEIP6963Config {

@@ -1,4 +1,5 @@
 import type {
+  AddNetworkParams,
   Chain,
   ConnectOptions,
   UniversalEIP6963Config,
@@ -8,6 +9,8 @@ import type {
 import type { Chain as WagmiChain } from 'viem';
 import type { CreateSiweMessageParameters } from 'viem/siwe';
 import type { Connector, CreateConnectorFn } from 'wagmi';
+
+export type { AddNetworkParams } from '@ant-design/web3-common';
 
 export interface WalletUseInWagmiAdapter extends Wallet {
   getWagmiConnector?: (options?: ConnectOptions) => Promise<Connector | undefined>;
