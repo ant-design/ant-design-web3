@@ -276,7 +276,10 @@ export class USBConnection {
   // ---------------------------------------------------------------------------
 
   async signWithUSB(
-    params: { type: 'message'; message: string } | { type: 'typedData'; typedData: any },
+    params:
+      | { type: 'message'; message: string }
+      | { type: 'transaction'; transaction: Uint8Array }
+      | { type: 'typedData'; typedData: any },
   ): Promise<any> {
     if (!this.sessionId) {
       throw new LedgerError(
@@ -293,6 +296,17 @@ export class USBConnection {
         );
       } catch (error: any) {
         throw new LedgerError('SIGN_MESSAGE_FAILED', error?.message || 'Reject');
+      }
+    }
+    if (params.type === 'transaction') {
+      try {
+        return await this._ethereumSigner.signTransaction(
+          this.sessionId,
+          this.derivationPath,
+          params.transaction,
+        );
+      } catch (error: any) {
+        throw new LedgerError('SIGN_TRANSACTION_FAILED', error?.message || 'Reject');
       }
     }
     try {

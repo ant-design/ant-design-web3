@@ -197,6 +197,39 @@ const AccountActions: React.FC = () => {
     }
   };
 
+  const handleSignTransaction = async () => {
+    try {
+      // 构造一个简单的 EIP-1559 交易（RLP 编码）
+      // 实际使用中应通过 ethers.js / viem 等库序列化交易
+      // 这里用一个示例的原始交易字节来演示签名流程
+      const tx = {
+        to: '0x0000000000000000000000000000000000000000',
+        value: '0x0',
+        gasLimit: '0x5208',
+        maxFeePerGas: '0x2540BE400',
+        maxPriorityFeePerGas: '0x3B9ACA00',
+        nonce: '0x0',
+        chainId: '0x1',
+        type: '0x2',
+      };
+
+      if (ledger.connectType === 'WalletConnect') {
+        // WalletConnect 模式：直接传交易对象
+        const signature = await ledger.signTransaction(tx);
+        message.success(`Transaction signed (WC)! ${String(signature).slice(0, 20)}...`);
+      } else {
+        // USB 模式：需要传 RLP 编码的 Uint8Array
+        // 以下为 EIP-1559 交易的简化 RLP 编码示例（仅用于演示）
+        // 生产环境请使用 ethers.Transaction.from(tx).unsignedSerialized
+        message.info(
+          'USB mode requires RLP-encoded Uint8Array. Use ethers.js or viem to serialize the transaction.',
+        );
+      }
+    } catch {
+      // Error already captured by onError / useLedgerError
+    }
+  };
+
   const handleSignTypedData = async () => {
     try {
       const typedData = {
@@ -247,6 +280,9 @@ const AccountActions: React.FC = () => {
         <Space>
           <Button type="primary" onClick={handleSignMessage}>
             Sign Message
+          </Button>
+          <Button type="primary" onClick={handleSignTransaction}>
+            Sign Transaction
           </Button>
           <Button type="primary" onClick={handleSignTypedData}>
             Sign EIP-712 Typed Data

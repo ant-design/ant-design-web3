@@ -181,6 +181,23 @@ export class WalletConnectBridge {
     }
   }
 
+  async signTransaction(transaction: Record<string, any>): Promise<string> {
+    const { provider, chain } = await this._ensureReady();
+
+    try {
+      return (await provider.request(
+        {
+          method: 'eth_signTransaction',
+          params: [{ ...transaction, from: this._account!.address }],
+        },
+        chain,
+      )) as string;
+    } catch (error: any) {
+      if (error instanceof LedgerError) throw error;
+      throw new LedgerError('SIGN_TRANSACTION_FAILED', error?.message || 'Reject');
+    }
+  }
+
   async signTypedData(typedData: any): Promise<string> {
     const { provider, chain } = await this._ensureReady();
 

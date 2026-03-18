@@ -260,6 +260,30 @@ export class Ledger {
     }
   };
 
+  public signTransaction = async (transaction: Uint8Array | Record<string, any>): Promise<any> => {
+    if (this._connectType === 'WalletConnect' && this.walletConnectBridge.getAccount()) {
+      try {
+        return await this.walletConnectBridge.signTransaction(
+          transaction instanceof Uint8Array ? {} : transaction,
+        );
+      } catch (error) {
+        this._emitError('wc:sign', error);
+        throw error;
+      }
+    }
+    if (!(transaction instanceof Uint8Array)) {
+      throw new Error(
+        'USB signing requires a serialized transaction (Uint8Array). Please RLP-encode the transaction before calling signTransaction.',
+      );
+    }
+    try {
+      return await this.usbConnection.signWithUSB({ type: 'transaction', transaction });
+    } catch (error) {
+      this._emitError('usb:sign', error);
+      throw error;
+    }
+  };
+
   public signTypedData = async (typedData: any): Promise<any> => {
     if (this._connectType === 'WalletConnect' && this.walletConnectBridge.getAccount()) {
       try {

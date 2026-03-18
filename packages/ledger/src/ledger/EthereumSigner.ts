@@ -3,6 +3,7 @@ import {
   SignerEthBuilder,
   type Signature,
   type SignerEth,
+  type TransactionOptions,
   type TypedData,
 } from '@ledgerhq/device-signer-kit-ethereum';
 import type { Subscription } from 'rxjs';
@@ -20,6 +21,7 @@ import { getDMK } from './dmk';
 class EthereumSigner {
   private getAddressSubscription: Subscription | null = null;
   private signMessageSubscription: Subscription | null = null;
+  private signTransactionSubscription: Subscription | null = null;
   private signTypedDataSubscription: Subscription | null = null;
 
   private _cachedSigner: SignerEth | null = null;
@@ -112,6 +114,39 @@ class EthereumSigner {
     });
   };
 
+  /** USB 直连签名交易，等待用户在设备上确认 */
+  public signTransaction = async (
+    sessionId: string,
+    derivationPath: string,
+    transaction: Uint8Array,
+    options?: TransactionOptions,
+  ): Promise<Signature> => {
+    return new Promise((resolve, reject) => {
+      if (!sessionId || !derivationPath) {
+        reject(new Error('No session ID or derivation path available'));
+        return;
+      }
+
+      this.unsubscribeSignTransaction();
+
+      const signer = this.getSigner(sessionId);
+      const { observable } = signer.signTransaction(derivationPath, transaction, options);
+
+      this.signTransactionSubscription = observable.subscribe({
+        next: (response) => {
+          if (response.status === DeviceActionStatus.Completed) {
+            resolve(response.output);
+          } else if (response.status === DeviceActionStatus.Error) {
+            reject(response.error);
+          }
+        },
+        error: (error) => {
+          reject(error);
+        },
+      });
+    });
+  };
+
   /** USB 直连签名无超时，等待用户在设备上确认 */
   public signTypedData = async (
     sessionId: string,
@@ -157,6 +192,13 @@ class EthereumSigner {
     }
   };
 
+  public unsubscribeSignTransaction = () => {
+    if (this.signTransactionSubscription) {
+      this.signTransactionSubscription.unsubscribe();
+      this.signTransactionSubscription = null;
+    }
+  };
+
   public unsubscribeSignTypedData = () => {
     if (this.signTypedDataSubscription) {
       this.signTypedDataSubscription.unsubscribe();
@@ -167,6 +209,7 @@ class EthereumSigner {
   public unsubscribe = () => {
     this.unsubscribeGetAddress();
     this.unsubscribeSignMessage();
+    this.unsubscribeSignTransaction();
     this.unsubscribeSignTypedData();
     this._cachedSigner = null;
     this._cachedSessionId = null;
