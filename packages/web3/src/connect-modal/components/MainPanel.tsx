@@ -7,12 +7,15 @@ import LinkPanel from './LinkPanel';
 import QrCode from './QrCode';
 import WalletCard from './WalletCard';
 
-export type MainPanelProps = Pick<ConnectModalProps, 'guide' | 'walletList' | 'locale'> & {
+export type MainPanelProps = Pick<
+  ConnectModalProps,
+  'guide' | 'walletList' | 'locale' | 'copyQrCodeLink'
+> & {
   simple: boolean;
 };
 
 const MainPanel: React.FC<MainPanelProps> = (props) => {
-  const { guide, simple } = props;
+  const { guide, simple, copyQrCodeLink } = props;
   const { prefixCls, panelRoute, selectedWallet } = useContext(connectModalContext);
 
   return (
@@ -23,7 +26,7 @@ const MainPanel: React.FC<MainPanelProps> = (props) => {
       {panelRoute === 'wallet' && selectedWallet ? <WalletCard /> : null}
       {panelRoute === 'link' && selectedWallet ? <LinkPanel /> : null}
       {panelRoute === 'qrCode' && selectedWallet ? (
-        <QrCode wallet={selectedWallet} simple={simple} />
+        <QrCode wallet={selectedWallet} simple={simple} copyQrCodeLink={copyQrCodeLink} />
       ) : null}
       {panelRoute === 'downloadQrCode' && selectedWallet ? (
         <QrCode wallet={selectedWallet} simple={simple} download />

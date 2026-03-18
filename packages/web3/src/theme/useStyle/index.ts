@@ -6,7 +6,7 @@ import { TinyColor } from '@ctrl/tinycolor';
 import { ConfigProvider as AntdConfigProvider, theme as AntTheme } from 'antd';
 import type { GlobalToken } from 'antd';
 
-import { ComponentToken as ConnectModalComponentToken } from '../../connect-modal/style';
+import type { ComponentToken as ConnectModalComponentToken } from '../../connect-modal/style';
 
 const { useToken } = AntTheme;
 
