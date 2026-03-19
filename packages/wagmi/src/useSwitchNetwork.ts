@@ -42,43 +42,6 @@ export function useSwitchNetwork() {
   const { addNetwork, isLoading: addLoading } = useAddNetwork();
   const [isLoading, setIsLoading] = useState(false);
 
-  const checkNetworkInWallet = useCallback(
-    async (chainId: number): Promise<boolean | null> => {
-      if (!connector) return false;
-      try {
-        const provider = await connector.getProvider();
-        const currentChainId = await (
-          provider as { request: (args: unknown) => Promise<string> }
-        ).request({
-          method: 'eth_chainId',
-        });
-        const targetHex = `0x${chainId.toString(16)}`;
-        if (currentChainId === targetHex) return true;
-        try {
-          await (provider as { request: (args: unknown) => Promise<unknown> }).request({
-            method: 'wallet_switchEthereumChain',
-            params: [{ chainId: targetHex }],
-          });
-          return true;
-        } catch (switchErr: unknown) {
-          const se = switchErr as { code?: number; message?: string };
-          if (
-            se?.code === 4902 ||
-            (typeof se?.message === 'string' &&
-              (se.message.includes('Unrecognized chain ID') ||
-                se.message.includes('Chain not added')))
-          ) {
-            return false;
-          }
-          return null;
-        }
-      } catch {
-        return false;
-      }
-    },
-    [connector],
-  );
-
   const switchNetwork = useCallback(
     async (
       chain: Chain,
@@ -88,10 +51,12 @@ export function useSwitchNetwork() {
       },
     ): Promise<void> => {
       const addIfNotExists = options?.addIfNotExists !== false;
-      let params: AddNetworkParams | null = options?.addNetworkParams ?? null;
+      let params: AddNetworkParams | null | undefined = options?.addNetworkParams;
       if (params === undefined && 'wagmiChain' in chain) {
         params = chainToAddNetworkParams(chain as ChainAssetWithWagmiChain);
       }
+      // 统一转为 null 以便后续判断
+      params = params ?? null;
 
       if (!connector) {
         const err: SwitchNetworkError = new Error('NO_CONNECTOR') as SwitchNetworkError;
@@ -101,12 +66,6 @@ export function useSwitchNetwork() {
 
       setIsLoading(true);
       try {
-        if (addIfNotExists && params) {
-          const exists = await checkNetworkInWallet(Number(chain.id));
-          if (exists === false) {
-            await addNetwork(params);
-          }
-        }
         await new Promise<void>((resolve, reject) => {
           switchChain?.({ chainId: Number(chain.id) }, {
             onSuccess: () => resolve(),
@@ -133,12 +92,11 @@ export function useSwitchNetwork() {
         setIsLoading(false);
       }
     },
-    [connector, switchChain, addNetwork, checkNetworkInWallet],
+    [connector, switchChain, addNetwork],
   );
 
   return {
     switchNetwork,
-    checkNetworkInWallet,
     addNetwork,
     isLoading: isLoading || addLoading,
   };

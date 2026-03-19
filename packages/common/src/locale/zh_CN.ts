@@ -81,7 +81,7 @@ const localeValues: RequiredLocale = {
     switchSuccess: '切换网络成功',
     switchNetworkFailed: '切换网络失败，请重试',
     switchFailedAddFirst: '切换网络失败，请先在钱包中添加该网络',
-    switchFailedWithMsg: '切换网络失败：{errorMessage}',
+    switchFailedWithMsg: '切换网络失败：{errorMsg}',
     autoAddFailed: '自动添加网络失败，请手动在钱包中添加或联系技术支持',
     switchToNetwork: '切换到 {chainName} 网络',
   },

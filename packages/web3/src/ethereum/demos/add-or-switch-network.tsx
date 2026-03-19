@@ -92,7 +92,7 @@ const AddOrSwitchNetworkDemo: React.FC = () => {
         messageApi.error(localeMessages.pleaseConnectWallet);
       } else if (!msg.includes('User rejected')) {
         messageApi.error(
-          getMessage(localeMessages.switchFailedWithMsg, { errorMessage: msg || 'Unknown error' }),
+          getMessage(localeMessages.switchFailedWithMsg, { errorMsg: msg || 'Unknown error' }),
         );
       }
     }

@@ -89,7 +89,7 @@ const localeValues: RequiredLocale = {
     switchSuccess: 'Switch network success',
     switchNetworkFailed: 'Failed to switch network, please try again',
     switchFailedAddFirst: 'Network switching failed, please add this network to your wallet first',
-    switchFailedWithMsg: 'Network switching failed: {errorMessage}',
+    switchFailedWithMsg: 'Network switching failed: {errorMsg}',
     autoAddFailed:
       'Auto adding network failed, please add the network manually in your wallet or contact technical support',
     switchToNetwork: 'Switch to {chainName} Network',
