@@ -1,5 +1,5 @@
 import React from 'react';
-import { Connector } from '@ant-design/web3';
+import { Connector, useProvider } from '@ant-design/web3';
 import { type ConnectorTriggerProps } from '@ant-design/web3-common';
 import { QueryClient, QueryClientProvider, useQueryClient } from '@tanstack/react-query';
 import { describe, expect, it, vi } from 'vitest';
@@ -130,5 +130,47 @@ describe('SuiWeb3ConfigProvider basic tests', () => {
     const { selector } = xrender(App);
 
     expect(selector('.fake-key')?.textContent).toBe(testFakeKey2);
+  });
+
+  it('should ignore config when ignoreConfig is true', () => {
+    const CustomConnector: React.FC = () => {
+      const { availableChains } = useProvider();
+      return (
+        <div className="chains-name">{availableChains?.map((item) => item.name).join(',')}</div>
+      );
+    };
+
+    const App = () => (
+      <SuiWeb3ConfigProvider>
+        <SuiWeb3ConfigProvider ignoreConfig={true}>
+          <CustomConnector />
+        </SuiWeb3ConfigProvider>
+      </SuiWeb3ConfigProvider>
+    );
+
+    const { selector } = xrender(App);
+    // Should use parent config, not the ignored one
+    expect(selector('.chains-name')?.textContent).toBe('Sui');
+  });
+
+  it('should use active provider config when one is ignored', () => {
+    const CustomConnector: React.FC = () => {
+      const { availableChains } = useProvider();
+      return (
+        <div className="chains-name">{availableChains?.map((item) => item.name).join(',')}</div>
+      );
+    };
+
+    const App = () => (
+      <SuiWeb3ConfigProvider ignoreConfig={true}>
+        <SuiWeb3ConfigProvider>
+          <CustomConnector />
+        </SuiWeb3ConfigProvider>
+      </SuiWeb3ConfigProvider>
+    );
+
+    const { selector } = xrender(App);
+    // Should use active provider config, not the ignored one
+    expect(selector('.chains-name')?.textContent).toBe('Sui');
   });
 });

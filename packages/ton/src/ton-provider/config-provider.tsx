@@ -10,6 +10,12 @@ import type { TonWeb3ConfigProviderProps } from './TonWeb3ConfigProvider';
 interface TonConfigProviderProps
   extends Omit<TonWeb3ConfigProviderProps, 'wallets' | 'connectConfig'> {
   wallets?: TonWallet[];
+  /**
+   * If true, this provider's configuration will be ignored when merging with parent context.
+   * This is useful when you have multiple chain providers and want to switch between them
+   * without causing page flickering. Only the active provider should not have this flag set.
+   */
+  ignoreConfig?: boolean;
 }
 
 const TonConfigProvider: React.FC<PropsWithChildren<TonConfigProviderProps>> = ({
@@ -17,6 +23,7 @@ const TonConfigProvider: React.FC<PropsWithChildren<TonConfigProviderProps>> = (
   locale,
   balance: showBalance,
   wallets,
+  ignoreConfig,
 }) => {
   const { connector, tonSelectWallet, setTonSelectWallet } = useTonConnector();
   const [balance, setBalance] = React.useState<Balance>();
@@ -62,6 +69,7 @@ const TonConfigProvider: React.FC<PropsWithChildren<TonConfigProviderProps>> = (
           setTonSelectWallet?.(null);
         }
       }}
+      ignoreConfig={ignoreConfig}
     >
       {children}
     </Web3ConfigProvider>

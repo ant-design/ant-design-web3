@@ -18,6 +18,12 @@ export interface SuiWeb3ConfigProviderProps {
   defaultNetwork?: string;
   wallets?: WalletFactory[];
   queryClient?: QueryClient;
+  /**
+   * If true, this provider's configuration will be ignored when merging with parent context.
+   * This is useful when you have multiple chain providers and want to switch between them
+   * without causing page flickering. Only the active provider should not have this flag set.
+   */
+  ignoreConfig?: boolean;
 }
 
 export const SuiWeb3ConfigProvider: React.FC<
@@ -31,6 +37,7 @@ export const SuiWeb3ConfigProvider: React.FC<
   queryClient,
   sns,
   wallets,
+  ignoreConfig,
   children,
 }) => {
   const [network, setNetwork] = React.useState(defaultNetwork);
@@ -74,6 +81,7 @@ export const SuiWeb3ConfigProvider: React.FC<
             balance={balance}
             sns={sns}
             onCurrentChainChange={setNetwork}
+            ignoreConfig={ignoreConfig}
           >
             {children}
           </AntDesignWeb3ConfigProvider>
