@@ -14,7 +14,17 @@ export interface SwitchNetworkError extends Error {
   shortMessage?: string;
 }
 
-const NETWORK_NOT_FOUND_CODES = [4902];
+/**
+ * 网络未找到的错误码列表
+ * - 4902: EIP-3326 标准错误码，表示链未添加
+ * - -32603: 某些钱包（如 MetaMask Mobile）在链未找到时可能返回此错误码
+ */
+const NETWORK_NOT_FOUND_CODES = [4902, -32603];
+
+/**
+ * 网络未找到的错误消息关键词列表
+ * 用于兼容不同钱包返回的错误消息格式
+ */
 const NETWORK_NOT_FOUND_MESSAGES = [
   'Unrecognized chain ID',
   'Chain not added',
@@ -23,6 +33,13 @@ const NETWORK_NOT_FOUND_MESSAGES = [
   'Unrecognized',
 ];
 
+/**
+ * 判断错误是否为"网络未找到"错误
+ * 采用双重匹配策略：
+ * 1. 优先匹配错误码（标准 4902 或其他钱包特定的错误码）
+ * 2. 如果错误码不匹配，则匹配错误消息关键词
+ * 这样可以最大程度兼容不同钱包的实现差异
+ */
 function isNetworkNotFoundError(error: unknown): boolean {
   const e = error as SwitchNetworkError;
   if (!e) return false;

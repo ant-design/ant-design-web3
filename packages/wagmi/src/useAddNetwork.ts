@@ -72,6 +72,7 @@ function matchPreferredWallet(
 /**
  * 通过 EIP-6963 协议获取一个可用的原始 EIP-1193 provider（未连接时使用）。
  * 可通过 preferredWalletRdns / preferredWalletName 指定添加到哪个钱包（如 MetaMask）。
+ * 如果未指定优先钱包，则返回缓存列表中的第一个 provider。
  */
 function getProviderViaEIP6963(options?: AddNetworkOptions): Promise<unknown> {
   return new Promise((resolve) => {
@@ -82,9 +83,11 @@ function getProviderViaEIP6963(options?: AddNetworkOptions): Promise<unknown> {
 
     const fromCache = (): unknown => {
       if (options?.preferredWalletRdns || options?.preferredWalletName) {
+        // 指定了优先钱包，查找匹配的 provider
         const found = eip6963ProviderCache.find((c) => matchPreferredWallet(c.info, options));
         return found ? found.provider : null;
       }
+      // 未指定优先钱包，默认返回列表中的第一个 provider
       return eip6963ProviderCache[0]?.provider ?? null;
     };
 
@@ -203,6 +206,7 @@ export function useAddNetwork() {
  * 不依赖 WagmiWeb3ConfigProvider 的「仅添加网络」方法，通过 EIP-6963 获取钱包并调 wallet_addEthereumChain。
  * 适用于未连接钱包、且页面未包在 WagmiWeb3ConfigProvider 内的场景（如独立落地页、非 React 等）。
  * 需在支持 EIP-6963 的浏览器环境中使用。
+ * 如果未通过 options 指定优先钱包，将使用 EIP-6963 发现的第一个钱包。
  */
 export async function addNetworkToWallet(
   params: AddNetworkParams,
