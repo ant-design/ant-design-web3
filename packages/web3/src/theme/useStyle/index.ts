@@ -6,7 +6,7 @@ import { TinyColor } from '@ctrl/tinycolor';
 import { ConfigProvider as AntdConfigProvider, theme as AntTheme } from 'antd';
 import type { GlobalToken } from 'antd';
 
-import { ComponentToken as ConnectModalComponentToken } from '../../connect-modal/style';
+import type { ComponentToken as ConnectModalComponentToken } from '../../connect-modal/style';
 
 const { useToken } = AntTheme;
 
@@ -50,13 +50,13 @@ export type Web3AliasToken = GlobalToken & {
    */
   web3ComponentsCls: string;
   /**
-   * antd 的 className
+   * className for antd components
    * @type {string}
    * @example .ant
    */
   antCls: string;
   /**
-   * 自定义 ConnectModal 的 token
+   * custom `ConnectModal` token
    * @type {Partial<ConnectModalComponentToken>}
    * @example { hoverBg: 'red' }
    */
@@ -65,8 +65,8 @@ export type Web3AliasToken = GlobalToken & {
 
 /**
  * useStyle for css in js
- * @param componentName {string} 组件的名字
- * @param styleFn {GenerateStyle} 生成样式的函数
+ * @param componentName {string} component name
+ * @param styleFn {GenerateStyle} generate style function
  * @returns UseStyleResult
  */
 export function useStyle(

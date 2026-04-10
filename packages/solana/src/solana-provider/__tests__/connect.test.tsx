@@ -328,7 +328,7 @@ describe('Solana Connect', () => {
 
     const pluginCheck = selector('.plugin-check')!;
 
-    await vi.waitFor(async () => {
+    await vi.waitFor(() => {
       expect(pluginCheck.textContent).toBe('true');
     });
   });

@@ -9,6 +9,7 @@ const localeValues: RequiredLocale = {
     walletAddress: '钱包地址',
     moreWallets: '更多钱包',
     sign: '签名',
+    profile: '我的资料',
   },
   ConnectModal: {
     title: '连接钱包',
