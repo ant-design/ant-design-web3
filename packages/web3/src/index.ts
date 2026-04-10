@@ -8,6 +8,14 @@ export * from './nft-card';
 export * from './crypto-price';
 export * from './crypto-input';
 export * from './token-select';
+export {
+  default as SwapToken,
+  type SwapInputProps,
+  type SwapInputRef,
+  type SwapTokenConfig,
+  type SwapTokenToken,
+} from './swap-token';
+export { FundFlowDirection } from './swap-token/type';
 export * from './hooks';
 export * from '@ant-design/web3-common';
 // export Web3ConfigProvider in ./web3-config-provider for replace the one in @ant-design/web3-common
