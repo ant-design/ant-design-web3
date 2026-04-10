@@ -42,7 +42,7 @@
     "build": "father build"
   },
   "dependencies": {
-    "lodash-es": "^4.17.23"
+    "lodash-es": "^4.18.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.5",
