@@ -65,6 +65,26 @@ const localeValues: RequiredLocale = {
   PayPanel: {
     tips: '请扫描二维码或复制地址',
   },
+  AddOrSwitchNetwork: {
+    pleaseConnectWallet: '请先连接钱包',
+    noWalletDetected: '未检测到以太坊钱包，请安装 MetaMask 或类似钱包',
+    noProviderDetected: '未检测到 Provider，请安装 MetaMask 或类似钱包',
+    networkConfigIncomplete: '网络配置信息不完整',
+    networkParamsIncomplete: '网络配置参数不完整，请检查 RPC 与浏览器链接',
+    requestTimeout: '请求超时，请检查网络连接后重试',
+    userCanceled: '您已取消添加网络操作，如需使用请再次点击添加',
+    invalidConfig: '网络配置信息有误，请联系技术支持',
+    walletNotSupport: '当前钱包不支持添加自定义网络，请使用 MetaMask 等兼容钱包',
+    networkAddFailed: '添加网络失败，请确认钱包支持该网络或手动添加',
+    networkAddFailedWithMsg: '添加网络失败：{errorMsg}，请稍后重试',
+    networkAddedSuccess: '网络已添加成功',
+    switchSuccess: '切换网络成功',
+    switchNetworkFailed: '切换网络失败，请重试',
+    switchFailedAddFirst: '切换网络失败，请先在钱包中添加该网络',
+    switchFailedWithMsg: '切换网络失败：{errorMsg}',
+    autoAddFailed: '自动添加网络失败，请手动在钱包中添加或联系技术支持',
+    switchToNetwork: '切换到 {chainName} 网络',
+  },
 };
 
 export default localeValues;
