@@ -16,7 +16,7 @@
     "@ant-design/web3-common": "workspace:*",
     "@ant-design/web3-ethers": "workspace:*",
     "antd": "^5.22.7",
-    "ethers": "^6.11.1",
+    "ethers": "^6.16.0",
     "umi": "^4.6.15"
   },
   "devDependencies": {
