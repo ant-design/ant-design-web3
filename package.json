@@ -96,7 +96,7 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2",
     "vite-plugin-svgr": "^4.3.0",
-    "vitest": "~3.1.1"
+    "vitest": "~3.2.6"
   },
   "ci": {
     "type": "aci",
