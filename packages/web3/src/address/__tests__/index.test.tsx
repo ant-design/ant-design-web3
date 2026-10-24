@@ -140,6 +140,19 @@ describe('Address', () => {
     });
   });
 
+  it('preserves non-string ReactNode tooltip content', async () => {
+    const { baseElement } = render(
+      <Address
+        address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B"
+        tooltip={['Balance: ', <strong key="balance">5</strong>]}
+      />,
+    );
+    fireEvent.mouseEnter(baseElement.querySelector('.ant-web3-address.ant-typography span')!);
+    await vi.waitFor(() => {
+      expect(baseElement.querySelector('.ant-tooltip-inner')?.textContent).toBe('Balance: 5');
+    });
+  });
+
   it('should show copy icon after 3s', async () => {
     const { baseElement } = render(
       <Address address="0x21CDf0974d53a6e96eF05d7B324a9803735fFd3B" copyable />,
