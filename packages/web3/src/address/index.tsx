@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import React, { isValidElement, useContext, useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { type Locale } from '@ant-design/web3-common';
 import type { TooltipProps } from 'antd';
 import { ConfigProvider, Tooltip, Typography } from 'antd';
@@ -101,15 +101,7 @@ export const Address: React.FC<React.PropsWithChildren<AddressProps>> = (props) 
 
   const filledAddress = fillWithPrefix(address, addressPrefixProp, addressPrefixContext);
 
-  const mergedTooltip = () => {
-    if (isValidElement(tooltip) || typeof tooltip === 'string') {
-      return tooltip;
-    }
-    if (tooltip) {
-      return filledAddress;
-    }
-    return tooltip;
-  };
+  const mergedTooltip = () => (tooltip === true ? filledAddress : tooltip);
 
   const formattedAddress = mergedFormat(filledAddress);
 
